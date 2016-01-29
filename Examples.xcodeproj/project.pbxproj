@@ -31,6 +31,8 @@
 		9682471D1C5C123B00494AB8 /* example.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 9682471C1C5C123B00494AB8 /* example.geojson */; };
 		968247201C5C1C0400494AB8 /* DrawingAPolygonExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */; };
 		968247221C5C1C9B00494AB8 /* DrawingAPolygonExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968247211C5C1C9B00494AB8 /* DrawingAPolygonExample.swift */; };
+		968247241C5C1D9500494AB8 /* CameraAnimationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968247231C5C1D9500494AB8 /* CameraAnimationExample.swift */; };
+		968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247261C5C1DC700494AB8 /* CameraAnimationExample.m */; };
 		9691AA941C5AA702006A58C6 /* Examples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AA931C5AA702006A58C6 /* Examples.m */; };
 		9691AAA71C5AAD8F006A58C6 /* CustomStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */; };
 		9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */; };
@@ -110,6 +112,9 @@
 		9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingAPolygonExample.h; sourceTree = "<group>"; };
 		9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingAPolygonExample.m; sourceTree = "<group>"; };
 		968247211C5C1C9B00494AB8 /* DrawingAPolygonExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawingAPolygonExample.swift; path = Swift/DrawingAPolygonExample.swift; sourceTree = "<group>"; };
+		968247231C5C1D9500494AB8 /* CameraAnimationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraAnimationExample.swift; path = Swift/CameraAnimationExample.swift; sourceTree = "<group>"; };
+		968247251C5C1DC700494AB8 /* CameraAnimationExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraAnimationExample.h; sourceTree = "<group>"; };
+		968247261C5C1DC700494AB8 /* CameraAnimationExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraAnimationExample.m; sourceTree = "<group>"; };
 		9691AA921C5AA702006A58C6 /* Examples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Examples.h; sourceTree = "<group>"; };
 		9691AA931C5AA702006A58C6 /* Examples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Examples.m; sourceTree = "<group>"; };
 		9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStyleExample.h; sourceTree = "<group>"; };
@@ -234,6 +239,8 @@
 			children = (
 				968247111C5C0F0F00494AB8 /* CalloutDelegateUsageExample.h */,
 				968247121C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m */,
+				968247251C5C1DC700494AB8 /* CameraAnimationExample.h */,
+				968247261C5C1DC700494AB8 /* CameraAnimationExample.m */,
 				9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */,
 				9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */,
 				968247011C5BDCBB00494AB8 /* CustomRasterStyleExample.h */,
@@ -258,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				968247141C5C102B00494AB8 /* CalloutDelegateUsageExample.swift */,
+				968247231C5C1D9500494AB8 /* CameraAnimationExample.swift */,
 				968247041C5BDDC600494AB8 /* CustomRasterStyleExample.swift */,
 				9691AAB01C5AC5AD006A58C6 /* CustomStyleExample.swift */,
 				9691AAB21C5AC5BF006A58C6 /* DefaultStylesExample.swift */,
@@ -423,7 +431,9 @@
 				968247081C5BEBDC00494AB8 /* SatelliteStyleExample.m in Sources */,
 				9682471A1C5C115000494AB8 /* DrawingAGeoJSONLineExample.m in Sources */,
 				968247051C5BDDC600494AB8 /* CustomRasterStyleExample.swift in Sources */,
+				968247241C5C1D9500494AB8 /* CameraAnimationExample.swift in Sources */,
 				968247151C5C102B00494AB8 /* CalloutDelegateUsageExample.swift in Sources */,
+				968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */,
 				961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */,
 				9691AAB11C5AC5AD006A58C6 /* CustomStyleExample.swift in Sources */,
 			);

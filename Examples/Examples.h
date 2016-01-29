@@ -23,6 +23,7 @@ extern NSString *const MBXExampleDrawingAMarker;
 extern NSString *const MBXExampleCalloutDelegateUsage;
 extern NSString *const MBXDrawingAGeoJSONLineExample;
 extern NSString *const MBXExampleDrawingAPolygon;
+extern NSString *const MBXExampleCameraAnimation;
 
 @interface Examples : NSObject
 
