@@ -53,8 +53,6 @@ NSString *const MBXSegueTableToExample = @"TableToExampleSegue";
         if ([sender isKindOfClass:[UITableViewCell class]]) {
             UITableViewCell *senderCell = sender;
 
-            NSLog(@"Segueing to %@", senderCell.textLabel.text);
-
             ExamplesContainerViewController *destinationVC = [segue destinationViewController];
             destinationVC.exampleToLoad = senderCell.textLabel.text;
         }

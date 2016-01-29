@@ -6,16 +6,13 @@
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
 
-#import "SimpleMapViewExample.h"
-#import "CustomStyleExample.h"
-#import "DefaultStylesExample.h"
+#import <Foundation/Foundation.h>
 
 // Steps to add a new example:
-//   1. #import "NewExample.h" (above)
-//   2. Add `MBXExample...` string constant in NewExample.m, appending the name of the example view controller's class
-//   3. Add matching external string constant (below)
-//   4. Add this constant to +list in Examples.m
-//   5. Create NewExample.swift (otherwise Swift is handled automatically)
+//   1. Add `MBXExample...` string constant in NewExample.m, defined as the name of the example view controller's class
+//   2. Add matching external string constant below
+//   3. Add this constant to +list in Examples.m
+//   4. Create NewExample.swift (otherwise Swift is handled automatically)
 
 extern NSString *const MBXExampleSimpleMapView;
 extern NSString *const MBXExampleCustomStyle;
