@@ -239,30 +239,38 @@
 			path = Files;
 			sourceTree = "<group>";
 		};
-		9691AAA01C5AAD8F006A58C6 /* ObjectiveC */ = {
+		9682472D1C5C226D00494AB8 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
 				968247111C5C0F0F00494AB8 /* CalloutDelegateUsageExample.h */,
-				968247121C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m */,
 				968247251C5C1DC700494AB8 /* CameraAnimationExample.h */,
-				968247261C5C1DC700494AB8 /* CameraAnimationExample.m */,
-				9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */,
-				9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */,
 				968247011C5BDCBB00494AB8 /* CustomRasterStyleExample.h */,
-				968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */,
+				9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */,
 				9691AAA31C5AAD8F006A58C6 /* DefaultStylesExample.h */,
-				9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */,
 				968247181C5C115000494AB8 /* DrawingAGeoJSONLineExample.h */,
-				968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */,
 				9682470D1C5BF12700494AB8 /* DrawingAMarkerExample.h */,
-				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */,
-				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
 				968247281C5C1FF800494AB8 /* PointConversionExample.h */,
-				968247291C5C1FF800494AB8 /* PointConversionExample.m */,
 				968247061C5BEBDC00494AB8 /* SatelliteStyleExample.h */,
-				968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */,
 				9691AAA51C5AAD8F006A58C6 /* SimpleMapViewExample.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		9691AAA01C5AAD8F006A58C6 /* ObjectiveC */ = {
+			isa = PBXGroup;
+			children = (
+				9682472D1C5C226D00494AB8 /* Headers */,
+				968247121C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m */,
+				968247261C5C1DC700494AB8 /* CameraAnimationExample.m */,
+				968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */,
+				9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */,
+				9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */,
+				968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */,
+				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
+				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
+				968247291C5C1FF800494AB8 /* PointConversionExample.m */,
+				968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */,
 				9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */,
 			);
 			path = ObjectiveC;
@@ -280,8 +288,8 @@
 				9682470B1C5BF08400494AB8 /* DrawingAMarkerExample.swift */,
 				968247211C5C1C9B00494AB8 /* DrawingAPolygonExample.swift */,
 				9682472B1C5C20F800494AB8 /* PointConversionExample.swift */,
-				9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample.swift */,
 				968247091C5BEE4D00494AB8 /* SatelliteStyleExample.swift */,
+				9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";

@@ -9,7 +9,7 @@
 #import "DrawingAGeoJSONLineExample.h"
 #import <Mapbox/Mapbox.h>
 
-NSString *const MBXDrawingAGeoJSONLineExample = @"DrawingAGeoJSONLineExample";
+NSString *const MBXExampleDrawingAGeoJSONLine = @"DrawingAGeoJSONLineExample";
 
 @interface DrawingAGeoJSONLineExample () <MGLMapViewDelegate>
 

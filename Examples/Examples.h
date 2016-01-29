@@ -14,17 +14,18 @@
 //   3. Add this constant to +list in Examples.m
 //   4. Create NewExample.swift (otherwise Swift is handled automatically)
 
-extern NSString *const MBXExampleSimpleMapView;
+
+extern NSString *const MBXExampleCalloutDelegateUsage;
+extern NSString *const MBXExampleCameraAnimation;
+extern NSString *const MBXExampleCustomRasterStyle;
 extern NSString *const MBXExampleCustomStyle;
 extern NSString *const MBXExampleDefaultStyles;
-extern NSString *const MBXExampleCustomRasterStyle;
-extern NSString *const MBXExampleSatelliteStyle;
+extern NSString *const MBXExampleDrawingAGeoJSONLine;
 extern NSString *const MBXExampleDrawingAMarker;
-extern NSString *const MBXExampleCalloutDelegateUsage;
-extern NSString *const MBXDrawingAGeoJSONLineExample;
 extern NSString *const MBXExampleDrawingAPolygon;
-extern NSString *const MBXExampleCameraAnimation;
 extern NSString *const MBXExamplePointConversion;
+extern NSString *const MBXExampleSatelliteStyle;
+extern NSString *const MBXExampleSimpleMapView;
 
 @interface Examples : NSObject
 

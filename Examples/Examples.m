@@ -12,17 +12,17 @@
 
 + (NSArray *)list {
     NSArray *initialList = [[NSMutableArray alloc] initWithArray:@[
-        MBXExampleSimpleMapView,
+        MBXExampleCalloutDelegateUsage,
+        MBXExampleCameraAnimation,
+        MBXExampleCustomRasterStyle,
         MBXExampleCustomStyle,
         MBXExampleDefaultStyles,
-        MBXExampleCustomRasterStyle,
-        MBXExampleSatelliteStyle,
+        MBXExampleDrawingAGeoJSONLine,
         MBXExampleDrawingAMarker,
-        MBXExampleCalloutDelegateUsage,
-        MBXDrawingAGeoJSONLineExample,
         MBXExampleDrawingAPolygon,
-        MBXExampleCameraAnimation,
+        MBXExampleSatelliteStyle,
         MBXExamplePointConversion,
+        MBXExampleSimpleMapView,
     ]];
 
     NSMutableArray *meh = [[NSMutableArray alloc] init];
