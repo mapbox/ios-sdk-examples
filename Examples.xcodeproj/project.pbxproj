@@ -22,6 +22,8 @@
 		968247051C5BDDC600494AB8 /* CustomRasterStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968247041C5BDDC600494AB8 /* CustomRasterStyleExample.swift */; };
 		968247081C5BEBDC00494AB8 /* SatelliteStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */; };
 		9682470A1C5BEE4D00494AB8 /* SatelliteStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968247091C5BEE4D00494AB8 /* SatelliteStyleExample.swift */; };
+		9682470C1C5BF08400494AB8 /* DrawingAMarkerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682470B1C5BF08400494AB8 /* DrawingAMarkerExample.swift */; };
+		9682470F1C5BF12700494AB8 /* DrawingAMarkerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */; };
 		9691AA941C5AA702006A58C6 /* Examples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AA931C5AA702006A58C6 /* Examples.m */; };
 		9691AAA71C5AAD8F006A58C6 /* CustomStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */; };
 		9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */; };
@@ -88,6 +90,9 @@
 		968247061C5BEBDC00494AB8 /* SatelliteStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SatelliteStyleExample.h; sourceTree = "<group>"; };
 		968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SatelliteStyleExample.m; sourceTree = "<group>"; };
 		968247091C5BEE4D00494AB8 /* SatelliteStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SatelliteStyleExample.swift; path = Swift/SatelliteStyleExample.swift; sourceTree = "<group>"; };
+		9682470B1C5BF08400494AB8 /* DrawingAMarkerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawingAMarkerExample.swift; path = Swift/DrawingAMarkerExample.swift; sourceTree = "<group>"; };
+		9682470D1C5BF12700494AB8 /* DrawingAMarkerExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingAMarkerExample.h; sourceTree = "<group>"; };
+		9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingAMarkerExample.m; sourceTree = "<group>"; };
 		9691AA921C5AA702006A58C6 /* Examples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Examples.h; sourceTree = "<group>"; };
 		9691AA931C5AA702006A58C6 /* Examples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Examples.m; sourceTree = "<group>"; };
 		9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStyleExample.h; sourceTree = "<group>"; };
@@ -207,10 +212,12 @@
 				968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */,
 				9691AAA31C5AAD8F006A58C6 /* DefaultStylesExample.h */,
 				9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */,
-				9691AAA51C5AAD8F006A58C6 /* SimpleMapViewExample.h */,
-				9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */,
+				9682470D1C5BF12700494AB8 /* DrawingAMarkerExample.h */,
+				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				968247061C5BEBDC00494AB8 /* SatelliteStyleExample.h */,
 				968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */,
+				9691AAA51C5AAD8F006A58C6 /* SimpleMapViewExample.h */,
+				9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */,
 			);
 			path = ObjectiveC;
 			sourceTree = "<group>";
@@ -220,6 +227,7 @@
 			children = (
 				9691AAB01C5AC5AD006A58C6 /* CustomStyleExample.swift */,
 				9691AAB21C5AC5BF006A58C6 /* DefaultStylesExample.swift */,
+				9682470B1C5BF08400494AB8 /* DrawingAMarkerExample.swift */,
 				9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample.swift */,
 				968247041C5BDDC600494AB8 /* CustomRasterStyleExample.swift */,
 				968247091C5BEE4D00494AB8 /* SatelliteStyleExample.swift */,
@@ -360,7 +368,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9691AAB31C5AC5BF006A58C6 /* DefaultStylesExample.swift in Sources */,
+				9682470C1C5BF08400494AB8 /* DrawingAMarkerExample.swift in Sources */,
 				9691AAA91C5AAD8F006A58C6 /* SimpleMapViewExample.m in Sources */,
+				9682470F1C5BF12700494AB8 /* DrawingAMarkerExample.m in Sources */,
 				961962941C581700002D3DAB /* AppDelegate.m in Sources */,
 				9691AAA71C5AAD8F006A58C6 /* CustomStyleExample.m in Sources */,
 				961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */,

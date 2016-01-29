@@ -19,6 +19,7 @@ extern NSString *const MBXExampleCustomStyle;
 extern NSString *const MBXExampleDefaultStyles;
 extern NSString *const MBXExampleCustomRasterStyle;
 extern NSString *const MBXExampleSatelliteStyle;
+extern NSString *const MBXExampleDrawingAMarker;
 
 @interface Examples : NSObject
 
