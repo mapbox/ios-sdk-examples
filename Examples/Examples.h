@@ -20,6 +20,7 @@
 extern NSString *const MBXExampleSimpleMapView;
 extern NSString *const MBXExampleCustomStyle;
 extern NSString *const MBXExampleDefaultStyles;
+extern NSString *const MBXExampleCustomRasterStyle;
 
 @interface Examples : NSObject
 

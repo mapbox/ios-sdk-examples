@@ -18,6 +18,8 @@
 		961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961962CE1C581FBC002D3DAB /* Main.storyboard */; };
 		961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962D11C5821A9002D3DAB /* ExamplesTableViewController.m */; };
 		961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962D41C583FDC002D3DAB /* ExamplesContainerViewController.m */; };
+		968247031C5BDCBB00494AB8 /* CustomRasterStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */; };
+		968247051C5BDDC600494AB8 /* CustomRasterStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968247041C5BDDC600494AB8 /* CustomRasterStyleExample.swift */; };
 		9691AA941C5AA702006A58C6 /* Examples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AA931C5AA702006A58C6 /* Examples.m */; };
 		9691AAA71C5AAD8F006A58C6 /* CustomStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */; };
 		9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */; };
@@ -78,6 +80,9 @@
 		961962D11C5821A9002D3DAB /* ExamplesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamplesTableViewController.m; sourceTree = "<group>"; };
 		961962D31C583FDC002D3DAB /* ExamplesContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamplesContainerViewController.h; sourceTree = "<group>"; };
 		961962D41C583FDC002D3DAB /* ExamplesContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamplesContainerViewController.m; sourceTree = "<group>"; };
+		968247011C5BDCBB00494AB8 /* CustomRasterStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRasterStyleExample.h; sourceTree = "<group>"; };
+		968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRasterStyleExample.m; sourceTree = "<group>"; };
+		968247041C5BDDC600494AB8 /* CustomRasterStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomRasterStyleExample.swift; path = Swift/CustomRasterStyleExample.swift; sourceTree = "<group>"; };
 		9691AA921C5AA702006A58C6 /* Examples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Examples.h; sourceTree = "<group>"; };
 		9691AA931C5AA702006A58C6 /* Examples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Examples.m; sourceTree = "<group>"; };
 		9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStyleExample.h; sourceTree = "<group>"; };
@@ -193,6 +198,8 @@
 			children = (
 				9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */,
 				9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */,
+				968247011C5BDCBB00494AB8 /* CustomRasterStyleExample.h */,
+				968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */,
 				9691AAA31C5AAD8F006A58C6 /* DefaultStylesExample.h */,
 				9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */,
 				9691AAA51C5AAD8F006A58C6 /* SimpleMapViewExample.h */,
@@ -207,6 +214,7 @@
 				9691AAB01C5AC5AD006A58C6 /* CustomStyleExample.swift */,
 				9691AAB21C5AC5BF006A58C6 /* DefaultStylesExample.swift */,
 				9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample.swift */,
+				968247041C5BDDC600494AB8 /* CustomRasterStyleExample.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -349,9 +357,11 @@
 				9691AAA71C5AAD8F006A58C6 /* CustomStyleExample.m in Sources */,
 				961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */,
 				9691AAAE1C5AB5A1006A58C6 /* SimpleMapViewExample.swift in Sources */,
+				968247031C5BDCBB00494AB8 /* CustomRasterStyleExample.m in Sources */,
 				961962911C581700002D3DAB /* main.m in Sources */,
 				9691AA941C5AA702006A58C6 /* Examples.m in Sources */,
 				9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */,
+				968247051C5BDDC600494AB8 /* CustomRasterStyleExample.swift in Sources */,
 				961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */,
 				9691AAB11C5AC5AD006A58C6 /* CustomStyleExample.swift in Sources */,
 			);
