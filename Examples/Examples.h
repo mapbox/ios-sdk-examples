@@ -20,6 +20,7 @@ extern NSString *const MBXExampleDefaultStyles;
 extern NSString *const MBXExampleCustomRasterStyle;
 extern NSString *const MBXExampleSatelliteStyle;
 extern NSString *const MBXExampleDrawingAMarker;
+extern NSString *const MBXExampleCalloutDelegateUsage;
 
 @interface Examples : NSObject
 
