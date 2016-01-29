@@ -22,6 +22,7 @@ extern NSString *const MBXExampleSatelliteStyle;
 extern NSString *const MBXExampleDrawingAMarker;
 extern NSString *const MBXExampleCalloutDelegateUsage;
 extern NSString *const MBXDrawingAGeoJSONLineExample;
+extern NSString *const MBXExampleDrawingAPolygon;
 
 @interface Examples : NSObject
 

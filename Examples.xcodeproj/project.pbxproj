@@ -29,6 +29,8 @@
 		968247171C5C10B100494AB8 /* DrawingAGeoJSONLineExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968247161C5C10B100494AB8 /* DrawingAGeoJSONLineExample.swift */; };
 		9682471A1C5C115000494AB8 /* DrawingAGeoJSONLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */; };
 		9682471D1C5C123B00494AB8 /* example.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 9682471C1C5C123B00494AB8 /* example.geojson */; };
+		968247201C5C1C0400494AB8 /* DrawingAPolygonExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */; };
+		968247221C5C1C9B00494AB8 /* DrawingAPolygonExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968247211C5C1C9B00494AB8 /* DrawingAPolygonExample.swift */; };
 		9691AA941C5AA702006A58C6 /* Examples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AA931C5AA702006A58C6 /* Examples.m */; };
 		9691AAA71C5AAD8F006A58C6 /* CustomStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */; };
 		9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */; };
@@ -105,6 +107,9 @@
 		968247181C5C115000494AB8 /* DrawingAGeoJSONLineExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingAGeoJSONLineExample.h; sourceTree = "<group>"; };
 		968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingAGeoJSONLineExample.m; sourceTree = "<group>"; };
 		9682471C1C5C123B00494AB8 /* example.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = example.geojson; path = ../Files/example.geojson; sourceTree = "<group>"; };
+		9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingAPolygonExample.h; sourceTree = "<group>"; };
+		9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingAPolygonExample.m; sourceTree = "<group>"; };
+		968247211C5C1C9B00494AB8 /* DrawingAPolygonExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawingAPolygonExample.swift; path = Swift/DrawingAPolygonExample.swift; sourceTree = "<group>"; };
 		9691AA921C5AA702006A58C6 /* Examples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Examples.h; sourceTree = "<group>"; };
 		9691AA931C5AA702006A58C6 /* Examples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Examples.m; sourceTree = "<group>"; };
 		9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStyleExample.h; sourceTree = "<group>"; };
@@ -239,6 +244,8 @@
 				968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */,
 				9682470D1C5BF12700494AB8 /* DrawingAMarkerExample.h */,
 				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
+				9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */,
+				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
 				968247061C5BEBDC00494AB8 /* SatelliteStyleExample.h */,
 				968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */,
 				9691AAA51C5AAD8F006A58C6 /* SimpleMapViewExample.h */,
@@ -256,6 +263,7 @@
 				9691AAB21C5AC5BF006A58C6 /* DefaultStylesExample.swift */,
 				968247161C5C10B100494AB8 /* DrawingAGeoJSONLineExample.swift */,
 				9682470B1C5BF08400494AB8 /* DrawingAMarkerExample.swift */,
+				968247211C5C1C9B00494AB8 /* DrawingAPolygonExample.swift */,
 				9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample.swift */,
 				968247091C5BEE4D00494AB8 /* SatelliteStyleExample.swift */,
 			);
@@ -403,10 +411,12 @@
 				968247171C5C10B100494AB8 /* DrawingAGeoJSONLineExample.swift in Sources */,
 				9691AAA71C5AAD8F006A58C6 /* CustomStyleExample.m in Sources */,
 				961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */,
+				968247201C5C1C0400494AB8 /* DrawingAPolygonExample.m in Sources */,
 				9691AAAE1C5AB5A1006A58C6 /* SimpleMapViewExample.swift in Sources */,
 				968247031C5BDCBB00494AB8 /* CustomRasterStyleExample.m in Sources */,
 				961962911C581700002D3DAB /* main.m in Sources */,
 				968247131C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m in Sources */,
+				968247221C5C1C9B00494AB8 /* DrawingAPolygonExample.swift in Sources */,
 				9691AA941C5AA702006A58C6 /* Examples.m in Sources */,
 				9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */,
 				9682470A1C5BEE4D00494AB8 /* SatelliteStyleExample.swift in Sources */,
