@@ -18,6 +18,7 @@ extern NSString *const MBXExampleSimpleMapView;
 extern NSString *const MBXExampleCustomStyle;
 extern NSString *const MBXExampleDefaultStyles;
 extern NSString *const MBXExampleCustomRasterStyle;
+extern NSString *const MBXExampleSatelliteStyle;
 
 @interface Examples : NSObject
 

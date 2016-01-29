@@ -16,6 +16,7 @@
         MBXExampleCustomStyle,
         MBXExampleDefaultStyles,
         MBXExampleCustomRasterStyle,
+        MBXExampleSatelliteStyle,
     ]];
 
     NSMutableArray *meh = [[NSMutableArray alloc] init];

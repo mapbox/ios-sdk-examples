@@ -20,6 +20,8 @@
 		961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962D41C583FDC002D3DAB /* ExamplesContainerViewController.m */; };
 		968247031C5BDCBB00494AB8 /* CustomRasterStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */; };
 		968247051C5BDDC600494AB8 /* CustomRasterStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968247041C5BDDC600494AB8 /* CustomRasterStyleExample.swift */; };
+		968247081C5BEBDC00494AB8 /* SatelliteStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */; };
+		9682470A1C5BEE4D00494AB8 /* SatelliteStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968247091C5BEE4D00494AB8 /* SatelliteStyleExample.swift */; };
 		9691AA941C5AA702006A58C6 /* Examples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AA931C5AA702006A58C6 /* Examples.m */; };
 		9691AAA71C5AAD8F006A58C6 /* CustomStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */; };
 		9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */; };
@@ -83,6 +85,9 @@
 		968247011C5BDCBB00494AB8 /* CustomRasterStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRasterStyleExample.h; sourceTree = "<group>"; };
 		968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRasterStyleExample.m; sourceTree = "<group>"; };
 		968247041C5BDDC600494AB8 /* CustomRasterStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomRasterStyleExample.swift; path = Swift/CustomRasterStyleExample.swift; sourceTree = "<group>"; };
+		968247061C5BEBDC00494AB8 /* SatelliteStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SatelliteStyleExample.h; sourceTree = "<group>"; };
+		968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SatelliteStyleExample.m; sourceTree = "<group>"; };
+		968247091C5BEE4D00494AB8 /* SatelliteStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SatelliteStyleExample.swift; path = Swift/SatelliteStyleExample.swift; sourceTree = "<group>"; };
 		9691AA921C5AA702006A58C6 /* Examples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Examples.h; sourceTree = "<group>"; };
 		9691AA931C5AA702006A58C6 /* Examples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Examples.m; sourceTree = "<group>"; };
 		9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStyleExample.h; sourceTree = "<group>"; };
@@ -204,6 +209,8 @@
 				9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */,
 				9691AAA51C5AAD8F006A58C6 /* SimpleMapViewExample.h */,
 				9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */,
+				968247061C5BEBDC00494AB8 /* SatelliteStyleExample.h */,
+				968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */,
 			);
 			path = ObjectiveC;
 			sourceTree = "<group>";
@@ -215,6 +222,7 @@
 				9691AAB21C5AC5BF006A58C6 /* DefaultStylesExample.swift */,
 				9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample.swift */,
 				968247041C5BDDC600494AB8 /* CustomRasterStyleExample.swift */,
+				968247091C5BEE4D00494AB8 /* SatelliteStyleExample.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -361,6 +369,8 @@
 				961962911C581700002D3DAB /* main.m in Sources */,
 				9691AA941C5AA702006A58C6 /* Examples.m in Sources */,
 				9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */,
+				9682470A1C5BEE4D00494AB8 /* SatelliteStyleExample.swift in Sources */,
+				968247081C5BEBDC00494AB8 /* SatelliteStyleExample.m in Sources */,
 				968247051C5BDDC600494AB8 /* CustomRasterStyleExample.swift in Sources */,
 				961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */,
 				9691AAB11C5AC5AD006A58C6 /* CustomStyleExample.swift in Sources */,
