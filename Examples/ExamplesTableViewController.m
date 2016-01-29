@@ -22,6 +22,8 @@ NSString *const MBXSegueTableToExample = @"TableToExampleSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:self.navigationItem.backBarButtonItem.style target:nil action:nil];
 }
 
 #pragma mark - Table view data source

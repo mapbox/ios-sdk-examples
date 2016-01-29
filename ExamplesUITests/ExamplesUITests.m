@@ -33,7 +33,7 @@
     [super tearDown];
 }
 
-- (void)testExample {
+- (void)testEveryExample {
     XCUIApplication *app = [[XCUIApplication alloc] init];
 
     for (int i = 0; i < app.tables.cells.count; i++) {
@@ -45,14 +45,14 @@
         [map doubleTap];
         [map twoFingerTap];
 
-        [map rotate:M_1_PI withVelocity:1];
+//        [map rotate:M_1_PI withVelocity:1];
 
 //        This fails because the rotate gesture doesn't fire reliably
 //        XCUIElement *compass = map.images[@"Compass"];
 //        [self waitForElementToBeHittable:compass];
 //        [compass tap];
 
-        [app.navigationBars.buttons[@"Examples"] tap];
+        [app.navigationBars.buttons[@"Back"] tap];
     }
 
 }
