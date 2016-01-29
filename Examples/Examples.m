@@ -19,6 +19,7 @@
         MBXExampleSatelliteStyle,
         MBXExampleDrawingAMarker,
         MBXExampleCalloutDelegateUsage,
+        MBXDrawingAGeoJSONLineExample,
     ]];
 
     NSMutableArray *meh = [[NSMutableArray alloc] init];

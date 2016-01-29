@@ -21,6 +21,7 @@ extern NSString *const MBXExampleCustomRasterStyle;
 extern NSString *const MBXExampleSatelliteStyle;
 extern NSString *const MBXExampleDrawingAMarker;
 extern NSString *const MBXExampleCalloutDelegateUsage;
+extern NSString *const MBXDrawingAGeoJSONLineExample;
 
 @interface Examples : NSObject
 
