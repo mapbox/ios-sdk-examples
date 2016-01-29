@@ -22,6 +22,7 @@
         MBXDrawingAGeoJSONLineExample,
         MBXExampleDrawingAPolygon,
         MBXExampleCameraAnimation,
+        MBXExamplePointConversion,
     ]];
 
     NSMutableArray *meh = [[NSMutableArray alloc] init];

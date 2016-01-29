@@ -24,6 +24,7 @@ extern NSString *const MBXExampleCalloutDelegateUsage;
 extern NSString *const MBXDrawingAGeoJSONLineExample;
 extern NSString *const MBXExampleDrawingAPolygon;
 extern NSString *const MBXExampleCameraAnimation;
+extern NSString *const MBXExamplePointConversion;
 
 @interface Examples : NSObject
 
