@@ -24,6 +24,14 @@ NSString *const MBXSegueTableToExample = @"TableToExampleSegue";
     [super viewDidLoad];
 
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:self.navigationItem.backBarButtonItem.style target:nil action:nil];
+
+    // do this ourselves, as automatic doesn't work with fast swipes
+    self.clearsSelectionOnViewWillAppear = NO;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
 }
 
 #pragma mark - Table view data source
