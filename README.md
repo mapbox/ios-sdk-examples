@@ -10,7 +10,7 @@ Eventually this will be used to dynamically generate the example code found on t
 - Improve reliability
 
 ## Use
-1. Download the [latest dynamic framework release](https://github.com/mapbox/mapbox-gl-native/releases) from `mapbox-gl-native` and place it in the root folder.
-1. Open Examples.xcodeproj.
-1. Follow the instructions in Example.h to add new examples.
+1. Run `install.sh` to download `Mapbox.framework`.
+1. Open `Examples.xcodeproj`.
+1. Follow the instructions in `Example.h` to add new examples.
 1. ⚗🔬
