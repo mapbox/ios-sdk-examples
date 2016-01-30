@@ -16,7 +16,16 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Test Tube" translatesAutoresizingMaskIntoConstraints="NO" id="AbD-sU-4bw">
+                                <rect key="frame" x="280" y="233" width="41" height="133"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.23137254901960785" green="0.69803921568627447" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="AbD-sU-4bw" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="BSX-0I-k9C"/>
+                            <constraint firstItem="AbD-sU-4bw" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="P10-1k-0uJ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +33,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Test Tube" width="41" height="133"/>
+    </resources>
 </document>
