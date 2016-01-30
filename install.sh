@@ -12,8 +12,8 @@ echo "URL: $MBGLURL"
 if which curl > /dev/null; then
 	curl -S -L -o $TEMPZIPNAME $MBGLURL
 else
-    echo "Error: curl not found"
-    exit 1
+	echo "Error: curl not found"
+	exit 1
 fi
 
 if [ -s $TEMPZIPNAME ]; then
