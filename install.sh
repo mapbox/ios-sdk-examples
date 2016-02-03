@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-MBGLVERSION='3.1.0-pre.2'
+MBGLVERSION='3.1.0-pre.3'
 MBGLURL="https://github.com/mapbox/mapbox-gl-native/releases/download/ios-v$MBGLVERSION/mapbox-ios-sdk-$MBGLVERSION-symbols-dynamic.zip"
 MBGLVANITYNAME="Mapbox iOS SDK v$MBGLVERSION"
 TEMPZIPNAME="framework-$MBGLVERSION.zip"
