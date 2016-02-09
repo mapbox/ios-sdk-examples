@@ -17,6 +17,7 @@ NSString *const MBXExampleCustomStyle = @"CustomStyleExample";
     [super viewDidLoad];
 
     // fill in the next line with your style URL from Mapbox Studio
+    // <# @"mapbox://styles/userName/styleHash" #>
     NSURL *styleURL = [NSURL URLWithString:@"mapbox://styles/mapbox/emerald-v8"];
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds
                                                    styleURL:styleURL];
