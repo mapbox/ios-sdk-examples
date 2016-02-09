@@ -7,7 +7,7 @@
 //
 
 #import "PointConversionExample.h"
-#import <Mapbox/Mapbox.h>
+@import Mapbox;
 
 NSString *const MBXExamplePointConversion = @"PointConversionExample";
 

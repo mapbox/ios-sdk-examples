@@ -7,7 +7,7 @@
 //
 
 #import "SatelliteStyleExample.h"
-#import <Mapbox/Mapbox.h>
+@import Mapbox;
 
 NSString *const MBXExampleSatelliteStyle = @"SatelliteStyleExample";
 

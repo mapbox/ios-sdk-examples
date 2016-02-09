@@ -7,7 +7,7 @@
 //
 
 #import "SimpleMapViewExample.h"
-#import <Mapbox/Mapbox.h>
+@import Mapbox;
 
 NSString *const MBXExampleSimpleMapView = @"SimpleMapViewExample";
 

@@ -7,7 +7,7 @@
 //
 
 #import "CustomRasterStyleExample.h"
-#import <Mapbox/Mapbox.h>
+@import Mapbox;
 
 NSString *const MBXExampleCustomRasterStyle = @"CustomRasterStyleExample";
 

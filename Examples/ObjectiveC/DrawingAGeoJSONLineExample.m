@@ -7,7 +7,7 @@
 //
 
 #import "DrawingAGeoJSONLineExample.h"
-#import <Mapbox/Mapbox.h>
+@import Mapbox;
 
 NSString *const MBXExampleDrawingAGeoJSONLine = @"DrawingAGeoJSONLineExample";
 

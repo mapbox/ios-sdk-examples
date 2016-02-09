@@ -7,7 +7,7 @@
 //
 
 #import "CalloutDelegateUsageExample.h"
-#import <Mapbox/Mapbox.h>
+@import Mapbox;
 
 NSString *const MBXExampleCalloutDelegateUsage = @"CalloutDelegateUsageExample";
 

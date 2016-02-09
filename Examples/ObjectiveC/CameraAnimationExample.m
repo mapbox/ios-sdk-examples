@@ -7,7 +7,7 @@
 //
 
 #import "CameraAnimationExample.h"
-#import <Mapbox/Mapbox.h>
+@import Mapbox;
 
 NSString *const MBXExampleCameraAnimation = @"CameraAnimationExample";
 

@@ -7,7 +7,7 @@
 //
 
 #import "DefaultStylesExample.h"
-#import <Mapbox/Mapbox.h>
+@import Mapbox;
 
 NSString *const MBXExampleDefaultStyles = @"DefaultStylesExample";
 
