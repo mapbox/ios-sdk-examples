@@ -42,6 +42,9 @@
 		9691AAAE1C5AB5A1006A58C6 /* SimpleMapViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample.swift */; };
 		9691AAB11C5AC5AD006A58C6 /* CustomStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAB01C5AC5AD006A58C6 /* CustomStyleExample.swift */; };
 		9691AAB31C5AC5BF006A58C6 /* DefaultStylesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAB21C5AC5BF006A58C6 /* DefaultStylesExample.swift */; };
+		96D431FC1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D431FB1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m */; };
+		96D432041C84B62A007D09D1 /* DrawingACustomMarkerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D432031C84B62A007D09D1 /* DrawingACustomMarkerExample.swift */; };
+		96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D432051C84B9CF007D09D1 /* pisavector.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +135,10 @@
 		9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleMapViewExample.swift; path = Swift/SimpleMapViewExample.swift; sourceTree = "<group>"; };
 		9691AAB01C5AC5AD006A58C6 /* CustomStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomStyleExample.swift; path = Swift/CustomStyleExample.swift; sourceTree = "<group>"; };
 		9691AAB21C5AC5BF006A58C6 /* DefaultStylesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultStylesExample.swift; path = Swift/DefaultStylesExample.swift; sourceTree = "<group>"; };
+		96D431FA1C84B4F7007D09D1 /* DrawingACustomMarkerExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingACustomMarkerExample.h; sourceTree = "<group>"; };
+		96D431FB1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingACustomMarkerExample.m; sourceTree = "<group>"; };
+		96D432031C84B62A007D09D1 /* DrawingACustomMarkerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawingACustomMarkerExample.swift; path = Swift/DrawingACustomMarkerExample.swift; sourceTree = "<group>"; };
+		96D432051C84B9CF007D09D1 /* pisavector.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = pisavector.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				9682471C1C5C123B00494AB8 /* example.geojson */,
+				96D432051C84B9CF007D09D1 /* pisavector.xcassets */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -248,6 +256,7 @@
 				9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */,
 				9691AAA31C5AAD8F006A58C6 /* DefaultStylesExample.h */,
 				968247181C5C115000494AB8 /* DrawingAGeoJSONLineExample.h */,
+				96D431FA1C84B4F7007D09D1 /* DrawingACustomMarkerExample.h */,
 				9682470D1C5BF12700494AB8 /* DrawingAMarkerExample.h */,
 				9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */,
 				968247281C5C1FF800494AB8 /* PointConversionExample.h */,
@@ -267,6 +276,7 @@
 				9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */,
 				9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */,
 				968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */,
+				96D431FB1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m */,
 				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
 				968247291C5C1FF800494AB8 /* PointConversionExample.m */,
@@ -285,6 +295,7 @@
 				9691AAB01C5AC5AD006A58C6 /* CustomStyleExample.swift */,
 				9691AAB21C5AC5BF006A58C6 /* DefaultStylesExample.swift */,
 				968247161C5C10B100494AB8 /* DrawingAGeoJSONLineExample.swift */,
+				96D432031C84B62A007D09D1 /* DrawingACustomMarkerExample.swift */,
 				9682470B1C5BF08400494AB8 /* DrawingAMarkerExample.swift */,
 				968247211C5C1C9B00494AB8 /* DrawingAPolygonExample.swift */,
 				9682472B1C5C20F800494AB8 /* PointConversionExample.swift */,
@@ -403,6 +414,7 @@
 				9619629C1C581700002D3DAB /* Assets.xcassets in Resources */,
 				9682471D1C5C123B00494AB8 /* example.geojson in Resources */,
 				961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */,
+				96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,8 +449,10 @@
 				961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */,
 				968247201C5C1C0400494AB8 /* DrawingAPolygonExample.m in Sources */,
 				9691AAAE1C5AB5A1006A58C6 /* SimpleMapViewExample.swift in Sources */,
+				96D431FC1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m in Sources */,
 				968247031C5BDCBB00494AB8 /* CustomRasterStyleExample.m in Sources */,
 				9682472A1C5C1FF800494AB8 /* PointConversionExample.m in Sources */,
+				96D432041C84B62A007D09D1 /* DrawingACustomMarkerExample.swift in Sources */,
 				961962911C581700002D3DAB /* main.m in Sources */,
 				968247131C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m in Sources */,
 				968247221C5C1C9B00494AB8 /* DrawingAPolygonExample.swift in Sources */,

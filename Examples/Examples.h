@@ -21,6 +21,7 @@ extern NSString *const MBXExampleCustomRasterStyle;
 extern NSString *const MBXExampleCustomStyle;
 extern NSString *const MBXExampleDefaultStyles;
 extern NSString *const MBXExampleDrawingAGeoJSONLine;
+extern NSString *const MBXExampleDrawingACustomMarker;
 extern NSString *const MBXExampleDrawingAMarker;
 extern NSString *const MBXExampleDrawingAPolygon;
 extern NSString *const MBXExamplePointConversion;
