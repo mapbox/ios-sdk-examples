@@ -34,6 +34,9 @@
         exampleNotFoundLabel.backgroundColor = [UIColor redColor];
         [self.view addSubview:exampleNotFoundLabel];
     }
+
+    self.navigationController.hidesBarsOnSwipe = YES;
+    self.navigationController.hidesBarsWhenVerticallyCompact = YES;
 }
 
 @end
