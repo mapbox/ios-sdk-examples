@@ -18,6 +18,7 @@
         MBXExampleCustomStyle,
         MBXExampleDefaultStyles,
         MBXExampleDrawingAGeoJSONLine,
+        MBXExampleDrawingACustomMarker,
         MBXExampleDrawingAMarker,
         MBXExampleDrawingAPolygon,
         MBXExampleSatelliteStyle,
