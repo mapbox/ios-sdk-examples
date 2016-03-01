@@ -24,6 +24,7 @@
         MBXExampleSatelliteStyle,
         MBXExamplePointConversion,
         MBXExampleSimpleMapView,
+        MBXExampleReplacingAMarkerImage,
     ]];
 
     NSMutableArray *meh = [[NSMutableArray alloc] init];

@@ -27,6 +27,7 @@ extern NSString *const MBXExampleDrawingAPolygon;
 extern NSString *const MBXExamplePointConversion;
 extern NSString *const MBXExampleSatelliteStyle;
 extern NSString *const MBXExampleSimpleMapView;
+extern NSString *const MBXExampleReplacingAMarkerImage;
 
 @interface Examples : NSObject
 
