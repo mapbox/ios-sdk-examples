@@ -14,6 +14,7 @@
     NSArray *initialList = [[NSMutableArray alloc] initWithArray:@[
         MBXExampleCalloutDelegateUsage,
         MBXExampleCameraAnimation,
+        MBXExampleCustomCalloutView,
         MBXExampleCustomRasterStyle,
         MBXExampleCustomStyle,
         MBXExampleDefaultStyles,
