@@ -12,7 +12,7 @@
 
 NSString *const MBXExampleCustomCalloutView = @"CustomCalloutViewExample";
 
-@interface CustomCalloutViewExample () <MGLMapViewDelegate, MGLCalloutViewDelegate>
+@interface CustomCalloutViewExample () <MGLMapViewDelegate>
 
 @end
 
@@ -53,6 +53,11 @@ NSString *const MBXExampleCustomCalloutView = @"CustomCalloutViewExample";
         return calloutView;
     }
     return nil;
+}
+
+- (void)mapView:(MGLMapView *)mapView tapOnCalloutForAnnotation:(id<MGLAnnotation>)annotation
+{
+    NSLog(@"Tapped the callout for: %@", annotation);
 }
 
 @end

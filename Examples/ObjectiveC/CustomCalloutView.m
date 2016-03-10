@@ -9,11 +9,11 @@
 #import "CustomCalloutView.h"
 
 static CGFloat const tipHeight = 10.0;
-static CGFloat const tipWidth = 10.0;
+static CGFloat const tipWidth = 20.0;
 
 @interface CustomCalloutView ()
 
-@property (strong, nonatomic) UILabel *mainLabel;
+@property (strong, nonatomic) UIButton *callout;
 
 @end
 
@@ -35,11 +35,16 @@ static CGFloat const tipWidth = 10.0;
     if (self)
     {
         self.backgroundColor = [UIColor clearColor];
-        _mainLabel = [[UILabel alloc] initWithFrame: CGRectZero];
-        _mainLabel.backgroundColor = [UIColor clearColor];
 
-        [self addSubview: _mainLabel];
+        _callout = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        _callout.backgroundColor = [self colorForCallout];
+        _callout.tintColor = [UIColor blackColor];
+        _callout.contentEdgeInsets = UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0);
+        _callout.layer.cornerRadius = 4.0;
+
+        [self addSubview:_callout];
     }
+
     return self;
 }
 
@@ -48,35 +53,39 @@ static CGFloat const tipWidth = 10.0;
 
 - (void)presentCalloutFromRect:(CGRect)rect inView:(UIView *)view constrainedToView:(UIView *)constrainedView animated:(BOOL)animated
 {
-    self.alpha = 0.0;
+    // do not show a callout if there is no title set for the annotation
+    if (![self.representedObject respondsToSelector:@selector(title)])
+    {
+        return;
+    }
 
     [view addSubview:self];
 
     // prepare title label
-    if ([self.representedObject respondsToSelector:@selector(title)])
+    [self.callout setTitle:self.representedObject.title forState:UIControlStateNormal];
+    [self.callout sizeToFit];
+
+    // handle taps and eventually try to send them to the delegate (usually the map view)
+    if ([self isCalloutTappable])
     {
-        self.mainLabel.text = self.representedObject.title;
-        [self.mainLabel sizeToFit];
+        [_callout addTarget:self action:@selector(calloutTapped) forControlEvents:UIControlEventTouchUpInside];
     }
 
-    // prepare our frame
-    CGFloat frameWidth = self.mainLabel.bounds.size.width;
-    CGFloat frameHeight = self.mainLabel.bounds.size.height * 2.0;
+    // prepare our frame, adding extra space at the bottom for the tip
+    CGFloat frameWidth = self.callout.bounds.size.width;
+    CGFloat frameHeight = self.callout.bounds.size.height + tipHeight;
     CGFloat frameOriginX = rect.origin.x + (rect.size.width/2.0) - (frameWidth/2.0);
     CGFloat frameOriginY = rect.origin.y - frameHeight;
     self.frame = CGRectMake(frameOriginX, frameOriginY,
                             frameWidth, frameHeight);
 
-    // show the callout view
     if (animated)
     {
+        self.alpha = 0.0;
+
         [UIView animateWithDuration:0.2 animations:^{
             self.alpha = 1.0;
         } completion:nil];
-    }
-    else
-    {
-        self.alpha = 1.0;
     }
 }
 
@@ -99,27 +108,41 @@ static CGFloat const tipWidth = 10.0;
     }
 }
 
+- (BOOL)isCalloutTappable
+{
+    return [self.delegate respondsToSelector:@selector(calloutViewTapped:)];
+}
+
+- (void)calloutTapped
+{
+    if ([self isCalloutTappable])
+    {
+        [self.delegate performSelector:@selector(calloutViewTapped:) withObject:self];
+    }
+}
+
+- (UIColor *)colorForCallout
+{
+    return [UIColor whiteColor];
+}
+
 #pragma mark - internals
 
 - (void)drawRect:(CGRect)rect
 {
-    UIColor *fillColor = [UIColor colorWithWhite:1.0 alpha:1.0];
+    // draw the white tip at the bottom
+    UIColor *fillColor = [self colorForCallout];
 
     CGFloat tipLeft = rect.origin.x + (rect.size.width / 2.0) - (tipWidth / 2.0);
     CGPoint tipBottom = CGPointMake(rect.origin.x + (rect.size.width / 2.0), rect.origin.y +rect.size.height);
     CGFloat heightWithoutTip = rect.size.height - tipHeight;
 
-    // draw the white background with tip
     CGContextRef ctxt = UIGraphicsGetCurrentContext();
 
     CGMutablePathRef tipPath = CGPathCreateMutable();
-    CGPathMoveToPoint(tipPath, NULL, 0, 0);
-    CGPathAddLineToPoint(tipPath, NULL, 0, heightWithoutTip);
-    CGPathAddLineToPoint(tipPath, NULL, tipLeft, heightWithoutTip);
+    CGPathMoveToPoint(tipPath, NULL, tipLeft, heightWithoutTip);
     CGPathAddLineToPoint(tipPath, NULL, tipBottom.x, tipBottom.y);
     CGPathAddLineToPoint(tipPath, NULL, tipLeft + tipWidth, heightWithoutTip);
-    CGPathAddLineToPoint(tipPath, NULL, CGRectGetWidth(rect), heightWithoutTip);
-    CGPathAddLineToPoint(tipPath, NULL, CGRectGetWidth(rect), 0);
     CGPathCloseSubpath(tipPath);
 
     [fillColor setFill];
