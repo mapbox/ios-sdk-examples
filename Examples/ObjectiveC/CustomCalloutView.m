@@ -38,7 +38,7 @@ static CGFloat const tipWidth = 20.0;
         self.backgroundColor = [UIColor clearColor];
 
         // Create and add a subview to hold the callout’s text
-        UIButton *mainBody = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        UIButton *mainBody = [UIButton buttonWithType:UIButtonTypeSystem];
         mainBody.backgroundColor = [self backgroundColorForCallout];
         mainBody.tintColor = [UIColor whiteColor];
         mainBody.contentEdgeInsets = UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0);
@@ -93,7 +93,7 @@ static CGFloat const tipWidth = 20.0;
 
         [UIView animateWithDuration:0.2 animations:^{
             self.alpha = 1.0;
-        } completion:nil];
+        }];
     }
 }
 
@@ -116,7 +116,7 @@ static CGFloat const tipWidth = 20.0;
     }
 }
 
-#pragma mark - Custom callout handlers
+#pragma mark - Callout interaction handlers
 
 - (BOOL)isCalloutTappable
 {
@@ -144,14 +144,14 @@ static CGFloat const tipWidth = 20.0;
 
 - (void)drawRect:(CGRect)rect
 {
-    // Draw the white tip at the bottom
+    // Draw the pointed tip at the bottom
     UIColor *fillColor = [self backgroundColorForCallout];
 
     CGFloat tipLeft = rect.origin.x + (rect.size.width / 2.0) - (tipWidth / 2.0);
-    CGPoint tipBottom = CGPointMake(rect.origin.x + (rect.size.width / 2.0), rect.origin.y +rect.size.height);
+    CGPoint tipBottom = CGPointMake(rect.origin.x + (rect.size.width / 2.0), rect.origin.y + rect.size.height);
     CGFloat heightWithoutTip = rect.size.height - tipHeight;
 
-    CGContextRef ctxt = UIGraphicsGetCurrentContext();
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
 
     CGMutablePathRef tipPath = CGPathCreateMutable();
     CGPathMoveToPoint(tipPath, NULL, tipLeft, heightWithoutTip);
@@ -160,8 +160,8 @@ static CGFloat const tipWidth = 20.0;
     CGPathCloseSubpath(tipPath);
 
     [fillColor setFill];
-    CGContextAddPath(ctxt, tipPath);
-    CGContextFillPath(ctxt);
+    CGContextAddPath(currentContext, tipPath);
+    CGContextFillPath(currentContext);
     CGPathRelease(tipPath);
 }
 
