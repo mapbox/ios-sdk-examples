@@ -33,7 +33,9 @@ NSString *const MBXExampleCustomCalloutView = @"CustomCalloutViewExample";
     MGLPointAnnotation *marker = [[MGLPointAnnotation alloc] init];
     marker.coordinate = CLLocationCoordinate2DMake(0, 0);
     marker.title = @"Hello world!";
-    marker.subtitle = @"Welcome to my marker";
+
+    // This custom callout example does not implement subtitles
+    //marker.subtitle = @"Welcome to my marker";
 
     // Add marker to the map
     [mapView addAnnotation:marker];
