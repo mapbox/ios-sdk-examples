@@ -21,8 +21,9 @@ NSString *const MBXExampleCustomCalloutView = @"CustomCalloutViewExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURL]];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    mapView.tintColor = [UIColor darkGrayColor];
     [self.view addSubview:mapView];
 
     // Set the map view‘s delegate property
@@ -45,9 +46,11 @@ NSString *const MBXExampleCustomCalloutView = @"CustomCalloutViewExample";
 
 - (UIView<MGLCalloutView> *)mapView:(__unused MGLMapView *)mapView calloutViewForAnnotation:(id<MGLAnnotation>)annotation
 {
+    // Only show callouts for `Hello world!` annotation
     if ([annotation respondsToSelector:@selector(title)]
         && [annotation.title isEqualToString:@"Hello world!"])
     {
+        // Instantiate and return our custom callout view
         CustomCalloutView *calloutView = [[CustomCalloutView alloc] init];
         calloutView.representedObject = annotation;
         return calloutView;
@@ -57,7 +60,11 @@ NSString *const MBXExampleCustomCalloutView = @"CustomCalloutViewExample";
 
 - (void)mapView:(MGLMapView *)mapView tapOnCalloutForAnnotation:(id<MGLAnnotation>)annotation
 {
+    // Optionally handle taps on the callout
     NSLog(@"Tapped the callout for: %@", annotation);
+
+    // Hide the callout
+    [mapView deselectAnnotation:annotation animated:YES];
 }
 
 @end
