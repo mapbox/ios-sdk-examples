@@ -10,8 +10,8 @@ import Mapbox
 
 class CustomCalloutView: UIView, MGLCalloutView {
     var representedObject: MGLAnnotation
-    var leftAccessoryView: UIView/* unused */
-    var rightAccessoryView: UIView/* unused */
+    lazy var leftAccessoryView = UIView()/* unused */
+    lazy var rightAccessoryView = UIView()/* unused */
     weak var delegate: MGLCalloutViewDelegate?
 
     let tipHeight: CGFloat = 10.0
@@ -21,8 +21,6 @@ class CustomCalloutView: UIView, MGLCalloutView {
 
     required init(representedObject: MGLAnnotation) {
         self.representedObject = representedObject
-        self.leftAccessoryView = UIView()/* unused */
-        self.rightAccessoryView = UIView()/* unused */
         self.mainBody = UIButton(type: .System)
 
         super.init(frame: CGRectZero)
@@ -72,9 +70,9 @@ class CustomCalloutView: UIView, MGLCalloutView {
         if animated {
             alpha = 0
 
-            UIView.animateWithDuration(0.2, animations: { [weak self] in
+            UIView.animateWithDuration(0.2) { [weak self] in
                 self?.alpha = 1
-            })
+            }
         }
     }
 
