@@ -262,6 +262,7 @@
 			children = (
 				968247111C5C0F0F00494AB8 /* CalloutDelegateUsageExample.h */,
 				968247251C5C1DC700494AB8 /* CameraAnimationExample.h */,
+				96A2A1D01C8CA74B0059441E /* CustomCalloutView.h */,
 				96A2A1CD1C8CA16C0059441E /* CustomCalloutViewExample.h */,
 				968247011C5BDCBB00494AB8 /* CustomRasterStyleExample.h */,
 				9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */,
@@ -283,7 +284,6 @@
 				9682472D1C5C226D00494AB8 /* Headers */,
 				968247121C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m */,
 				968247261C5C1DC700494AB8 /* CameraAnimationExample.m */,
-				96A2A1D01C8CA74B0059441E /* CustomCalloutView.h */,
 				96A2A1D11C8CA74B0059441E /* CustomCalloutView.m */,
 				96A2A1CE1C8CA16C0059441E /* CustomCalloutViewExample.m */,
 				968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */,
