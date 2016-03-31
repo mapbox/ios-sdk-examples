@@ -43,7 +43,7 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(offlinePackDidReceiveMaximumAllowedMapboxTiles:) name:MGLOfflinePackMaximumMapboxTilesReachedNotification object:nil];
 
     // Start downloading tiles and resources for z13-16.
-    [self initiateOfflinePackDownload];
+    [self startOfflinePackDownload];
 }
 
 - (void)dealloc {
@@ -51,7 +51,7 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)initiateOfflinePackDownload {
+- (void)startOfflinePackDownload {
     // Create a region that includes the current viewport and any tiles needed to view it when zoomed further in.
     id <MGLOfflineRegion> region = [[MGLTilePyramidOfflineRegion alloc] initWithStyleURL:self.mapView.styleURL bounds:self.mapView.visibleCoordinateBounds fromZoomLevel:self.mapView.zoomLevel toZoomLevel:self.mapView.maximumZoomLevel];
 
