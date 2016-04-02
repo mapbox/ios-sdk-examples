@@ -35,8 +35,6 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
                             zoomLevel:13
                              animated:NO];
 
-    self.mapView.maximumZoomLevel = 16;
-
     // Setup offline pack notification handlers.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(offlinePackProgressDidChange:) name:MGLOfflinePackProgressChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(offlinePackDidReceiveError:) name:MGLOfflinePackErrorNotification object:nil];
@@ -63,7 +61,7 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
     [[MGLOfflineStorage sharedOfflineStorage] addPackForRegion:region withContext:context completionHandler:^(MGLOfflinePack *pack, NSError *error) {
         if (error != nil) {
             // The pack couldn’t be created for some reason.
-            NSLog(@"Error: %@", error);
+            NSLog(@"Error: %@", error.localizedFailureReason);
         } else {
             // Start downloading.
             [pack resume];
@@ -76,16 +74,18 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
 - (void)offlinePackProgressDidChange:(NSNotification *)notification {
     MGLOfflinePack *pack = notification.object;
 
-    // Get the associated user info for the pack; in this case,
+    // Get the associated user info for the pack; in this case, `name = My Offline Pack`
     NSDictionary *userInfo = [NSKeyedUnarchiver unarchiveObjectWithData:pack.context];
 
     MGLOfflinePackProgress progress = pack.progress;
     // or [notification.userInfo[MGLOfflinePackProgressUserInfoKey] MGLOfflinePackProgressValue]
+    uint64_t completedResources = progress.countOfResourcesCompleted;
+    uint64_t expectedResources = progress.countOfResourcesExpected;
 
     // Calculate current progress percentage.
-    float progressPercentage = (float)progress.countOfResourcesCompleted / progress.countOfResourcesExpected;
+    float progressPercentage = (float)completedResources / expectedResources;
 
-    NSLog(@"Offline pack “%@” has downloaded %llu of %llu resources — %.2f%%.", userInfo[@"name"], progress.countOfResourcesCompleted, progress.countOfResourcesExpected, progressPercentage * 100);
+    NSLog(@"Offline pack “%@” has downloaded %llu of %llu resources — %.2f%%.", userInfo[@"name"], completedResources, expectedResources, progressPercentage * 100);
 
     // Setup the progress bar.
     if (!self.progressView) {
