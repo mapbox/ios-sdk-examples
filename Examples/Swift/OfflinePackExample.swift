@@ -27,6 +27,7 @@ class OfflinePackExample: UIViewController, MGLMapViewDelegate {
         mapView.setCenterCoordinate(CLLocationCoordinate2DMake(22.27933, 114.16281),
                                     zoomLevel: 13, animated: false)
 
+        // Setup offline pack notification handlers.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "offlinePackProgressDidChange:", name: MGLOfflinePackProgressChangedNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "offlinePackDidReceiveError:", name: MGLOfflinePackProgressChangedNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "offlinePackDidReceiveMaximumAllowedMapboxTiles:", name: MGLOfflinePackProgressChangedNotification, object: nil)
@@ -38,6 +39,7 @@ class OfflinePackExample: UIViewController, MGLMapViewDelegate {
     }
 
     deinit {
+        // Remove offline pack observers.
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 

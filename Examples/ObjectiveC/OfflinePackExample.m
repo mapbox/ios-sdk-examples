@@ -29,9 +29,6 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
 
-    self.navigationController.navigationBar.hidden = YES;
-
-    // This example downloads the current viewport, so we need to do some setup.
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(22.27933, 114.16281)
                             zoomLevel:13
                              animated:NO];
@@ -89,15 +86,11 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
     // Calculate current progress percentage.
     float progressPercentage = (float)completedResources / expectedResources;
 
-
-
     // Setup the progress bar.
     if (!self.progressView) {
         self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-        self.progressView.tintColor = [UIColor colorWithRed:0.120 green:0.550 blue:0.670 alpha:1.0];
         CGSize frame = self.view.bounds.size;
         self.progressView.frame = CGRectMake(frame.width / 4, frame.height * 0.75, frame.width / 2, 10);
-        //[self.progressView setTransform:CGAffineTransformMakeScale(1.0, 3.0)];
         [self.view addSubview:self.progressView];
     }
 
