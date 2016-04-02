@@ -11,7 +11,7 @@
 
 NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
 
-@interface OfflinePackExample ()
+@interface OfflinePackExample () <MGLMapViewDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
 @property (nonatomic) UIProgressView *progressView;
@@ -26,6 +26,7 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURL]];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.tintColor = [UIColor lightGrayColor];
+    self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
 
     self.navigationController.navigationBar.hidden = YES;
@@ -39,7 +40,9 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(offlinePackProgressDidChange:) name:MGLOfflinePackProgressChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(offlinePackDidReceiveError:) name:MGLOfflinePackErrorNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(offlinePackDidReceiveMaximumAllowedMapboxTiles:) name:MGLOfflinePackMaximumMapboxTilesReachedNotification object:nil];
+}
 
+- (void)mapViewDidFinishLoadingMap:(MGLMapView *)mapView {
     // Start downloading tiles and resources for z13-16.
     [self startOfflinePackDownload];
 }
@@ -51,7 +54,8 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
 
 - (void)startOfflinePackDownload {
     // Create a region that includes the current viewport and any tiles needed to view it when zoomed further in.
-    id <MGLOfflineRegion> region = [[MGLTilePyramidOfflineRegion alloc] initWithStyleURL:self.mapView.styleURL bounds:self.mapView.visibleCoordinateBounds fromZoomLevel:self.mapView.zoomLevel toZoomLevel:self.mapView.maximumZoomLevel];
+    // Because tile count grows exponentially with the maximum zoom level, you should be conservative with your `toZoomLevel` setting.
+    id <MGLOfflineRegion> region = [[MGLTilePyramidOfflineRegion alloc] initWithStyleURL:self.mapView.styleURL bounds:self.mapView.visibleCoordinateBounds fromZoomLevel:self.mapView.zoomLevel toZoomLevel:16];
 
     // Store some data for identification purposes alongside the downloaded resources.
     NSDictionary *userInfo = @{ @"name": @"My Offline Pack" };
@@ -85,7 +89,7 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
     // Calculate current progress percentage.
     float progressPercentage = (float)completedResources / expectedResources;
 
-    NSLog(@"Offline pack “%@” has downloaded %llu of %llu resources — %.2f%%.", userInfo[@"name"], completedResources, expectedResources, progressPercentage * 100);
+
 
     // Setup the progress bar.
     if (!self.progressView) {
@@ -98,6 +102,15 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
     }
 
     [self.progressView setProgress:progressPercentage animated:YES];
+
+    // If this pack has finished, print its size and resource count.
+    if (completedResources == expectedResources) {
+        NSString *byteCount = [NSByteCountFormatter stringFromByteCount:progress.countOfBytesCompleted countStyle:NSByteCountFormatterCountStyleMemory];
+        NSLog(@"Offline pack “%@” completed: %@, %llu resources", userInfo[@"name"], byteCount, completedResources);
+    } else {
+        // Otherwise, print download/verification progress.
+        NSLog(@"Offline pack “%@” has %llu of %llu resources — %.2f%%.", userInfo[@"name"], completedResources, expectedResources, progressPercentage * 100);
+    }
 }
 
 - (void)offlinePackDidReceiveError:(NSNotification *)notification {

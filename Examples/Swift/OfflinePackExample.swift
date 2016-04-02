@@ -10,7 +10,7 @@ import Mapbox
 
 @objc(OfflinePackExample_Swift)
 
-class OfflinePackExample: UIViewController {
+class OfflinePackExample: UIViewController, MGLMapViewDelegate {
 
     var mapView: MGLMapView!
     var progressView: UIProgressView!
@@ -21,6 +21,7 @@ class OfflinePackExample: UIViewController {
         mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL())
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         mapView.tintColor = .grayColor()
+        mapView.delegate = self
         view.addSubview(mapView)
 
         mapView.setCenterCoordinate(CLLocationCoordinate2DMake(22.27933, 114.16281),
@@ -29,7 +30,10 @@ class OfflinePackExample: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "offlinePackProgressDidChange:", name: MGLOfflinePackProgressChangedNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "offlinePackDidReceiveError:", name: MGLOfflinePackProgressChangedNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "offlinePackDidReceiveMaximumAllowedMapboxTiles:", name: MGLOfflinePackProgressChangedNotification, object: nil)
+    }
 
+    func mapViewDidFinishLoadingMap(mapView: MGLMapView) {
+        // Start downloading tiles and resources for z13-16.
         startOfflinePackDownload()
     }
 
@@ -39,7 +43,8 @@ class OfflinePackExample: UIViewController {
 
     func startOfflinePackDownload() {
         // Create a region that includes the current viewport and any tiles needed to view it when zoomed further in.
-        let region = MGLTilePyramidOfflineRegion(styleURL: mapView.styleURL, bounds: mapView.visibleCoordinateBounds, fromZoomLevel: mapView.zoomLevel, toZoomLevel: mapView.zoomLevel + 2)
+        // Because tile count grows exponentially with the maximum zoom level, you should be conservative with your `toZoomLevel` setting.
+        let region = MGLTilePyramidOfflineRegion(styleURL: mapView.styleURL, bounds: mapView.visibleCoordinateBounds, fromZoomLevel: mapView.zoomLevel, toZoomLevel: 16)
 
         // Store some data for identification purposes alongside the downloaded resources.
         let userInfo = ["name": "My Offline Pack"]
@@ -73,8 +78,6 @@ class OfflinePackExample: UIViewController {
             // Calculate current progress percentage.
             let progressPercentage = Float(completedResources) / Float(expectedResources)
 
-            print("Offline pack “\(userInfo["name"])” has downloaded \(completedResources) of \(expectedResources) resources — \(progressPercentage * 100)%.")
-
             // Setup the progress bar.
             if progressView == nil {
                 progressView = UIProgressView(progressViewStyle: .Default)
@@ -85,10 +88,13 @@ class OfflinePackExample: UIViewController {
 
             progressView.progress = progressPercentage
 
-            // Is this pack complete?
-            if progressPercentage == 100 {
+            // If this pack has finished, print its size and resource count.
+            if completedResources == expectedResources {
                 let byteCount = NSByteCountFormatter.stringFromByteCount(Int64(pack.progress.countOfBytesCompleted), countStyle: NSByteCountFormatterCountStyle.Memory)
                 print("Offline pack “\(userInfo["name"])” completed: \(byteCount), \(completedResources) resources")
+            } else {
+                // Otherwise, print download/verification progress.
+                print("Offline pack “\(userInfo["name"])” has \(completedResources) of \(expectedResources) resources — \(progressPercentage * 100)%.")
             }
         }
     }
