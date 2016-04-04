@@ -22,8 +22,9 @@
         MBXExampleDrawingACustomMarker,
         MBXExampleDrawingAMarker,
         MBXExampleDrawingAPolygon,
-        MBXExampleSatelliteStyle,
+        MBXExampleOfflinePack,
         MBXExamplePointConversion,
+        MBXExampleSatelliteStyle,
         MBXExampleSimpleMapView,
     ]];
 
