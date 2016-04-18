@@ -28,7 +28,8 @@ NSString *const MBXSegueTableToExample = @"TableToExampleSegue";
     // do this ourselves, as automatic doesn't work with fast swipes
     self.clearsSelectionOnViewWillAppear = NO;
 
-    [self performSegueWithIdentifier:MBXSegueTableToExample sender:self];
+    // testing: explicitly jump to an example, later defined in prepareForSegue
+    //[self performSegueWithIdentifier:MBXSegueTableToExample sender:self];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -64,13 +65,12 @@ NSString *const MBXSegueTableToExample = @"TableToExampleSegue";
     if ([segue.identifier isEqualToString:MBXSegueTableToExample]) {
         if ([sender isKindOfClass:[UITableViewCell class]]) {
             UITableViewCell *senderCell = sender;
-
             ExamplesContainerViewController *destinationVC = [segue destinationViewController];
             destinationVC.exampleToLoad = senderCell.textLabel.text;
-        } else {
+        } /* else {
             ExamplesContainerViewController *destinationVC = [segue destinationViewController];
             destinationVC.exampleToLoad = MBXExampleOfflinePack;
-        }
+        } */
     }
 }
 
