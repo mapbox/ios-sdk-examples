@@ -20,7 +20,10 @@ NSString *const MBXExampleSatelliteStyle = @"SatelliteStyleExample";
     // A Hybrid style with unobtrusive labels is also available via +hybridStyleURL.
     NSURL *styleURL = [MGLStyle satelliteStyleURL];
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:styleURL];
-    
+
+    // Tint the ℹ️ button.
+    mapView.attributionButton.tintColor = [UIColor whiteColor];
+
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     // Set the map's center coordinates and zoom level

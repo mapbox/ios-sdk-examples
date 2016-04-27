@@ -16,6 +16,10 @@ class DefaultStylesExample_Swift: UIViewController {
 
         let mapView = MGLMapView(frame: view.bounds,
                                  styleURL: MGLStyle.lightStyleURL())
+
+        // Tint the ℹ️ button and the user location annotation.
+        mapView.tintColor = .darkGrayColor()
+
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 
         // set the map's center coordinate
