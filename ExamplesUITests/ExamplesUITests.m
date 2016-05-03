@@ -46,12 +46,12 @@
         [map doubleTap];
         [map twoFingerTap];
 
-//        [map rotate:M_1_PI withVelocity:1];
+        // Rotation has flapped because the gesture doesn't fire reliably
+        [map rotate:M_1_PI withVelocity:1];
 
-//        This fails because the rotate gesture doesn't fire reliably
-//        XCUIElement *compass = map.images[@"Compass"];
-//        [self waitForElementToBeHittable:compass];
-//        [compass tap];
+        XCUIElement *compass = map.images[@"Compass"];
+        [self waitForElementToBeHittable:compass];
+        [compass tap];
 
         [app.navigationBars.buttons[@"Back"] tap];
     }
