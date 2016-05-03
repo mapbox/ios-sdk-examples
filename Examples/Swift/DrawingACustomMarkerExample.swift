@@ -17,7 +17,7 @@ class DrawingACustomMarkerExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL())
+        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURLWithVersion(9))
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
         // Set the map's bounds to Pisa, Italy

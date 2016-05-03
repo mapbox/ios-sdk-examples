@@ -21,7 +21,7 @@ NSString *const MBXExampleCustomCalloutView = @"CustomCalloutViewExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURL]];
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURLWithVersion:9]];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     mapView.tintColor = [UIColor darkGrayColor];
     [self.view addSubview:mapView];

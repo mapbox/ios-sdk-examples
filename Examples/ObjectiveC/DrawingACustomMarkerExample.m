@@ -21,7 +21,7 @@ NSString *const MBXExampleDrawingACustomMarker = @"DrawingACustomMarkerExample";
 {
     [super viewDidLoad];
     
-    NSURL *styleURL = [MGLStyle lightStyleURL];
+    NSURL *styleURL = [MGLStyle lightStyleURLWithVersion:9];
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:styleURL];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
