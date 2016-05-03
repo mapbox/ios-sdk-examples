@@ -15,6 +15,11 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Speed-up Core Animation-based animations in testing scenarios.
+    if ([[NSProcessInfo processInfo].arguments containsObject:@"useFastAnimations"]) {
+        self.window.layer.speed = 100;
+    }
+
     return YES;
 }
 
