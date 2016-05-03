@@ -25,7 +25,7 @@
 
     // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
     XCUIApplication *app = [[XCUIApplication alloc] init];
-    app.launchArguments = @[@"useFastAnimations"];
+    app.launchArguments = [app.launchArguments arrayByAddingObject:@"useFastAnimations"];
     [app launch];
 }
 
