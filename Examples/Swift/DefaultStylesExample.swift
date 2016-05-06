@@ -23,9 +23,9 @@ class DefaultStylesExample_Swift: UIViewController {
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 
         // set the map's center coordinate
-        mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 40.7326808,
-            longitude: -73.9843407),
-            zoomLevel: 12, animated: false)
+        mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 51.50713,
+            longitude: -0.10957),
+            zoomLevel: 13, animated: false)
         view.addSubview(mapView)
     }
 }
