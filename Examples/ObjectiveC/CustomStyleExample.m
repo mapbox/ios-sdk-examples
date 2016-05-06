@@ -25,8 +25,8 @@ NSString *const MBXExampleCustomStyle = @"CustomStyleExample";
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
     // set the map's center coordinate and zoom level
-    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(51.50713, -0.10957)
-                       zoomLevel:13
+    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(45.52954, -122.72317)
+                       zoomLevel:14
                         animated:NO];
 
     [self.view addSubview:mapView];
