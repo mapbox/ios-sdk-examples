@@ -15,7 +15,7 @@ class CustomStyleExample_Swift: UIViewController {
         super.viewDidLoad()
 
         // fill in the next line with your style URL from Mapbox Studio
-        // <# "mapbox://styles/userName/styleHash" #>
+        // <#mapbox://styles/userName/styleHash#>
         let styleURL = NSURL(string: "mapbox://styles/mapbox/outdoors-v9")
         let mapView = MGLMapView(frame: view.bounds,
                                  styleURL: styleURL)
