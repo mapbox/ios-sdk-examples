@@ -17,7 +17,7 @@ class SatelliteStyleExample_Swift: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // A Hybrid style with unobtrusive labels is also available via hybridStyleURL().
+        // A hybrid style with unobtrusive labels is also available via satelliteStreetsStyleURLWithVersion().
         mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.satelliteStyleURLWithVersion(9))
 
         // Tint the ℹ️ button.
@@ -25,9 +25,10 @@ class SatelliteStyleExample_Swift: UIViewController {
 
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 
-        // Set the map's center coordinates and zoom level
+        // Set the map’s center coordinate and zoom level.
         mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 45.5188, longitude: -122.6748), zoomLevel: 13, animated: false)
 
         view.addSubview(mapView)
     }
+
 }

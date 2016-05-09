@@ -67,5 +67,4 @@ class DrawingACustomMarkerExample_Swift: UIViewController, MGLMapViewDelegate {
         // Always allow callouts to popup when annotations are tapped
         return true
     }
-
 }

@@ -43,4 +43,5 @@ class DrawingAMarkerExample_Swift: UIViewController, MGLMapViewDelegate {
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
     }
+
 }
