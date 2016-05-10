@@ -14,7 +14,7 @@ class CustomCalloutViewExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL())
+        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURLWithVersion(9))
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         mapView.tintColor = UIColor.darkGrayColor()
         view.addSubview(mapView)

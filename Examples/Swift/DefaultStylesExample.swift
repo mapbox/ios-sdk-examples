@@ -15,17 +15,17 @@ class DefaultStylesExample_Swift: UIViewController {
         super.viewDidLoad()
 
         let mapView = MGLMapView(frame: view.bounds,
-                                 styleURL: MGLStyle.lightStyleURL())
+                                 styleURL: MGLStyle.outdoorsStyleURLWithVersion(9))
 
         // Tint the ℹ️ button and the user location annotation.
         mapView.tintColor = .darkGrayColor()
 
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 
-        // set the map's center coordinate
-        mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 40.7326808,
-            longitude: -73.9843407),
-            zoomLevel: 12, animated: false)
+        // Set the map’s center coordinate and zoom level.
+        mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 51.50713,
+            longitude: -0.10957),
+            zoomLevel: 13, animated: false)
         view.addSubview(mapView)
     }
 }

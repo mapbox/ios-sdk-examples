@@ -17,16 +17,16 @@ NSString *const MBXExampleDefaultStyles = @"DefaultStylesExample";
     [super viewDidLoad];
 
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds
-                                                   styleURL:[MGLStyle lightStyleURL]];
+                                                   styleURL:[MGLStyle outdoorsStyleURLWithVersion:9]];
 
     // Tint the ℹ️ button and the user location annotation.
     mapView.tintColor = [UIColor darkGrayColor];
 
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    // set the map's center coordinate and zoom level
-    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(40.7326808, -73.9843407)
-                       zoomLevel:12
+    // Set the map’s center coordinate and zoom level.
+    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(51.50713, -0.10957)
+                       zoomLevel:13
                         animated:NO];
 
     [self.view addSubview:mapView];

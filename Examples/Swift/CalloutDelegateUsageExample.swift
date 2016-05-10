@@ -10,7 +10,8 @@ import Mapbox
 
 @objc(CalloutDelegateUsageExample_Swift)
 
-class CalloutDelegateUsageExample_Swift: UIViewController, MGLMapViewDelegate {
+class CalloutDelegateUsageExample_Swift: UIViewController,
+                                         MGLMapViewDelegate {
 
     var mapView: MGLMapView!
 
@@ -70,4 +71,5 @@ class CalloutDelegateUsageExample_Swift: UIViewController, MGLMapViewDelegate {
 
         UIAlertView(title: annotation.title!!, message: "A lovely (if touristy) place.", delegate: nil, cancelButtonTitle: nil, otherButtonTitles: "OK").show()
     }
+
 }

@@ -17,8 +17,8 @@ NSString *const MBXExampleSatelliteStyle = @"SatelliteStyleExample";
 {
     [super viewDidLoad];
     
-    // A Hybrid style with unobtrusive labels is also available via +hybridStyleURL.
-    NSURL *styleURL = [MGLStyle satelliteStyleURL];
+    // A hybrid style with unobtrusive labels is also available via +satelliteStreetsStyleURLWithVersion:.
+    NSURL *styleURL = [MGLStyle satelliteStyleURLWithVersion:9];
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:styleURL];
 
     // Tint the ℹ️ button.
@@ -26,7 +26,7 @@ NSString *const MBXExampleSatelliteStyle = @"SatelliteStyleExample";
 
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    // Set the map's center coordinates and zoom level
+    // Set the map’s center coordinate and zoom level.
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(45.5188, -122.6748)
                        zoomLevel:13
                         animated:NO];

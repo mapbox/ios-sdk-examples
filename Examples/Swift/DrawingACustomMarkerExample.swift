@@ -17,8 +17,9 @@ class DrawingACustomMarkerExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL())
+        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURLWithVersion(9))
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        mapView.tintColor = .darkGrayColor()
         
         // Set the map's bounds to Pisa, Italy
         let bounds = MGLCoordinateBounds(sw: CLLocationCoordinate2D(latitude: 43.7115, longitude: 10.3725),
@@ -66,5 +67,4 @@ class DrawingACustomMarkerExample_Swift: UIViewController, MGLMapViewDelegate {
         // Always allow callouts to popup when annotations are tapped
         return true
     }
-
 }

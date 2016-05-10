@@ -18,7 +18,7 @@ class OfflinePackExample: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL())
+        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURLWithVersion(9))
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         mapView.tintColor = .grayColor()
         mapView.delegate = self

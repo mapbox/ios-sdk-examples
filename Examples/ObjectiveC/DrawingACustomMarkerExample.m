@@ -21,9 +21,10 @@ NSString *const MBXExampleDrawingACustomMarker = @"DrawingACustomMarkerExample";
 {
     [super viewDidLoad];
     
-    NSURL *styleURL = [MGLStyle lightStyleURL];
+    NSURL *styleURL = [MGLStyle lightStyleURLWithVersion:9];
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:styleURL];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    mapView.tintColor = [UIColor darkGrayColor];
     
     // Set the map‘s bounds to Pisa, Italy
     MGLCoordinateBounds bounds = MGLCoordinateBoundsMake(CLLocationCoordinate2DMake(43.7115, 10.3725),
