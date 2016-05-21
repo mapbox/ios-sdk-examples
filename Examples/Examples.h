@@ -17,6 +17,7 @@
 
 extern NSString *const MBXExampleCalloutDelegateUsage;
 extern NSString *const MBXExampleCameraAnimation;
+extern NSString *const MBXExampleCustomAnnotationModel;
 extern NSString *const MBXExampleCustomCalloutView;
 extern NSString *const MBXExampleCustomRasterStyle;
 extern NSString *const MBXExampleCustomStyle;
