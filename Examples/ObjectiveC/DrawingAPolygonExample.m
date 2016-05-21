@@ -46,7 +46,7 @@ NSString *const MBXExampleDrawingAPolygon = @"DrawingAPolygonExample";
 
 - (void)drawShape
 {
-    // Create a coordinates array to all of the coordinates for our shape.
+    // Create a coordinates array to hold all of the coordinates for our shape.
     CLLocationCoordinate2D coordinates[] = {
         CLLocationCoordinate2DMake(45.522585, -122.685699),
         CLLocationCoordinate2DMake(45.534611, -122.708873),
