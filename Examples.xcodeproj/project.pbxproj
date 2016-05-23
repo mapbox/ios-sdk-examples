@@ -22,6 +22,9 @@
 		961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962D41C583FDC002D3DAB /* ExamplesContainerViewController.m */; };
 		96466ACA1C9323D9009CF4AB /* CustomCalloutViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96466AC91C9323D9009CF4AB /* CustomCalloutViewExample.swift */; };
 		96466AD11C932EF5009CF4AB /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96466AD01C932EF5009CF4AB /* CustomCalloutView.swift */; };
+		9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */; };
+		9678E3F01CEF591000F21AE2 /* CustomAnnotationModelExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3EF1CEF591000F21AE2 /* CustomAnnotationModelExample.swift */; };
+		9678E3F41CEFA9B500F21AE2 /* CustomAnnotationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3F31CEFA9B500F21AE2 /* CustomAnnotationModels.swift */; };
 		968247031C5BDCBB00494AB8 /* CustomRasterStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */; };
 		968247051C5BDDC600494AB8 /* CustomRasterStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968247041C5BDDC600494AB8 /* CustomRasterStyleExample.swift */; };
 		968247081C5BEBDC00494AB8 /* SatelliteStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */; };
@@ -109,6 +112,11 @@
 		961962D41C583FDC002D3DAB /* ExamplesContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamplesContainerViewController.m; sourceTree = "<group>"; };
 		96466AC91C9323D9009CF4AB /* CustomCalloutViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCalloutViewExample.swift; path = Examples/Swift/CustomCalloutViewExample.swift; sourceTree = SOURCE_ROOT; };
 		96466AD01C932EF5009CF4AB /* CustomCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCalloutView.swift; path = Examples/Swift/CustomCalloutView.swift; sourceTree = SOURCE_ROOT; };
+		9678E3EC1CEF58DA00F21AE2 /* CustomAnnotationModelExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationModelExample.h; sourceTree = "<group>"; };
+		9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationModelExample.m; sourceTree = "<group>"; };
+		9678E3EF1CEF591000F21AE2 /* CustomAnnotationModelExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAnnotationModelExample.swift; path = Examples/Swift/CustomAnnotationModelExample.swift; sourceTree = SOURCE_ROOT; };
+		9678E3F21CEF616700F21AE2 /* CustomAnnotationModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationModels.h; sourceTree = "<group>"; };
+		9678E3F31CEFA9B500F21AE2 /* CustomAnnotationModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAnnotationModels.swift; path = Examples/Swift/CustomAnnotationModels.swift; sourceTree = SOURCE_ROOT; };
 		968247011C5BDCBB00494AB8 /* CustomRasterStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomRasterStyleExample.h; path = Examples/ObjectiveC/CustomRasterStyleExample.h; sourceTree = SOURCE_ROOT; };
 		968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomRasterStyleExample.m; path = Examples/ObjectiveC/CustomRasterStyleExample.m; sourceTree = SOURCE_ROOT; };
 		968247041C5BDDC600494AB8 /* CustomRasterStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomRasterStyleExample.swift; path = Examples/Swift/CustomRasterStyleExample.swift; sourceTree = SOURCE_ROOT; };
@@ -264,6 +272,7 @@
 		9682472D1C5C226D00494AB8 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				9678E3EC1CEF58DA00F21AE2 /* CustomAnnotationModelExample.h */,
 				968247111C5C0F0F00494AB8 /* CalloutDelegateUsageExample.h */,
 				968247251C5C1DC700494AB8 /* CameraAnimationExample.h */,
 				96A2A1D01C8CA74B0059441E /* CustomCalloutView.h */,
@@ -292,6 +301,10 @@
 				968247141C5C102B00494AB8 /* CalloutDelegateUsageExample.swift */,
 				968247261C5C1DC700494AB8 /* CameraAnimationExample.m */,
 				968247231C5C1D9500494AB8 /* CameraAnimationExample.swift */,
+				9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */,
+				9678E3EF1CEF591000F21AE2 /* CustomAnnotationModelExample.swift */,
+				9678E3F21CEF616700F21AE2 /* CustomAnnotationModels.h */,
+				9678E3F31CEFA9B500F21AE2 /* CustomAnnotationModels.swift */,
 				96A2A1D11C8CA74B0059441E /* CustomCalloutView.m */,
 				96466AD01C932EF5009CF4AB /* CustomCalloutView.swift */,
 				96A2A1CE1C8CA16C0059441E /* CustomCalloutViewExample.m */,
@@ -465,6 +478,7 @@
 				961962941C581700002D3DAB /* AppDelegate.m in Sources */,
 				968247171C5C10B100494AB8 /* DrawingAGeoJSONLineExample.swift in Sources */,
 				9691AAA71C5AAD8F006A58C6 /* CustomStyleExample.m in Sources */,
+				9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */,
 				961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */,
 				968247201C5C1C0400494AB8 /* DrawingAPolygonExample.m in Sources */,
 				96A2A1D21C8CA74B0059441E /* CustomCalloutView.m in Sources */,
@@ -473,6 +487,7 @@
 				968247031C5BDCBB00494AB8 /* CustomRasterStyleExample.m in Sources */,
 				9682472A1C5C1FF800494AB8 /* PointConversionExample.m in Sources */,
 				96466ACA1C9323D9009CF4AB /* CustomCalloutViewExample.swift in Sources */,
+				9678E3F41CEFA9B500F21AE2 /* CustomAnnotationModels.swift in Sources */,
 				96D432041C84B62A007D09D1 /* DrawingACustomMarkerExample.swift in Sources */,
 				961962911C581700002D3DAB /* main.m in Sources */,
 				968247131C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m in Sources */,
@@ -481,6 +496,7 @@
 				9682472C1C5C20F900494AB8 /* PointConversionExample.swift in Sources */,
 				9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */,
 				9682470A1C5BEE4D00494AB8 /* SatelliteStyleExample.swift in Sources */,
+				9678E3F01CEF591000F21AE2 /* CustomAnnotationModelExample.swift in Sources */,
 				968247081C5BEBDC00494AB8 /* SatelliteStyleExample.m in Sources */,
 				96115A681CAD4E1C000963B8 /* OfflinePackExample.m in Sources */,
 				9682471A1C5C115000494AB8 /* DrawingAGeoJSONLineExample.m in Sources */,
