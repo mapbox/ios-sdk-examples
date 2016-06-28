@@ -20,6 +20,8 @@
 		961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961962CE1C581FBC002D3DAB /* Main.storyboard */; };
 		961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962D11C5821A9002D3DAB /* ExamplesTableViewController.m */; };
 		961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962D41C583FDC002D3DAB /* ExamplesContainerViewController.m */; };
+		962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 962B450E1D1C8520007B7454 /* AnnotationViewExample.m */; };
+		962B45111D1C8541007B7454 /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B45101D1C8541007B7454 /* AnnotationViewExample.swift */; };
 		96466ACA1C9323D9009CF4AB /* CustomCalloutViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96466AC91C9323D9009CF4AB /* CustomCalloutViewExample.swift */; };
 		96466AD11C932EF5009CF4AB /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96466AD01C932EF5009CF4AB /* CustomCalloutView.swift */; };
 		9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */; };
@@ -110,6 +112,9 @@
 		961962D11C5821A9002D3DAB /* ExamplesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamplesTableViewController.m; sourceTree = "<group>"; };
 		961962D31C583FDC002D3DAB /* ExamplesContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamplesContainerViewController.h; sourceTree = "<group>"; };
 		961962D41C583FDC002D3DAB /* ExamplesContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamplesContainerViewController.m; sourceTree = "<group>"; };
+		962B450D1D1C8520007B7454 /* AnnotationViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewExample.h; sourceTree = "<group>"; };
+		962B450E1D1C8520007B7454 /* AnnotationViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewExample.m; sourceTree = "<group>"; };
+		962B45101D1C8541007B7454 /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnotationViewExample.swift; path = Examples/Swift/AnnotationViewExample.swift; sourceTree = SOURCE_ROOT; };
 		96466AC91C9323D9009CF4AB /* CustomCalloutViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCalloutViewExample.swift; path = Examples/Swift/CustomCalloutViewExample.swift; sourceTree = SOURCE_ROOT; };
 		96466AD01C932EF5009CF4AB /* CustomCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCalloutView.swift; path = Examples/Swift/CustomCalloutView.swift; sourceTree = SOURCE_ROOT; };
 		9678E3EC1CEF58DA00F21AE2 /* CustomAnnotationModelExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationModelExample.h; sourceTree = "<group>"; };
@@ -272,6 +277,7 @@
 		9682472D1C5C226D00494AB8 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				962B450D1D1C8520007B7454 /* AnnotationViewExample.h */,
 				9678E3EC1CEF58DA00F21AE2 /* CustomAnnotationModelExample.h */,
 				968247111C5C0F0F00494AB8 /* CalloutDelegateUsageExample.h */,
 				968247251C5C1DC700494AB8 /* CameraAnimationExample.h */,
@@ -297,6 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				9682472D1C5C226D00494AB8 /* Headers */,
+				962B450E1D1C8520007B7454 /* AnnotationViewExample.m */,
+				962B45101D1C8541007B7454 /* AnnotationViewExample.swift */,
 				968247121C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m */,
 				968247141C5C102B00494AB8 /* CalloutDelegateUsageExample.swift */,
 				968247261C5C1DC700494AB8 /* CameraAnimationExample.m */,
@@ -470,6 +478,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962B45111D1C8541007B7454 /* AnnotationViewExample.swift in Sources */,
+				962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */,
 				9691AAB31C5AC5BF006A58C6 /* DefaultStylesExample.swift in Sources */,
 				9682470C1C5BF08400494AB8 /* DrawingAMarkerExample.swift in Sources */,
 				9691AAA91C5AAD8F006A58C6 /* SimpleMapViewExample.m in Sources */,

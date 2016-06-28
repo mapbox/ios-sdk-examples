@@ -12,6 +12,7 @@
 
 + (NSArray *)list {
     NSArray *initialList = [[NSMutableArray alloc] initWithArray:@[
+        MBXExampleAnnotationView,
         MBXExampleCalloutDelegateUsage,
         MBXExampleCameraAnimation,
         MBXExampleCustomAnnotationModel,

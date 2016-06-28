@@ -14,7 +14,7 @@
 //   3. Add this constant to +list in Examples.m
 //   4. Create NewExample.swift (otherwise Swift is handled automatically)
 
-
+extern NSString *const MBXExampleAnnotationView;
 extern NSString *const MBXExampleCalloutDelegateUsage;
 extern NSString *const MBXExampleCameraAnimation;
 extern NSString *const MBXExampleCustomAnnotationModel;
