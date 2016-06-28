@@ -64,8 +64,8 @@ class CustomAnnotationModelExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.addAnnotations(pointAnnotations)
     }
 
-    func dot(size size: Int) -> (UIImage) {
-        let floatSize = (CGFloat)(size)
+    func dot(size size: Int) -> UIImage {
+        let floatSize = CGFloat(size)
         let rect = CGRectMake(0, 0, floatSize, floatSize)
         let strokeWidth: CGFloat = 1
 

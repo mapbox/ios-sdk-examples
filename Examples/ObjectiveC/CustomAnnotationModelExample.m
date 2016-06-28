@@ -51,16 +51,16 @@ NSString *const MBXExampleCustomAnnotationModel = @"CustomAnnotationModelExample
     // Point Annotations
     // Add a custom point annotation for every coordinate (vertex) in the polyline.
     NSMutableArray *pointAnnotations = [NSMutableArray arrayWithCapacity:numberOfCoordinates];
-    for (int i = 0; i < numberOfCoordinates; i++) {
-        int count = (int)pointAnnotations.count + 1;
+    for (NSUInteger i = 0; i < numberOfCoordinates; i++) {
+        NSUInteger count = pointAnnotations.count + 1;
         CustomPointAnnotation *point = [[CustomPointAnnotation alloc] init];
 
         point.coordinate = coordinates[i];
-        point.title = [NSString stringWithFormat:@"Custom Point Annotation %i", count];
+        point.title = [NSString stringWithFormat:@"Custom Point Annotation %lu", (unsigned long)count];
 
         // Set the custom `image` and `reuseIdentifier` properties, later used in the `mapView:imageForAnnotation:` delegate method.
         // Create a unique reuse identifier for each new annotation image.
-        point.reuseIdentifier = [NSString stringWithFormat:@"customAnnotation%i", count];
+        point.reuseIdentifier = [NSString stringWithFormat:@"customAnnotation%lu", (unsigned long)count];
         // This dot image grows in size as more annotations are added to the array.
         point.image = [self dotWithSize:(5 * count)];
 
@@ -73,7 +73,7 @@ NSString *const MBXExampleCustomAnnotationModel = @"CustomAnnotationModelExample
     [mapView addAnnotations:pointAnnotations];
 }
 
-- (UIImage *)dotWithSize:(int)size {
+- (UIImage *)dotWithSize:(NSUInteger)size {
     size = (CGFloat)size;
     CGRect rect = CGRectMake(0, 0, size, size);
     CGFloat strokeWidth = 1;
