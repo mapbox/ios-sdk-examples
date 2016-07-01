@@ -51,6 +51,8 @@
 		9691AAAE1C5AB5A1006A58C6 /* SimpleMapViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample.swift */; };
 		9691AAB11C5AC5AD006A58C6 /* CustomStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAB01C5AC5AD006A58C6 /* CustomStyleExample.swift */; };
 		9691AAB31C5AC5BF006A58C6 /* DefaultStylesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAB21C5AC5BF006A58C6 /* DefaultStylesExample.swift */; };
+		969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */; };
+		969E7FDF1D25C38800663F84 /* UserTrackingModesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969E7FDE1D25C38800663F84 /* UserTrackingModesExample.swift */; };
 		96A2A1CF1C8CA16C0059441E /* CustomCalloutViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A1CE1C8CA16C0059441E /* CustomCalloutViewExample.m */; };
 		96A2A1D21C8CA74B0059441E /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A1D11C8CA74B0059441E /* CustomCalloutView.m */; };
 		96D431FC1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D431FB1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m */; };
@@ -159,6 +161,9 @@
 		9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleMapViewExample.swift; path = Examples/Swift/SimpleMapViewExample.swift; sourceTree = SOURCE_ROOT; };
 		9691AAB01C5AC5AD006A58C6 /* CustomStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomStyleExample.swift; path = Examples/Swift/CustomStyleExample.swift; sourceTree = SOURCE_ROOT; };
 		9691AAB21C5AC5BF006A58C6 /* DefaultStylesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultStylesExample.swift; path = Examples/Swift/DefaultStylesExample.swift; sourceTree = SOURCE_ROOT; };
+		969E7FDB1D25C31700663F84 /* UserTrackingModesExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTrackingModesExample.h; sourceTree = "<group>"; };
+		969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTrackingModesExample.m; sourceTree = "<group>"; };
+		969E7FDE1D25C38800663F84 /* UserTrackingModesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTrackingModesExample.swift; path = Examples/Swift/UserTrackingModesExample.swift; sourceTree = SOURCE_ROOT; };
 		96A2A1CD1C8CA16C0059441E /* CustomCalloutViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCalloutViewExample.h; path = Examples/ObjectiveC/CustomCalloutViewExample.h; sourceTree = SOURCE_ROOT; };
 		96A2A1CE1C8CA16C0059441E /* CustomCalloutViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCalloutViewExample.m; path = Examples/ObjectiveC/CustomCalloutViewExample.m; sourceTree = SOURCE_ROOT; };
 		96A2A1D01C8CA74B0059441E /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCalloutView.h; path = Examples/ObjectiveC/CustomCalloutView.h; sourceTree = SOURCE_ROOT; };
@@ -278,22 +283,23 @@
 			isa = PBXGroup;
 			children = (
 				962B450D1D1C8520007B7454 /* AnnotationViewExample.h */,
-				9678E3EC1CEF58DA00F21AE2 /* CustomAnnotationModelExample.h */,
 				968247111C5C0F0F00494AB8 /* CalloutDelegateUsageExample.h */,
 				968247251C5C1DC700494AB8 /* CameraAnimationExample.h */,
+				9678E3EC1CEF58DA00F21AE2 /* CustomAnnotationModelExample.h */,
 				96A2A1D01C8CA74B0059441E /* CustomCalloutView.h */,
 				96A2A1CD1C8CA16C0059441E /* CustomCalloutViewExample.h */,
 				968247011C5BDCBB00494AB8 /* CustomRasterStyleExample.h */,
 				9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */,
 				9691AAA31C5AAD8F006A58C6 /* DefaultStylesExample.h */,
-				968247181C5C115000494AB8 /* DrawingAGeoJSONLineExample.h */,
 				96D431FA1C84B4F7007D09D1 /* DrawingACustomMarkerExample.h */,
+				968247181C5C115000494AB8 /* DrawingAGeoJSONLineExample.h */,
 				9682470D1C5BF12700494AB8 /* DrawingAMarkerExample.h */,
 				9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */,
 				96115A661CAD4E1C000963B8 /* OfflinePackExample.h */,
 				968247281C5C1FF800494AB8 /* PointConversionExample.h */,
 				968247061C5BEBDC00494AB8 /* SatelliteStyleExample.h */,
 				9691AAA51C5AAD8F006A58C6 /* SimpleMapViewExample.h */,
+				969E7FDB1D25C31700663F84 /* UserTrackingModesExample.h */,
 			);
 			name = Headers;
 			path = Examples/ObjectiveC;
@@ -339,6 +345,8 @@
 				968247091C5BEE4D00494AB8 /* SatelliteStyleExample.swift */,
 				9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */,
 				9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample.swift */,
+				969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */,
+				969E7FDE1D25C38800663F84 /* UserTrackingModesExample.swift */,
 			);
 			name = Code;
 			path = ObjectiveC;
@@ -483,6 +491,7 @@
 				9691AAB31C5AC5BF006A58C6 /* DefaultStylesExample.swift in Sources */,
 				9682470C1C5BF08400494AB8 /* DrawingAMarkerExample.swift in Sources */,
 				9691AAA91C5AAD8F006A58C6 /* SimpleMapViewExample.m in Sources */,
+				969E7FDF1D25C38800663F84 /* UserTrackingModesExample.swift in Sources */,
 				96A2A1CF1C8CA16C0059441E /* CustomCalloutViewExample.m in Sources */,
 				9682470F1C5BF12700494AB8 /* DrawingAMarkerExample.m in Sources */,
 				961962941C581700002D3DAB /* AppDelegate.m in Sources */,
@@ -512,6 +521,7 @@
 				9682471A1C5C115000494AB8 /* DrawingAGeoJSONLineExample.m in Sources */,
 				968247051C5BDDC600494AB8 /* CustomRasterStyleExample.swift in Sources */,
 				96115A6A1CAD5012000963B8 /* OfflinePackExample.swift in Sources */,
+				969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */,
 				968247241C5C1D9500494AB8 /* CameraAnimationExample.swift in Sources */,
 				968247151C5C102B00494AB8 /* CalloutDelegateUsageExample.swift in Sources */,
 				968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */,
