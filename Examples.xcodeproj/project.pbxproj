@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */; };
+		960A21631D344FC400BB348B /* DraggableAnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A21621D344FC400BB348B /* DraggableAnnotationViewExample.swift */; };
 		96115A681CAD4E1C000963B8 /* OfflinePackExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96115A671CAD4E1C000963B8 /* OfflinePackExample.m */; };
 		96115A6A1CAD5012000963B8 /* OfflinePackExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96115A691CAD5012000963B8 /* OfflinePackExample.swift */; };
 		961962911C581700002D3DAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962901C581700002D3DAB /* main.m */; };
@@ -92,6 +94,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableAnnotationViewExample.h; sourceTree = "<group>"; };
+		960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableAnnotationViewExample.m; sourceTree = "<group>"; };
+		960A21621D344FC400BB348B /* DraggableAnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DraggableAnnotationViewExample.swift; path = Examples/Swift/DraggableAnnotationViewExample.swift; sourceTree = SOURCE_ROOT; };
 		96115A661CAD4E1C000963B8 /* OfflinePackExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OfflinePackExample.h; path = Examples/ObjectiveC/OfflinePackExample.h; sourceTree = SOURCE_ROOT; };
 		96115A671CAD4E1C000963B8 /* OfflinePackExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OfflinePackExample.m; path = Examples/ObjectiveC/OfflinePackExample.m; sourceTree = SOURCE_ROOT; };
 		96115A691CAD5012000963B8 /* OfflinePackExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfflinePackExample.swift; path = Examples/Swift/OfflinePackExample.swift; sourceTree = SOURCE_ROOT; };
@@ -291,6 +296,7 @@
 				968247011C5BDCBB00494AB8 /* CustomRasterStyleExample.h */,
 				9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */,
 				9691AAA31C5AAD8F006A58C6 /* DefaultStylesExample.h */,
+				960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */,
 				96D431FA1C84B4F7007D09D1 /* DrawingACustomMarkerExample.h */,
 				968247181C5C115000494AB8 /* DrawingAGeoJSONLineExample.h */,
 				9682470D1C5BF12700494AB8 /* DrawingAMarkerExample.h */,
@@ -329,6 +335,8 @@
 				9691AAB01C5AC5AD006A58C6 /* CustomStyleExample.swift */,
 				9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */,
 				9691AAB21C5AC5BF006A58C6 /* DefaultStylesExample.swift */,
+				960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */,
+				960A21621D344FC400BB348B /* DraggableAnnotationViewExample.swift */,
 				96D431FB1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m */,
 				96D432031C84B62A007D09D1 /* DrawingACustomMarkerExample.swift */,
 				968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */,
@@ -488,9 +496,11 @@
 			files = (
 				962B45111D1C8541007B7454 /* AnnotationViewExample.swift in Sources */,
 				962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */,
+				960A21631D344FC400BB348B /* DraggableAnnotationViewExample.swift in Sources */,
 				9691AAB31C5AC5BF006A58C6 /* DefaultStylesExample.swift in Sources */,
 				9682470C1C5BF08400494AB8 /* DrawingAMarkerExample.swift in Sources */,
 				9691AAA91C5AAD8F006A58C6 /* SimpleMapViewExample.m in Sources */,
+				960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */,
 				969E7FDF1D25C38800663F84 /* UserTrackingModesExample.swift in Sources */,
 				96A2A1CF1C8CA16C0059441E /* CustomCalloutViewExample.m in Sources */,
 				9682470F1C5BF12700494AB8 /* DrawingAMarkerExample.m in Sources */,

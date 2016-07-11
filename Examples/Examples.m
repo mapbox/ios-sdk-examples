@@ -20,6 +20,7 @@
         MBXExampleCustomRasterStyle,
         MBXExampleCustomStyle,
         MBXExampleDefaultStyles,
+        MBXExampleDraggableAnnotationView,
         MBXExampleDrawingAGeoJSONLine,
         MBXExampleDrawingACustomMarker,
         MBXExampleDrawingAMarker,
