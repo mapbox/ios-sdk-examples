@@ -128,28 +128,23 @@ class UserLocationButton : UIButton {
     func updateArrow(for mode: MGLUserTrackingMode) {
         switch (mode) {
         case .None:
-            arrow!.fillColor = UIColor.clearColor().CGColor
             arrow!.strokeColor = UIColor.whiteColor().CGColor
-            arrow!.setAffineTransform(CGAffineTransformRotate(CGAffineTransformIdentity, 0))
             break
         case .Follow:
-            arrow!.fillColor = UIColor.clearColor().CGColor
             arrow!.strokeColor = tintColor.CGColor
-            arrow!.setAffineTransform(CGAffineTransformRotate(CGAffineTransformIdentity, 0.66))
             break
-        case .FollowWithHeading:
-            arrow!.fillColor = tintColor.CGColor
+        case .FollowWithHeading, .FollowWithCourse:
             arrow!.strokeColor = UIColor.clearColor().CGColor
-            arrow!.setAffineTransform(CGAffineTransformRotate(CGAffineTransformIdentity, 0.66))
-            break
-        case .FollowWithCourse:
-            arrow!.fillColor = tintColor.CGColor
-            arrow!.strokeColor = UIColor.clearColor().CGColor
-            arrow!.setAffineTransform(CGAffineTransformRotate(CGAffineTransformIdentity, 0))
             break
         }
 
+        // Re-center the arrow, based on its current orientation.
         arrow!.position = (mode == .None || mode == .FollowWithCourse) ? CGPointMake(size / 2, size / 2) : CGPointMake(size / 2 + 2, size / 2 - 2)
+
+        arrow!.fillColor = (mode == .None || mode == .Follow) ? UIColor.clearColor().CGColor : tintColor.CGColor
+
+        let rotation: CGFloat = (mode == .Follow || mode == .FollowWithHeading) ? 0.66 : 0
+        arrow!.setAffineTransform(CGAffineTransformRotate(CGAffineTransformIdentity, rotation))
 
         layoutIfNeeded()
     }
