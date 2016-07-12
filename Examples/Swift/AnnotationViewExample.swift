@@ -16,19 +16,18 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
 
         let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        mapView.styleURL = MGLStyle.lightStyleURLWithVersion(9)
-        mapView.tintColor = .darkGrayColor()
-        mapView.zoomLevel = 1
+        mapView.styleURL = MGLStyle.darkStyleURLWithVersion(9)
+        mapView.tintColor = .lightGrayColor()
+        mapView.centerCoordinate = CLLocationCoordinate2DMake(0, 66)
+        mapView.zoomLevel = 2
         mapView.delegate = self
         view.addSubview(mapView)
 
         // Specify coordinates for our annotations.
         let coordinates = [
-            CLLocationCoordinate2DMake(0, -70),
-            CLLocationCoordinate2DMake(0, -35),
-            CLLocationCoordinate2DMake(0,  0),
-            CLLocationCoordinate2DMake(0, 35),
-            CLLocationCoordinate2DMake(0, 70),
+            CLLocationCoordinate2DMake(0, 33),
+            CLLocationCoordinate2DMake(0, 66),
+            CLLocationCoordinate2DMake(0, 99),
         ]
 
         // Fill an array with point annotations and add it to the map.
@@ -36,7 +35,7 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
         for coordinate in coordinates {
             let point = MGLPointAnnotation()
             point.coordinate = coordinate
-            point.title = "To drag this annotation, first tap and hold."
+            point.title = "\(coordinate.latitude), \(coordinate.longitude)"
             pointAnnotations.append(point)
         }
 
@@ -52,15 +51,62 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
             return nil
         }
 
-        // For better performance, always try to reuse existing annotations. To use multiple different annotation views, change the reuse identifier for each.
-        if let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("draggablePoint") {
+        // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
+        let reuseIdentifier = "\(annotation.coordinate.longitude)"
+
+        // For better performance, always try to reuse existing annotations.
+        if let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseIdentifier) {
+            // This annotation view already exists, so use it.
             return annotationView
         } else {
-            return CustomDraggableAnnotationView(reuseIdentifier: "draggablePoint", size: 50)
+            // Initialize a new annotation view with this reuse identifier.
+            let annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
+            annotationView.frame = CGRectMake(0, 0, 40, 40)
+
+            // Set the annotation view’s background color to a value determined by its longitude.
+            let hue = CGFloat(annotation.coordinate.longitude) / 100
+            annotationView.backgroundColor = UIColor.init(hue: hue, saturation: 0.5, brightness: 1, alpha: 1)
+
+            return annotationView
         }
     }
 
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
+    }
+}
+
+// MGLAnnotationView subclass
+class CustomAnnotationView : MGLAnnotationView {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        // By default, annotation views will shrink and grow as the move towards and away from the horizon. Annotations backed by GL sprites (MGLAnnotationImage) currently ONLY scale with viewing distance.
+        // Uncomment this line to force this annotation view to maintain a constant size when the map is tilted.
+        //scalesWithViewingDistance = false
+
+        // Use CALayer’s corner radius to turn this view into a circle.
+        layer.cornerRadius = frame.width / 2
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.whiteColor().CGColor
+    }
+
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        let newBorderWidth: CGFloat = selected ? frame.width / 4 : 2
+
+        // Pending https://github.com/mapbox/mapbox-gl-native/pull/5646
+        //if (animated) {
+            // Animate to the new border width.
+            let animation = CABasicAnimation(keyPath: "borderWidth")
+            animation.duration = 0.1
+            animation.fromValue = layer.borderWidth
+            animation.toValue = newBorderWidth
+            layer.borderWidth = newBorderWidth
+            layer.addAnimation(animation, forKey: "borderWidth")
+        //} else {
+        //    layer.borderWidth = newBorderWidth
+        //}
     }
 }
