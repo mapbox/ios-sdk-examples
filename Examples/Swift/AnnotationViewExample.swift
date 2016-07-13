@@ -55,20 +55,19 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
         let reuseIdentifier = "\(annotation.coordinate.longitude)"
 
         // For better performance, always try to reuse existing annotations.
-        if let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseIdentifier) {
-            // This annotation view already exists, so use it.
-            return annotationView
-        } else {
-            // Initialize a new annotation view with this reuse identifier.
+        let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseIdentifier)
+
+        // If there’s no reusable annotation view available, initialize a new one.
+        if annotationView == nil {
             let annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
             annotationView.frame = CGRectMake(0, 0, 40, 40)
 
             // Set the annotation view’s background color to a value determined by its longitude.
             let hue = CGFloat(annotation.coordinate.longitude) / 100
             annotationView.backgroundColor = UIColor.init(hue: hue, saturation: 0.5, brightness: 1, alpha: 1)
-
-            return annotationView
         }
+
+        return annotationView
     }
 
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
@@ -81,9 +80,8 @@ class CustomAnnotationView : MGLAnnotationView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        // By default, annotation views will shrink and grow as the move towards and away from the horizon. Annotations backed by GL sprites (MGLAnnotationImage) currently ONLY scale with viewing distance.
-        // Uncomment this line to force this annotation view to maintain a constant size when the map is tilted.
-        //scalesWithViewingDistance = false
+        // Force the annotation view to maintain a constant size when the map is tilted.
+        scalesWithViewingDistance = false
 
         // Use CALayer’s corner radius to turn this view into a circle.
         layer.cornerRadius = frame.width / 2
@@ -94,14 +92,10 @@ class CustomAnnotationView : MGLAnnotationView {
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        let newBorderWidth: CGFloat = selected ? frame.width / 4 : 2
-
-        // Animate to the new border width.
+        // Animate the border width in/out, creating an iris effect.
         let animation = CABasicAnimation(keyPath: "borderWidth")
         animation.duration = 0.1
-        animation.fromValue = layer.borderWidth
-        animation.toValue = newBorderWidth
-        layer.borderWidth = newBorderWidth
+        layer.borderWidth = selected ? frame.width / 4 : 2
         layer.addAnimation(animation, forKey: "borderWidth")
     }
 }
