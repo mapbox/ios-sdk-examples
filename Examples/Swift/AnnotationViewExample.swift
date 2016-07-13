@@ -96,17 +96,12 @@ class CustomAnnotationView : MGLAnnotationView {
 
         let newBorderWidth: CGFloat = selected ? frame.width / 4 : 2
 
-        // Pending https://github.com/mapbox/mapbox-gl-native/pull/5646
-        //if (animated) {
-            // Animate to the new border width.
-            let animation = CABasicAnimation(keyPath: "borderWidth")
-            animation.duration = 0.1
-            animation.fromValue = layer.borderWidth
-            animation.toValue = newBorderWidth
-            layer.borderWidth = newBorderWidth
-            layer.addAnimation(animation, forKey: "borderWidth")
-        //} else {
-        //    layer.borderWidth = newBorderWidth
-        //}
+        // Animate to the new border width.
+        let animation = CABasicAnimation(keyPath: "borderWidth")
+        animation.duration = 0.1
+        animation.fromValue = layer.borderWidth
+        animation.toValue = newBorderWidth
+        layer.borderWidth = newBorderWidth
+        layer.addAnimation(animation, forKey: "borderWidth")
     }
 }
