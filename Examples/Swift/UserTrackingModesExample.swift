@@ -126,14 +126,16 @@ class UserLocationButton : UIButton {
     }
 
     func updateArrow(for mode: MGLUserTrackingMode) {
+        var stroke: CGColor
         switch (mode) {
         case .None:
-            arrow!.strokeColor = UIColor.whiteColor().CGColor
+            stroke = UIColor.whiteColor().CGColor
         case .Follow:
-            arrow!.strokeColor = tintColor.CGColor
+            stroke = tintColor.CGColor
         case .FollowWithHeading, .FollowWithCourse:
-            arrow!.strokeColor = UIColor.clearColor().CGColor
+            stroke = UIColor.clearColor().CGColor
         }
+        arrow!.strokeColor = stroke
 
         // Re-center the arrow, based on its current orientation.
         arrow!.position = (mode == .None || mode == .FollowWithCourse) ? CGPointMake(size / 2, size / 2) : CGPointMake(size / 2 + 2, size / 2 - 2)
