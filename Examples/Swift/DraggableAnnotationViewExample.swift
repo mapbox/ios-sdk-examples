@@ -29,7 +29,7 @@ class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate
             CLLocationCoordinate2DMake(0,  0),
             CLLocationCoordinate2DMake(0, 35),
             CLLocationCoordinate2DMake(0, 70),
-            ]
+        ]
 
         // Fill an array with point annotations and add it to the map.
         var pointAnnotations = [MGLPointAnnotation]()
@@ -56,7 +56,7 @@ class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate
         if let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("draggablePoint") {
             return annotationView
         } else {
-            return CustomDraggableAnnotationView(reuseIdentifier: "draggablePoint", size: 50)
+            return DraggableAnnotationView(reuseIdentifier: "draggablePoint", size: 50)
         }
     }
 
@@ -65,8 +65,9 @@ class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate
     }
 }
 
+
 // MGLAnnotationView subclass
-class CustomDraggableAnnotationView : MGLAnnotationView {
+class DraggableAnnotationView : MGLAnnotationView {
     init(reuseIdentifier: String, size: CGFloat) {
         super.init(reuseIdentifier: reuseIdentifier)
 
@@ -106,13 +107,11 @@ class CustomDraggableAnnotationView : MGLAnnotationView {
         case .Starting:
             print("Starting", terminator: "")
             startDragging()
-            break
         case .Dragging:
             print(".", terminator: "")
         case .Ending, .Canceling:
             print("Ending")
             endDragging()
-            break
         case .None:
             return
         }
@@ -123,13 +122,14 @@ class CustomDraggableAnnotationView : MGLAnnotationView {
         UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             self.layer.opacity = 0.8
             self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.5, 1.5)
-            }, completion: nil)
+        }, completion: nil)
     }
 
     func endDragging() {
+        transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.5, 1.5)
         UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             self.layer.opacity = 1
             self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1)
-            }, completion: nil)
+        }, completion: nil)
     }
 }
