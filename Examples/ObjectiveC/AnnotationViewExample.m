@@ -13,11 +13,11 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
 
 
 // MGLAnnotationView subclass
-@interface CustomViewAnnotation : MGLAnnotationView
+@interface CustomAnnotationView : MGLAnnotationView
 
 @end
 
-@implementation CustomViewAnnotation
+@implementation CustomAnnotationView
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -97,11 +97,11 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
     NSString *reuseIdentifier = [NSString stringWithFormat:@"%f", annotation.coordinate.longitude];
 
     // For better performance, always try to reuse existing annotations.
-    CustomViewAnnotation *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
+    CustomAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
 
     // If there’s no reusable annotation view available, initialize a new one.
     if (!annotationView) {
-        CustomViewAnnotation *annotationView = [[CustomViewAnnotation alloc] initWithReuseIdentifier:reuseIdentifier];
+        annotationView = [[CustomAnnotationView alloc] initWithReuseIdentifier:reuseIdentifier];
         annotationView.frame = CGRectMake(0, 0, 40, 40);
 
         // Set the annotation view’s background color to a value determined by its longitude.
