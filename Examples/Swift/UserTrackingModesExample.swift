@@ -129,13 +129,10 @@ class UserLocationButton : UIButton {
         switch (mode) {
         case .None:
             arrow!.strokeColor = UIColor.whiteColor().CGColor
-            break
         case .Follow:
             arrow!.strokeColor = tintColor.CGColor
-            break
         case .FollowWithHeading, .FollowWithCourse:
             arrow!.strokeColor = UIColor.clearColor().CGColor
-            break
         }
 
         // Re-center the arrow, based on its current orientation.
