@@ -24,14 +24,14 @@ NSString *const MBXExampleDrawingAMarker = @"DrawingAMarkerExample";
     
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    // Set the map's center coordinates and zoom level
+    // Set the map’s center coordinates and zoom level.
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(40.7326808, -73.9843407)
                             zoomLevel:12
                              animated:NO];
     
     [self.view addSubview:mapView];
     
-    // Set the delegate property of our map view to self after instantiating it.
+    // Set the delegate property of our map view to `self` after instantiating it.
     mapView.delegate = self;
 
     // Declare the marker `hello` and set its coordinates, title, and subtitle
@@ -44,7 +44,7 @@ NSString *const MBXExampleDrawingAMarker = @"DrawingAMarkerExample";
     [mapView addAnnotation:hello];
 }
 
-// Use the default marker; see our custom marker example for more information
+// Use the default marker. See our the custom marker or view annotation examples for more information.
 - (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation {
     return nil;
 }
