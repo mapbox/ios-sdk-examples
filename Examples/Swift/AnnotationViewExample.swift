@@ -78,7 +78,7 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
 
 //
 // MGLAnnotationView subclass
-class CustomAnnotationView : MGLAnnotationView {
+class CustomAnnotationView: MGLAnnotationView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
