@@ -26,8 +26,9 @@ NSString *const MBXExampleDrawingACustomMarker = @"DrawingACustomMarkerExample";
     mapView.tintColor = [UIColor darkGrayColor];
     
     // Set the map‘s bounds to Pisa, Italy.
-    MGLCoordinateBounds bounds = MGLCoordinateBoundsMake(CLLocationCoordinate2DMake(43.7115, 10.3725),
-                                                         CLLocationCoordinate2DMake(43.7318, 10.4222));
+    MGLCoordinateBounds bounds = MGLCoordinateBoundsMake(
+        CLLocationCoordinate2DMake(43.7115, 10.3725),
+        CLLocationCoordinate2DMake(43.7318, 10.4222));
     [mapView setVisibleCoordinateBounds:bounds];
     
     [self.view addSubview:mapView];

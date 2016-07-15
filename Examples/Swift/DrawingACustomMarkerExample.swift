@@ -19,7 +19,8 @@ class DrawingACustomMarkerExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.tintColor = .darkGrayColor()
         
         // Set the map's bounds to Pisa, Italy.
-        let bounds = MGLCoordinateBounds(sw: CLLocationCoordinate2D(latitude: 43.7115, longitude: 10.3725),
+        let bounds = MGLCoordinateBounds(
+            sw: CLLocationCoordinate2D(latitude: 43.7115, longitude: 10.3725),
             ne: CLLocationCoordinate2D(latitude: 43.7318, longitude: 10.4222))
         mapView.setVisibleCoordinateBounds(bounds, animated: false)
         
