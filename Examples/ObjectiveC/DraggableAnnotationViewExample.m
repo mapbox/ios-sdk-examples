@@ -128,7 +128,7 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
 
 #pragma mark - MGLMapViewDelegate methods
 
-// This delegate method is where you tell the map to load a view for a specific annotation. To load a GL-based MGLAnnotationImage, you would use `-mapView:imageForAnnotation:`.
+// This delegate method is where you tell the map to load a view for a specific annotation. To load a static MGLAnnotationImage, you would use `-mapView:imageForAnnotation:`.
 - (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id <MGLAnnotation>)annotation {
     // This example is only concerned with point annotations.
     if (![annotation isKindOfClass:[MGLPointAnnotation class]]) {

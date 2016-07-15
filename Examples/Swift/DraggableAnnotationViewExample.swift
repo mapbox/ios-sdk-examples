@@ -46,7 +46,7 @@ class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate
 
     // MARK: - MGLMapViewDelegate methods
 
-    // This delegate method is where you tell the map to load a view for a specific annotation. To load a GL-based MGLAnnotationImage, you would use `-mapView:imageForAnnotation:`.
+    // This delegate method is where you tell the map to load a view for a specific annotation. To load a static MGLAnnotationImage, you would use `-mapView:imageForAnnotation:`.
     func mapView(mapView: MGLMapView, viewForAnnotation annotation: MGLAnnotation) -> MGLAnnotationView? {
         // This example is only concerned with point annotations.
         guard annotation is MGLPointAnnotation else {
