@@ -10,6 +10,7 @@ import Mapbox
 
 @objc(AnnotationViewExample_Swift)
 
+// Example view controller
 class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +76,7 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 }
 
+//
 // MGLAnnotationView subclass
 class CustomAnnotationView : MGLAnnotationView {
     override func layoutSubviews() {

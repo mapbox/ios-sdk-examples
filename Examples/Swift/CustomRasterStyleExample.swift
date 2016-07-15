@@ -15,7 +15,7 @@ class CustomRasterStyleExample_Swift: UIViewController {
         super.viewDidLoad()
 
         let styleURL = NSURL(string: "https://www.mapbox.com/ios-sdk/files/mapbox-raster-v8.json")
-        // local paths are also acceptable
+        // Local paths are also acceptable.
 
         let mapView = MGLMapView(frame: view.bounds,
                                  styleURL: styleURL)
