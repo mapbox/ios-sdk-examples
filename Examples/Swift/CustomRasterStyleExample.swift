@@ -17,8 +17,7 @@ class CustomRasterStyleExample_Swift: UIViewController {
         let styleURL = NSURL(string: "https://www.mapbox.com/ios-sdk/files/mapbox-raster-v8.json")
         // Local paths are also acceptable.
 
-        let mapView = MGLMapView(frame: view.bounds,
-                                 styleURL: styleURL)
+        let mapView = MGLMapView(frame: view.bounds, styleURL: styleURL)
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 
         view.addSubview(mapView)
