@@ -11,7 +11,6 @@ import Mapbox
 @objc(DrawingAMarkerExample_Swift)
 
 class DrawingAMarkerExample_Swift: UIViewController, MGLMapViewDelegate {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,13 +34,13 @@ class DrawingAMarkerExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.addAnnotation(hello)
     }
     
-    // Use the default marker. See our the custom marker or view annotation examples for more information.
-    func mapView(mapView: MGLMapView, imageForAnnotation annotation: MGLAnnotation) -> MGLAnnotationImage? {
+    // Use the default marker. See also: our view annotation or custom marker examples.
+    func mapView(mapView: MGLMapView, viewForAnnotation annotation: MGLAnnotation) -> MGLAnnotationView? {
         return nil
     }
-    
+
+    // Allow callout view to appear when an annotation is tapped.
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
     }
-
 }

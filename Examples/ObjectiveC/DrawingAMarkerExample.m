@@ -12,7 +12,6 @@
 NSString *const MBXExampleDrawingAMarker = @"DrawingAMarkerExample";
 
 @interface DrawingAMarkerExample () <MGLMapViewDelegate>
-
 @end
 
 @implementation DrawingAMarkerExample
@@ -34,7 +33,7 @@ NSString *const MBXExampleDrawingAMarker = @"DrawingAMarkerExample";
     // Set the delegate property of our map view to `self` after instantiating it.
     mapView.delegate = self;
 
-    // Declare the marker `hello` and set its coordinates, title, and subtitle
+    // Declare the marker `hello` and set its coordinates, title, and subtitle.
     MGLPointAnnotation *hello = [[MGLPointAnnotation alloc] init];
     hello.coordinate = CLLocationCoordinate2DMake(40.7326808, -73.9843407);
     hello.title = @"Hello world!";
@@ -44,12 +43,12 @@ NSString *const MBXExampleDrawingAMarker = @"DrawingAMarkerExample";
     [mapView addAnnotation:hello];
 }
 
-// Use the default marker. See our the custom marker or view annotation examples for more information.
-- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation {
+// Use the default marker. See also: our view annotation or custom marker examples.
+- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView viewForAnnotation:(id <MGLAnnotation>)annotation {
     return nil;
 }
 
-// Allow markers callouts to show when tapped
+// Allow callout view to appear when an annotation is tapped.
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id <MGLAnnotation>)annotation {
     return YES;
 }
