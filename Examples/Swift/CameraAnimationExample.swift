@@ -11,13 +11,10 @@ import Mapbox
 @objc(CameraAnimationExample_Swift)
 
 class CameraAnimationExample_Swift: UIViewController, MGLMapViewDelegate {
-
-    var mapView: MGLMapView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mapView = MGLMapView(frame: view.bounds)
+        let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         mapView.delegate = self
 
@@ -42,5 +39,4 @@ class CameraAnimationExample_Swift: UIViewController, MGLMapViewDelegate {
         // Animate the camera movement over 5 seconds.
         mapView.setCamera(camera, withDuration: 5, animationTimingFunction: CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
     }
-
 }

@@ -71,5 +71,4 @@ class CalloutDelegateUsageExample_Swift: UIViewController, MGLMapViewDelegate {
 
         UIAlertView(title: annotation.title!!, message: "A lovely (if touristy) place.", delegate: nil, cancelButtonTitle: nil, otherButtonTitles: "OK").show()
     }
-
 }
