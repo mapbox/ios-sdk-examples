@@ -27,7 +27,7 @@ NSString *const MBXExampleCalloutDelegateUsage = @"CalloutDelegateUsageExample";
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.mapView];
 
-    // remember to set the delegate (or much of this will not work)
+    // Remember to set the delegate.
     self.mapView.delegate = self;
 
     [self addAnnotation];
@@ -42,10 +42,10 @@ NSString *const MBXExampleCalloutDelegateUsage = @"CalloutDelegateUsageExample";
 
     [self.mapView addAnnotation:annotation];
 
-    // fit the map to the annotation(s)
-    [self.mapView showAnnotations:self.mapView.annotations animated:NO];
+    // Center the map on the annotation.
+    [self.mapView setCenterCoordinate:annotation.coordinate zoomLevel:17 animated:NO];
 
-    // pop-up the callout view
+    // Pop-up the callout view.
     [self.mapView selectAnnotation:annotation animated:YES];
 }
 
@@ -58,7 +58,7 @@ NSString *const MBXExampleCalloutDelegateUsage = @"CalloutDelegateUsageExample";
 {
     if ([annotation.title isEqualToString:@"Kinkaku-ji"])
     {
-        // callout height is fixed; width expands to fit
+        // Callout height is fixed; width expands to fit its content.
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60.f, 50.f)];
         label.textAlignment = NSTextAlignmentRight;
         label.textColor = [UIColor colorWithRed:0.81f green:0.71f blue:0.23f alpha:1.f];
@@ -77,7 +77,7 @@ NSString *const MBXExampleCalloutDelegateUsage = @"CalloutDelegateUsageExample";
 
 - (void)mapView:(MGLMapView *)mapView annotation:(id<MGLAnnotation>)annotation calloutAccessoryControlTapped:(UIControl *)control
 {
-    // hide the callout view
+    // Hide the callout view.
     [self.mapView deselectAnnotation:annotation animated:NO];
 
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:annotation.title

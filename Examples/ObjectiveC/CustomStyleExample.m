@@ -16,7 +16,7 @@ NSString *const MBXExampleCustomStyle = @"CustomStyleExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // fill in the next line with your style URL from Mapbox Studio
+    // Fill in the next line with your style URL from Mapbox Studio.
     // <#mapbox://styles/userName/styleHash#>
     NSURL *styleURL = [NSURL URLWithString:@"mapbox://styles/mapbox/outdoors-v9"];
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds
@@ -24,7 +24,7 @@ NSString *const MBXExampleCustomStyle = @"CustomStyleExample";
 
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    // set the map's center coordinate and zoom level
+    // Set the map’s center coordinate and zoom level.
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(45.52954, -122.72317)
                        zoomLevel:14
                         animated:NO];

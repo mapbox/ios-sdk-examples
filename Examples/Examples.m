@@ -12,6 +12,7 @@
 
 + (NSArray *)list {
     NSArray *initialList = [[NSMutableArray alloc] initWithArray:@[
+        MBXExampleAnnotationView,
         MBXExampleCalloutDelegateUsage,
         MBXExampleCameraAnimation,
         MBXExampleCustomAnnotationModel,
@@ -19,6 +20,7 @@
         MBXExampleCustomRasterStyle,
         MBXExampleCustomStyle,
         MBXExampleDefaultStyles,
+        MBXExampleDraggableAnnotationView,
         MBXExampleDrawingAGeoJSONLine,
         MBXExampleDrawingACustomMarker,
         MBXExampleDrawingAMarker,
@@ -27,6 +29,7 @@
         MBXExamplePointConversion,
         MBXExampleSatelliteStyle,
         MBXExampleSimpleMapView,
+        MBXExampleUserTrackingModes,
     ]];
 
     NSMutableArray *meh = [[NSMutableArray alloc] init];

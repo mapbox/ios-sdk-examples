@@ -12,9 +12,6 @@
 NSString *const MBXExampleCameraAnimation = @"CameraAnimationExample";
 
 @interface CameraAnimationExample () <MGLMapViewDelegate>
-
-@property (nonatomic) MGLMapView *mapView;
-
 @end
 
 @implementation CameraAnimationExample
@@ -22,18 +19,19 @@ NSString *const MBXExampleCameraAnimation = @"CameraAnimationExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
-    self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.mapView.delegate = self;
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
+    mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    mapView.delegate = self;
 
-    self.mapView.styleURL = [MGLStyle outdoorsStyleURLWithVersion:9];
+    mapView.styleURL = [MGLStyle outdoorsStyleURLWithVersion:9];
 
+    // Mauna Kea, Hawaii
     CLLocationCoordinate2D center = CLLocationCoordinate2DMake(19.820689, -155.468038);
 
     // Optionally set a starting point.
-    [self.mapView setCenterCoordinate:center zoomLevel:7 direction:0 animated:NO];
+    [mapView setCenterCoordinate:center zoomLevel:7 direction:0 animated:NO];
 
-    [self.view addSubview:self.mapView];
+    [self.view addSubview:mapView];
 }
 
 -(void)mapViewDidFinishLoadingMap:(MGLMapView *)mapView {
@@ -41,10 +39,10 @@ NSString *const MBXExampleCameraAnimation = @"CameraAnimationExample";
 
     // Create a camera that rotates around the same center point, rotating 180°.
     // `fromDistance:` is meters above mean sea level that an eye would have to be in order to see what the map view is showing.
-    MGLMapCamera *camera = [MGLMapCamera cameraLookingAtCenterCoordinate:self.mapView.centerCoordinate fromDistance:4500 pitch:15 heading:180];
+    MGLMapCamera *camera = [MGLMapCamera cameraLookingAtCenterCoordinate:mapView.centerCoordinate fromDistance:4500 pitch:15 heading:180];
 
     // Animate the camera movement over 5 seconds.
-    [self.mapView setCamera:camera withDuration:5 animationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [mapView setCamera:camera withDuration:5 animationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
 }
 
 @end
