@@ -10,6 +10,7 @@ import Mapbox
 
 @objc(DraggableAnnotationViewExample_Swift)
 
+// Example view controller
 class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,9 +66,9 @@ class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate
     }
 }
 
-
+//
 // MGLAnnotationView subclass
-class DraggableAnnotationView : MGLAnnotationView {
+class DraggableAnnotationView: MGLAnnotationView {
     init(reuseIdentifier: String, size: CGFloat) {
         super.init(reuseIdentifier: reuseIdentifier)
 

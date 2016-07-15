@@ -14,7 +14,6 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
 
 // MGLAnnotationView subclass
 @interface DraggableAnnotationView : MGLAnnotationView
-
 @end
 
 @implementation DraggableAnnotationView
@@ -86,10 +85,9 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
 
 @end
 
-
-// DraggableAnnotationViewExample view controller
+//
+// Example view controller
 @interface DraggableAnnotationViewExample () <MGLMapViewDelegate>
-
 @end
 
 @implementation DraggableAnnotationViewExample
@@ -141,7 +139,7 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
     NSString *reuseIdentifier = [NSString stringWithFormat:@"%f", annotation.coordinate.longitude];
 
     // For better performance, always try to reuse existing annotations. To use multiple different annotation views, change the reuse identifier for each.
-    DraggableAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"draggalePoint"];
+    DraggableAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"draggablePoint"];
 
     // If there’s no reusable annotation view available, initialize a new one.
     if (!annotationView) {
