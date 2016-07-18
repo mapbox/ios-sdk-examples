@@ -9,7 +9,7 @@
 import Mapbox
 
 // MGLAnnotation protocol reimplementation
-class CustomPointAnnotation : NSObject, MGLAnnotation {
+class CustomPointAnnotation: NSObject, MGLAnnotation {
 
     // As a reimplementation of the MGLAnnotation protocol, we have to add mutable coordinate and (sub)title properties ourselves.
     var coordinate: CLLocationCoordinate2D
@@ -28,7 +28,7 @@ class CustomPointAnnotation : NSObject, MGLAnnotation {
 }
 
 // MGLPolyline subclass
-class CustomPolyline : MGLPolyline {
+class CustomPolyline: MGLPolyline {
     // Because this is a subclass of MGLPolyline, there is no need to redeclare its properties.
 
     // Custom property that we will use when drawing the polyline.
