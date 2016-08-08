@@ -1,24 +1,23 @@
 //
-//  DraggableAnnotationViewExample.swift
+//  AnnotationMovementExample.swift
 //  Examples
 //
-//  Created by Jason Wray on 7/11/16.
+//  Created by Jason Wray on 7/19/16.
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
 
 import Mapbox
 
-@objc(DraggableAnnotationViewExample_Swift)
+@objc(AnnotationMovementExample_Swift)
 
 // Example view controller
-class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
+class AnnotationMovementExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        mapView.styleURL = MGLStyle.lightStyleURLWithVersion(9)
-        mapView.tintColor = .darkGrayColor()
+        mapView.styleURL = MGLStyle.outdoorsStyleURLWithVersion(9)
         mapView.zoomLevel = 1
         mapView.delegate = self
         view.addSubview(mapView)
@@ -37,7 +36,7 @@ class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate
         for coordinate in coordinates {
             let point = MGLPointAnnotation()
             point.coordinate = coordinate
-            point.title = "To drag this annotation, first tap and hold."
+            point.title = "Hrm?"
             pointAnnotations.append(point)
         }
 
@@ -54,10 +53,10 @@ class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate
         }
 
         // For better performance, always try to reuse existing annotations. To use multiple different annotation views, change the reuse identifier for each.
-        if let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("draggablePoint") {
+        if let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("moveablePoint") {
             return annotationView
         } else {
-            return DraggableAnnotationView(reuseIdentifier: "draggablePoint", size: 50)
+            return MoveableAnnotationView(reuseIdentifier: "moveablePoint", size: 50)
         }
     }
 
@@ -68,12 +67,9 @@ class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate
 
 //
 // MGLAnnotationView subclass
-class DraggableAnnotationView: MGLAnnotationView {
+class MoveableAnnotationView: MGLAnnotationView {
     init(reuseIdentifier: String, size: CGFloat) {
         super.init(reuseIdentifier: reuseIdentifier)
-
-        // `draggable` is a property of MGLAnnotationView, disabled by default.
-        draggable = true
 
         // This property prevents the annotation from changing size when the map is tilted.
         scalesWithViewingDistance = false
@@ -100,32 +96,12 @@ class DraggableAnnotationView: MGLAnnotationView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // Custom handler for changes in the annotation’s drag state.
-    override func setDragState(dragState: MGLAnnotationViewDragState, animated: Bool) {
-        super.setDragState(dragState, animated: animated)
-
-        switch dragState {
-        case .Starting:
-            print("!!! \(self.annotation?.coordinate)")
-            print("Starting", terminator: "")
-            startDragging()
-        case .Dragging:
-            print(".", terminator: "")
-        case .Ending, .Canceling:
-            print("Ending")
-            print("\(self.annotation?.coordinate)")
-            endDragging()
-        case .None:
-            return
-        }
-    }
-
     // When the user interacts with an annotation, animate opacity and scale changes.
     func startDragging() {
         UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             self.layer.opacity = 0.8
             self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.5, 1.5)
-        }, completion: nil)
+            }, completion: nil)
     }
 
     func endDragging() {
@@ -133,6 +109,6 @@ class DraggableAnnotationView: MGLAnnotationView {
         UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             self.layer.opacity = 1
             self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1)
-        }, completion: nil)
+            }, completion: nil)
     }
 }
