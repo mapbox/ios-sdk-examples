@@ -48,6 +48,7 @@
 		968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247261C5C1DC700494AB8 /* CameraAnimationExample.m */; };
 		9682472A1C5C1FF800494AB8 /* PointConversionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247291C5C1FF800494AB8 /* PointConversionExample.m */; };
 		9682472C1C5C20F900494AB8 /* PointConversionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682472B1C5C20F800494AB8 /* PointConversionExample.swift */; };
+		968E2F151D5C5C2F00833BE0 /* london.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 968E2F141D5C5C2F00833BE0 /* london.geojson */; };
 		9691AA941C5AA702006A58C6 /* Examples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AA931C5AA702006A58C6 /* Examples.m */; };
 		9691AAA71C5AAD8F006A58C6 /* CustomStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */; };
 		9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */; };
@@ -159,6 +160,7 @@
 		968247281C5C1FF800494AB8 /* PointConversionExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointConversionExample.h; path = Examples/ObjectiveC/PointConversionExample.h; sourceTree = SOURCE_ROOT; };
 		968247291C5C1FF800494AB8 /* PointConversionExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PointConversionExample.m; path = Examples/ObjectiveC/PointConversionExample.m; sourceTree = SOURCE_ROOT; };
 		9682472B1C5C20F800494AB8 /* PointConversionExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PointConversionExample.swift; path = Examples/Swift/PointConversionExample.swift; sourceTree = SOURCE_ROOT; };
+		968E2F141D5C5C2F00833BE0 /* london.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = london.geojson; sourceTree = "<group>"; };
 		9691AA921C5AA702006A58C6 /* Examples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Examples.h; sourceTree = "<group>"; };
 		9691AA931C5AA702006A58C6 /* Examples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Examples.m; sourceTree = "<group>"; };
 		9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomStyleExample.h; path = Examples/ObjectiveC/CustomStyleExample.h; sourceTree = SOURCE_ROOT; };
@@ -284,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				9682471C1C5C123B00494AB8 /* example.geojson */,
+				968E2F141D5C5C2F00833BE0 /* london.geojson */,
 				96D432051C84B9CF007D09D1 /* pisavector.xcassets */,
 			);
 			path = Files;
@@ -474,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9619629F1C581700002D3DAB /* LaunchScreen.storyboard in Resources */,
+				968E2F151D5C5C2F00833BE0 /* london.geojson in Resources */,
 				9619629C1C581700002D3DAB /* Assets.xcassets in Resources */,
 				9682471D1C5C123B00494AB8 /* example.geojson in Resources */,
 				961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */,
