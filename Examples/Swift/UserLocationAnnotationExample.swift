@@ -6,8 +6,6 @@
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
 
-import Foundation
-
 import Mapbox
 
 @objc(UserLocationAnnotationExample_Swift)
@@ -80,7 +78,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
             dot.drawsAsynchronously = true
 
             dot.cornerRadius = size / 2
-            dot.backgroundColor = super.tintColor.CGColor ?? UIColor.redColor().CGColor
+            dot.backgroundColor = super.tintColor.CGColor
             dot.borderWidth = 2
             dot.borderColor = UIColor.whiteColor().CGColor
             dot.shadowColor = UIColor.blackColor().CGColor
@@ -102,10 +100,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
             arrow.rasterizationScale = UIScreen.mainScreen().scale
             arrow.drawsAsynchronously = true
 
-            //arrow.borderWidth = 1
-            //arrow.borderColor = UIColor(white: 0, alpha: 0.25).CGColor
-
-            arrow.fillColor = super.tintColor.CGColor ?? UIColor.whiteColor().CGColor
+            arrow.fillColor = super.tintColor.CGColor
 
             layer.addSublayer(arrow)
         }
