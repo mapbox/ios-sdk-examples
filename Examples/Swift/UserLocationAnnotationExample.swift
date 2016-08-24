@@ -110,15 +110,17 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
 
     private func arrowPath() -> CGPath {
         let max: CGFloat = size / 3
-        let tip: CGPoint = CGPointMake(max * 0.5, max * 0.4)
+
+        let top = CGPointMake(max * 0.5, max * 0.4)
+        let left = CGPointMake(0, max)
+        let right = CGPointMake(max, max)
+        let center = CGPointMake(max * 0.5, max * 0.75)
 
         let bezierPath = UIBezierPath()
-        bezierPath.moveToPoint(tip)
-        bezierPath.addLineToPoint(CGPointMake(0, max)) // left tip
-        bezierPath.addLineToPoint(CGPointMake(max * 0.5, max * 0.9)) // center divot
-        bezierPath.addLineToPoint(CGPointMake(max, max)) // right tip
-        bezierPath.addLineToPoint(tip)
-
+        bezierPath.moveToPoint(top)
+        bezierPath.addLineToPoint(left)
+        bezierPath.addQuadCurveToPoint(right, controlPoint: center)
+        bezierPath.addLineToPoint(top)
         bezierPath.closePath()
 
         return bezierPath.CGPath
