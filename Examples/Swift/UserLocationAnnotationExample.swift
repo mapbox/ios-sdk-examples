@@ -35,7 +35,7 @@ class UserLocationAnnotationExample_Swift: UIViewController, MGLMapViewDelegate 
 }
 
 class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
-    let size: CGFloat = 40
+    let size: CGFloat = 25
 
     var dot: CALayer!
     var arrow: CAShapeLayer!
@@ -93,27 +93,32 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
         if arrow == nil {
             arrow = CAShapeLayer()
             arrow.path = arrowPath()
-            arrow.bounds = CGRectMake(0, 0, size / 2, size / 2)
-            arrow.position = CGPointMake(super.bounds.size.width / 2, super.bounds.size.height / 2)
+            arrow.bounds = CGRectMake(0, 0, size / 3, size * 1.66)
+            arrow.position = CGPointMake(super.bounds.size.width / 2, 0)
             arrow.shouldRasterize = true
             arrow.rasterizationScale = UIScreen.mainScreen().scale
             arrow.drawsAsynchronously = true
 
-            arrow.fillColor = UIColor.whiteColor().CGColor
+            //arrow.borderWidth = 1
+            //arrow.borderColor = UIColor(white: 0, alpha: 0.25).CGColor
+
+            arrow.fillColor = super.tintColor.CGColor ?? UIColor.whiteColor().CGColor
 
             layer.addSublayer(arrow)
         }
     }
 
     private func arrowPath() -> CGPath {
-        let max: CGFloat = size / 2
+        let max: CGFloat = size / 3
+        let tip: CGPoint = CGPointMake(max * 0.5, max * 0.4)
 
         let bezierPath = UIBezierPath()
-        bezierPath.moveToPoint(CGPointMake(max * 0.5, 0))
-        bezierPath.addLineToPoint(CGPointMake(max * 0.1, max))
-        bezierPath.addLineToPoint(CGPointMake(max * 0.5, max * 0.65))
-        bezierPath.addLineToPoint(CGPointMake(max * 0.9, max))
-        bezierPath.addLineToPoint(CGPointMake(max * 0.5, 0))
+        bezierPath.moveToPoint(tip)
+        bezierPath.addLineToPoint(CGPointMake(0, max)) // left tip
+        bezierPath.addLineToPoint(CGPointMake(max * 0.5, max * 0.9)) // center divot
+        bezierPath.addLineToPoint(CGPointMake(max, max)) // right tip
+        bezierPath.addLineToPoint(tip)
+
         bezierPath.closePath()
 
         return bezierPath.CGPath
