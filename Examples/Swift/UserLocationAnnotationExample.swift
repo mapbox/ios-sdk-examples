@@ -36,6 +36,7 @@ class UserLocationAnnotationExample_Swift: UIViewController, MGLMapViewDelegate 
 
 class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
     let size: CGFloat = 25
+    var arrowSize: CGFloat!
 
     var dot: CALayer!
     var arrow: CAShapeLayer!
@@ -91,9 +92,11 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
 
     private func setupArrow() {
         if arrow == nil {
+            arrowSize = size / 2.5
+
             arrow = CAShapeLayer()
             arrow.path = arrowPath()
-            arrow.bounds = CGRectMake(0, 0, size / 3, size * 1.66)
+            arrow.bounds = CGRectMake(0, 0, arrowSize, size + (arrowSize * 2))
             arrow.position = CGPointMake(super.bounds.size.width / 2, 0)
             arrow.shouldRasterize = true
             arrow.rasterizationScale = UIScreen.mainScreen().scale
@@ -109,12 +112,12 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
     }
 
     private func arrowPath() -> CGPath {
-        let max: CGFloat = size / 3
+        let max: CGFloat = arrowSize
 
         let top = CGPointMake(max * 0.5, max * 0.4)
         let left = CGPointMake(0, max)
         let right = CGPointMake(max, max)
-        let center = CGPointMake(max * 0.5, max * 0.75)
+        let center = CGPointMake(max * 0.5, max * 0.8)
 
         let bezierPath = UIBezierPath()
         bezierPath.moveToPoint(top)
