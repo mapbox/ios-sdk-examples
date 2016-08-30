@@ -49,6 +49,8 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
     override func update() {
         if CGRectIsNull(frame) {
             frame = CGRectMake(0, 0, size, size)
+
+            return setNeedsLayout()
         }
 
         // This method can be called many times a second, so be careful to keep it lightweight.
@@ -83,7 +85,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
         if dot == nil {
             dot = CALayer()
             dot.bounds = CGRectMake(0, 0, size, size)
-            dot.position = CGPointMake(super.bounds.size.width / 2, super.bounds.size.height / 2)
+            dot.position = CGPointMake(size / 2, size / 2)
 
             // Use CALayer’s corner radius to turn this layer into a circle.
             dot.cornerRadius = size / 2
@@ -104,11 +106,13 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
             arrow = CAShapeLayer()
             arrow.path = arrowPath()
 
-            // We use a long, skinny bounds so that the center remains the same as the dot. This makes rotation easier.
-            arrow.bounds = CGRectMake(0, 0, arrowSize, size + (arrowSize * 2))
-            arrow.position = CGPointMake(super.bounds.size.width / 2, 0)
+            arrow.bounds = CGRectMake(0, 0, arrowSize, arrowSize)
+            arrow.position = CGPointMake(size / 2, -5)
 
             arrow.fillColor = super.tintColor.CGColor
+
+            arrow.borderColor = UIColor(white: 0, alpha: 0.25).CGColor
+            arrow.borderWidth = 1
 
             layer.addSublayer(arrow)
         }
