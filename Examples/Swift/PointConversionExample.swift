@@ -28,7 +28,7 @@ class PointConversionExample: UIViewController, MGLMapViewDelegate {
         mapView.addGestureRecognizer(doubleTap)
 
         // delay single tap recognition until it is clearly not a double
-        let singleTap = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
         singleTap.requireGestureRecognizerToFail(doubleTap)
         mapView.addGestureRecognizer(singleTap)
         

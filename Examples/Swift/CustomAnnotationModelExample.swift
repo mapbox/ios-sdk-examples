@@ -79,7 +79,7 @@ class CustomAnnotationModelExample_Swift: UIViewController, MGLMapViewDelegate {
         ovalPath.lineWidth = strokeWidth
         ovalPath.stroke()
 
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         return image
