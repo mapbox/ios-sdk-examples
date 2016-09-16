@@ -94,7 +94,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
 
     func isCalloutTappable() -> Bool {
         if let delegate = delegate {
-            if delegate.respondsToSelector(#selector(MGLCalloutViewDelegate.calloutViewShouldHighlight(_:))) {
+            if delegate.respondsToSelector(#selector(MGLCalloutViewDelegate.calloutViewShouldHighlight)) {
                 return delegate.calloutViewShouldHighlight!(self)
             }
         }
@@ -102,7 +102,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
     }
 
     func calloutTapped() {
-        if isCalloutTappable() && delegate!.respondsToSelector(#selector(MGLCalloutViewDelegate.calloutViewTapped(_:))) {
+        if isCalloutTappable() && delegate!.respondsToSelector(#selector(MGLCalloutViewDelegate.calloutViewTapped)) {
             delegate!.calloutViewTapped!(self)
         }
     }

@@ -28,9 +28,9 @@ class OfflinePackExample: UIViewController, MGLMapViewDelegate {
                                     zoomLevel: 13, animated: false)
 
         // Setup offline pack notification handlers.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(OfflinePackExample.offlinePackProgressDidChange(_:)), name: MGLOfflinePackProgressChangedNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(OfflinePackExample.offlinePackDidReceiveError(_:)), name: MGLOfflinePackErrorNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(OfflinePackExample.offlinePackDidReceiveMaximumAllowedMapboxTiles(_:)), name: MGLOfflinePackMaximumMapboxTilesReachedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(offlinePackProgressDidChange), name: MGLOfflinePackProgressChangedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(offlinePackDidReceiveError), name: MGLOfflinePackErrorNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(offlinePackDidReceiveMaximumAllowedMapboxTiles), name: MGLOfflinePackMaximumMapboxTilesReachedNotification, object: nil)
     }
 
     func mapViewDidFinishLoadingMap(mapView: MGLMapView) {
