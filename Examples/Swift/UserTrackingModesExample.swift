@@ -57,7 +57,7 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
 
     func setupLocationButton() {
         button = UserLocationButton()
-        button.addTarget(self, action: Selector("locationButtonTapped"), forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(UserTrackingModesExample_Swift.locationButtonTapped), forControlEvents: .TouchUpInside)
         button.tintColor = mapView.tintColor
         view.addSubview(button)
 

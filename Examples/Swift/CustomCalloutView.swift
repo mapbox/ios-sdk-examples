@@ -54,7 +54,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
 
         if isCalloutTappable() {
             // Handle taps and eventually try to send them to the delegate (usually the map view)
-            mainBody.addTarget(self, action: Selector("calloutTapped"), forControlEvents: .TouchUpInside)
+            mainBody.addTarget(self, action: #selector(CustomCalloutView.calloutTapped), forControlEvents: .TouchUpInside)
         } else {
             // Disable tapping and highlighting
             mainBody.userInteractionEnabled = false
@@ -94,7 +94,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
 
     func isCalloutTappable() -> Bool {
         if let delegate = delegate {
-            if delegate.respondsToSelector(Selector("calloutViewShouldHighlight:")) {
+            if delegate.respondsToSelector(#selector(MGLCalloutViewDelegate.calloutViewShouldHighlight(_:))) {
                 return delegate.calloutViewShouldHighlight!(self)
             }
         }
@@ -102,7 +102,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
     }
 
     func calloutTapped() {
-        if isCalloutTappable() && delegate!.respondsToSelector(Selector("calloutViewTapped:")) {
+        if isCalloutTappable() && delegate!.respondsToSelector(#selector(MGLCalloutViewDelegate.calloutViewTapped(_:))) {
             delegate!.calloutViewTapped!(self)
         }
     }
