@@ -135,15 +135,12 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
         return nil;
     }
 
-    // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
-    NSString *reuseIdentifier = [NSString stringWithFormat:@"%f", annotation.coordinate.longitude];
-
     // For better performance, always try to reuse existing annotations. To use multiple different annotation views, change the reuse identifier for each.
     DraggableAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"draggablePoint"];
 
     // If there’s no reusable annotation view available, initialize a new one.
     if (!annotationView) {
-        annotationView = [[DraggableAnnotationView alloc] initWithReuseIdentifier:reuseIdentifier size:50];
+        annotationView = [[DraggableAnnotationView alloc] initWithReuseIdentifier:@"draggablePoint" size:50];
     }
 
     return annotationView;
