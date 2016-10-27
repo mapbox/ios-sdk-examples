@@ -12,7 +12,7 @@ import Mapbox
 class CustomCalloutView: UIView, MGLCalloutView {
     var representedObject: MGLAnnotation
     
-    // Lazy initialization of optional vars for protocols causes segmentation fault: 11s in Swift 3.0. Shttps://bugs.swift.org/browse/SR-1825
+    // Lazy initialization of optional vars for protocols causes segmentation fault: 11s in Swift 3.0. https://bugs.swift.org/browse/SR-1825
     
     var leftAccessoryView = UIView()/* unused */
     var rightAccessoryView = UIView()/* unused */
