@@ -5,32 +5,33 @@
 //  Created by Jason Wray on 1/29/16.
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
-
+#if swift(>=3.0)
+    
 import Mapbox
 
 @objc(DrawingAPolygonExample_Swift)
 
 class DrawingAPolygonExample_Swift: UIViewController, MGLMapViewDelegate {
-
+    
     var mapView: MGLMapView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         mapView = MGLMapView(frame: view.bounds)
-        mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-
-        mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 45.520486, longitude: -122.673541), zoomLevel: 11, animated: false)
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 45.520486, longitude: -122.673541), zoomLevel: 11, animated: false)
         view.addSubview(mapView)
-
+        
         mapView.delegate = self
     }
-
-    override func viewDidAppear(animated: Bool) {
+    
+    override func viewDidAppear(_ animated: Bool) {
         // Draw the polygon after the map has initialized
         drawShape()
     }
-
+    
     func drawShape() {
         // Create a coordinates array to hold all of the coordinates for our shape.
         var coordinates = [
@@ -48,21 +49,23 @@ class DrawingAPolygonExample_Swift: UIViewController, MGLMapViewDelegate {
             CLLocationCoordinate2D(latitude: 45.506346, longitude: -122.702007),
             CLLocationCoordinate2D(latitude: 45.522585, longitude: -122.685699),
             ]
-
+        
         let shape = MGLPolygon.polygon(coordinates: &coordinates, count: UInt(coordinates.count))
-
+        
         mapView.addAnnotation(shape)
     }
-
-    func mapView(mapView: MGLMapView, alphaForShapeAnnotation annotation: MGLShape) -> CGFloat {
+    
+    func mapView(_ mapView: MGLMapView, alphaForShapeAnnotation annotation: MGLShape) -> CGFloat {
         return 0.5
     }
-    func mapView(mapView: MGLMapView, strokeColorForShapeAnnotation annotation: MGLShape) -> UIColor {
-        return UIColor.whiteColor()
+    func mapView(_ mapView: MGLMapView, strokeColorForShapeAnnotation annotation: MGLShape) -> UIColor {
+        return UIColor.white
     }
-
-    func mapView(mapView: MGLMapView, fillColorForPolygonAnnotation annotation: MGLPolygon) -> UIColor {
+    
+    func mapView(_ mapView: MGLMapView, fillColorForPolygonAnnotation annotation: MGLPolygon) -> UIColor {
         return UIColor(red: 59/255, green: 178/255, blue: 208/255, alpha: 1)
     }
-
+    
 }
+
+#endif

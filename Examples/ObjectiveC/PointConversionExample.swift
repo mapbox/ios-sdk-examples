@@ -5,7 +5,7 @@
 //  Created by Jason Wray on 1/29/16.
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
-
+#if swift(>=3.0)
 import Mapbox
 
 @objc(PointConversionExample_Swift)
@@ -18,7 +18,7 @@ class PointConversionExample: UIViewController, MGLMapViewDelegate {
         super.viewDidLoad()
         
         mapView = MGLMapView(frame: view.bounds)
-        mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         view.addSubview(mapView)
         
@@ -26,22 +26,22 @@ class PointConversionExample: UIViewController, MGLMapViewDelegate {
         let doubleTap = UITapGestureRecognizer(target: self, action: nil)
         doubleTap.numberOfTapsRequired = 2
         mapView.addGestureRecognizer(doubleTap)
-
+        
         // delay single tap recognition until it is clearly not a double
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
-        singleTap.requireGestureRecognizerToFail(doubleTap)
+        singleTap.require(toFail: doubleTap)
         mapView.addGestureRecognizer(singleTap)
         
         // convert `mapView.centerCoordinate` (CLLocationCoordinate2D)
         // to screen location (CGPoint)
-        let centerScreenPoint: CGPoint = mapView.convertCoordinate(mapView.centerCoordinate, toPointToView: mapView)
+        let centerScreenPoint: CGPoint = mapView.convert(mapView.centerCoordinate, toPointTo: mapView)
         print("Screen center: \(centerScreenPoint) = \(mapView.center)")
     }
     
     func handleSingleTap(tap: UITapGestureRecognizer) {
         // convert tap location (CGPoint)
         // to geographic coordinates (CLLocationCoordinate2D)
-        let location: CLLocationCoordinate2D = mapView.convertPoint(tap.locationInView(mapView), toCoordinateFromView: mapView)
+        let location: CLLocationCoordinate2D = mapView.convert(tap.location(in: mapView), toCoordinateFrom: mapView)
         print("You tapped at: \(location.latitude), \(location.longitude)")
         
         // create an array of coordinates for our polyline
@@ -55,3 +55,4 @@ class PointConversionExample: UIViewController, MGLMapViewDelegate {
         mapView.addAnnotation(polyline)
     }
 }
+#endif

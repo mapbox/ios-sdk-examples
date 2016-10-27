@@ -5,7 +5,7 @@
 //  Created by Jason Wray on 3/31/16.
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
-
+#if !swift(>=3.0)
 import Mapbox
 
 @objc(OfflinePackExample_Swift)
@@ -118,3 +118,4 @@ class OfflinePackExample: UIViewController, MGLMapViewDelegate {
     }
 
 }
+#endif
