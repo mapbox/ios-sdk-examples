@@ -1,3 +1,6 @@
 Mapbox.framework
 Examples.xcodeproj/project.xcworkspace/
 
+.DS_Store
+xcuserdata/
+DerivedData/

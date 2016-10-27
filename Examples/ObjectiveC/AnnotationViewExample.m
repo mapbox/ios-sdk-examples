@@ -15,7 +15,6 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
 // MGLAnnotationView subclass
 @interface CustomAnnotationView : MGLAnnotationView
 @end
-
 @implementation CustomAnnotationView
 
 - (void)layoutSubviews {
@@ -41,12 +40,10 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
 }
 
 @end
-
 //
 // Example view controller
 @interface AnnotationViewExample () <MGLMapViewDelegate>
 @end
-
 @implementation AnnotationViewExample
 
 - (void)viewDidLoad {

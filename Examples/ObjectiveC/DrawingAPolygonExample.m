@@ -16,7 +16,6 @@ NSString *const MBXExampleDrawingAPolygon = @"DrawingAPolygonExample";
 @property (nonatomic) MGLMapView *mapView;
 
 @end
-
 @implementation DrawingAPolygonExample
 
 - (void)viewDidLoad {

@@ -5,7 +5,6 @@
 //  Created by Jason Wray on 3/11/16.
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
-
 #if !swift(>=3.0)
     
 import Mapbox

@@ -15,7 +15,6 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
 // MGLAnnotationView subclass
 @interface DraggableAnnotationView : MGLAnnotationView
 @end
-
 @implementation DraggableAnnotationView
 
 - (instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier size:(CGFloat)size {
@@ -84,12 +83,10 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
 }
 
 @end
-
 //
 // Example view controller
 @interface DraggableAnnotationViewExample () <MGLMapViewDelegate>
 @end
-
 @implementation DraggableAnnotationViewExample
 
 - (void)viewDidLoad {

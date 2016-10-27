@@ -5,7 +5,9 @@
 //  Created by Jason Wray on 2/29/16.
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
+
 #if swift(>=3.0)
+    
 import Mapbox
     
 @objc(DrawingACustomMarkerExample_Swift)

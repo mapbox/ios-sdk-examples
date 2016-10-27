@@ -17,7 +17,6 @@ static CGFloat const tipWidth = 20.0;
 @property (strong, nonatomic) UIButton *mainBody;
 
 @end
-
 @implementation CustomCalloutView {
     id <MGLAnnotation> _representedObject;
     __unused UIView *_leftAccessoryView;/* unused */

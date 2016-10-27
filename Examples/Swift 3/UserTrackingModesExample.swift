@@ -4,8 +4,9 @@
 //
 //  Created by Jason Wray on 6/30/16.
 //  Copyright © 2016 Mapbox. All rights reserved.
-
+//
 #if swift(>=3.0)
+    
 import Mapbox
 
 @objc(UserTrackingModesExample_Swift)
@@ -23,7 +24,11 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.delegate = self
         
         mapView.tintColor = UIColor.red
-        mapView.attributionButton.tintColor = UIColor.lightGray
+        mapView.attributionButton.tintColor = UIColor
+            
+            
+            
+            .lightGray
         
         view.addSubview(mapView)
         

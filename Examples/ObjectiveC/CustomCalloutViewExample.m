@@ -14,7 +14,6 @@ NSString *const MBXExampleCustomCalloutView = @"CustomCalloutViewExample";
 
 @interface CustomCalloutViewExample () <MGLMapViewDelegate>
 @end
-
 @implementation CustomCalloutViewExample
 
 - (void)viewDidLoad {

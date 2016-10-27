@@ -17,7 +17,6 @@ NSString *const MBXSegueTableToExample = @"TableToExampleSegue";
 @property (nonatomic) NSArray *examples;
 
 @end
-
 @implementation ExamplesTableViewController
 
 - (void)viewDidLoad {

@@ -5,23 +5,22 @@
 //  Created by Jason Wray on 6/23/16.
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
-#if !swift(>=3.0)
 
+#if swift(>=3.0)
+    
 import Mapbox
 
 @objc(AnnotationViewExample_Swift)
-// Example view controller
 
-class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
-    
-    // #if !swift(>=3.0)
+// Example view controller
+class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate, ExampleProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let mapView = MGLMapView(frame: view.bounds)
-        mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        mapView.styleURL = MGLStyle.darkStyleURLWithVersion(9)
-        mapView.tintColor = .lightGrayColor()
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.styleURL = MGLStyle.darkStyleURL(withVersion: 9)
+        mapView.tintColor = .lightGray
         mapView.centerCoordinate = CLLocationCoordinate2DMake(0, 66)
         mapView.zoomLevel = 2
         mapView.delegate = self
@@ -49,7 +48,7 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
     // MARK: - MGLMapViewDelegate methods
     
     // This delegate method is where you tell the map to load a view for a specific annotation. To load a static MGLAnnotationImage, you would use `-mapView:imageForAnnotation:`.
-    func mapView(mapView: MGLMapView, viewForAnnotation annotation: MGLAnnotation) -> MGLAnnotationView? {
+    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
         // This example is only concerned with point annotations.
         guard annotation is MGLPointAnnotation else {
             return nil
@@ -59,12 +58,12 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
         let reuseIdentifier = "\(annotation.coordinate.longitude)"
         
         // For better performance, always try to reuse existing annotations.
-        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseIdentifier)
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
         
         // If there’s no reusable annotation view available, initialize a new one.
         if annotationView == nil {
             annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
-            annotationView!.frame = CGRectMake(0, 0, 40, 40)
+            annotationView!.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
             
             // Set the annotation view’s background color to a value determined by its longitude.
             let hue = CGFloat(annotation.coordinate.longitude) / 100
@@ -74,16 +73,14 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
         return annotationView
     }
     
-    func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
     }
-    
 }
 
 //
 // MGLAnnotationView subclass
 class CustomAnnotationView: MGLAnnotationView {
-    // #if !swift(>=3.0)
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -93,17 +90,17 @@ class CustomAnnotationView: MGLAnnotationView {
         // Use CALayer’s corner radius to turn this view into a circle.
         layer.cornerRadius = frame.width / 2
         layer.borderWidth = 2
-        layer.borderColor = UIColor.whiteColor().CGColor
+        layer.borderColor = UIColor.white.cgColor
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Animate the border width in/out, creating an iris effect.
         let animation = CABasicAnimation(keyPath: "borderWidth")
         animation.duration = 0.1
         layer.borderWidth = selected ? frame.width / 4 : 2
-        layer.addAnimation(animation, forKey: "borderWidth")
+        layer.add(animation, forKey: "borderWidth")
     }
 }
 #endif

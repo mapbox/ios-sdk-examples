@@ -13,7 +13,6 @@ NSString *const MBXExampleCameraAnimation = @"CameraAnimationExample";
 
 @interface CameraAnimationExample () <MGLMapViewDelegate>
 @end
-
 @implementation CameraAnimationExample
 
 - (void)viewDidLoad {
