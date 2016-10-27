@@ -6,7 +6,7 @@
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
 // Same in Swift 2.3 and 3.0
-#if !swift(>=3.0)
+
 import Mapbox
 
 // MGLAnnotation protocol reimplementation
@@ -36,4 +36,3 @@ class CustomPolyline: MGLPolyline {
     // Custom property that we will use when drawing the polyline.
     var color: UIColor?
 }
-#endif
