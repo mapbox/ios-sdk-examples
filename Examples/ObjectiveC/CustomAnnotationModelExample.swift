@@ -91,7 +91,7 @@ class CustomAnnotationModelExample_Swift: UIViewController, MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
         if let point = annotation as? CustomPointAnnotation,
-            // Inserted let in conversion process - JK
+            
             let image = point.image,
             let reuseIdentifier = point.reuseIdentifier {
             
