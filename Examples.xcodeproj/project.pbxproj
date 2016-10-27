@@ -27,6 +27,8 @@
 		3ECF46101DC1871B0089118A /* SatelliteStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF460F1DC1871B0089118A /* SatelliteStyleExample.swift */; };
 		3ECF46121DC1874D0089118A /* SimpleMapViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF46111DC1874D0089118A /* SimpleMapViewExample.swift */; };
 		3ECF46141DC1878F0089118A /* UserTrackingModesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF46131DC1878F0089118A /* UserTrackingModesExample.swift */; };
+		3ECF46151DC18DAA0089118A /* CustomAnnotationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF45F11DC176090089118A /* CustomAnnotationModels.swift */; };
+		3ECF46161DC18DB30089118A /* CustomAnnotationModelExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3EF1CEF591000F21AE2 /* CustomAnnotationModelExample2.3.swift */; };
 		960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */; };
 		960A21631D344FC400BB348B /* DraggableAnnotationViewExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A21621D344FC400BB348B /* DraggableAnnotationViewExample2.3.swift */; };
 		96115A681CAD4E1C000963B8 /* OfflinePackExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96115A671CAD4E1C000963B8 /* OfflinePackExample.m */; };
@@ -47,7 +49,6 @@
 		96466ACA1C9323D9009CF4AB /* CustomCalloutViewExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96466AC91C9323D9009CF4AB /* CustomCalloutViewExample2.3.swift */; };
 		96466AD11C932EF5009CF4AB /* CustomCalloutView2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96466AD01C932EF5009CF4AB /* CustomCalloutView2.3.swift */; };
 		9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */; };
-		9678E3F01CEF591000F21AE2 /* CustomAnnotationModelExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3EF1CEF591000F21AE2 /* CustomAnnotationModelExample2.3.swift */; };
 		968247031C5BDCBB00494AB8 /* CustomRasterStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */; };
 		968247051C5BDDC600494AB8 /* CustomRasterStyleExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968247041C5BDDC600494AB8 /* CustomRasterStyleExample2.3.swift */; };
 		968247081C5BEBDC00494AB8 /* SatelliteStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */; };
@@ -702,11 +703,11 @@
 				3ECF460C1DC1868F0089118A /* OfflinePackExample.swift in Sources */,
 				9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */,
 				9682470A1C5BEE4D00494AB8 /* SatelliteStyleExample2.3.swift in Sources */,
-				9678E3F01CEF591000F21AE2 /* CustomAnnotationModelExample2.3.swift in Sources */,
 				968247081C5BEBDC00494AB8 /* SatelliteStyleExample.m in Sources */,
 				3ECF45EC1DC173380089118A /* CalloutDelegateUsageExample.swift in Sources */,
 				96115A681CAD4E1C000963B8 /* OfflinePackExample.m in Sources */,
 				9682471A1C5C115000494AB8 /* DrawingAGeoJSONLineExample.m in Sources */,
+				3ECF46161DC18DB30089118A /* CustomAnnotationModelExample2.3.swift in Sources */,
 				968247051C5BDDC600494AB8 /* CustomRasterStyleExample2.3.swift in Sources */,
 				96115A6A1CAD5012000963B8 /* OfflinePackExample2.3.swift in Sources */,
 				969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */,
@@ -753,6 +754,7 @@
 				96CABF4B1DC1390600C7BAEF /* AppDelegate.m in Sources */,
 				96CABF4C1DC1390600C7BAEF /* DrawingAGeoJSONLineExample2.3.swift in Sources */,
 				96CABF4D1DC1390600C7BAEF /* CustomStyleExample.m in Sources */,
+				3ECF46151DC18DAA0089118A /* CustomAnnotationModels.swift in Sources */,
 				96CABF4E1DC1390600C7BAEF /* CustomAnnotationModelExample.m in Sources */,
 				96CABF4F1DC1390600C7BAEF /* ExamplesTableViewController.m in Sources */,
 				96CABF501DC1390600C7BAEF /* DrawingAPolygonExample.m in Sources */,
