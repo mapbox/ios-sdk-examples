@@ -11,7 +11,7 @@ import Mapbox
 @objc(AnnotationViewExample_Swift)
 
 // Example view controller
-class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate, ExampleCategory {
+class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
