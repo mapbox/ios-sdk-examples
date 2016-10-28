@@ -32,7 +32,7 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
             CLLocationCoordinate2DMake(0, 33),
             CLLocationCoordinate2DMake(0, 66),
             CLLocationCoordinate2DMake(0, 99),
-            ]
+        ]
         
         // Fill an array with point annotations and add it to the map.
         var pointAnnotations = [MGLPointAnnotation]()
@@ -80,7 +80,6 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
     
 }
 
-//
 // MGLAnnotationView subclass
 class CustomAnnotationView: MGLAnnotationView {
     // #if !swift(>=3.0)

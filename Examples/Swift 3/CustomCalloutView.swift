@@ -6,7 +6,6 @@
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
 #if swift(>=3.0)
-    
 import Mapbox
 
 class CustomCalloutView: UIView, MGLCalloutView {
@@ -94,7 +93,6 @@ class CustomCalloutView: UIView, MGLCalloutView {
         }
     }
     
-    
     // MARK: - Callout interaction handlers
     
     func isCalloutTappable() -> Bool {
@@ -131,9 +129,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
         let tipPath = CGMutablePath()
         tipPath.move(to: CGPoint(x: tipLeft, y: heightWithoutTip))
         tipPath.addLine(to: CGPoint(x: tipBottom.x, y: tipBottom.y))
-        // CGPathAddLineToPoint(tipPath, nil, tipBottom.x, tipBottom.y)
         tipPath.addLine(to: CGPoint(x: tipLeft + tipWidth, y: heightWithoutTip))
-        // CGPathAddLineToPoint(tipPath, nil, tipLeft + tipWidth, heightWithoutTip)
         tipPath.closeSubpath()
         
         fillColor.setFill()

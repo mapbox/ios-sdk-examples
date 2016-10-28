@@ -6,7 +6,6 @@
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
 #if swift(>=3.0)
-    
 import Mapbox
 
 @objc(DrawingAPolygonExample_Swift)
@@ -48,7 +47,7 @@ class DrawingAPolygonExample_Swift: UIViewController, MGLMapViewDelegate {
             CLLocationCoordinate2D(latitude: 45.515369, longitude: -122.678489),
             CLLocationCoordinate2D(latitude: 45.506346, longitude: -122.702007),
             CLLocationCoordinate2D(latitude: 45.522585, longitude: -122.685699),
-            ]
+        ]
         
         let shape = MGLPolygon.polygon(coordinates: &coordinates, count: UInt(coordinates.count))
         

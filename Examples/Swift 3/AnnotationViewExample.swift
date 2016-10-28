@@ -5,18 +5,17 @@
 //  Created by Jason Wray on 6/23/16.
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
-
 #if swift(>=3.0)
-    
 import Mapbox
 
 @objc(AnnotationViewExample_Swift)
 
 // Example view controller
-class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate, ExampleProtocol {
+class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.styleURL = MGLStyle.darkStyleURL(withVersion: 9)

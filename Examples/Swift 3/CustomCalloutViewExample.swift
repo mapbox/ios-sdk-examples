@@ -6,7 +6,6 @@
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
 #if swift(>=3.0)
-    
 import Mapbox
 
 @objc(CustomCalloutViewExample_Swift)
@@ -44,6 +43,7 @@ class CustomCalloutViewExample_Swift: UIViewController, MGLMapViewDelegate {
         // Only show callouts for `Hello world!` annotation
         if annotation.responds(to: Selector("title")) && annotation.title! == "Hello world!" {
             // Instantiate and return our custom callout view
+//            return CustomCalloutView(representedObject: annotation)
             return CustomCalloutView(representedObject: annotation)
         }
         return nil

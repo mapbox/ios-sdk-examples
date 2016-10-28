@@ -6,7 +6,6 @@
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
 #if swift(>=3.0)
-    
 import Mapbox
 
 @objc(DraggableAnnotationViewExample_Swift)
@@ -31,7 +30,7 @@ class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate
             CLLocationCoordinate2DMake(0,  0),
             CLLocationCoordinate2DMake(0, 35),
             CLLocationCoordinate2DMake(0, 70),
-            ]
+        ]
         
         // Fill an array with point annotations and add it to the map.
         var pointAnnotations = [MGLPointAnnotation]()
@@ -67,7 +66,6 @@ class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate
     }
 }
 
-//
 // MGLAnnotationView subclass
 class DraggableAnnotationView: MGLAnnotationView {
     init(reuseIdentifier: String, size: CGFloat) {
@@ -124,7 +122,7 @@ class DraggableAnnotationView: MGLAnnotationView {
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             self.layer.opacity = 0.8
             self.transform = CGAffineTransform.identity.scaledBy(x: 1.5, y: 1.5)
-            }, completion: nil)
+        }, completion: nil)
     }
     
     func endDragging() {
@@ -132,7 +130,7 @@ class DraggableAnnotationView: MGLAnnotationView {
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             self.layer.opacity = 1
             self.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 1)
-            }, completion: nil)
+        }, completion: nil)
     }
 }
 #endif

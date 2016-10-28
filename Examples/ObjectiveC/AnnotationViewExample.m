@@ -7,6 +7,7 @@
 //
 
 #import "AnnotationViewExample.h"
+
 @import Mapbox;
 
 NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
@@ -15,6 +16,7 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
 // MGLAnnotationView subclass
 @interface CustomAnnotationView : MGLAnnotationView
 @end
+
 @implementation CustomAnnotationView
 
 - (void)layoutSubviews {

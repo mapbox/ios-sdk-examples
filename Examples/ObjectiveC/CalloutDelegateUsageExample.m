@@ -16,6 +16,7 @@ NSString *const MBXExampleCalloutDelegateUsage = @"CalloutDelegateUsageExample";
 @property MGLMapView *mapView;
 
 @end
+
 @implementation CalloutDelegateUsageExample
 
 - (void)viewDidLoad

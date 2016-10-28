@@ -31,6 +31,5 @@ class SatelliteStyleExample_Swift: UIViewController {
 
         view.addSubview(mapView)
     }
-
 }
 #endif
