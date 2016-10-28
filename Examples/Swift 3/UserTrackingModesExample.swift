@@ -24,11 +24,7 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.delegate = self
         
         mapView.tintColor = UIColor.red
-        mapView.attributionButton.tintColor = UIColor
-            
-            
-            
-            .lightGray
+        mapView.attributionButton.tintColor = UIColor.lightGray
         
         view.addSubview(mapView)
         
