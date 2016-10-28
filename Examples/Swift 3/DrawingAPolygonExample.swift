@@ -66,5 +66,4 @@ class DrawingAPolygonExample_Swift: UIViewController, MGLMapViewDelegate {
     }
     
 }
-
 #endif

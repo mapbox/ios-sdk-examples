@@ -13,8 +13,6 @@ import Mapbox
 // Example view controller
 
 class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
-    
-    // #if !swift(>=3.0)
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,7 +80,6 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
 
 // MGLAnnotationView subclass
 class CustomAnnotationView: MGLAnnotationView {
-    // #if !swift(>=3.0)
     override func layoutSubviews() {
         super.layoutSubviews()
         

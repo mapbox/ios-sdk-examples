@@ -51,12 +51,8 @@ class OfflinePackExample: UIViewController, MGLMapViewDelegate {
         // Store some data for identification purposes alongside the downloaded resources.
         let userInfo = ["name": "My Offline Pack"]
         let context = NSKeyedArchiver.archivedData(withRootObject: userInfo)
-        
-        
-        
+       
         // Create and register an offline pack with the shared offline storage object.
-        
-        // NSError - error? no member localizedFailureReason
         
         MGLOfflineStorage.shared().addPack(for: region, withContext: context) { (pack, error) in
             guard error == nil else {

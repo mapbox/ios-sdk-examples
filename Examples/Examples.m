@@ -13,25 +13,25 @@
 + (NSArray *)list {
     
     NSArray *initialList = [[NSMutableArray alloc] initWithArray:@[
-                                                                   MBXExampleAnnotationView,
-                                                                   MBXExampleCalloutDelegateUsage,
-                                                                   MBXExampleCameraAnimation,
-                                                                   MBXExampleCustomAnnotationModel,
-                                                                   MBXExampleCustomCalloutView,
-                                                                   MBXExampleCustomRasterStyle,
-                                                                   MBXExampleCustomStyle,
-                                                                   MBXExampleDefaultStyles,
-                                                                   MBXExampleDraggableAnnotationView,
-                                                                   MBXExampleDrawingAGeoJSONLine,
-                                                                   MBXExampleDrawingACustomMarker,
-                                                                   MBXExampleDrawingAMarker,
-                                                                   MBXExampleDrawingAPolygon,
-                                                                   MBXExampleOfflinePack,
-                                                                   MBXExamplePointConversion,
-                                                                   MBXExampleSatelliteStyle,
-                                                                   MBXExampleSimpleMapView,
-                                                                   MBXExampleUserTrackingModes,
-                                                                   ]];
+       MBXExampleAnnotationView,
+       MBXExampleCalloutDelegateUsage,
+       MBXExampleCameraAnimation,
+       MBXExampleCustomAnnotationModel,
+       MBXExampleCustomCalloutView,
+       MBXExampleCustomRasterStyle,
+       MBXExampleCustomStyle,
+       MBXExampleDefaultStyles,
+       MBXExampleDraggableAnnotationView,
+       MBXExampleDrawingAGeoJSONLine,
+       MBXExampleDrawingACustomMarker,
+       MBXExampleDrawingAMarker,
+       MBXExampleDrawingAPolygon,
+       MBXExampleOfflinePack,
+       MBXExamplePointConversion,
+       MBXExampleSatelliteStyle,
+       MBXExampleSimpleMapView,
+       MBXExampleUserTrackingModes,
+       ]];
     
     NSMutableArray *meh = [[NSMutableArray alloc] init];
     

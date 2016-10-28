@@ -74,7 +74,7 @@ class DrawingAGeoJSONLineExample_Swift: UIViewController, MGLMapViewDelegate {
                                             // Unowned reference to self to prevent retain cycle
                                             [unowned self] in
                                             self.mapView.addAnnotation(line)
-                                            })
+                                        })
                                     }
                                 }
                             }
