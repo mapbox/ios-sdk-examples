@@ -49,7 +49,7 @@ class DrawingAPolygonExample_Swift: UIViewController, MGLMapViewDelegate {
             CLLocationCoordinate2D(latitude: 45.522585, longitude: -122.685699),
             ]
 
-        let shape = MGLPolygon.polygon(coordinates: &coordinates, count: UInt(coordinates.count))
+        let shape = MGLPolygon(coordinates: &coordinates, count: UInt(coordinates.count))
 
         mapView.addAnnotation(shape)
     }
