@@ -30,6 +30,7 @@
 	MBXExamplePointConversion,
 	MBXExampleRuntimeAddLine,
 	MBXExampleRuntimeAnimateLine,
+	MBXExampleRuntimeCircleStyles,
 	MBXExampleRuntimeToggleLayer,
 	MBXExampleSatelliteStyle,
 	MBXExampleSimpleMapView,
