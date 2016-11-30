@@ -31,6 +31,7 @@ extern NSString *const MBXExampleOfflinePack;
 extern NSString *const MBXExamplePointConversion;
 extern NSString *const MBXExampleSatelliteStyle;
 extern NSString *const MBXExampleSimpleMapView;
+extern NSString *const MBXExampleUserLocationAnnotation;
 extern NSString *const MBXExampleUserTrackingModes;
 
 @interface Examples : NSObject

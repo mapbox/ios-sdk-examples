@@ -29,6 +29,7 @@
         MBXExamplePointConversion,
         MBXExampleSatelliteStyle,
         MBXExampleSimpleMapView,
+        MBXExampleUserLocationAnnotation,
         MBXExampleUserTrackingModes,
     ]];
 

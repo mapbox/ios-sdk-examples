@@ -26,6 +26,8 @@
 		962B45111D1C8541007B7454 /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B45101D1C8541007B7454 /* AnnotationViewExample.swift */; };
 		96466ACA1C9323D9009CF4AB /* CustomCalloutViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96466AC91C9323D9009CF4AB /* CustomCalloutViewExample.swift */; };
 		96466AD11C932EF5009CF4AB /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96466AD01C932EF5009CF4AB /* CustomCalloutView.swift */; };
+		9668F1871D668DCC009D555A /* UserLocationAnnotationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668F1861D668DCC009D555A /* UserLocationAnnotationExample.swift */; };
+		9668F18A1D668DE2009D555A /* UserLocationAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9668F1891D668DE2009D555A /* UserLocationAnnotationExample.m */; };
 		9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */; };
 		9678E3F01CEF591000F21AE2 /* CustomAnnotationModelExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3EF1CEF591000F21AE2 /* CustomAnnotationModelExample.swift */; };
 		9678E3F41CEFA9B500F21AE2 /* CustomAnnotationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3F31CEFA9B500F21AE2 /* CustomAnnotationModels.swift */; };
@@ -124,6 +126,9 @@
 		962B45101D1C8541007B7454 /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnotationViewExample.swift; path = Examples/Swift/AnnotationViewExample.swift; sourceTree = SOURCE_ROOT; };
 		96466AC91C9323D9009CF4AB /* CustomCalloutViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCalloutViewExample.swift; path = Examples/Swift/CustomCalloutViewExample.swift; sourceTree = SOURCE_ROOT; };
 		96466AD01C932EF5009CF4AB /* CustomCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCalloutView.swift; path = Examples/Swift/CustomCalloutView.swift; sourceTree = SOURCE_ROOT; };
+		9668F1861D668DCC009D555A /* UserLocationAnnotationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserLocationAnnotationExample.swift; path = Examples/Swift/UserLocationAnnotationExample.swift; sourceTree = SOURCE_ROOT; };
+		9668F1881D668DE2009D555A /* UserLocationAnnotationExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLocationAnnotationExample.h; sourceTree = "<group>"; };
+		9668F1891D668DE2009D555A /* UserLocationAnnotationExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLocationAnnotationExample.m; sourceTree = "<group>"; };
 		9678E3EC1CEF58DA00F21AE2 /* CustomAnnotationModelExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationModelExample.h; sourceTree = "<group>"; };
 		9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationModelExample.m; sourceTree = "<group>"; };
 		9678E3EF1CEF591000F21AE2 /* CustomAnnotationModelExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAnnotationModelExample.swift; path = Examples/Swift/CustomAnnotationModelExample.swift; sourceTree = SOURCE_ROOT; };
@@ -305,6 +310,7 @@
 				968247281C5C1FF800494AB8 /* PointConversionExample.h */,
 				968247061C5BEBDC00494AB8 /* SatelliteStyleExample.h */,
 				9691AAA51C5AAD8F006A58C6 /* SimpleMapViewExample.h */,
+				9668F1881D668DE2009D555A /* UserLocationAnnotationExample.h */,
 				969E7FDB1D25C31700663F84 /* UserTrackingModesExample.h */,
 			);
 			name = Headers;
@@ -353,6 +359,8 @@
 				968247091C5BEE4D00494AB8 /* SatelliteStyleExample.swift */,
 				9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */,
 				9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample.swift */,
+				9668F1891D668DE2009D555A /* UserLocationAnnotationExample.m */,
+				9668F1861D668DCC009D555A /* UserLocationAnnotationExample.swift */,
 				969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */,
 				969E7FDE1D25C38800663F84 /* UserTrackingModesExample.swift */,
 			);
@@ -505,6 +513,7 @@
 				969E7FDF1D25C38800663F84 /* UserTrackingModesExample.swift in Sources */,
 				96A2A1CF1C8CA16C0059441E /* CustomCalloutViewExample.m in Sources */,
 				9682470F1C5BF12700494AB8 /* DrawingAMarkerExample.m in Sources */,
+				9668F1871D668DCC009D555A /* UserLocationAnnotationExample.swift in Sources */,
 				961962941C581700002D3DAB /* AppDelegate.m in Sources */,
 				968247171C5C10B100494AB8 /* DrawingAGeoJSONLineExample.swift in Sources */,
 				9691AAA71C5AAD8F006A58C6 /* CustomStyleExample.m in Sources */,
@@ -539,6 +548,7 @@
 				96466AD11C932EF5009CF4AB /* CustomCalloutView.swift in Sources */,
 				961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */,
 				9691AAB11C5AC5AD006A58C6 /* CustomStyleExample.swift in Sources */,
+				9668F18A1D668DE2009D555A /* UserLocationAnnotationExample.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
