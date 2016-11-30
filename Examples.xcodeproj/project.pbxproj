@@ -26,6 +26,8 @@
 		962B45111D1C8541007B7454 /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B45101D1C8541007B7454 /* AnnotationViewExample.swift */; };
 		96466ACA1C9323D9009CF4AB /* CustomCalloutViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96466AC91C9323D9009CF4AB /* CustomCalloutViewExample.swift */; };
 		96466AD11C932EF5009CF4AB /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96466AD01C932EF5009CF4AB /* CustomCalloutView.swift */; };
+		9648CF5E1D3EB09A00A69BD0 /* AnnotationMovementExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9648CF5D1D3EB09A00A69BD0 /* AnnotationMovementExample.swift */; };
+		9648CF611D3EB0A900A69BD0 /* AnnotationMovementExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9648CF601D3EB0A900A69BD0 /* AnnotationMovementExample.m */; };
 		9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */; };
 		9678E3F01CEF591000F21AE2 /* CustomAnnotationModelExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3EF1CEF591000F21AE2 /* CustomAnnotationModelExample.swift */; };
 		9678E3F41CEFA9B500F21AE2 /* CustomAnnotationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3F31CEFA9B500F21AE2 /* CustomAnnotationModels.swift */; };
@@ -46,6 +48,7 @@
 		968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247261C5C1DC700494AB8 /* CameraAnimationExample.m */; };
 		9682472A1C5C1FF800494AB8 /* PointConversionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247291C5C1FF800494AB8 /* PointConversionExample.m */; };
 		9682472C1C5C20F900494AB8 /* PointConversionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9682472B1C5C20F800494AB8 /* PointConversionExample.swift */; };
+		968E2F151D5C5C2F00833BE0 /* london.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 968E2F141D5C5C2F00833BE0 /* london.geojson */; };
 		9691AA941C5AA702006A58C6 /* Examples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AA931C5AA702006A58C6 /* Examples.m */; };
 		9691AAA71C5AAD8F006A58C6 /* CustomStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */; };
 		9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */; };
@@ -124,6 +127,9 @@
 		962B45101D1C8541007B7454 /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnotationViewExample.swift; path = Examples/Swift/AnnotationViewExample.swift; sourceTree = SOURCE_ROOT; };
 		96466AC91C9323D9009CF4AB /* CustomCalloutViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCalloutViewExample.swift; path = Examples/Swift/CustomCalloutViewExample.swift; sourceTree = SOURCE_ROOT; };
 		96466AD01C932EF5009CF4AB /* CustomCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCalloutView.swift; path = Examples/Swift/CustomCalloutView.swift; sourceTree = SOURCE_ROOT; };
+		9648CF5D1D3EB09A00A69BD0 /* AnnotationMovementExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnotationMovementExample.swift; path = Examples/Swift/AnnotationMovementExample.swift; sourceTree = SOURCE_ROOT; };
+		9648CF5F1D3EB0A900A69BD0 /* AnnotationMovementExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationMovementExample.h; sourceTree = "<group>"; };
+		9648CF601D3EB0A900A69BD0 /* AnnotationMovementExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationMovementExample.m; sourceTree = "<group>"; };
 		9678E3EC1CEF58DA00F21AE2 /* CustomAnnotationModelExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationModelExample.h; sourceTree = "<group>"; };
 		9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationModelExample.m; sourceTree = "<group>"; };
 		9678E3EF1CEF591000F21AE2 /* CustomAnnotationModelExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAnnotationModelExample.swift; path = Examples/Swift/CustomAnnotationModelExample.swift; sourceTree = SOURCE_ROOT; };
@@ -154,6 +160,7 @@
 		968247281C5C1FF800494AB8 /* PointConversionExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointConversionExample.h; path = Examples/ObjectiveC/PointConversionExample.h; sourceTree = SOURCE_ROOT; };
 		968247291C5C1FF800494AB8 /* PointConversionExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PointConversionExample.m; path = Examples/ObjectiveC/PointConversionExample.m; sourceTree = SOURCE_ROOT; };
 		9682472B1C5C20F800494AB8 /* PointConversionExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PointConversionExample.swift; path = Examples/Swift/PointConversionExample.swift; sourceTree = SOURCE_ROOT; };
+		968E2F141D5C5C2F00833BE0 /* london.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = london.geojson; sourceTree = "<group>"; };
 		9691AA921C5AA702006A58C6 /* Examples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Examples.h; sourceTree = "<group>"; };
 		9691AA931C5AA702006A58C6 /* Examples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Examples.m; sourceTree = "<group>"; };
 		9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomStyleExample.h; path = Examples/ObjectiveC/CustomStyleExample.h; sourceTree = SOURCE_ROOT; };
@@ -279,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				9682471C1C5C123B00494AB8 /* example.geojson */,
+				968E2F141D5C5C2F00833BE0 /* london.geojson */,
 				96D432051C84B9CF007D09D1 /* pisavector.xcassets */,
 			);
 			path = Files;
@@ -287,6 +295,7 @@
 		9682472D1C5C226D00494AB8 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				9648CF5F1D3EB0A900A69BD0 /* AnnotationMovementExample.h */,
 				962B450D1D1C8520007B7454 /* AnnotationViewExample.h */,
 				968247111C5C0F0F00494AB8 /* CalloutDelegateUsageExample.h */,
 				968247251C5C1DC700494AB8 /* CameraAnimationExample.h */,
@@ -315,6 +324,8 @@
 			isa = PBXGroup;
 			children = (
 				9682472D1C5C226D00494AB8 /* Headers */,
+				9648CF601D3EB0A900A69BD0 /* AnnotationMovementExample.m */,
+				9648CF5D1D3EB09A00A69BD0 /* AnnotationMovementExample.swift */,
 				962B450E1D1C8520007B7454 /* AnnotationViewExample.m */,
 				962B45101D1C8541007B7454 /* AnnotationViewExample.swift */,
 				968247121C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m */,
@@ -467,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9619629F1C581700002D3DAB /* LaunchScreen.storyboard in Resources */,
+				968E2F151D5C5C2F00833BE0 /* london.geojson in Resources */,
 				9619629C1C581700002D3DAB /* Assets.xcassets in Resources */,
 				9682471D1C5C123B00494AB8 /* example.geojson in Resources */,
 				961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */,
@@ -505,7 +517,9 @@
 				969E7FDF1D25C38800663F84 /* UserTrackingModesExample.swift in Sources */,
 				96A2A1CF1C8CA16C0059441E /* CustomCalloutViewExample.m in Sources */,
 				9682470F1C5BF12700494AB8 /* DrawingAMarkerExample.m in Sources */,
+				9648CF5E1D3EB09A00A69BD0 /* AnnotationMovementExample.swift in Sources */,
 				961962941C581700002D3DAB /* AppDelegate.m in Sources */,
+				9648CF611D3EB0A900A69BD0 /* AnnotationMovementExample.m in Sources */,
 				968247171C5C10B100494AB8 /* DrawingAGeoJSONLineExample.swift in Sources */,
 				9691AAA71C5AAD8F006A58C6 /* CustomStyleExample.m in Sources */,
 				9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */,

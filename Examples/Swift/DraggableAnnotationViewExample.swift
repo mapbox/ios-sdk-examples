@@ -106,12 +106,14 @@ class DraggableAnnotationView: MGLAnnotationView {
 
         switch dragState {
         case .Starting:
+            print("!!! \(self.annotation?.coordinate)")
             print("Starting", terminator: "")
             startDragging()
         case .Dragging:
             print(".", terminator: "")
         case .Ending, .Canceling:
             print("Ending")
+            print("\(self.annotation?.coordinate)")
             endDragging()
         case .None:
             return
