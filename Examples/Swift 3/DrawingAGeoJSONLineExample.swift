@@ -61,7 +61,7 @@ class DrawingAGeoJSONLineExample_Swift: UIViewController, MGLMapViewDelegate {
                                             }
                                         }
                                         
-                                        let line = MGLPolyline.polyline(coordinates: &coordinates, count: UInt(coordinates.count))
+					let line = MGLPolyline(coordinates: &coordinates, count: UInt(coordinates.count))
                                         
                                         // Optionally set the title of the polyline, which can be used for:
                                         //  - Callout view
