@@ -28,6 +28,8 @@
 	MBXExampleDrawingAPolygon,
 	MBXExampleOfflinePack,
 	MBXExamplePointConversion,
+	MBXExampleRuntimeAddLine,
+	MBXExampleRuntimeAnimateLine,
 	MBXExampleRuntimeToggleLayer,
 	MBXExampleSatelliteStyle,
 	MBXExampleSimpleMapView,
