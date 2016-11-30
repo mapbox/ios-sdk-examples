@@ -29,6 +29,11 @@
 		3EBCD7291DC28240001E342F /* UserTrackingModesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7151DC28240001E342F /* UserTrackingModesExample.swift */; };
 		3EBCD72E1DC286BB001E342F /* CustomAnnotationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7061DC28240001E342F /* CustomAnnotationModels.swift */; };
 		3ECF46161DC18DB30089118A /* CustomAnnotationModelExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3EF1CEF591000F21AE2 /* CustomAnnotationModelExample2.3.swift */; };
+		646B62971DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62961DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift */; };
+		646B62991DEF6DDE000AA523 /* RuntimeToggleLayerExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62981DEF6DDE000AA523 /* RuntimeToggleLayerExample2.3.swift */; };
+		646B629A1DEF6DDE000AA523 /* RuntimeToggleLayerExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62981DEF6DDE000AA523 /* RuntimeToggleLayerExample2.3.swift */; };
+		646B629C1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B629B1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m */; };
+		646B629D1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B629B1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m */; };
 		960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */; };
 		960A21631D344FC400BB348B /* DraggableAnnotationViewExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A21621D344FC400BB348B /* DraggableAnnotationViewExample2.3.swift */; };
 		96115A681CAD4E1C000963B8 /* OfflinePackExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96115A671CAD4E1C000963B8 /* OfflinePackExample.m */; };
@@ -195,6 +200,10 @@
 		3EBCD7131DC28240001E342F /* SatelliteStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatelliteStyleExample.swift; sourceTree = "<group>"; };
 		3EBCD7141DC28240001E342F /* SimpleMapViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleMapViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7151DC28240001E342F /* UserTrackingModesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrackingModesExample.swift; sourceTree = "<group>"; };
+		646B62961DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuntimeToggleLayerExample.swift; sourceTree = "<group>"; };
+		646B62981DEF6DDE000AA523 /* RuntimeToggleLayerExample2.3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuntimeToggleLayerExample2.3.swift; path = Examples/Swift/RuntimeToggleLayerExample2.3.swift; sourceTree = SOURCE_ROOT; };
+		646B629B1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeToggleLayerExample.m; sourceTree = "<group>"; };
+		646B629E1DEF6DFD000AA523 /* RuntimeToggleLayerExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeToggleLayerExample.h; sourceTree = "<group>"; };
 		960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableAnnotationViewExample.h; sourceTree = "<group>"; };
 		960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableAnnotationViewExample.m; sourceTree = "<group>"; };
 		960A21621D344FC400BB348B /* DraggableAnnotationViewExample2.3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DraggableAnnotationViewExample2.3.swift; path = Examples/Swift/DraggableAnnotationViewExample2.3.swift; sourceTree = SOURCE_ROOT; };
@@ -332,6 +341,7 @@
 				968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */,
 				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
+				646B629B1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m */,
 				96115A671CAD4E1C000963B8 /* OfflinePackExample.m */,
 				968247291C5C1FF800494AB8 /* PointConversionExample.m */,
 				968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */,
@@ -360,6 +370,7 @@
 				968247211C5C1C9B00494AB8 /* DrawingAPolygonExample2.3.swift */,
 				96115A691CAD5012000963B8 /* OfflinePackExample2.3.swift */,
 				9682472B1C5C20F800494AB8 /* PointConversionExample2.3.swift */,
+				646B62981DEF6DDE000AA523 /* RuntimeToggleLayerExample2.3.swift */,
 				968247091C5BEE4D00494AB8 /* SatelliteStyleExample2.3.swift */,
 				9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample2.3.swift */,
 				969E7FDE1D25C38800663F84 /* UserTrackingModesExample2.3.swift */,
@@ -387,6 +398,7 @@
 				3EBCD7101DC28240001E342F /* DrawingAPolygonExample.swift */,
 				3EBCD7111DC28240001E342F /* OfflinePackExample.swift */,
 				3EBCD7121DC28240001E342F /* PointConversionExample.swift */,
+				646B62961DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift */,
 				3EBCD7131DC28240001E342F /* SatelliteStyleExample.swift */,
 				3EBCD7141DC28240001E342F /* SimpleMapViewExample.swift */,
 				3EBCD7151DC28240001E342F /* UserTrackingModesExample.swift */,
@@ -494,6 +506,7 @@
 				9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */,
 				96115A661CAD4E1C000963B8 /* OfflinePackExample.h */,
 				968247281C5C1FF800494AB8 /* PointConversionExample.h */,
+				646B629E1DEF6DFD000AA523 /* RuntimeToggleLayerExample.h */,
 				968247061C5BEBDC00494AB8 /* SatelliteStyleExample.h */,
 				9691AAA51C5AAD8F006A58C6 /* SimpleMapViewExample.h */,
 				969E7FDB1D25C31700663F84 /* UserTrackingModesExample.h */,
@@ -687,6 +700,8 @@
 				9682470C1C5BF08400494AB8 /* DrawingAMarkerExample2.3.swift in Sources */,
 				9691AAA91C5AAD8F006A58C6 /* SimpleMapViewExample.m in Sources */,
 				960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */,
+				646B62991DEF6DDE000AA523 /* RuntimeToggleLayerExample2.3.swift in Sources */,
+				646B629C1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m in Sources */,
 				969E7FDF1D25C38800663F84 /* UserTrackingModesExample2.3.swift in Sources */,
 				96A2A1CF1C8CA16C0059441E /* CustomCalloutViewExample.m in Sources */,
 				3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */,
@@ -699,6 +714,7 @@
 				9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */,
 				3EBCD7261DC28240001E342F /* PointConversionExample.swift in Sources */,
 				961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */,
+				646B62971DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift in Sources */,
 				968247201C5C1C0400494AB8 /* DrawingAPolygonExample.m in Sources */,
 				3EBCD7221DC28240001E342F /* DrawingAGeoJSONLineExample.swift in Sources */,
 				96A2A1D21C8CA74B0059441E /* CustomCalloutView.m in Sources */,
@@ -776,6 +792,7 @@
 				96CABF491DC1390600C7BAEF /* CustomCalloutViewExample.m in Sources */,
 				96CABF4A1DC1390600C7BAEF /* DrawingAMarkerExample.m in Sources */,
 				96CABF4B1DC1390600C7BAEF /* AppDelegate.m in Sources */,
+				646B629D1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m in Sources */,
 				96CABF4C1DC1390600C7BAEF /* DrawingAGeoJSONLineExample2.3.swift in Sources */,
 				96CABF4D1DC1390600C7BAEF /* CustomStyleExample.m in Sources */,
 				96CABF4E1DC1390600C7BAEF /* CustomAnnotationModelExample.m in Sources */,
@@ -808,6 +825,7 @@
 				96CABF691DC1390600C7BAEF /* CameraAnimationExample.m in Sources */,
 				96CABF6A1DC1390600C7BAEF /* CustomCalloutView2.3.swift in Sources */,
 				96CABF6B1DC1390600C7BAEF /* ExamplesContainerViewController.m in Sources */,
+				646B629A1DEF6DDE000AA523 /* RuntimeToggleLayerExample2.3.swift in Sources */,
 				96CABF6C1DC1390600C7BAEF /* CustomStyleExample2.3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
