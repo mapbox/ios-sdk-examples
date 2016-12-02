@@ -49,6 +49,18 @@
 		646B62B71DEF9626000AA523 /* RuntimeCircleStylesExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62B51DEF9626000AA523 /* RuntimeCircleStylesExample2.3.swift */; };
 		646B62BD1DEF965A000AA523 /* RuntimeCircleStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */; };
 		646B62BE1DEF965A000AA523 /* RuntimeCircleStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */; };
+		64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */ = {isa = PBXBuildFile; fileRef = 64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */; };
+		64BBDAF11DF22D9600BB705D /* third_party_vector_style.json in Resources */ = {isa = PBXBuildFile; fileRef = 64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */; };
+		64CF97091DF224AC00C3C27B /* SourceCustomVectorExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97081DF224AC00C3C27B /* SourceCustomVectorExample2.3.swift */; };
+		64CF970A1DF224AC00C3C27B /* SourceCustomVectorExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97081DF224AC00C3C27B /* SourceCustomVectorExample2.3.swift */; };
+		64CF970C1DF224C500C3C27B /* SourceCustomVectorExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970B1DF224C500C3C27B /* SourceCustomVectorExample.m */; };
+		64CF970D1DF224C500C3C27B /* SourceCustomVectorExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970B1DF224C500C3C27B /* SourceCustomVectorExample.m */; };
+		64CF97101DF224E400C3C27B /* SourceCustomVectorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970F1DF224E400C3C27B /* SourceCustomVectorExample.swift */; };
+		64CF97121DF224F600C3C27B /* SourceCustomRasterExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97111DF224F600C3C27B /* SourceCustomRasterExample.swift */; };
+		64CF97141DF2250600C3C27B /* SourceCustomRasterExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97131DF2250600C3C27B /* SourceCustomRasterExample2.3.swift */; };
+		64CF97151DF2250600C3C27B /* SourceCustomRasterExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97131DF2250600C3C27B /* SourceCustomRasterExample2.3.swift */; };
+		64CF97171DF2251500C3C27B /* SourceCustomRasterExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97161DF2251500C3C27B /* SourceCustomRasterExample.m */; };
+		64CF97181DF2251500C3C27B /* SourceCustomRasterExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97161DF2251500C3C27B /* SourceCustomRasterExample.m */; };
 		960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */; };
 		960A21631D344FC400BB348B /* DraggableAnnotationViewExample2.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960A21621D344FC400BB348B /* DraggableAnnotationViewExample2.3.swift */; };
 		96115A681CAD4E1C000963B8 /* OfflinePackExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96115A671CAD4E1C000963B8 /* OfflinePackExample.m */; };
@@ -231,6 +243,15 @@
 		646B62B51DEF9626000AA523 /* RuntimeCircleStylesExample2.3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuntimeCircleStylesExample2.3.swift; sourceTree = "<group>"; };
 		646B62BB1DEF964A000AA523 /* RuntimeCircleStylesExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeCircleStylesExample.h; sourceTree = "<group>"; };
 		646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeCircleStylesExample.m; sourceTree = "<group>"; };
+		64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = third_party_vector_style.json; sourceTree = "<group>"; };
+		64CF97081DF224AC00C3C27B /* SourceCustomVectorExample2.3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SourceCustomVectorExample2.3.swift; path = Examples/Swift/SourceCustomVectorExample2.3.swift; sourceTree = SOURCE_ROOT; };
+		64CF970B1DF224C500C3C27B /* SourceCustomVectorExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceCustomVectorExample.m; sourceTree = "<group>"; };
+		64CF970E1DF224D400C3C27B /* SourceCustomVectorExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SourceCustomVectorExample.h; sourceTree = "<group>"; };
+		64CF970F1DF224E400C3C27B /* SourceCustomVectorExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCustomVectorExample.swift; sourceTree = "<group>"; };
+		64CF97111DF224F600C3C27B /* SourceCustomRasterExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCustomRasterExample.swift; sourceTree = "<group>"; };
+		64CF97131DF2250600C3C27B /* SourceCustomRasterExample2.3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCustomRasterExample2.3.swift; sourceTree = "<group>"; };
+		64CF97161DF2251500C3C27B /* SourceCustomRasterExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceCustomRasterExample.m; sourceTree = "<group>"; };
+		64CF97191DF2252C00C3C27B /* SourceCustomRasterExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SourceCustomRasterExample.h; sourceTree = "<group>"; };
 		960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableAnnotationViewExample.h; sourceTree = "<group>"; };
 		960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableAnnotationViewExample.m; sourceTree = "<group>"; };
 		960A21621D344FC400BB348B /* DraggableAnnotationViewExample2.3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DraggableAnnotationViewExample2.3.swift; path = Examples/Swift/DraggableAnnotationViewExample2.3.swift; sourceTree = SOURCE_ROOT; };
@@ -376,6 +397,8 @@
 				968247291C5C1FF800494AB8 /* PointConversionExample.m */,
 				968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */,
 				9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */,
+				64CF970B1DF224C500C3C27B /* SourceCustomVectorExample.m */,
+				64CF97161DF2251500C3C27B /* SourceCustomRasterExample.m */,
 				969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */,
 			);
 			name = "Objective-C";
@@ -406,6 +429,8 @@
 				646B62981DEF6DDE000AA523 /* RuntimeToggleLayerExample2.3.swift */,
 				968247091C5BEE4D00494AB8 /* SatelliteStyleExample2.3.swift */,
 				9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample2.3.swift */,
+				64CF97081DF224AC00C3C27B /* SourceCustomVectorExample2.3.swift */,
+				64CF97131DF2250600C3C27B /* SourceCustomRasterExample2.3.swift */,
 				969E7FDE1D25C38800663F84 /* UserTrackingModesExample2.3.swift */,
 			);
 			name = "Swift 2.3";
@@ -437,6 +462,8 @@
 				646B62961DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift */,
 				3EBCD7131DC28240001E342F /* SatelliteStyleExample.swift */,
 				3EBCD7141DC28240001E342F /* SimpleMapViewExample.swift */,
+				64CF970F1DF224E400C3C27B /* SourceCustomVectorExample.swift */,
+				64CF97111DF224F600C3C27B /* SourceCustomRasterExample.swift */,
 				3EBCD7151DC28240001E342F /* UserTrackingModesExample.swift */,
 			);
 			name = "Swift 3";
@@ -518,6 +545,7 @@
 			isa = PBXGroup;
 			children = (
 				9682471C1C5C123B00494AB8 /* example.geojson */,
+				64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */,
 				96D432051C84B9CF007D09D1 /* pisavector.xcassets */,
 			);
 			path = Files;
@@ -548,6 +576,8 @@
 				646B629E1DEF6DFD000AA523 /* RuntimeToggleLayerExample.h */,
 				968247061C5BEBDC00494AB8 /* SatelliteStyleExample.h */,
 				9691AAA51C5AAD8F006A58C6 /* SimpleMapViewExample.h */,
+				64CF970E1DF224D400C3C27B /* SourceCustomVectorExample.h */,
+				64CF97191DF2252C00C3C27B /* SourceCustomRasterExample.h */,
 				969E7FDB1D25C31700663F84 /* UserTrackingModesExample.h */,
 			);
 			name = Headers;
@@ -693,6 +723,7 @@
 				9619629F1C581700002D3DAB /* LaunchScreen.storyboard in Resources */,
 				9619629C1C581700002D3DAB /* Assets.xcassets in Resources */,
 				9682471D1C5C123B00494AB8 /* example.geojson in Resources */,
+				64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */,
 				961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */,
 				96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */,
 			);
@@ -719,6 +750,7 @@
 				96CABF701DC1390600C7BAEF /* LaunchScreen.storyboard in Resources */,
 				96CABF711DC1390600C7BAEF /* Assets.xcassets in Resources */,
 				96CABF721DC1390600C7BAEF /* example.geojson in Resources */,
+				64BBDAF11DF22D9600BB705D /* third_party_vector_style.json in Resources */,
 				96CABF731DC1390600C7BAEF /* Main.storyboard in Resources */,
 				96CABF741DC1390600C7BAEF /* pisavector.xcassets in Resources */,
 			);
@@ -764,6 +796,7 @@
 				9691AAAE1C5AB5A1006A58C6 /* SimpleMapViewExample2.3.swift in Sources */,
 				96D431FC1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m in Sources */,
 				968247031C5BDCBB00494AB8 /* CustomRasterStyleExample.m in Sources */,
+				64CF97121DF224F600C3C27B /* SourceCustomRasterExample.swift in Sources */,
 				9682472A1C5C1FF800494AB8 /* PointConversionExample.m in Sources */,
 				96466ACA1C9323D9009CF4AB /* CustomCalloutViewExample2.3.swift in Sources */,
 				3EBCD71D1DC28240001E342F /* CustomRasterStyleExample.swift in Sources */,
@@ -782,11 +815,13 @@
 				3EBCD7281DC28240001E342F /* SimpleMapViewExample.swift in Sources */,
 				3EBCD7241DC28240001E342F /* DrawingAPolygonExample.swift in Sources */,
 				9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */,
+				64CF97101DF224E400C3C27B /* SourceCustomVectorExample.swift in Sources */,
 				9682470A1C5BEE4D00494AB8 /* SatelliteStyleExample2.3.swift in Sources */,
 				3EBCD7211DC28240001E342F /* DrawingACustomMarkerExample.swift in Sources */,
 				646B62AB1DEF713C000AA523 /* RuntimeAnimateLineExample2.3.swift in Sources */,
 				3EBCD71E1DC28240001E342F /* CustomStyleExample.swift in Sources */,
 				968247081C5BEBDC00494AB8 /* SatelliteStyleExample.m in Sources */,
+				64CF97171DF2251500C3C27B /* SourceCustomRasterExample.m in Sources */,
 				3EBCD7271DC28240001E342F /* SatelliteStyleExample.swift in Sources */,
 				96115A681CAD4E1C000963B8 /* OfflinePackExample.m in Sources */,
 				3EBCD71C1DC28240001E342F /* CustomCalloutViewExample.swift in Sources */,
@@ -796,14 +831,17 @@
 				646B62A81DEF7134000AA523 /* RuntimeAddLineExample2.3.swift in Sources */,
 				9682471A1C5C115000494AB8 /* DrawingAGeoJSONLineExample.m in Sources */,
 				3ECF46161DC18DB30089118A /* CustomAnnotationModelExample2.3.swift in Sources */,
+				64CF970C1DF224C500C3C27B /* SourceCustomVectorExample.m in Sources */,
 				968247051C5BDDC600494AB8 /* CustomRasterStyleExample2.3.swift in Sources */,
 				96115A6A1CAD5012000963B8 /* OfflinePackExample2.3.swift in Sources */,
+				64CF97091DF224AC00C3C27B /* SourceCustomVectorExample2.3.swift in Sources */,
 				969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */,
 				968247241C5C1D9500494AB8 /* CameraAnimationExample2.3.swift in Sources */,
 				968247151C5C102B00494AB8 /* CalloutDelegateUsageExample2.3.swift in Sources */,
 				646B62A41DEF7115000AA523 /* RuntimeAddLineExample.m in Sources */,
 				968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */,
 				96466AD11C932EF5009CF4AB /* CustomCalloutView2.3.swift in Sources */,
+				64CF97141DF2250600C3C27B /* SourceCustomRasterExample2.3.swift in Sources */,
 				961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */,
 				9691AAB11C5AC5AD006A58C6 /* CustomStyleExample2.3.swift in Sources */,
 			);
@@ -846,6 +884,7 @@
 				96CABF4C1DC1390600C7BAEF /* DrawingAGeoJSONLineExample2.3.swift in Sources */,
 				96CABF4D1DC1390600C7BAEF /* CustomStyleExample.m in Sources */,
 				96CABF4E1DC1390600C7BAEF /* CustomAnnotationModelExample.m in Sources */,
+				64CF97151DF2250600C3C27B /* SourceCustomRasterExample2.3.swift in Sources */,
 				96CABF4F1DC1390600C7BAEF /* ExamplesTableViewController.m in Sources */,
 				96CABF501DC1390600C7BAEF /* DrawingAPolygonExample.m in Sources */,
 				646B62B11DEF73A9000AA523 /* RuntimeAddLineExample.m in Sources */,
@@ -857,6 +896,7 @@
 				96CABF561DC1390600C7BAEF /* CustomCalloutViewExample2.3.swift in Sources */,
 				96CABF581DC1390600C7BAEF /* DrawingACustomMarkerExample2.3.swift in Sources */,
 				96CABF591DC1390600C7BAEF /* main.m in Sources */,
+				64CF970A1DF224AC00C3C27B /* SourceCustomVectorExample2.3.swift in Sources */,
 				3EBCD72E1DC286BB001E342F /* CustomAnnotationModels.swift in Sources */,
 				96CABF5A1DC1390600C7BAEF /* CalloutDelegateUsageExample.m in Sources */,
 				96CABF5B1DC1390600C7BAEF /* DrawingAPolygonExample2.3.swift in Sources */,
@@ -879,8 +919,10 @@
 				96CABF691DC1390600C7BAEF /* CameraAnimationExample.m in Sources */,
 				96CABF6A1DC1390600C7BAEF /* CustomCalloutView2.3.swift in Sources */,
 				96CABF6B1DC1390600C7BAEF /* ExamplesContainerViewController.m in Sources */,
+				64CF970D1DF224C500C3C27B /* SourceCustomVectorExample.m in Sources */,
 				646B629A1DEF6DDE000AA523 /* RuntimeToggleLayerExample2.3.swift in Sources */,
 				96CABF6C1DC1390600C7BAEF /* CustomStyleExample2.3.swift in Sources */,
+				64CF97181DF2251500C3C27B /* SourceCustomRasterExample.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

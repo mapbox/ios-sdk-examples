@@ -34,6 +34,8 @@
 	MBXExampleRuntimeToggleLayer,
 	MBXExampleSatelliteStyle,
 	MBXExampleSimpleMapView,
+	MBXExampleSourceCustomRaster,
+	MBXExampleSourceCustomVector,
 	MBXExampleUserTrackingModes,
     ]];
 

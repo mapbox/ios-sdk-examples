@@ -35,6 +35,8 @@ extern NSString *const MBXExampleRuntimeCircleStyles;
 extern NSString *const MBXExampleRuntimeToggleLayer;
 extern NSString *const MBXExampleSatelliteStyle;
 extern NSString *const MBXExampleSimpleMapView;
+extern NSString *const MBXExampleSourceCustomRaster;
+extern NSString *const MBXExampleSourceCustomVector;
 extern NSString *const MBXExampleUserTrackingModes;
 
 @interface Examples : NSObject
