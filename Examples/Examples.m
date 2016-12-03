@@ -33,6 +33,7 @@
 	MBXExampleRuntimeCircleStyles,
 	MBXExampleRuntimeToggleLayer,
 	MBXExampleSatelliteStyle,
+	MBXExampleSelectFeature,
 	MBXExampleSimpleMapView,
 	MBXExampleSourceCustomRaster,
 	MBXExampleSourceCustomVector,

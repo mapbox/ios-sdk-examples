@@ -34,6 +34,7 @@ extern NSString *const MBXExampleRuntimeAnimateLine;
 extern NSString *const MBXExampleRuntimeCircleStyles;
 extern NSString *const MBXExampleRuntimeToggleLayer;
 extern NSString *const MBXExampleSatelliteStyle;
+extern NSString *const MBXExampleSelectFeature;
 extern NSString *const MBXExampleSimpleMapView;
 extern NSString *const MBXExampleSourceCustomRaster;
 extern NSString *const MBXExampleSourceCustomVector;
