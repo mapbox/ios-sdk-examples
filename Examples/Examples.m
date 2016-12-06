@@ -32,6 +32,7 @@
 	MBXExampleRuntimeAnimateLine,
 	MBXExampleRuntimeCircleStyles,
 	MBXExampleRuntimeToggleLayer,
+	MBXExampleRuntimeMultipleAnnotations,
 	MBXExampleSatelliteStyle,
 	MBXExampleSelectFeature,
 	MBXExampleSimpleMapView,

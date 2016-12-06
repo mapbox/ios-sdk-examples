@@ -33,6 +33,7 @@ extern NSString *const MBXExampleRuntimeAddLine;
 extern NSString *const MBXExampleRuntimeAnimateLine;
 extern NSString *const MBXExampleRuntimeCircleStyles;
 extern NSString *const MBXExampleRuntimeToggleLayer;
+extern NSString *const MBXExampleRuntimeMultipleAnnotations;
 extern NSString *const MBXExampleSatelliteStyle;
 extern NSString *const MBXExampleSelectFeature;
 extern NSString *const MBXExampleSimpleMapView;
