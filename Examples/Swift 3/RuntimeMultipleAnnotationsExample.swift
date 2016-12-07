@@ -56,11 +56,11 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
 	circles.circleOpacity = MGLStyleValue(stops: [
 	    2: MGLStyleValue(rawValue: 0.5),
 	    7: MGLStyleValue(rawValue: 1),
-	    ])
+	])
 	circles.circleRadius = MGLStyleValue(stops: [
 	    2: MGLStyleValue(rawValue: 2),
 	    7: MGLStyleValue(rawValue: 3),
-	    ])
+	])
 
 	// Use MGLSymbolStyleLayer for more complex styling of points including custom icons and text rendering
 	let symbols = MGLSymbolStyleLayer(identifier: "lighthouse-symbols", source: source)
@@ -70,7 +70,7 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
 	symbols.iconOpacity = MGLStyleValue(stops: [
 	    5.9: MGLStyleValue(rawValue: 0),
 	    6: MGLStyleValue(rawValue: 1)
-	    ])
+	])
 	symbols.iconHaloColor = MGLStyleValue(rawValue: UIColor.white.withAlphaComponent(0.5))
 	symbols.iconHaloWidth = MGLStyleValue(rawValue: 1)
 	// {name} references the "name" key in an MGLPointFeature's attributes dictionary
@@ -79,7 +79,7 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
 	symbols.textSize = MGLStyleValue(stops: [
 	    10: MGLStyleValue(rawValue: 10),
 	    16: MGLStyleValue(rawValue: 16)
-	    ])
+	])
 	symbols.textTranslate = MGLStyleValue(rawValue: NSValue(cgVector: CGVector(dx: 10, dy: 0)))
 	symbols.textOpacity = symbols.iconOpacity
 	symbols.textHaloColor = symbols.iconHaloColor
@@ -87,7 +87,6 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
 	symbols.textJustify = MGLStyleValue(rawValue: NSValue(mglTextJustify: .left))
 	symbols.textAnchor = MGLStyleValue(rawValue: NSValue(mglTextAnchor: .left))
 
-	self.mapView.style().add(source)
 	self.mapView.style().add(circles)
 	self.mapView.style().add(symbols)
     }

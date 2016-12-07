@@ -18,7 +18,7 @@ class SourceCustomVectorExample_Swift: UIViewController {
     override func viewDidLoad() {
 	super.viewDidLoad()
 
-
+	// In this case we're using a custom style json (https://www.mapbox.com/mapbox-gl-style-spec/) to add a third party tile source: "https://vector.mapzen.com/osm/all/{z}/{x}/{y}.mvt
 	mapView = MGLMapView(frame: view.bounds, styleURL: NSBundle.mainBundle().URLForResource("third_party_vector_style", withExtension: "json")!)
 
 	mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]

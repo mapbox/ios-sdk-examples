@@ -26,17 +26,16 @@ NSString *const MBXExampleRuntimeCircleStyles = @"RuntimeCircleStylesExample";
     [self.mapView setStyleURL:[MGLStyle lightStyleURLWithVersion:9]];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    // Set the map's center coordinate
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(37.753574, -122.447303)
 			    zoomLevel:10
 			     animated:NO];
 
     [self.view addSubview:self.mapView];
 
-    // Set the delegate property of our map view to self after instantiating it
     self.mapView.delegate = self;
 }
 
+// Wait until the style is loaded before modifying the map style
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     [self addLayer];
 }
@@ -55,15 +54,25 @@ NSString *const MBXExampleRuntimeCircleStyles = @"RuntimeCircleStylesExample";
 
     [self.mapView.style addSource:source];
 
+    // Create a new layer for each ethnicity/circle color
     for (NSString *key in [ethnicities allKeys]) {
+	// Each layer should have a unique identifier
 	MGLCircleStyleLayer *layer = [[MGLCircleStyleLayer alloc] initWithIdentifier:[NSString stringWithFormat:@"population-%@", key] source:source];
+
+	// Specifying the sourceLayerIdentifier is required for a vector tile source. This is the json attribute that wraps the data in the source
 	layer.sourceLayerIdentifier = @"sf2010";
+
+	// Use a style function to smoothly adjust the circle radius from 2px to 180px between zoom levels 12 and 22. The `base` parameter allows the values to interpolate along an exponential curve
 	layer.circleRadius = [MGLStyleValue valueWithBase:1.75 stops:@{
 	    @12: [MGLStyleValue valueWithRawValue:@2],
 	    @22: [MGLStyleValue valueWithRawValue:@180]
 	}];
 	layer.circleOpacity = [MGLStyleValue valueWithRawValue:@0.7];
+
+	// Set the circle color to match the ethnicity
 	layer.circleColor = [MGLStyleValue valueWithRawValue:ethnicities[key]];
+
+	// Use an NSPredicate to filter to just one ethnicity for this layer
 	layer.predicate = [NSPredicate predicateWithFormat:@"%K == %@", @"ethnicity", key];
 
 	[self.mapView.style addLayer:layer];

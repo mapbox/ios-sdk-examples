@@ -33,20 +33,13 @@ NSString *const MBXExampleRuntimeToggleLayer = @"RuntimeToggleLayerExample";
 
     [self.view addSubview:self.mapView];
 
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    [button setTitle:@"Toggle Contours" forState:UIControlStateNormal];
-    [button setSelected:YES];
-    [button sizeToFit];
-    button.center = CGPointMake(self.view.center.x, 0);
-    button.frame = CGRectMake(button.frame.origin.x, self.view.frame.size.height - button.frame.size.height - 5, button.frame.size.width, button.frame.size.height);
-    [button addTarget:self action:@selector(toggleLayer:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
+    [self addToggleButton];
 
     // Set the delegate property of our map view to self after instantiating it
     self.mapView.delegate = self;
 }
 
+// Wait until the style is loaded before modifying the map style
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     [self addLayer];
 }
@@ -92,6 +85,18 @@ NSString *const MBXExampleRuntimeToggleLayer = @"RuntimeToggleLayerExample";
 
 - (void)hideContours {
     [self.contoursLayer setVisible:NO];
+}
+
+- (void)addToggleButton {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    [button setTitle:@"Toggle Contours" forState:UIControlStateNormal];
+    [button setSelected:YES];
+    [button sizeToFit];
+    button.center = CGPointMake(self.view.center.x, 0);
+    button.frame = CGRectMake(button.frame.origin.x, self.view.frame.size.height - button.frame.size.height - 5, button.frame.size.width, button.frame.size.height);
+    [button addTarget:self action:@selector(toggleLayer:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
 
 @end

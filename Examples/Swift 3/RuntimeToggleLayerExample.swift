@@ -26,19 +26,12 @@ class RuntimeToggleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
 	mapView.setCenter(CLLocationCoordinate2D(latitude: 37.745395, longitude: -119.594421), zoomLevel: 11, animated: false)
 	view.addSubview(mapView)
 
-	let button = UIButton(type: .system)
-	button.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
-	button.setTitle("Toggle Contours", for: .normal)
-	button.isSelected = true
-	button.sizeToFit()
-	button.center.x = self.view.center.x
-	button.frame = CGRect(origin: CGPoint(x: button.frame.origin.x, y: self.view.frame.size.height - button.frame.size.height - 5), size: button.frame.size)
-	button.addTarget(self, action: #selector(RuntimeToggleLayerExample_Swift.toggleLayer(sender:)), for: .touchUpInside)
-	self.view.addSubview(button)
+	addToggleButton()
 
 	mapView.delegate = self
     }
 
+    // Wait until the style is loaded before modifying the map style
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
 	addLayer()
     }
@@ -84,5 +77,16 @@ class RuntimeToggleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
 	self.contoursLayer?.isVisible = false
     }
 
+    func addToggleButton() {
+	let button = UIButton(type: .system)
+	button.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
+	button.setTitle("Toggle Contours", for: .normal)
+	button.isSelected = true
+	button.sizeToFit()
+	button.center.x = self.view.center.x
+	button.frame = CGRect(origin: CGPoint(x: button.frame.origin.x, y: self.view.frame.size.height - button.frame.size.height - 5), size: button.frame.size)
+	button.addTarget(self, action: #selector(RuntimeToggleLayerExample_Swift.toggleLayer(sender:)), for: .touchUpInside)
+	self.view.addSubview(button)
+    }
 }
 #endif

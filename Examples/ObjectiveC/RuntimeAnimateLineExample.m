@@ -30,45 +30,46 @@ NSString *const MBXExampleRuntimeAnimateLine = @"RuntimeAnimateLineExample";
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    // Set the map's center coordinate
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(45.5076, -122.6736)
 			    zoomLevel:11
 			     animated:NO];
 
     [self.view addSubview:self.mapView];
 
-    // Set the delegate property of our map view to self after instantiating it
     self.mapView.delegate = self;
 }
 
-- (void)mapViewDidFinishLoadingMap:(MGLMapView *)mapView {
+// Wait until the map is loaded before adding to the map
+- (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     [self addLayer];
     [self animatePolyline];
 }
 
 - (void)addLayer {
+    // Add an empty MGLGeoJSONSource, we'll keep a reference to this and add points to this later
     MGLGeoJSONSource *source = [[MGLGeoJSONSource alloc] initWithIdentifier:@"polyline" features:@[] options:nil];
+    [self.mapView.style addSource:source];
+    self.polylineSource = source;
 
     NSDictionary *lineWidthStops = @{
 	 @14: [MGLStyleValue valueWithRawValue: @5],
 	 @18: [MGLStyleValue valueWithRawValue: @20]
     };
 
+    // Add a layer to style our polyline
     MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline" source:source];
     layer.lineJoin = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLineJoin:MGLLineJoinRound]];
     layer.lineCap = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
     layer.lineColor = [MGLStyleValue valueWithRawValue:[UIColor redColor]];
     layer.lineWidth = [MGLStyleValue valueWithBase:1.5 stops: lineWidthStops];
 
-    [self.mapView.style addSource:source];
     [self.mapView.style addLayer:layer];
-
-    self.polylineSource = source;
 }
 
 - (void)animatePolyline {
     _currentIndex = 0;
 
+    // Start a timer that will simulate adding points to our polyline. This could also represent coordinates being added to our polyline from another source, such as a CLLocationManagerDelegate
     _timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(tick) userInfo:nil repeats:YES];
 }
 
@@ -79,17 +80,26 @@ NSString *const MBXExampleRuntimeAnimateLine = @"RuntimeAnimateLineExample";
 	return;
     }
 
-    CLLocationCoordinate2D coordinates[_currentIndex + 1];
+    // Create a subarray of locations up to the current index
+    NSArray *currentLocations = [self.locations subarrayWithRange:NSMakeRange(0, _currentIndex)];
 
-    for (NSUInteger i = 0; i <= _currentIndex; i++) {
-	coordinates[i] = self.locations[i].coordinate;
-    }
-
-    MGLPolylineFeature *polyline = [MGLPolylineFeature polylineWithCoordinates:coordinates count:_currentIndex + 1];
-
-    [self.polylineSource setFeatures:@[polyline]];
+    // Update our MGLGeoJSONSource with the current locations
+    [self updatePolylineWithLocations:currentLocations];
 
     _currentIndex++;
+}
+
+- (void)updatePolylineWithLocations:(NSArray<CLLocation *> *)locations {
+    CLLocationCoordinate2D coordinates[locations.count];
+
+    for (NSUInteger i = 0; i < locations.count; i++) {
+	coordinates[i] = locations[i].coordinate;
+    }
+
+    MGLPolylineFeature *polyline = [MGLPolylineFeature polylineWithCoordinates:coordinates count:locations.count];
+
+    // Updating the MGLGeoJSONSource's features will have the map redraw our polyline with the current coordinates
+    [self.polylineSource setFeatures:@[polyline]];
 }
 
 - (NSArray<CLLocation *> *)locations {

@@ -33,14 +33,8 @@ NSString *const MBXExampleSourceCustomRaster = @"SourceCustomRasterExample";
 
     [self.view addSubview:mapView];
 
-    CGFloat padding = 10.0;
-    UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(padding, self.view.frame.size.height - 44 - 30, self.view.frame.size.width - padding * 2, 44)];
-    slider.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    slider.minimumValue = 0;
-    slider.maximumValue = 1;
-    slider.value = 1;
-    [slider addTarget:self action:@selector(updateLayerOpacity:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:slider];
+    // Add a UISlider that will control the raster layer's opacity
+    [self addSlider];
 
     mapView.delegate = self;
 }
@@ -58,6 +52,17 @@ NSString *const MBXExampleSourceCustomRaster = @"SourceCustomRasterExample";
 
 - (void)updateLayerOpacity:(UISlider *)sender {
     [self.rasterLayer setRasterOpacity:[MGLStyleValue valueWithRawValue:@(sender.value)]];
+}
+
+- (void)addSlider {
+    CGFloat padding = 10.0;
+    UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(padding, self.view.frame.size.height - 44 - 30, self.view.frame.size.width - padding * 2, 44)];
+    slider.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    slider.minimumValue = 0;
+    slider.maximumValue = 1;
+    slider.value = 1;
+    [slider addTarget:self action:@selector(updateLayerOpacity:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:slider];
 }
 
 @end

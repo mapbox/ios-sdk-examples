@@ -31,6 +31,7 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
 	mapView.delegate = self
     }
 
+    // Wait until the style is loaded before modifying the map style
     func mapView(mapView: MGLMapView, didFinishLoadingStyle style: MGLStyle) {
 	addLayer()
     }
@@ -47,15 +48,26 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
 	]
 
 	self.mapView.style().addSource(source)
+
+	// Create a new layer for each ethnicity/circle color
 	for (ethnicity, color) in ethnicities {
+	    // Each layer should have a unique identifier
 	    let layer = MGLCircleStyleLayer(identifier: "population-\(ethnicity)", source: source)
+
+	    // Specifying the sourceLayerIdentifier is required for a vector tile source. This is the json attribute that wraps the data in the source
 	    layer.sourceLayerIdentifier = "sf2010"
+
+	    // Use a style function to smoothly adjust the circle radius from 2px to 180px between zoom levels 12 and 22. The `base` parameter allows the values to interpolate along an exponential curve
 	    layer.circleRadius = MGLStyleValue(base: 1.75, stops: [
 		12: MGLStyleValue(rawValue: 2),
 		22: MGLStyleValue(rawValue: 180)
 	    ])
 	    layer.circleOpacity = MGLStyleValue(rawValue: 0.7)
+
+	    // Set the circle color to match the ethnicity
 	    layer.circleColor = MGLStyleValue(rawValue: color)
+
+	    // Use an NSPredicate to filter to just one ethnicity for this layer
 	    layer.predicate = NSPredicate(format: "%K == %@", "ethnicity", ethnicity)
 	    self.mapView.style().addLayer(layer)
 	}
