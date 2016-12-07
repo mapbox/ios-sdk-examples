@@ -36,7 +36,7 @@ NSString *const MBXExampleRuntimeToggleLayer = @"RuntimeToggleLayerExample";
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
     button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [button setTitle:@"Toggle Contours" forState:UIControlStateNormal];
-    [button setSelected:true];
+    [button setSelected:YES];
     [button sizeToFit];
     button.center = CGPointMake(self.view.center.x, 0);
     button.frame = CGRectMake(button.frame.origin.x, self.view.frame.size.height - button.frame.size.height - 5, button.frame.size.width, button.frame.size.height);
@@ -87,11 +87,11 @@ NSString *const MBXExampleRuntimeToggleLayer = @"RuntimeToggleLayerExample";
 }
 
 - (void)showContours {
-    [self.contoursLayer setVisible:true];
+    [self.contoursLayer setVisible:YES];
 }
 
 - (void)hideContours {
-    [self.contoursLayer setVisible:false];
+    [self.contoursLayer setVisible:NO];
 }
 
 @end
