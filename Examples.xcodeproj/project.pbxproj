@@ -595,7 +595,7 @@
 		961962841C581700002D3DAB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Mapbox;
 				TargetAttributes = {
 					9619628B1C581700002D3DAB = {
