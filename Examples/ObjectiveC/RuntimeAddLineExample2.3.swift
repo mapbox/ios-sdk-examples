@@ -78,7 +78,17 @@ class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
 	    18: MGLStyleValue(rawValue: 4),
 	])
 
+	// Just for fun, let's add another copy of the line with a dash pattern
+	let dashedLayer = MGLLineStyleLayer(identifier: "polyline-dash", source: source)
+	dashedLayer.lineJoin = layer.lineJoin
+	dashedLayer.lineCap = layer.lineCap
+	dashedLayer.lineColor = MGLStyleValue(rawValue: UIColor.whiteColor())
+	dashedLayer.lineOpacity = MGLStyleValue(rawValue: 0.5)
+	dashedLayer.lineWidth = layer.lineWidth
+	dashedLayer.lineDasharray = MGLStyleValue(rawValue: [0, 1.5])
+
 	self.mapView.style().addLayer(layer)
+	self.mapView.style().addLayer(dashedLayer)
 	self.mapView.style().insertLayer(casingLayer, belowLayer: layer)
     }
 }

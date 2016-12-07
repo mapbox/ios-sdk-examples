@@ -81,7 +81,18 @@ NSString *const MBXExampleRuntimeAddLine = @"RuntimeAddLineExample";
 	@18: [MGLStyleValue valueWithRawValue: @4]
     }];
 
+    // Just for fun, let's add another copy of the line with a dash pattern
+    MGLLineStyleLayer *dashedLayer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline-dash" source:source];
+    dashedLayer.lineJoin = layer.lineJoin;
+    dashedLayer.lineCap = layer.lineCap;
+    dashedLayer.lineWidth = layer.lineWidth;
+    dashedLayer.lineColor = [MGLStyleValue valueWithRawValue:[UIColor whiteColor]];
+    dashedLayer.lineOpacity = [MGLStyleValue valueWithRawValue:@0.5];
+    // Dash array in the format [dash, gap, dash, gap, ...]. You'll want to adjust these values based on the line cap style.
+    dashedLayer.lineDasharray = [MGLStyleValue valueWithRawValue:@[@0, @1.5]];
+
     [self.mapView.style addLayer:layer];
+    [self.mapView.style addLayer:dashedLayer];
     [self.mapView.style insertLayer:casingLayer belowLayer:layer];
 }
 
