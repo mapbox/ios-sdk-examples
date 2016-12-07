@@ -14,7 +14,6 @@ NSString *const MBXExampleCustomAnnotationModel = @"CustomAnnotationModelExample
 
 @interface CustomAnnotationModelExample () <MGLMapViewDelegate>
 @end
-
 @implementation CustomAnnotationModelExample
 
 - (void)viewDidLoad {

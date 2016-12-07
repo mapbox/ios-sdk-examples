@@ -12,7 +12,6 @@
 @interface ExamplesUITests : XCTestCase
 
 @end
-
 @implementation ExamplesUITests
 
 - (void)setUp {

@@ -16,7 +16,6 @@ NSString *const MBXExampleDrawingAGeoJSONLine = @"DrawingAGeoJSONLineExample";
 @property (nonatomic) MGLMapView *mapView;
 
 @end
-
 @implementation DrawingAGeoJSONLineExample
 
 - (void)viewDidLoad {

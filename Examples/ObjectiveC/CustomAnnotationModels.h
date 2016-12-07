@@ -21,10 +21,8 @@
 @property (nonatomic, copy, nonnull) NSString *reuseIdentifier;
 
 @end
-
 @implementation CustomPointAnnotation
 @end
-
 
 // MGLPolyline subclass
 @interface CustomPolyline : MGLPolyline
@@ -35,6 +33,5 @@
 @property (nonatomic, strong, nullable) UIColor *color;
 
 @end
-
 @implementation CustomPolyline
 @end

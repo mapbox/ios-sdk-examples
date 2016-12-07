@@ -13,7 +13,6 @@ NSString *const MBXExampleDrawingAMarker = @"DrawingAMarkerExample";
 
 @interface DrawingAMarkerExample () <MGLMapViewDelegate>
 @end
-
 @implementation DrawingAMarkerExample
 
 - (void)viewDidLoad {

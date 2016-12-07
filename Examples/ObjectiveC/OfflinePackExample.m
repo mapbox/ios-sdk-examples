@@ -17,7 +17,6 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
 @property (nonatomic) UIProgressView *progressView;
 
 @end
-
 @implementation OfflinePackExample
 
 - (void)viewDidLoad {

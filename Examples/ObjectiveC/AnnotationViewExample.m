@@ -7,6 +7,7 @@
 //
 
 #import "AnnotationViewExample.h"
+
 @import Mapbox;
 
 NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
@@ -41,12 +42,10 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
 }
 
 @end
-
 //
 // Example view controller
 @interface AnnotationViewExample () <MGLMapViewDelegate>
 @end
-
 @implementation AnnotationViewExample
 
 - (void)viewDidLoad {

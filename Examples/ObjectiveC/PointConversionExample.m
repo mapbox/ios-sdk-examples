@@ -16,7 +16,6 @@ NSString *const MBXExamplePointConversion = @"PointConversionExample";
 @property (nonatomic) MGLMapView *mapView;
 
 @end
-
 @implementation PointConversionExample
 
 - (void)viewDidLoad {

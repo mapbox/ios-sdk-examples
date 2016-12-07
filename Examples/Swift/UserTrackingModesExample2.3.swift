@@ -5,7 +5,8 @@
 //  Created by Jason Wray on 6/30/16.
 //  Copyright © 2016 Mapbox. All rights reserved.
 //
-
+#if !swift(>=3.0)
+    
 import Mapbox
 
 @objc(UserTrackingModesExample_Swift)
@@ -148,3 +149,4 @@ class UserLocationButton : UIButton {
         layoutIfNeeded()
     }
 }
+#endif
