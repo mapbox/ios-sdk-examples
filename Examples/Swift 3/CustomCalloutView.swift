@@ -86,7 +86,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
                     self?.alpha = 0
                     }, completion: { [weak self] _ in
                         self?.removeFromSuperview()
-                    })
+                })
             } else {
                 removeFromSuperview()
             }

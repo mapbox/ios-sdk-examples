@@ -46,7 +46,7 @@ class DrawingAPolygonExample_Swift: UIViewController, MGLMapViewDelegate {
             CLLocationCoordinate2D(latitude: 45.502496, longitude: -122.669048),
             CLLocationCoordinate2D(latitude: 45.515369, longitude: -122.678489),
             CLLocationCoordinate2D(latitude: 45.506346, longitude: -122.702007),
-            CLLocationCoordinate2D(latitude: 45.522585, longitude: -122.685699),
+            CLLocationCoordinate2D(latitude: 45.522585, longitude: -122.685699)
         ]
         
         let shape = MGLPolygon.polygon(coordinates: &coordinates, count: UInt(coordinates.count))
