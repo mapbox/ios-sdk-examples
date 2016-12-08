@@ -29,8 +29,16 @@ extern NSString *const MBXExampleDrawingAMarker;
 extern NSString *const MBXExampleDrawingAPolygon;
 extern NSString *const MBXExampleOfflinePack;
 extern NSString *const MBXExamplePointConversion;
+extern NSString *const MBXExampleRuntimeAddLine;
+extern NSString *const MBXExampleRuntimeAnimateLine;
+extern NSString *const MBXExampleRuntimeCircleStyles;
+extern NSString *const MBXExampleRuntimeToggleLayer;
+extern NSString *const MBXExampleRuntimeMultipleAnnotations;
 extern NSString *const MBXExampleSatelliteStyle;
+extern NSString *const MBXExampleSelectFeature;
 extern NSString *const MBXExampleSimpleMapView;
+extern NSString *const MBXExampleSourceCustomRaster;
+extern NSString *const MBXExampleSourceCustomVector;
 extern NSString *const MBXExampleUserTrackingModes;
 
 @interface Examples : NSObject

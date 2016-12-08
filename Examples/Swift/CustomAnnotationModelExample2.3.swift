@@ -33,8 +33,9 @@ class CustomAnnotationModelExample_Swift: UIViewController, MGLMapViewDelegate {
             CLLocationCoordinate2DMake(-45, 10),
             CLLocationCoordinate2DMake(-45, 40),
         ]
-        
-        let polyline = CustomPolyline.polyline(coordinates: &coordinates, count: UInt(coordinates.count))
+
+        let polyline = CustomPolyline(coordinates: &coordinates, count: UInt(coordinates.count))
+
         // Set the custom `color` property, later used in the `mapView:strokeColorForShapeAnnotation:` delegate method.
         polyline.color = .darkGrayColor()
         

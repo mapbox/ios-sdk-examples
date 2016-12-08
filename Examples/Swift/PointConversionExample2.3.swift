@@ -52,7 +52,9 @@ class PointConversionExample: UIViewController, MGLMapViewDelegate {
         if (mapView.annotations?.count != nil) {
             mapView.removeAnnotations(mapView.annotations!)
         }
+
         let polyline = MGLPolyline(coordinates: &coordinates, count: UInt(coordinates.count))
+
         mapView.addAnnotation(polyline)
     }
 }

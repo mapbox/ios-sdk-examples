@@ -13,26 +13,34 @@
 + (NSArray *)list {
     
     NSArray *initialList = [[NSMutableArray alloc] initWithArray:@[
-       MBXExampleAnnotationView,
-       MBXExampleCalloutDelegateUsage,
-       MBXExampleCameraAnimation,
-       MBXExampleCustomAnnotationModel,
-       MBXExampleCustomCalloutView,
-       MBXExampleCustomRasterStyle,
-       MBXExampleCustomStyle,
-       MBXExampleDefaultStyles,
-       MBXExampleDraggableAnnotationView,
-       MBXExampleDrawingAGeoJSONLine,
-       MBXExampleDrawingACustomMarker,
-       MBXExampleDrawingAMarker,
-       MBXExampleDrawingAPolygon,
-       MBXExampleOfflinePack,
-       MBXExamplePointConversion,
-       MBXExampleSatelliteStyle,
-       MBXExampleSimpleMapView,
-       MBXExampleUserTrackingModes,
-       ]];
-    
+        MBXExampleAnnotationView,
+        MBXExampleCalloutDelegateUsage,
+        MBXExampleCameraAnimation,
+        MBXExampleCustomAnnotationModel,
+        MBXExampleCustomCalloutView,
+        MBXExampleCustomRasterStyle,
+        MBXExampleCustomStyle,
+        MBXExampleDefaultStyles,
+        MBXExampleDraggableAnnotationView,
+        MBXExampleDrawingAGeoJSONLine,
+        MBXExampleDrawingACustomMarker,
+        MBXExampleDrawingAMarker,
+        MBXExampleDrawingAPolygon,
+        MBXExampleOfflinePack,
+        MBXExamplePointConversion,
+        MBXExampleRuntimeAddLine,
+        MBXExampleRuntimeAnimateLine,
+        MBXExampleRuntimeCircleStyles,
+        MBXExampleRuntimeToggleLayer,
+        MBXExampleRuntimeMultipleAnnotations,
+        MBXExampleSatelliteStyle,
+        MBXExampleSelectFeature,
+        MBXExampleSimpleMapView,
+        MBXExampleSourceCustomRaster,
+        MBXExampleSourceCustomVector,
+        MBXExampleUserTrackingModes,
+    ]];
+
     NSMutableArray *meh = [[NSMutableArray alloc] init];
     
     [initialList enumerateObjectsUsingBlock:^(NSString *objcName, NSUInteger index, BOOL *stop) {
