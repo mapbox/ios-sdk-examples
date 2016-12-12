@@ -71,7 +71,7 @@ class DraggableAnnotationView: MGLAnnotationView {
     init(reuseIdentifier: String, size: CGFloat) {
         super.init(reuseIdentifier: reuseIdentifier)
         
-        // `draggable` is a property of MGLAnnotationView, disabled by default.
+        // `isDraggable` is a property of MGLAnnotationView, disabled by default.
         isDraggable = true
         
         // This property prevents the annotation from changing size when the map is tilted.

@@ -84,8 +84,8 @@ class CustomCalloutView: UIView, MGLCalloutView {
             if animated {
                 UIView.animate(withDuration: 0.2, animations: { [weak self] in
                     self?.alpha = 0
-                    }, completion: { [weak self] _ in
-                        self?.removeFromSuperview()
+                }, completion: { [weak self] _ in
+                    self?.removeFromSuperview()
                 })
             } else {
                 removeFromSuperview()
