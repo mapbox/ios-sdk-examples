@@ -13,8 +13,8 @@ class CustomCalloutView: UIView, MGLCalloutView {
     
     // Lazy initialization of optional vars for protocols causes segmentation fault: 11s in Swift 3.0. https://bugs.swift.org/browse/SR-1825
     
-    var leftAccessoryView = UIView()/* unused */
-    var rightAccessoryView = UIView()/* unused */
+    var leftAccessoryView = UIView() /* unused */
+    var rightAccessoryView = UIView() /* unused */
     
     weak var delegate: MGLCalloutViewDelegate?
     
@@ -27,13 +27,13 @@ class CustomCalloutView: UIView, MGLCalloutView {
         self.representedObject = representedObject
         self.mainBody = UIButton(type: .system)
         
-        super.init(frame: CGRect.zero)
+        super.init(frame: .zero)
         
-        backgroundColor = UIColor.clear
+        backgroundColor = .clear
         
-        mainBody.backgroundColor = backgroundColorForCallout()
-        mainBody.tintColor = UIColor.white
-        mainBody.contentEdgeInsets = UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0)
+        mainBody.backgroundColor = .darkGray
+        mainBody.tintColor = .white
+        mainBody.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         mainBody.layer.cornerRadius = 4.0
         
         addSubview(mainBody)
@@ -112,13 +112,9 @@ class CustomCalloutView: UIView, MGLCalloutView {
     
     // MARK: - Custom view styling
     
-    func backgroundColorForCallout() -> UIColor {
-        return UIColor.darkGray
-    }
-    
     override func draw(_ rect: CGRect) {
         // Draw the pointed tip at the bottom
-        let fillColor = backgroundColorForCallout()
+        let fillColor : UIColor = .darkGray
         
         let tipLeft = rect.origin.x + (rect.size.width / 2.0) - (tipWidth / 2.0)
         let tipBottom = CGPoint(x: rect.origin.x + (rect.size.width / 2.0), y: rect.origin.y + rect.size.height)

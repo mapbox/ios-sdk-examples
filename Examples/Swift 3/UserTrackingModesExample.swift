@@ -22,8 +22,8 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
         
-        mapView.tintColor = UIColor.red
-        mapView.attributionButton.tintColor = UIColor.lightGray
+        mapView.tintColor = .red
+        mapView.attributionButton.tintColor = .lightGray
         
         view.addSubview(mapView)
         

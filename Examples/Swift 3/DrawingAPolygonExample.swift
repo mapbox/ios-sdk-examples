@@ -58,7 +58,7 @@ class DrawingAPolygonExample_Swift: UIViewController, MGLMapViewDelegate {
         return 0.5
     }
     func mapView(_ mapView: MGLMapView, strokeColorForShapeAnnotation annotation: MGLShape) -> UIColor {
-        return UIColor.white
+        return .white
     }
     
     func mapView(_ mapView: MGLMapView, fillColorForPolygonAnnotation annotation: MGLPolygon) -> UIColor {

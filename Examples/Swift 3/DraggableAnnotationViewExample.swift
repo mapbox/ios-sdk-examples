@@ -25,11 +25,11 @@ class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate
         
         // Specify coordinates for our annotations.
         let coordinates = [
-            CLLocationCoordinate2DMake(0, -70),
-            CLLocationCoordinate2DMake(0, -35),
-            CLLocationCoordinate2DMake(0,  0),
-            CLLocationCoordinate2DMake(0, 35),
-            CLLocationCoordinate2DMake(0, 70),
+            CLLocationCoordinate2D(latitude: 0, longitude: -70),
+            CLLocationCoordinate2D(latitude: 0, longitude: -35),
+            CLLocationCoordinate2D(latitude: 0,  longitude: 0),
+            CLLocationCoordinate2D(latitude: 0, longitude: 35),
+            CLLocationCoordinate2D(latitude: 0, longitude: 70)
         ]
         
         // Fill an array with point annotations and add it to the map.
