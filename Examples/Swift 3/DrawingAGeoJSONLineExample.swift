@@ -35,11 +35,12 @@ class DrawingAGeoJSONLineExample_Swift: UIViewController, MGLMapViewDelegate {
         DispatchQueue.global(qos: .background).async(execute: {
             // Get the path for example.geojson in the app's bundle
             let jsonPath = Bundle.main.path(forResource: "example", ofType: "geojson")
-            let jsonData = NSData(contentsOfFile: jsonPath!)
+            let url = URL(fileURLWithPath: jsonPath!)
             
             do {
+                let jsonData = try Data(contentsOf: url)
                 // Load and serialize the GeoJSON into a dictionary filled with properly-typed objects
-                if let jsonDict = try JSONSerialization.jsonObject(with: jsonData! as Data, options: []) as? NSDictionary {
+                if let jsonDict = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String : AnyObject] {
                     
                     // Load the `features` array for iteration
                     if let features = jsonDict["features"] as? NSArray {
@@ -54,7 +55,7 @@ class DrawingAGeoJSONLineExample_Swift: UIViewController, MGLMapViewDelegate {
                                             // Iterate over line coordinates, stored in GeoJSON as many lng, lat arrays
                                             for location in locations {
                                                 // Make a CLLocationCoordinate2D with the lat, lng
-                                                let coordinate = CLLocationCoordinate2DMake(location[1], location[0])
+                                                let coordinate = CLLocationCoordinate2D(latitude: location[1], longitude: location[0])
                                                 
                                                 // Add coordinate to coordinates array
                                                 coordinates.append(coordinate)
@@ -109,7 +110,7 @@ class DrawingAGeoJSONLineExample_Swift: UIViewController, MGLMapViewDelegate {
         }
         else
         {
-            return UIColor.red
+            return .red
         }
     }
 }

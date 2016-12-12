@@ -20,11 +20,11 @@ class OfflinePackExample: UIViewController, MGLMapViewDelegate {
         
         mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL(withVersion: 9))
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.tintColor = UIColor.gray
+        mapView.tintColor = .gray
         mapView.delegate = self
         view.addSubview(mapView)
         
-        mapView.setCenter(CLLocationCoordinate2DMake(22.27933, 114.16281),
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 22.27933, longitude: 114.16281),
                           zoomLevel: 13, animated: false)
         
         // Setup offline pack notification handlers.
@@ -57,7 +57,7 @@ class OfflinePackExample: UIViewController, MGLMapViewDelegate {
         MGLOfflineStorage.shared().addPack(for: region, withContext: context) { (pack, error) in
             guard error == nil else {
                 // The pack couldn’t be created for some reason.
-                print("Error: \((error as? NSError)?.localizedFailureReason)")
+                print("Error: \(error?.localizedDescription)")
                 return
             }
             
@@ -106,7 +106,7 @@ class OfflinePackExample: UIViewController, MGLMapViewDelegate {
     func offlinePackDidReceiveError(notification: NSNotification) {
         if let pack = notification.object as? MGLOfflinePack,
             let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
-            let error = notification.userInfo?[MGLOfflinePackErrorUserInfoKey] as? NSError {
+            let error = notification.userInfo?[MGLOfflinePackUserInfoKey.error] as? NSError {
             print("Offline pack “\(userInfo["name"])” received error: \(error.localizedFailureReason)")
         }
     }
@@ -114,7 +114,7 @@ class OfflinePackExample: UIViewController, MGLMapViewDelegate {
     func offlinePackDidReceiveMaximumAllowedMapboxTiles(notification: NSNotification) {
         if let pack = notification.object as? MGLOfflinePack,
             let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
-            let maximumCount = (notification.userInfo?[MGLOfflinePackMaximumCountUserInfoKey] as AnyObject).uint64Value {
+            let maximumCount = (notification.userInfo?[MGLOfflinePackUserInfoKey.maximumCount] as AnyObject).uint64Value {
             print("Offline pack “\(userInfo["name"])” reached limit of \(maximumCount) tiles.")
         }
     }

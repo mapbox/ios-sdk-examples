@@ -25,12 +25,12 @@ class CustomAnnotationModelExample_Swift: UIViewController, MGLMapViewDelegate {
         // Polyline
         // Create a coordinates array with all of the coordinates for our polyline.
         var coordinates = [
-            CLLocationCoordinate2DMake(35, -25),
-            CLLocationCoordinate2DMake(20, -30),
-            CLLocationCoordinate2DMake( 0, -25),
-            CLLocationCoordinate2DMake(-15,  0),
-            CLLocationCoordinate2DMake(-45, 10),
-            CLLocationCoordinate2DMake(-45, 40),
+            CLLocationCoordinate2D(latitude: 35,  longitude: -25),
+            CLLocationCoordinate2D(latitude: 20,  longitude: -30),
+            CLLocationCoordinate2D(latitude: 0,   longitude: -25),
+            CLLocationCoordinate2D(latitude: -15, longitude: 0),
+            CLLocationCoordinate2D(latitude: -45, longitude: 10),
+            CLLocationCoordinate2D(latitude: -45, longitude: 40),
         ]
         
         let polyline = CustomPolyline(coordinates: &coordinates, count: UInt(coordinates.count))

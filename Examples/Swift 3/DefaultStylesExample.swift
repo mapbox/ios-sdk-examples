@@ -25,7 +25,7 @@ class DefaultStylesExample_Swift: UIViewController {
         // Set the map’s center coordinate and zoom level.
         mapView.setCenter(CLLocationCoordinate2D(latitude: 51.50713,
             longitude: -0.10957),
-                          zoomLevel: 13, animated: false)
+            zoomLevel: 13, animated: false)
         view.addSubview(mapView)
     }
 }

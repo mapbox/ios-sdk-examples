@@ -33,7 +33,7 @@ class CalloutDelegateUsageExample_Swift: UIViewController, MGLMapViewDelegate {
     
     func addAnnotation() {
         let annotation = MGLPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2DMake(35.03946, 135.72956)
+        annotation.coordinate = CLLocationCoordinate2D(latitude: 35.03946, longitude: 135.72956)
         annotation.title = "Kinkaku-ji"
         annotation.subtitle = "\(annotation.coordinate.latitude), \(annotation.coordinate.longitude)"
         
