@@ -20,16 +20,16 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.styleURL = MGLStyle.darkStyleURL(withVersion: 9)
         mapView.tintColor = .lightGray
-        mapView.centerCoordinate = CLLocationCoordinate2DMake(0, 66)
+        mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 0, longitude: 66)
         mapView.zoomLevel = 2
         mapView.delegate = self
         view.addSubview(mapView)
         
         // Specify coordinates for our annotations.
         let coordinates = [
-            CLLocationCoordinate2DMake(0, 33),
-            CLLocationCoordinate2DMake(0, 66),
-            CLLocationCoordinate2DMake(0, 99),
+            CLLocationCoordinate2D(latitude: 0, longitude: 33),
+            CLLocationCoordinate2D(latitude: 0, longitude: 66),
+            CLLocationCoordinate2D(latitude: 0, longitude: 99),
         ]
         
         // Fill an array with point annotations and add it to the map.

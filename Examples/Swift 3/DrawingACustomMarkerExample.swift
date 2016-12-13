@@ -16,7 +16,7 @@ class DrawingACustomMarkerExample_Swift: UIViewController, MGLMapViewDelegate {
         
         let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL(withVersion: 9))
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.tintColor = UIColor.darkGray
+        mapView.tintColor = .darkGray
         
         // Set the map's bounds to Pisa, Italy.
         let bounds = MGLCoordinateBounds(
@@ -31,7 +31,7 @@ class DrawingACustomMarkerExample_Swift: UIViewController, MGLMapViewDelegate {
         
         // Initialize and add the point annotation.
         let pisa = MGLPointAnnotation()
-        pisa.coordinate = CLLocationCoordinate2DMake(43.72305, 10.396633)
+        pisa.coordinate = CLLocationCoordinate2D(latitude: 43.72305, longitude: 10.396633)
         pisa.title = "Leaning Tower of Pisa"
         mapView.addAnnotation(pisa)
     }
@@ -51,7 +51,7 @@ class DrawingACustomMarkerExample_Swift: UIViewController, MGLMapViewDelegate {
             //
             // To make this padding non-interactive, we create another image object
             // with a custom alignment rect that excludes the padding.
-            image = image.withAlignmentRectInsets(UIEdgeInsetsMake(0, 0, image.size.height/2, 0))
+            image = image.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: image.size.height/2, right: 0))
             
             // Initialize the ‘pisa’ annotation image with the UIImage we just loaded.
             annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "pisa")

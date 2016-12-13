@@ -44,4 +44,5 @@ class DrawingAMarkerExample_Swift: UIViewController, MGLMapViewDelegate {
         return true
     }
 }
+    
 #endif

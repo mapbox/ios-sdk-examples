@@ -16,7 +16,7 @@ class CustomCalloutViewExample_Swift: UIViewController, MGLMapViewDelegate {
         
         let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL(withVersion: 9))
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.tintColor = UIColor.darkGray
+        mapView.tintColor = .darkGray
         view.addSubview(mapView)
         
         // Set the map view‘s delegate property
@@ -24,7 +24,7 @@ class CustomCalloutViewExample_Swift: UIViewController, MGLMapViewDelegate {
         
         // Initialize and add the marker annotation
         let marker = MGLPointAnnotation()
-        marker.coordinate = CLLocationCoordinate2DMake(0, 0)
+        marker.coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
         marker.title = "Hello world!"
         
         // This custom callout example does not implement subtitles
@@ -43,9 +43,9 @@ class CustomCalloutViewExample_Swift: UIViewController, MGLMapViewDelegate {
         // Only show callouts for `Hello world!` annotation
         if annotation.responds(to: Selector("title")) && annotation.title! == "Hello world!" {
             // Instantiate and return our custom callout view
-//            return CustomCalloutView(representedObject: annotation)
             return CustomCalloutView(representedObject: annotation)
         }
+        
         return nil
     }
     
