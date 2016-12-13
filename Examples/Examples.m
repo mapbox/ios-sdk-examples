@@ -16,6 +16,7 @@
         MBXExampleAnnotationView,
         MBXExampleCalloutDelegateUsage,
         MBXExampleCameraAnimation,
+        MBXExampleCameraFlyTo,
         MBXExampleCustomAnnotationModel,
         MBXExampleCustomCalloutView,
         MBXExampleCustomRasterStyle,
