@@ -15,6 +15,7 @@
 //   4. Create NewExample.swift (otherwise Swift is handled automatically)
 
 extern NSString *const MBXExampleAnnotationView;
+extern NSString *const MBXExampleAnnotationViewMultiple;
 extern NSString *const MBXExampleCalloutDelegateUsage;
 extern NSString *const MBXExampleCameraAnimation;
 extern NSString *const MBXExampleCameraFlyTo;
