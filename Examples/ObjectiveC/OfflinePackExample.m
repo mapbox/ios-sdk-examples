@@ -108,14 +108,14 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
 - (void)offlinePackDidReceiveError:(NSNotification *)notification {
     MGLOfflinePack *pack = notification.object;
     NSDictionary *userInfo = [NSKeyedUnarchiver unarchiveObjectWithData:pack.context];
-    NSError *error = notification.userInfo[MGLOfflinePackUserInfoKeyError];
+    NSError *error = notification.userInfo[MGLOfflinePackErrorUserInfoKey];
     NSLog(@"Offline pack “%@” received error: %@", userInfo[@"name"], error.localizedFailureReason);
 }
 
 - (void)offlinePackDidReceiveMaximumAllowedMapboxTiles:(NSNotification *)notification {
     MGLOfflinePack *pack = notification.object;
     NSDictionary *userInfo = [NSKeyedUnarchiver unarchiveObjectWithData:pack.context];
-    uint64_t maximumCount = [notification.userInfo[MGLOfflinePackUserInfoKeyMaximumCount] unsignedLongLongValue];
+    uint64_t maximumCount = [notification.userInfo[MGLOfflinePackMaximumCountUserInfoKey] unsignedLongLongValue];
     NSLog(@"Offline pack “%@” reached limit of %llu tiles.", userInfo[@"name"], maximumCount);
 }
 
