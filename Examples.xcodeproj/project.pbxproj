@@ -407,10 +407,6 @@
 				968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */,
 				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
-				96115A671CAD4E1C000963B8 /* OfflinePackExample.m */,
-				968247291C5C1FF800494AB8 /* PointConversionExample.m */,
-				968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */,
-				9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */,
 				646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */,
 				646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */,
 				646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */,
@@ -447,8 +443,6 @@
 				968247211C5C1C9B00494AB8 /* DrawingAPolygonExample2.3.swift */,
 				96115A691CAD5012000963B8 /* OfflinePackExample2.3.swift */,
 				9682472B1C5C20F800494AB8 /* PointConversionExample2.3.swift */,
-				968247091C5BEE4D00494AB8 /* SatelliteStyleExample2.3.swift */,
-				9691AAAD1C5AB5A1006A58C6 /* SimpleMapViewExample2.3.swift */,
 				646B62A71DEF7134000AA523 /* RuntimeAddLineExample2.3.swift */,
 				646B62AA1DEF713C000AA523 /* RuntimeAnimateLineExample2.3.swift */,
 				646B62B51DEF9626000AA523 /* RuntimeCircleStylesExample2.3.swift */,
@@ -484,8 +478,6 @@
 				3EBCD7101DC28240001E342F /* DrawingAPolygonExample.swift */,
 				3EBCD7111DC28240001E342F /* OfflinePackExample.swift */,
 				3EBCD7121DC28240001E342F /* PointConversionExample.swift */,
-				3EBCD7131DC28240001E342F /* SatelliteStyleExample.swift */,
-				3EBCD7141DC28240001E342F /* SimpleMapViewExample.swift */,
 				646B62AD1DEF7155000AA523 /* RuntimeAddLineExample.swift */,
 				646B62AF1DEF7161000AA523 /* RuntimeAnimateLineExample.swift */,
 				646B62B31DEF9613000AA523 /* RuntimeCircleStylesExample.swift */,
@@ -716,7 +708,9 @@
 				TargetAttributes = {
 					9619628B1C581700002D3DAB = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = U8B2JGE4C6;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 					};
 					961962A41C581700002D3DAB = {
 						CreatedOnToolsVersion = 7.3;
@@ -725,6 +719,10 @@
 					961962AF1C581700002D3DAB = {
 						CreatedOnToolsVersion = 7.3;
 						TestTargetID = 9619628B1C581700002D3DAB;
+					};
+					96CABF3F1DC1390600C7BAEF = {
+						DevelopmentTeam = U8B2JGE4C6;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1090,7 +1088,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = U8B2JGE4C6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1100,6 +1098,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.Examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d0f67bc5-9077-4698-9399-f756da8c7f70";
+				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1112,7 +1112,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = U8B2JGE4C6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1122,6 +1122,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.Examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d0f67bc5-9077-4698-9399-f756da8c7f70";
+				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1183,6 +1185,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = U8B2JGE4C6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1192,6 +1195,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.Examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d0f67bc5-9077-4698-9399-f756da8c7f70";
+				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 2.3;
@@ -1204,6 +1209,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = U8B2JGE4C6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1213,6 +1219,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.Examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d0f67bc5-9077-4698-9399-f756da8c7f70";
+				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
 				SWIFT_VERSION = 2.3;
 			};
