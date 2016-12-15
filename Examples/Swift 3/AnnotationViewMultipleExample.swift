@@ -15,7 +15,8 @@
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            let mapView = MGLMapView(frame: view.bounds)
+            let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL(withVersion: 9))
+            
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             
             // Set the map’s center coordinate and zoom level.
