@@ -34,10 +34,10 @@ NSString const *MBXExampleCameraFlyTo = @"CameraFlyToExample";
     
     // Waits for the mapView to finish loading before setting up the camera
     // Defines the destination camera as Hawaii Island
-    MGLMapCamera *camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(19.503148, -155.489776) fromDistance:270000 pitch:10 heading:10];
+    MGLMapCamera *camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(19.784213, -155.784605) fromDistance:35000 pitch:70 heading:90];
     
     // The mapView flyToCamera goes from the origin to destination camera. Set duration in seconds
-    [mapView flyToCamera:camera withDuration:5.0 peakAltitude:4500 completionHandler:^{
+    [mapView flyToCamera:camera withDuration:4.0 peakAltitude:3000 completionHandler:^{
         
     }];
 }
