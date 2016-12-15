@@ -18,36 +18,36 @@ class SourceCustomRasterExample_Swift: UIViewController, MGLMapViewDelegate {
     var rasterLayer: MGLRasterStyleLayer?
 
     override func viewDidLoad() {
-	super.viewDidLoad()
+        super.viewDidLoad()
 
-	mapView = MGLMapView(frame: view.bounds, styleURL: nil)
+        mapView = MGLMapView(frame: view.bounds, styleURL: nil)
 
-	mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
-	// Set the map’s center coordinate and zoom level.
-	mapView.setCenter(CLLocationCoordinate2D(latitude: 45.5188, longitude: -122.6748), zoomLevel: 13, animated: false)
+        // Set the map’s center coordinate and zoom level.
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 45.5188, longitude: -122.6748), zoomLevel: 13, animated: false)
 
-	view.addSubview(mapView)
+        view.addSubview(mapView)
 
-	// Add a UISlider that will control the raster layer's opacity
-	addSlider()
+        // Add a UISlider that will control the raster layer's opacity
+        addSlider()
 
-	mapView.delegate = self
+        mapView.delegate = self
     }
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-	// Add a new raster source and layer
-	let source = MGLRasterSource(identifier: "stamen-watercolor", tileSet: MGLTileSet(tileURLTemplates: ["https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"]), tileSize: 256)
-	let rasterLayer = MGLRasterStyleLayer(identifier: "stamen-watercolor", source: source)
+        // Add a new raster source and layer
+        let source = MGLRasterSource(identifier: "stamen-watercolor", tileURLTemplates: ["https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"], options: [ .tileSize: 256 ])
+        let rasterLayer = MGLRasterStyleLayer(identifier: "stamen-watercolor", source: source)
 
-	mapView.style().add(source)
-	mapView.style().add(rasterLayer)
+        mapView.style.addSource(source)
+        mapView.style.addLayer(rasterLayer)
 
-	self.rasterLayer = rasterLayer
+        self.rasterLayer = rasterLayer
     }
-
+    
     func updateLayerOpacity(sender: UISlider) {
-	self.rasterLayer?.rasterOpacity = MGLStyleValue(rawValue: NSNumber(value: sender.value))
+        self.rasterLayer?.rasterOpacity = MGLStyleValue(rawValue: NSNumber(value: sender.value))
     }
 
     func addSlider() {

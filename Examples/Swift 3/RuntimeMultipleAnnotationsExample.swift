@@ -41,11 +41,11 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
     func addItemsToMap(features: [MGLFeature]) {
 	// You can add custom UIImages to the map style
 	// These can be referenced by an MGLSymbolStyleLayer's iconImage property
-	self.mapView.style().setImage(UIImage(named: "lighthouse")!, forName: "lighthouse")
+	self.mapView.style.setImage(UIImage(named: "lighthouse")!, forName: "lighthouse")
 
 	// Add the features to the map as a GeoJSONSource
 	let source = MGLGeoJSONSource(identifier: "lighthouses", features: features, options: nil)
-	self.mapView.style().add(source)
+	self.mapView.style.addSource(source)
 
 	let lighthouseColor = UIColor(red: 0.08, green: 0.44, blue: 0.96, alpha: 1.0)
 

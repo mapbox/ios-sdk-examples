@@ -13,7 +13,7 @@ import Mapbox
     
 class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
-    var selectedFeaturesSource: MGLGeoJSONSource?
+    var selectedFeaturesSource: MGLShapeSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +38,8 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
     
     func mapView(_ didFinishLoadingmapView: MGLMapView, didFinishLoading style: MGLStyle) {
         // Create a placeholder MGLGeoJSONSource that will hold copies of any features we've selected
-        let selectedFeaturesSource = MGLGeoJSONSource(identifier: "selected-features", features: [], options: nil)
-        style.add(selectedFeaturesSource)
+        let selectedFeaturesSource = MGLShapeSource(identifier: "selected-features")//MGLShapeSource(identifier: "selected-features", features: [], options: nil)
+        style.addSource(selectedFeaturesSource)
         
         // Keep a reference to the source so we can update it when the map is tapped
         self.selectedFeaturesSource = selectedFeaturesSource
@@ -48,7 +48,7 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
         let selectedFeaturesLayer = MGLFillStyleLayer(identifier: "selected-features", source: selectedFeaturesSource)
         selectedFeaturesLayer.fillColor = MGLStyleValue(rawValue: UIColor.red)
         
-        style.add(selectedFeaturesLayer)
+        style.addLayer(selectedFeaturesLayer)
     }
     
     func didTapMap(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -61,13 +61,17 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
             let layerIdentifiers = Set(["park"])
             
             // Query the current mapview for any features that intersect our rect
-            var features = [MGLFeature]()
+            //var features: [MGLFeature] = mapView.visibleFeatures(in: touchRect, styleLayerIdentifiers: layerIdentifiers)
+            var shapes = [MGLShape]()
             for f in mapView.visibleFeatures(in: touchRect, styleLayerIdentifiers: layerIdentifiers) {
-                features.append(f)
+                shapes.append(f as! MGLShape)
             }
-            
+
+            // New extra step.
+            let collectionFeature = MGLShapeCollectionFeature(shapes: shapes);
+
             // Update our MGLGeoJSONSource to match our selected features
-            selectedFeaturesSource?.features = features
+            selectedFeaturesSource?.shape = collectionFeature;
         }
     }
     
