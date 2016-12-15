@@ -51,6 +51,29 @@
             
         }
         
+        func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+            
+            guard annotation is MGLPointAnnotation else {
+                return nil
+            }
+            
+        
+            let reuseIdentifier = "\(annotation.coordinate.longitude)"
+            
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+            
+            if annotationView == nil {
+                annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
+                annotationView!.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+                
+                let hue : CGFloat = CGFloat(arc4random() % 256) / 256
+                
+                annotationView!.backgroundColor = UIColor(hue: hue, saturation: 1, brightness: 1, alpha: 1)
+            }
+            
+            return annotationView
+        }
+        
         func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
             return true
         }
