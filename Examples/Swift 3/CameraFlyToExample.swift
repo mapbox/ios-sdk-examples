@@ -12,8 +12,8 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         // Initialize the MGLMapView
         mapView = MGLMapView(frame: view.bounds)
         
-        // Centers the mapView on Honololu
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 21.3069, longitude: -157.8583),
+        let honolulu = CLLocationCoordinate2D(latitude: 21.3069, longitude: -157.8583)
+        mapView.setCenter(honolulu,
                           zoomLevel:14, animated: false)
         
         mapView.delegate = self
@@ -29,9 +29,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
                                   fromDistance: 35000, pitch: 70, heading: 90)
         
         // The mapView flyToCamera goes from the origin to destination camera. Set duration in seconds
-        mapView.fly(to: camera, withDuration: 4, peakAltitude: 3000, completionHandler: {
-            print("We've arrived!")
-        })
+        mapView.fly(to: camera, withDuration: 4, peakAltitude: 3000, completionHandler: nil)
         
     }
 }

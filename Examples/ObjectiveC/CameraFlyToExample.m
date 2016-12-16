@@ -22,8 +22,8 @@ NSString const *MBXExampleCameraFlyTo = @"CameraFlyToExample";
     // Initialize the MGLMapView
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     
-    // Centers the mapView on Honololu
-    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(21.3069, -157.8583)
+    CLLocation *honolulu = [[CLLocation alloc] initWithLatitude:21.3069 longitude:-157.8583];
+    [mapView setCenterCoordinate:honolulu.coordinate
                        zoomLevel:14 animated:NO];
     
     mapView.delegate = self;
@@ -37,8 +37,6 @@ NSString const *MBXExampleCameraFlyTo = @"CameraFlyToExample";
     MGLMapCamera *camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(19.784213, -155.784605) fromDistance:35000 pitch:70 heading:90];
     
     // The mapView flyToCamera goes from the origin to destination camera. Set duration in seconds
-    [mapView flyToCamera:camera withDuration:4.0 peakAltitude:3000 completionHandler:^{
-        
-    }];
+    [mapView flyToCamera:camera withDuration:4.0 peakAltitude:3000 completionHandler:nil];
 }
 @end
