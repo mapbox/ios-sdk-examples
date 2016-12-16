@@ -68,8 +68,12 @@
             
             // If there’s no reusable annotation view available, initialize a new one.
             if annotationView == nil {
-                annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
-                annotationView!.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+                annotationView = MGLAnnotationView(reuseIdentifier: reuseIdentifier)
+                annotationView?.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+                annotationView?.layer.cornerRadius = (annotationView?.frame.size.width)! / 2
+                annotationView?.layer.borderWidth = 4.0
+                annotationView?.layer.borderColor = UIColor.white.cgColor
+
                 
                 // Generate a random number between 0 and 1
                 let randomHue : CGFloat = CGFloat(arc4random_uniform(101)) / 100.0
