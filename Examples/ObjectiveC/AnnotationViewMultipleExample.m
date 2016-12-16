@@ -24,8 +24,8 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
         styleURL:[MGLStyle lightStyleURLWithVersion:9]];
     
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
     mapView.centerCoordinate = CLLocationCoordinate2DMake(39.83, -98.58);
+    mapView.zoomLevel = 2;
     
     mapView.delegate = self;
     
