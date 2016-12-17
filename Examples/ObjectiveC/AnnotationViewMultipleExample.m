@@ -20,15 +20,19 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Create a new map view using the Mapbox Light style.
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds
         styleURL:[MGLStyle lightStyleURLWithVersion:9]];
     
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    // Set the map's center coordinate and zoom level.
     mapView.centerCoordinate = CLLocationCoordinate2DMake(39.83, -98.58);
     mapView.zoomLevel = 2;
     mapView.delegate = self;
     [self.view addSubview:mapView];
     
+    // Create two new point annotations with specified coordinates and titles.
     MGLPointAnnotation *pointA = [[MGLPointAnnotation alloc] init];
     pointA.title = @"San Francisco";
     pointA.coordinate = CLLocationCoordinate2DMake(37.79, -122.43);
@@ -39,17 +43,18 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     
     NSArray *myPlaces = @[pointA, pointB];
     
+    // Add all annotations to the map.
     [mapView addAnnotations:myPlaces];
 }
 
-// This delegate method is where you tell the map to load a view for a specific annotation. To load a static MGLAnnotationImage, you would use `-mapView:imageForAnnotation:`.
+// This delegate method is where you tell the map to load a view for a specific annotation.
 - (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id <MGLAnnotation>)annotation {
     // This example is only concerned with point annotations.
     if (![annotation isKindOfClass:[MGLPointAnnotation class]]) {
         return nil;
     }
     
-    // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
+    // Assign a reuse identifier to be used by the annotation views.
     NSString *reuseIdentifier = @"custom";
     
     // For better performance, always try to reuse existing annotations.
@@ -64,7 +69,7 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
         annotationView.layer.borderWidth = 4.0;
     }
     
-    // Generate a random number between 0 and 1
+    // Generate a random number between 0 and 1 to be used as the hue for the annotation view.
     CGFloat hue = arc4random_uniform(101) / 100.0;
     
     annotationView.backgroundColor = [UIColor colorWithHue:hue saturation:1 brightness:1 alpha:1];
@@ -73,6 +78,7 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
 }
 
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation {
+    // Always allow callouts to popup when annotations are tapped.
     return YES;
 }
 

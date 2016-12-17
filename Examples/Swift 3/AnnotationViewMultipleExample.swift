@@ -10,12 +10,12 @@
     import Mapbox
     
     @objc(AnnotationViewMultipleExample_Swift)
-    
-    // Example view controller
+
     class AnnotationViewMultipleExample_Swift: UIViewController, MGLMapViewDelegate {
         override func viewDidLoad() {
             super.viewDidLoad()
             
+            // Create a new map view using the Mapbox Light style.
             let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL(withVersion: 9))
             
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -27,15 +27,7 @@
             
             mapView.delegate = self
     
-            struct annotationCollection {
-                let location: CLLocationCoordinate2D
-                let title: String
-            }
-            
-//            let pointA = annotationCollection(location: CLLocationCoordinate2D(latitude: 37.79, longitude: -122.43), title: "San Francisco")
-            
-//            let pointB = annotationCollection(location: CLLocationCoordinate2D(latitude: 38.90, longitude: -77.04), title: "Washington, D.C")
-            
+           // Create two new point annotations with specified coordinates and titles.
             let pointA = MGLPointAnnotation()
             pointA.coordinate = CLLocationCoordinate2D(latitude: 37.79, longitude: -122.43)
             pointA.title = "San Francisco"
@@ -46,7 +38,7 @@
             
             let locations = [pointA, pointB]
             
-            // Add all annotation to the map.
+            // Add all annotations to the map.
             mapView.addAnnotations(locations)
             
         }
@@ -59,7 +51,7 @@
                 return nil
             }
             
-            // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
+            // Assign a reuse identifier to be used by the annotation views.
             let reuseIdentifier = "custom"
             
             // For better performance, always try to reuse existing annotations.
@@ -74,7 +66,7 @@
                 annotationView?.layer.borderColor = UIColor.white.cgColor
 
                 
-                // Generate a random number between 0 and 1
+                // Generate a random number between 0 and 1 to be used as the hue for the annotation view.
                 let randomHue : CGFloat = CGFloat(arc4random_uniform(101)) / 100.0
                 
                 annotationView!.backgroundColor = UIColor(hue: randomHue, saturation: 1, brightness: 1, alpha: 1)
@@ -84,7 +76,7 @@
         }
         
         func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-            // Always allow callouts to popup when annotations are tapped
+            // Always allow callouts to popup when annotations are tapped.
             return true
         }
         
