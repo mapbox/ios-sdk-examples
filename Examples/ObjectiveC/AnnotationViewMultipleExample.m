@@ -26,33 +26,20 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     mapView.centerCoordinate = CLLocationCoordinate2DMake(39.83, -98.58);
     mapView.zoomLevel = 2;
-    
     mapView.delegate = self;
-    
     [self.view addSubview:mapView];
     
-    NSDictionary *pointA = @{
-        @"location" : [[CLLocation alloc] initWithLatitude: 37.79 longitude: -122.43],
-        @"title" : @"San Francisco"
-    };
+    MGLPointAnnotation *pointA = [[MGLPointAnnotation alloc] init];
+    pointA.title = @"San Francisco";
+    pointA.coordinate = CLLocationCoordinate2DMake(37.79, -122.43);
     
-    NSDictionary *pointB = @{
-        @"location" : [[CLLocation alloc] initWithLatitude: 38.90 longitude: -77.04],
-        @"title" : @"Washington, D.C"
-    };
+    MGLPointAnnotation *pointB = [[MGLPointAnnotation alloc] init];
+    pointB.title = @"Washington, D.C.";
+    pointB.coordinate = CLLocationCoordinate2DMake(38.90, -77.04);
     
-    NSArray *locations = @[pointA, pointB];
+    NSArray *myPlaces = @[pointA, pointB];
     
-    NSMutableArray *pointAnnotations = [[NSMutableArray alloc] init];
-    
-    for (NSDictionary *item in locations) {
-        MGLPointAnnotation *point = [[MGLPointAnnotation alloc] init];
-        point.coordinate = ((CLLocation *)item[@"location"]).coordinate;
-        point.title = item[@"title"];
-        [pointAnnotations addObject:point];
-    }
-    
-    [mapView addAnnotations:pointAnnotations];
+    [mapView addAnnotations:myPlaces];
 }
 
 // This delegate method is where you tell the map to load a view for a specific annotation. To load a static MGLAnnotationImage, you would use `-mapView:imageForAnnotation:`.
@@ -63,7 +50,7 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     }
     
     // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
-    NSString *reuseIdentifier = [NSString stringWithFormat:@"%f", annotation.coordinate.longitude];
+    NSString *reuseIdentifier = @"custom";
     
     // For better performance, always try to reuse existing annotations.
     MGLAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
@@ -75,13 +62,12 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
         annotationView.layer.cornerRadius = annotationView.frame.size.width / 2;
         annotationView.layer.borderColor = [UIColor whiteColor].CGColor;
         annotationView.layer.borderWidth = 4.0;
-        
-        
-        // Set the annotation view’s background color to a value determined by its longitude.
-        CGFloat hue = arc4random_uniform(101) / 100.0;
-        
-        annotationView.backgroundColor = [UIColor colorWithHue:hue saturation:1 brightness:1 alpha:1];
     }
+    
+    // Generate a random number between 0 and 1
+    CGFloat hue = arc4random_uniform(101) / 100.0;
+    
+    annotationView.backgroundColor = [UIColor colorWithHue:hue saturation:1 brightness:1 alpha:1];
     
     return annotationView;
 }

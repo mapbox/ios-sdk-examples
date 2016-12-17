@@ -32,23 +32,22 @@
                 let title: String
             }
             
-            let pointA = annotationCollection(location: CLLocationCoordinate2D(latitude: 37.79, longitude: -122.43), title: "San Francisco")
+//            let pointA = annotationCollection(location: CLLocationCoordinate2D(latitude: 37.79, longitude: -122.43), title: "San Francisco")
             
-            let pointB = annotationCollection(location: CLLocationCoordinate2D(latitude: 38.90, longitude: -77.04), title: "Washington, D.C")
+//            let pointB = annotationCollection(location: CLLocationCoordinate2D(latitude: 38.90, longitude: -77.04), title: "Washington, D.C")
+            
+            let pointA = MGLPointAnnotation()
+            pointA.coordinate = CLLocationCoordinate2D(latitude: 37.79, longitude: -122.43)
+            pointA.title = "San Francisco"
+            
+            let pointB = MGLPointAnnotation()
+            pointB.coordinate = CLLocationCoordinate2D(latitude: 38.90, longitude: -77.04)
+            pointB.title = "Washington, D.C."
             
             let locations = [pointA, pointB]
             
-            // Fill an array with point annotations and add it to the map.
-            var pointAnnotations = [MGLPointAnnotation]()
-            for item in locations {
-                let point = MGLPointAnnotation()
-                point.coordinate = item.location
-                point.title = item.title
-                pointAnnotations.append(point)
-            }
-            
             // Add all annotation to the map.
-            mapView.addAnnotations(pointAnnotations)
+            mapView.addAnnotations(locations)
             
         }
         
@@ -61,7 +60,7 @@
             }
             
             // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
-            let reuseIdentifier = "\(annotation.coordinate.longitude)"
+            let reuseIdentifier = "custom"
             
             // For better performance, always try to reuse existing annotations.
             var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
