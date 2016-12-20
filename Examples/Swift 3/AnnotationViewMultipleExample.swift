@@ -36,9 +36,10 @@
             pointB.coordinate = CLLocationCoordinate2D(latitude: 38.90, longitude: -77.04)
             pointB.title = "Washington, D.C."
             
+            // Fill an array with two point annotations.
             let locations = [pointA, pointB]
             
-            // Add all annotations to the map.
+            // Add all annotations to the map all at once, instead of individually.
             mapView.addAnnotations(locations)
             
         }
@@ -51,8 +52,8 @@
                 return nil
             }
             
-            // Assign a reuse identifier to be used by the annotation views.
-            let reuseIdentifier = "custom"
+            // Assign a reuse identifier to be used by both of the annotation views, taking advantage of their similarities.
+            let reuseIdentifier = "reusableDotView"
             
             // For better performance, always try to reuse existing annotations.
             var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)

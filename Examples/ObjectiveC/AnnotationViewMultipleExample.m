@@ -41,9 +41,10 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     pointB.title = @"Washington, D.C.";
     pointB.coordinate = CLLocationCoordinate2DMake(38.90, -77.04);
     
+    // Fill an array with two point annotations.
     NSArray *myPlaces = @[pointA, pointB];
     
-    // Add all annotations to the map.
+    // Add all annotations to the map all at once, instead of individually.
     [mapView addAnnotations:myPlaces];
 }
 
@@ -54,8 +55,8 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
         return nil;
     }
     
-    // Assign a reuse identifier to be used by the annotation views.
-    NSString *reuseIdentifier = @"custom";
+    // Assign a reuse identifier to be used by both of the annotation views, taking advantage of their similarities.
+    NSString *reuseIdentifier = @"reusableDotView";
     
     // For better performance, always try to reuse existing annotations.
     MGLAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
@@ -71,7 +72,6 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     
     // Generate a random number between 0 and 1 to be used as the hue for the annotation view.
     CGFloat hue = arc4random_uniform(101) / 100.0;
-    
     annotationView.backgroundColor = [UIColor colorWithHue:hue saturation:1 brightness:1 alpha:1];
     
     return annotationView;
