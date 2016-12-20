@@ -19,9 +19,10 @@ NSString const *MBXExampleCameraFlyTo = @"CameraFlyToExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Initialize the MGLMapView
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
+    mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
+    // Sets Honolulu, HI as the camera's starting point.
     CLLocation *honolulu = [[CLLocation alloc] initWithLatitude:21.3069 longitude:-157.8583];
     [mapView setCenterCoordinate:honolulu.coordinate
                        zoomLevel:14 animated:NO];
@@ -32,11 +33,15 @@ NSString const *MBXExampleCameraFlyTo = @"CameraFlyToExample";
 
 - (void)mapViewDidFinishLoadingMap:(MGLMapView *)mapView {
     
-    // Waits for the mapView to finish loading before setting up the camera
-    // Defines the destination camera as Hawaii Island
+    // Waits for the mapView to finish loading before setting up the camera.
+    // Defines the destination camera as Hawaii Island.
     MGLMapCamera *camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(19.784213, -155.784605) fromDistance:35000 pitch:70 heading:90];
     
-    // The mapView flyToCamera goes from the origin to destination camera. Set duration in seconds
+    // Goes from Honolulu to destination camera.
+    // To use default duration and peak altitudes:
+    //    [mapView flyToCamera:camera completionHandler:nil];
+    // To use default peak altitude:
+    //    [mapView flyToCamera:camera withDuration:4 completionHandler:nil];
     [mapView flyToCamera:camera withDuration:4.0 peakAltitude:3000 completionHandler:nil];
 }
 @end
