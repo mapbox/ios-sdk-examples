@@ -1,6 +1,5 @@
-
-import UIKit
 import Mapbox
+import UIKit
 
 @objc(CameraFlyToExample_Swift)
 class ViewController: UIViewController, MGLMapViewDelegate {
@@ -13,7 +12,8 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // Sets Honolulu, Hawaii as the camera's starting point.
-        let honolulu = CLLocationCoordinate2D(latitude: 21.3069, longitude: -157.8583)
+        let honolulu = CLLocationCoordinate2D(latitude: 21.3069,
+                                              longitude: -157.8583)
         mapView.setCenter(honolulu,
                           zoomLevel:14, animated: false)
         
@@ -30,7 +30,8 @@ class ViewController: UIViewController, MGLMapViewDelegate {
                                   fromDistance: 35000, pitch: 70, heading: 90)
         
         // Goes from Honolulu to destination camera.
-        mapView.fly(to: camera, withDuration: 4, peakAltitude: 3000, completionHandler: nil)
+        mapView.fly(to: camera, withDuration: 4,
+                    peakAltitude: 3000, completionHandler: nil)
         // To use default duration and peak altitudes:
         //    mapView.fly(to: camera, completionHandler: nil)
         // To use default peak altitude:
