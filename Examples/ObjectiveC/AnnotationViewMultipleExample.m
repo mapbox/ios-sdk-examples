@@ -11,8 +11,16 @@
 
 NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExample";
 
-@interface AnnotationViewMultipleExample () <MGLMapViewDelegate>
+// MGLPointAnnotation subclass
+@interface MyCustomPointAnnotation : MGLPointAnnotation
+@property (nonatomic, assign) BOOL willUseImage;
+@end
 
+@implementation MyCustomPointAnnotation
+@end
+// end MGLPointAnnotation subclass
+
+@interface AnnotationViewMultipleExample () <MGLMapViewDelegate>
 @end
 
 @implementation AnnotationViewMultipleExample
@@ -27,22 +35,34 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     // Set the map's center coordinate and zoom level.
-    mapView.centerCoordinate = CLLocationCoordinate2DMake(39.83, -98.58);
-    mapView.zoomLevel = 2;
+    mapView.centerCoordinate = CLLocationCoordinate2DMake(48.47, -122.68);
+    mapView.zoomLevel = 6;
     mapView.delegate = self;
     [self.view addSubview:mapView];
     
-    // Create two new point annotations with specified coordinates and titles.
-    MGLPointAnnotation *pointA = [[MGLPointAnnotation alloc] init];
-    pointA.title = @"San Francisco";
-    pointA.coordinate = CLLocationCoordinate2DMake(37.79, -122.43);
+    // Create four new point annotations with specified coordinates and titles.
+    MyCustomPointAnnotation *pointA = [[MyCustomPointAnnotation alloc] init];
+    pointA.title = @"Seattle";
+    pointA.coordinate = CLLocationCoordinate2DMake(47.60, -122.33);
+//    pointA.willUseImage = NO;
     
-    MGLPointAnnotation *pointB = [[MGLPointAnnotation alloc] init];
-    pointB.title = @"Washington, D.C.";
-    pointB.coordinate = CLLocationCoordinate2DMake(38.90, -77.04);
+    MyCustomPointAnnotation *pointB = [[MyCustomPointAnnotation alloc] init];
+    pointB.title = @"Vancouver";
+    pointB.coordinate = CLLocationCoordinate2DMake(49.27, -123.12);
+//    pointB.willUseImage = NO;
+    
+    MyCustomPointAnnotation *pointC = [[MyCustomPointAnnotation alloc] init];
+    pointC.title = @"Olympic National Park";
+    pointC.coordinate = CLLocationCoordinate2DMake(47.84, -123.54);
+    pointC.willUseImage = YES;
+    
+    MyCustomPointAnnotation *pointD = [[MyCustomPointAnnotation alloc] init];
+    pointD.title = @"North Cascades National Park";
+    pointD.coordinate = CLLocationCoordinate2DMake(48.85, -121.40);
+    pointD.willUseImage = YES;
     
     // Fill an array with two point annotations.
-    NSArray *myPlaces = @[pointA, pointB];
+    NSArray *myPlaces = @[pointA, pointB, pointC, pointD];
     
     // Add all annotations to the map all at once, instead of individually.
     [mapView addAnnotations:myPlaces];
@@ -75,6 +95,25 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     annotationView.backgroundColor = [UIColor colorWithHue:hue saturation:1 brightness:1 alpha:1];
     
     return annotationView;
+}
+
+- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation
+
+{
+    if (annotation.willUseImage) {
+        return nil;
+    }
+
+    MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"tree"];
+    
+    if (!annotationImage)
+    {
+        UIImage *image = [UIImage imageNamed:@"tree"];
+        image = [image imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, image.size.height/2, 0)];
+        annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"tree"];
+    }
+    
+    return annotationImage;
 }
 
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation {
