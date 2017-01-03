@@ -30,33 +30,33 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     
     // Create a new map view using the Mapbox Terrain style.
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds
-        styleURL:[MGLStyle outdoorsStyleURLWithVersion:9]];
+        styleURL:[MGLStyle lightStyleURLWithVersion:9]];
     
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     // Set the map's center coordinate and zoom level.
-    mapView.centerCoordinate = CLLocationCoordinate2DMake(-117.14,36.60);
-    mapView.zoomLevel = 8;
+    mapView.centerCoordinate = CLLocationCoordinate2DMake(36.54,-116.97);
+    mapView.zoomLevel = 9;
     mapView.delegate = self;
     [self.view addSubview:mapView];
     
     // Create four new point annotations with specified coordinates and titles.
     MyCustomPointAnnotation *pointA = [[MyCustomPointAnnotation alloc] init];
     pointA.title = @"Stovepipe Wells";
-    pointA.coordinate = CLLocationCoordinate2DMake(-117.14,36.60);
+    pointA.coordinate = CLLocationCoordinate2DMake(36.4623,-116.8656);
     
     MyCustomPointAnnotation *pointB = [[MyCustomPointAnnotation alloc] init];
     pointB.title = @"Furnace Creek";
-    pointB.coordinate = CLLocationCoordinate2DMake(-116.87,36.46);
+    pointB.coordinate = CLLocationCoordinate2DMake(36.6071,-117.1458);
     
     MyCustomPointAnnotation *pointC = [[MyCustomPointAnnotation alloc] init];
     pointC.title = @"Zabriskie Point";
-    pointC.coordinate = CLLocationCoordinate2DMake(-116.81,36.41);
+    pointC.coordinate = CLLocationCoordinate2DMake(36.4208,-116.8101);
     pointC.willUseImage = YES;
     
     MyCustomPointAnnotation *pointD = [[MyCustomPointAnnotation alloc] init];
     pointD.title = @"Mesquite Flat Sand Dunes";
-    pointD.coordinate = CLLocationCoordinate2DMake(-117.11,36.61);
+    pointD.coordinate = CLLocationCoordinate2DMake(36.6836,-117.1005);
     pointD.willUseImage = YES;
     
     // Fill an array with two point annotations.
@@ -85,13 +85,13 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     // If there’s no reusable annotation view available, initialize a new one.
     if (!annotationView) {
         annotationView = [[MGLAnnotationView alloc] initWithReuseIdentifier:reuseIdentifier];
-        annotationView.frame = CGRectMake(0, 0, 25, 25);
+        annotationView.frame = CGRectMake(0, 0, 30, 30);
         annotationView.layer.cornerRadius = annotationView.frame.size.width / 2;
         annotationView.layer.borderColor = [UIColor whiteColor].CGColor;
         annotationView.layer.borderWidth = 4.0;
     }
     
-    annotationView.backgroundColor = [UIColor colorWithRed:0.91 green:0.61 blue:0.05 alpha:1.0];;
+    annotationView.backgroundColor = [UIColor colorWithRed:0.03 green:0.80 blue:0.69 alpha:1.0];
     
     return annotationView;
 }
