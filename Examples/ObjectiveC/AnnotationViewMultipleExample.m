@@ -28,37 +28,35 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Create a new map view using the Mapbox Light style.
+    // Create a new map view using the Mapbox Terrain style.
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds
-        styleURL:[MGLStyle lightStyleURLWithVersion:9]];
+        styleURL:[MGLStyle outdoorsStyleURLWithVersion:9]];
     
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     // Set the map's center coordinate and zoom level.
-    mapView.centerCoordinate = CLLocationCoordinate2DMake(48.47, -122.68);
-    mapView.zoomLevel = 6;
+    mapView.centerCoordinate = CLLocationCoordinate2DMake(-117.14,36.60);
+    mapView.zoomLevel = 8;
     mapView.delegate = self;
     [self.view addSubview:mapView];
     
     // Create four new point annotations with specified coordinates and titles.
     MyCustomPointAnnotation *pointA = [[MyCustomPointAnnotation alloc] init];
-    pointA.title = @"Seattle";
-    pointA.coordinate = CLLocationCoordinate2DMake(47.60, -122.33);
-//    pointA.willUseImage = NO;
+    pointA.title = @"Stovepipe Wells";
+    pointA.coordinate = CLLocationCoordinate2DMake(-117.14,36.60);
     
     MyCustomPointAnnotation *pointB = [[MyCustomPointAnnotation alloc] init];
-    pointB.title = @"Vancouver";
-    pointB.coordinate = CLLocationCoordinate2DMake(49.27, -123.12);
-//    pointB.willUseImage = NO;
+    pointB.title = @"Furnace Creek";
+    pointB.coordinate = CLLocationCoordinate2DMake(-116.87,36.46);
     
     MyCustomPointAnnotation *pointC = [[MyCustomPointAnnotation alloc] init];
-    pointC.title = @"Olympic National Park";
-    pointC.coordinate = CLLocationCoordinate2DMake(47.84, -123.54);
+    pointC.title = @"Zabriskie Point";
+    pointC.coordinate = CLLocationCoordinate2DMake(-116.81,36.41);
     pointC.willUseImage = YES;
     
     MyCustomPointAnnotation *pointD = [[MyCustomPointAnnotation alloc] init];
-    pointD.title = @"North Cascades National Park";
-    pointD.coordinate = CLLocationCoordinate2DMake(48.85, -121.40);
+    pointD.title = @"Mesquite Flat Sand Dunes";
+    pointD.coordinate = CLLocationCoordinate2DMake(-117.11,36.61);
     pointD.willUseImage = YES;
     
     // Fill an array with two point annotations.
@@ -68,11 +66,14 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     [mapView addAnnotations:myPlaces];
 }
 
-// This delegate method is where you tell the map to load a view for a specific annotation.
+// This delegate method is where you tell the map to load a view for a specific annotation based on the willUseImage property of the custom subclass.
 - (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id <MGLAnnotation>)annotation {
-    // This example is only concerned with point annotations.
-    if (![annotation isKindOfClass:[MGLPointAnnotation class]]) {
-        return nil;
+    if ([annotation isKindOfClass:[MyCustomPointAnnotation class]]){
+        MyCustomPointAnnotation *castAnnotation = (MyCustomPointAnnotation *)annotation;
+        
+        if (castAnnotation.willUseImage) {
+            return nil;
+        }
     }
     
     // Assign a reuse identifier to be used by both of the annotation views, taking advantage of their similarities.
@@ -84,35 +85,38 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     // If there’s no reusable annotation view available, initialize a new one.
     if (!annotationView) {
         annotationView = [[MGLAnnotationView alloc] initWithReuseIdentifier:reuseIdentifier];
-        annotationView.frame = CGRectMake(0, 0, 30, 30);
+        annotationView.frame = CGRectMake(0, 0, 25, 25);
         annotationView.layer.cornerRadius = annotationView.frame.size.width / 2;
         annotationView.layer.borderColor = [UIColor whiteColor].CGColor;
         annotationView.layer.borderWidth = 4.0;
     }
     
-    // Generate a random number between 0 and 1 to be used as the hue for the annotation view.
-    CGFloat hue = arc4random_uniform(101) / 100.0;
-    annotationView.backgroundColor = [UIColor colorWithHue:hue saturation:1 brightness:1 alpha:1];
+    annotationView.backgroundColor = [UIColor colorWithRed:0.91 green:0.61 blue:0.05 alpha:1.0];;
     
     return annotationView;
 }
 
-- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation
+// This delegate method is where you tell the map to load an image for a specific annotation based on the willUseImage property of the custom subclass.
+- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation {
 
-{
-    if (annotation.willUseImage) {
-        return nil;
+    if ([annotation isKindOfClass:[MyCustomPointAnnotation class]]){
+        MyCustomPointAnnotation *castAnnotation = (MyCustomPointAnnotation *)annotation;
+        
+        if (!castAnnotation.willUseImage) {
+            return nil;
+        }
     }
-
-    MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"tree"];
     
+    // For better performance, always try to reuse existing annotations.
+    MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"camera"];
+    
+    // If there’s no reusable annotation image available, initialize a new one.
     if (!annotationImage)
     {
-        UIImage *image = [UIImage imageNamed:@"tree"];
+        UIImage *image = [UIImage imageNamed:@"camera"];
         image = [image imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, image.size.height/2, 0)];
-        annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"tree"];
+        annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"camera"];
     }
-    
     return annotationImage;
 }
 

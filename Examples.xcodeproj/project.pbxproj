@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07D3BC0E1E0C863200403A2F /* tree.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D3BC0D1E0C863200403A2F /* tree.xcassets */; };
+		079E77C51E1C4E2100F92FA8 /* camera.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079E77C41E1C4E2100F92FA8 /* camera.xcassets */; };
 		07F53B821E00C58200B58DB3 /* AnnotationViewMultipleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F53B811E00C58200B58DB3 /* AnnotationViewMultipleExample.swift */; };
 		07F53B851E00D02100B58DB3 /* AnnotationViewMultipleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F53B841E00D02100B58DB3 /* AnnotationViewMultipleExample.m */; };
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
@@ -192,6 +192,7 @@
 		3ED403471E006BE800230C95 /* CameraFlyToExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraFlyToExample.m; sourceTree = "<group>"; };
 		646B62961DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuntimeToggleLayerExample.swift; path = ../Swift/RuntimeToggleLayerExample.swift; sourceTree = "<group>"; };
 		07D3BC0D1E0C863200403A2F /* tree.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = tree.xcassets; sourceTree = "<group>"; };
+		079E77C41E1C4E2100F92FA8 /* camera.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = camera.xcassets; sourceTree = "<group>"; };
 		07F53B811E00C58200B58DB3 /* AnnotationViewMultipleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewMultipleExample.swift; sourceTree = "<group>"; };
 		07F53B841E00D02100B58DB3 /* AnnotationViewMultipleExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewMultipleExample.m; sourceTree = "<group>"; };
 		07F53B861E00D08600B58DB3 /* AnnotationViewMultipleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewMultipleExample.h; sourceTree = "<group>"; };
@@ -471,7 +472,7 @@
 				9682471C1C5C123B00494AB8 /* example.geojson */,
 				64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */,
 				96D432051C84B9CF007D09D1 /* pisavector.xcassets */,
-				07D3BC0D1E0C863200403A2F /* tree.xcassets */,
+				079E77C41E1C4E2100F92FA8 /* camera.xcassets */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -655,10 +656,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9619629F1C581700002D3DAB /* LaunchScreen.storyboard in Resources */,
+				079E77C51E1C4E2100F92FA8 /* camera.xcassets in Resources */,
 				9619629C1C581700002D3DAB /* Assets.xcassets in Resources */,
 				9682471D1C5C123B00494AB8 /* example.geojson in Resources */,
 				64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */,
-				07D3BC0E1E0C863200403A2F /* tree.xcassets in Resources */,
 				961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */,
 				96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */,
 			);
