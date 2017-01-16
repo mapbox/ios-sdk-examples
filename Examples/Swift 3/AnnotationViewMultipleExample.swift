@@ -10,6 +10,23 @@
     import Mapbox
     
     @objc(AnnotationViewMultipleExample_Swift)
+    
+    // MGLPointAnnotation subclass
+    class myCustomPointAnnotation: NSObject, MGLAnnotation {
+        var coordinate: CLLocationCoordinate2D
+        var title: String?
+        var subtitle: String?
+        
+        var willUseImage = Bool()
+        var reuseIdentifier: String?
+        
+        init(coordinate: CLLocationCoordinate2D, title: String?, subtitle: String?) {
+            self.coordinate = coordinate
+            self.title = title
+            self.subtitle = subtitle
+        }
+    }
+    // end MGLPointAnnotation subclass
 
     class AnnotationViewMultipleExample_Swift: UIViewController, MGLMapViewDelegate {
         override func viewDidLoad() {
@@ -21,26 +38,34 @@
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             
             // Set the map’s center coordinate and zoom level.
-            mapView.setCenter(CLLocationCoordinate2D(latitude: 39.83, longitude: -98.58), zoomLevel: 2, animated: false)
+            mapView.setCenter(CLLocationCoordinate2D(latitude: 36.54, longitude: -116.97), zoomLevel: 9, animated: false)
             
             view.addSubview(mapView)
             
             mapView.delegate = self
     
-           // Create two new point annotations with specified coordinates and titles.
-            let pointA = MGLPointAnnotation()
-            pointA.coordinate = CLLocationCoordinate2D(latitude: 37.79, longitude: -122.43)
-            pointA.title = "San Francisco"
+           // Create four new point annotations with specified coordinates and titles.
+            let pointA = myCustomPointAnnotation()
+            pointA.coordinate = CLLocationCoordinate2D(latitude: 36.4623, longitude: -116.8656)
+            pointA.title = "Stovepipe Wells"
             
-            let pointB = MGLPointAnnotation()
-            pointB.coordinate = CLLocationCoordinate2D(latitude: 38.90, longitude: -77.04)
-            pointB.title = "Washington, D.C."
+            let pointB = myCustomPointAnnotation()
+            pointB.coordinate = CLLocationCoordinate2D(latitude: 36.6071, longitude: -117.1458)
+            pointB.title = "Furnace Creek"
+            
+            let pointC = myCustomPointAnnotation()
+            pointC.title = "Zabriskie Point"
+            pointC.coordinate = CLLocationCoordinate2D(latitude: 36.4208, longitude: -116.8101)
+            
+            let pointD = myCustomPointAnnotation()
+            pointD.title = "Mesquite Flat Sand Dunes"
+            pointD.coordinate = CLLocationCoordinate2D(latitude: 36.6836, longitude: -117.1005)
             
             // Fill an array with two point annotations.
-            let locations = [pointA, pointB]
+            let myPlaces = [pointA, pointB, pointC, pointD]
             
             // Add all annotations to the map all at once, instead of individually.
-            mapView.addAnnotations(locations)
+            mapView.addAnnotations(myPlaces)
             
         }
         
