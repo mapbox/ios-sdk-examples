@@ -59,7 +59,7 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     pointD.coordinate = CLLocationCoordinate2DMake(36.6836,-117.1005);
     pointD.willUseImage = YES;
     
-    // Fill an array with two point annotations.
+    // Fill an array with four point annotations.
     NSArray *myPlaces = @[pointA, pointB, pointC, pointD];
     
     // Add all annotations to the map all at once, instead of individually.
