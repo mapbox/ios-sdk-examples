@@ -77,13 +77,13 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
         symbols.iconHaloColor = MGLStyleValue(rawValue: UIColor.white.withAlphaComponent(0.5))
         symbols.iconHaloWidth = MGLStyleValue(rawValue: 1)
         // {name} references the "name" key in an MGLPointFeature’s attributes dictionary.
-        symbols.textField = MGLStyleValue(rawValue: "{name}")
+        symbols.text = MGLStyleValue(rawValue: "{name}")
         symbols.textColor = symbols.iconColor
-        symbols.textSize = MGLStyleValue(stops: [
+        symbols.textFontSize = MGLStyleValue(stops: [
             10: MGLStyleValue(rawValue: 10),
             16: MGLStyleValue(rawValue: 16)
         ])
-        symbols.textTranslate = MGLStyleValue(rawValue: NSValue(cgVector: CGVector(dx: 10, dy: 0)))
+        symbols.textTranslation = MGLStyleValue(rawValue: NSValue(cgVector: CGVector(dx: 10, dy: 0)))
         symbols.textOpacity = symbols.iconOpacity
         symbols.textHaloColor = symbols.iconHaloColor
         symbols.textHaloWidth = symbols.iconHaloWidth
