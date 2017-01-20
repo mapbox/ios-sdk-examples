@@ -39,13 +39,16 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
     }
 
     func addItemsToMap(features: [MGLFeature]) {
+        // MGLMapView.style is optional, so you must guard against it not being set.
+        guard let style = self.mapView.style else { return }
+
         // You can add custom UIImages to the map style.
         // These can be referenced by an MGLSymbolStyleLayer’s iconImage property.
-        self.mapView.style.setImage(UIImage(named: "lighthouse")!, forName: "lighthouse")
+        style.setImage(UIImage(named: "lighthouse")!, forName: "lighthouse")
 
         // Add the features to the map as a shape source.
         let source = MGLShapeSource(identifier: "lighthouses")
-        self.mapView.style.addSource(source)
+        style.addSource(source)
 
         let lighthouseColor = UIColor(red: 0.08, green: 0.44, blue: 0.96, alpha: 1.0)
 
@@ -87,8 +90,8 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
         symbols.textJustification = MGLStyleValue(rawValue: NSValue(mglTextJustification: .left))
         symbols.textAnchor = MGLStyleValue(rawValue: NSValue(mglTextAnchor: .left))
 
-        self.mapView.style.addLayer(circles)
-        self.mapView.style.addLayer(symbols)
+        style.addLayer(circles)
+        style.addLayer(symbols)
     }
 
     // MARK: - Feature interaction

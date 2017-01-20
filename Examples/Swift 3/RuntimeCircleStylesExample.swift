@@ -33,10 +33,10 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
 
     // Wait until the style is loaded before modifying the map style.
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        addLayer()
+        addLayerTo(style)
     }
 
-    func addLayer() {
+    func addLayerTo(_ style: MGLStyle) {
         let source = MGLVectorSource(identifier: "population", configurationURL: URL(string: "mapbox://examples.8fgz4egr")!)
 
         let ethnicities = [
@@ -47,7 +47,7 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
             "Other": UIColor(red: 204/255.0, green: 204/255.0, blue: 204/255.0, alpha: 1.0),
         ]
 
-        self.mapView.style.addSource(source)
+        style.addSource(source)
 
         // Create a new layer for each ethnicity/circle color.
         for (ethnicity, color) in ethnicities {
@@ -70,7 +70,7 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
             // Use an NSPredicate to filter to just one ethnicity for this layer.
             layer.predicate = NSPredicate(format: "%K == %@", "ethnicity", ethnicity)
             
-            self.mapView.style.addLayer(layer)
+            style.addLayer(layer)
         }
     }
 }

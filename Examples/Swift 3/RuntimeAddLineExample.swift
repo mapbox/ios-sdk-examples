@@ -50,9 +50,12 @@ class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
         // Add our GeoJSON data to the map as a MGLGeoJSONSource.
         // We can then reference this data from an MGLStyleLayer.
 
+        // MGLMapView.style is optional, so you must guard against it not being set.
+        guard let style = self.mapView.style else { return }
+
         //let source = MGLGeoJSONSource(identifier: "polyline", geoJSONData: geoJson, options: nil)
         let source = MGLShapeSource(identifier: <#T##String#>, shape: <#T##MGLShape?#>, options: <#T##[MGLShapeSourceOption : Any]?#>)
-        self.mapView.style.addSource(source)
+        style.addSource(source)
 
         // Create new layer for the line
         let layer = MGLLineStyleLayer(identifier: "polyline", source: source)
@@ -89,9 +92,9 @@ class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
         dashedLayer.lineWidth = layer.lineWidth
         dashedLayer.lineDashPattern = MGLStyleValue(rawValue: [0, 1.5])
         
-        self.mapView.style.addLayer(layer)
-        self.mapView.style.addLayer(dashedLayer)
-        self.mapView.style.insertLayer(casingLayer, below: layer)
+        style.addLayer(layer)
+        style.addLayer(dashedLayer)
+        style.insertLayer(casingLayer, below: layer)
     }
 }
 #endif
