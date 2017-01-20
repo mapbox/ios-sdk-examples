@@ -90,7 +90,6 @@ class CustomAnnotationModelExample_Swift: UIViewController, MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
         if let point = annotation as? CustomPointAnnotation,
-            
             let image = point.image,
             let reuseIdentifier = point.reuseIdentifier {
             
