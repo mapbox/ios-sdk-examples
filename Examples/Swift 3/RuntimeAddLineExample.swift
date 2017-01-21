@@ -53,8 +53,8 @@ class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
         // MGLMapView.style is optional, so you must guard against it not being set.
         guard let style = self.mapView.style else { return }
 
-        //let source = MGLGeoJSONSource(identifier: "polyline", geoJSONData: geoJson, options: nil)
-        let source = MGLShapeSource(identifier: <#T##String#>, shape: <#T##MGLShape?#>, options: <#T##[MGLShapeSourceOption : Any]?#>)
+        let shapeFromGeoJSON = try! MGLShape(data: geoJson, encoding: String.Encoding.utf8.rawValue)
+        let source = MGLShapeSource(identifier: "polyline", shape: shapeFromGeoJSON, options: nil)
         style.addSource(source)
 
         // Create new layer for the line
