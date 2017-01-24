@@ -33,15 +33,17 @@ NSString *const MBXExampleSourceCustomRaster = @"SourceCustomRasterExample";
 
     [self.view addSubview:mapView];
 
-    // Add a UISlider that will control the raster layer's opacity
+    // Add a UISlider that will control the raster layer’s opacity.
     [self addSlider];
 
     mapView.delegate = self;
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
-    // Add a new raster source and layer
-    MGLRasterSource *source = [[MGLRasterSource alloc] initWithIdentifier:@"stamen-watercolor" tileSet:[[MGLTileSet alloc] initWithTileURLTemplates:@[@"https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"]] tileSize:256.0];
+    // Add a new raster source and layer.
+    MGLRasterSource *source = [[MGLRasterSource alloc] initWithIdentifier:@"stamen-watercolor"
+        tileURLTemplates:@[@"https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"]
+        options:@{ MGLTileSourceOptionTileSize: @256}];
     MGLRasterStyleLayer *rasterLayer = [[MGLRasterStyleLayer alloc] initWithIdentifier:@"stamen-watercolor" source:source];
 
     [[mapView style] addSource:source];

@@ -29,14 +29,14 @@ class SourceCustomRasterExample_Swift: UIViewController, MGLMapViewDelegate {
 
         view.addSubview(mapView)
 
-        // Add a UISlider that will control the raster layer's opacity
+        // Add a UISlider that will control the raster layer’s opacity.
         addSlider()
 
         mapView.delegate = self
     }
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        // Add a new raster source and layer
+        // Add a new raster source and layer.
         let source = MGLRasterSource(identifier: "stamen-watercolor", tileURLTemplates: ["https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"], options: [ .tileSize: 256 ])
         let rasterLayer = MGLRasterStyleLayer(identifier: "stamen-watercolor", source: source)
 
@@ -51,14 +51,14 @@ class SourceCustomRasterExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func addSlider() {
-	let padding: CGFloat = 10
-	let slider = UISlider(frame: CGRect(x: padding, y: self.view.frame.size.height - 44 - 30, width: self.view.frame.size.width - padding *  2, height: 44))
-	slider.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
-	slider.minimumValue = 0
-	slider.maximumValue = 1
-	slider.value = 1
-	slider.addTarget(self, action: #selector(SourceCustomRasterExample_Swift.updateLayerOpacity(sender:)), for: .valueChanged)
-	view.addSubview(slider)
+        let padding: CGFloat = 10
+        let slider = UISlider(frame: CGRect(x: padding, y: self.view.frame.size.height - 44 - 30, width: self.view.frame.size.width - padding *  2, height: 44))
+        slider.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
+        slider.minimumValue = 0
+        slider.maximumValue = 1
+        slider.value = 1
+        slider.addTarget(self, action: #selector(SourceCustomRasterExample_Swift.updateLayerOpacity(sender:)), for: .valueChanged)
+        view.addSubview(slider)
     }
 }
 #endif
