@@ -27,15 +27,15 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
         view.addSubview(mapView)
 
         // Add our own gesture recognizer to handle taps on our custom map features.
-        mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(RuntimeMultipleAnnotationsExample_Swift.handleMapTap(sender:))))
+        mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:))))
         
         self.mapView = mapView
     }
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        self.fetchPoints(withCompletion: { (features) in
-            self.addItemsToMap(features: features)
-        })
+        self.fetchPoints() { [weak self] (features) in
+            self?.addItemsToMap(features: features)
+        }
     }
 
     func addItemsToMap(features: [MGLFeature]) {
@@ -102,11 +102,10 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
 
             // Try matching the exact point first.
             let point = sender.location(in: sender.view!)
-            for f in mapView.visibleFeatures(at: point, styleLayerIdentifiers: Set(layerIdentifiers)) {
-                if let f = f as? MGLPointFeature {
-                    self.showCallout(feature: f)
-                    return
-                }
+            for f in mapView.visibleFeatures(at: point, styleLayerIdentifiers: Set(layerIdentifiers))
+              where f is MGLPointFeature {
+                self.showCallout(feature: f as! MGLPointFeature)
+                return
             }
 
             let touchCoordinate = mapView.convert(point, toCoordinateFrom: sender.view!)
@@ -122,8 +121,8 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
             }
 
             // Select the closest feature to the touch center.
-            let closestFeatures = possibleFeatures.sorted(by: { (a, b) -> Bool in
-                return CLLocation(latitude: a.coordinate.latitude, longitude: a.coordinate.longitude).distance(from: touchLocation) < CLLocation(latitude: b.coordinate.latitude, longitude: b.coordinate.longitude).distance(from: touchLocation)
+            let closestFeatures = possibleFeatures.sorted(by: {
+                return CLLocation(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude).distance(from: touchLocation) < CLLocation(latitude: $1.coordinate.latitude, longitude: $1.coordinate.longitude).distance(from: touchLocation)
             })
             if let f = closestFeatures.first {
                 self.showCallout(feature: f)
@@ -162,7 +161,7 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
     // MARK: - Data fetching and parsing
 
     func fetchPoints(withCompletion completion: @escaping (([MGLFeature]) -> Void)) {
-        // Wikidata query for all lighthouses in the United States: https://query.wikidata.org/#%23added%20before%202016-10%0A%23defaultView%3AMap%0ASELECT%20DISTINCT%20%3Fitem%20%3FitemLabel%20%3Fcoor%20%3Fimage%0AWHERE%0A%7B%0A%09%3Fitem%20wdt%3AP31%20wd%3AQ39715%20.%20%0A%09%3Fitem%20wdt%3AP17%20wd%3AQ30%20.%0A%09%3Fitem%20wdt%3AP625%20%3Fcoor%20.%0A%09OPTIONAL%20%7B%20%3Fitem%20wdt%3AP18%20%3Fimage%20%7D%20%20%0A%09SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22%20%20%7D%20%20%0A%7D%0AORDER%20BY%20%3FitemLabel
+        // Wikidata query for all lighthouses in the United States: http://tinyurl.com/zrl2jc4
         let query = "SELECT DISTINCT ?item " +
             "?itemLabel ?coor ?image " +
             "WHERE " +
