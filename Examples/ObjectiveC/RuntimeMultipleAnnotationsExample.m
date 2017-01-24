@@ -30,7 +30,7 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
 
     mapView.delegate = self;
 
-    // Add our own gesture recognizer to handle taps on our custom map features
+    // Add our own gesture recognizer to handle taps on our custom map features.
     [mapView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMapTap:)]];
 
     [self.view addSubview:mapView];
@@ -40,67 +40,67 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     [self fetchPoints:^(NSArray *features) {
-	[self addItemsToMap:features];
+        [self addItemsToMap:features];
     }];
 }
 
 - (void)addItemsToMap:(NSArray *)features {
-    // You can add custom UIImages to the map style
-    // These can be referenced by an MGLSymbolStyleLayer's iconImage property
-    [[self.mapView style] setImage:[UIImage imageNamed:@"lighthouse"] forName:@"lighthouse"];
+    // You can add custom UIImages to the map style.
+    // These can be referenced by an MGLSymbolStyleLayer’s iconImage property.
+    [self.mapView.style setImage:[UIImage imageNamed:@"lighthouse"] forName:@"lighthouse"];
 
-    // Add the features to the map as a GeoJSONSource
-    MGLGeoJSONSource *source = [[MGLGeoJSONSource alloc] initWithIdentifier:@"lighthouses" features:features options:nil];
-    [[self.mapView style] addSource:source];
+    // Add the features to the map as a MGLShapeSource.
+    MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"lighthouses" features:features options:nil];
+    [self.mapView.style addSource:source];
 
     UIColor *lighthouseColor = [UIColor colorWithRed:0.08 green:0.44 blue:0.96 alpha:1.0];
 
-    // Use MGLCircleStyleLayer to represent the points with simple circles
-    // In this case, we can use style functions to gradually change properties between zoom level 2 and 7: the circle opacity from 50% to 100% and the circle radius from 2px to 3px
+    // Use MGLCircleStyleLayer to represent the points with simple circles.
+    // In this case, we can use style functions to gradually change properties between zoom level 2 and 7: the circle opacity from 50% to 100% and the circle radius from 2pt to 3pt.
     MGLCircleStyleLayer *circles = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"lighthouse-circles" source:source];
     circles.circleColor = [MGLStyleValue valueWithRawValue:lighthouseColor];
     circles.circleOpacity = [MGLStyleValue valueWithStops:@{
-	@2: [MGLStyleValue valueWithRawValue:@0.5],
-	@7: [MGLStyleValue valueWithRawValue:@1.0],
+        @2: [MGLStyleValue valueWithRawValue:@0.5],
+        @7: [MGLStyleValue valueWithRawValue:@1.0],
     }];
     circles.circleRadius = [MGLStyleValue valueWithStops:@{
-	@2: [MGLStyleValue valueWithRawValue:@2],
-	@7: [MGLStyleValue valueWithRawValue:@3],
+        @2: [MGLStyleValue valueWithRawValue:@2],
+        @7: [MGLStyleValue valueWithRawValue:@3],
     }];
 
-    // Use MGLSymbolStyleLayer for more complex styling of points including custom icons and text rendering
+    // Use MGLSymbolStyleLayer for more complex styling of points including custom icons and text rendering.
     MGLSymbolStyleLayer *symbols = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"lighthouse-symbols" source:source];
-    symbols.iconImage = [MGLStyleValue valueWithRawValue:@"lighthouse"];
-    symbols.iconSize = [MGLStyleValue valueWithRawValue:@0.5];
+    symbols.iconImageName = [MGLStyleValue valueWithRawValue:@"lighthouse"];
+    symbols.iconScale = [MGLStyleValue valueWithRawValue:@0.5];
     symbols.iconOpacity = [MGLStyleValue valueWithStops:@{
-	@5.9: [MGLStyleValue valueWithRawValue:@0],
-	@6: [MGLStyleValue valueWithRawValue:@1],
+        @5.9: [MGLStyleValue valueWithRawValue:@0],
+        @6: [MGLStyleValue valueWithRawValue:@1],
     }];
     symbols.iconHaloColor = [MGLStyleValue valueWithRawValue:[[UIColor whiteColor] colorWithAlphaComponent:0.5]];
     symbols.iconHaloWidth = [MGLStyleValue valueWithRawValue:@1];
-    // {name} references the "name" key in an MGLPointFeature's attributes dictionary
-    symbols.textField = [MGLStyleValue valueWithRawValue:@"{name}"];
+    // {name} references the "name" key in an MGLPointFeature’s attributes dictionary.
+    symbols.text = [MGLStyleValue valueWithRawValue:@"{name}"];
     symbols.textColor = symbols.iconColor;
-    symbols.textSize = [MGLStyleValue valueWithStops:@{
-	@10: [MGLStyleValue valueWithRawValue:@10],
-	@16: [MGLStyleValue valueWithRawValue:@16],
+    symbols.textFontSize = [MGLStyleValue valueWithStops:@{
+        @10: [MGLStyleValue valueWithRawValue:@10],
+        @16: [MGLStyleValue valueWithRawValue:@16],
     }];
-    symbols.textTranslate = [MGLStyleValue valueWithRawValue:[NSValue valueWithCGVector:CGVectorMake(10, 0)]];
+    symbols.textTranslation = [MGLStyleValue valueWithRawValue:[NSValue valueWithCGVector:CGVectorMake(10, 0)]];
     symbols.textOpacity = symbols.iconOpacity;
     symbols.textHaloColor = symbols.iconHaloColor;
     symbols.textHaloWidth = symbols.iconHaloWidth;
-    symbols.textJustify = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLTextJustify:MGLTextJustifyLeft]];
+    symbols.textJustification = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLTextJustification:MGLTextJustificationLeft]];
     symbols.textAnchor = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLTextAnchor:MGLTextAnchorLeft]];
 
-    [[self.mapView style] addLayer:circles];
-    [[self.mapView style] addLayer:symbols];
+    [self.mapView.style addLayer:circles];
+    [self.mapView.style addLayer:symbols];
 }
 
 #pragma mark - Feature interaction
 
 - (void)handleMapTap:(UITapGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
-	// Limit feature selection to just the following layer identifiers
+	// Limit feature selection to just the following layer identifiers.
 	NSArray *layerIdentifiers = @[@"lighthouse-symbols", @"lighthouse-circles"];
 
 	CGPoint point = [sender locationInView:sender.view];
@@ -108,12 +108,12 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
 	// Try matching the exact point first
 	for (id f in [self.mapView visibleFeaturesAtPoint:point inStyleLayersWithIdentifiers:[NSSet setWithArray:layerIdentifiers]]) {
 	    if ([f isKindOfClass:[MGLPointFeature class]]) {
-		[self showCallout:f];
-		return;
+            [self showCallout:f];
+            return;
 	    }
 	}
 
-	// Otherwise, get first features within a rect the size of a touch (44x44)
+	// Otherwise, get first features within a rect the size of a touch (44x44).
 	CGRect pointRect = {point, CGSizeZero};
 	CGRect touchRect = CGRectInset(pointRect, -22.0, -22.0);
 	for (id f in [self.mapView visibleFeaturesInRect:touchRect inStyleLayersWithIdentifiers:[NSSet setWithArray:layerIdentifiers]]) {
@@ -123,7 +123,7 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
 	    }
 	}
 
-	// If no features were found, deselect the selected annotation, if any
+	// If no features were found, deselect the selected annotation, if any.
 	[self.mapView deselectAnnotation:[[self.mapView selectedAnnotations] firstObject] animated:YES];
     }
 }
@@ -133,8 +133,8 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
     point.title = feature.attributes[@"name"];
     point.coordinate = feature.coordinate;
 
-    // Selecting an feature that doesn't already exist on the map will add a new annotation view
-    // We'll need to use the map's delegate methods to add an empty annotation view and remove it when we're done selecting it
+    // Selecting an feature that doesn’t already exist on the map will add a new annotation view.
+    // We’ll need to use the map’s delegate methods to add an empty annotation view and remove it when we’re done selecting it.
     [self.mapView selectAnnotation:point animated:YES];
 }
 
@@ -155,7 +155,7 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
 #pragma mark - Data fetching and parsing
 
 - (void)fetchPoints:(void (^)(NSArray *))completion {
-    // Wikidata query for all lighthouses in the United States: https://query.wikidata.org/#%23added%20before%202016-10%0A%23defaultView%3AMap%0ASELECT%20DISTINCT%20%3Fitem%20%3FitemLabel%20%3Fcoor%20%3Fimage%0AWHERE%0A%7B%0A%09%3Fitem%20wdt%3AP31%20wd%3AQ39715%20.%20%0A%09%3Fitem%20wdt%3AP17%20wd%3AQ30%20.%0A%09%3Fitem%20wdt%3AP625%20%3Fcoor%20.%0A%09OPTIONAL%20%7B%20%3Fitem%20wdt%3AP18%20%3Fimage%20%7D%20%20%0A%09SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22%20%20%7D%20%20%0A%7D%0AORDER%20BY%20%3FitemLabel
+    // Wikidata query for all lighthouses in the United States: http://tinyurl.com/zrl2jc4
     NSString *query = @"SELECT DISTINCT ?item "
 	"?itemLabel ?coor ?image "
 	"WHERE "
@@ -177,35 +177,38 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
 
     NSString *urlString = [NSString stringWithFormat:@"https://query.wikidata.org/sparql?query=%@&format=json", encodedQuery];
 
-    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:urlString] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-	if (!data) return;
-	NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-	NSArray *items = json[@"results"][@"bindings"];
-	if (!items) return;
-	dispatch_async(dispatch_get_main_queue(), ^{
-	    completion([self parseJSONItems:items]);
-	});
+    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:urlString] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!data) return;
+
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSArray *items = json[@"results"][@"bindings"];
+
+        if (!items) return;
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion([self parseJSONItems:items]);
+        });
     }] resume];
 }
 
 - (NSArray *)parseJSONItems:(NSArray *)items {
     NSMutableArray *features = @[].mutableCopy;
     for (NSDictionary *item in items) {
-	NSString *title = item[@"itemLabel"][@"value"];
-	NSString *point = item[@"coor"][@"value"];
-	if (!item || !point) continue;
+        NSString *title = item[@"itemLabel"][@"value"];
+        NSString *point = item[@"coor"][@"value"];
+        if (!item || !point) continue;
 
-	NSString *parsedPoint = [[point stringByReplacingOccurrencesOfString:@"Point(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""];
-	NSArray *pointComponents = [parsedPoint componentsSeparatedByString:@" "];
+        NSString *parsedPoint = [[point stringByReplacingOccurrencesOfString:@"Point(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""];
+        NSArray *pointComponents = [parsedPoint componentsSeparatedByString:@" "];
 
-	MGLPointFeature *feature = [[MGLPointFeature alloc] init];
-	feature.coordinate = CLLocationCoordinate2DMake([pointComponents[1] doubleValue], [pointComponents[0] doubleValue]);
-	feature.title = title;
-	// A feature's attributes can used by runtime styling for things like text labels
-	feature.attributes = @{
-	    @"name": title,
-	};
-	[features addObject:feature];
+        MGLPointFeature *feature = [[MGLPointFeature alloc] init];
+        feature.coordinate = CLLocationCoordinate2DMake([pointComponents[1] doubleValue], [pointComponents[0] doubleValue]);
+        feature.title = title;
+        // A feature’s attributes can used by runtime styling for things like text labels.
+        feature.attributes = @{
+            @"name": title,
+        };
+        [features addObject:feature];
     }
     return features;
 }
