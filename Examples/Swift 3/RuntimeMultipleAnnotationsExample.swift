@@ -53,7 +53,7 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
         let lighthouseColor = UIColor(red: 0.08, green: 0.44, blue: 0.96, alpha: 1.0)
 
         // Use MGLCircleStyleLayer to represent the points with simple circles.
-        // In this case, we can use style functions to gradually change properties between zoom level 2 and 7: the circle opacity from 50% to 100% and the circle radius from 2px to 3px.
+        // In this case, we can use style functions to gradually change properties between zoom level 2 and 7: the circle opacity from 50% to 100% and the circle radius from 2pt to 3pt.
         let circles = MGLCircleStyleLayer(identifier: "lighthouse-circles", source: source)
         circles.circleColor = MGLStyleValue(rawValue: lighthouseColor)
         circles.circleOpacity = MGLStyleValue(stops: [

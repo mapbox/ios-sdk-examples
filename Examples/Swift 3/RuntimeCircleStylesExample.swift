@@ -57,7 +57,7 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
             // Specifying the sourceLayerIdentifier is required for a vector tile source. This is the json attribute that wraps the data in the source.
             layer.sourceLayerIdentifier = "sf2010"
 
-            // Use a style function to smoothly adjust the circle radius from 2px to 180px between zoom levels 12 and 22. The `base` parameter allows the values to interpolate along an exponential curve.
+            // Use a style function to smoothly adjust the circle radius from 2pt to 180pt between zoom levels 12 and 22. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
             layer.circleRadius = MGLStyleValue(interpolationBase: 1.75, stops: [
                 12: MGLStyleValue(rawValue: 2),
                 22: MGLStyleValue(rawValue: 180)

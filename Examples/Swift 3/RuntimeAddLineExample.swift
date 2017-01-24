@@ -62,7 +62,7 @@ class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
         layer.lineJoin = MGLStyleValue(rawValue: NSValue(mglLineJoin: .round))
         layer.lineCap = MGLStyleValue(rawValue: NSValue(mglLineCap: .round))
         layer.lineColor = MGLStyleValue(rawValue: UIColor(red: 59/255, green:178/255, blue:208/255, alpha:1))
-        // Use a style function to smoothly adjust the line width from 2px to 20px between zoom levels 14 and 18. The `base` parameter allows the values to interpolate along an exponential curve.
+        // Use a style function to smoothly adjust the line width from 2pt to 20pt between zoom levels 14 and 18. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
         layer.lineWidth = MGLStyleValue(interpolationBase: 1.5, stops: [
             14: MGLStyleValue(rawValue: 2),
             18: MGLStyleValue(rawValue: 20),
