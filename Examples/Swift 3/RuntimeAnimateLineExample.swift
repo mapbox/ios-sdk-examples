@@ -37,7 +37,7 @@ class RuntimeAnimateLineExample_Swift: UIViewController, MGLMapViewDelegate {
 
         mapView.delegate = self
 
-        self.allCoordinates = self.coordinates()
+        allCoordinates = coordinates()
     }
 
     // Wait until the map is loaded before adding to the map
@@ -47,12 +47,12 @@ class RuntimeAnimateLineExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func addLayerIn(_ style: MGLStyle) {
-        // Add an empty MGLGeoJSONSource, we'll keep a reference to this and add points to this later
+        // Add an empty MGLGeoJSONSource, we’ll keep a reference to this and add points to this later.
         let source = MGLShapeSource(identifier: "polyline", shape: nil, options: nil)
         style.addSource(source)
-        self.polylineSource = source
+        polylineSource = source
 
-        // Add a layer to style our polyline
+        // Add a layer to style our polyline.
         let layer = MGLLineStyleLayer(identifier: "polyline", source: source)
         layer.lineJoin = MGLStyleValue(rawValue: NSValue(mglLineJoin: .round))
         layer.lineCap = MGLStyleValue(rawValue: NSValue(mglLineCap: .round))
@@ -66,26 +66,26 @@ class RuntimeAnimateLineExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func animatePolyline() {
-        self.currentIndex = 0
+        currentIndex = 0
 
-        // Start a timer that will simulate adding points to our polyline. This could also represent coordinates being added to our polyline from another source, such as a CLLocationManagerDelegate
-        self.timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+        // Start a timer that will simulate adding points to our polyline. This could also represent coordinates being added to our polyline from another source, such as a CLLocationManagerDelegate.
+        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
     }
 
     func tick() {
-        if self.currentIndex == allCoordinates.count {
-            self.timer?.invalidate()
-            self.timer = nil
+        if currentIndex == allCoordinates.count {
+            timer?.invalidate()
+            timer = nil
             return
         }
 
-        // Create a subarray of locations up to the current index
+        // Create a subarray of locations up to the current index.
         let coordinates = Array(allCoordinates[0..<currentIndex])
 
-        // Update our MGLGeoJSONSource with the current locations
-        self.updatePolylineWithCoordinates(coordinates: coordinates)
+        // Update our MGLGeoJSONSource with the current locations.
+        updatePolylineWithCoordinates(coordinates: coordinates)
 
-        self.currentIndex += 1
+        currentIndex += 1
     }
 
     func updatePolylineWithCoordinates(coordinates: [CLLocationCoordinate2D]) {
@@ -93,8 +93,8 @@ class RuntimeAnimateLineExample_Swift: UIViewController, MGLMapViewDelegate {
 
         let polyline = MGLPolylineFeature(coordinates: &mutableCoordinates, count: UInt(mutableCoordinates.count))
 
-        // Updating the MGLGeoJSONSource's features will have the map redraw our polyline with the current coordinates
-        self.polylineSource?.features = [polyline]
+        // Updating the MGLShapeSource’s shape will have the map redraw our polyline with the current coordinates.
+        polylineSource?.shape = polyline
     }
 
     func coordinates() -> [CLLocationCoordinate2D] {
