@@ -45,7 +45,7 @@ NSString *const MBXExampleRuntimeToggleLayer = @"RuntimeToggleLayerExample";
 }
 
 - (void)addLayer {
-    MGLSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"contours" URL:[NSURL URLWithString:@"mapbox://mapbox.mapbox-terrain-v2"]];
+    MGLSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"contours" configurationURL:[NSURL URLWithString:@"mapbox://mapbox.mapbox-terrain-v2"]];
 
     MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"contours" source:source];
     layer.sourceLayerIdentifier = @"contour";

@@ -40,14 +40,14 @@ class RuntimeAnimateLineExample_Swift: UIViewController, MGLMapViewDelegate {
         allCoordinates = coordinates()
     }
 
-    // Wait until the map is loaded before adding to the map
+    // Wait until the map is loaded before adding to the map.
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         addLayerIn(style)
         animatePolyline()
     }
 
     func addLayerIn(_ style: MGLStyle) {
-        // Add an empty MGLGeoJSONSource, we’ll keep a reference to this and add points to this later.
+        // Add an empty MGLShapeSource, we’ll keep a reference to this and add points to this later.
         let source = MGLShapeSource(identifier: "polyline", shape: nil, options: nil)
         style.addSource(source)
         polylineSource = source
@@ -82,7 +82,7 @@ class RuntimeAnimateLineExample_Swift: UIViewController, MGLMapViewDelegate {
         // Create a subarray of locations up to the current index.
         let coordinates = Array(allCoordinates[0..<currentIndex])
 
-        // Update our MGLGeoJSONSource with the current locations.
+        // Update our MGLShapeSource with the current locations.
         updatePolylineWithCoordinates(coordinates: coordinates)
 
         currentIndex += 1
