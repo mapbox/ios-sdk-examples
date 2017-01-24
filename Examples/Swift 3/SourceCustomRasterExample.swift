@@ -40,8 +40,8 @@ class SourceCustomRasterExample_Swift: UIViewController, MGLMapViewDelegate {
         let source = MGLRasterSource(identifier: "stamen-watercolor", tileURLTemplates: ["https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"], options: [ .tileSize: 256 ])
         let rasterLayer = MGLRasterStyleLayer(identifier: "stamen-watercolor", source: source)
 
-        mapView.style.addSource(source)
-        mapView.style.addLayer(rasterLayer)
+        style.addSource(source)
+        style.addLayer(rasterLayer)
 
         self.rasterLayer = rasterLayer
     }
