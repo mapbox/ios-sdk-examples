@@ -56,21 +56,19 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
             let point = tapGestureRecognizer.location(in: tapGestureRecognizer.view!)
             let touchRect = CGRect(origin: point, size: .zero).insetBy(dx: -22.0, dy: -22.0)
             
-            // Let’s only select parks near the rect. There’s a layer within the Mapbox Streets style with "id" = "park". You can see all of the layers used within the default mapbox styles by creating a new style using http://mapbox.com/studio
+            // Let’s only select parks near the rect. There’s a layer within the Mapbox Streets style with "id" = "park". You can see all of the layers used within the default mapbox styles by creating a new style using Mapbox Studio.
             let layerIdentifiers = Set(["park"])
             
             // Query the current mapview for any features that intersect our rect.
-            //var features: [MGLFeature] = mapView.visibleFeatures(in: touchRect, styleLayerIdentifiers: layerIdentifiers)
-            var shapes = [MGLShape]()
+            var features = [MGLShape]()
             for f in mapView.visibleFeatures(in: touchRect, styleLayerIdentifiers: layerIdentifiers) {
-                shapes.append(f as! MGLShape)
+                features.append(f as! MGLShape)
             }
 
-            // New extra step.
-            let collectionFeature = MGLShapeCollectionFeature(shapes: shapes);
+            let shapes = MGLShapeCollectionFeature(shapes: features);
 
             // Update our MGLShapeSource to match our selected features.
-            selectedFeaturesSource?.shape = collectionFeature;
+            selectedFeaturesSource?.shape = shapes;
         }
     }
     
