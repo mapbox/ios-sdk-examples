@@ -54,7 +54,7 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
             // Each layer should have a unique identifier.
             let layer = MGLCircleStyleLayer(identifier: "population-\(ethnicity)", source: source)
 
-            // Specifying the sourceLayerIdentifier is required for a vector tile source. This is the json attribute that wraps the data in the source.
+            // Specifying the `sourceLayerIdentifier` is required for a vector tile source. This is the json attribute that wraps the data in the source.
             layer.sourceLayerIdentifier = "sf2010"
 
             // Use a style function to smoothly adjust the circle radius from 2pt to 180pt between zoom levels 12 and 22. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
@@ -68,7 +68,7 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
             layer.circleColor = MGLStyleValue(rawValue: color)
             
             // Use an NSPredicate to filter to just one ethnicity for this layer.
-            layer.predicate = NSPredicate(format: "%K == %@", "ethnicity", ethnicity)
+            layer.predicate = NSPredicate(format: "ethnicity == %@", ethnicity)
             
             style.addLayer(layer)
         }
