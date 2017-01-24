@@ -47,7 +47,7 @@ class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func drawPolyline(geoJson: Data) {
-        // Add our GeoJSON data to the map as a MGLGeoJSONSource.
+        // Add our GeoJSON data to the map as an MGLGeoJSONSource.
         // We can then reference this data from an MGLStyleLayer.
 
         // MGLMapView.style is optional, so you must guard against it not being set.
@@ -77,7 +77,7 @@ class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
         casingLayer.lineGapWidth = layer.lineWidth
         // Stroke color slightly darker than the line color.
         casingLayer.lineColor = MGLStyleValue(rawValue: UIColor(red: 41/255, green:145/255, blue:171/255, alpha:1))
-        // Use a style function to gradually increase the stroke width between zoom 14 and 18.
+        // Use a style function to gradually increase the stroke width between zooms 14 and 18.
         casingLayer.lineWidth = MGLStyleValue(interpolationBase: 1.5, stops: [
             14: MGLStyleValue(rawValue: 1),
             18: MGLStyleValue(rawValue: 4),
@@ -90,6 +90,7 @@ class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
         dashedLayer.lineColor = MGLStyleValue(rawValue: .white)
         dashedLayer.lineOpacity = MGLStyleValue(rawValue: 0.5)
         dashedLayer.lineWidth = layer.lineWidth
+        // Dash pattern in the format [dash, gap, dash, gap, ...]. You’ll want to adjust these values based on the line cap style.
         dashedLayer.lineDashPattern = MGLStyleValue(rawValue: [0, 1.5])
         
         style.addLayer(layer)
