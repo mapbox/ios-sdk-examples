@@ -28,7 +28,7 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
         view.addSubview(mapView)
         
         // Add our own gesture recognizer to handle taps on our custom map features.
-        mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SelectFeatureExample_Swift.didTapMap(tapGestureRecognizer:))))
+        mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapMap(tapGestureRecognizer:))))
         
         mapView.delegate = self
         

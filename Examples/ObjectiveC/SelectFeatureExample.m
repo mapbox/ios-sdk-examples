@@ -63,10 +63,10 @@ NSString *const MBXExampleSelectFeature = @"SelectFeatureExample";
         CGRect touchRect = CGRectInset(pointRect, -22.0, -22.0);
 
         // Let’s only select parks near the rect. There’s a layer within the Mapbox Streets style with "id" = "park". You can see all of the layers used within the default mapbox styles by creating a new style using Mapbox Studio.
-        NSSet *layerIdentifiers = [NSSet setWithArray:@[@"park"]];
+        NSSet *layerIdentifiers = [NSSet setWithObject:@"park"];
 
         // Query the current mapview for any features that intersect our rect.
-        NSMutableArray *features = @[].mutableCopy;
+        NSMutableArray *features = [NSMutableArray array];
         for (id f in [self.mapView visibleFeaturesInRect:touchRect inStyleLayersWithIdentifiers:layerIdentifiers]) {
             [features addObject:f];
         }
