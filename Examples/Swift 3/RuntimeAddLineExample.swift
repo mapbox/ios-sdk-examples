@@ -77,7 +77,7 @@ class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
         casingLayer.lineGapWidth = layer.lineWidth
         // Stroke color slightly darker than the line color.
         casingLayer.lineColor = MGLStyleValue(rawValue: UIColor(red: 41/255, green:145/255, blue:171/255, alpha:1))
-        // Use a style function to gradually increase the stroke width between zooms 14 and 18.
+        // Use a style function to gradually increase the stroke width between zoom levels 14 and 18.
         casingLayer.lineWidth = MGLStyleValue(interpolationBase: 1.5, stops: [
             14: MGLStyleValue(rawValue: 1),
             18: MGLStyleValue(rawValue: 4),

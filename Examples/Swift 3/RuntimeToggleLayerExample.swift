@@ -33,10 +33,10 @@ class RuntimeToggleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     
     // Wait until the style is loaded before modifying the map style
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        addLayerTo(style)
+        addLayer(to: style)
     }
     
-    func addLayerTo(_ style: MGLStyle) {
+    func addLayer(to style: MGLStyle) {
         let source = MGLVectorSource(identifier: "contours", configurationURL: NSURL(string: "mapbox://mapbox.mapbox-terrain-v2")! as URL)
         
         let layer = MGLLineStyleLayer(identifier: "contours", source: source)

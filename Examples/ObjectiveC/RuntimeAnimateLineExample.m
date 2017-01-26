@@ -99,7 +99,7 @@ NSString *const MBXExampleRuntimeAnimateLine = @"RuntimeAnimateLineExample";
     MGLPolylineFeature *polyline = [MGLPolylineFeature polylineWithCoordinates:coordinates count:locations.count];
 
     // Updating the MGLShapeSource’s shape will have the map redraw our polyline with the current coordinates.
-    [self.polylineSource setShape:polyline];
+    self.polylineSource.shape = polyline;
 }
 
 - (NSArray<CLLocation *> *)locations {

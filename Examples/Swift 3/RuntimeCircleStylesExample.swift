@@ -33,10 +33,10 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
 
     // Wait until the style is loaded before modifying the map style.
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        addLayerTo(style)
+        addLayer(to: style)
     }
 
-    func addLayerTo(_ style: MGLStyle) {
+    func addLayer(to style: MGLStyle) {
         let source = MGLVectorSource(identifier: "population", configurationURL: URL(string: "mapbox://examples.8fgz4egr")!)
 
         let ethnicities = [

@@ -57,7 +57,7 @@ class SourceCustomRasterExample_Swift: UIViewController, MGLMapViewDelegate {
         slider.minimumValue = 0
         slider.maximumValue = 1
         slider.value = 1
-        slider.addTarget(self, action: #selector(SourceCustomRasterExample_Swift.updateLayerOpacity(sender:)), for: .valueChanged)
+        slider.addTarget(self, action: #selector(updateLayerOpacity(sender:)), for: .valueChanged)
         view.addSubview(slider)
     }
 }

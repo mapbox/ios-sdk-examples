@@ -65,10 +65,10 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
                 features.append(f as! MGLShape)
             }
 
-            let shapes = MGLShapeCollectionFeature(shapes: features);
+            let shapes = MGLShapeCollectionFeature(shapes: features)
 
             // Update our MGLShapeSource to match our selected features.
-            selectedFeaturesSource?.shape = shapes;
+            selectedFeaturesSource?.shape = shapes
         }
     }
     

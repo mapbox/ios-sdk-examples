@@ -192,7 +192,7 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
 }
 
 - (NSArray *)parseJSONItems:(NSArray *)items {
-    NSMutableArray *features = @[].mutableCopy;
+    NSMutableArray *features = [NSMutableArray array];
     for (NSDictionary *item in items) {
         NSString *title = item[@"itemLabel"][@"value"];
         NSString *point = item[@"coor"][@"value"];
