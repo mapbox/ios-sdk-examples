@@ -46,8 +46,8 @@ class SourceCustomRasterExample_Swift: UIViewController, MGLMapViewDelegate {
         self.rasterLayer = rasterLayer
     }
     
-    func updateLayerOpacity(sender: UISlider) {
-        self.rasterLayer?.rasterOpacity = MGLStyleValue(rawValue: NSNumber(value: sender.value))
+    func updateLayerOpacity(_ sender: UISlider) {
+        rasterLayer?.rasterOpacity = MGLStyleValue(rawValue: NSNumber(value: sender.value))
     }
 
     func addSlider() {
@@ -57,7 +57,7 @@ class SourceCustomRasterExample_Swift: UIViewController, MGLMapViewDelegate {
         slider.minimumValue = 0
         slider.maximumValue = 1
         slider.value = 1
-        slider.addTarget(self, action: #selector(updateLayerOpacity(sender:)), for: .valueChanged)
+        slider.addTarget(self, action: #selector(updateLayerOpacity), for: .valueChanged)
         view.addSubview(slider)
     }
 }
