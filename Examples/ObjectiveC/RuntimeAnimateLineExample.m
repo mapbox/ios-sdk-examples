@@ -179,7 +179,7 @@ NSString *const MBXExampleRuntimeAnimateLine = @"RuntimeAnimateLineExample";
         @[@(-122.70774), @45.49893],
     ];
 
-    NSMutableArray<CLLocation *> *locations = @[].mutableCopy;
+    NSMutableArray<CLLocation *> *locations = [NSMutableArray array];
     for (NSArray<NSNumber *> *c in coordinates) {
 	[locations addObject:[[CLLocation alloc] initWithLatitude:[c[1] doubleValue] longitude:[c[0] doubleValue]]];
     }
