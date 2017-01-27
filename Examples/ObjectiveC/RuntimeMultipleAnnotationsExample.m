@@ -100,31 +100,31 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
 
 - (void)handleMapTap:(UITapGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
-	// Limit feature selection to just the following layer identifiers.
-	NSArray *layerIdentifiers = @[@"lighthouse-symbols", @"lighthouse-circles"];
+        // Limit feature selection to just the following layer identifiers.
+        NSArray *layerIdentifiers = @[@"lighthouse-symbols", @"lighthouse-circles"];
 
-	CGPoint point = [sender locationInView:sender.view];
+        CGPoint point = [sender locationInView:sender.view];
 
-	// Try matching the exact point first
-	for (id f in [self.mapView visibleFeaturesAtPoint:point inStyleLayersWithIdentifiers:[NSSet setWithArray:layerIdentifiers]]) {
-	    if ([f isKindOfClass:[MGLPointFeature class]]) {
-            [self showCallout:f];
-            return;
-	    }
-	}
+        // Try matching the exact point first
+        for (id f in [self.mapView visibleFeaturesAtPoint:point inStyleLayersWithIdentifiers:[NSSet setWithArray:layerIdentifiers]]) {
+            if ([f isKindOfClass:[MGLPointFeature class]]) {
+                [self showCallout:f];
+                return;
+            }
+        }
 
-	// Otherwise, get first features within a rect the size of a touch (44x44).
-	CGRect pointRect = {point, CGSizeZero};
-	CGRect touchRect = CGRectInset(pointRect, -22.0, -22.0);
-	for (id f in [self.mapView visibleFeaturesInRect:touchRect inStyleLayersWithIdentifiers:[NSSet setWithArray:layerIdentifiers]]) {
-	    if ([f isKindOfClass:[MGLPointFeature class]]) {
-		[self showCallout:f];
-		return;
-	    }
-	}
+        // Otherwise, get first features within a rect the size of a touch (44x44).
+        CGRect pointRect = {point, CGSizeZero};
+        CGRect touchRect = CGRectInset(pointRect, -22.0, -22.0);
+        for (id f in [self.mapView visibleFeaturesInRect:touchRect inStyleLayersWithIdentifiers:[NSSet setWithArray:layerIdentifiers]]) {
+            if ([f isKindOfClass:[MGLPointFeature class]]) {
+                [self showCallout:f];
+                return;
+            }
+        }
 
-	// If no features were found, deselect the selected annotation, if any.
-	[self.mapView deselectAnnotation:[[self.mapView selectedAnnotations] firstObject] animated:YES];
+        // If no features were found, deselect the selected annotation, if any.
+        [self.mapView deselectAnnotation:[[self.mapView selectedAnnotations] firstObject] animated:YES];
     }
 }
 
