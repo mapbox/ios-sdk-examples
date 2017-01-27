@@ -98,11 +98,11 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
     func handleMapTap(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             // Limit feature selection to just the following layer identifiers.
-            let layerIdentifiers = ["lighthouse-symbols", "lighthouse-circles"]
+            let layerIdentifiers: Set = ["lighthouse-symbols", "lighthouse-circles"]
 
             // Try matching the exact point first.
             let point = sender.location(in: sender.view!)
-            for f in mapView.visibleFeatures(at: point, styleLayerIdentifiers: Set(layerIdentifiers))
+            for f in mapView.visibleFeatures(at: point, styleLayerIdentifiers:layerIdentifiers)
               where f is MGLPointFeature {
                 showCallout(feature: f as! MGLPointFeature)
                 return
