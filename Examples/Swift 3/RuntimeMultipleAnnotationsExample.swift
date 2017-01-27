@@ -33,14 +33,14 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
     }
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        self.fetchPoints() { [weak self] (features) in
+        fetchPoints() { [weak self] (features) in
             self?.addItemsToMap(features: features)
         }
     }
 
     func addItemsToMap(features: [MGLFeature]) {
         // MGLMapView.style is optional, so you must guard against it not being set.
-        guard let style = self.mapView.style else { return }
+        guard let style = mapView.style else { return }
 
         // You can add custom UIImages to the map style.
         // These can be referenced by an MGLSymbolStyleLayer’s iconImage property.
@@ -104,7 +104,7 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
             let point = sender.location(in: sender.view!)
             for f in mapView.visibleFeatures(at: point, styleLayerIdentifiers: Set(layerIdentifiers))
               where f is MGLPointFeature {
-                self.showCallout(feature: f as! MGLPointFeature)
+                showCallout(feature: f as! MGLPointFeature)
                 return
             }
 
@@ -113,24 +113,19 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
 
             // Otherwise, get all features within a rect the size of a touch (44x44).
             let touchRect = CGRect(origin: point, size: .zero).insetBy(dx: -22.0, dy: -22.0)
-            var possibleFeatures = [MGLPointFeature]()
-            for f in mapView.visibleFeatures(in: touchRect, styleLayerIdentifiers: Set(layerIdentifiers)) {
-                if let f = f as? MGLPointFeature {
-                    possibleFeatures.append(f)
-                }
-            }
+            let possibleFeatures = mapView.visibleFeatures(in: touchRect, styleLayerIdentifiers: Set(layerIdentifiers)).filter { $0 is MGLPointFeature }
 
             // Select the closest feature to the touch center.
             let closestFeatures = possibleFeatures.sorted(by: {
                 return CLLocation(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude).distance(from: touchLocation) < CLLocation(latitude: $1.coordinate.latitude, longitude: $1.coordinate.longitude).distance(from: touchLocation)
             })
             if let f = closestFeatures.first {
-                self.showCallout(feature: f)
+                showCallout(feature: f as! MGLPointFeature)
                 return
             }
             
             // If no features were found, deselect the selected annotation, if any.
-            self.mapView.deselectAnnotation(self.mapView.selectedAnnotations.first, animated: true)
+            mapView.deselectAnnotation(mapView.selectedAnnotations.first, animated: true)
         }
     }
 
