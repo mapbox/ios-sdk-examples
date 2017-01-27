@@ -74,7 +74,7 @@ NSString *const MBXExampleRuntimeAnimateLine = @"RuntimeAnimateLineExample";
 }
 
 - (void)tick {
-    if (_currentIndex == [self.locations count]) {
+    if (_currentIndex > self.locations.count) {
         [_timer invalidate];
         _timer = nil;
         return;

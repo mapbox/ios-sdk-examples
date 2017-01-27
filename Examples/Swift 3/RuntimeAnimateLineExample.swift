@@ -73,7 +73,7 @@ class RuntimeAnimateLineExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func tick() {
-        if currentIndex == allCoordinates.count {
+        if currentIndex > allCoordinates.count {
             timer?.invalidate()
             timer = nil
             return
