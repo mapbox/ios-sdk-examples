@@ -19,7 +19,7 @@ class RuntimeAnimateLineExample_Swift: UIViewController, MGLMapViewDelegate {
 
     var polylineSource: MGLShapeSource?
 
-    var currentIndex = 0
+    var currentIndex = 1
 
     var allCoordinates: [CLLocationCoordinate2D]!
 
@@ -66,7 +66,7 @@ class RuntimeAnimateLineExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func animatePolyline() {
-        currentIndex = 0
+        currentIndex = 1
 
         // Start a timer that will simulate adding points to our polyline. This could also represent coordinates being added to our polyline from another source, such as a CLLocationManagerDelegate.
         timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(tick), userInfo: nil, repeats: true)

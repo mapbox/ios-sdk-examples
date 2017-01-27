@@ -67,7 +67,7 @@ NSString *const MBXExampleRuntimeAnimateLine = @"RuntimeAnimateLineExample";
 }
 
 - (void)animatePolyline {
-    _currentIndex = 0;
+    _currentIndex = 1;
 
     // Start a timer that will simulate adding points to our polyline. This could also represent coordinates being added to our polyline from another source, such as a CLLocationManagerDelegate.
     _timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(tick) userInfo:nil repeats:YES];
