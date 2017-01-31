@@ -37,7 +37,7 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
     
     func mapView(_ didFinishLoadingmapView: MGLMapView, didFinishLoading style: MGLStyle) {
         // Create a placeholder MGLShapeSource that will hold copies of any features we’ve selected.
-        let selectedFeaturesSource = MGLShapeSource(identifier: "selected-features")
+        let selectedFeaturesSource = MGLShapeSource(identifier: "selected-features", features: [], options: nil)
         style.addSource(selectedFeaturesSource)
         
         // Keep a reference to the source so we can update it when the map is tapped.
