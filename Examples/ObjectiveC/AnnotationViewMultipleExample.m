@@ -28,7 +28,7 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Create a new map view using the Mapbox Terrain style.
+    // Create a new map view using the Mapbox Light style.
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds
         styleURL:[MGLStyle lightStyleURLWithVersion:9]];
     
@@ -44,20 +44,20 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     MyCustomPointAnnotation *pointA = [[MyCustomPointAnnotation alloc] init];
     pointA.title = @"Stovepipe Wells";
     pointA.coordinate = CLLocationCoordinate2DMake(36.4623,-116.8656);
+    pointA.willUseImage = YES;
     
     MyCustomPointAnnotation *pointB = [[MyCustomPointAnnotation alloc] init];
     pointB.title = @"Furnace Creek";
     pointB.coordinate = CLLocationCoordinate2DMake(36.6071,-117.1458);
+    pointB.willUseImage = YES;
     
     MyCustomPointAnnotation *pointC = [[MyCustomPointAnnotation alloc] init];
     pointC.title = @"Zabriskie Point";
     pointC.coordinate = CLLocationCoordinate2DMake(36.4208,-116.8101);
-    pointC.willUseImage = YES;
     
     MyCustomPointAnnotation *pointD = [[MyCustomPointAnnotation alloc] init];
     pointD.title = @"Mesquite Flat Sand Dunes";
     pointD.coordinate = CLLocationCoordinate2DMake(36.6836,-117.1005);
-    pointD.willUseImage = YES;
     
     // Fill an array with four point annotations.
     NSArray *myPlaces = @[pointA, pointB, pointC, pointD];
@@ -89,9 +89,8 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
         annotationView.layer.cornerRadius = annotationView.frame.size.width / 2;
         annotationView.layer.borderColor = [UIColor whiteColor].CGColor;
         annotationView.layer.borderWidth = 4.0;
+        annotationView.backgroundColor = [UIColor colorWithRed:0.03 green:0.80 blue:0.69 alpha:1.0];
     }
-    
-    annotationView.backgroundColor = [UIColor colorWithRed:0.03 green:0.80 blue:0.69 alpha:1.0];
     
     return annotationView;
 }
@@ -110,13 +109,14 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     // For better performance, always try to reuse existing annotations.
     MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"camera"];
     
-    // If there’s no reusable annotation image available, initialize a new one.
+    // If there is no reusable annotation image available, initialize a new one.
     if (!annotationImage)
     {
         UIImage *image = [UIImage imageNamed:@"camera"];
         image = [image imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, image.size.height/2, 0)];
         annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"camera"];
     }
+    
     return annotationImage;
 }
 
