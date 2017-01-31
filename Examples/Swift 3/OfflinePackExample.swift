@@ -106,7 +106,7 @@ class OfflinePackExample: UIViewController, MGLMapViewDelegate {
     func offlinePackDidReceiveError(notification: NSNotification) {
         if let pack = notification.object as? MGLOfflinePack,
             let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
-            let error = notification.userInfo?[MGLOfflinePackErrorUserInfoKey] as? NSError {
+            let error = notification.userInfo?[MGLOfflinePackUserInfoKey.error] as? NSError {
             print("Offline pack “\(userInfo["name"])” received error: \(error.localizedFailureReason)")
         }
     }
@@ -114,7 +114,7 @@ class OfflinePackExample: UIViewController, MGLMapViewDelegate {
     func offlinePackDidReceiveMaximumAllowedMapboxTiles(notification: NSNotification) {
         if let pack = notification.object as? MGLOfflinePack,
             let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
-            let maximumCount = (notification.userInfo?[MGLOfflinePackMaximumCountUserInfoKey] as AnyObject).uint64Value {
+            let maximumCount = (notification.userInfo?[MGLOfflinePackUserInfoKey.maximumCount] as AnyObject).uint64Value {
             print("Offline pack “\(userInfo["name"])” reached limit of \(maximumCount) tiles.")
         }
     }
