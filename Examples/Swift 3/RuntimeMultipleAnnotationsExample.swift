@@ -38,7 +38,7 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
         }
     }
 
-    func addItemsToMap(features: [MGLFeature]) {
+    func addItemsToMap(features: [MGLPointFeature]) {
         // MGLMapView.style is optional, so you must guard against it not being set.
         guard let style = mapView.style else { return }
 
@@ -47,7 +47,7 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
         style.setImage(UIImage(named: "lighthouse")!, forName: "lighthouse")
 
         // Add the features to the map as a shape source.
-        let source = MGLShapeSource(identifier: "lighthouses")
+        let source = MGLShapeSource(identifier: "lighthouses", features: features, options: nil)
         style.addSource(source)
 
         let lighthouseColor = UIColor(red: 0.08, green: 0.44, blue: 0.96, alpha: 1.0)
@@ -155,7 +155,7 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
 
     // MARK: - Data fetching and parsing
 
-    func fetchPoints(withCompletion completion: @escaping (([MGLFeature]) -> Void)) {
+    func fetchPoints(withCompletion completion: @escaping (([MGLPointFeature]) -> Void)) {
         // Wikidata query for all lighthouses in the United States: http://tinyurl.com/zrl2jc4
         let query = "SELECT DISTINCT ?item " +
             "?itemLabel ?coor ?image " +
@@ -190,8 +190,8 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
         }).resume()
     }
 
-    func parseJSONItems(items: [[String: AnyObject]]) -> [MGLFeature] {
-        var features = [MGLFeature]()
+    func parseJSONItems(items: [[String: AnyObject]]) -> [MGLPointFeature] {
+        var features = [MGLPointFeature]()
         for item in items {
             guard let label = item["itemLabel"] as? [String: AnyObject],
             let title = label["value"] as? String else { continue }
