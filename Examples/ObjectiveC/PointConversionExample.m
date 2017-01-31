@@ -1,11 +1,3 @@
-//
-//  PointConversionExample.m
-//  Examples
-//
-//  Created by Jason Wray on 1/29/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "PointConversionExample.h"
 @import Mapbox;
 
@@ -16,6 +8,7 @@ NSString *const MBXExamplePointConversion = @"PointConversionExample";
 @property (nonatomic) MGLMapView *mapView;
 
 @end
+
 @implementation PointConversionExample
 
 - (void)viewDidLoad {

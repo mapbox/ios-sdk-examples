@@ -1,11 +1,3 @@
-//
-//  DrawingAMarkerExample.m
-//  Examples
-//
-//  Created by Jason Wray on 1/29/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "DrawingAMarkerExample.h"
 @import Mapbox;
 
@@ -13,6 +5,7 @@ NSString *const MBXExampleDrawingAMarker = @"DrawingAMarkerExample";
 
 @interface DrawingAMarkerExample () <MGLMapViewDelegate>
 @end
+
 @implementation DrawingAMarkerExample
 
 - (void)viewDidLoad {

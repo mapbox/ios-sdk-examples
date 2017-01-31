@@ -1,11 +1,3 @@
-//
-//  DrawingAPolygonExample.m
-//  Examples
-//
-//  Created by Jason Wray on 1/29/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "DrawingAPolygonExample.h"
 @import Mapbox;
 
@@ -16,6 +8,7 @@ NSString *const MBXExampleDrawingAPolygon = @"DrawingAPolygonExample";
 @property (nonatomic) MGLMapView *mapView;
 
 @end
+
 @implementation DrawingAPolygonExample
 
 - (void)viewDidLoad {

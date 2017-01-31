@@ -1,11 +1,3 @@
-//
-//  DrawingAGeoJSONLineExample.m
-//  Examples
-//
-//  Created by Jason Wray on 1/29/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "DrawingAGeoJSONLineExample.h"
 @import Mapbox;
 
@@ -16,6 +8,7 @@ NSString *const MBXExampleDrawingAGeoJSONLine = @"DrawingAGeoJSONLineExample";
 @property (nonatomic) MGLMapView *mapView;
 
 @end
+
 @implementation DrawingAGeoJSONLineExample
 
 - (void)viewDidLoad {

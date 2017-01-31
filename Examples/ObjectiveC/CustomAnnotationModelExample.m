@@ -1,11 +1,3 @@
-//
-//  CustomAnnotationModelExample.m
-//  Examples
-//
-//  Created by Jason Wray on 5/20/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "CustomAnnotationModelExample.h"
 #import "CustomAnnotationModels.h"
 @import Mapbox;
@@ -14,6 +6,7 @@ NSString *const MBXExampleCustomAnnotationModel = @"CustomAnnotationModelExample
 
 @interface CustomAnnotationModelExample () <MGLMapViewDelegate>
 @end
+
 @implementation CustomAnnotationModelExample
 
 - (void)viewDidLoad {

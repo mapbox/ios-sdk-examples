@@ -1,11 +1,3 @@
-//
-//  CustomCalloutViewExample.m
-//  Examples
-//
-//  Created by Jason Wray on 3/6/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "CustomCalloutViewExample.h"
 #import "CustomCalloutView.h"
 @import Mapbox;
@@ -14,6 +6,7 @@ NSString *const MBXExampleCustomCalloutView = @"CustomCalloutViewExample";
 
 @interface CustomCalloutViewExample () <MGLMapViewDelegate>
 @end
+
 @implementation CustomCalloutViewExample
 
 - (void)viewDidLoad {

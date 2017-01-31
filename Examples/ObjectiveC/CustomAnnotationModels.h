@@ -1,11 +1,3 @@
-//
-//  CustomAnnotationModels.h
-//  Examples
-//
-//  Created by Jason Wray on 5/20/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 @import Mapbox;
 
 // MGLAnnotation protocol reimplementation

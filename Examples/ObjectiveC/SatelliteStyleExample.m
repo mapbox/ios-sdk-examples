@@ -1,11 +1,3 @@
-//
-//  SatelliteStyleExample.m
-//  Examples
-//
-//  Created by Jason Wray on 1/29/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "SatelliteStyleExample.h"
 @import Mapbox;
 

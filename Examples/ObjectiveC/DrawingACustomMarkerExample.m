@@ -1,11 +1,3 @@
-//
-//  DrawingACustomMarkerExample.m
-//  Examples
-//
-//  Created by Jason Wray on 2/29/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "DrawingACustomMarkerExample.h"
 @import Mapbox;
 
@@ -13,6 +5,7 @@ NSString *const MBXExampleDrawingACustomMarker = @"DrawingACustomMarkerExample";
 
 @interface DrawingACustomMarkerExample () <MGLMapViewDelegate>
 @end
+
 @implementation DrawingACustomMarkerExample
 
 - (void)viewDidLoad

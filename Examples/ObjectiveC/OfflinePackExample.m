@@ -1,11 +1,3 @@
-//
-//  OfflinePackExample.m
-//  Examples
-//
-//  Created by Jason Wray on 3/31/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "OfflinePackExample.h"
 @import Mapbox;
 
@@ -17,6 +9,7 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
 @property (nonatomic) UIProgressView *progressView;
 
 @end
+
 @implementation OfflinePackExample
 
 - (void)viewDidLoad {

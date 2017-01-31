@@ -1,17 +1,9 @@
-//
-//  CameraFlyToViewController.m
-//  Examples
-//
-//  Created by Jordan Kiley on 12/13/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
 @import Mapbox;
 #import "CameraFlyToExample.h"
 
 NSString const *MBXExampleCameraFlyTo = @"CameraFlyToExample";
 
 @interface CameraFlyToExample ()
-
 @end
 
 @implementation CameraFlyToExample

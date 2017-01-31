@@ -1,11 +1,3 @@
-//
-//  RuntimeAddLineExample.m
-//  Examples
-//
-//  Created by Eric Wolfe on 11/30/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "RuntimeAddLineExample.h"
 @import Mapbox;
 

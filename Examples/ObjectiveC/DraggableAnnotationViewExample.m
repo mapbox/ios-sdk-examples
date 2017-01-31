@@ -1,16 +1,7 @@
-//
-//  DraggableAnnotationViewExample.m
-//  Examples
-//
-//  Created by Jason Wray on 7/11/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "DraggableAnnotationViewExample.h"
 @import Mapbox;
 
 NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExample";
-
 
 // MGLAnnotationView subclass
 @interface DraggableAnnotationView : MGLAnnotationView
@@ -83,6 +74,8 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
 }
 
 @end
+
+
 //
 // Example view controller
 @interface DraggableAnnotationViewExample () <MGLMapViewDelegate>

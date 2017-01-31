@@ -1,11 +1,3 @@
-//
-//  DefaultStylesExample.m
-//  Examples
-//
-//  Created by Jason Wray on 1/28/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "DefaultStylesExample.h"
 @import Mapbox;
 

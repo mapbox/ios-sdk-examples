@@ -1,17 +1,7 @@
-//
-//  AnnotationViewExample.m
-//  Examples
-//
-//  Created by Jason Wray on 6/23/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "AnnotationViewExample.h"
-
 @import Mapbox;
 
 NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
-
 
 // MGLAnnotationView subclass
 @interface CustomAnnotationView : MGLAnnotationView
@@ -42,6 +32,8 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
 }
 
 @end
+
+
 //
 // Example view controller
 @interface AnnotationViewExample () <MGLMapViewDelegate>

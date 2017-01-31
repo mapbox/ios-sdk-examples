@@ -1,11 +1,3 @@
-//
-//  CameraAnimationExample.m
-//  Examples
-//
-//  Created by Jason Wray on 1/29/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "CameraAnimationExample.h"
 @import Mapbox;
 
@@ -13,6 +5,7 @@ NSString *const MBXExampleCameraAnimation = @"CameraAnimationExample";
 
 @interface CameraAnimationExample () <MGLMapViewDelegate>
 @end
+
 @implementation CameraAnimationExample
 
 - (void)viewDidLoad {

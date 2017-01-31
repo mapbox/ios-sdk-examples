@@ -1,11 +1,3 @@
-//
-//  SourceCustomVectorExample.m
-//  Examples
-//
-//  Created by Eric Wolfe on 12/2/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "SourceCustomVectorExample.h"
 @import Mapbox;
 
