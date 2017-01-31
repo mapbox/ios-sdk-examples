@@ -1,11 +1,3 @@
-//
-//  AnnotationViewExample.swift
-//  Examples
-//
-//  Created by Jason Wray on 6/23/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-#if swift(>=3.0)
 import Mapbox
 
 @objc(AnnotationViewExample_Swift)
@@ -102,4 +94,3 @@ class CustomAnnotationView: MGLAnnotationView {
         layer.add(animation, forKey: "borderWidth")
     }
 }
-#endif

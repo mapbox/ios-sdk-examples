@@ -1,12 +1,3 @@
-//
-//  RuntimeAnimateLineExample.swift
-//  Examples
-//
-//  Created by Eric Wolfe on 11/30/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
-#if swift(>=3.0)
 import Mapbox
 
 @objc(RuntimeAnimateLineExample_Swift)
@@ -175,4 +166,3 @@ class RuntimeAnimateLineExample_Swift: UIViewController, MGLMapViewDelegate {
         ].map({CLLocationCoordinate2D(latitude: $0.1, longitude: $0.0)})
     }
 }
-#endif

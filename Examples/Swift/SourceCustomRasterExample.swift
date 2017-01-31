@@ -1,12 +1,3 @@
-//
-//  SourceCustomRasterExample.swift
-//  Examples
-//
-//  Created by Eric Wolfe on 12/2/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
-#if swift(>=3.0)
 import Mapbox
 
 @objc(SourceCustomRasterExample_Swift)
@@ -61,4 +52,3 @@ class SourceCustomRasterExample_Swift: UIViewController, MGLMapViewDelegate {
         view.addSubview(slider)
     }
 }
-#endif

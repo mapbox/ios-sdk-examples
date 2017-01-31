@@ -1,11 +1,3 @@
-//
-//  PointConversionExample.swift
-//  Examples
-//
-//  Created by Jason Wray on 1/29/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-#if swift(>=3.0)
 import Mapbox
 
 @objc(PointConversionExample_Swift)
@@ -57,4 +49,3 @@ class PointConversionExample: UIViewController, MGLMapViewDelegate {
         mapView.addAnnotation(polyline)
     }
 }
-#endif

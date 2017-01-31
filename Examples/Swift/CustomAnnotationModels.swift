@@ -1,12 +1,3 @@
-//
-//  CustomAnnotationModels.swift
-//  Examples
-//
-//  Created by Jason Wray on 5/20/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-// Same in Swift 2.3 and 3.0
-
 import Mapbox
 
 // MGLAnnotation protocol reimplementation

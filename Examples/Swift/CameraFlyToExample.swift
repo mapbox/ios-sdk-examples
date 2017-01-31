@@ -1,7 +1,7 @@
 import Mapbox
-import UIKit
 
 @objc(CameraFlyToExample_Swift)
+
 class ViewController: UIViewController, MGLMapViewDelegate {
     
     var mapView : MGLMapView!

@@ -1,12 +1,3 @@
-//
-//  RuntimeMultipleAnnotationsExample.swift
-//  Examples
-//
-//  Created by Eric Wolfe on 12/2/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
-#if swift(>=3.0)
 import Mapbox
 
 @objc(RuntimeMultipleAnnotationsExample_Swift)
@@ -213,4 +204,3 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
         return features
     }
 }
-#endif

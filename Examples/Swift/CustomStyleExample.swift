@@ -1,11 +1,3 @@
-//
-//  CustomStyleExample.swift
-//  Examples
-//
-//  Created by Jason Wray on 1/28/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-#if swift(>=3.0)
 import Mapbox
 
 @objc(CustomStyleExample_Swift)
@@ -28,4 +20,3 @@ class CustomStyleExample_Swift: UIViewController {
         view.addSubview(mapView)
     }
 }
-#endif

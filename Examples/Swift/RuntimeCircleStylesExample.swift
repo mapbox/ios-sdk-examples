@@ -1,12 +1,3 @@
-//
-//  RuntimeCircleStylesExample.swift
-//  Examples
-//
-//  Created by Eric Wolfe on 11/30/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
-#if swift(>=3.0)
 import Mapbox
 
 @objc(RuntimeCircleStylesExample_Swift)
@@ -74,4 +65,3 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
         }
     }
 }
-#endif

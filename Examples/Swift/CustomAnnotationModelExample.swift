@@ -1,11 +1,3 @@
-//
-//  CustomAnnotationModelExample.swift
-//  Examples
-//
-//  Created by Jason Wray on 5/20/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-#if swift(>=3.0)
 import Mapbox
 
 @objc(CustomAnnotationModelExample_Swift)
@@ -120,4 +112,3 @@ class CustomAnnotationModelExample_Swift: UIViewController, MGLMapViewDelegate {
         return true
     }
 }
-#endif

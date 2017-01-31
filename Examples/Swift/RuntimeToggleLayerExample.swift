@@ -1,12 +1,3 @@
-//
-//  RuntimeToggleLayer.swift
-//  Examples
-//
-//  Created by Eric Wolfe on 11/30/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
-#if swift(>=3.0)
 import Mapbox
 
 @objc(RuntimeToggleLayerExample_Swift)
@@ -89,4 +80,3 @@ class RuntimeToggleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         self.view.addSubview(button)
     }
 }
-#endif

@@ -1,11 +1,3 @@
-//
-//  CustomCalloutViewExample.swift
-//  Examples
-//
-//  Created by Jason Wray on 3/11/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-#if swift(>=3.0)
 import Mapbox
 
 @objc(CustomCalloutViewExample_Swift)
@@ -57,4 +49,3 @@ class CustomCalloutViewExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.deselectAnnotation(annotation, animated: true)
     }
 }
-#endif
