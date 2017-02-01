@@ -1,12 +1,12 @@
 import Mapbox
 
-@objc(AnnotationViewMultipleExample_Swift)
-
 // MGLPointAnnotation subclass
 class MyCustomPointAnnotation: MGLPointAnnotation {
     var willUseImage: Bool = false
 }
 // end MGLPointAnnotation subclass
+
+@objc(AnnotationViewMultipleExample_Swift)
 
 class AnnotationViewMultipleExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
