@@ -1,11 +1,3 @@
-//
-//  AnnotationViewMultipleExample.m
-//  Examples
-//
-//  Created by Nadia Barbosa on 12/13/16.
-//  Copyright © 2016 Mapbox. All rights reserved.
-//
-
 #import "AnnotationViewMultipleExample.h"
 @import Mapbox;
 
@@ -68,7 +60,7 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
 
 // This delegate method is where you tell the map to load a view for a specific annotation based on the willUseImage property of the custom subclass.
 - (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id <MGLAnnotation>)annotation {
-    if ([annotation isKindOfClass:[MyCustomPointAnnotation class]]){
+    if ([annotation isKindOfClass:[MyCustomPointAnnotation class]]) {
         MyCustomPointAnnotation *castAnnotation = (MyCustomPointAnnotation *)annotation;
         
         if (castAnnotation.willUseImage) {
@@ -98,7 +90,7 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
 // This delegate method is where you tell the map to load an image for a specific annotation based on the willUseImage property of the custom subclass.
 - (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation {
 
-    if ([annotation isKindOfClass:[MyCustomPointAnnotation class]]){
+    if ([annotation isKindOfClass:[MyCustomPointAnnotation class]]) {
         MyCustomPointAnnotation *castAnnotation = (MyCustomPointAnnotation *)annotation;
         
         if (!castAnnotation.willUseImage) {
@@ -110,8 +102,7 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"camera"];
     
     // If there is no reusable annotation image available, initialize a new one.
-    if (!annotationImage)
-    {
+    if (!annotationImage) {
         UIImage *image = [UIImage imageNamed:@"camera"];
         image = [image imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, image.size.height/2, 0)];
         annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"camera"];
