@@ -2,7 +2,7 @@ import Mapbox
 
 @objc(OfflinePackExample_Swift)
 
-class OfflinePackExample: UIViewController, MGLMapViewDelegate {
+class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
     
     var mapView: MGLMapView!
     var progressView: UIProgressView!
