@@ -382,7 +382,7 @@
 				3EBCD7151DC28240001E342F /* UserTrackingModesExample.swift */,
 			);
 			name = Swift;
-			path = "../Swift 3";
+			path = ../Swift;
 			sourceTree = "<group>";
 		};
 		961962831C581700002D3DAB = {
