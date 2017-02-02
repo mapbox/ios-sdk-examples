@@ -11,6 +11,8 @@ Eventually this will be used to dynamically generate the example code found on t
 
 ## Use
 1. Run `install.sh` to download `Mapbox.framework`.
+1. `cp Examples/APIKeys.EXAMPLE.plist Examples/APIKeys.plist`
+1. Add your Mapbox access token to APIKeys.plist.
 1. Open `Examples.xcodeproj`.
 1. Follow the instructions in `Example.h` to add new examples.
 1. ⚗🔬

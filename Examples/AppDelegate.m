@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+@import Mapbox;
 
 @interface AppDelegate ()
 
@@ -18,6 +19,12 @@
     if ([[NSProcessInfo processInfo].arguments containsObject:@"useFastAnimations"]) {
         self.window.layer.speed = 100;
     }
+
+    // Read APIKeys.plist; see APIKeys.EXAMPLE.plist for the format.
+    NSDictionary *apiKeys = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"APIKeys" ofType:@"plist"]];
+    NSString *mapboxAccessToken = [apiKeys objectForKey:@"MGLMapboxAccessToken"];
+    NSAssert(mapboxAccessToken, @"REQUIRED: Mapbox access token must be set in APIKeys.plist");
+    [MGLAccountManager setAccessToken:mapboxAccessToken];
 
     return YES;
 }

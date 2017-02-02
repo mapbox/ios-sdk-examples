@@ -4,3 +4,6 @@ Examples.xcodeproj/project.xcworkspace/
 .DS_Store
 xcuserdata/
 DerivedData/
+
+# Ignore the api key plist, to keep your Mapbox token out of public repos
+APIKeys.plist
