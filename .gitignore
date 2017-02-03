@@ -5,5 +5,5 @@ Examples.xcodeproj/project.xcworkspace/
 xcuserdata/
 DerivedData/
 
-# Ignore the api key plist, to keep your Mapbox token out of public repos
-APIKeys.plist
+# Ignore the file containing your Mapbox access token, to keep it out of public repos.
+mapbox_access_token
