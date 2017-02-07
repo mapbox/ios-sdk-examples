@@ -17,6 +17,7 @@ NSString *const MBXExampleRuntimeCircleStyles = @"RuntimeCircleStylesExample";
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     [self.mapView setStyleURL:[MGLStyle lightStyleURLWithVersion:9]];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.mapView.tintColor = [UIColor darkGrayColor];
 
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(37.753574, -122.447303)
 			    zoomLevel:10

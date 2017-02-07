@@ -12,6 +12,7 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView = MGLMapView(frame: view.bounds)
         mapView.styleURL = MGLStyle.lightStyleURL(withVersion: 9)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.tintColor = .darkGray
 
         mapView.setCenter(
             CLLocationCoordinate2D(latitude: 37.753574, longitude: -122.447303),
