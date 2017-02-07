@@ -141,7 +141,8 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
     }
 
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-        return MGLAnnotationView()
+        // Create an empty view annotation. Set a frame to offset the callout.
+        return MGLAnnotationView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
     }
 
     // MARK: - Data fetching and parsing

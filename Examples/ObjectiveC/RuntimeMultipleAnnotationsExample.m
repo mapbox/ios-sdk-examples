@@ -141,7 +141,8 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
 }
 
 - (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id <MGLAnnotation>)annotation {
-    return [[MGLAnnotationView alloc] init];
+    // Create an empty view annotation. Set a frame to offset the callout.
+    return [[MGLAnnotationView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
 }
 
 #pragma mark - Data fetching and parsing
