@@ -33,7 +33,7 @@ class CustomCalloutViewExample_Swift: UIViewController, MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, calloutViewFor annotation: MGLAnnotation) -> UIView? {
         // Only show callouts for `Hello world!` annotation
-        if annotation.responds(to: Selector("title")) && annotation.title! == "Hello world!" {
+        if annotation.responds(to: #selector(getter: MGLAnnotation.title)) && annotation.title! == "Hello world!" {
             // Instantiate and return our custom callout view
             return CustomCalloutView(representedObject: annotation)
         }

@@ -37,7 +37,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
     
     // MARK: - MGLCalloutView API
     func presentCallout(from rect: CGRect, in view: UIView, constrainedTo constrainedView: UIView, animated: Bool) {
-        if !representedObject.responds(to: Selector("title")) {
+        if !representedObject.responds(to: #selector(getter: MGLAnnotation.title)) {
             return
         }
         
