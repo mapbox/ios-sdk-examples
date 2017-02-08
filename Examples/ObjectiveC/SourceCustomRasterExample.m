@@ -13,20 +13,18 @@ NSString *const MBXExampleSourceCustomRaster = @"SourceCustomRasterExample";
     [super viewDidLoad];
 
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
-
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    // Set the map’s center coordinate and zoom level.
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(45.5188, -122.6748)
 		       zoomLevel:13
 			animated:NO];
+
+    mapView.delegate = self;
 
     [self.view addSubview:mapView];
 
     // Add a UISlider that will control the raster layer’s opacity.
     [self addSlider];
-
-    mapView.delegate = self;
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
@@ -36,8 +34,8 @@ NSString *const MBXExampleSourceCustomRaster = @"SourceCustomRasterExample";
         options:@{ MGLTileSourceOptionTileSize: @256}];
     MGLRasterStyleLayer *rasterLayer = [[MGLRasterStyleLayer alloc] initWithIdentifier:@"stamen-watercolor" source:source];
 
-    [[mapView style] addSource:source];
-    [[mapView style] addLayer:rasterLayer];
+    [mapView.style addSource:source];
+    [mapView.style addLayer:rasterLayer];
 
     self.rasterLayer = rasterLayer;
 }

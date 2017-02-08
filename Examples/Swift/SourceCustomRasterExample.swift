@@ -9,19 +9,17 @@ class SourceCustomRasterExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mapView = MGLMapView(frame: view.bounds, styleURL: nil)
-
+        mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
-        // Set the map’s center coordinate and zoom level.
         mapView.setCenter(CLLocationCoordinate2D(latitude: 45.5188, longitude: -122.6748), zoomLevel: 13, animated: false)
+
+        mapView.delegate = self
 
         view.addSubview(mapView)
 
         // Add a UISlider that will control the raster layer’s opacity.
         addSlider()
-
-        mapView.delegate = self
     }
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
