@@ -5,9 +5,7 @@ static CGFloat const tipHeight = 10.0;
 static CGFloat const tipWidth = 20.0;
 
 @interface CustomCalloutView ()
-
 @property (strong, nonatomic) UIButton *mainBody;
-
 @end
 
 @implementation CustomCalloutView {

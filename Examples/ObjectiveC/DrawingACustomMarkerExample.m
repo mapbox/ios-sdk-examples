@@ -8,8 +8,7 @@ NSString *const MBXExampleDrawingACustomMarker = @"DrawingACustomMarkerExample";
 
 @implementation DrawingACustomMarkerExample
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     NSURL *styleURL = [MGLStyle lightStyleURLWithVersion:9];
@@ -35,14 +34,12 @@ NSString *const MBXExampleDrawingACustomMarker = @"DrawingACustomMarkerExample";
     [mapView addAnnotation:pisa];
 }
 
-- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation
-{
+- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation {
     // Try to reuse the existing ‘pisa’ annotation image, if it exists.
     MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"pisa"];
 
     // If the ‘pisa’ annotation image hasn‘t been set yet, initialize it here.
-    if (!annotationImage)
-    {
+    if (!annotationImage) {
         // Leaning Tower of Pisa by Stefan Spieler from the Noun Project.
         UIImage *image = [UIImage imageNamed:@"pisavector"];
 

@@ -4,9 +4,7 @@
 NSString *const MBXExamplePointConversion = @"PointConversionExample";
 
 @interface PointConversionExample ()
-
 @property (nonatomic) MGLMapView *mapView;
-
 @end
 
 @implementation PointConversionExample
@@ -19,18 +17,18 @@ NSString *const MBXExamplePointConversion = @"PointConversionExample";
 
     [self.view addSubview:self.mapView];
 
-    // double tapping zooms the map, so ensure that can still happen
+    // Double tapping zooms the map, so ensure that can still happen.
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:nil];
     doubleTap.numberOfTapsRequired = 2;
     [self.mapView addGestureRecognizer:doubleTap];
 
-    // delay single tap recognition until it is clearly not a double
+    // Delay single tap recognition until it is clearly not a double.
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [singleTap requireGestureRecognizerToFail:doubleTap];
     [self.mapView addGestureRecognizer:singleTap];
 
-    // convert `mapView.centerCoordinate` (CLLocationCoordinate2D)
-    // to screen location (CGPoint)
+    // Convert `mapView.centerCoordinate` (CLLocationCoordinate2D)
+    // to screen location (CGPoint).
     CGPoint centerScreenPoint = [self.mapView convertCoordinate:self.mapView.centerCoordinate
                                                   toPointToView:self.mapView];
 
@@ -39,23 +37,22 @@ NSString *const MBXExamplePointConversion = @"PointConversionExample";
           NSStringFromCGPoint(self.mapView.center));
 }
 
-- (void)handleSingleTap:(UITapGestureRecognizer *)tap
-{
-    // convert tap location (CGPoint)
-    // to geographic coordinates (CLLocationCoordinate2D)
+- (void)handleSingleTap:(UITapGestureRecognizer *)tap {
+    // Convert tap location (CGPoint)
+    // to geographic coordinates (CLLocationCoordinate2D).
     CLLocationCoordinate2D location = [self.mapView convertPoint:[tap locationInView:self.mapView]
                                             toCoordinateFromView:self.mapView];
 
     NSLog(@"You tapped at: %.5f, %.5f", location.latitude, location.longitude);
 
-    // create an array of coordinates for our polyline
+    // Create an array of coordinates for our polyline.
     CLLocationCoordinate2D coordinates[] = {
         self.mapView.centerCoordinate,
         location
     };
     NSUInteger numberOfCoordinates = sizeof(coordinates) / sizeof(CLLocationCoordinate2D);
 
-    // remove existing polyline from the map, (re)add polyline with coordinates
+    // Remove existing polyline from the map, (re)add polyline with coordinates.
     if (self.mapView.annotations.count) {
         [self.mapView removeAnnotations:self.mapView.annotations];
     }

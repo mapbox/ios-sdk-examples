@@ -4,9 +4,7 @@
 NSString *const MBXExampleRuntimeAddLine = @"RuntimeAddLineExample";
 
 @interface RuntimeAddLineExample () <MGLMapViewDelegate>
-
 @property (nonatomic) MGLMapView *mapView;
-
 @end
 
 @implementation RuntimeAddLineExample
@@ -28,10 +26,10 @@ NSString *const MBXExampleRuntimeAddLine = @"RuntimeAddLineExample";
 
 // Wait until the map is loaded before adding to the map.
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
-    [self loadGeoJson];
+    [self loadGeoJSON];
 }
 
-- (void)loadGeoJson {
+- (void)loadGeoJSON {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *path = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"geojson"];
         NSData *jsonData = [NSData dataWithContentsOfFile:path];

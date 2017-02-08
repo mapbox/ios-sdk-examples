@@ -3,7 +3,6 @@ import Mapbox
 @objc(SatelliteStyleExample_Swift)
 
 class SatelliteStyleExample_Swift: UIViewController {
-    
     var mapView: MGLMapView!
     
     override func viewDidLoad() {

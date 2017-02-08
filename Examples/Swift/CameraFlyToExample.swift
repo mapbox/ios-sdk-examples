@@ -3,8 +3,8 @@ import Mapbox
 @objc(CameraFlyToExample_Swift)
 
 class CameraFlyToExample_Swift: UIViewController, MGLMapViewDelegate {
-    
     var mapView: MGLMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

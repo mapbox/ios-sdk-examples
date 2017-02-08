@@ -38,6 +38,7 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
 // Example view controller
 @interface AnnotationViewExample () <MGLMapViewDelegate>
 @end
+
 @implementation AnnotationViewExample
 
 - (void)viewDidLoad {

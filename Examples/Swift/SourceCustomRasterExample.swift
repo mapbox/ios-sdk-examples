@@ -3,9 +3,7 @@ import Mapbox
 @objc(SourceCustomRasterExample_Swift)
 
 class SourceCustomRasterExample_Swift: UIViewController, MGLMapViewDelegate {
-
     var mapView: MGLMapView!
-
     var rasterLayer: MGLRasterStyleLayer?
 
     override func viewDidLoad() {

@@ -4,10 +4,8 @@
 NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
 
 @interface OfflinePackExample () <MGLMapViewDelegate>
-
 @property (nonatomic) MGLMapView *mapView;
 @property (nonatomic) UIProgressView *progressView;
-
 @end
 
 @implementation OfflinePackExample

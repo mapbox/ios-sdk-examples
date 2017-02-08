@@ -4,9 +4,7 @@
 NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotationsExample";
 
 @interface RuntimeMultipleAnnotationsExample ()<MGLMapViewDelegate>
-
 @property (nonatomic) MGLMapView *mapView;
-
 @end
 
 @implementation RuntimeMultipleAnnotationsExample

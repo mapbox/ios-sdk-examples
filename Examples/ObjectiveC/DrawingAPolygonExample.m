@@ -4,9 +4,7 @@
 NSString *const MBXExampleDrawingAPolygon = @"DrawingAPolygonExample";
 
 @interface DrawingAPolygonExample () <MGLMapViewDelegate>
-
 @property (nonatomic) MGLMapView *mapView;
-
 @end
 
 @implementation DrawingAPolygonExample
@@ -28,16 +26,14 @@ NSString *const MBXExampleDrawingAPolygon = @"DrawingAPolygonExample";
     self.mapView.delegate = self;
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
     // Draw the polygon after the map has initialized
     [self drawShape];
 }
 
-- (void)drawShape
-{
+- (void)drawShape {
     // Create a coordinates array to hold all of the coordinates for our shape.
     CLLocationCoordinate2D coordinates[] = {
         CLLocationCoordinate2DMake(45.522585, -122.685699),
@@ -63,20 +59,17 @@ NSString *const MBXExampleDrawingAPolygon = @"DrawingAPolygonExample";
     [self.mapView addAnnotation:shape];
 }
 
-- (CGFloat)mapView:(MGLMapView *)mapView alphaForShapeAnnotation:(MGLShape *)annotation
-{
+- (CGFloat)mapView:(MGLMapView *)mapView alphaForShapeAnnotation:(MGLShape *)annotation {
     // Set the alpha for shape annotations to 0.5 (half opacity)
     return 0.5f;
 }
 
-- (UIColor *)mapView:(MGLMapView *)mapView strokeColorForShapeAnnotation:(MGLShape *)annotation
-{
+- (UIColor *)mapView:(MGLMapView *)mapView strokeColorForShapeAnnotation:(MGLShape *)annotation {
     // Set the stroke color for shape annotations
     return [UIColor whiteColor];
 }
 
-- (UIColor *)mapView:(MGLMapView *)mapView fillColorForPolygonAnnotation:(MGLPolygon *)annotation
-{
+- (UIColor *)mapView:(MGLMapView *)mapView fillColorForPolygonAnnotation:(MGLPolygon *)annotation {
     // Mapbox cyan fill color
     return [UIColor colorWithRed:59.0f/255.0f green:178.0f/255.0f blue:208.0f/255.0f alpha:1.0f];
 }

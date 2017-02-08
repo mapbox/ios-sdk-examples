@@ -4,7 +4,6 @@ import Mapbox
 
 // Example view controller
 class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     

@@ -3,7 +3,6 @@ import Mapbox
 @objc(DrawingAPolygonExample_Swift)
 
 class DrawingAPolygonExample_Swift: UIViewController, MGLMapViewDelegate {
-    
     var mapView: MGLMapView!
     
     override func viewDidLoad() {

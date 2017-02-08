@@ -4,10 +4,8 @@
 NSString *const MBXExampleSelectFeature = @"SelectFeatureExample";
 
 @interface SelectFeatureExample () <MGLMapViewDelegate>
-
 @property (nonatomic) MGLMapView *mapView;
 @property (nonatomic) MGLShapeSource *selectedFeaturesSource;
-
 @end
 
 @implementation SelectFeatureExample

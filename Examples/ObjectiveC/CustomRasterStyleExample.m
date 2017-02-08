@@ -5,8 +5,7 @@ NSString *const MBXExampleCustomRasterStyle = @"CustomRasterStyleExample";
 
 @implementation CustomRasterStyleExample
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     NSURL *styleURL = [NSURL URLWithString:@"https://www.mapbox.com/ios-sdk/files/mapbox-raster-v8.json"];

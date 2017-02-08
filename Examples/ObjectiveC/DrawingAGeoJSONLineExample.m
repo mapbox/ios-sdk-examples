@@ -4,9 +4,7 @@
 NSString *const MBXExampleDrawingAGeoJSONLine = @"DrawingAGeoJSONLineExample";
 
 @interface DrawingAGeoJSONLineExample () <MGLMapViewDelegate>
-
 @property (nonatomic) MGLMapView *mapView;
-
 @end
 
 @implementation DrawingAGeoJSONLineExample
@@ -30,8 +28,7 @@ NSString *const MBXExampleDrawingAGeoJSONLine = @"DrawingAGeoJSONLineExample";
     [self drawPolyline];
 }
 
-- (void)drawPolyline
-{
+- (void)drawPolyline {
     // Perform GeoJSON parsing on a background thread
     dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(backgroundQueue, ^(void)
@@ -93,29 +90,23 @@ NSString *const MBXExampleDrawingAGeoJSONLine = @"DrawingAGeoJSONLineExample";
     });
 }
 
-- (CGFloat)mapView:(MGLMapView *)mapView alphaForShapeAnnotation:(MGLShape *)annotation
-{
+- (CGFloat)mapView:(MGLMapView *)mapView alphaForShapeAnnotation:(MGLShape *)annotation {
     // Set the alpha for all shape annotations to 1 (full opacity)
     return 1.0f;
 }
 
-- (CGFloat)mapView:(MGLMapView *)mapView lineWidthForPolylineAnnotation:(MGLPolyline *)annotation
-{
+- (CGFloat)mapView:(MGLMapView *)mapView lineWidthForPolylineAnnotation:(MGLPolyline *)annotation {
     // Set the line width for polyline annotations
     return 2.0f;
 }
 
-- (UIColor *)mapView:(MGLMapView *)mapView strokeColorForShapeAnnotation:(MGLShape *)annotation
-{
+- (UIColor *)mapView:(MGLMapView *)mapView strokeColorForShapeAnnotation:(MGLShape *)annotation {
     // Set the stroke color for shape annotations
     // ... but give our polyline a unique color by checking for its `title` property
-    if ([annotation.title isEqualToString:@"Crema to Council Crest"])
-    {
+    if ([annotation.title isEqualToString:@"Crema to Council Crest"]) {
         // Mapbox cyan
         return [UIColor colorWithRed:59.0f/255.0f green:178.0f/255.0f blue:208.0f/255.0f alpha:1.0f];
-    }
-    else
-    {
+    } else {
         return [UIColor redColor];
     }
 }

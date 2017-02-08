@@ -4,10 +4,8 @@
 NSString *const MBXExampleRuntimeToggleLayer = @"RuntimeToggleLayerExample";
 
 @interface RuntimeToggleLayerExample () <MGLMapViewDelegate>
-
 @property (nonatomic) MGLMapView *mapView;
 @property (nonatomic) MGLStyleLayer *contoursLayer;
-
 @end
 
 @implementation RuntimeToggleLayerExample

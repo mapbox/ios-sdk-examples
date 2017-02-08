@@ -3,7 +3,6 @@ import Mapbox
 // MGLAnnotation protocol reimplementation
 
 class CustomPointAnnotation: NSObject, MGLAnnotation {
-    
     // As a reimplementation of the MGLAnnotation protocol, we have to add mutable coordinate and (sub)title properties ourselves.
     var coordinate: CLLocationCoordinate2D
     var title: String?

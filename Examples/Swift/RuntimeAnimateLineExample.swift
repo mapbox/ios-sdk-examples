@@ -3,15 +3,10 @@ import Mapbox
 @objc(RuntimeAnimateLineExample_Swift)
 
 class RuntimeAnimateLineExample_Swift: UIViewController, MGLMapViewDelegate {
-
     var mapView: MGLMapView!
-
     var timer: Timer?
-
     var polylineSource: MGLShapeSource?
-
     var currentIndex = 1
-
     var allCoordinates: [CLLocationCoordinate2D]!
 
     override func viewDidLoad() {

@@ -3,7 +3,6 @@ import Mapbox
 @objc(UserTrackingModesExample_Swift)
 
 class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
-    
     var mapView: MGLMapView!
     @IBOutlet var button: UserLocationButton!
     

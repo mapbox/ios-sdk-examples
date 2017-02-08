@@ -4,9 +4,7 @@
 NSString *const MBXExampleCalloutDelegateUsage = @"CalloutDelegateUsageExample";
 
 @interface CalloutDelegateUsageExample () <MGLMapViewDelegate>
-
 @property MGLMapView *mapView;
-
 @end
 
 @implementation CalloutDelegateUsageExample

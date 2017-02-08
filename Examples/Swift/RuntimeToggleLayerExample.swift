@@ -3,9 +3,7 @@ import Mapbox
 @objc(RuntimeToggleLayerExample_Swift)
 
 class RuntimeToggleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
-    
     var mapView: MGLMapView!
-    
     var contoursLayer: MGLStyleLayer?
     
     override func viewDidLoad() {

@@ -3,7 +3,6 @@ import Mapbox
 @objc(PointConversionExample_Swift)
 
 class PointConversionExample_Swift: UIViewController, MGLMapViewDelegate {
-    
     var mapView: MGLMapView!
     
     override func viewDidLoad() {

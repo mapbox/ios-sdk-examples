@@ -4,9 +4,7 @@
 NSString *const MBXExampleSourceCustomRaster = @"SourceCustomRasterExample";
 
 @interface SourceCustomRasterExample () <MGLMapViewDelegate>
-
 @property (nonatomic) MGLRasterStyleLayer *rasterLayer;
-
 @end
 
 @implementation SourceCustomRasterExample

@@ -3,7 +3,6 @@ import Mapbox
 @objc(RuntimeAddLineExample_Swift)
 
 class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
-
     var mapView: MGLMapView!
 
     override func viewDidLoad() {

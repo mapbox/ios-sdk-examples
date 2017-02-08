@@ -3,7 +3,6 @@ import Mapbox
 @objc(CalloutDelegateUsageExample_Swift)
 
 class CalloutDelegateUsageExample_Swift: UIViewController, MGLMapViewDelegate {
-    
     var mapView: MGLMapView!
     
     override func viewDidLoad() {

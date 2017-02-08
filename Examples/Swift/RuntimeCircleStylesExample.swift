@@ -3,7 +3,6 @@ import Mapbox
 @objc(RuntimeCircleStylesExample_Swift)
 
 class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
-
     var mapView: MGLMapView!
 
     override func viewDidLoad() {

@@ -3,7 +3,6 @@ import Mapbox
 @objc(DrawingAGeoJSONLineExample_Swift)
 
 class DrawingAGeoJSONLineExample_Swift: UIViewController, MGLMapViewDelegate {
-    
     var mapView: MGLMapView!
     
     override func viewDidLoad() {
