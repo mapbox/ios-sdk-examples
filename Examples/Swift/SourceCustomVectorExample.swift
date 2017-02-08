@@ -16,6 +16,7 @@ class SourceCustomVectorExample_Swift: UIViewController {
         mapView = MGLMapView(frame: view.bounds, styleURL: customStyleURL)
 
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.tintColor = .white
         
         view.addSubview(mapView)
     }

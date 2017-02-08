@@ -16,6 +16,7 @@ NSString *const MBXExampleSourceCustomVector = @"SourceCustomVectorExample";
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:customStyleURL];
 
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    mapView.tintColor = [UIColor whiteColor];
 
     [self.view addSubview:mapView];
 }
