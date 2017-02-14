@@ -15,6 +15,8 @@
 		07F53B851E00D02100B58DB3 /* AnnotationViewMultipleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F53B841E00D02100B58DB3 /* AnnotationViewMultipleExample.m */; };
 		3E3BFAD91E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFAD81E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift */; };
 		3E3BFADC1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFADB1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m */; };
+		1F1F84751E538ABB00332CC3 /* BlockingGesturesDelegateExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */; };
+		1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */; };
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
 		3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */; };
 		3EBCD7181DC28240001E342F /* CameraAnimationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */; };
@@ -142,6 +144,9 @@
 		3E3BFAD81E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDSLayerSelectionExample.swift; sourceTree = "<group>"; };
 		3E3BFADA1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSLayerSelectionExample.h; sourceTree = "<group>"; };
 		3E3BFADB1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSLayerSelectionExample.m; sourceTree = "<group>"; };
+		1F1F84731E538ABB00332CC3 /* BlockingGesturesDelegateExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockingGesturesDelegateExample.h; sourceTree = "<group>"; };
+		1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockingGesturesDelegateExample.m; sourceTree = "<group>"; };
+		1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockingGesturesDelegateExample.swift; sourceTree = "<group>"; };
 		3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutDelegateUsageExample.swift; sourceTree = "<group>"; };
 		3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraAnimationExample.swift; sourceTree = "<group>"; };
@@ -301,6 +306,7 @@
 			children = (
 				962B450E1D1C8520007B7454 /* AnnotationViewExample.m */,
 				07F53B841E00D02100B58DB3 /* AnnotationViewMultipleExample.m */,
+				1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */,
 				968247121C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m */,
 				968247261C5C1DC700494AB8 /* CameraAnimationExample.m */,
 				3ED403471E006BE800230C95 /* CameraFlyToExample.m */,
@@ -342,6 +348,7 @@
 			children = (
 				3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */,
 				964CB5101E42A0A3004549EA /* AnnotationViewMultipleExample.swift */,
+				1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */,
 				3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */,
 				3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */,
 				3ED403401E006B5200230C95 /* CameraFlyToExample.swift */,
@@ -470,6 +477,7 @@
 			children = (
 				07F53B861E00D08600B58DB3 /* AnnotationViewMultipleExample.h */,
 				962B450D1D1C8520007B7454 /* AnnotationViewExample.h */,
+				1F1F84731E538ABB00332CC3 /* BlockingGesturesDelegateExample.h */,
 				968247111C5C0F0F00494AB8 /* CalloutDelegateUsageExample.h */,
 				968247251C5C1DC700494AB8 /* CameraAnimationExample.h */,
 				3ED403461E006BE800230C95 /* CameraFlyToExample.h */,
@@ -848,9 +856,11 @@
 				07C138C71E72216E00D6F678 /* DDSCircleLayerExample.m in Sources */,
 				3EBCD7191DC28240001E342F /* CustomAnnotationModelExample.swift in Sources */,
 				962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */,
+				1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */,
 				3ED403411E006B5200230C95 /* CameraFlyToExample.swift in Sources */,
 				9691AAA91C5AAD8F006A58C6 /* SimpleMapViewExample.m in Sources */,
 				960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */,
+				1F1F84751E538ABB00332CC3 /* BlockingGesturesDelegateExample.m in Sources */,
 				646B62B41DEF9613000AA523 /* RuntimeCircleStylesExample.swift in Sources */,
 				07C138C41E721C8F00D6F678 /* DDSCircleLayerExample.swift in Sources */,
 				646B62BD1DEF965A000AA523 /* RuntimeCircleStylesExample.m in Sources */,
