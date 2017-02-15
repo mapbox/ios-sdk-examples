@@ -22,34 +22,37 @@ class BlockingGesturesDelegateExample_Swift: UIViewController, MGLMapViewDelegat
         // Colorado's bounds
         let ne = CLLocationCoordinate2D(latitude: 40.989329, longitude: -102.062592)
         let sw = CLLocationCoordinate2D(latitude: 36.986207, longitude: -109.049896)
-        colorado = MGLCoordinateBoundsMake(sw, ne)
+        colorado = MGLCoordinateBounds(sw: sw, ne: ne)
         
         view.addSubview(mapView)
 
     }
     
+    // This example uses Colorado's boundaries to restrict
+    // the camera movement
+    
     func mapView(_ mapView: MGLMapView, shouldChangeFrom oldCamera: MGLMapCamera, to newCamera: MGLMapCamera) -> Bool {
         
-        // Get current coordinates
-        let visibleCoordinateBounds: MGLCoordinateBounds = mapView.visibleCoordinateBounds
+        // Get the current camera to restore it after
+        let currentCamera = mapView.camera
+        
+        // From the new camera obtain the center to test
+        // if it's inside the boundaries
         let newCameraCenter: CLLocationCoordinate2D = newCamera.centerCoordinate
-        let oldCameraCenter: CLLocationCoordinate2D = oldCamera.centerCoordinate
         
-        // Get the offset from old camera center to current visible map bounds
-        let neLatitudeOffset: CLLocationDegrees = visibleCoordinateBounds.ne.latitude - oldCameraCenter.latitude
-        let neLongitudeOffset: CLLocationDegrees = visibleCoordinateBounds.ne.longitude - oldCameraCenter.longitude
-        let swLatitudeOffset: CLLocationDegrees = visibleCoordinateBounds.sw.latitude - oldCameraCenter.latitude
-        let swLongitudeOffset: CLLocationDegrees = visibleCoordinateBounds.sw.longitude - oldCameraCenter.longitude
+
+        // Set mapView to newCamera to project the
+        // new boundaries
+        mapView.camera = newCamera
+        let newVisibleCoordinates = mapView.visibleCoordinateBounds
         
-        // Update the boundaries with new camera center + boundary offset
-        let newNE: CLLocationCoordinate2D = CLLocationCoordinate2DMake(neLatitudeOffset + newCameraCenter.latitude, neLongitudeOffset + newCameraCenter.longitude)
-        
-        let newSW: CLLocationCoordinate2D = CLLocationCoordinate2DMake(swLatitudeOffset + newCameraCenter.latitude, swLongitudeOffset + newCameraCenter.longitude)
-        let newBounds: MGLCoordinateBounds = MGLCoordinateBoundsMake(newSW, newNE)
-        
-        // Test if the new camera center point and boundaries are inside colorado
+        // Revert the camera
+        mapView.camera = currentCamera
+
+        // Test if the newCameraCenter and newVisibleCoordinates
+        // are inside self.colorado
         let inside: Bool = MGLCoordinateInCoordinateBounds(newCameraCenter, self.colorado)
-        let intersects: Bool = MGLCoordinateInCoordinateBounds(newBounds.ne, self.colorado) && MGLCoordinateInCoordinateBounds(newBounds.sw, self.colorado)
+        let intersects: Bool = MGLCoordinateInCoordinateBounds(newVisibleCoordinates.ne, self.colorado) && MGLCoordinateInCoordinateBounds(newVisibleCoordinates.sw, self.colorado)
         
         return inside && intersects
 
