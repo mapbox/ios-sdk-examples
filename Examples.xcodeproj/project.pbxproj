@@ -122,6 +122,12 @@
 		96CABF761DC1390600C7BAEF /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 961962C41C5818EB002D3DAB /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96D431FC1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D431FB1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m */; };
 		96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D432051C84B9CF007D09D1 /* pisavector.xcassets */; };
+		DDF943291E5DE63300545D0F /* ClusteringExample.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF943281E5DE63300545D0F /* ClusteringExample.m */; };
+		DDF9432B1E5DEACC00545D0F /* ports.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DDF9432A1E5DEACC00545D0F /* ports.geojson */; };
+		DDF9432D1E5DED5E00545D0F /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF9432C1E5DED5E00545D0F /* ship.png */; };
+		DDF943311E5E3AFB00545D0F /* sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF9432E1E5E3AFB00545D0F /* sprite.png */; };
+		DDF943321E5E3AFB00545D0F /* sprite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF9432F1E5E3AFB00545D0F /* sprite@2x.png */; };
+		DDF943331E5E3AFB00545D0F /* sprite@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF943301E5E3AFB00545D0F /* sprite@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +290,13 @@
 		96D431FA1C84B4F7007D09D1 /* DrawingACustomMarkerExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawingACustomMarkerExample.h; path = Examples/ObjectiveC/DrawingACustomMarkerExample.h; sourceTree = SOURCE_ROOT; };
 		96D431FB1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawingACustomMarkerExample.m; path = Examples/ObjectiveC/DrawingACustomMarkerExample.m; sourceTree = SOURCE_ROOT; };
 		96D432051C84B9CF007D09D1 /* pisavector.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = pisavector.xcassets; sourceTree = "<group>"; };
+		DDF943271E5DE63300545D0F /* ClusteringExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusteringExample.h; sourceTree = "<group>"; };
+		DDF943281E5DE63300545D0F /* ClusteringExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusteringExample.m; sourceTree = "<group>"; };
+		DDF9432A1E5DEACC00545D0F /* ports.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ports.geojson; sourceTree = "<group>"; };
+		DDF9432C1E5DED5E00545D0F /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship.png; sourceTree = "<group>"; };
+		DDF9432E1E5E3AFB00545D0F /* sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite.png; sourceTree = "<group>"; };
+		DDF9432F1E5E3AFB00545D0F /* sprite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprite@2x.png"; sourceTree = "<group>"; };
+		DDF943301E5E3AFB00545D0F /* sprite@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprite@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +345,7 @@
 				9678E3F21CEF616700F21AE2 /* CustomAnnotationModels.h */,
 				96A2A1D11C8CA74B0059441E /* CustomCalloutView.m */,
 				96A2A1CE1C8CA16C0059441E /* CustomCalloutViewExample.m */,
+				DDF943281E5DE63300545D0F /* ClusteringExample.m */,
 				968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */,
 				9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */,
 				9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */,
@@ -470,6 +484,11 @@
 		9682471B1C5C123B00494AB8 /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				DDF9432A1E5DEACC00545D0F /* ports.geojson */,
+				DDF9432C1E5DED5E00545D0F /* ship.png */,
+				DDF9432E1E5E3AFB00545D0F /* sprite.png */,
+				DDF9432F1E5E3AFB00545D0F /* sprite@2x.png */,
+				DDF943301E5E3AFB00545D0F /* sprite@3x.png */,
 				9682471C1C5C123B00494AB8 /* example.geojson */,
 				64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */,
 				96D432051C84B9CF007D09D1 /* pisavector.xcassets */,
@@ -489,6 +508,7 @@
 				9678E3EC1CEF58DA00F21AE2 /* CustomAnnotationModelExample.h */,
 				96A2A1D01C8CA74B0059441E /* CustomCalloutView.h */,
 				96A2A1CD1C8CA16C0059441E /* CustomCalloutViewExample.h */,
+				DDF943271E5DE63300545D0F /* ClusteringExample.h */,
 				968247011C5BDCBB00494AB8 /* CustomRasterStyleExample.h */,
 				9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */,
 				9691AAA31C5AAD8F006A58C6 /* DefaultStylesExample.h */,
@@ -613,9 +633,9 @@
 				TargetAttributes = {
 					9619628B1C581700002D3DAB = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = U8B2JGE4C6;
+						DevelopmentTeam = GJZR2MEM28;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					961962A41C581700002D3DAB = {
 						CreatedOnToolsVersion = 7.3;
@@ -657,12 +677,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF9432B1E5DEACC00545D0F /* ports.geojson in Resources */,
 				9619629F1C581700002D3DAB /* LaunchScreen.storyboard in Resources */,
+				DDF9432D1E5DED5E00545D0F /* ship.png in Resources */,
 				079E77C51E1C4E2100F92FA8 /* camera.xcassets in Resources */,
+				DDF943311E5E3AFB00545D0F /* sprite.png in Resources */,
 				9619629C1C581700002D3DAB /* Assets.xcassets in Resources */,
 				9682471D1C5C123B00494AB8 /* example.geojson in Resources */,
 				64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */,
 				961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */,
+				DDF943321E5E3AFB00545D0F /* sprite@2x.png in Resources */,
+				DDF943331E5E3AFB00545D0F /* sprite@3x.png in Resources */,
 				96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -772,6 +797,7 @@
 				3EBCD7271DC28240001E342F /* SatelliteStyleExample.swift in Sources */,
 				96115A681CAD4E1C000963B8 /* OfflinePackExample.m in Sources */,
 				3EBCD71C1DC28240001E342F /* CustomCalloutViewExample.swift in Sources */,
+				DDF943291E5DE63300545D0F /* ClusteringExample.m in Sources */,
 				3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */,
 				64BBDAFD1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m in Sources */,
 				646B62AE1DEF7155000AA523 /* RuntimeAddLineExample.swift in Sources */,
@@ -960,7 +986,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = U8B2JGE4C6;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = GJZR2MEM28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -970,8 +997,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.Examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d0f67bc5-9077-4698-9399-f756da8c7f70";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -984,7 +1011,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = U8B2JGE4C6;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = GJZR2MEM28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -994,8 +1022,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.Examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d0f67bc5-9077-4698-9399-f756da8c7f70";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
