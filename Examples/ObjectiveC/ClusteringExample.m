@@ -71,17 +71,17 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     clusteredLayer.predicate = [NSPredicate predicateWithFormat:@"%K == YES", @"cluster"];
     [style addLayer:clusteredLayer];
 
-    // Add a long-press gesture for zooming in to clusters or showing popups on individual features.
-    [self.view addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)]];
+    // Add a tap gesture for zooming in to clusters or showing popups on individual features.
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
 }
 
 - (void)mapViewRegionIsChanging:(MGLMapView *)mapView {
     self.popup.alpha = 0;
 }
 
-- (void)handleLongPress:(UILongPressGestureRecognizer *)longPress {
-    if (longPress.state == UIGestureRecognizerStateBegan) {
-        CGPoint point = [longPress locationInView:longPress.view];
+- (void)handleTap:(UITapGestureRecognizer *)tap {
+    if (tap.state == UIGestureRecognizerStateEnded) {
+        CGPoint point = [tap locationInView:tap.view];
         CGFloat width = self.sprite.size.width;
         CGRect rect = CGRectMake(point.x - width / 2, point.y - width / 2, width, width);
 
