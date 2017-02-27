@@ -76,7 +76,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 }
 
 - (void)mapViewRegionIsChanging:(MGLMapView *)mapView {
-    self.popup.alpha = 0;
+    [self showPopup:NO animated:NO];
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)tap {
@@ -89,9 +89,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
         NSArray *ports    = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"ports"]];
 
         if (clusters.count) {
-            [UIView animateWithDuration:0.25 animations:^{
-                self.popup.alpha = 0;
-            }];
+            [self showPopup:NO animated:YES];
             MGLPointFeature *cluster = (MGLPointFeature *)clusters.firstObject;
             [self.mapView setCenterCoordinate:cluster.coordinate zoomLevel:(self.mapView.zoomLevel + 1) animated:YES];
         } else if (ports.count) {
@@ -117,15 +115,22 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
             self.popup.center = CGPointMake(point.x, point.y - 50);
 
             if (self.popup.alpha < 1) {
-                [UIView animateWithDuration:0.25 animations:^{
-                    self.popup.alpha = 1;
-                }];
+                [self showPopup:YES animated:YES];
             }
         } else {
-            [UIView animateWithDuration:0.25 animations:^{
-                self.popup.alpha = 0;
-            }];
+            [self showPopup:NO animated:YES];
         }
+    }
+}
+
+- (void)showPopup:(BOOL)shouldShow animated:(BOOL)shouldAnimate {
+    CGFloat alpha = (shouldShow ? 1 : 0);
+    if (shouldAnimate) {
+        [UIView animateWithDuration:0.25 animations:^{
+            self.popup.alpha = alpha;
+        }];
+    } else {
+        self.popup.alpha = alpha;
     }
 }
 
