@@ -98,19 +98,21 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
             MGLPointFeature *port = ((MGLPointFeature *)ports.firstObject);
 
             if (!self.popup) {
-                self.popup = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
+                self.popup = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
                 self.popup.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
-                self.popup.layer.cornerRadius = 5;
+                self.popup.layer.cornerRadius = 4;
                 self.popup.layer.masksToBounds = YES;
                 self.popup.textAlignment = NSTextAlignmentCenter;
                 self.popup.lineBreakMode = NSLineBreakByTruncatingTail;
-                self.popup.font = [UIFont systemFontOfSize:14];
+                self.popup.font = [UIFont systemFontOfSize:16];
                 self.popup.textColor = [UIColor blackColor];
                 self.popup.alpha = 0;
                 [self.view addSubview:self.popup];
             }
 
-            self.popup.text = [NSString stringWithFormat:@" %@  ", [port attributeForKey:@"name"]];
+            self.popup.text = [NSString stringWithFormat:@"%@", [port attributeForKey:@"name"]];
+            CGSize size = [self.popup.text sizeWithAttributes:@{ NSFontAttributeName: self.popup.font }];
+            self.popup.bounds = CGRectInset(CGRectMake(0, 0, size.width, size.height), -10, -10);
             point = [self.mapView convertCoordinate:port.coordinate toPointToView:self.mapView];
             self.popup.center = CGPointMake(point.x, point.y - 50);
 
