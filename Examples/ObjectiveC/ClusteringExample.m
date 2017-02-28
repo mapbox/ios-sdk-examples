@@ -50,26 +50,26 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
                              @300: [MGLStyleValue valueWithRawValue:[UIColor purpleColor]] };
 
     // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
-    MGLCircleStyleLayer *circleLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clusteredPorts" source:source];
-    circleLayer.circleRadius = [MGLStyleValue valueWithRawValue:@(self.sprite.size.width / 2)];
-    circleLayer.circleOpacity = [MGLStyleValue valueWithRawValue:@0.75];
-    circleLayer.circleStrokeColor = [MGLStyleValue valueWithRawValue:[[UIColor whiteColor] colorWithAlphaComponent:0.75]];
-    circleLayer.circleStrokeWidth = [MGLStyleValue valueWithRawValue:@2];
-    circleLayer.circleColor = [MGLSourceStyleFunction functionWithInterpolationMode:MGLInterpolationModeInterval
+    MGLCircleStyleLayer *circlesLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clusteredPorts" source:source];
+    circlesLayer.circleRadius = [MGLStyleValue valueWithRawValue:@(self.sprite.size.width / 2)];
+    circlesLayer.circleOpacity = [MGLStyleValue valueWithRawValue:@0.75];
+    circlesLayer.circleStrokeColor = [MGLStyleValue valueWithRawValue:[[UIColor whiteColor] colorWithAlphaComponent:0.75]];
+    circlesLayer.circleStrokeWidth = [MGLStyleValue valueWithRawValue:@2];
+    circlesLayer.circleColor = [MGLSourceStyleFunction functionWithInterpolationMode:MGLInterpolationModeInterval
                                                                               stops:stops
                                                                       attributeName:@"point_count"
                                                                             options:nil];
-    circleLayer.predicate = [NSPredicate predicateWithFormat:@"%K == YES", @"cluster"];
-    [style addLayer:circleLayer];
+    circlesLayer.predicate = [NSPredicate predicateWithFormat:@"%K == YES", @"cluster"];
+    [style addLayer:circlesLayer];
 
     // Label cluster circles with a layer of text indicating feature count. Per text token convention, wrap the attibute in {}.
-    MGLSymbolStyleLayer *clusteredLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"clusteredPortsNumbers" source:source];
-    clusteredLayer.textColor = [MGLStyleValue valueWithRawValue:[UIColor whiteColor]];
-    clusteredLayer.textFontSize = [MGLStyleValue valueWithRawValue:@(self.sprite.size.width / 2)];
-    clusteredLayer.iconAllowsOverlap = [MGLStyleValue valueWithRawValue:@(YES)];
-    clusteredLayer.text = [MGLStyleValue valueWithRawValue:@"{point_count}"];
-    clusteredLayer.predicate = [NSPredicate predicateWithFormat:@"%K == YES", @"cluster"];
-    [style addLayer:clusteredLayer];
+    MGLSymbolStyleLayer *numbersLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"clusteredPortsNumbers" source:source];
+    numbersLayer.textColor = [MGLStyleValue valueWithRawValue:[UIColor whiteColor]];
+    numbersLayer.textFontSize = [MGLStyleValue valueWithRawValue:@(self.sprite.size.width / 2)];
+    numbersLayer.iconAllowsOverlap = [MGLStyleValue valueWithRawValue:@(YES)];
+    numbersLayer.text = [MGLStyleValue valueWithRawValue:@"{point_count}"];
+    numbersLayer.predicate = [NSPredicate predicateWithFormat:@"%K == YES", @"cluster"];
+    [style addLayer:numbersLayer];
 
     // Add a tap gesture for zooming in to clusters or showing popups on individual features.
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
@@ -123,9 +123,9 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     }
 }
 
-- (void)showPopup:(BOOL)shouldShow animated:(BOOL)shouldAnimate {
+- (void)showPopup:(BOOL)shouldShow animated:(BOOL)animated {
     CGFloat alpha = (shouldShow ? 1 : 0);
-    if (shouldAnimate) {
+    if (animated) {
         [UIView animateWithDuration:0.25 animations:^{
             self.popup.alpha = alpha;
         }];
