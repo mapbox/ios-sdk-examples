@@ -20,6 +20,7 @@
         MBXExampleCameraFlyTo,
         MBXExampleCustomAnnotationModel,
         MBXExampleCustomCalloutView,
+        MBXExampleClustering,
         MBXExampleCustomRasterStyle,
         MBXExampleCustomStyle,
         MBXExampleDefaultStyles,
