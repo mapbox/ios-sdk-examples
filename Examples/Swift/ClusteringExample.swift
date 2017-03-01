@@ -5,7 +5,7 @@ import Mapbox
 class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
     var mapView: MGLMapView!
-    var sprite: UIImage!
+    var icon: UIImage!
     var popup: UILabel?
 
     override func viewDidLoad() {
@@ -16,7 +16,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.delegate = self
         view.addSubview(mapView)
 
-        sprite = UIImage(named: "sprite")
+        icon = UIImage(named: "port")
     }
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
@@ -24,15 +24,15 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
         let source = MGLShapeSource(identifier: "clusteredPorts",
                                     url: url,
-                                    options: [.clustered: true, .clusterRadius: sprite.size.width])
+                                    options: [.clustered: true, .clusterRadius: icon.size.width])
         style.addSource(source)
 
         // Use a template image so that we can tint it with the `iconColor` runtime styling property.
-        style.setImage(sprite.withRenderingMode(.alwaysTemplate), forName: "sprite")
+        style.setImage(icon.withRenderingMode(.alwaysTemplate), forName: "icon")
 
         // Show unclustered features as icons. The `cluster` attribute is built into clustering-enabled source features.
         let ports = MGLSymbolStyleLayer(identifier: "ports", source: source)
-        ports.iconImageName = MGLStyleValue(rawValue: "sprite")
+        ports.iconImageName = MGLStyleValue(rawValue: "icon")
         ports.iconColor = MGLStyleValue(rawValue: UIColor.darkGray.withAlphaComponent(0.9))
         ports.predicate = NSPredicate(format: "%K != YES", "cluster")
         style.addLayer(ports)
@@ -47,7 +47,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
         let circlesLayer = MGLCircleStyleLayer(identifier: "clusteredPorts", source: source)
-        circlesLayer.circleRadius = MGLStyleValue(rawValue: NSNumber(value: Double(sprite.size.width) / 2))
+        circlesLayer.circleRadius = MGLStyleValue(rawValue: NSNumber(value: Double(icon.size.width) / 2))
         circlesLayer.circleOpacity = MGLStyleValue(rawValue: 0.75)
         circlesLayer.circleStrokeColor = MGLStyleValue(rawValue: UIColor.white.withAlphaComponent(0.75))
         circlesLayer.circleStrokeWidth = MGLStyleValue(rawValue: 2)
@@ -61,7 +61,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         // Label cluster circles with a layer of text indicating feature count. Per text token convention, wrap the attribute in {}.
         let numbersLayer = MGLSymbolStyleLayer(identifier: "clusteredPortsNumbers", source: source)
         numbersLayer.textColor = MGLStyleValue(rawValue: UIColor.white)
-        numbersLayer.textFontSize = MGLStyleValue(rawValue: NSNumber(value: Double(sprite.size.width) / 2))
+        numbersLayer.textFontSize = MGLStyleValue(rawValue: NSNumber(value: Double(icon.size.width) / 2))
         numbersLayer.iconAllowsOverlap = MGLStyleValue(rawValue: true)
         numbersLayer.text = MGLStyleValue(rawValue: "{point_count}")
         numbersLayer.predicate = NSPredicate(format: "%K == YES", "cluster")
@@ -78,7 +78,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
     func handleTap(_ tap: UITapGestureRecognizer) {
         if tap.state == .ended {
             let point = tap.location(in: tap.view)
-            let width = sprite.size.width
+            let width = icon.size.width
             let rect = CGRect(x: point.x - width / 2, y: point.y - width / 2, width: width, height: width)
 
             let clusters = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["clusteredPorts"])

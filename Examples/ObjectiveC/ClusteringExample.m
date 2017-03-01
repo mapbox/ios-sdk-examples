@@ -6,7 +6,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 @interface ClusteringExample () <MGLMapViewDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
-@property (nonatomic) UIImage *sprite;
+@property (nonatomic) UIImage *icon;
 @property (nonatomic) UILabel *popup;
 
 @end
@@ -21,7 +21,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
 
-    self.sprite = [UIImage imageNamed:@"sprite"];
+    self.icon = [UIImage imageNamed:@"port"];
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
@@ -30,15 +30,15 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"clusteredPorts"
                                                                     URL:url
                                                                 options:@{ MGLShapeSourceOptionClustered: @(YES),
-                                                                           MGLShapeSourceOptionClusterRadius: @(self.sprite.size.width) }];
+                                                                           MGLShapeSourceOptionClusterRadius: @(self.icon.size.width) }];
     [style addSource:source];
 
     // Use a template image so that we can tint it with the `iconColor` runtime styling property.
-    [style setImage:[self.sprite imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forName:@"sprite"];
+    [style setImage:[self.icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forName:@"icon"];
 
     // Show unclustered features as icons. The `cluster` attribute is built into clustering-enabled source features.
     MGLSymbolStyleLayer *ports = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"ports" source:source];
-    ports.iconImageName = [MGLStyleValue valueWithRawValue:@"sprite"];
+    ports.iconImageName = [MGLStyleValue valueWithRawValue:@"icon"];
     ports.iconColor = [MGLStyleValue valueWithRawValue:[[UIColor darkGrayColor] colorWithAlphaComponent:0.9]];
     ports.predicate = [NSPredicate predicateWithFormat:@"%K != YES", @"cluster"];
     [style addLayer:ports];
@@ -51,7 +51,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 
     // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
     MGLCircleStyleLayer *circlesLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clusteredPorts" source:source];
-    circlesLayer.circleRadius = [MGLStyleValue valueWithRawValue:@(self.sprite.size.width / 2)];
+    circlesLayer.circleRadius = [MGLStyleValue valueWithRawValue:@(self.icon.size.width / 2)];
     circlesLayer.circleOpacity = [MGLStyleValue valueWithRawValue:@0.75];
     circlesLayer.circleStrokeColor = [MGLStyleValue valueWithRawValue:[[UIColor whiteColor] colorWithAlphaComponent:0.75]];
     circlesLayer.circleStrokeWidth = [MGLStyleValue valueWithRawValue:@2];
@@ -65,7 +65,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     // Label cluster circles with a layer of text indicating feature count. Per text token convention, wrap the attribute in {}.
     MGLSymbolStyleLayer *numbersLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"clusteredPortsNumbers" source:source];
     numbersLayer.textColor = [MGLStyleValue valueWithRawValue:[UIColor whiteColor]];
-    numbersLayer.textFontSize = [MGLStyleValue valueWithRawValue:@(self.sprite.size.width / 2)];
+    numbersLayer.textFontSize = [MGLStyleValue valueWithRawValue:@(self.icon.size.width / 2)];
     numbersLayer.iconAllowsOverlap = [MGLStyleValue valueWithRawValue:@(YES)];
     numbersLayer.text = [MGLStyleValue valueWithRawValue:@"{point_count}"];
     numbersLayer.predicate = [NSPredicate predicateWithFormat:@"%K == YES", @"cluster"];
@@ -82,7 +82,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 - (void)handleTap:(UITapGestureRecognizer *)tap {
     if (tap.state == UIGestureRecognizerStateEnded) {
         CGPoint point = [tap locationInView:tap.view];
-        CGFloat width = self.sprite.size.width;
+        CGFloat width = self.icon.size.width;
         CGRect rect = CGRectMake(point.x - width / 2, point.y - width / 2, width, width);
 
         // Find cluster circles and/or individual port icons in a touch-sized region around the tap.

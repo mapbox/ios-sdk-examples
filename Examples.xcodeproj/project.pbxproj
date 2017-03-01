@@ -123,11 +123,9 @@
 		96D431FC1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D431FB1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m */; };
 		96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D432051C84B9CF007D09D1 /* pisavector.xcassets */; };
 		DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5939E31E6639BA0009BEB2 /* ClusteringExample.swift */; };
+		DD5939E61E6778480009BEB2 /* clustering.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD5939E51E6778480009BEB2 /* clustering.xcassets */; };
 		DDF943291E5DE63300545D0F /* ClusteringExample.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF943281E5DE63300545D0F /* ClusteringExample.m */; };
 		DDF9432B1E5DEACC00545D0F /* ports.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DDF9432A1E5DEACC00545D0F /* ports.geojson */; };
-		DDF943311E5E3AFB00545D0F /* sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF9432E1E5E3AFB00545D0F /* sprite.png */; };
-		DDF943321E5E3AFB00545D0F /* sprite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF9432F1E5E3AFB00545D0F /* sprite@2x.png */; };
-		DDF943331E5E3AFB00545D0F /* sprite@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF943301E5E3AFB00545D0F /* sprite@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -291,12 +289,10 @@
 		96D431FB1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawingACustomMarkerExample.m; path = Examples/ObjectiveC/DrawingACustomMarkerExample.m; sourceTree = SOURCE_ROOT; };
 		96D432051C84B9CF007D09D1 /* pisavector.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = pisavector.xcassets; sourceTree = "<group>"; };
 		DD5939E31E6639BA0009BEB2 /* ClusteringExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusteringExample.swift; sourceTree = "<group>"; };
+		DD5939E51E6778480009BEB2 /* clustering.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = clustering.xcassets; sourceTree = "<group>"; };
 		DDF943271E5DE63300545D0F /* ClusteringExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusteringExample.h; sourceTree = "<group>"; };
 		DDF943281E5DE63300545D0F /* ClusteringExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusteringExample.m; sourceTree = "<group>"; };
 		DDF9432A1E5DEACC00545D0F /* ports.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ports.geojson; sourceTree = "<group>"; };
-		DDF9432E1E5E3AFB00545D0F /* sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite.png; sourceTree = "<group>"; };
-		DDF9432F1E5E3AFB00545D0F /* sprite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprite@2x.png"; sourceTree = "<group>"; };
-		DDF943301E5E3AFB00545D0F /* sprite@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprite@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -489,10 +485,8 @@
 				64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */,
 				96D432051C84B9CF007D09D1 /* pisavector.xcassets */,
 				079E77C41E1C4E2100F92FA8 /* camera.xcassets */,
+				DD5939E51E6778480009BEB2 /* clustering.xcassets */,
 				DDF9432A1E5DEACC00545D0F /* ports.geojson */,
-				DDF9432E1E5E3AFB00545D0F /* sprite.png */,
-				DDF9432F1E5E3AFB00545D0F /* sprite@2x.png */,
-				DDF943301E5E3AFB00545D0F /* sprite@3x.png */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -679,14 +673,12 @@
 			files = (
 				DDF9432B1E5DEACC00545D0F /* ports.geojson in Resources */,
 				9619629F1C581700002D3DAB /* LaunchScreen.storyboard in Resources */,
+				DD5939E61E6778480009BEB2 /* clustering.xcassets in Resources */,
 				079E77C51E1C4E2100F92FA8 /* camera.xcassets in Resources */,
-				DDF943311E5E3AFB00545D0F /* sprite.png in Resources */,
 				9619629C1C581700002D3DAB /* Assets.xcassets in Resources */,
 				9682471D1C5C123B00494AB8 /* example.geojson in Resources */,
 				64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */,
 				961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */,
-				DDF943321E5E3AFB00545D0F /* sprite@2x.png in Resources */,
-				DDF943331E5E3AFB00545D0F /* sprite@3x.png in Resources */,
 				96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
