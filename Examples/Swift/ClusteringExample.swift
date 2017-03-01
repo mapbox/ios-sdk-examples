@@ -58,7 +58,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         circlesLayer.predicate = NSPredicate(format: "%K == YES", "cluster")
         style.addLayer(circlesLayer)
 
-        // Label cluster circles with a layer of text indicating feature count. Per text token convention, wrap the attibute in {}.
+        // Label cluster circles with a layer of text indicating feature count. Per text token convention, wrap the attribute in {}.
         let numbersLayer = MGLSymbolStyleLayer(identifier: "clusteredPortsNumbers", source: source)
         numbersLayer.textColor = MGLStyleValue(rawValue: UIColor.white)
         numbersLayer.textFontSize = MGLStyleValue(rawValue: NSNumber(value: Double(sprite.size.width) / 2))

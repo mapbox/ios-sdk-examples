@@ -62,7 +62,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     circlesLayer.predicate = [NSPredicate predicateWithFormat:@"%K == YES", @"cluster"];
     [style addLayer:circlesLayer];
 
-    // Label cluster circles with a layer of text indicating feature count. Per text token convention, wrap the attibute in {}.
+    // Label cluster circles with a layer of text indicating feature count. Per text token convention, wrap the attribute in {}.
     MGLSymbolStyleLayer *numbersLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"clusteredPortsNumbers" source:source];
     numbersLayer.textColor = [MGLStyleValue valueWithRawValue:[UIColor whiteColor]];
     numbersLayer.textFontSize = [MGLStyleValue valueWithRawValue:@(self.sprite.size.width / 2)];
