@@ -24,10 +24,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
         let source = MGLShapeSource(identifier: "clusteredPorts",
                                     url: url,
-                                    options: [
-                                        .clustered: true,
-                                        .clusterRadius: sprite.size.width
-                                    ])
+                                    options: [.clustered: true, .clusterRadius: sprite.size.width])
         style.addSource(source)
 
         // Use a template image so that we can tint it with the `iconColor` runtime styling property.
@@ -45,7 +42,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
             20:  MGLStyleValue(rawValue: UIColor.lightGray),
             50:  MGLStyleValue(rawValue: UIColor.orange),
             100: MGLStyleValue(rawValue: UIColor.red),
-            300: MGLStyleValue(rawValue: UIColor.purple)
+            200: MGLStyleValue(rawValue: UIColor.purple)
         ]
 
         // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
@@ -90,7 +87,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
             if clusters.count > 0 {
                 showPopup(false, animated: true)
                 let cluster = clusters.first!
-                mapView.setCenter(cluster.coordinate, zoomLevel: mapView.zoomLevel + 1, animated: true)
+                mapView.setCenter(cluster.coordinate, zoomLevel: (mapView.zoomLevel + 1), animated: true)
             } else if ports.count > 0 {
                 let port = ports.first!
 

@@ -47,7 +47,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     NSDictionary *stops = @{ @20:  [MGLStyleValue valueWithRawValue:[UIColor lightGrayColor]],
                              @50:  [MGLStyleValue valueWithRawValue:[UIColor orangeColor]],
                              @100: [MGLStyleValue valueWithRawValue:[UIColor redColor]],
-                             @300: [MGLStyleValue valueWithRawValue:[UIColor purpleColor]] };
+                             @200: [MGLStyleValue valueWithRawValue:[UIColor purpleColor]] };
 
     // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
     MGLCircleStyleLayer *circlesLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clusteredPorts" source:source];
@@ -126,8 +126,9 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 - (void)showPopup:(BOOL)shouldShow animated:(BOOL)animated {
     CGFloat alpha = (shouldShow ? 1 : 0);
     if (animated) {
+        __typeof__(self) __weak weakSelf = self;
         [UIView animateWithDuration:0.25 animations:^{
-            self.popup.alpha = alpha;
+            weakSelf.popup.alpha = alpha;
         }];
     } else {
         self.popup.alpha = alpha;
