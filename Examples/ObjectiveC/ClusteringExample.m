@@ -85,6 +85,9 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
         CGFloat width = self.sprite.size.width;
         CGRect rect = CGRectMake(point.x - width / 2, point.y - width / 2, width, width);
 
+        // Find cluster circles and/or individual port icons in a touch-sized region around the tap.
+        // In theory, we should only find either one cluster (since they don't overlap) or one port
+        // (since overlapping ones would be clustered).
         NSArray *clusters = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"clusteredPorts"]];
         NSArray *ports    = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"ports"]];
 
