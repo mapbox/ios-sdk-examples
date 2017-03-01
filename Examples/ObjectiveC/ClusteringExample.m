@@ -27,10 +27,10 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ports" ofType:@"geojson"]];
 
-    MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"clusteredPorts"
-                                                                    URL:url
-                                                                options:@{ MGLShapeSourceOptionClustered: @(YES),
-                                                                           MGLShapeSourceOptionClusterRadius: @(self.icon.size.width) }];
+    MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"clusteredPorts" URL:url options:@{
+        MGLShapeSourceOptionClustered: @(YES),
+        MGLShapeSourceOptionClusterRadius: @(self.icon.size.width)
+    }];
     [style addSource:source];
 
     // Use a template image so that we can tint it with the `iconColor` runtime styling property.
@@ -55,10 +55,11 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     circlesLayer.circleOpacity = [MGLStyleValue valueWithRawValue:@0.75];
     circlesLayer.circleStrokeColor = [MGLStyleValue valueWithRawValue:[[UIColor whiteColor] colorWithAlphaComponent:0.75]];
     circlesLayer.circleStrokeWidth = [MGLStyleValue valueWithRawValue:@2];
-    circlesLayer.circleColor = [MGLSourceStyleFunction functionWithInterpolationMode:MGLInterpolationModeInterval
-                                                                              stops:stops
-                                                                      attributeName:@"point_count"
-                                                                            options:nil];
+    circlesLayer.circleColor = [MGLSourceStyleFunction
+        functionWithInterpolationMode:MGLInterpolationModeInterval
+                                stops:stops
+                        attributeName:@"point_count"
+                              options:nil];
     circlesLayer.predicate = [NSPredicate predicateWithFormat:@"%K == YES", @"cluster"];
     [style addLayer:circlesLayer];
 
