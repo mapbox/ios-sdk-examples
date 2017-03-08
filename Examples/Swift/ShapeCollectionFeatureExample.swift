@@ -22,6 +22,7 @@ class ShapeCollectionFeatureExample_Swift: UIViewController, MGLMapViewDelegate 
         if let url = URL(string: "https://api.mapbox.com/datasets/v1/mapbox/cj004g2ay04vj2xls3oqdu2ou/features?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpemc0YWlpNzAwcXUyd21ldDV6OWpxMGwifQ.A92RQZpwUgtGtCmdSE4-ow"){
             
             let data = try! Data(contentsOf: url)
+            // Use [MGLShape shapeWithData:encoding:error:] to create a MGLShapeCollectionFeature from GeoJSON data.
             let feature = try! MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as! MGLShapeCollectionFeature
             
             // Create source and add it to the map style.
