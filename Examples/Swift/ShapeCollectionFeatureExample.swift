@@ -23,7 +23,7 @@ class ShapeCollectionFeatureExample_Swift: UIViewController, MGLMapViewDelegate 
             let data = try! Data(contentsOf: url)
             let feature = try! MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as! MGLShapeCollectionFeature
             
-            let source = MGLShapeSource.init(identifier: "transit", shape: feature, options: nil)
+            let source = MGLShapeSource(identifier: "transit", shape: feature, options: nil)
             
             
             let circleLayer = MGLCircleStyleLayer(identifier: "stations", source: source)
