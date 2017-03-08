@@ -53,7 +53,7 @@ NSString *const MBXExampleRuntimeAnimateLine = @"RuntimeAnimateLineExample";
     layer.lineJoin = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLineJoin:MGLLineJoinRound]];
     layer.lineCap = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
     layer.lineColor = [MGLStyleValue valueWithRawValue:[UIColor redColor]];
-    layer.lineWidth = [MGLStyleValue valueWithInterpolationBase:1.5 stops: lineWidthStops];
+    layer.lineWidth = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential cameraStops :lineWidthStops options: @{MGLStyleFunctionOptionDefaultValue : @1.75}];
 
     [self.mapView.style addLayer:layer];
 }

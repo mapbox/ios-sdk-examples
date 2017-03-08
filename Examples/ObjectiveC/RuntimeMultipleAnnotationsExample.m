@@ -49,14 +49,15 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
     // In this case, we can use style functions to gradually change properties between zoom level 2 and 7: the circle opacity from 50% to 100% and the circle radius from 2pt to 3pt.
     MGLCircleStyleLayer *circles = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"lighthouse-circles" source:source];
     circles.circleColor = [MGLStyleValue valueWithRawValue:lighthouseColor];
-    circles.circleOpacity = [MGLStyleValue valueWithStops:@{
-        @2: [MGLStyleValue valueWithRawValue:@0.5],
-        @7: [MGLStyleValue valueWithRawValue:@1.0],
-    }];
-    circles.circleRadius = [MGLStyleValue valueWithStops:@{
-        @2: [MGLStyleValue valueWithRawValue:@2],
-        @7: [MGLStyleValue valueWithRawValue:@3],
-    }];
+    circles.circleOpacity = [[MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
+                                                          cameraStops : @{@2: [MGLStyleValue valueWithRawValue:@0.5],
+                                                                          @7: [MGLStyleValue valueWithRawValue:@1.0]}
+                                                               options: @{MGLStyleFunctionOptionDefaultValue : @0.75}];
+                             
+    circles.circleRadius = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeInterval cameraStops:@{
+                                                                                                                                         @2: [MGLStyleValue valueWithRawValue:@2],
+                                                                                                                                         @7: [MGLStyleValue valueWithRawValue:@3]}
+                                                                                      options:@{MGLStyleFunctionOptionDefaultValue : @1}];
 
     // Use MGLSymbolStyleLayer for more complex styling of points including custom icons and text rendering.
     MGLSymbolStyleLayer *symbols = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"lighthouse-symbols" source:source];
