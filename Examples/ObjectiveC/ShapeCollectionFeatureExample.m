@@ -22,27 +22,31 @@ NSString *const MBXExampleShapeCollectionFeature = @"ShapeCollectionFeatureExamp
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
+    
     NSURL *url = [[NSURL alloc] initWithString: @"https://api.mapbox.com/datasets/v1/mapbox/cj004g2ay04vj2xls3oqdu2ou/features?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpemc0YWlpNzAwcXUyd21ldDV6OWpxMGwifQ.A92RQZpwUgtGtCmdSE4-ow"];
     if (url) {
         NSData *data = [[NSData alloc] initWithContentsOfURL:url];
         MGLShape *feature = [MGLShape shapeWithData:data encoding: NSUTF8StringEncoding error: nil];
         
+        // Create source and add it to the map style.
         MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"transit" shape:feature options:nil];
+        [style addSource:source];
         
+        // Create station style layer.
         MGLCircleStyleLayer *circleLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"stations" source:source];
-        
-        circleLayer.predicate = [NSPredicate predicateWithFormat:@"%K == %@" argumentArray:@[@"TYPE", @"Station"]];
+        circleLayer.predicate = [NSPredicate predicateWithFormat:@"%@" argumentArray:@[@"Station"]];
         circleLayer.circleColor = [MGLStyleValue valueWithRawValue: [UIColor redColor]];
         circleLayer.circleRadius = [MGLStyleValue valueWithRawValue:@6];
         circleLayer.circleStrokeWidth = [MGLStyleValue valueWithRawValue:@2];
         circleLayer.circleStrokeColor = [MGLStyleValue valueWithRawValue: [UIColor blackColor]];
-
+        
+        // Create line style layer.
         MGLLineStyleLayer *lineLayer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"rail-line" source: source];
-        lineLayer.predicate = [NSPredicate predicateWithFormat:@"%K == %@" argumentArray:@[@"TYPE", @"Rail line"]];
+        lineLayer.predicate = [NSPredicate predicateWithFormat:@"%@" argumentArray:@[@"Rail line"]];
         lineLayer.lineColor = [MGLStyleValue valueWithRawValue:[UIColor redColor]];
         lineLayer.lineWidth = [MGLStyleValue valueWithRawValue:@2];
         
-        [style addSource:source];
+        // Add style layers to the map view's style.
         [style addLayer:circleLayer];
         [style insertLayer:lineLayer belowLayer:circleLayer];
     }
