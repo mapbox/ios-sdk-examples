@@ -4,7 +4,7 @@
 NSString *const MBXExampleShapeCollectionFeature = @"ShapeCollectionFeatureExample";
 
 @interface ShapeCollectionFeatureExample () <MGLMapViewDelegate>
-
+@property (nonatomic) MGLMapView *mapView;
 @end
 
 @implementation ShapeCollectionFeatureExample
@@ -12,27 +12,36 @@ NSString *const MBXExampleShapeCollectionFeature = @"ShapeCollectionFeatureExamp
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURLWithVersion:9]];
-    mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURLWithVersion:9]];
+    self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(38.897435, -77.039679) zoomLevel:12 animated:NO];
-    mapView.delegate = self;
+    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(38.897435, -77.039679) zoomLevel:12 animated:NO];
+    self.mapView.delegate = self;
     
-    [self.view addSubview:mapView];
+    [self.view addSubview:self.mapView];
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     
-    NSURL *url = [NSURL URLWithString: @"https://api.mapbox.com/datasets/v1/mapbox/cj004g2ay04vj2xls3oqdu2ou/features?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpemc0YWlpNzAwcXUyd21ldDV6OWpxMGwifQ.A92RQZpwUgtGtCmdSE4-ow"];
-    
-    NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+    // Parse the GeoJSON data.
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSURL *url = [NSURL URLWithString: @"https://api.mapbox.com/datasets/v1/mapbox/cj004g2ay04vj2xls3oqdu2ou/features?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpemc0YWlpNzAwcXUyd21ldDV6OWpxMGwifQ.A92RQZpwUgtGtCmdSE4-ow"];
+        NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self drawShapeCollection:data];
+        });
+    });
+}
 
+- (void)drawShapeCollection:(NSData *)data {
+    
     // Use [MGLShape shapeWithData:encoding:error:] to create a MGLShapeCollectionFeature from GeoJSON data.
     MGLShape *feature = [MGLShape shapeWithData:data encoding:NSUTF8StringEncoding error:NULL];
     
     // Create source and add it to the map style.
     MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"transit" shape:feature options:nil];
-    [style addSource:source];
+    [self.mapView.style addSource:source];
     
     // Create station style layer.
     MGLCircleStyleLayer *circleLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"stations" source:source];
@@ -49,8 +58,9 @@ NSString *const MBXExampleShapeCollectionFeature = @"ShapeCollectionFeatureExamp
     lineLayer.lineWidth = [MGLStyleValue valueWithRawValue:@2];
     
     // Add style layers to the map view's style.
-    [style addLayer:circleLayer];
-    [style insertLayer:lineLayer belowLayer:circleLayer];
+    [self.mapView.style addLayer:circleLayer];
+    [self.mapView.style insertLayer:lineLayer belowLayer:circleLayer];
 }
 
 @end
+
