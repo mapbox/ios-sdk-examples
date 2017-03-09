@@ -4,10 +4,12 @@ import Mapbox;
 
 class ShapeCollectionFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
     
+    var mapView : MGLMapView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mapView = MGLMapView(frame: view.bounds)
+        mapView = MGLMapView(frame: view.bounds)
         mapView.styleURL = MGLStyle.lightStyleURL(withVersion: 9)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -19,37 +21,47 @@ class ShapeCollectionFeatureExample_Swift: UIViewController, MGLMapViewDelegate 
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
+        DispatchQueue.global().async {
             let url = URL(string: "https://api.mapbox.com/datasets/v1/mapbox/cj004g2ay04vj2xls3oqdu2ou/features?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpemc0YWlpNzAwcXUyd21ldDV6OWpxMGwifQ.A92RQZpwUgtGtCmdSE4-ow")
             
             let data = try! Data(contentsOf: url!)
-
-            // Use [MGLShape shapeWithData:encoding:error:] to create a MGLShapeCollectionFeature from GeoJSON data.
-            let feature = try! MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as! MGLShapeCollectionFeature
             
-            // Create source and add it to the map style.
-            let source = MGLShapeSource(identifier: "transit", shape: feature, options: nil)
-            style.addSource(source)
-            
-            // Create station style layer.
-            let circleLayer = MGLCircleStyleLayer(identifier: "stations", source: source)
+            DispatchQueue.main.async {
+                self.drawShapeCollection(data: data)
+            }
+        }
+    }
+    
+    func drawShapeCollection(data: Data) {
+        guard let style = self.mapView.style else { return }
         
-            // Use a predicate to filter out non-points.
-            circleLayer.predicate = NSPredicate(format: "TYPE = 'Station'")
-            circleLayer.circleColor = MGLStyleValue(rawValue: .red)
-            circleLayer.circleRadius = MGLStyleValue(rawValue: 6)
-            circleLayer.circleStrokeWidth = MGLStyleValue(rawValue: 2)
-            circleLayer.circleStrokeColor = MGLStyleValue(rawValue: .black)
-            
-            // Create line style layer.
-            let lineLayer = MGLLineStyleLayer(identifier: "rail-line", source: source)
-
-            // Use a predicate to filter out the stations.
-            lineLayer.predicate = NSPredicate(format: "TYPE = 'Rail line'")
-            lineLayer.lineColor = MGLStyleValue(rawValue: .red)
-            lineLayer.lineWidth = MGLStyleValue(rawValue: 2)
-            
-            // Add style layers to the map view's style.
-            style.addLayer(circleLayer)
-            style.insertLayer(lineLayer, below: circleLayer)
+        // Use [MGLShape shapeWithData:encoding:error:] to create a MGLShapeCollectionFeature from GeoJSON data.
+        let feature = try! MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as! MGLShapeCollectionFeature
+        
+        // Create source and add it to the map style.
+        let source = MGLShapeSource(identifier: "transit", shape: feature, options: nil)
+        style.addSource(source)
+        
+        // Create station style layer.
+        let circleLayer = MGLCircleStyleLayer(identifier: "stations", source: source)
+        
+        // Use a predicate to filter out non-points.
+        circleLayer.predicate = NSPredicate(format: "TYPE = 'Station'")
+        circleLayer.circleColor = MGLStyleValue(rawValue: .red)
+        circleLayer.circleRadius = MGLStyleValue(rawValue: 6)
+        circleLayer.circleStrokeWidth = MGLStyleValue(rawValue: 2)
+        circleLayer.circleStrokeColor = MGLStyleValue(rawValue: .black)
+        
+        // Create line style layer.
+        let lineLayer = MGLLineStyleLayer(identifier: "rail-line", source: source)
+        
+        // Use a predicate to filter out the stations.
+        lineLayer.predicate = NSPredicate(format: "TYPE = 'Rail line'")
+        lineLayer.lineColor = MGLStyleValue(rawValue: .red)
+        lineLayer.lineWidth = MGLStyleValue(rawValue: 2)
+        
+        // Add style layers to the map view's style.
+        style.addLayer(circleLayer)
+        style.insertLayer(lineLayer, below: circleLayer)
     }
 }
