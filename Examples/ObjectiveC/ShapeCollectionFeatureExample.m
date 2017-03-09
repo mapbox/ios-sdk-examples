@@ -26,6 +26,7 @@ NSString *const MBXExampleShapeCollectionFeature = @"ShapeCollectionFeatureExamp
     NSURL *url = [NSURL URLWithString: @"https://api.mapbox.com/datasets/v1/mapbox/cj004g2ay04vj2xls3oqdu2ou/features?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpemc0YWlpNzAwcXUyd21ldDV6OWpxMGwifQ.A92RQZpwUgtGtCmdSE4-ow"];
     
     NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+
     // Use [MGLShape shapeWithData:encoding:error:] to create a MGLShapeCollectionFeature from GeoJSON data.
     MGLShape *feature = [MGLShape shapeWithData:data encoding:NSUTF8StringEncoding error:NULL];
     
