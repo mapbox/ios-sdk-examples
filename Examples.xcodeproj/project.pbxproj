@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		079E77C51E1C4E2100F92FA8 /* camera.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079E77C41E1C4E2100F92FA8 /* camera.xcassets */; };
+		07C138C41E721C8F00D6F678 /* DDSCircleLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C138C31E721C8F00D6F678 /* DDSCircleLayerExample.swift */; };
+		07C138C71E72216E00D6F678 /* DDSCircleLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C138C61E72216E00D6F678 /* DDSCircleLayerExample.m */; };
 		07F53B851E00D02100B58DB3 /* AnnotationViewMultipleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F53B841E00D02100B58DB3 /* AnnotationViewMultipleExample.m */; };
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
 		3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */; };
@@ -168,6 +170,9 @@
 
 /* Begin PBXFileReference section */
 		079E77C41E1C4E2100F92FA8 /* camera.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = camera.xcassets; sourceTree = "<group>"; };
+		07C138C31E721C8F00D6F678 /* DDSCircleLayerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDSCircleLayerExample.swift; sourceTree = "<group>"; };
+		07C138C51E72216D00D6F678 /* DDSCircleLayerExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSCircleLayerExample.h; sourceTree = "<group>"; };
+		07C138C61E72216E00D6F678 /* DDSCircleLayerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSCircleLayerExample.m; sourceTree = "<group>"; };
 		07F53B841E00D02100B58DB3 /* AnnotationViewMultipleExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewMultipleExample.m; sourceTree = "<group>"; };
 		07F53B861E00D08600B58DB3 /* AnnotationViewMultipleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewMultipleExample.h; sourceTree = "<group>"; };
 		3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewExample.swift; sourceTree = "<group>"; };
@@ -334,6 +339,7 @@
 				96A2A1CE1C8CA16C0059441E /* CustomCalloutViewExample.m */,
 				968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */,
 				9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */,
+				07C138C61E72216E00D6F678 /* DDSCircleLayerExample.m */,
 				9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */,
 				960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */,
 				96D431FB1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m */,
@@ -371,6 +377,7 @@
 				3EBCD7081DC28240001E342F /* CustomCalloutViewExample.swift */,
 				3EBCD7091DC28240001E342F /* CustomRasterStyleExample.swift */,
 				3EBCD70A1DC28240001E342F /* CustomStyleExample.swift */,
+				07C138C31E721C8F00D6F678 /* DDSCircleLayerExample.swift */,
 				3EBCD70B1DC28240001E342F /* DefaultStylesExample.swift */,
 				3EBCD70C1DC28240001E342F /* DraggableAnnotationViewExample.swift */,
 				3EBCD70D1DC28240001E342F /* DrawingACustomMarkerExample.swift */,
@@ -491,6 +498,7 @@
 				96A2A1CD1C8CA16C0059441E /* CustomCalloutViewExample.h */,
 				968247011C5BDCBB00494AB8 /* CustomRasterStyleExample.h */,
 				9691AAA11C5AAD8F006A58C6 /* CustomStyleExample.h */,
+				07C138C51E72216D00D6F678 /* DDSCircleLayerExample.h */,
 				9691AAA31C5AAD8F006A58C6 /* DefaultStylesExample.h */,
 				960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */,
 				96D431FA1C84B4F7007D09D1 /* DrawingACustomMarkerExample.h */,
@@ -718,12 +726,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07C138C71E72216E00D6F678 /* DDSCircleLayerExample.m in Sources */,
 				3EBCD7191DC28240001E342F /* CustomAnnotationModelExample.swift in Sources */,
 				962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */,
 				3ED403411E006B5200230C95 /* CameraFlyToExample.swift in Sources */,
 				9691AAA91C5AAD8F006A58C6 /* SimpleMapViewExample.m in Sources */,
 				960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */,
 				646B62B41DEF9613000AA523 /* RuntimeCircleStylesExample.swift in Sources */,
+				07C138C41E721C8F00D6F678 /* DDSCircleLayerExample.swift in Sources */,
 				646B62BD1DEF965A000AA523 /* RuntimeCircleStylesExample.m in Sources */,
 				646B629C1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m in Sources */,
 				96A2A1CF1C8CA16C0059441E /* CustomCalloutViewExample.m in Sources */,

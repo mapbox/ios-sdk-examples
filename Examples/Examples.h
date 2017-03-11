@@ -23,6 +23,7 @@ extern NSString *const MBXExampleCustomAnnotationModel;
 extern NSString *const MBXExampleCustomCalloutView;
 extern NSString *const MBXExampleCustomRasterStyle;
 extern NSString *const MBXExampleCustomStyle;
+extern NSString *const MBXExampleDDSCircleLayer;
 extern NSString *const MBXExampleDefaultStyles;
 extern NSString *const MBXExampleDraggableAnnotationView;
 extern NSString *const MBXExampleDrawingAGeoJSONLine;
