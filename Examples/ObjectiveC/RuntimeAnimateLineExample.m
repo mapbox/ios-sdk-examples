@@ -50,10 +50,10 @@ NSString *const MBXExampleRuntimeAnimateLine = @"RuntimeAnimateLineExample";
     layer.lineColor = [MGLStyleValue valueWithRawValue:[UIColor redColor]];
     layer.lineWidth = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
         cameraStops: @{
-                       @14: [MGLStyleValue valueWithRawValue: @5],
-                       @18: [MGLStyleValue valueWithRawValue: @20]
-                      }
-        options: @{MGLStyleFunctionOptionDefaultValue : @1.75}];
+            @14: [MGLStyleValue valueWithRawValue:@5],
+            @18: [MGLStyleValue valueWithRawValue:@20]
+        }
+        options:@{MGLStyleFunctionOptionDefaultValue:@1.75}];
 
     [self.mapView.style addLayer:layer];
 }
