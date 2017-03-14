@@ -50,13 +50,14 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
     MGLCircleStyleLayer *circles = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"lighthouse-circles" source:source];
     circles.circleColor = [MGLStyleValue valueWithRawValue:lighthouseColor];
     circles.circleOpacity = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-        cameraStops : @{
+        cameraStops:@{
                         @2: [MGLStyleValue valueWithRawValue:@0.5],
                         @7: [MGLStyleValue valueWithRawValue:@1.0]
                         }
-        options: @{MGLStyleFunctionOptionDefaultValue : [MGLStyleValue valueWithRawValue:@0.75]}];
+        options:@{MGLStyleFunctionOptionDefaultValue : [MGLStyleValue valueWithRawValue:@0.75]}];
                              
-    circles.circleRadius = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeInterval cameraStops:@{
+    circles.circleRadius = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeInterval
+        cameraStops:@{
                       @2: [MGLStyleValue valueWithRawValue:@2],
                       @7: [MGLStyleValue valueWithRawValue:@3]
                       }
