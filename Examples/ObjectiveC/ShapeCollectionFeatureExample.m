@@ -2,6 +2,7 @@
 @import Mapbox;
 
 NSString *const MBXExampleShapeCollectionFeature = @"ShapeCollectionFeatureExample";
+NSString *const MapboxAccessToken = @"<#Access Token#>";
 
 @interface ShapeCollectionFeatureExample () <MGLMapViewDelegate>
 @property (nonatomic) MGLMapView *mapView;
@@ -25,7 +26,8 @@ NSString *const MBXExampleShapeCollectionFeature = @"ShapeCollectionFeatureExamp
     
     // Parse the GeoJSON data.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *url = [NSURL URLWithString: @"https://api.mapbox.com/datasets/v1/mapbox/cj004g2ay04vj2xls3oqdu2ou/features?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpemc0YWlpNzAwcXUyd21ldDV6OWpxMGwifQ.A92RQZpwUgtGtCmdSE4-ow"];
+        NSString *urlString = [NSString stringWithFormat:@"https://api.mapbox.com/datasets/v1/mapbox/cj004g2ay04vj2xls3oqdu2ou/features?access_token=%@", MapboxAccessToken];
+        NSURL *url = [NSURL URLWithString: urlString];
         NSData *data = [[NSData alloc] initWithContentsOfURL:url];
         
         dispatch_async(dispatch_get_main_queue(), ^{
