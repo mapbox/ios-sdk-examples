@@ -47,33 +47,36 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
         // In this case, we can use style functions to gradually change properties between zoom level 2 and 7: the circle opacity from 50% to 100% and the circle radius from 2pt to 3pt.
         let circles = MGLCircleStyleLayer(identifier: "lighthouse-circles", source: source)
         circles.circleColor = MGLStyleValue(rawValue: lighthouseColor)
-        circles.circleOpacity = MGLStyleValue(stops: [
-            2: MGLStyleValue(rawValue: 0.5),
-            7: MGLStyleValue(rawValue: 1),
-        ])
-        circles.circleRadius = MGLStyleValue(stops: [
-            2: MGLStyleValue(rawValue: 2),
-            7: MGLStyleValue(rawValue: 3),
-        ])
+        circles.circleOpacity = MGLStyleValue(interpolationMode: .exponential,
+                                              cameraStops: [
+                                                2: MGLStyleValue(rawValue: 0.5),
+                                                7: MGLStyleValue(rawValue: 1)],
+                                              options: nil)
+        circles.circleRadius = MGLStyleValue(interpolationMode: .exponential,
+                                             cameraStops: [
+                                                2: MGLStyleValue(rawValue: 2),
+                                                7: MGLStyleValue(rawValue: 3)],
+                                             options: nil)
 
         // Use MGLSymbolStyleLayer for more complex styling of points including custom icons and text rendering.
         let symbols = MGLSymbolStyleLayer(identifier: "lighthouse-symbols", source: source)
         symbols.iconImageName = MGLStyleValue(rawValue: "lighthouse")
         symbols.iconColor = MGLStyleValue(rawValue: lighthouseColor)
         symbols.iconScale = MGLStyleValue(rawValue: 0.5)
-        symbols.iconOpacity = MGLStyleValue(stops: [
-            5.9: MGLStyleValue(rawValue: 0),
-            6: MGLStyleValue(rawValue: 1)
-        ])
+        symbols.iconOpacity = MGLStyleValue(interpolationMode: .exponential,
+                                            cameraStops: [
+                                                5.9: MGLStyleValue(rawValue: 0),
+                                                6: MGLStyleValue(rawValue: 1)],
+                                            options: nil)
         symbols.iconHaloColor = MGLStyleValue(rawValue: UIColor.white.withAlphaComponent(0.5))
         symbols.iconHaloWidth = MGLStyleValue(rawValue: 1)
         // {name} references the "name" key in an MGLPointFeature’s attributes dictionary.
         symbols.text = MGLStyleValue(rawValue: "{name}")
         symbols.textColor = symbols.iconColor
-        symbols.textFontSize = MGLStyleValue(stops: [
+        symbols.textFontSize = MGLStyleValue(interpolationMode: .exponential, cameraStops: [
             10: MGLStyleValue(rawValue: 10),
             16: MGLStyleValue(rawValue: 16)
-        ])
+            ], options: nil)
         symbols.textTranslation = MGLStyleValue(rawValue: NSValue(cgVector: CGVector(dx: 10, dy: 0)))
         symbols.textOpacity = symbols.iconOpacity
         symbols.textHaloColor = symbols.iconHaloColor
