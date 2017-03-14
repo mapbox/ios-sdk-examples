@@ -44,10 +44,9 @@ class RuntimeAnimateLineExample_Swift: UIViewController, MGLMapViewDelegate {
         layer.lineCap = MGLStyleValue(rawValue: NSValue(mglLineCap: .round))
         layer.lineColor = MGLStyleValue(rawValue: UIColor.red)
         layer.lineWidth = MGLStyleFunction(interpolationMode: .exponential,
-                                           cameraStops: [
-                                            14: MGLStyleConstantValue<NSNumber>(rawValue: 5),
-                                            18: MGLStyleConstantValue<NSNumber>(rawValue: 20)],
-                                           options: [.defaultValue : MGLStyleConstantValue<NSNumber>(rawValue: 1.5)])
+            cameraStops: [14: MGLStyleConstantValue<NSNumber>(rawValue: 5),
+                          18: MGLStyleConstantValue<NSNumber>(rawValue: 20)],
+            options: [.defaultValue : MGLStyleConstantValue<NSNumber>(rawValue: 1.5)])
         style.addLayer(layer)
     }
 

@@ -50,9 +50,9 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
 
             // Use a style function to smoothly adjust the circle radius from 2pt to 180pt between zoom levels 12 and 22. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
             layer.circleRadius = MGLStyleValue(interpolationMode: .exponential,
-                                               cameraStops: [12: MGLStyleValue(rawValue: 2),
-                                                             22: MGLStyleValue(rawValue: 180)],
-                                               options: [.defaultValue : 1.75])
+                cameraStops: [12: MGLStyleValue(rawValue: 2),
+                              22: MGLStyleValue(rawValue: 180)],
+                options: [.defaultValue : 1.75])
             
 //            (interpolationBase: 1.75, stops: )
             layer.circleOpacity = MGLStyleValue(rawValue: 0.7)
