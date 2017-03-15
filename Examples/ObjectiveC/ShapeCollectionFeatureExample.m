@@ -26,9 +26,9 @@ NSString *const MapboxAccessToken = @"<#Access Token#>";
     
     // Parse the GeoJSON data.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *urlString = [NSString stringWithFormat:@"https://api.mapbox.com/datasets/v1/mapbox/cj004g2ay04vj2xls3oqdu2ou/features?access_token=%@", MapboxAccessToken];
-        NSURL *url = [NSURL URLWithString: urlString];
-        NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"metro-line" ofType:@"geojson"];
+        
+        NSData *data = [NSData dataWithContentsOfFile:path];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self drawShapeCollection:data];

@@ -1,7 +1,5 @@
 import Mapbox;
 
-let MapboxAccessToken = "<# Access Token #>"
-
 @objc(ShapeCollectionFeatureExample_Swift)
 
 class ShapeCollectionFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
@@ -25,9 +23,9 @@ class ShapeCollectionFeatureExample_Swift: UIViewController, MGLMapViewDelegate 
         
         // Parse the GeoJSON data.
         DispatchQueue.global().async {
-            let url = URL(string: "https://api.mapbox.com/datasets/v1/mapbox/cj004g2ay04vj2xls3oqdu2ou/features?access_token=\(MapboxAccessToken)")
-            
-            let data = try! Data(contentsOf: url!)
+            guard let url = Bundle.main.url(forResource: "metro-line", withExtension: "geojson") else { return }
+
+            let data = try! Data(contentsOf: url)
             
             DispatchQueue.main.async {
                 self.drawShapeCollection(data: data)
