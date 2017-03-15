@@ -60,7 +60,7 @@ NSString *const MBXExampleRuntimeCircleStyles = @"RuntimeCircleStylesExample";
             cameraStops:@{
                 @12: [MGLStyleValue valueWithRawValue:@2],
                 @22: [MGLStyleValue valueWithRawValue:@180]
-                }
+            }
             options: @{MGLStyleFunctionOptionDefaultValue:@1.75}];
         layer.circleOpacity = [MGLStyleValue valueWithRawValue:@0.7];
 

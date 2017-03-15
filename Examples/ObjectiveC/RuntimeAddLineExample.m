@@ -56,7 +56,7 @@ NSString *const MBXExampleRuntimeAddLine = @"RuntimeAddLineExample";
         cameraStops:@{
             @14: [MGLStyleValue valueWithRawValue:@2],
             @18: [MGLStyleValue valueWithRawValue:@20]
-            }
+        }
         options:@{MGLStyleFunctionOptionDefaultValue:@1.5}];
 
     // We can also add a second layer that will draw a stroke around the original line.
@@ -73,7 +73,7 @@ NSString *const MBXExampleRuntimeAddLine = @"RuntimeAddLineExample";
         cameraStops:@{
             @14: [MGLStyleValue valueWithRawValue:@1],
             @18: [MGLStyleValue valueWithRawValue:@4]
-            }
+        }
         options:@{MGLStyleFunctionOptionDefaultValue:@1.5}];
     
     // Just for fun, let’s add another copy of the line with a dash pattern.

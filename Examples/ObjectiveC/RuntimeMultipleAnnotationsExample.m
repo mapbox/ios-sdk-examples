@@ -53,14 +53,14 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
         cameraStops:@{
             @2: [MGLStyleValue valueWithRawValue:@0.5],
             @7: [MGLStyleValue valueWithRawValue:@1.0]
-            }
+        }
         options:@{MGLStyleFunctionOptionDefaultValue:[MGLStyleValue valueWithRawValue:@0.75]}];
                              
     circles.circleRadius = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeInterval
         cameraStops:@{
             @2: [MGLStyleValue valueWithRawValue:@2],
             @7: [MGLStyleValue valueWithRawValue:@3]
-            }
+        }
         options:@{MGLStyleFunctionOptionDefaultValue:@1}];
     
     // Use MGLSymbolStyleLayer for more complex styling of points including custom icons and text rendering.
@@ -71,7 +71,7 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
         cameraStops:@{
             @5.9: [MGLStyleValue valueWithRawValue:@0],
             @6: [MGLStyleValue valueWithRawValue:@1],
-            }
+        }
         options:nil];
     symbols.iconHaloColor = [MGLStyleValue valueWithRawValue:[[UIColor whiteColor] colorWithAlphaComponent:0.5]];
     symbols.iconHaloWidth = [MGLStyleValue valueWithRawValue:@1];
@@ -82,7 +82,7 @@ NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotati
         cameraStops:@{
             @10: [MGLStyleValue valueWithRawValue:@10],
             @16: [MGLStyleValue valueWithRawValue:@16],
-            }
+        }
         options:nil];
     symbols.textTranslation = [MGLStyleValue valueWithRawValue:[NSValue valueWithCGVector:CGVectorMake(10, 0)]];
     symbols.textOpacity = symbols.iconOpacity;
