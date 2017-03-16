@@ -53,10 +53,10 @@ class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
         layer.lineCap = MGLStyleValue(rawValue: NSValue(mglLineCap: .round))
         layer.lineColor = MGLStyleValue(rawValue: UIColor(red: 59/255, green:178/255, blue:208/255, alpha:1))
         // Use a style function to smoothly adjust the line width from 2pt to 20pt between zoom levels 14 and 18. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
-        layer.lineWidth = MGLStyleValue(interpolationBase: 1.5, stops: [
-            14: MGLStyleValue(rawValue: 2),
-            18: MGLStyleValue(rawValue: 20),
-        ])
+        layer.lineWidth = MGLStyleValue(interpolationMode: .exponential,
+            cameraStops: [14: MGLStyleValue<NSNumber>(rawValue: 2),
+                          18: MGLStyleValue<NSNumber>(rawValue: 20)],
+            options: [.defaultValue : MGLStyleConstantValue<NSNumber>(rawValue: 1.5)])
 
         // We can also add a second layer that will draw a stroke around the original line.
         let casingLayer = MGLLineStyleLayer(identifier: "polyline-case", source: source)
@@ -68,10 +68,10 @@ class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
         // Stroke color slightly darker than the line color.
         casingLayer.lineColor = MGLStyleValue(rawValue: UIColor(red: 41/255, green:145/255, blue:171/255, alpha:1))
         // Use a style function to gradually increase the stroke width between zoom levels 14 and 18.
-        casingLayer.lineWidth = MGLStyleValue(interpolationBase: 1.5, stops: [
-            14: MGLStyleValue(rawValue: 1),
-            18: MGLStyleValue(rawValue: 4),
-        ])
+        casingLayer.lineWidth = MGLStyleValue(interpolationMode: .exponential,
+            cameraStops: [14: MGLStyleValue(rawValue: 1),
+                          18: MGLStyleValue(rawValue: 4)],
+            options: [.defaultValue : MGLStyleConstantValue<NSNumber>(rawValue: 1.5)])
 
         // Just for fun, let’s add another copy of the line with a dash pattern.
         let dashedLayer = MGLLineStyleLayer(identifier: "polyline-dash", source: source)

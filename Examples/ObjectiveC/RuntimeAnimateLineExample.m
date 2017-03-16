@@ -42,18 +42,18 @@ NSString *const MBXExampleRuntimeAnimateLine = @"RuntimeAnimateLineExample";
     MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"polyline" features:@[] options:nil];
     [self.mapView.style addSource:source];
     self.polylineSource = source;
-
-    NSDictionary *lineWidthStops = @{
-        @14: [MGLStyleValue valueWithRawValue: @5],
-        @18: [MGLStyleValue valueWithRawValue: @20]
-    };
-
+    
     // Add a layer to style our polyline.
     MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline" source:source];
     layer.lineJoin = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLineJoin:MGLLineJoinRound]];
     layer.lineCap = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
     layer.lineColor = [MGLStyleValue valueWithRawValue:[UIColor redColor]];
-    layer.lineWidth = [MGLStyleValue valueWithInterpolationBase:1.5 stops: lineWidthStops];
+    layer.lineWidth = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
+        cameraStops: @{
+            @14: [MGLStyleValue valueWithRawValue:@5],
+            @18: [MGLStyleValue valueWithRawValue:@20]
+        }
+        options:@{MGLStyleFunctionOptionDefaultValue:@1.75}];
 
     [self.mapView.style addLayer:layer];
 }
