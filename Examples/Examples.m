@@ -23,6 +23,7 @@
         MBXExampleClustering,
         MBXExampleCustomRasterStyle,
         MBXExampleCustomStyle,
+        MBXExampleDDSCircleLayer,
         MBXExampleDefaultStyles,
         MBXExampleDraggableAnnotationView,
         MBXExampleDrawingAGeoJSONLine,
