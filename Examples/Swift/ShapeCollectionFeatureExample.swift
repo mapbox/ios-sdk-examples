@@ -4,7 +4,7 @@ import Mapbox;
 
 class ShapeCollectionFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
     
-    var mapView : MGLMapView!
+    var mapView: MGLMapView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

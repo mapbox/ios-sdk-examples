@@ -2,7 +2,6 @@
 @import Mapbox;
 
 NSString *const MBXExampleShapeCollectionFeature = @"ShapeCollectionFeatureExample";
-NSString *const MapboxAccessToken = @"<#Access Token#>";
 
 @interface ShapeCollectionFeatureExample () <MGLMapViewDelegate>
 @property (nonatomic) MGLMapView *mapView;
