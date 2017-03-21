@@ -56,7 +56,7 @@ NSString *const MBXExampleRuntimeCircleStyles = @"RuntimeCircleStylesExample";
         layer.sourceLayerIdentifier = @"sf2010";
 
         // Use a style function to smoothly adjust the circle radius from 2pt to 180pt between zoom levels 12 and 22. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
-        layer.circleRadius = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeCategorical
+        layer.circleRadius = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
             cameraStops:@{
                 @12: [MGLStyleValue valueWithRawValue:@2],
                 @22: [MGLStyleValue valueWithRawValue:@180]
