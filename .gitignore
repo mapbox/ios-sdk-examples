@@ -1,9 +1,7 @@
-Mapbox.framework
-Examples.xcodeproj/project.xcworkspace/
-
-.DS_Store
-xcuserdata/
-DerivedData/
-
 # Ignore the file containing your Mapbox access token, to keep it out of public repos.
 mapbox_access_token
+
+xcuserdata
+DerivedData/
+Pods
+*.xcworkspace
