@@ -38,30 +38,21 @@
 		3ED403481E006BE800230C95 /* CameraFlyToExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED403471E006BE800230C95 /* CameraFlyToExample.m */; };
 		646B62971DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62961DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift */; };
 		646B629C1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B629B1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m */; };
-		646B629D1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B629B1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m */; };
 		646B62A41DEF7115000AA523 /* RuntimeAddLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */; };
 		646B62A61DEF7121000AA523 /* RuntimeAnimateLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */; };
 		646B62AE1DEF7155000AA523 /* RuntimeAddLineExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62AD1DEF7155000AA523 /* RuntimeAddLineExample.swift */; };
 		646B62B01DEF7161000AA523 /* RuntimeAnimateLineExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62AF1DEF7161000AA523 /* RuntimeAnimateLineExample.swift */; };
-		646B62B11DEF73A9000AA523 /* RuntimeAddLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */; };
-		646B62B21DEF73AB000AA523 /* RuntimeAnimateLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */; };
 		646B62B41DEF9613000AA523 /* RuntimeCircleStylesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62B31DEF9613000AA523 /* RuntimeCircleStylesExample.swift */; };
 		646B62BD1DEF965A000AA523 /* RuntimeCircleStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */; };
-		646B62BE1DEF965A000AA523 /* RuntimeCircleStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */; };
 		64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */ = {isa = PBXBuildFile; fileRef = 64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */; };
-		64BBDAF11DF22D9600BB705D /* third_party_vector_style.json in Resources */ = {isa = PBXBuildFile; fileRef = 64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */; };
 		64BBDAF61DF232FD00BB705D /* SelectFeatureExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAF51DF232FD00BB705D /* SelectFeatureExample.swift */; };
 		64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAF71DF2330B00BB705D /* SelectFeatureExample.m */; };
-		64BBDAF91DF2330B00BB705D /* SelectFeatureExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAF71DF2330B00BB705D /* SelectFeatureExample.m */; };
 		64BBDAFD1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAFC1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m */; };
-		64BBDAFE1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAFC1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m */; };
 		64BBDB031DF24E0900BB705D /* RuntimeMultipleAnnotationsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDB021DF24E0900BB705D /* RuntimeMultipleAnnotationsExample.swift */; };
 		64CF970C1DF224C500C3C27B /* SourceCustomVectorExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970B1DF224C500C3C27B /* SourceCustomVectorExample.m */; };
-		64CF970D1DF224C500C3C27B /* SourceCustomVectorExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970B1DF224C500C3C27B /* SourceCustomVectorExample.m */; };
 		64CF97101DF224E400C3C27B /* SourceCustomVectorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970F1DF224E400C3C27B /* SourceCustomVectorExample.swift */; };
 		64CF97121DF224F600C3C27B /* SourceCustomRasterExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97111DF224F600C3C27B /* SourceCustomRasterExample.swift */; };
 		64CF97171DF2251500C3C27B /* SourceCustomRasterExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97161DF2251500C3C27B /* SourceCustomRasterExample.m */; };
-		64CF97181DF2251500C3C27B /* SourceCustomRasterExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97161DF2251500C3C27B /* SourceCustomRasterExample.m */; };
 		960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */; };
 		96115A681CAD4E1C000963B8 /* OfflinePackExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96115A671CAD4E1C000963B8 /* OfflinePackExample.m */; };
 		961962911C581700002D3DAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962901C581700002D3DAB /* main.m */; };
@@ -94,37 +85,6 @@
 		969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */; };
 		96A2A1CF1C8CA16C0059441E /* CustomCalloutViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A1CE1C8CA16C0059441E /* CustomCalloutViewExample.m */; };
 		96A2A1D21C8CA74B0059441E /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A1D11C8CA74B0059441E /* CustomCalloutView.m */; };
-		96CABF421DC1390600C7BAEF /* AnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 962B450E1D1C8520007B7454 /* AnnotationViewExample.m */; };
-		96CABF461DC1390600C7BAEF /* SimpleMapViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */; };
-		96CABF471DC1390600C7BAEF /* DraggableAnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */; };
-		96CABF491DC1390600C7BAEF /* CustomCalloutViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A1CE1C8CA16C0059441E /* CustomCalloutViewExample.m */; };
-		96CABF4A1DC1390600C7BAEF /* DrawingAMarkerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */; };
-		96CABF4B1DC1390600C7BAEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962931C581700002D3DAB /* AppDelegate.m */; };
-		96CABF4D1DC1390600C7BAEF /* CustomStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA21C5AAD8F006A58C6 /* CustomStyleExample.m */; };
-		96CABF4E1DC1390600C7BAEF /* CustomAnnotationModelExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */; };
-		96CABF4F1DC1390600C7BAEF /* ExamplesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962D11C5821A9002D3DAB /* ExamplesTableViewController.m */; };
-		96CABF501DC1390600C7BAEF /* DrawingAPolygonExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */; };
-		96CABF511DC1390600C7BAEF /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A1D11C8CA74B0059441E /* CustomCalloutView.m */; };
-		96CABF531DC1390600C7BAEF /* DrawingACustomMarkerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D431FB1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m */; };
-		96CABF541DC1390600C7BAEF /* CustomRasterStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */; };
-		96CABF551DC1390600C7BAEF /* PointConversionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247291C5C1FF800494AB8 /* PointConversionExample.m */; };
-		96CABF591DC1390600C7BAEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962901C581700002D3DAB /* main.m */; };
-		96CABF5A1DC1390600C7BAEF /* CalloutDelegateUsageExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247121C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m */; };
-		96CABF5C1DC1390600C7BAEF /* Examples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AA931C5AA702006A58C6 /* Examples.m */; };
-		96CABF5E1DC1390600C7BAEF /* DefaultStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */; };
-		96CABF611DC1390600C7BAEF /* SatelliteStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */; };
-		96CABF621DC1390600C7BAEF /* OfflinePackExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96115A671CAD4E1C000963B8 /* OfflinePackExample.m */; };
-		96CABF631DC1390600C7BAEF /* DrawingAGeoJSONLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */; };
-		96CABF661DC1390600C7BAEF /* UserTrackingModesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */; };
-		96CABF691DC1390600C7BAEF /* CameraAnimationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247261C5C1DC700494AB8 /* CameraAnimationExample.m */; };
-		96CABF6B1DC1390600C7BAEF /* ExamplesContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962D41C583FDC002D3DAB /* ExamplesContainerViewController.m */; };
-		96CABF6E1DC1390600C7BAEF /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961962C41C5818EB002D3DAB /* Mapbox.framework */; };
-		96CABF701DC1390600C7BAEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9619629D1C581700002D3DAB /* LaunchScreen.storyboard */; };
-		96CABF711DC1390600C7BAEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9619629B1C581700002D3DAB /* Assets.xcassets */; };
-		96CABF721DC1390600C7BAEF /* example.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 9682471C1C5C123B00494AB8 /* example.geojson */; };
-		96CABF731DC1390600C7BAEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961962CE1C581FBC002D3DAB /* Main.storyboard */; };
-		96CABF741DC1390600C7BAEF /* pisavector.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D432051C84B9CF007D09D1 /* pisavector.xcassets */; };
-		96CABF761DC1390600C7BAEF /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 961962C41C5818EB002D3DAB /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96D431FC1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D431FB1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m */; };
 		96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D432051C84B9CF007D09D1 /* pisavector.xcassets */; };
 		DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5939E31E6639BA0009BEB2 /* ClusteringExample.swift */; };
@@ -158,17 +118,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				961962C61C5818EB002D3DAB /* Mapbox.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		96CABF751DC1390600C7BAEF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				96CABF761DC1390600C7BAEF /* Mapbox.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,7 +245,6 @@
 		96A2A1CE1C8CA16C0059441E /* CustomCalloutViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCalloutViewExample.m; path = Examples/ObjectiveC/CustomCalloutViewExample.m; sourceTree = SOURCE_ROOT; };
 		96A2A1D01C8CA74B0059441E /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCalloutView.h; path = Examples/ObjectiveC/CustomCalloutView.h; sourceTree = SOURCE_ROOT; };
 		96A2A1D11C8CA74B0059441E /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCalloutView.m; path = Examples/ObjectiveC/CustomCalloutView.m; sourceTree = SOURCE_ROOT; };
-		96CABF7A1DC1390600C7BAEF /* Swift 2.3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift 2.3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96D431FA1C84B4F7007D09D1 /* DrawingACustomMarkerExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawingACustomMarkerExample.h; path = Examples/ObjectiveC/DrawingACustomMarkerExample.h; sourceTree = SOURCE_ROOT; };
 		96D431FB1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawingACustomMarkerExample.m; path = Examples/ObjectiveC/DrawingACustomMarkerExample.m; sourceTree = SOURCE_ROOT; };
 		96D432051C84B9CF007D09D1 /* pisavector.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = pisavector.xcassets; sourceTree = "<group>"; };
@@ -327,14 +275,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		96CABF6D1DC1390600C7BAEF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				96CABF6E1DC1390600C7BAEF /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +379,6 @@
 				9619628C1C581700002D3DAB /* Examples.app */,
 				961962A51C581700002D3DAB /* ExamplesTests.xctest */,
 				961962B01C581700002D3DAB /* ExamplesUITests.xctest */,
-				96CABF7A1DC1390600C7BAEF /* Swift 2.3.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -617,24 +556,6 @@
 			productReference = 961962B01C581700002D3DAB /* ExamplesUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		96CABF3F1DC1390600C7BAEF /* Swift 2.3 */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 96CABF771DC1390600C7BAEF /* Build configuration list for PBXNativeTarget "Swift 2.3" */;
-			buildPhases = (
-				96CABF401DC1390600C7BAEF /* Sources */,
-				96CABF6D1DC1390600C7BAEF /* Frameworks */,
-				96CABF6F1DC1390600C7BAEF /* Resources */,
-				96CABF751DC1390600C7BAEF /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Swift 2.3";
-			productName = Examples;
-			productReference = 96CABF7A1DC1390600C7BAEF /* Swift 2.3.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -658,10 +579,6 @@
 						CreatedOnToolsVersion = 7.3;
 						TestTargetID = 9619628B1C581700002D3DAB;
 					};
-					96CABF3F1DC1390600C7BAEF = {
-						DevelopmentTeam = U8B2JGE4C6;
-						ProvisioningStyle = Manual;
-					};
 				};
 			};
 			buildConfigurationList = 961962871C581700002D3DAB /* Build configuration list for PBXProject "Examples" */;
@@ -678,7 +595,6 @@
 			projectRoot = "";
 			targets = (
 				9619628B1C581700002D3DAB /* Examples */,
-				96CABF3F1DC1390600C7BAEF /* Swift 2.3 */,
 				961962A41C581700002D3DAB /* ExamplesTests */,
 				961962AF1C581700002D3DAB /* ExamplesUITests */,
 			);
@@ -714,19 +630,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		96CABF6F1DC1390600C7BAEF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				96CABF701DC1390600C7BAEF /* LaunchScreen.storyboard in Resources */,
-				96CABF711DC1390600C7BAEF /* Assets.xcassets in Resources */,
-				96CABF721DC1390600C7BAEF /* example.geojson in Resources */,
-				64BBDAF11DF22D9600BB705D /* third_party_vector_style.json in Resources */,
-				96CABF731DC1390600C7BAEF /* Main.storyboard in Resources */,
-				96CABF741DC1390600C7BAEF /* pisavector.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,45 +743,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				961962B51C581700002D3DAB /* ExamplesUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		96CABF401DC1390600C7BAEF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				96CABF421DC1390600C7BAEF /* AnnotationViewExample.m in Sources */,
-				646B62B21DEF73AB000AA523 /* RuntimeAnimateLineExample.m in Sources */,
-				96CABF461DC1390600C7BAEF /* SimpleMapViewExample.m in Sources */,
-				96CABF471DC1390600C7BAEF /* DraggableAnnotationViewExample.m in Sources */,
-				96CABF491DC1390600C7BAEF /* CustomCalloutViewExample.m in Sources */,
-				96CABF4A1DC1390600C7BAEF /* DrawingAMarkerExample.m in Sources */,
-				96CABF4B1DC1390600C7BAEF /* AppDelegate.m in Sources */,
-				646B629D1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m in Sources */,
-				64BBDAFE1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m in Sources */,
-				96CABF4D1DC1390600C7BAEF /* CustomStyleExample.m in Sources */,
-				96CABF4E1DC1390600C7BAEF /* CustomAnnotationModelExample.m in Sources */,
-				64BBDAF91DF2330B00BB705D /* SelectFeatureExample.m in Sources */,
-				96CABF4F1DC1390600C7BAEF /* ExamplesTableViewController.m in Sources */,
-				96CABF501DC1390600C7BAEF /* DrawingAPolygonExample.m in Sources */,
-				646B62B11DEF73A9000AA523 /* RuntimeAddLineExample.m in Sources */,
-				96CABF511DC1390600C7BAEF /* CustomCalloutView.m in Sources */,
-				96CABF531DC1390600C7BAEF /* DrawingACustomMarkerExample.m in Sources */,
-				96CABF541DC1390600C7BAEF /* CustomRasterStyleExample.m in Sources */,
-				96CABF551DC1390600C7BAEF /* PointConversionExample.m in Sources */,
-				96CABF591DC1390600C7BAEF /* main.m in Sources */,
-				96CABF5A1DC1390600C7BAEF /* CalloutDelegateUsageExample.m in Sources */,
-				96CABF5C1DC1390600C7BAEF /* Examples.m in Sources */,
-				96CABF5E1DC1390600C7BAEF /* DefaultStylesExample.m in Sources */,
-				96CABF611DC1390600C7BAEF /* SatelliteStyleExample.m in Sources */,
-				96CABF621DC1390600C7BAEF /* OfflinePackExample.m in Sources */,
-				96CABF631DC1390600C7BAEF /* DrawingAGeoJSONLineExample.m in Sources */,
-				646B62BE1DEF965A000AA523 /* RuntimeCircleStylesExample.m in Sources */,
-				96CABF661DC1390600C7BAEF /* UserTrackingModesExample.m in Sources */,
-				96CABF691DC1390600C7BAEF /* CameraAnimationExample.m in Sources */,
-				96CABF6B1DC1390600C7BAEF /* ExamplesContainerViewController.m in Sources */,
-				64CF970D1DF224C500C3C27B /* SourceCustomVectorExample.m in Sources */,
-				64CF97181DF2251500C3C27B /* SourceCustomRasterExample.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1093,53 +957,6 @@
 			};
 			name = Release;
 		};
-		96CABF781DC1390600C7BAEF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = U8B2JGE4C6;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = Examples/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.Examples;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d0f67bc5-9077-4698-9399-f756da8c7f70";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Development";
-				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
-			};
-			name = Debug;
-		};
-		96CABF791DC1390600C7BAEF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = U8B2JGE4C6;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = Examples/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.Examples;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d0f67bc5-9077-4698-9399-f756da8c7f70";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Development";
-				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
-				SWIFT_VERSION = 2.3;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1175,15 +992,6 @@
 			buildConfigurations = (
 				961962C01C581700002D3DAB /* Debug */,
 				961962C11C581700002D3DAB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		96CABF771DC1390600C7BAEF /* Build configuration list for PBXNativeTarget "Swift 2.3" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				96CABF781DC1390600C7BAEF /* Debug */,
-				96CABF791DC1390600C7BAEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
