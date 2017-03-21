@@ -610,16 +610,18 @@
 				TargetAttributes = {
 					9619628B1C581700002D3DAB = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = U8B2JGE4C6;
+						DevelopmentTeam = GJZR2MEM28;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					961962A41C581700002D3DAB = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = GJZR2MEM28;
 						TestTargetID = 9619628B1C581700002D3DAB;
 					};
 					961962AF1C581700002D3DAB = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = GJZR2MEM28;
 						TestTargetID = 9619628B1C581700002D3DAB;
 					};
 				};
@@ -1045,7 +1047,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = U8B2JGE4C6;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = GJZR2MEM28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1055,8 +1058,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.Examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d0f67bc5-9077-4698-9399-f756da8c7f70";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1070,7 +1073,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = U8B2JGE4C6;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = GJZR2MEM28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1080,8 +1084,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.Examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d0f67bc5-9077-4698-9399-f756da8c7f70";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1092,6 +1096,7 @@
 			baseConfigurationReference = 589ABF8859560819F8B431C7 /* Pods-ExamplesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = GJZR2MEM28;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ExamplesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1106,6 +1111,7 @@
 			baseConfigurationReference = 7556D44879C1E2866B0355B8 /* Pods-ExamplesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = GJZR2MEM28;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ExamplesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1120,6 +1126,7 @@
 			baseConfigurationReference = 0A4917D6B62E749D739044A4 /* Pods-ExamplesUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				DEVELOPMENT_TEAM = GJZR2MEM28;
 				INFOPLIST_FILE = ExamplesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.ExamplesUITests;
@@ -1133,6 +1140,7 @@
 			baseConfigurationReference = E0520BEE090DE0364897BAF3 /* Pods-ExamplesUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				DEVELOPMENT_TEAM = GJZR2MEM28;
 				INFOPLIST_FILE = ExamplesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.ExamplesUITests;
