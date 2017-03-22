@@ -67,9 +67,9 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     layer.sourceLayerIdentifier = @"stateData_2-dx853g";
     
     NSDictionary *stops = @{
-                            @0: [MGLStyleValue valueWithRawValue:[UIColor yellowColor]],
-                            @100: [MGLStyleValue valueWithRawValue:[UIColor redColor]],
-                            @1200: [MGLStyleValue valueWithRawValue:[UIColor blueColor]]
+                            @0: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:0.94 green:0.93 blue:0.96 alpha:1.0]],
+                            @600: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:0.62 green:0.60 blue:0.78 alpha:1.0]],
+                            @1200: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:0.33 green:0.15 blue:0.56 alpha:1.0]]
                             };
     layer.fillColor = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential sourceStops:stops attributeName:@"density" options:@{MGLStyleFunctionOptionDefaultValue : [MGLStyleValue valueWithRawValue:[UIColor whiteColor]]}];
     
