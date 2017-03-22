@@ -31,7 +31,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.mapView];
     
-    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:nil];
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     gesture.delegate = self;
     [self.mapView addGestureRecognizer:gesture];
 }
@@ -46,11 +46,30 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
 }
 
 // JK - I need to put in a block?
-- (void)changeOpacityForFeatureWith:(NSString*)name completion:^(BOOL finished) {
+- (void)changeOpacity:(NSString*)name {
     
 }
+
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     
+    NSURL *url = [NSURL URLWithString:@"mapbox://examples.69ytlgls"];
+    
+    MGLVectorSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"state-source" configurationURL:url];
+    [style addSource:source];
+    
+    MGLFillStyleLayer *layer = [[MGLFillStyleLayer alloc] initWithIdentifier:@"state-layer" source:source];
+    layer.sourceLayerIdentifier = @"stateData_2-dx853g";
+    
+    NSDictionary *stops = @{
+                            @0: [MGLStyleValue valueWithRawValue:[UIColor yellowColor]],
+                            @100: [MGLStyleValue valueWithRawValue:[UIColor redColor]],
+                            @1200: [MGLStyleValue valueWithRawValue:[UIColor blueColor]]
+                            };
+    layer.fillColor = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential sourceStops:stops attributeName:@"density" options:@{MGLStyleFunctionOptionDefaultValue : [MGLStyleValue valueWithRawValue:[UIColor whiteColor]]}];
+    
+    MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"state-label-sm"];
+    
+    [style insertLayer:layer belowLayer:symbolLayer];
 }
 
 @end

@@ -54,8 +54,6 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGe
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
-        let symbolLayer = style.layer(withIdentifier: "state-label-sm")
-        
         let url = URL(string: "mapbox://examples.69ytlgls")!
         let source = MGLVectorSource(identifier: "state-source", configurationURL: url)
         style.addSource(source)
@@ -66,8 +64,8 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGe
                      100: MGLStyleValue<UIColor>(rawValue: .red),
                      1200: MGLStyleValue<UIColor>(rawValue: .blue)]
         
-        layer.fillColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "density", options: [.defaultValue : MGLStyleValue<UIColor>(rawValue: .blue)])
-        
+        layer.fillColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "density", options: [.defaultValue : MGLStyleValue<UIColor>(rawValue: .white)])
+        let symbolLayer = style.layer(withIdentifier: "state-label-sm")
         style.insertLayer(layer, below: symbolLayer!)
     }
 }
