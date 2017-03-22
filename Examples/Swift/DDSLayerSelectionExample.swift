@@ -61,7 +61,7 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGe
                      1200: MGLStyleValue<UIColor>(rawValue: .blue)]
         
         layer.fillColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "density", options: [.defaultValue : MGLStyleValue<UIColor>(rawValue: .white)])
-        let symbolLayer = style.layer(withIdentifier: "state-label-sm")
+        let symbolLayer = style.layer(withIdentifier: "place-city-sm")
         style.insertLayer(layer, below: symbolLayer!)
     }
 }

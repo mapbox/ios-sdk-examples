@@ -73,7 +73,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
                             };
     layer.fillColor = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential sourceStops:stops attributeName:@"density" options:@{MGLStyleFunctionOptionDefaultValue : [MGLStyleValue valueWithRawValue:[UIColor whiteColor]]}];
     
-    MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"state-label-sm"];
+    MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"place-city-sm"];
     
     [style insertLayer:layer belowLayer:symbolLayer];
 }
