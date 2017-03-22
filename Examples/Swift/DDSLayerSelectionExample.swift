@@ -13,8 +13,7 @@ import Mapbox
 class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGestureRecognizerDelegate {
     
     var mapView : MGLMapView!
-    var isStateSelected : Bool = false
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,22 +32,20 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGe
         let features = mapView.visibleFeatures(at: spot, styleLayerIdentifiers: Set(["state-layer"]))
         
         if let feature = features.first, let state = feature.attribute(forKey: "name") as? String{
-            changeOpacity(name: state, finished: {
-                isStateSelected = !isStateSelected
-            })
+            changeOpacity(name: state)
+        } else {
+            changeOpacity(name: "")
         }
     }
     
-    func changeOpacity(name: String, finished: ()->()) {
-        
+    func changeOpacity(name: String) {
         let layer = mapView.style?.layer(withIdentifier: "state-layer") as! MGLFillStyleLayer
-        if !isStateSelected  && name.characters.count > 0 {
-                layer.fillOpacity = MGLStyleValue(interpolationMode: .categorical, sourceStops: [name : MGLStyleValue<NSNumber>(rawValue: 1)], attributeName: "name", options: [.defaultValue : MGLStyleValue<NSNumber>(rawValue: 0)])
-        
+        if name.characters.count > 0 {
+            layer.fillOpacity = MGLStyleValue(interpolationMode: .categorical, sourceStops: [name : MGLStyleValue<NSNumber>(rawValue: 1)], attributeName: "name", options: [.defaultValue : MGLStyleValue<NSNumber>(rawValue: 0)])
+            
         } else {
             layer.fillOpacity = MGLStyleValue(rawValue: 1)
         }
-        finished()
     }
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {

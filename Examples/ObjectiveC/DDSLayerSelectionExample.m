@@ -16,7 +16,6 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
 @interface DDSLayerSelectionExample () <MGLMapViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
-@property (nonatomic) BOOL *isStateSelected;
 
 @end
 
@@ -33,31 +32,28 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     gesture.delegate = self;
+    gesture.numberOfTapsRequired = 1;
     [self.mapView addGestureRecognizer:gesture];
-    self.isStateSelected = FALSE;
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)gesture {
     CGPoint spot = [gesture locationInView:self.mapView];
-    NSArray *features = [self.mapView visibleFeaturesAtPoint:spot];
+    NSArray *features = [self.mapView visibleFeaturesAtPoint:spot inStyleLayersWithIdentifiers:[NSSet setWithObject:@"state-layer"]];
     
     MGLPolygonFeature *feature = [features firstObject];
     
     NSString *state = [feature attributeForKey:@"name"];
-    [self changeOpacityBasedOn:state withCompletion:^(BOOL finished) {
-        self.isStateSelected = !self.isStateSelected;
-    }];
+    [self changeOpacityBasedOn:state];
 }
 
 
-- (void)changeOpacityBasedOn:(NSString*)name withCompletion:(void(^)(BOOL finished))completionHandler {
+- (void)changeOpacityBasedOn:(NSString*)name {
     MGLFillStyleLayer *layer = [self.mapView.style layerWithIdentifier:@"state-layer"];
-    if (!self.isStateSelected && [name length] > 0) {
+    if ([name length] > 0) {
         layer.fillOpacity = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeCategorical sourceStops:@{name: [MGLStyleValue valueWithRawValue:@1]} attributeName:@"name" options:@{MGLStyleFunctionOptionDefaultValue: [MGLStyleValue valueWithRawValue:@0]}];
     } else {
         layer.fillOpacity = [MGLStyleValue valueWithRawValue:@1];
     }
-    completionHandler(TRUE);
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
