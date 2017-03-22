@@ -13,7 +13,10 @@
 
 NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
 
-@interface DDSLayerSelectionExample ()
+@interface DDSLayerSelectionExample () <MGLMapViewDelegate, UIGestureRecognizerDelegate>
+
+@property (nonatomic) MGLMapView *mapView;
+@property (nonatomic) Boolean *isStateSelected;
 
 @end
 
@@ -21,7 +24,33 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView.delegate = self;
+    
+    self.mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    [self.view addSubview:self.mapView];
+    
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:nil];
+    gesture.delegate = self;
+    [self.mapView addGestureRecognizer:gesture];
+}
+
+- (void)handleTap:(UITapGestureRecognizer *)gesture {
+    CGPoint spot = [gesture locationInView:self.mapView];
+    NSArray *features = [self.mapView visibleFeaturesAtPoint:spot];
+    
+    MGLPolygonFeature *feature = [features firstObject];
+    
+    NSString *state = [feature attributeForKey:@"name"];
+}
+
+// JK - I need to put in a block?
+- (void)changeOpacityForFeatureWith:(NSString*)name completion:^(BOOL finished) {
+    
+}
+- (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
+    
 }
 
 @end
