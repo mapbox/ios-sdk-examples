@@ -16,7 +16,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
 @interface DDSLayerSelectionExample () <MGLMapViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
-@property (nonatomic) Boolean *isStateSelected;
+@property (nonatomic) BOOL *isStateSelected;
 
 @end
 
@@ -34,6 +34,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     gesture.delegate = self;
     [self.mapView addGestureRecognizer:gesture];
+    self.isStateSelected = FALSE;
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)gesture {
@@ -43,11 +44,20 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     MGLPolygonFeature *feature = [features firstObject];
     
     NSString *state = [feature attributeForKey:@"name"];
+    [self changeOpacityBasedOn:state withCompletion:^(BOOL finished) {
+        self.isStateSelected = !self.isStateSelected;
+    }];
 }
 
-// JK - I need to put in a block?
-- (void)changeOpacity:(NSString*)name {
-    
+
+- (void)changeOpacityBasedOn:(NSString*)name withCompletion:(void(^)(BOOL finished))completionHandler {
+    MGLFillStyleLayer *layer = [self.mapView.style layerWithIdentifier:@"state-layer"];
+    if (!self.isStateSelected) {
+        layer.fillOpacity = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeCategorical sourceStops:@{name: [MGLStyleValue valueWithRawValue:@1]} attributeName:@"name" options:@{MGLStyleFunctionOptionDefaultValue: [MGLStyleValue valueWithRawValue:@0]}];
+    } else {
+        layer.fillOpacity = [MGLStyleValue valueWithRawValue:@1];
+    }
+    completionHandler(TRUE);
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
