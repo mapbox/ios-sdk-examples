@@ -1,4 +1,5 @@
 platform :ios, '8.0'
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
 target 'Examples' do
   use_frameworks!
