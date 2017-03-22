@@ -6,7 +6,7 @@
 //  Copyright © 2017 Mapbox. All rights reserved.
 //
 
-// url to use: mapbox://examples.69ytlgls
+// url to use: 
 
 #import "DDSLayerSelectionExample.h"
 @import Mapbox;
