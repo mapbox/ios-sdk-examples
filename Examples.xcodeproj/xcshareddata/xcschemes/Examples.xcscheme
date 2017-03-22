@@ -37,6 +37,11 @@
                BlueprintName = "ExamplesTests"
                ReferencedContainer = "container:Examples.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "ExamplesTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">

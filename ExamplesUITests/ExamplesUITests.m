@@ -42,8 +42,9 @@
         XCUIElement *map = app.otherElements[@"Map"];
         [self waitForElementToBeHittable:map];
 
-        [map doubleTap];
-        [map twoFingerTap];
+        // Just too unreliable.
+//        [map doubleTap];
+//        [map twoFingerTap];
 
         // Rotation flaps when the gesture doesn't fire reliably
 //        [map rotate:M_1_PI withVelocity:1];
