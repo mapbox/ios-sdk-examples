@@ -39,6 +39,7 @@
         MBXExampleRuntimeMultipleAnnotations,
         MBXExampleSatelliteStyle,
         MBXExampleSelectFeature,
+        MBXExampleShapeCollectionFeature,
         MBXExampleSimpleMapView,
         MBXExampleSourceCustomRaster,
         MBXExampleSourceCustomVector,
