@@ -42,10 +42,9 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGe
     func changeOpacity(name: String, finished: ()->()) {
         
         let layer = mapView.style?.layer(withIdentifier: "state-layer") as! MGLFillStyleLayer
-        if !isStateSelected {
-            if name.characters.count > 0 {
+        if !isStateSelected  && name.characters.count > 0 {
                 layer.fillOpacity = MGLStyleValue(interpolationMode: .categorical, sourceStops: [name : MGLStyleValue<NSNumber>(rawValue: 1)], attributeName: "name", options: [.defaultValue : MGLStyleValue<NSNumber>(rawValue: 0)])
-            }
+        
         } else {
             layer.fillOpacity = MGLStyleValue(rawValue: 1)
         }

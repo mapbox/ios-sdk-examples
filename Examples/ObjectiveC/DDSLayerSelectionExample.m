@@ -52,7 +52,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
 
 - (void)changeOpacityBasedOn:(NSString*)name withCompletion:(void(^)(BOOL finished))completionHandler {
     MGLFillStyleLayer *layer = [self.mapView.style layerWithIdentifier:@"state-layer"];
-    if (!self.isStateSelected) {
+    if (!self.isStateSelected && [name length] > 0) {
         layer.fillOpacity = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeCategorical sourceStops:@{name: [MGLStyleValue valueWithRawValue:@1]} attributeName:@"name" options:@{MGLStyleFunctionOptionDefaultValue: [MGLStyleValue valueWithRawValue:@0]}];
     } else {
         layer.fillOpacity = [MGLStyleValue valueWithRawValue:@1];
