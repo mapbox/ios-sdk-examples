@@ -13,6 +13,7 @@ class DDSCircleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView = MGLMapView(frame: view.bounds)
         mapView.styleURL = MGLStyle.lightStyleURL(withVersion: 9)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.tintColor = .darkGray
         
         // Set the map’s center coordinate and zoom level.
         mapView.setCenter(CLLocationCoordinate2D(latitude: 38.897, longitude: -77.039), animated: false)

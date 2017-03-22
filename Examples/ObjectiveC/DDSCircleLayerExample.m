@@ -19,6 +19,7 @@ NSString *const MBXExampleDDSCircleLayer = @"DDSCircleLayerExample";
         styleURL:[MGLStyle lightStyleURLWithVersion:9]];
     
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.mapView.tintColor = [UIColor darkGrayColor];
     
     // Set the map’s center coordinate and zoom level.
     self.mapView.centerCoordinate = CLLocationCoordinate2DMake(38.897,-77.039);

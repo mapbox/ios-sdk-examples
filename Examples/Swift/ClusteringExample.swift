@@ -13,6 +13,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
         mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL(withVersion: 9))
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.tintColor = .darkGray
         mapView.delegate = self
         view.addSubview(mapView)
 

@@ -12,6 +12,7 @@ class ShapeCollectionFeatureExample_Swift: UIViewController, MGLMapViewDelegate 
         mapView = MGLMapView(frame: view.bounds)
         mapView.styleURL = MGLStyle.lightStyleURL(withVersion: 9)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mapView.tintColor = .darkGray
         
         mapView.setCenter(CLLocationCoordinate2D(latitude:38.897435, longitude: -77.039679), zoomLevel: 12, animated: false)
         

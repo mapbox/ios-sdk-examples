@@ -14,6 +14,7 @@ NSString *const MBXExampleShapeCollectionFeature = @"ShapeCollectionFeatureExamp
     
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURLWithVersion:9]];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.mapView.tintColor = [UIColor darkGrayColor];
     
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(38.897435, -77.039679) zoomLevel:12 animated:NO];
     self.mapView.delegate = self;

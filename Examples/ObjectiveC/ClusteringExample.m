@@ -18,6 +18,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURLWithVersion:9]];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.mapView.tintColor = [UIColor darkGrayColor];
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
 
