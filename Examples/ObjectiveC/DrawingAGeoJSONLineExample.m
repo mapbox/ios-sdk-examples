@@ -31,62 +31,28 @@ NSString *const MBXExampleDrawingAGeoJSONLine = @"DrawingAGeoJSONLineExample";
 - (void)drawPolyline {
     // Perform GeoJSON parsing on a background thread
     dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(backgroundQueue, ^(void)
-    {
+    dispatch_async(backgroundQueue, ^(void) {
         // Get the path for example.geojson in the app's bundle
         NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"geojson"];
-       
-        // Load and serialize the GeoJSON into a dictionary filled with properly-typed objects
-        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:[[NSData alloc] initWithContentsOfFile:jsonPath] options:0 error:nil];
         
-        // Load the `features` dictionary for iteration
-        for (NSDictionary *feature in jsonDict[@"features"])
-        {
-            // Our GeoJSON only has one feature: a line string
-            if ([feature[@"geometry"][@"type"] isEqualToString:@"LineString"])
-            {
-                // Get the raw array of coordinates for our line
-                NSArray *rawCoordinates = feature[@"geometry"][@"coordinates"];
-                NSUInteger coordinatesCount = rawCoordinates.count;
-                
-                // Create a coordinates array, sized to fit all of the coordinates in the line.
-                // This array will hold the properly formatted coordinates for our MGLPolyline.
-                CLLocationCoordinate2D coordinates[coordinatesCount];
-                
-                // Iterate over `rawCoordinates` once for each coordinate on the line
-                for (NSUInteger index = 0; index < coordinatesCount; index++)
-                {
-                    // Get the individual coordinate for this index
-                    NSArray *point = [rawCoordinates objectAtIndex:index];
-                    
-                    // GeoJSON is "longitude, latitude" order, but we need the opposite
-                    CLLocationDegrees lat = [[point objectAtIndex:1] doubleValue];
-                    CLLocationDegrees lng = [[point objectAtIndex:0] doubleValue];
-                    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(lat, lng);
-                    
-                    // Add this formatted coordinate to the final coordinates array at the same index
-                    coordinates[index] = coordinate;
-                }
-                
-                // Create our polyline with the formatted coordinates array
-                MGLPolyline *polyline = [MGLPolyline polylineWithCoordinates:coordinates count:coordinatesCount];
-                
-                // Optionally set the title of the polyline, which can be used for:
-                //  - Callout view
-                //  - Object identification
-                // In this case, set it to the name included in the GeoJSON
-                polyline.title = feature[@"properties"][@"name"]; // "Crema to Council Crest"
-                
-                // Add the polyline to the map, back on the main thread
-                // Use weak reference to self to prevent retain cycle
-                __weak typeof(self) weakSelf = self;
-                dispatch_async(dispatch_get_main_queue(), ^(void)
-                {
-                    [weakSelf.mapView addAnnotation:polyline];
-                });
-            }
-        }
+        // Convert the file contents to a shape collection feature object
+        NSData *data = [[NSData alloc] initWithContentsOfFile:jsonPath];
+        MGLShapeCollectionFeature *shapeCollectionFeature = (MGLShapeCollectionFeature *)[MGLShape shapeWithData:data encoding:NSUTF8StringEncoding error:NULL];
         
+        MGLPolylineFeature *polyline = (MGLPolylineFeature *)shapeCollectionFeature.shapes.firstObject;
+        
+        // Optionally set the title of the polyline, which can be used for:
+        //  - Callout view
+        //  - Object identification
+        // In this case, set it to the name included in the GeoJSON
+        polyline.title = polyline.attributes[@"name"]; // "Crema to Council Crest"
+        
+        // Add the polyline to the map, back on the main thread
+        // Use weak reference to self to prevent retain cycle
+        __weak typeof(self) weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            [weakSelf.mapView addAnnotation:polyline];
+        });
     });
 }
 

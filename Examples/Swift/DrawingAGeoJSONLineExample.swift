@@ -29,53 +29,25 @@ class DrawingAGeoJSONLineExample_Swift: UIViewController, MGLMapViewDelegate {
             let url = URL(fileURLWithPath: jsonPath!)
             
             do {
-                let jsonData = try Data(contentsOf: url)
-                // Load and serialize the GeoJSON into a dictionary filled with properly-typed objects
-                if let jsonDict = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String : AnyObject] {
+                // Convert the file contents to a shape collection feature object
+                let data = try Data(contentsOf: url)
+                let shapeCollectionFeature = try MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as! MGLShapeCollectionFeature
+                
+                if let polyline = shapeCollectionFeature.shapes.first as? MGLPolylineFeature {
+                    // Optionally set the title of the polyline, which can be used for:
+                    //  - Callout view
+                    //  - Object identification
+                    polyline.title = polyline.attributes["name"] as? String
                     
-                    // Load the `features` array for iteration
-                    if let features = jsonDict["features"] as? NSArray {
-                        for feature in features {
-                            if let feature = feature as? NSDictionary {
-                                if let geometry = feature["geometry"] as? NSDictionary {
-                                    if geometry["type"] as? String == "LineString" {
-                                        // Create an array to hold the formatted coordinates for our line
-                                        var coordinates: [CLLocationCoordinate2D] = []
-                                        
-                                        if let locations = geometry["coordinates"] as? [[Double]] {
-                                            // Iterate over line coordinates, stored in GeoJSON as many lng, lat arrays
-                                            for location in locations {
-                                                // Make a CLLocationCoordinate2D with the lat, lng
-                                                let coordinate = CLLocationCoordinate2D(latitude: location[1], longitude: location[0])
-                                                
-                                                // Add coordinate to coordinates array
-                                                coordinates.append(coordinate)
-                                            }
-                                        }
-                                        
-                                        let line = MGLPolyline(coordinates: &coordinates, count: UInt(coordinates.count))
-                                        
-                                        // Optionally set the title of the polyline, which can be used for:
-                                        //  - Callout view
-                                        //  - Object identification
-                                        line.title = "Crema to Council Crest"
-                                        
-                                        // Add the annotation on the main thread
-                                        
-                                        DispatchQueue.main.async(execute: {
-                                            // Unowned reference to self to prevent retain cycle
-                                            [unowned self] in
-                                            self.mapView.addAnnotation(line)
-                                        })
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    // Add the annotation on the main thread
+                    DispatchQueue.main.async(execute: {
+                        // Unowned reference to self to prevent retain cycle
+                        [unowned self] in
+                        self.mapView.addAnnotation(polyline)
+                    })
                 }
             }
-            catch
-            {
+            catch {
                 print("GeoJSON parsing failed")
             }
             
