@@ -57,9 +57,9 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGe
         let layer = MGLFillStyleLayer(identifier: "state-layer", source: source)
         layer.sourceLayerIdentifier = "stateData_2-dx853g"
         let stops = [
-            0: MGLStyleValue(rawValue: UIColor(red:0.94, green:0.93, blue:0.96, alpha:1.0)),
-            600: MGLStyleValue(rawValue: UIColor(red:0.62, green:0.60, blue:0.78, alpha:1.0)),
-            1200: MGLStyleValue(rawValue: UIColor(red:0.33, green:0.15, blue:0.56, alpha:1.0))]
+            0: MGLStyleValue<UIColor>(rawValue: UIColor(red:0.94, green:0.93, blue:0.96, alpha:1.0)),
+            600: MGLStyleValue<UIColor>(rawValue: UIColor(red:0.62, green:0.60, blue:0.78, alpha:1.0)),
+            1200: MGLStyleValue<UIColor>(rawValue: UIColor(red:0.33, green:0.15, blue:0.56, alpha:1.0))]
         
         layer.fillColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "density", options: [.defaultValue : MGLStyleValue(rawValue: .white)])
         let symbolLayer = style.layer(withIdentifier: "place-city-sm")
