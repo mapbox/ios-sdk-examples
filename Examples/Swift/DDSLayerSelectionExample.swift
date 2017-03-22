@@ -19,18 +19,51 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGe
         
         mapView = MGLMapView(frame: view.bounds)
         mapView.delegate = self
+        mapView.setCenter(CLLocationCoordinate2D(latitude:39.232253141714885, longitude:-97.91015624999999), animated: false)
         mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         view.addSubview(mapView)
         
+        // Add a tap gesture recognizer to the map view.
         let gesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         gesture.delegate = self
         mapView.addGestureRecognizer(gesture)
     }
     
+    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
+        
+        // Load a tileset containing U.S. states and their population density.
+        let url = URL(string: "mapbox://examples.69ytlgls")!
+        let source = MGLVectorSource(identifier: "state-source", configurationURL: url)
+        style.addSource(source)
+        
+        let layer = MGLFillStyleLayer(identifier: "state-layer", source: source)
+        
+        // Access the tileset layer.
+        layer.sourceLayerIdentifier = "stateData_2-dx853g"
+        
+        // Create a stops dictionary. This defines the relationship between population density and a UIColor.
+        let stops = [0: MGLStyleValue(rawValue: UIColor.yellow),
+                     600: MGLStyleValue(rawValue: UIColor.red),
+                     1200: MGLStyleValue(rawValue: UIColor.blue)]
+        
+        // Style the fill color using the stops dictionary, exponential interpolation mode, and the feature attribute name.
+        layer.fillColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "density", options: [.defaultValue : MGLStyleValue(rawValue: UIColor.white)])
+        
+        // Insert the new layer below the layer that contains state border lines.
+        let symbolLayer = style.layer(withIdentifier: "admin-3-4-boundaries")
+        style.insertLayer(layer, below: symbolLayer!)
+    }
+    
+    
     func handleTap(_ gesture: UITapGestureRecognizer) {
+        
+        // Get the CGPoint where the user tapped.
         let spot = gesture.location(in: mapView)
+        
+        // Access the features at that point within the state layer.
         let features = mapView.visibleFeatures(at: spot, styleLayerIdentifiers: Set(["state-layer"]))
         
+        // Get the name of the selected state.
         if let feature = features.first, let state = feature.attribute(forKey: "name") as? String{
             changeOpacity(name: state)
         } else {
@@ -40,29 +73,15 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGe
     
     func changeOpacity(name: String) {
         let layer = mapView.style?.layer(withIdentifier: "state-layer") as! MGLFillStyleLayer
+        
+        // Check if a state was selected, then change the opacity of the states that were not selected.
         if name.characters.count > 0 {
             layer.fillOpacity = MGLStyleValue(interpolationMode: .categorical, sourceStops: [name : MGLStyleValue<NSNumber>(rawValue: 1)], attributeName: "name", options: [.defaultValue : MGLStyleValue<NSNumber>(rawValue: 0)])
             
         } else {
+            
+            // Reset the opacity for all states if the user did not tap on a state.
             layer.fillOpacity = MGLStyleValue(rawValue: 1)
         }
-    }
-    
-    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        
-        let url = URL(string: "mapbox://examples.69ytlgls")!
-        let source = MGLVectorSource(identifier: "state-source", configurationURL: url)
-        style.addSource(source)
-        
-        let layer = MGLFillStyleLayer(identifier: "state-layer", source: source)
-        layer.sourceLayerIdentifier = "stateData_2-dx853g"
-        let stops = [
-            0: MGLStyleValue<UIColor>(rawValue: UIColor(red:0.94, green:0.93, blue:0.96, alpha:1.0)),
-            600: MGLStyleValue<UIColor>(rawValue: UIColor(red:0.62, green:0.60, blue:0.78, alpha:1.0)),
-            1200: MGLStyleValue<UIColor>(rawValue: UIColor(red:0.33, green:0.15, blue:0.56, alpha:1.0))]
-        
-        layer.fillColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "density", options: [.defaultValue : MGLStyleValue(rawValue: .white)])
-        let symbolLayer = style.layer(withIdentifier: "place-city-sm")
-        style.insertLayer(layer, below: symbolLayer!)
     }
 }

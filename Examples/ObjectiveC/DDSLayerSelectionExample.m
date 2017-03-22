@@ -26,56 +26,75 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.delegate = self;
+    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(39.232253141714885,-97.91015624999999)];
     
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.mapView];
     
+    // Add a tap gesture recognizer to the map view.
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     gesture.delegate = self;
     gesture.numberOfTapsRequired = 1;
     [self.mapView addGestureRecognizer:gesture];
 }
 
-- (void)handleTap:(UITapGestureRecognizer *)gesture {
-    CGPoint spot = [gesture locationInView:self.mapView];
-    NSArray *features = [self.mapView visibleFeaturesAtPoint:spot inStyleLayersWithIdentifiers:[NSSet setWithObject:@"state-layer"]];
-    
-    MGLPolygonFeature *feature = [features firstObject];
-    
-    NSString *state = [feature attributeForKey:@"name"];
-    [self changeOpacityBasedOn:state];
-}
-
-
-- (void)changeOpacityBasedOn:(NSString*)name {
-    MGLFillStyleLayer *layer = [self.mapView.style layerWithIdentifier:@"state-layer"];
-    if ([name length] > 0) {
-        layer.fillOpacity = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeCategorical sourceStops:@{name: [MGLStyleValue valueWithRawValue:@1]} attributeName:@"name" options:@{MGLStyleFunctionOptionDefaultValue: [MGLStyleValue valueWithRawValue:@0]}];
-    } else {
-        layer.fillOpacity = [MGLStyleValue valueWithRawValue:@1];
-    }
-}
-
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     
+    // Load a tileset containing U.S. states and their population density.
     NSURL *url = [NSURL URLWithString:@"mapbox://examples.69ytlgls"];
     
     MGLVectorSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"state-source" configurationURL:url];
     [style addSource:source];
     
     MGLFillStyleLayer *layer = [[MGLFillStyleLayer alloc] initWithIdentifier:@"state-layer" source:source];
+    
+    // Access the tileset layer.
     layer.sourceLayerIdentifier = @"stateData_2-dx853g";
     
+    // Create a stops dictionary. This defines the relationship between population density and a UIColor.
     NSDictionary *stops = @{
-                            @0: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:0.94 green:0.93 blue:0.96 alpha:1.0]],
-                            @600: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:0.62 green:0.60 blue:0.78 alpha:1.0]],
-                            @1200: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:0.33 green:0.15 blue:0.56 alpha:1.0]]
+                            @0: [MGLStyleValue valueWithRawValue:[UIColor yellowColor]],
+                            @600: [MGLStyleValue valueWithRawValue:[UIColor redColor]],
+                            @1200: [MGLStyleValue valueWithRawValue:[UIColor blueColor]]
                             };
+    
+    // Style the fill color using the stops dictionary, exponential interpolation mode, and the feature attribute name.
     layer.fillColor = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential sourceStops:stops attributeName:@"density" options:@{MGLStyleFunctionOptionDefaultValue : [MGLStyleValue valueWithRawValue:[UIColor whiteColor]]}];
     
-    MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"place-city-sm"];
+    // Insert the new layer below the layer that contains state border lines.
+    MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"admin-3-4-boundaries"];
     
     [style insertLayer:layer belowLayer:symbolLayer];
+}
+
+- (void)handleTap:(UITapGestureRecognizer *)gesture {
+    
+    // Get the CGPoint where the user tapped.
+    CGPoint spot = [gesture locationInView:self.mapView];
+    
+    // Access the features at that point within the state layer.
+    NSArray *features = [self.mapView visibleFeaturesAtPoint:spot inStyleLayersWithIdentifiers:[NSSet setWithObject:@"state-layer"]];
+    
+    MGLPolygonFeature *feature = [features firstObject];
+    
+    // Get the name of the selected state.
+    NSString *state = [feature attributeForKey:@"name"];
+    
+    [self changeOpacityBasedOn:state];
+}
+
+- (void)changeOpacityBasedOn:(NSString*)name {
+    
+    MGLFillStyleLayer *layer = [self.mapView.style layerWithIdentifier:@"state-layer"];
+    
+    // Check if a state was selected, then change the opacity of the states that were not selected.
+    if ([name length] > 0) {
+        layer.fillOpacity = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeCategorical sourceStops:@{name: [MGLStyleValue valueWithRawValue:@1]} attributeName:@"name" options:@{MGLStyleFunctionOptionDefaultValue: [MGLStyleValue valueWithRawValue:@0]}];
+    } else {
+        
+        // Reset the opacity for all states if the user did not tap on a state.
+        layer.fillOpacity = [MGLStyleValue valueWithRawValue:@1];
+    }
 }
 
 @end
