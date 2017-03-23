@@ -54,7 +54,6 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGe
         style.insertLayer(layer, below: symbolLayer!)
     }
     
-    
     func handleTap(_ gesture: UITapGestureRecognizer) {
         
         // Get the CGPoint where the user tapped.
