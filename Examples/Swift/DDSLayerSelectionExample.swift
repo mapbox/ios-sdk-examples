@@ -1,10 +1,3 @@
-//
-//  DDSLayerSelectionExample.swift
-//  Examples
-//
-//  Created by Jordan Kiley on 3/21/17.
-//  Copyright © 2017 Mapbox. All rights reserved.
-//
 
 import Mapbox
 
@@ -19,7 +12,7 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGe
         
         mapView = MGLMapView(frame: view.bounds)
         mapView.delegate = self
-        mapView.setCenter(CLLocationCoordinate2D(latitude:39.232253141714885, longitude:-97.91015624999999), animated: false)
+        mapView.setCenter(CLLocationCoordinate2D(latitude:39.23225, longitude:-97.91015), animated: false)
         mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         view.addSubview(mapView)
         
@@ -31,7 +24,7 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGe
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
-        // Load a tileset containing U.S. states and their population density.
+    // Load a tileset containing U.S. states and their population density. For more information about working with tilesets, see: https://www.mapbox.com/help/studio-manual-tilesets/
         let url = URL(string: "mapbox://examples.69ytlgls")!
         let source = MGLVectorSource(identifier: "state-source", configurationURL: url)
         style.addSource(source)
@@ -49,7 +42,7 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGe
         // Style the fill color using the stops dictionary, exponential interpolation mode, and the feature attribute name.
         layer.fillColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "density", options: [.defaultValue : MGLStyleValue(rawValue: UIColor.white)])
         
-        // Insert the new layer below the layer that contains state border lines.
+        // Insert the new layer below the Mapbox Streets layer that contains state border lines. See the layer reference for more information about layer names: https://www.mapbox.com/vector-tiles/mapbox-streets-v7/
         let symbolLayer = style.layer(withIdentifier: "admin-3-4-boundaries")
         style.insertLayer(layer, below: symbolLayer!)
     }
