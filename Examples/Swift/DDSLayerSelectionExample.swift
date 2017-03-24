@@ -69,9 +69,7 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGe
         // Check if a state was selected, then change the opacity of the states that were not selected.
         if name.characters.count > 0 {
             layer.fillOpacity = MGLStyleValue(interpolationMode: .categorical, sourceStops: [name : MGLStyleValue<NSNumber>(rawValue: 1)], attributeName: "name", options: [.defaultValue : MGLStyleValue<NSNumber>(rawValue: 0)])
-            
         } else {
-            
             // Reset the opacity for all states if the user did not tap on a state.
             layer.fillOpacity = MGLStyleValue(rawValue: 1)
         }
