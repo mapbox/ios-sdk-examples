@@ -36,7 +36,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     
     MGLVectorSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"state-source" configurationURL:url];
     [style addSource:source];
-    
+
     MGLFillStyleLayer *layer = [[MGLFillStyleLayer alloc] initWithIdentifier:@"state-layer" source:source];
     
     // Access the tileset layer.
@@ -53,7 +53,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     layer.fillColor = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
             sourceStops:stops
             attributeName:@"density"
-            options:@{MGLStyleFunctionOptionDefaultValue : [MGLStyleValue valueWithRawValue:[UIColor whiteColor]]}];
+            options:@{MGLStyleFunctionOptionDefaultValue: [MGLStyleValue valueWithRawValue:[UIColor whiteColor]]}];
     
     // Insert the new layer below the Mapbox Streets layer that contains state border lines. See the layer reference for more information about layer names: https://www.mapbox.com/vector-tiles/mapbox-streets-v7/
     MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"admin-3-4-boundaries"];
@@ -70,7 +70,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     NSArray *features = [self.mapView visibleFeaturesAtPoint:spot
             inStyleLayersWithIdentifiers:[NSSet setWithObject:@"state-layer"]];
     
-    MGLPolygonFeature *feature = [features firstObject];
+    MGLPolygonFeature *feature = features.firstObject;
     
     // Get the name of the selected state.
     NSString *state = [feature attributeForKey:@"name"];
@@ -83,7 +83,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     MGLFillStyleLayer *layer = [self.mapView.style layerWithIdentifier:@"state-layer"];
     
     // Check if a state was selected, then change the opacity of the states that were not selected.
-    if ([name length] > 0) {
+    if (name.length > 0) {
         layer.fillOpacity = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeCategorical
                 sourceStops:@{name: [MGLStyleValue valueWithRawValue:@1]}
                 attributeName:@"name"
