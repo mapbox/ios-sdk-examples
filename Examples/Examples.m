@@ -24,6 +24,7 @@
         MBXExampleCustomRasterStyle,
         MBXExampleCustomStyle,
         MBXExampleDDSCircleLayer,
+        MBXExampleDDSLayerSelection,
         MBXExampleDefaultStyles,
         MBXExampleDraggableAnnotationView,
         MBXExampleDrawingAGeoJSONLine,
