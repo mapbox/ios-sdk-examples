@@ -80,7 +80,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
 
 - (void)changeOpacityBasedOn:(NSString*)name {
     
-    MGLFillStyleLayer *layer = [self.mapView.style layerWithIdentifier:@"state-layer"];
+    MGLFillStyleLayer *layer = (MGLFillStyleLayer *)[self.mapView.style layerWithIdentifier:@"state-layer"];
     
     // Check if a state was selected, then change the opacity of the states that were not selected.
     if (name.length > 0) {
@@ -89,7 +89,6 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
                 attributeName:@"name"
                 options:@{MGLStyleFunctionOptionDefaultValue: [MGLStyleValue valueWithRawValue:@0]}];
     } else {
-        
         // Reset the opacity for all states if the user did not tap on a state.
         layer.fillOpacity = [MGLStyleValue valueWithRawValue:@1];
     }
