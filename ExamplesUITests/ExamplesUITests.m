@@ -16,9 +16,7 @@
 
 - (void)setUp {
     [super setUp];
-    
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-    
+
     // In UI tests it is usually best to stop immediately when a failure occurs.
     self.continueAfterFailure = NO;
 
@@ -29,7 +27,6 @@
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
@@ -39,37 +36,10 @@
     for (int i = 0; i < app.tables.cells.count; i++) {
         [app.tables.cells.allElementsBoundByIndex[i] tap];
 
-        XCUIElement *map = app.otherElements[@"Map"];
-        [self waitForElementToBeHittable:map];
-
-        // Just too unreliable.
-//        [map doubleTap];
-//        [map twoFingerTap];
-
-        // Rotation flaps when the gesture doesn't fire reliably
-//        [map rotate:M_1_PI withVelocity:1];
-//
-//        XCUIElement *compass = map.images[@"Compass"];
-//        [self waitForElementToBeHittable:compass];
-//        [compass tap];
+        // XCTest waits for the app to idle before continuing.
 
         [app.navigationBars.buttons[@"Back"] tap];
     }
-
-}
-
-- (void)waitForElementToBeHittable:(XCUIElement *)element {
-    NSPredicate *hittablePredicate = [NSPredicate predicateWithFormat:@"hittable == true"];
-    [self expectationForPredicate:hittablePredicate evaluatedWithObject:element handler:nil];
-
-    [self waitForExpectationsWithTimeout:1 handler:^(NSError * _Nullable error) {
-        if (error != nil) {
-            [self recordFailureWithDescription:[NSString stringWithFormat:@"%@ failed to be hittable after 1 second.", element]
-                                        inFile:@__FILE__
-                                        atLine:__LINE__
-                                      expected:NO];
-        }
-    }];
 }
 
 @end
