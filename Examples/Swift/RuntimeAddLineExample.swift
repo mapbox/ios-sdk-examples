@@ -56,7 +56,7 @@ class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
         layer.lineWidth = MGLStyleValue(interpolationMode: .exponential,
             cameraStops: [14: MGLStyleValue<NSNumber>(rawValue: 2),
                           18: MGLStyleValue<NSNumber>(rawValue: 20)],
-            options: [.defaultValue : MGLStyleConstantValue<NSNumber>(rawValue: 1.5)])
+            options: [.defaultValue : MGLConstantStyleValue<NSNumber>(rawValue: 1.5)])
 
         // We can also add a second layer that will draw a stroke around the original line.
         let casingLayer = MGLLineStyleLayer(identifier: "polyline-case", source: source)
@@ -71,7 +71,7 @@ class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
         casingLayer.lineWidth = MGLStyleValue(interpolationMode: .exponential,
             cameraStops: [14: MGLStyleValue(rawValue: 1),
                           18: MGLStyleValue(rawValue: 4)],
-            options: [.defaultValue : MGLStyleConstantValue<NSNumber>(rawValue: 1.5)])
+            options: [.defaultValue : MGLConstantStyleValue<NSNumber>(rawValue: 1.5)])
 
         // Just for fun, let’s add another copy of the line with a dash pattern.
         let dashedLayer = MGLLineStyleLayer(identifier: "polyline-dash", source: source)
