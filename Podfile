@@ -3,7 +3,7 @@ use_frameworks!
 
 target 'Examples' do
   # Pods for Examples
-  pod 'Mapbox-iOS-SDK-symbols', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios-v3.5.0/platform/ios/Mapbox-iOS-SDK-symbols.podspec'
+  pod 'Mapbox-iOS-SDK-symbols', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios-v3.5.1/platform/ios/Mapbox-iOS-SDK-symbols.podspec'
 
 end
 
@@ -14,5 +14,3 @@ end
 target 'ExamplesUITests' do
     # Pods for testing
 end
-
-ENV['COCOAPODS_DISABLE_STATS'] = 'true'
