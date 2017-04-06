@@ -48,7 +48,7 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         MGLOfflineStorage.shared().addPack(for: region, withContext: context) { (pack, error) in
             guard error == nil else {
                 // The pack couldn’t be created for some reason.
-                print("Error: \(error?.localizedDescription)")
+                print("Error: \(error?.localizedDescription ?? "unknown error")")
                 return
             }
             
@@ -86,10 +86,10 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
             // If this pack has finished, print its size and resource count.
             if completedResources == expectedResources {
                 let byteCount = ByteCountFormatter.string(fromByteCount: Int64(pack.progress.countOfBytesCompleted), countStyle: ByteCountFormatter.CountStyle.memory)
-                print("Offline pack “\(userInfo["name"])” completed: \(byteCount), \(completedResources) resources")
+                print("Offline pack “\(userInfo["name"] ?? "unknown")” completed: \(byteCount), \(completedResources) resources")
             } else {
                 // Otherwise, print download/verification progress.
-                print("Offline pack “\(userInfo["name"])” has \(completedResources) of \(expectedResources) resources — \(progressPercentage * 100)%.")
+                print("Offline pack “\(userInfo["name"] ?? "unknown")” has \(completedResources) of \(expectedResources) resources — \(progressPercentage * 100)%.")
             }
         }
     }
@@ -98,7 +98,7 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         if let pack = notification.object as? MGLOfflinePack,
             let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
             let error = notification.userInfo?[MGLOfflinePackUserInfoKey.error] as? NSError {
-            print("Offline pack “\(userInfo["name"])” received error: \(error.localizedFailureReason)")
+            print("Offline pack “\(userInfo["name"] ?? "unknown")” received error: \(error.localizedFailureReason ?? "unknown error")")
         }
     }
     
@@ -106,7 +106,7 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         if let pack = notification.object as? MGLOfflinePack,
             let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
             let maximumCount = (notification.userInfo?[MGLOfflinePackUserInfoKey.maximumCount] as AnyObject).uint64Value {
-            print("Offline pack “\(userInfo["name"])” reached limit of \(maximumCount) tiles.")
+            print("Offline pack “\(userInfo["name"] ?? "unknown")” reached limit of \(maximumCount) tiles.")
         }
     }
     
