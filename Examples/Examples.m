@@ -34,6 +34,7 @@
         MBXExampleDrawingAPolygon,
         MBXExampleOfflinePack,
         MBXExamplePointConversion,
+        MBXExamplePointHeatmap,
         MBXExampleRuntimeAddLine,
         MBXExampleRuntimeAnimateLine,
         MBXExampleRuntimeCircleStyles,
