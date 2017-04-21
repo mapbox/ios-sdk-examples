@@ -51,8 +51,9 @@
        MBXExampleStudioClassicStyle,
        MBXExampleStudioStyle,
        MBXExampleThirdPartyVectorStyle,
+       MBXExampleUserLocationAnnotation,
        MBXExampleUserTrackingModes,
-       MBXExampleWebAPIData
+       MBXExampleWebAPIData,
     ]];
 
     NSMutableArray *meh = [[NSMutableArray alloc] init];

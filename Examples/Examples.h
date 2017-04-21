@@ -55,6 +55,7 @@ extern NSString *const MBXExampleStaticSnapshot;
 extern NSString *const MBXExampleStudioClassicStyle;
 extern NSString *const MBXExampleStudioStyle;
 extern NSString *const MBXExampleThirdPartyVectorStyle;
+extern NSString *const MBXExampleUserLocationAnnotation;
 extern NSString *const MBXExampleUserTrackingModes;
 extern NSString *const MBXExampleWebAPIData;
 
