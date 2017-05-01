@@ -11,30 +11,37 @@
 
 NSString *const MBXExamplePointHeatmap = @"PointHeatmapExample";
 
-@interface PointHeatmapExample ()
+@interface PointHeatmapExample () <MGLMapViewDelegate>
 
 @end
 
-@implementation PointHeatmapExample
+@implementation PointHeatmapExample 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.frame];
+    mapView.delegate = self;
+    
+    [self.view addSubview:mapView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
+    MGLShapeSource *symbolSource = [[MGLSource alloc] initWithIdentifier:@"symbol-source"];
+    MGLSymbolStyleLayer *symbolLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"place-city-sm" source:symbolSource];
+    
+    NSURL *url = [NSURL URLWithString:@"https://www.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"];
+    NSDictionary *options = @{
+                              MGLShapeSourceOptionClustered : @TRUE,
+                              MGLShapeSourceOptionClusterRadius : @20,
+                              MGLShapeSourceOptionMaximumZoomLevel : @15
+                            };
+    
+    MGLShapeSource *earthquakeSource = [[MGLShapeSource alloc] initWithIdentifier:@"earthquakes" URL:url options:options];
+    [style addSource:earthquakeSource];
+    
+    MGLCircleStyleLayer *unclusteredLayer = [[MGLCircleStyleLayer alloc]initWithIdentifier:@"unclustered" source:earthquakeSource];
+    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
