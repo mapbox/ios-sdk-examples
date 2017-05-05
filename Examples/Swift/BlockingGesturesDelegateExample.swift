@@ -16,7 +16,7 @@ class BlockingGesturesDelegateExample_Swift: UIViewController, MGLMapViewDelegat
         // Denver, Colorado
         let center = CLLocationCoordinate2D(latitude: 39.748947, longitude: -104.995882)
         
-        // Starting point.
+        // Starting point
         mapView.setCenter(center, zoomLevel: 10, direction: 0, animated: false)
         
         // Colorado's bounds
@@ -29,7 +29,7 @@ class BlockingGesturesDelegateExample_Swift: UIViewController, MGLMapViewDelegat
     }
     
     // This example uses Colorado's boundaries to restrict
-    // the camera movement
+    // the camera movement.
     
     func mapView(_ mapView: MGLMapView, shouldChangeFrom oldCamera: MGLMapCamera, to newCamera: MGLMapCamera) -> Bool {
         
@@ -38,7 +38,7 @@ class BlockingGesturesDelegateExample_Swift: UIViewController, MGLMapViewDelegat
         
         // From the new camera obtain the center to test
         // if it's inside the boundaries
-        let newCameraCenter: CLLocationCoordinate2D = newCamera.centerCoordinate
+        let newCameraCenter = newCamera.centerCoordinate
         
 
         // Set mapView to newCamera to project the
@@ -51,8 +51,8 @@ class BlockingGesturesDelegateExample_Swift: UIViewController, MGLMapViewDelegat
 
         // Test if the newCameraCenter and newVisibleCoordinates
         // are inside self.colorado
-        let inside: Bool = MGLCoordinateInCoordinateBounds(newCameraCenter, self.colorado)
-        let intersects: Bool = MGLCoordinateInCoordinateBounds(newVisibleCoordinates.ne, self.colorado) && MGLCoordinateInCoordinateBounds(newVisibleCoordinates.sw, self.colorado)
+        let inside = MGLCoordinateInCoordinateBounds(newCameraCenter, self.colorado)
+        let intersects = MGLCoordinateInCoordinateBounds(newVisibleCoordinates.ne, self.colorado) && MGLCoordinateInCoordinateBounds(newVisibleCoordinates.sw, self.colorado)
         
         return inside && intersects
 

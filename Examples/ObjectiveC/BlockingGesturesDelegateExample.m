@@ -20,7 +20,7 @@ NSString *const MBXExampleBlockingGesturesDelegate = @"BlockingGesturesDelegateE
     // Denver, Colorado
     CLLocationCoordinate2D center = CLLocationCoordinate2DMake(39.748947, -104.995882);
     
-    // Starting point.
+    // Starting point
     [mapView setCenterCoordinate:center zoomLevel:10 direction:0 animated:NO];
     
     // Colorado's bounds
@@ -32,7 +32,7 @@ NSString *const MBXExampleBlockingGesturesDelegate = @"BlockingGesturesDelegateE
 }
 
 // This example uses Colorado's boundaries to restrict
-// the camera movement
+// the camera movement.
 
 - (BOOL)mapView:(MGLMapView *)mapView shouldChangeFromCamera:(MGLMapCamera *)oldCamera toCamera:(MGLMapCamera *)newCamera
 {
