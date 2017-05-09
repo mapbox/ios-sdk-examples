@@ -29,18 +29,18 @@ class PointHeatmapExample_Swift: UIViewController, MGLMapViewDelegate {
         let unclusteredLayer = MGLCircleStyleLayer(identifier: "unclustered", source: earthquakeSource)
         
         unclusteredLayer.circleColor = MGLConstantStyleValue(rawValue: UIColor(colorLiteralRed: 229/255.0, green: 94/255.0, blue: 94/255.0, alpha: 1))
-        unclusteredLayer.circleRadius = MGLConstantStyleValue(rawValue: NSNumber(integerLiteral: 20))
-        unclusteredLayer.circleBlur = MGLConstantStyleValue(rawValue: NSNumber(integerLiteral: 15))
+        unclusteredLayer.circleRadius = MGLConstantStyleValue(rawValue: 20)
+        unclusteredLayer.circleBlur = MGLConstantStyleValue(rawValue: 15)
         unclusteredLayer.predicate = NSPredicate(format: "%K != YES", argumentArray: ["cluster"])
         style.insertLayer(unclusteredLayer, below: symbolLayer)
         
         let stops = [
-            NSNumber(floatLiteral: 0.0): MGLStyleValue(rawValue: UIColor(colorLiteralRed: 251/255.0, green: 176/255.0, blue: 59/255.0, alpha: 1)),
-            NSNumber(floatLiteral: 20.0): MGLStyleValue(rawValue: UIColor(colorLiteralRed: 249/255.0, green: 136/255.0, blue: 108/255.0, alpha: 1)),
-            NSNumber(floatLiteral: 150.0): MGLStyleValue(rawValue: UIColor(colorLiteralRed: 229/255.0, green: 94/255.0, blue: 94/255.0, alpha: 1))
+            0.0: MGLStyleValue(rawValue: UIColor(colorLiteralRed: 251/255.0, green: 176/255.0, blue: 59/255.0, alpha: 1)),
+            20.0: MGLStyleValue(rawValue: UIColor(colorLiteralRed: 249/255.0, green: 136/255.0, blue: 108/255.0, alpha: 1)),
+            150.0: MGLStyleValue(rawValue: UIColor(colorLiteralRed: 229/255.0, green: 94/255.0, blue: 94/255.0, alpha: 1))
         ]
         
-        let circles = MGLCircleStyleLayer(identifier: "cluster", source: earthquakeSource)
+        let circles = MGLCircleStyleLayer(identifier: "clustered layer", source: earthquakeSource)
         circles.circleColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "point_count", options: [.defaultValue: MGLStyleValue(rawValue: UIColor(colorLiteralRed: 251/255.0, green: 176/255.0, blue: 59/255.0, alpha: 1))])
         circles.circleRadius = MGLConstantStyleValue(rawValue: NSNumber(integerLiteral: 70))
         circles.circleBlur = MGLConstantStyleValue(rawValue: NSNumber(integerLiteral: 1))

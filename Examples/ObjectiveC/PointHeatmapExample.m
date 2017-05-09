@@ -42,6 +42,25 @@ NSString *const MBXExamplePointHeatmap = @"PointHeatmapExample";
     
     MGLCircleStyleLayer *unclusteredLayer = [[MGLCircleStyleLayer alloc]initWithIdentifier:@"unclustered" source:earthquakeSource];
     
+    unclusteredLayer.circleColor = [MGLConstantStyleValue valueWithRawValue: [UIColor colorWithRed:229/255/0 green:94/255.0 blue:94/255.0 alpha:1]];
+    unclusteredLayer.circleRadius = [MGLConstantStyleValue valueWithRawValue:@20];
+    unclusteredLayer.circleBlur = [MGLConstantStyleValue valueWithRawValue:@15];
+    unclusteredLayer.predicate = [NSPredicate predicateWithFormat:@"%K != YES" argumentArray:@[@"cluster"]];
+    [style insertLayer:unclusteredLayer belowLayer:symbolLayer];
+    
+    NSDictionary *stops = @{
+                            @0: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:251/255.0 green:176/255.0 blue:59/255.0 alpha:1]],
+                            @20.0: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:249/255.0 green:136/255.0 blue:108/255.0 alpha:1]],
+                            @150.0: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:229/255.0 green:94/255.0 blue:94/255.0 alpha:1]],
+                            };
+    MGLCircleStyleLayer *circles = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clustered layer" source:earthquakeSource];
+    circles.circleColor = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
+                                sourceStops:stops
+                                attributeName:@"point_count"
+                                                            options:@{MGLStyleFunctionOptionDefaultValue: [MGLConstantStyleValue valueWithRawValue:[UIColor colorWithRed:251/255.0 green:176/255.0 blue:59/255.0 alpha:1]]}];
+    circles.circleRadius = [MGLConstantStyleValue valueWithRawValue:@70];
+    circles.circleBlur = [MGLConstantStyleValue valueWithRawValue:@1];
+    [style insertLayer:circles belowLayer:symbolLayer];
 }
 
 @end
