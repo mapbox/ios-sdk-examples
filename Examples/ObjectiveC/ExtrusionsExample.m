@@ -35,7 +35,7 @@ NSString *const MBXExample3DExtrusions = @"ExtrusionsExample";
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     
-    // Access the Mapbox Streets source and use it to create a `MGLFillExtrusionLayer`.
+    // Access the Mapbox Streets source and use it to create a `MGLFillExtrusionStyleLayer`. The source identifier is `composite`. Use the `sources` property on a style to verify source identifiers.
     MGLSource *source = [style sourceWithIdentifier:@"composite"];
     MGLFillExtrusionStyleLayer *layer = [[MGLFillExtrusionStyleLayer alloc] initWithIdentifier:@"buildings" source:source];
     layer.sourceLayerIdentifier = @"building";
@@ -48,7 +48,7 @@ NSString *const MBXExample3DExtrusions = @"ExtrusionsExample";
     layer.fillExtrusionOpacity = [MGLStyleValue valueWithRawValue:@0.75];
     layer.fillExtrusionColor = [MGLStyleValue valueWithRawValue:[UIColor whiteColor]];
     
-    // Insert the fill extrusion layer below a POI label layer.
+    // Insert the fill extrusion layer below a POI label layer. Use the `layers` property on a style to verify built-in layer identifiers.
     MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"poi-scalerank3"];
     [style insertLayer:layer belowLayer:symbolLayer];
 }
