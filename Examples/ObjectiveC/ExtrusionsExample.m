@@ -7,11 +7,12 @@
 //
 
 #import "ExtrusionsExample.h"
+
 @import Mapbox;
 
 NSString *const MBXExample3DExtrusions = @"ExtrusionsExample";
 
-@interface ExtrusionsExample ()
+@interface ExtrusionsExample () <MGLMapViewDelegate>
 
 @end
 
@@ -19,22 +20,37 @@ NSString *const MBXExample3DExtrusions = @"ExtrusionsExample";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURLWithVersion:9]];
+    
+    // Center the map on the Colosseum in Rome, Italy.
+    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(41.8902, 12.4922)];
+    
+    // Set the map view camera's pitch and distance.
+    mapView.camera = [MGLMapCamera cameraLookingAtCenterCoordinate:mapView.centerCoordinate fromDistance:600 pitch:60 heading:0];
+    mapView.delegate = self;
+    
+    [self.view addSubview:mapView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
+    
+    // Access the Mapbox Streets source and use it to create a `MGLFillExtrusionLayer`.
+    MGLSource *source = [style sourceWithIdentifier:@"composite"];
+    MGLFillExtrusionStyleLayer *layer = [[MGLFillExtrusionStyleLayer alloc] initWithIdentifier:@"buildings" source:source];
+    layer.sourceLayerIdentifier = @"building";
+    
+    // Filter out buildings that should not extrude.
+    layer.predicate = [NSPredicate predicateWithFormat:@"extrude != false AND height >=0"];
+    
+    // Set the fill extrusion height to the value for the building height attribute.
+    layer.fillExtrusionHeight = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity sourceStops:nil attributeName:@"height" options:nil];
+    layer.fillExtrusionOpacity = [MGLStyleValue valueWithRawValue:@0.75];
+    layer.fillExtrusionColor = [MGLStyleValue valueWithRawValue:[UIColor whiteColor]];
+    
+    // Insert the fill extrusion layer below a POI label layer.
+    MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"poi-scalerank3"];
+    [style insertLayer:layer belowLayer:symbolLayer];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

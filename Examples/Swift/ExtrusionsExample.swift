@@ -12,39 +12,39 @@ import Mapbox
 
 class ExtrusionsExample: UIViewController, MGLMapViewDelegate {
     
-    var mapView : MGLMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL(withVersion: 9))
+        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL(withVersion: 9))
+        
+        // Center the map on the Colosseum in Rome, Italy.
         mapView.setCenter(CLLocationCoordinate2D(latitude: 41.8902, longitude: 12.4922), animated: false)
 
-        // Set the `MGLMapCamera` to one
+        // Set the map view camera's pitch and distance.
         mapView.camera = MGLMapCamera(lookingAtCenter: mapView.centerCoordinate, fromDistance: 600, pitch: 60, heading: 0)
-
         mapView.delegate = self
+        
         view.addSubview(mapView)
     }
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
-        // Access the Mapbox Streets source.
+        // Access the Mapbox Streets source and use it to create a `MGLFillExtrusionLayer`.
         let source = style.source(withIdentifier: "composite")
-        
-        // Create a `MGLFillExtrusionLayer` using the building layer from that source.
         let layer = MGLFillExtrusionStyleLayer(identifier: "buildings", source: source!)
         layer.sourceLayerIdentifier = "building"
         
-        // Check that the building is should
+        // Filter out buildings that should not extrude.
         layer.predicate = NSPredicate(format: "extrude != false AND height >=0")
         
+        // Set the fill extrusion height to the value for the building height attribute.
         layer.fillExtrusionHeight = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "height", options: nil)
-        
         layer.fillExtrusionOpacity = MGLStyleValue(rawValue: 0.75)
         layer.fillExtrusionColor = MGLStyleValue(rawValue: .white)
+        
+        // Insert the fill extrusion layer below a POI label layer.
         let symbolLayer = style.layer(withIdentifier: "poi-scalerank3")
         style.insertLayer(layer, below: symbolLayer!)
-        
     }
     
 }
