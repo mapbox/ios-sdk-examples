@@ -15,10 +15,20 @@ class PointHeatmapExample_Swift: UIViewController, MGLMapViewDelegate {
     }
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
+        
+        DispatchQueue.global().async {
+            guard let url = URL(string: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson") else { return }
+            DispatchQueue.main.async {
+                self.displayEarthquakes(url: url, style: style)
+            }
+        }
+    }
+    
+    func displayEarthquakes(url: URL, style: MGLStyle) {
         let symbolSource = MGLSource(identifier: "symbol-source")
         let symbolLayer = MGLSymbolStyleLayer(identifier: "place-city-sm", source: symbolSource)
         
-        let url = URL(string: "https://www.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson")!
+        //
         let options = [MGLShapeSourceOption.clustered: true,
                        MGLShapeSourceOption.clusterRadius: 20,
                        MGLShapeSourceOption.maximumZoomLevel: 15] as [MGLShapeSourceOption : Any]

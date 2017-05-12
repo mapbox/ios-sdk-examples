@@ -27,10 +27,21 @@ NSString *const MBXExamplePointHeatmap = @"PointHeatmapExample";
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
-    MGLShapeSource *symbolSource = [[MGLSource alloc] initWithIdentifier:@"symbol-source"];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSURL *url = [NSURL URLWithString:@"https://www.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self displayEarthquakesFrom:url with:style];
+        });
+    });
+}
+
+- (void)displayEarthquakesFrom:(NSURL *)url with:(MGLStyle *)style {
+    
+    MGLShapeSource *symbolSource = [[MGLShapeSource alloc] initWithIdentifier:@"symbol-source"];
     MGLSymbolStyleLayer *symbolLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"place-city-sm" source:symbolSource];
     
-    NSURL *url = [NSURL URLWithString:@"https://www.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"];
+   
     NSDictionary *options = @{
                               MGLShapeSourceOptionClustered : @TRUE,
                               MGLShapeSourceOptionClusterRadius : @20,
@@ -42,7 +53,7 @@ NSString *const MBXExamplePointHeatmap = @"PointHeatmapExample";
     
     MGLCircleStyleLayer *unclusteredLayer = [[MGLCircleStyleLayer alloc]initWithIdentifier:@"unclustered" source:earthquakeSource];
     
-    unclusteredLayer.circleColor = [MGLConstantStyleValue valueWithRawValue: [UIColor colorWithRed:229/255/0 green:94/255.0 blue:94/255.0 alpha:1]];
+    unclusteredLayer.circleColor = [MGLConstantStyleValue valueWithRawValue: [UIColor colorWithRed:229/255.0 green:94/255.0 blue:94/255.0 alpha:1]];
     unclusteredLayer.circleRadius = [MGLConstantStyleValue valueWithRawValue:@20];
     unclusteredLayer.circleBlur = [MGLConstantStyleValue valueWithRawValue:@15];
     unclusteredLayer.predicate = [NSPredicate predicateWithFormat:@"%K != YES" argumentArray:@[@"cluster"]];
