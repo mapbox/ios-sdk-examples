@@ -24,10 +24,9 @@ NSString *const MBXExample3DExtrusions = @"ExtrusionsExample";
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURLWithVersion:9]];
     
     // Center the map on the Colosseum in Rome, Italy.
-    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(41.8902, 12.4922)];
     
-    // Set the map view camera's pitch and distance.
-    mapView.camera = [MGLMapCamera cameraLookingAtCenterCoordinate:mapView.centerCoordinate fromDistance:600 pitch:60 heading:0];
+    // Center the map view on the Colosseum in Rome, Italy and set the camera's pitch and distance.
+    mapView.camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(41.8902, 12.4922) fromDistance:600 pitch:60 heading:0];
     mapView.delegate = self;
     
     [self.view addSubview:mapView];
@@ -41,14 +40,14 @@ NSString *const MBXExample3DExtrusions = @"ExtrusionsExample";
     layer.sourceLayerIdentifier = @"building";
     
     // Filter out buildings that should not extrude.
-    layer.predicate = [NSPredicate predicateWithFormat:@"extrude != false AND height >=0"];
+    layer.predicate = [NSPredicate predicateWithFormat:@"height >= 0"];
     
     // Set the fill extrusion height to the value for the building height attribute.
     layer.fillExtrusionHeight = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity sourceStops:nil attributeName:@"height" options:nil];
     layer.fillExtrusionOpacity = [MGLStyleValue valueWithRawValue:@0.75];
     layer.fillExtrusionColor = [MGLStyleValue valueWithRawValue:[UIColor whiteColor]];
     
-    // Insert the fill extrusion layer below a POI label layer. Use the `layers` property on a style to verify built-in layer identifiers.
+    // Insert the fill extrusion layer below a POI label layer. If you aren’t sure what the layer is called, you can view the style in Mapbox Studio or iterate over the style’s layers property, printing out each layer’s identifier.
     MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"poi-scalerank3"];
     [style insertLayer:layer belowLayer:symbolLayer];
 }
