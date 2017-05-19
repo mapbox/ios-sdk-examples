@@ -40,7 +40,7 @@ NSString *const MBXExample3DExtrusions = @"ExtrusionsExample";
     layer.sourceLayerIdentifier = @"building";
     
     // Filter out buildings that should not extrude.
-    layer.predicate = [NSPredicate predicateWithFormat:@"extrude == %@ AND height >= 0", @"true"];
+    layer.predicate = [NSPredicate predicateWithFormat:@"extrude == 'true' AND height >= 0"];
     
     // Set the fill extrusion height to the value for the building height attribute.
     layer.fillExtrusionHeight = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity sourceStops:nil attributeName:@"height" options:nil];
