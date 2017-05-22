@@ -29,16 +29,8 @@ NSString *const MBXExamplePointHeatmap = @"PointHeatmapExample";
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     
     // Parse GeoJSON data from USGS on earthquakes in the past week.
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURL *url = [NSURL URLWithString:@"https://www.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self displayEarthquakesFrom:url with:style];
-        });
-    });
-}
 
-- (void)displayEarthquakesFrom:(NSURL *)url with:(MGLStyle *)style {
-    
     MGLShapeSource *symbolSource = [[MGLShapeSource alloc] initWithIdentifier:@"symbol-source"];
     MGLSymbolStyleLayer *symbolLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"place-city-sm" source:symbolSource];
     

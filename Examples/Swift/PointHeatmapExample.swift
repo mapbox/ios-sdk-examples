@@ -17,15 +17,8 @@ class PointHeatmapExample_Swift: UIViewController, MGLMapViewDelegate {
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
         // Parse GeoJSON data from USGS on earthquakes in the past week.
-        DispatchQueue.global().async {
-            guard let url = URL(string: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson") else { return }
-            DispatchQueue.main.async {
-                self.displayEarthquakes(url: url, style: style)
-            }
-        }
-    }
-    
-    func displayEarthquakes(url: URL, style: MGLStyle) {
+        guard let url = URL(string: "https://www.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson") else { return }
+        
         let symbolSource = MGLSource(identifier: "symbol-source")
         let symbolLayer = MGLSymbolStyleLayer(identifier: "place-city-sm", source: symbolSource)
         
