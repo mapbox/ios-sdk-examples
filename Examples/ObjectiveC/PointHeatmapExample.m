@@ -1,10 +1,3 @@
-//
-//  PointHeatmapExample.m
-//  Examples
-//
-//  Created by Jordan Kiley on 4/19/17.
-//  Copyright © 2017 Mapbox. All rights reserved.
-//
 
 #import "PointHeatmapExample.h"
 @import Mapbox;
@@ -28,7 +21,7 @@ NSString *const MBXExamplePointHeatmap = @"PointHeatmapExample";
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     
-    // Parse GeoJSON data from USGS on earthquakes in the past week.
+   // Parse GeoJSON data. This example uses all M1.0+ earthquakes from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
         NSURL *url = [NSURL URLWithString:@"https://www.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"];
 
     MGLShapeSource *symbolSource = [[MGLShapeSource alloc] initWithIdentifier:@"symbol-source"];
@@ -46,19 +39,23 @@ NSString *const MBXExamplePointHeatmap = @"PointHeatmapExample";
 
     // Create a stops dictionary. The keys represent the number of points in a cluster.
     NSDictionary *stops = @{
-                            @0: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:251/255.0 green:176/255.0 blue:59/255.0 alpha:1]],
-                            @20.0: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:249/255.0 green:136/255.0 blue:108/255.0 alpha:1]],
-                            @150.0: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:229/255.0 green:94/255.0 blue:94/255.0 alpha:1]],
+                            @0: [MGLStyleValue valueWithRawValue:[UIColor yellowColor]],
+                            @20.0: [MGLStyleValue valueWithRawValue:[UIColor orangeColor]],
+                            @150.0: [MGLStyleValue valueWithRawValue:[UIColor redColor]],
                             };
     
     
+    // Create and style the clustered circle layer.
     MGLCircleStyleLayer *clusteredLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clustered layer" source:earthquakeSource];
     clusteredLayer.circleColor = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-                                                        sourceStops:stops
-                                                      attributeName:@"point_count"
-                                                            options:@{MGLStyleFunctionOptionDefaultValue: [MGLConstantStyleValue valueWithRawValue:[UIColor colorWithRed:251/255.0 green:176/255.0 blue:59/255.0 alpha:1]]}];
+                                                sourceStops:stops
+                                                attributeName:@"point_count"
+                                                options:@{MGLStyleFunctionOptionDefaultValue: [MGLConstantStyleValue valueWithRawValue:[UIColor yellowColor]]}];
+    
     clusteredLayer.circleRadius = [MGLConstantStyleValue valueWithRawValue:@70];
+    clusteredLayer.circleOpacity = [MGLConstantStyleValue valueWithRawValue:@0.5];
     clusteredLayer.circleBlur = [MGLConstantStyleValue valueWithRawValue:@1];
+    
     [style insertLayer:clusteredLayer belowLayer:symbolLayer];
 }
 

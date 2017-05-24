@@ -16,7 +16,7 @@ class PointHeatmapExample_Swift: UIViewController, MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
-        // Parse GeoJSON data from USGS on earthquakes in the past week.
+        // Parse GeoJSON data. This example uses all M1.0+ earthquakes from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
         guard let url = URL(string: "https://www.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson") else { return }
         
         let symbolSource = MGLSource(identifier: "symbol-source")
@@ -32,15 +32,17 @@ class PointHeatmapExample_Swift: UIViewController, MGLMapViewDelegate {
         
         // Create a stops dictionary. The keys represent the number of points in a cluster.
         let stops = [
-            0.0: MGLStyleValue(rawValue: UIColor(colorLiteralRed: 251/255.0, green: 176/255.0, blue: 59/255.0, alpha: 1)),
-            20.0: MGLStyleValue(rawValue: UIColor(colorLiteralRed: 249/255.0, green: 136/255.0, blue: 108/255.0, alpha: 1)),
-            150.0: MGLStyleValue(rawValue: UIColor(colorLiteralRed: 229/255.0, green: 94/255.0, blue: 94/255.0, alpha: 1))
+            0.0: MGLStyleValue<UIColor>(rawValue: .yellow),
+            20.0: MGLStyleValue<UIColor>(rawValue: .orange),
+            150.0: MGLStyleValue<UIColor>(rawValue: .red)
         ]
         
+        // Create and style the clustered circle layer.
         let clusteredLayer = MGLCircleStyleLayer(identifier: "clustered layer", source: earthquakeSource)
-        clusteredLayer.circleColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "point_count", options: [.defaultValue: MGLStyleValue(rawValue: UIColor(colorLiteralRed: 251/255.0, green: 176/255.0, blue: 59/255.0, alpha: 1))])
+        clusteredLayer.circleColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "point_count", options: [.defaultValue: MGLStyleValue<UIColor>(rawValue: .yellow)])
         clusteredLayer.circleRadius = MGLConstantStyleValue(rawValue: NSNumber(integerLiteral: 70))
-        clusteredLayer.circleBlur = MGLConstantStyleValue(rawValue: NSNumber(integerLiteral: 1))
+        clusteredLayer.circleOpacity = MGLConstantStyleValue(rawValue: 0.5)
+        clusteredLayer.circleBlur = MGLConstantStyleValue(rawValue: 1)
         
         style.insertLayer(clusteredLayer, below: symbolLayer)
     }
