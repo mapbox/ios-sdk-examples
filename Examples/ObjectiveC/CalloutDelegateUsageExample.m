@@ -70,13 +70,13 @@ NSString *const MBXExampleCalloutDelegateUsage = @"CalloutDelegateUsageExample";
     // Hide the callout view.
     [self.mapView deselectAnnotation:annotation animated:NO];
     
-    // Create an alert containing the annotation's details
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:annotation.title
+    // Show an alert containing the annotation's details
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:annotation.title
                                                                    message:@"A lovely (if touristy) place."
                                                             preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {}];
-    [alert addAction:defaultAction];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    
     [self presentViewController:alert animated:YES completion:nil];
 
 }

@@ -60,9 +60,9 @@ class CalloutDelegateUsageExample_Swift: UIViewController, MGLMapViewDelegate {
         // Hide the callout view.
         mapView.deselectAnnotation(annotation, animated: false)
         
-        // Create an alert containing the annotation's details
-        let alert = UIAlertController(title: annotation.title!!, message: "A lovely (if touristy) place.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        // Show an alert containing the annotation's details
+        let alert = UIAlertController(title: annotation.title!!, message: "A lovely (if touristy) place.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
     }
