@@ -64,7 +64,6 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         
         view.addConstraints(constraints)
     }
-    
 }
 
 class UserLocationButton : UIButton {

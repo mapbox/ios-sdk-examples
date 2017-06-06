@@ -1,5 +1,5 @@
-@import Mapbox;
 #import "CameraFlyToExample.h"
+@import Mapbox;
 
 NSString const *MBXExampleCameraFlyTo = @"CameraFlyToExample";
 
@@ -36,4 +36,5 @@ NSString const *MBXExampleCameraFlyTo = @"CameraFlyToExample";
     // To use default peak altitude:
     //    [mapView flyToCamera:camera withDuration:4 completionHandler:nil];
 }
+
 @end
