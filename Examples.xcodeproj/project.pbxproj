@@ -31,6 +31,9 @@
 		3E3FB66B1F05888E004512C6 /* LightExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66A1F05888E004512C6 /* LightExample.swift */; };
 		3E3FB66E1F0588B3004512C6 /* LightExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66D1F0588B3004512C6 /* LightExample.m */; };
 		3E3FB6711F058A18004512C6 /* PointHotspotExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */; };
+		3E52ACD01EE8D8470056242C /* rocket.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E52ACCF1EE8D8470056242C /* rocket.svg */; };
+		3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */; };
+		3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */; };
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
 		3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */; };
 		3EBCD7181DC28240001E342F /* CameraAnimationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */; };
@@ -195,6 +198,10 @@
 		3E3FB66C1F0588B3004512C6 /* LightExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightExample.h; sourceTree = "<group>"; };
 		3E3FB66D1F0588B3004512C6 /* LightExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightExample.m; sourceTree = "<group>"; };
 		3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PointHotspotExample.m; sourceTree = "<group>"; };
+		3E52ACCF1EE8D8470056242C /* rocket.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rocket.svg; path = "../../../../../Downloads/b&w maki/svgs/rocket.svg"; sourceTree = "<group>"; };
+		3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveDataExample.h; sourceTree = "<group>"; };
+		3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveDataExample.m; sourceTree = "<group>"; };
+		3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDataExample.swift; sourceTree = "<group>"; };
 		3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutDelegateUsageExample.swift; sourceTree = "<group>"; };
 		3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraAnimationExample.swift; sourceTree = "<group>"; };
@@ -442,12 +449,15 @@
 				3E3FB66D1F0588B3004512C6 /* LightExample.m */,
 				3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */,
 				055ABCC01EFB139C0063BACA /* FillPatternExample.m */,
+				3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */,
+				96115A671CAD4E1C000963B8 /* OfflinePackExample.m */,
 				646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */,
 				646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */,
 				646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */,
 				646B629B1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m */,
 				64BBDAFC1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m */,
 				96115A671CAD4E1C000963B8 /* OfflinePackExample.m */,
+				968247291C5C1FF800494AB8 /* PointConversionExample.m */,
 				968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */,
 				64BBDAF71DF2330B00BB705D /* SelectFeatureExample.m */,
 				07C138BF1E6F646F00D6F678 /* ShapeCollectionFeatureExample.m */,
@@ -486,6 +496,7 @@
 				3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */,
 				3E3FB66A1F05888E004512C6 /* LightExample.swift */,
 				055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */,
+				3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */,
 				3EBCD7111DC28240001E342F /* OfflinePackExample.swift */,
 				3EBCD7121DC28240001E342F /* PointConversionExample.swift */,
 				3EC11D261EA84091001AAAB8 /* PointHotspotExample.swift */,
@@ -592,6 +603,7 @@
 				96D432051C84B9CF007D09D1 /* pisavector.xcassets */,
 				079E77C41E1C4E2100F92FA8 /* camera.xcassets */,
 				DD5939E51E6778480009BEB2 /* clustering.xcassets */,
+				3E52ACCF1EE8D8470056242C /* rocket.svg */,
 				DDF9432A1E5DEACC00545D0F /* ports.geojson */,
 			);
 			path = Files;
@@ -623,6 +635,7 @@
 				3E085B811EC526E500163C99 /* ExtrusionsExample.h */,
 				3E3FB66C1F0588B3004512C6 /* LightExample.h */,
 				055ABCBF1EFB139C0063BACA /* FillPatternExample.h */,
+				3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */,
 				96115A661CAD4E1C000963B8 /* OfflinePackExample.h */,
 				968247281C5C1FF800494AB8 /* PointConversionExample.h */,
 				3EC11D231EA8405A001AAAB8 /* PointHotspotExample.h */,
@@ -873,6 +886,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E52ACD01EE8D8470056242C /* rocket.svg in Resources */,
 				DDF9432B1E5DEACC00545D0F /* ports.geojson in Resources */,
 				3EC92DB71E78C431001D0503 /* metro-line.geojson in Resources */,
 				9619629F1C581700002D3DAB /* LaunchScreen.storyboard in Resources */,
@@ -933,7 +947,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
+<<<<<<< HEAD
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+=======
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+>>>>>>> initial project in Swift
 			showEnvVarsInLog = 0;
 		};
 		22AEEA788A5D2A11DF9F9032 /* [CP] Copy Pods Resources */ = {
@@ -1036,7 +1054,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
+<<<<<<< HEAD
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+=======
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+>>>>>>> initial project in Swift
 			showEnvVarsInLog = 0;
 		};
 		964CB5161E445964004549EA /* Insert Mapbox Access Token */ = {
@@ -1116,7 +1138,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
+<<<<<<< HEAD
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+=======
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+>>>>>>> initial project in Swift
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1172,6 +1198,7 @@
 				3EBCD7261DC28240001E342F /* PointConversionExample.swift in Sources */,
 				961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */,
 				64BBDB031DF24E0900BB705D /* RuntimeMultipleAnnotationsExample.swift in Sources */,
+				3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */,
 				646B62971DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift in Sources */,
 				968247201C5C1C0400494AB8 /* DrawingAPolygonExample.m in Sources */,
 				3EBCD7221DC28240001E342F /* DrawingAGeoJSONLineExample.swift in Sources */,
@@ -1190,6 +1217,7 @@
 				646B62B01DEF7161000AA523 /* RuntimeAnimateLineExample.swift in Sources */,
 				07F53B851E00D02100B58DB3 /* AnnotationViewMultipleExample.m in Sources */,
 				3E085B801EC526C500163C99 /* ExtrusionsExample.swift in Sources */,
+				3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */,
 				3EBCD7231DC28240001E342F /* DrawingAMarkerExample.swift in Sources */,
 				961962911C581700002D3DAB /* main.m in Sources */,
 				968247131C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m in Sources */,

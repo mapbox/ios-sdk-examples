@@ -36,6 +36,7 @@
         MBXExampleLight,
         MBXExampleFillPattern,
         MBXExampleOfflinePack,
+        MBXExampleLiveData,
         MBXExamplePointConversion,
         MBXExamplePointHotspot,
         MBXExampleRuntimeAddLine,
