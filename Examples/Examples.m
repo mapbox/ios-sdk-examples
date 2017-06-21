@@ -34,6 +34,7 @@
         MBXExampleDrawingAPolygon,
         MBXExample3DExtrusions,
         MBXExampleLight,
+        MBXExampleFillPattern,
         MBXExampleOfflinePack,
         MBXExamplePointConversion,
         MBXExamplePointHotspot,

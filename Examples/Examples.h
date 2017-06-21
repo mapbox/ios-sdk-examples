@@ -36,6 +36,7 @@ extern NSString *const MBXExampleDrawingAMarker;
 extern NSString *const MBXExampleDrawingAPolygon;
 extern NSString *const MBXExample3DExtrusions;
 extern NSString *const MBXExampleLight;
+extern NSString *const MBXExampleFillPattern;
 extern NSString *const MBXExampleOfflinePack;
 extern NSString *const MBXExamplePointConversion;
 extern NSString *const MBXExamplePointHotspot;

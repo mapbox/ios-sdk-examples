@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		055ABCC11EFB139C0063BACA /* FillPatternExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 055ABCC01EFB139C0063BACA /* FillPatternExample.m */; };
+		055ABCC31EFB14AE0063BACA /* FillPatternExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */; };
 		079E77C51E1C4E2100F92FA8 /* camera.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079E77C41E1C4E2100F92FA8 /* camera.xcassets */; };
 		07C138C01E6F646F00D6F678 /* ShapeCollectionFeatureExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C138BF1E6F646F00D6F678 /* ShapeCollectionFeatureExample.m */; };
 		07C138C21E6F65D000D6F678 /* ShapeCollectionFeatureExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C138C11E6F65D000D6F678 /* ShapeCollectionFeatureExample.swift */; };
@@ -136,6 +138,9 @@
 
 /* Begin PBXFileReference section */
 		03CC5D45DBD04AB716469E7B /* Pods-Examples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Examples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Examples/Pods-Examples.debug.xcconfig"; sourceTree = "<group>"; };
+		055ABCBF1EFB139C0063BACA /* FillPatternExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FillPatternExample.h; sourceTree = "<group>"; };
+		055ABCC01EFB139C0063BACA /* FillPatternExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FillPatternExample.m; sourceTree = "<group>"; };
+		055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillPatternExample.swift; sourceTree = "<group>"; };
 		079E77C41E1C4E2100F92FA8 /* camera.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = camera.xcassets; sourceTree = "<group>"; };
 		07C138BE1E6F646F00D6F678 /* ShapeCollectionFeatureExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapeCollectionFeatureExample.h; sourceTree = "<group>"; };
 		07C138BF1E6F646F00D6F678 /* ShapeCollectionFeatureExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeCollectionFeatureExample.m; sourceTree = "<group>"; };
@@ -350,9 +355,12 @@
 				968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */,
 				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
+				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
 				3E085B821EC526E500163C99 /* ExtrusionsExample.m */,
 				3E3FB66D1F0588B3004512C6 /* LightExample.m */,
 				3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */,
+				055ABCC01EFB139C0063BACA /* FillPatternExample.m */,
+				968247291C5C1FF800494AB8 /* PointConversionExam
 				646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */,
 				646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */,
 				646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */,
@@ -396,6 +404,7 @@
 				3EBCD7101DC28240001E342F /* DrawingAPolygonExample.swift */,
 				3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */,
 				3E3FB66A1F05888E004512C6 /* LightExample.swift */,
+				055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */,
 				3EBCD7111DC28240001E342F /* OfflinePackExample.swift */,
 				3EBCD7121DC28240001E342F /* PointConversionExample.swift */,
 				3EC11D261EA84091001AAAB8 /* PointHotspotExample.swift */,
@@ -528,6 +537,7 @@
 				9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */,
 				3E085B811EC526E500163C99 /* ExtrusionsExample.h */,
 				3E3FB66C1F0588B3004512C6 /* LightExample.h */,
+				055ABCBF1EFB139C0063BACA /* FillPatternExample.h */,
 				96115A661CAD4E1C000963B8 /* OfflinePackExample.h */,
 				968247281C5C1FF800494AB8 /* PointConversionExample.h */,
 				3EC11D231EA8405A001AAAB8 /* PointHotspotExample.h */,
@@ -897,6 +907,7 @@
 				960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */,
 				1F1F84751E538ABB00332CC3 /* BlockingGesturesDelegateExample.m in Sources */,
 				646B62B41DEF9613000AA523 /* RuntimeCircleStylesExample.swift in Sources */,
+				055ABCC11EFB139C0063BACA /* FillPatternExample.m in Sources */,
 				07C138C41E721C8F00D6F678 /* DDSCircleLayerExample.swift in Sources */,
 				646B62BD1DEF965A000AA523 /* RuntimeCircleStylesExample.m in Sources */,
 				646B629C1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m in Sources */,
@@ -957,6 +968,7 @@
 				DDF943291E5DE63300545D0F /* ClusteringExample.m in Sources */,
 				3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */,
 				64BBDAFD1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m in Sources */,
+				055ABCC31EFB14AE0063BACA /* FillPatternExample.swift in Sources */,
 				646B62AE1DEF7155000AA523 /* RuntimeAddLineExample.swift in Sources */,
 				3EBCD71F1DC28240001E342F /* DefaultStylesExample.swift in Sources */,
 				DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */,
