@@ -46,7 +46,7 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
 
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    mapView.styleURL = [MGLStyle darkStyleURLWithVersion:9];
+    mapView.styleURL = [MGLStyle darkStyleURL];
     mapView.tintColor = [UIColor lightGrayColor];
     mapView.centerCoordinate = CLLocationCoordinate2DMake(0, 66);
     mapView.zoomLevel = 2;

@@ -15,7 +15,7 @@ NSString *const MBXExampleBlockingGesturesDelegate = @"BlockingGesturesDelegateE
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     mapView.delegate = self;
-    mapView.styleURL = [MGLStyle outdoorsStyleURLWithVersion:9];
+    mapView.styleURL = [MGLStyle outdoorsStyleURL];
     
     // Denver, Colorado
     CLLocationCoordinate2D center = CLLocationCoordinate2DMake(39.748947, -104.995882);

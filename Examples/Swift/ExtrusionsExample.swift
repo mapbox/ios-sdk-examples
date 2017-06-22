@@ -15,7 +15,7 @@ class ExtrusionsExample: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL(withVersion: 9))
+        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL())
         
     // Center the map view on the Colosseum in Rome, Italy and set the camera's pitch and distance.
         mapView.camera = MGLMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: 41.8902, longitude: 12.4922), fromDistance: 600, pitch: 60, heading: 0)

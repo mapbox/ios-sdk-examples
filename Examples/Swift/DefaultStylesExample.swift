@@ -7,7 +7,7 @@ class DefaultStylesExample_Swift: UIViewController {
         super.viewDidLoad()
         
         let mapView = MGLMapView(frame: view.bounds,
-                                 styleURL: MGLStyle.outdoorsStyleURL(withVersion: 9))
+                                 styleURL: MGLStyle.outdoorsStyleURL())
         
         // Tint the ℹ️ button and the user location annotation.
         mapView.tintColor = .darkGray
