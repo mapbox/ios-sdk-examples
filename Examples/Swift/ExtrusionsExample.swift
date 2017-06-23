@@ -15,6 +15,7 @@ class ExtrusionsExample: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set the map style to Mapbox Light Style version 9. The map's source will be queried later in this example.
         let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL(withVersion: 9))
         
         // Center the map view on the Colosseum in Rome, Italy and set the camera's pitch and distance.
