@@ -26,7 +26,6 @@ class ExtrusionsExample: UIViewController, MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
-        let array = [1, 2, 4, 6]
         // Access the Mapbox Streets source and use it to create a `MGLFillExtrusionStyleLayer`. The source identifier is `composite`. Use the `sources` property on a style to verify source identifiers.
         if let source = style.source(withIdentifier: "composite") {
             let layer = MGLFillExtrusionStyleLayer(identifier: "buildings", source: source)
