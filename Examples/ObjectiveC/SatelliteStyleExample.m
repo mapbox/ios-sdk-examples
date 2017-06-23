@@ -9,7 +9,7 @@ NSString *const MBXExampleSatelliteStyle = @"SatelliteStyleExample";
     [super viewDidLoad];
     
     // A hybrid style with unobtrusive labels is also available via +satelliteStreetsStyleURLWithVersion:.
-    NSURL *styleURL = [MGLStyle satelliteStyleURLWithVersion:9];
+    NSURL *styleURL = [MGLStyle satelliteStyleURL];
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:styleURL];
 
     // Tint the ℹ️ button.

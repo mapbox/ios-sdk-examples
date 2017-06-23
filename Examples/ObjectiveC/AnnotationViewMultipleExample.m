@@ -22,7 +22,7 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
     
     // Create a new map view using the Mapbox Light style.
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds
-        styleURL:[MGLStyle lightStyleURLWithVersion:9]];
+        styleURL:[MGLStyle lightStyleURL]];
     
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     

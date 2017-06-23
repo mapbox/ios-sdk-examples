@@ -6,7 +6,7 @@ class DrawingACustomMarkerExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL(withVersion: 9))
+        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL())
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .darkGray
         
