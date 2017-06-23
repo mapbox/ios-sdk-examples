@@ -87,7 +87,7 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
 
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    mapView.styleURL = [MGLStyle lightStyleURLWithVersion:9];
+    mapView.styleURL = [MGLStyle lightStyleURL];
     mapView.tintColor = [UIColor darkGrayColor];
     mapView.zoomLevel = 1;
     mapView.delegate = self;

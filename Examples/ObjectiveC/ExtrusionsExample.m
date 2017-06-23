@@ -21,6 +21,7 @@ NSString *const MBXExample3DExtrusions = @"ExtrusionsExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Set the map style to Mapbox Light Style version 9. The map's source will be queried later in this example.
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURLWithVersion:9]];
 
     // Center the map view on the Colosseum in Rome, Italy and set the camera's pitch and distance.

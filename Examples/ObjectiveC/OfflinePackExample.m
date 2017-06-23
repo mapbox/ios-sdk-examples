@@ -13,7 +13,7 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURLWithVersion:9]];
+    self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURL]];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.tintColor = [UIColor lightGrayColor];
     self.mapView.delegate = self;

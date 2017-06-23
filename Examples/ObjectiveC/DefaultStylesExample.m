@@ -9,7 +9,7 @@ NSString *const MBXExampleDefaultStyles = @"DefaultStylesExample";
     [super viewDidLoad];
 
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds
-                                                   styleURL:[MGLStyle outdoorsStyleURLWithVersion:9]];
+                                                   styleURL:[MGLStyle outdoorsStyleURL]];
 
     // Tint the ℹ️ button and the user location annotation.
     mapView.tintColor = [UIColor darkGrayColor];
