@@ -21,9 +21,7 @@ NSString *const MBXExample3DExtrusions = @"ExtrusionsExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURL]];
-    
-    // Center the map on the Colosseum in Rome, Italy.
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURLWithVersion:9]];
     
     // Center the map view on the Colosseum in Rome, Italy and set the camera's pitch and distance.
     mapView.camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(41.8902, 12.4922) fromDistance:600 pitch:60 heading:0];

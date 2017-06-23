@@ -15,9 +15,9 @@ class ExtrusionsExample: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL())
+        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL(withVersion: 9))
         
-    // Center the map view on the Colosseum in Rome, Italy and set the camera's pitch and distance.
+        // Center the map view on the Colosseum in Rome, Italy and set the camera's pitch and distance.
         mapView.camera = MGLMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: 41.8902, longitude: 12.4922), fromDistance: 600, pitch: 60, heading: 0)
         mapView.delegate = self
         
@@ -26,7 +26,6 @@ class ExtrusionsExample: UIViewController, MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
-        let array = [1, 2, 4, 6]
         // Access the Mapbox Streets source and use it to create a `MGLFillExtrusionStyleLayer`. The source identifier is `composite`. Use the `sources` property on a style to verify source identifiers.
         if let source = style.source(withIdentifier: "composite") {
             let layer = MGLFillExtrusionStyleLayer(identifier: "buildings", source: source)
