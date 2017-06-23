@@ -5,80 +5,47 @@ import Mapbox
 
 class LightExample: UIViewController, MGLMapViewDelegate {
     
-    var sliderValue = 0.0
-    
-    var mapView : MGLMapView!
-    var light : MGLLight!
-    var lightValue = 0
-    var lightIntensity = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL())
+        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL(withVersion: 10))
         mapView.delegate = self
         
-        // Flatiron Building
-        mapView.camera = MGLMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: 40.7411, longitude: -73.9897), fromDistance: 600, pitch: 45, heading: 240)
-        //        slider.tintColor = .darkGray
+        // Center the map on the Flatiron Building in New York, NY.
+        mapView.camera = MGLMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: 40.7411, longitude: -73.9897), fromDistance: 600, pitch: 45, heading: 200)
         mapView.tintColor = .gray
-        view.addSubview(mapView)
         
+        view.addSubview(mapView)
     }
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle)
     {
         
-        // Add Building Fill Extrusions
-        addFillExtrusions(style: style)
-        
-        // Adjust Light
-        setLight(style: style)
-        //        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(changeZoom), userInfo: nil, repeats: true)
-    }
-    
-    func addFillExtrusions(style: MGLStyle) {
+        // Access the Mapbox Streets source and use it to create a `MGLFillExtrusionStyleLayer`. The source identifier is `composite`. Use the `sources` property on a style to verify source identifiers.
         if let source = style.source(withIdentifier: "composite") {
             let layer = MGLFillExtrusionStyleLayer(identifier: "extrusion-layer", source: source)
             layer.sourceLayerIdentifier = "building"
+            layer.fillExtrusionBase = nil
             layer.fillExtrusionBase = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "min_height", options: nil)
             layer.fillExtrusionHeight = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "height", options: nil)
             layer.fillExtrusionOpacity = MGLStyleValue(rawValue: 0.75)
             layer.fillExtrusionColor = MGLStyleValue(rawValue: .white)
-            
             if let symbolLayer = style.layer(withIdentifier: "poi-scalerank3") {
                 style.insertLayer(layer, below: symbolLayer)
             } else {
                 style.addLayer(layer)
             }
         }
-    }
-    
-    func setLight(style: MGLStyle) {
-        light = MGLLight()
-        let position = MGLSphericalPositionMake(6, 210, 00);
+        
+        // Create an MGLLight object.
+        let light = MGLLight()
+        
+        // Create an MGLSphericalPosition and set the radial, azimuthal, and polar values.
+        let position = MGLSphericalPositionMake(5, 180, 80)
         light.position = MGLStyleValue<NSValue>(rawValue: NSValue(mglSphericalPosition: position))
-        light.positionTransition = MGLTransition(duration: 5, delay: 0)
-        light.intensity = MGLStyleValue<NSValue>(rawValue: NSNumber(value: lightIntensity)) as! MGLStyleValue<NSNumber>
+            
+        // Set the light anchor to the map and add the light object to the map view's style.
+        light.anchor = MGLStyleValue(rawValue: NSValue(mglLightAnchor: MGLLightAnchor.map))
         style.light = light
-        
-        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(shiftLight), userInfo: nil, repeats: true)
-    }
-    
-    @objc func shiftLight() {
-        lightValue = (lightValue % 180) + 30
-        light = MGLLight()
-        let position = MGLSphericalPositionMake(6, 210, CLLocationDirection(lightValue))
-        light.position = MGLStyleValue<NSValue>(rawValue: NSValue(mglSphericalPosition: position))
-        //        if lightIntensity < 1 {
-        //            lightIntensity += 0.1
-        //        } else {
-        //            lightIntensity = 0
-        //        }
-        //        light.intensity = MGLStyleValue<NSValue>(rawValue: NSNumber(value: lightIntensity)) as! MGLStyleValue<NSNumber>
-        
-        mapView.style?.light = light
-        print(lightValue)
-        
-        //        print(lightIntensity)
     }
 }
