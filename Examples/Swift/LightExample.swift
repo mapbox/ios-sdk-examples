@@ -8,6 +8,7 @@ class LightExample: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set the map style to Mapbox Light Style version 9. The map's source will be queried later in this example.
         let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL(withVersion: 9))
         mapView.delegate = self
         

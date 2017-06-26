@@ -20,6 +20,7 @@ NSString *const MBXExampleLight = @"LightExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Set the map style to Mapbox Light Style version 9. The map's source will be queried later in this example.
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURLWithVersion:9]];
     mapView.delegate = self;
     
