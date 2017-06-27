@@ -29,7 +29,6 @@ NSString *const MBXExampleLight = @"LightExample";
     mapView.tintColor = [UIColor grayColor];
     
     [self.view addSubview:mapView];
-    
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
@@ -47,7 +46,6 @@ NSString *const MBXExampleLight = @"LightExample";
     // Set the light anchor to the map and add the light object to the map view's style.
     light.anchor = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLightAnchor:MGLLightAnchorMap]];
     style.light = light;
-    
 }
 
 - (void)addFillExtrusionLayer:(MGLStyle *)style {
@@ -56,14 +54,17 @@ NSString *const MBXExampleLight = @"LightExample";
     MGLFillExtrusionStyleLayer *layer = [[MGLFillExtrusionStyleLayer alloc] initWithIdentifier:@"extrusion-layer" source:source];
     layer.sourceLayerIdentifier = @"building";
     layer.fillExtrusionBase = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity
-                                                            sourceStops:nil
-                                                          attributeName:@"min_height"
-                                                                options:nil];
-    layer.fillExtrusionHeight = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity sourceStops:nil attributeName:@"height" options:nil];
+                                                      sourceStops:nil
+                                                      attributeName:@"min_height"
+                                                      options:nil];
+    layer.fillExtrusionHeight = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity
+                                                      sourceStops:nil
+                                                      attributeName:@"height"
+                                                      options:nil];
     layer.fillExtrusionOpacity = [MGLStyleValue valueWithRawValue:@0.75];
     layer.fillExtrusionColor = [MGLStyleValue valueWithRawValue:[UIColor whiteColor]];
     MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"poi-scalerank3"];
     [style insertLayer:layer belowLayer:symbolLayer];
-    
 }
+
 @end
