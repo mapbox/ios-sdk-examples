@@ -21,7 +21,7 @@ NSString *const MBXExampleLight = @"LightExample";
     [super viewDidLoad];
     
     // Set the map style to Mapbox Light Style version 9. The map's source will be queried later in this example.
-    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURLWithVersion:9]];
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle streetsStyleURLWithVersion:9]];
     mapView.delegate = self;
     
     // Center the map on the Flatiron Building in New York, NY.
@@ -46,7 +46,7 @@ NSString *const MBXExampleLight = @"LightExample";
     // Set the light anchor to the map and add the light object to the map view's style.
     light.anchor = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLightAnchor:MGLLightAnchorMap]];
     style.light = light;
-}
+ }
 
 - (void)addFillExtrusionLayer:(MGLStyle *)style {
     // Access the Mapbox Streets source and use it to create a `MGLFillExtrusionStyleLayer`. The source identifier is `composite`. Use the `sources` property on a style to verify source identifiers.
@@ -63,6 +63,7 @@ NSString *const MBXExampleLight = @"LightExample";
                                                       options:nil];
     layer.fillExtrusionOpacity = [MGLStyleValue valueWithRawValue:@0.75];
     layer.fillExtrusionColor = [MGLStyleValue valueWithRawValue:[UIColor whiteColor]];
+    
     MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"poi-scalerank3"];
     [style insertLayer:layer belowLayer:symbolLayer];
 }

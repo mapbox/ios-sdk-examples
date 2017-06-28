@@ -5,11 +5,14 @@ import Mapbox
 
 class LightExample: UIViewController, MGLMapViewDelegate {
     
+    var mapView : MGLMapView!
+    var light : MGLLight!
+    var slider : UISlider!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set the map style to Mapbox Light Style version 9. The map's source will be queried later in this example.
-        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL(withVersion: 9))
+        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL(withVersion: 9))
         mapView.delegate = self
         
         // Center the map on the Flatiron Building in New York, NY.
@@ -17,6 +20,19 @@ class LightExample: UIViewController, MGLMapViewDelegate {
         mapView.tintColor = .gray
         
         view.addSubview(mapView)
+        
+        addSlider()
+    }
+    
+    // Add a slider to the map view. This will be used to adjust the map's light object.
+    func addSlider() {
+        slider = UISlider(frame: CGRect(x: self.view.frame.size.width / 8, y: view.frame.height - 60, width: self.view.frame.size.width * 0.75, height: 20))
+        slider.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
+        slider.minimumValue = -180
+        slider.maximumValue = 180
+        slider.value = 0
+        slider.addTarget(self, action: #selector(shiftLight), for: .valueChanged)
+        view.addSubview(slider)
     }
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle)
@@ -25,31 +41,44 @@ class LightExample: UIViewController, MGLMapViewDelegate {
         addFillExtrusionLayer(style: style)
         
         // Create an MGLLight object.
-        let light = MGLLight()
+        light = MGLLight()
         
         // Create an MGLSphericalPosition and set the radial, azimuthal, and polar values.
+        // Radial : Distance from the center of the base of an object to its light.
+        // Azimuthal : Position of the light relative to its anchor.
+        // Polar : The height of the light.
         let position = MGLSphericalPositionMake(5, 180, 80)
         light.position = MGLStyleValue<NSValue>(rawValue: NSValue(mglSphericalPosition: position))
-            
-        // Set the light anchor to the map and add the light object to the map view's style.
+        
+        // Set the light anchor to the map and add the light object to the map view's style. The light anchor can be the viewport (or rotates with the viewport) or the map (rotates with the map).
+//        light.anchor = MGLStyleValue(rawValue: NSValue(mglLightAnchor: MGLLightAnchor.viewport))
         light.anchor = MGLStyleValue(rawValue: NSValue(mglLightAnchor: MGLLightAnchor.map))
         style.light = light
     }
     
+    @objc func shiftLight() {
+        
+        // Use the slider's value to change the light's polar value.
+        let position = MGLSphericalPositionMake(5, 180, CLLocationDirection(slider.value))
+        light.position = MGLStyleValue<NSValue>(rawValue: NSValue(mglSphericalPosition: position))
+//        light.anchor = MGLStyleValue(rawValue: NSValue(mglLightAnchor: MGLLightAnchor.map))
+        mapView.style?.light = light
+        print(light.anchor)
+    }
+    
     func addFillExtrusionLayer(style: MGLStyle) {
         // Access the Mapbox Streets source and use it to create a `MGLFillExtrusionStyleLayer`. The source identifier is `composite`. Use the `sources` property on a style to verify source identifiers.
-        if let source = style.source(withIdentifier: "composite") {
-            let layer = MGLFillExtrusionStyleLayer(identifier: "extrusion-layer", source: source)
-            layer.sourceLayerIdentifier = "building"
-            layer.fillExtrusionBase = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "min_height", options: nil)
-            layer.fillExtrusionHeight = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "height", options: nil)
-            layer.fillExtrusionOpacity = MGLStyleValue(rawValue: 0.75)
-            layer.fillExtrusionColor = MGLStyleValue(rawValue: .white)
-            if let symbolLayer = style.layer(withIdentifier: "poi-scalerank3") {
-                style.insertLayer(layer, below: symbolLayer)
-            } else {
-                style.addLayer(layer)
-            }
-        }
+        let source = style.source(withIdentifier: "composite")!
+        let layer = MGLFillExtrusionStyleLayer(identifier: "extrusion-layer", source: source)
+        layer.sourceLayerIdentifier = "building"
+        layer.fillExtrusionBase = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "min_height", options: nil)
+        layer.fillExtrusionHeight = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "height", options: nil)
+        layer.fillExtrusionOpacity = MGLStyleValue(rawValue: 0.75)
+        layer.fillExtrusionColor = MGLStyleValue(rawValue: .white)
+        
+        
+        let symbolLayer = style.layer(withIdentifier: "poi-scalerank3")!
+        style.insertLayer(layer, below: symbolLayer)
+        
     }
 }
