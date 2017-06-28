@@ -35,8 +35,7 @@ class LightExample: UIViewController, MGLMapViewDelegate {
         view.addSubview(slider)
     }
     
-    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle)
-    {
+    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         // Add a MGLFillExtrusionStyleLayer.
         addFillExtrusionLayer(style: style)
         
@@ -51,7 +50,7 @@ class LightExample: UIViewController, MGLMapViewDelegate {
         light.position = MGLStyleValue<NSValue>(rawValue: NSValue(mglSphericalPosition: position))
         
         // Set the light anchor to the map and add the light object to the map view's style. The light anchor can be the viewport (or rotates with the viewport) or the map (rotates with the map).
-//        light.anchor = MGLStyleValue(rawValue: NSValue(mglLightAnchor: MGLLightAnchor.viewport))
+        // light.anchor = MGLStyleValue(rawValue: NSValue(mglLightAnchor: MGLLightAnchor.viewport))
         light.anchor = MGLStyleValue(rawValue: NSValue(mglLightAnchor: MGLLightAnchor.map))
         style.light = light
     }
@@ -61,9 +60,7 @@ class LightExample: UIViewController, MGLMapViewDelegate {
         // Use the slider's value to change the light's polar value.
         let position = MGLSphericalPositionMake(5, 180, CLLocationDirection(slider.value))
         light.position = MGLStyleValue<NSValue>(rawValue: NSValue(mglSphericalPosition: position))
-//        light.anchor = MGLStyleValue(rawValue: NSValue(mglLightAnchor: MGLLightAnchor.map))
         mapView.style?.light = light
-        print(light.anchor)
     }
     
     func addFillExtrusionLayer(style: MGLStyle) {
@@ -76,9 +73,8 @@ class LightExample: UIViewController, MGLMapViewDelegate {
         layer.fillExtrusionOpacity = MGLStyleValue(rawValue: 0.75)
         layer.fillExtrusionColor = MGLStyleValue(rawValue: .white)
         
-        
+        // Access the map's layer with the identifier "poi-scalerank3" and insert the fill extrusion layer below it.
         let symbolLayer = style.layer(withIdentifier: "poi-scalerank3")!
         style.insertLayer(layer, below: symbolLayer)
-        
     }
 }
