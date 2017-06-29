@@ -1,9 +1,9 @@
 
 import Mapbox
 
-@objc(PointHeatmapExample_Swift)
+@objc(PointHotspotExample_Swift)
 
-class PointHeatmapExample_Swift: UIViewController, MGLMapViewDelegate {
+class PointHotspotExample_Swift: UIViewController, MGLMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()

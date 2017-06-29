@@ -1,5 +1,5 @@
 //
-//  PointHeatmapExample.h
+//  PointHotspotExample.h
 //  Examples
 //
 //  Created by Jordan Kiley on 4/19/17.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PointHeatmapExample : UIViewController
+@interface PointHotspotExample : UIViewController
 
 @end

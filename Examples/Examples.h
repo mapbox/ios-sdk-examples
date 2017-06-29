@@ -36,7 +36,7 @@ extern NSString *const MBXExampleDrawingAMarker;
 extern NSString *const MBXExampleDrawingAPolygon;
 extern NSString *const MBXExampleOfflinePack;
 extern NSString *const MBXExamplePointConversion;
-extern NSString *const MBXExamplePointHeatmap;
+extern NSString *const MBXExamplePointHotspot;
 extern NSString *const MBXExampleRuntimeAddLine;
 extern NSString *const MBXExampleRuntimeAnimateLine;
 extern NSString *const MBXExampleRuntimeCircleStyles;
