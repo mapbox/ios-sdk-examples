@@ -12,6 +12,7 @@ class LightExample: UIViewController, MGLMapViewDelegate {
         
         // Set the map style to Mapbox Streets Style version 9. The map's source will be queried later in this example.
         mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL(withVersion: 9))
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
         
         // Center the map on the Flatiron Building in New York, NY.

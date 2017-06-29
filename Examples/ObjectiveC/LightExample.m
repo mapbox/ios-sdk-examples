@@ -26,6 +26,7 @@ NSString *const MBXExampleLight = @"LightExample";
     
     // Set the map style to Mapbox Streets Style version 9. The map's source will be queried later in this example.
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle streetsStyleURLWithVersion:9]];
+    self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
     
     // Center the map on the Flatiron Building in New York, NY.
