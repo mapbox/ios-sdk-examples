@@ -1,10 +1,3 @@
-//
-//  LightExample.m
-//  Examples
-//
-//  Created by Jordan Kiley on 6/22/17.
-//  Copyright © 2017 Mapbox. All rights reserved.
-//
 
 #import "LightExample.h"
 @import Mapbox;

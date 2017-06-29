@@ -1,10 +1,3 @@
-//
-//  ExtrusionsExample.swift
-//  Examples
-//
-//  Created by Jordan Kiley on 5/10/17.
-//  Copyright © 2017 Mapbox. All rights reserved.
-//
 
 import Mapbox
 
