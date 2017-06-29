@@ -26,7 +26,7 @@ class LightExample: UIViewController, MGLMapViewDelegate {
     
     // Add a slider to the map view. This will be used to adjust the map's light object.
     func addSlider() {
-        slider = UISlider(frame: CGRect(x: self.view.frame.size.width / 8, y: view.frame.height - 60, width: self.view.frame.size.width * 0.75, height: 20))
+        slider = UISlider(frame: CGRect(x: view.frame.width / 8, y: view.frame.height - 60, width: view.frame.width * 0.75, height: 20))
         slider.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
         slider.minimumValue = -180
         slider.maximumValue = 180
@@ -36,6 +36,7 @@ class LightExample: UIViewController, MGLMapViewDelegate {
     }
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
+        
         // Add a MGLFillExtrusionStyleLayer.
         addFillExtrusionLayer(style: style)
         
