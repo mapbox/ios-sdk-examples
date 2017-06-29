@@ -15,8 +15,13 @@
 		07F53B851E00D02100B58DB3 /* AnnotationViewMultipleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F53B841E00D02100B58DB3 /* AnnotationViewMultipleExample.m */; };
 		1F1F84751E538ABB00332CC3 /* BlockingGesturesDelegateExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */; };
 		1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */; };
+		3E085B801EC526C500163C99 /* ExtrusionsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */; };
+		3E085B831EC526E500163C99 /* ExtrusionsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B821EC526E500163C99 /* ExtrusionsExample.m */; };
 		3E3BFAD91E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFAD81E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift */; };
 		3E3BFADC1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFADB1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m */; };
+		3E3FB66B1F05888E004512C6 /* LightExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66A1F05888E004512C6 /* LightExample.swift */; };
+		3E3FB66E1F0588B3004512C6 /* LightExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66D1F0588B3004512C6 /* LightExample.m */; };
+		3E3FB6711F058A18004512C6 /* PointHotspotExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */; };
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
 		3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */; };
 		3EBCD7181DC28240001E342F /* CameraAnimationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */; };
@@ -37,8 +42,7 @@
 		3EBCD7271DC28240001E342F /* SatelliteStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7131DC28240001E342F /* SatelliteStyleExample.swift */; };
 		3EBCD7281DC28240001E342F /* SimpleMapViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7141DC28240001E342F /* SimpleMapViewExample.swift */; };
 		3EBCD7291DC28240001E342F /* UserTrackingModesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7151DC28240001E342F /* UserTrackingModesExample.swift */; };
-		3EC11D251EA8405A001AAAB8 /* PointHeatmapExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC11D241EA8405A001AAAB8 /* PointHeatmapExample.m */; };
-		3EC11D271EA84091001AAAB8 /* PointHeatmapExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC11D261EA84091001AAAB8 /* PointHeatmapExample.swift */; };
+		3EC11D271EA84091001AAAB8 /* PointHotspotExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC11D261EA84091001AAAB8 /* PointHotspotExample.swift */; };
 		3EC92DB71E78C431001D0503 /* metro-line.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 3EC92DB61E78C431001D0503 /* metro-line.geojson */; };
 		3ED403411E006B5200230C95 /* CameraFlyToExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED403401E006B5200230C95 /* CameraFlyToExample.swift */; };
 		3ED403481E006BE800230C95 /* CameraFlyToExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED403471E006BE800230C95 /* CameraFlyToExample.m */; };
@@ -146,9 +150,16 @@
 		1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockingGesturesDelegateExample.m; sourceTree = "<group>"; };
 		1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockingGesturesDelegateExample.swift; sourceTree = "<group>"; };
 		29A0D7C8DCD539DCA5DA1BAC /* Pods-Examples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Examples.release.xcconfig"; path = "Pods/Target Support Files/Pods-Examples/Pods-Examples.release.xcconfig"; sourceTree = "<group>"; };
+		3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtrusionsExample.swift; sourceTree = "<group>"; };
+		3E085B811EC526E500163C99 /* ExtrusionsExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtrusionsExample.h; sourceTree = "<group>"; };
+		3E085B821EC526E500163C99 /* ExtrusionsExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtrusionsExample.m; sourceTree = "<group>"; };
 		3E3BFAD81E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDSLayerSelectionExample.swift; sourceTree = "<group>"; };
 		3E3BFADA1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSLayerSelectionExample.h; sourceTree = "<group>"; };
 		3E3BFADB1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSLayerSelectionExample.m; sourceTree = "<group>"; };
+		3E3FB66A1F05888E004512C6 /* LightExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightExample.swift; sourceTree = "<group>"; };
+		3E3FB66C1F0588B3004512C6 /* LightExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightExample.h; sourceTree = "<group>"; };
+		3E3FB66D1F0588B3004512C6 /* LightExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightExample.m; sourceTree = "<group>"; };
+		3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PointHotspotExample.m; sourceTree = "<group>"; };
 		3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutDelegateUsageExample.swift; sourceTree = "<group>"; };
 		3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraAnimationExample.swift; sourceTree = "<group>"; };
@@ -169,9 +180,9 @@
 		3EBCD7131DC28240001E342F /* SatelliteStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatelliteStyleExample.swift; sourceTree = "<group>"; };
 		3EBCD7141DC28240001E342F /* SimpleMapViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleMapViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7151DC28240001E342F /* UserTrackingModesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrackingModesExample.swift; sourceTree = "<group>"; };
-		3EC11D231EA8405A001AAAB8 /* PointHeatmapExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointHeatmapExample.h; sourceTree = "<group>"; };
-		3EC11D241EA8405A001AAAB8 /* PointHeatmapExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointHeatmapExample.m; sourceTree = "<group>"; };
-		3EC11D261EA84091001AAAB8 /* PointHeatmapExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointHeatmapExample.swift; sourceTree = "<group>"; };
+		3EC11D231EA8405A001AAAB8 /* PointHotspotExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointHotspotExample.h; sourceTree = "<group>"; };
+		3EC11D241EA8405A001AAAB8 /* PointHotspotExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointHotspotExample.m; sourceTree = "<group>"; };
+		3EC11D261EA84091001AAAB8 /* PointHotspotExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointHotspotExample.swift; sourceTree = "<group>"; };
 		3EC92DB61E78C431001D0503 /* metro-line.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "metro-line.geojson"; sourceTree = "<group>"; };
 		3ED403401E006B5200230C95 /* CameraFlyToExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraFlyToExample.swift; sourceTree = "<group>"; };
 		3ED403461E006BE800230C95 /* CameraFlyToExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraFlyToExample.h; sourceTree = "<group>"; };
@@ -306,6 +317,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E3FB6691F0586AD004512C6 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				968247291C5C1FF800494AB8 /* PointConversionExample.m */,
+				3EC11D241EA8405A001AAAB8 /* PointHotspotExample.m */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		3EBCD6FA1DC26355001E342F /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,8 +350,9 @@
 				968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */,
 				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
-				968247291C5C1FF800494AB8 /* PointConversionExample.m */,
-				3EC11D241EA8405A001AAAB8 /* PointHeatmapExample.m */,
+				3E085B821EC526E500163C99 /* ExtrusionsExample.m */,
+				3E3FB66D1F0588B3004512C6 /* LightExample.m */,
+				3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */,
 				646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */,
 				646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */,
 				646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */,
@@ -373,9 +394,11 @@
 				3EBCD70E1DC28240001E342F /* DrawingAGeoJSONLineExample.swift */,
 				3EBCD70F1DC28240001E342F /* DrawingAMarkerExample.swift */,
 				3EBCD7101DC28240001E342F /* DrawingAPolygonExample.swift */,
+				3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */,
+				3E3FB66A1F05888E004512C6 /* LightExample.swift */,
 				3EBCD7111DC28240001E342F /* OfflinePackExample.swift */,
 				3EBCD7121DC28240001E342F /* PointConversionExample.swift */,
-				3EC11D261EA84091001AAAB8 /* PointHeatmapExample.swift */,
+				3EC11D261EA84091001AAAB8 /* PointHotspotExample.swift */,
 				646B62AD1DEF7155000AA523 /* RuntimeAddLineExample.swift */,
 				646B62AF1DEF7161000AA523 /* RuntimeAnimateLineExample.swift */,
 				646B62B31DEF9613000AA523 /* RuntimeCircleStylesExample.swift */,
@@ -402,6 +425,7 @@
 				9619628D1C581700002D3DAB /* Products */,
 				C977D0AF4A14922071F96B9B /* Pods */,
 				CBAD5BE154F4126883B2A6DC /* Frameworks */,
+				3E3FB6691F0586AD004512C6 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -502,9 +526,11 @@
 				968247181C5C115000494AB8 /* DrawingAGeoJSONLineExample.h */,
 				9682470D1C5BF12700494AB8 /* DrawingAMarkerExample.h */,
 				9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */,
+				3E085B811EC526E500163C99 /* ExtrusionsExample.h */,
+				3E3FB66C1F0588B3004512C6 /* LightExample.h */,
 				96115A661CAD4E1C000963B8 /* OfflinePackExample.h */,
 				968247281C5C1FF800494AB8 /* PointConversionExample.h */,
-				3EC11D231EA8405A001AAAB8 /* PointHeatmapExample.h */,
+				3EC11D231EA8405A001AAAB8 /* PointHotspotExample.h */,
 				646B62A21DEF7106000AA523 /* RuntimeAddLineExample.h */,
 				646B62A11DEF70DD000AA523 /* RuntimeAnimateLineExample.h */,
 				646B62BB1DEF964A000AA523 /* RuntimeCircleStylesExample.h */,
@@ -861,6 +887,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E3FB6711F058A18004512C6 /* PointHotspotExample.m in Sources */,
 				07C138C71E72216E00D6F678 /* DDSCircleLayerExample.m in Sources */,
 				3EBCD7191DC28240001E342F /* CustomAnnotationModelExample.swift in Sources */,
 				962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */,
@@ -891,10 +918,12 @@
 				968247201C5C1C0400494AB8 /* DrawingAPolygonExample.m in Sources */,
 				3EBCD7221DC28240001E342F /* DrawingAGeoJSONLineExample.swift in Sources */,
 				96A2A1D21C8CA74B0059441E /* CustomCalloutView.m in Sources */,
+				3E085B831EC526E500163C99 /* ExtrusionsExample.m in Sources */,
 				64BBDAF61DF232FD00BB705D /* SelectFeatureExample.swift in Sources */,
 				64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */,
 				96D431FC1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m in Sources */,
 				968247031C5BDCBB00494AB8 /* CustomRasterStyleExample.m in Sources */,
+				3E3FB66B1F05888E004512C6 /* LightExample.swift in Sources */,
 				64CF97121DF224F600C3C27B /* SourceCustomRasterExample.swift in Sources */,
 				3E3BFADC1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m in Sources */,
 				9682472A1C5C1FF800494AB8 /* PointConversionExample.m in Sources */,
@@ -902,10 +931,10 @@
 				3EBCD71D1DC28240001E342F /* CustomRasterStyleExample.swift in Sources */,
 				646B62B01DEF7161000AA523 /* RuntimeAnimateLineExample.swift in Sources */,
 				07F53B851E00D02100B58DB3 /* AnnotationViewMultipleExample.m in Sources */,
+				3E085B801EC526C500163C99 /* ExtrusionsExample.swift in Sources */,
 				3EBCD7231DC28240001E342F /* DrawingAMarkerExample.swift in Sources */,
 				961962911C581700002D3DAB /* main.m in Sources */,
 				968247131C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m in Sources */,
-				3EC11D251EA8405A001AAAB8 /* PointHeatmapExample.m in Sources */,
 				3EBCD7251DC28240001E342F /* OfflinePackExample.swift in Sources */,
 				3EBCD71A1DC28240001E342F /* CustomAnnotationModels.swift in Sources */,
 				3E3BFAD91E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift in Sources */,
@@ -915,7 +944,7 @@
 				3EBCD7281DC28240001E342F /* SimpleMapViewExample.swift in Sources */,
 				3EBCD7241DC28240001E342F /* DrawingAPolygonExample.swift in Sources */,
 				964CB5111E42A0A3004549EA /* AnnotationViewMultipleExample.swift in Sources */,
-				3EC11D271EA84091001AAAB8 /* PointHeatmapExample.swift in Sources */,
+				3EC11D271EA84091001AAAB8 /* PointHotspotExample.swift in Sources */,
 				9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */,
 				64CF97101DF224E400C3C27B /* SourceCustomVectorExample.swift in Sources */,
 				3EBCD7211DC28240001E342F /* DrawingACustomMarkerExample.swift in Sources */,
@@ -935,6 +964,7 @@
 				64CF970C1DF224C500C3C27B /* SourceCustomVectorExample.m in Sources */,
 				969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */,
 				646B62A41DEF7115000AA523 /* RuntimeAddLineExample.m in Sources */,
+				3E3FB66E1F0588B3004512C6 /* LightExample.m in Sources */,
 				968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */,
 				961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */,
 			);

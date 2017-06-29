@@ -10,7 +10,7 @@ class ShapeCollectionFeatureExample_Swift: UIViewController, MGLMapViewDelegate 
         super.viewDidLoad()
         
         mapView = MGLMapView(frame: view.bounds)
-        mapView.styleURL = MGLStyle.lightStyleURL(withVersion: 9)
+        mapView.styleURL = MGLStyle.lightStyleURL()
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .darkGray
         

@@ -16,7 +16,7 @@ NSString *const MBXExampleDDSCircleLayer = @"DDSCircleLayerExample";
 
     // Create a new map view using the Mapbox Light style.
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds
-        styleURL:[MGLStyle lightStyleURLWithVersion:9]];
+        styleURL:[MGLStyle lightStyleURL]];
     
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.tintColor = [UIColor darkGrayColor];

@@ -9,7 +9,7 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
         super.viewDidLoad()
 
         mapView = MGLMapView(frame: view.bounds)
-        mapView.styleURL = MGLStyle.lightStyleURL(withVersion: 9)
+        mapView.styleURL = MGLStyle.lightStyleURL()
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .darkGray
 
@@ -54,7 +54,6 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
                               22: MGLStyleValue(rawValue: 180)],
                 options: [.defaultValue : 1.75])
             
-//            (interpolationBase: 1.75, stops: )
             layer.circleOpacity = MGLStyleValue(rawValue: 0.7)
 
             // Set the circle color to match the ethnicity.

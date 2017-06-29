@@ -8,7 +8,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURLWithVersion:9]];
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURL]];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
     mapView.userTrackingMode = MGLUserTrackingModeFollowWithHeading;

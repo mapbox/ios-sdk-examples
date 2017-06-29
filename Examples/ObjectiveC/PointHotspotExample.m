@@ -1,14 +1,14 @@
 
-#import "PointHeatmapExample.h"
+#import "PointHotspotExample.h"
 @import Mapbox;
 
-NSString *const MBXExamplePointHeatmap = @"PointHeatmapExample";
+NSString *const MBXExamplePointHotspot = @"PointHotspotExample";
 
-@interface PointHeatmapExample () <MGLMapViewDelegate>
+@interface PointHotspotExample () <MGLMapViewDelegate>
 
 @end
 
-@implementation PointHeatmapExample
+@implementation PointHotspotExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];

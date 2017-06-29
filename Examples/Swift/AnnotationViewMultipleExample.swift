@@ -13,7 +13,7 @@ class AnnotationViewMultipleExample_Swift: UIViewController, MGLMapViewDelegate 
         super.viewDidLoad()
         
         // Create a new map view using the Mapbox Light style.
-        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL(withVersion: 9))
+        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL())
         
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
