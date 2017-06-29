@@ -56,9 +56,9 @@ NSString *const MBXExampleLight = @"LightExample";
     self.light = [[MGLLight alloc] init];
     
     // Create an MGLSphericalPosition and set the radial, azimuthal, and polar values.
-    // Radial : Distance from the center of the base of an object to its light.
-    // Azimuthal : Position of the light relative to its anchor.
-    // Polar : The height of the light.
+    // Radial : Distance from the center of the base of an object to its light. Takes a CGFloat.
+    // Azimuthal : Position of the light relative to its anchor. Takes a CLLocationDirection.
+    // Polar : The height of the light. Takes a CLLocationDirection.
     MGLSphericalPosition position = MGLSphericalPositionMake(5, 180, 80);
     self.light.position = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLSphericalPosition:position]];
     
