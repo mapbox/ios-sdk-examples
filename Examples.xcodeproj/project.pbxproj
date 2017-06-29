@@ -21,6 +21,7 @@
 		3E3BFADC1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFADB1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m */; };
 		3E3FB66B1F05888E004512C6 /* LightExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66A1F05888E004512C6 /* LightExample.swift */; };
 		3E3FB66E1F0588B3004512C6 /* LightExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66D1F0588B3004512C6 /* LightExample.m */; };
+		3E3FB6711F058A18004512C6 /* PointHotspotExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */; };
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
 		3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */; };
 		3EBCD7181DC28240001E342F /* CameraAnimationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */; };
@@ -41,7 +42,6 @@
 		3EBCD7271DC28240001E342F /* SatelliteStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7131DC28240001E342F /* SatelliteStyleExample.swift */; };
 		3EBCD7281DC28240001E342F /* SimpleMapViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7141DC28240001E342F /* SimpleMapViewExample.swift */; };
 		3EBCD7291DC28240001E342F /* UserTrackingModesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7151DC28240001E342F /* UserTrackingModesExample.swift */; };
-		3EC11D251EA8405A001AAAB8 /* PointHotspotExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC11D241EA8405A001AAAB8 /* PointHotspotExample.m */; };
 		3EC11D271EA84091001AAAB8 /* PointHotspotExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC11D261EA84091001AAAB8 /* PointHotspotExample.swift */; };
 		3EC92DB71E78C431001D0503 /* metro-line.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 3EC92DB61E78C431001D0503 /* metro-line.geojson */; };
 		3ED403411E006B5200230C95 /* CameraFlyToExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED403401E006B5200230C95 /* CameraFlyToExample.swift */; };
@@ -159,6 +159,7 @@
 		3E3FB66A1F05888E004512C6 /* LightExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightExample.swift; sourceTree = "<group>"; };
 		3E3FB66C1F0588B3004512C6 /* LightExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightExample.h; sourceTree = "<group>"; };
 		3E3FB66D1F0588B3004512C6 /* LightExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightExample.m; sourceTree = "<group>"; };
+		3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PointHotspotExample.m; sourceTree = "<group>"; };
 		3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutDelegateUsageExample.swift; sourceTree = "<group>"; };
 		3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraAnimationExample.swift; sourceTree = "<group>"; };
@@ -351,6 +352,7 @@
 				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
 				3E085B821EC526E500163C99 /* ExtrusionsExample.m */,
 				3E3FB66D1F0588B3004512C6 /* LightExample.m */,
+				3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */,
 				646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */,
 				646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */,
 				646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */,
@@ -885,6 +887,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E3FB6711F058A18004512C6 /* PointHotspotExample.m in Sources */,
 				07C138C71E72216E00D6F678 /* DDSCircleLayerExample.m in Sources */,
 				3EBCD7191DC28240001E342F /* CustomAnnotationModelExample.swift in Sources */,
 				962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */,
@@ -932,7 +935,6 @@
 				3EBCD7231DC28240001E342F /* DrawingAMarkerExample.swift in Sources */,
 				961962911C581700002D3DAB /* main.m in Sources */,
 				968247131C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m in Sources */,
-				3EC11D251EA8405A001AAAB8 /* PointHotspotExample.m in Sources */,
 				3EBCD7251DC28240001E342F /* OfflinePackExample.swift in Sources */,
 				3EBCD71A1DC28240001E342F /* CustomAnnotationModels.swift in Sources */,
 				3E3BFAD91E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift in Sources */,
