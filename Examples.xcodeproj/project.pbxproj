@@ -169,7 +169,7 @@
 		3EBCD7131DC28240001E342F /* SatelliteStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatelliteStyleExample.swift; sourceTree = "<group>"; };
 		3EBCD7141DC28240001E342F /* SimpleMapViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleMapViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7151DC28240001E342F /* UserTrackingModesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrackingModesExample.swift; sourceTree = "<group>"; };
-		3EC11D231EA8405A001AAAB8 /* PointHeatmapExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointHeatmapExample.h; sourceTree = "<group>"; };
+		3EC11D231EA8405A001AAAB8 /* PointHotspotExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointHotspotExample.h; sourceTree = "<group>"; };
 		3EC11D241EA8405A001AAAB8 /* PointHotspotExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointHotspotExample.m; sourceTree = "<group>"; };
 		3EC11D261EA84091001AAAB8 /* PointHotspotExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointHotspotExample.swift; sourceTree = "<group>"; };
 		3EC92DB61E78C431001D0503 /* metro-line.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "metro-line.geojson"; sourceTree = "<group>"; };
@@ -504,7 +504,7 @@
 				9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */,
 				96115A661CAD4E1C000963B8 /* OfflinePackExample.h */,
 				968247281C5C1FF800494AB8 /* PointConversionExample.h */,
-				3EC11D231EA8405A001AAAB8 /* PointHeatmapExample.h */,
+				3EC11D231EA8405A001AAAB8 /* PointHotspotExample.h */,
 				646B62A21DEF7106000AA523 /* RuntimeAddLineExample.h */,
 				646B62A11DEF70DD000AA523 /* RuntimeAnimateLineExample.h */,
 				646B62BB1DEF964A000AA523 /* RuntimeCircleStylesExample.h */,
