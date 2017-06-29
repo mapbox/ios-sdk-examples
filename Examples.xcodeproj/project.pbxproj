@@ -19,6 +19,8 @@
 		3E085B831EC526E500163C99 /* ExtrusionsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B821EC526E500163C99 /* ExtrusionsExample.m */; };
 		3E3BFAD91E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFAD81E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift */; };
 		3E3BFADC1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFADB1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m */; };
+		3E3FB66B1F05888E004512C6 /* LightExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66A1F05888E004512C6 /* LightExample.swift */; };
+		3E3FB66E1F0588B3004512C6 /* LightExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66D1F0588B3004512C6 /* LightExample.m */; };
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
 		3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */; };
 		3EBCD7181DC28240001E342F /* CameraAnimationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */; };
@@ -154,6 +156,9 @@
 		3E3BFAD81E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDSLayerSelectionExample.swift; sourceTree = "<group>"; };
 		3E3BFADA1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSLayerSelectionExample.h; sourceTree = "<group>"; };
 		3E3BFADB1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSLayerSelectionExample.m; sourceTree = "<group>"; };
+		3E3FB66A1F05888E004512C6 /* LightExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightExample.swift; sourceTree = "<group>"; };
+		3E3FB66C1F0588B3004512C6 /* LightExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightExample.h; sourceTree = "<group>"; };
+		3E3FB66D1F0588B3004512C6 /* LightExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightExample.m; sourceTree = "<group>"; };
 		3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutDelegateUsageExample.swift; sourceTree = "<group>"; };
 		3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraAnimationExample.swift; sourceTree = "<group>"; };
@@ -311,6 +316,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E3FB6691F0586AD004512C6 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				968247291C5C1FF800494AB8 /* PointConversionExample.m */,
+				3EC11D241EA8405A001AAAB8 /* PointHotspotExample.m */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		3EBCD6FA1DC26355001E342F /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +350,7 @@
 				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
 				3E085B821EC526E500163C99 /* ExtrusionsExample.m */,
+				3E3FB66D1F0588B3004512C6 /* LightExample.m */,
 				646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */,
 				646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */,
 				646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */,
@@ -375,6 +390,7 @@
 				3EBCD70C1DC28240001E342F /* DraggableAnnotationViewExample.swift */,
 				3EBCD70D1DC28240001E342F /* DrawingACustomMarkerExample.swift */,
 				3EBCD70E1DC28240001E342F /* DrawingAGeoJSONLineExample.swift */,
+				3E3FB66A1F05888E004512C6 /* LightExample.swift */,
 				3EBCD70F1DC28240001E342F /* DrawingAMarkerExample.swift */,
 				3EBCD7101DC28240001E342F /* DrawingAPolygonExample.swift */,
 				3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */,
@@ -407,6 +423,7 @@
 				9619628D1C581700002D3DAB /* Products */,
 				C977D0AF4A14922071F96B9B /* Pods */,
 				CBAD5BE154F4126883B2A6DC /* Frameworks */,
+				3E3FB6691F0586AD004512C6 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -508,6 +525,7 @@
 				9682470D1C5BF12700494AB8 /* DrawingAMarkerExample.h */,
 				9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */,
 				3E085B811EC526E500163C99 /* ExtrusionsExample.h */,
+				3E3FB66C1F0588B3004512C6 /* LightExample.h */,
 				96115A661CAD4E1C000963B8 /* OfflinePackExample.h */,
 				968247281C5C1FF800494AB8 /* PointConversionExample.h */,
 				3EC11D231EA8405A001AAAB8 /* PointHotspotExample.h */,
@@ -723,7 +741,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		22AEEA788A5D2A11DF9F9032 /* [CP] Copy Pods Resources */ = {
@@ -798,7 +816,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		964CB5161E445964004549EA /* Insert Mapbox Access Token */ = {
@@ -857,7 +875,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -902,6 +920,7 @@
 				64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */,
 				96D431FC1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m in Sources */,
 				968247031C5BDCBB00494AB8 /* CustomRasterStyleExample.m in Sources */,
+				3E3FB66B1F05888E004512C6 /* LightExample.swift in Sources */,
 				64CF97121DF224F600C3C27B /* SourceCustomRasterExample.swift in Sources */,
 				3E3BFADC1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m in Sources */,
 				9682472A1C5C1FF800494AB8 /* PointConversionExample.m in Sources */,
@@ -943,6 +962,7 @@
 				64CF970C1DF224C500C3C27B /* SourceCustomVectorExample.m in Sources */,
 				969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */,
 				646B62A41DEF7115000AA523 /* RuntimeAddLineExample.m in Sources */,
+				3E3FB66E1F0588B3004512C6 /* LightExample.m in Sources */,
 				968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */,
 				961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */,
 			);
