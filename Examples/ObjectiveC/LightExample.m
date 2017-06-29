@@ -24,13 +24,12 @@ NSString *const MBXExampleLight = @"LightExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Set the map style to Mapbox Light Style version 9. The map's source will be queried later in this example.
+    // Set the map style to Mapbox Streets Style version 9. The map's source will be queried later in this example.
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle streetsStyleURLWithVersion:9]];
     self.mapView.delegate = self;
     
     // Center the map on the Flatiron Building in New York, NY.
     self.mapView.camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(40.7411, -73.9897) fromDistance:600 pitch:45 heading:200];
-    self.mapView.tintColor = [UIColor grayColor];
     
     [self.view addSubview:self.mapView];
     
@@ -63,9 +62,10 @@ NSString *const MBXExampleLight = @"LightExample";
     MGLSphericalPosition position = MGLSphericalPositionMake(5, 180, 80);
     self.light.position = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLSphericalPosition:position]];
     
-    // Set the light anchor to the map and add the light object to the map view's style. The light anchor can be the viewport (or rotates with the viewport) or the map (rotates with the map).
-    // self.light.anchor = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLightAnchor:MGLLightAnchorViewport]];
+    // Set the light anchor to the map and add the light object to the map view's style. The light anchor can be the viewport (or rotates with the viewport) or the map (rotates with the map). To make the viewport the anchor, replace `MGLLightAnchorMap` with `MGLLightAnchorViewport`. 
+
     self.light.anchor = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLightAnchor:MGLLightAnchorMap]];
+ 
     style.light = self.light;
  }
 

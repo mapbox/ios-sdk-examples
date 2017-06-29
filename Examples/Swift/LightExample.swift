@@ -11,13 +11,12 @@ class LightExample: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the map style to Mapbox Light Style version 9. The map's source will be queried later in this example.
+        // Set the map style to Mapbox Streets Style version 9. The map's source will be queried later in this example.
         mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL(withVersion: 9))
         mapView.delegate = self
         
         // Center the map on the Flatiron Building in New York, NY.
         mapView.camera = MGLMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: 40.7411, longitude: -73.9897), fromDistance: 600, pitch: 45, heading: 200)
-        mapView.tintColor = .gray
         
         view.addSubview(mapView)
         
@@ -50,8 +49,7 @@ class LightExample: UIViewController, MGLMapViewDelegate {
         let position = MGLSphericalPositionMake(5, 180, 80)
         light.position = MGLStyleValue<NSValue>(rawValue: NSValue(mglSphericalPosition: position))
         
-        // Set the light anchor to the map and add the light object to the map view's style. The light anchor can be the viewport (or rotates with the viewport) or the map (rotates with the map).
-        // light.anchor = MGLStyleValue(rawValue: NSValue(mglLightAnchor: MGLLightAnchor.viewport))
+        // Set the light anchor to the map and add the light object to the map view's style. The light anchor can be the viewport (or rotates with the viewport) or the map (rotates with the map). To make the viewport the anchor, replace `MGLLightAnchor.map` with `MGLLightAnchor.viewport`. 
         light.anchor = MGLStyleValue(rawValue: NSValue(mglLightAnchor: MGLLightAnchor.map))
         style.light = light
     }
