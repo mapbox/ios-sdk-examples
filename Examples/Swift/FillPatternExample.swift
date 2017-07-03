@@ -21,21 +21,20 @@ class FillPattern_Swift: UIViewController, MGLMapViewDelegate {
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
         // Set the UIImage to be used for the fill pattern.
-        var fillPatternImage: UIImage!
-        fillPatternImage = UIImage(named: "stripe-pattern")
+        let fillPatternImage = UIImage(named: "stripe-pattern")!
         
         // Add the fill pattern image to used by the style layer.
         style.setImage(fillPatternImage, forName: "stripe-pattern")
         
-        // "mapbox://examples.0cd7imtl" is a map ID referencing a tileset. For more
-        // more information, see mapbox.com/help/define-map-id/
+        // "mapbox://examples.0cd7imtl" is a map ID referencing a tileset containing vector data.
+        // For more information, see mapbox.com/help/define-map-id/
         let source = MGLVectorSource(identifier: "drone-restrictions", configurationURL: URL(string: "mapbox://examples.0cd7imtl")!)
         style.addSource(source)
         
-        // Create a style layer to be used with the vector source.
+        // Create a style layer using the vector source.
         let layer = MGLFillStyleLayer(identifier: "drone-restrictions-style", source: source)
         
-        // Set the source's identifier using the source name its
+        // Set the source's identifier using the source name retrieved from its
         // TileJSON metadata: mapbox.com/api-documentation/#retrieve-tilejson-metadata
          layer.sourceLayerIdentifier = "drone-restrictions-3f6lsg"
         

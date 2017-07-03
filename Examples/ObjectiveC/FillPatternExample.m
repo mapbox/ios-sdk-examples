@@ -33,16 +33,16 @@ NSString *const MBXExampleFillPattern = @"FillPatternExample";
     // Add the fill pattern image to used by the style layer.
     [style setImage:fillPatternImage forName:@"stripe-pattern"];
     
-    // "mapbox://examples.0cd7imtl" is a map ID referencing a tileset. For more
-    // more information, see mapbox.com/help/define-map-id/
+    // "mapbox://examples.0cd7imtl" is a map ID referencing a tileset containing vector data.
+    // For more information, see mapbox.com/help/define-map-id/
     MGLSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"drone-restrictions" configurationURL:[NSURL URLWithString:@"mapbox://examples.0cd7imtl"]];
     
     [style addSource:source];
     
-    // Create a style layer to be used with the vector source.
+    // Create a style layer using the vector source.
     MGLFillStyleLayer *layer = [[MGLFillStyleLayer alloc] initWithIdentifier:@"drone-restrictions-style" source:source];
     
-    // Set the source's identifier using the source name its
+    // Set the source's identifier using the source name retrieved from its
     // TileJSON metadata: mapbox.com/api-documentation/#retrieve-tilejson-metadata
     layer.sourceLayerIdentifier = @"drone-restrictions-3f6lsg";
     
@@ -58,7 +58,7 @@ NSString *const MBXExampleFillPattern = @"FillPatternExample";
     // Refer to the layers list in Mapbox Studio to confirm which layers are available for
     // use when working with a custom style.
     MGLStyleLayer *cityLabels = [style layerWithIdentifier:@"place-city-sm"];
-    if (cityLabels != nil) {
+    if (cityLabels) {
         [style insertLayer:layer belowLayer:cityLabels];
     } else {
         [style addLayer:layer];

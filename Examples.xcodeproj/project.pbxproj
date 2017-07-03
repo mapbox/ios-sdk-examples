@@ -355,12 +355,11 @@
 				968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */,
 				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
-				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
 				3E085B821EC526E500163C99 /* ExtrusionsExample.m */,
 				3E3FB66D1F0588B3004512C6 /* LightExample.m */,
 				3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */,
 				055ABCC01EFB139C0063BACA /* FillPatternExample.m */,
-				968247291C5C1FF800494AB8 /* PointConversionExam
+				968247291C5C1FF800494AB8 /* PointConversionExample.m */,
 				646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */,
 				646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */,
 				646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */,
