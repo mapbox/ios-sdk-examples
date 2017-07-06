@@ -44,7 +44,7 @@ class FillPatternExample_Swift: UIViewController, MGLMapViewDelegate {
         // Set the fill pattern and opacity for the style layer. The MGLStyleValue
         // object is a generic container for a style attribute value. In this case,
         // it is a reference to the fillPatternImage.
-        layer.fillPattern = MGLStyleValue<NSString>(rawValue: "stripe-pattern")
+        layer.fillPattern = MGLStyleValue(rawValue: "stripe-pattern")
         layer.fillOpacity = MGLStyleValue(rawValue: 0.5)
         
         // Insert the pattern style layer below the layer contining city labels. If the
