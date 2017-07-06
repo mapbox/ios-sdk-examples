@@ -7,11 +7,12 @@ class FillPatternExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the map’s size, style, center coordinate, and zoom level.
+        // Set the map’s size, style, center coordinate, zoom level, and tint color.
         let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.styleURL = MGLStyle.darkStyleURL(withVersion: 9)
         mapView.setCenter(CLLocationCoordinate2D(latitude: 38.849534447, longitude: -77.039222717), zoomLevel: 8.5, animated: false)
+        mapView.tintColor = .lightGray
         
         view.addSubview(mapView)
         

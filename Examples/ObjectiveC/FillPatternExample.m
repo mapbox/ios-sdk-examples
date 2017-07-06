@@ -14,13 +14,13 @@ NSString *const MBXExampleFillPattern = @"FillPatternExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Set the map’s size, style, center coordinate, zoom level, and tint color.
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.frame styleURL:[MGLStyle darkStyleURLWithVersion:9]];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
-    // Set the map’s size, style, center coordinate, and zoom level.
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(38.849534447, -77.039222717)
                        zoomLevel:8.5
                         animated:NO];
+    mapView.tintColor = [UIColor lightGrayColor];
     
     mapView.delegate = self;
     
