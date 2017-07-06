@@ -47,6 +47,8 @@ NSString *const MBXExampleFillPattern = @"FillPatternExample";
     
     // Set the source's identifier using the source name retrieved from its
     // TileJSON metadata: mapbox.com/api-documentation/#retrieve-tilejson-metadata
+    // You can also retrieve the source layer identifier in the Mapbox Studio layers list,
+    // if your source data was added using the Mapbox Studio style editor.
     layer.sourceLayerIdentifier = @"drone-restrictions-3f6lsg";
     
     // Set the fill pattern and opacity for the style layer. The MGLStyleValue
