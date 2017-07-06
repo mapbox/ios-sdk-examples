@@ -2,7 +2,7 @@ import Mapbox
 
 @objc(FillPatternExample_Swift)
 
-class FillPattern_Swift: UIViewController, MGLMapViewDelegate {
+class FillPatternExample_Swift: UIViewController, MGLMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
