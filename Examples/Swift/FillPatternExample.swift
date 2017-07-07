@@ -2,16 +2,17 @@ import Mapbox
 
 @objc(FillPatternExample_Swift)
 
-class FillPattern_Swift: UIViewController, MGLMapViewDelegate {
+class FillPatternExample_Swift: UIViewController, MGLMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the map’s size, style, center coordinate, and zoom level.
+        // Set the map’s size, style, center coordinate, zoom level, and tint color.
         let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.styleURL = MGLStyle.darkStyleURL(withVersion: 9)
         mapView.setCenter(CLLocationCoordinate2D(latitude: 38.849534447, longitude: -77.039222717), zoomLevel: 8.5, animated: false)
+        mapView.tintColor = .lightGray
         
         view.addSubview(mapView)
         
@@ -36,12 +37,14 @@ class FillPattern_Swift: UIViewController, MGLMapViewDelegate {
         
         // Set the source's identifier using the source name retrieved from its
         // TileJSON metadata: mapbox.com/api-documentation/#retrieve-tilejson-metadata
+        // You can also retrieve the source layer identifier in the Mapbox Studio layers list,
+        // if your source data was added using the Mapbox Studio style editor.
          layer.sourceLayerIdentifier = "drone-restrictions-3f6lsg"
         
         // Set the fill pattern and opacity for the style layer. The MGLStyleValue
         // object is a generic container for a style attribute value. In this case,
         // it is a reference to the fillPatternImage.
-        layer.fillPattern = MGLStyleValue<NSString>(rawValue: "stripe-pattern")
+        layer.fillPattern = MGLStyleValue(rawValue: "stripe-pattern")
         layer.fillOpacity = MGLStyleValue(rawValue: 0.5)
         
         // Insert the pattern style layer below the layer contining city labels. If the
