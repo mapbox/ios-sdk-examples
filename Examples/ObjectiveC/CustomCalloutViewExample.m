@@ -36,22 +36,16 @@ NSString *const MBXExampleCustomCalloutView = @"CustomCalloutViewExample";
 }
 
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id <MGLAnnotation>)annotation {
-    // Always allow callouts to popup when annotations are tapped.
-    return YES;
+    // Only show callouts for `Hello world!` annotation.
+    return [annotation respondsToSelector:@selector(title)] && [annotation.title isEqualToString:@"Hello world!"];
 }
 
 - (UIView<MGLCalloutView> *)mapView:(__unused MGLMapView *)mapView calloutViewForAnnotation:(id<MGLAnnotation>)annotation
 {
-    // Only show callouts for `Hello world!` annotation.
-    if ([annotation respondsToSelector:@selector(title)]
-        && [annotation.title isEqualToString:@"Hello world!"])
-    {
-        // Instantiate and return our custom callout view.
-        CustomCalloutView *calloutView = [[CustomCalloutView alloc] init];
-        calloutView.representedObject = annotation;
-        return calloutView;
-    }
-    return nil;
+    // Instantiate and return our custom callout view.
+    CustomCalloutView *calloutView = [[CustomCalloutView alloc] init];
+    calloutView.representedObject = annotation;
+    return calloutView;
 }
 
 - (void)mapView:(MGLMapView *)mapView tapOnCalloutForAnnotation:(id<MGLAnnotation>)annotation

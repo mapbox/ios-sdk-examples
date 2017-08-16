@@ -30,18 +30,13 @@ class CustomCalloutViewExample_Swift: UIViewController, MGLMapViewDelegate {
     }
     
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-        // Always allow callouts to popup when annotations are tapped.
-        return true
+        // Only show callouts for `Hello world!` annotation.
+        return annotation.responds(to: #selector(getter: MGLAnnotation.title)) && annotation.title! == "Hello world!"
     }
 
     func mapView(_ mapView: MGLMapView, calloutViewFor annotation: MGLAnnotation) -> MGLCalloutView? {
-        // Only show callouts for `Hello world!` annotation.
-        if annotation.responds(to: #selector(getter: MGLAnnotation.title)) && annotation.title! == "Hello world!" {
-            // Instantiate and return our custom callout view.
-            return CustomCalloutView(representedObject: annotation)
-        }
-        
-        return nil
+        // Instantiate and return our custom callout view.
+        return CustomCalloutView(representedObject: annotation)
     }
     
     func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
