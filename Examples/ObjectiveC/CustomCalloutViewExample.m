@@ -17,33 +17,36 @@ NSString *const MBXExampleCustomCalloutView = @"CustomCalloutViewExample";
     mapView.tintColor = [UIColor darkGrayColor];
     [self.view addSubview:mapView];
 
-    // Set the map view‘s delegate property
+    // Set the map view‘s delegate property.
     mapView.delegate = self;
 
-    // Initialize and add the marker annotation
+    // Initialize and add the marker annotation.
     MGLPointAnnotation *marker = [[MGLPointAnnotation alloc] init];
     marker.coordinate = CLLocationCoordinate2DMake(0, 0);
     marker.title = @"Hello world!";
 
-    // This custom callout example does not implement subtitles
+    // This custom callout example does not implement subtitles.
     //marker.subtitle = @"Welcome to my marker";
 
-    // Add marker to the map
+    // Add the annotation to the map.
     [mapView addAnnotation:marker];
+
+    // Select the annotation so the callout will appear.
+    [mapView selectAnnotation:marker animated:NO];
 }
 
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id <MGLAnnotation>)annotation {
-    // Always allow callouts to popup when annotations are tapped
+    // Always allow callouts to popup when annotations are tapped.
     return YES;
 }
 
 - (UIView<MGLCalloutView> *)mapView:(__unused MGLMapView *)mapView calloutViewForAnnotation:(id<MGLAnnotation>)annotation
 {
-    // Only show callouts for `Hello world!` annotation
+    // Only show callouts for `Hello world!` annotation.
     if ([annotation respondsToSelector:@selector(title)]
         && [annotation.title isEqualToString:@"Hello world!"])
     {
-        // Instantiate and return our custom callout view
+        // Instantiate and return our custom callout view.
         CustomCalloutView *calloutView = [[CustomCalloutView alloc] init];
         calloutView.representedObject = annotation;
         return calloutView;
@@ -53,10 +56,10 @@ NSString *const MBXExampleCustomCalloutView = @"CustomCalloutViewExample";
 
 - (void)mapView:(MGLMapView *)mapView tapOnCalloutForAnnotation:(id<MGLAnnotation>)annotation
 {
-    // Optionally handle taps on the callout
+    // Optionally handle taps on the callout.
     NSLog(@"Tapped the callout for: %@", annotation);
 
-    // Hide the callout
+    // Hide the callout.
     [mapView deselectAnnotation:annotation animated:YES];
 }
 
