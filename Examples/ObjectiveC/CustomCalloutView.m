@@ -13,12 +13,16 @@ static CGFloat const tipWidth = 20.0;
     __unused UIView *_leftAccessoryView;/* unused */
     __unused UIView *_rightAccessoryView;/* unused */
     __weak id <MGLCalloutViewDelegate> _delegate;
+    BOOL _dismissesAutomatically;
+    BOOL _anchoredToAnnotation;
 }
 
 @synthesize representedObject = _representedObject;
 @synthesize leftAccessoryView = _leftAccessoryView;/* unused */
 @synthesize rightAccessoryView = _rightAccessoryView;/* unused */
 @synthesize delegate = _delegate;
+@synthesize anchoredToAnnotation = _anchoredToAnnotation;
+@synthesize dismissesAutomatically = _dismissesAutomatically;
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -104,6 +108,21 @@ static CGFloat const tipWidth = 20.0;
             [self removeFromSuperview];
         }
     }
+}
+
+// Allow the callout to remain open during panning.
+- (BOOL)dismissesAutomatically {
+    return NO;
+}
+
+- (BOOL)isAnchoredToAnnotation {
+    return YES;
+}
+
+// https://github.com/mapbox/mapbox-gl-native/issues/9228
+- (void)setCenter:(CGPoint)center {
+    center.y = center.y - CGRectGetMidY(self.bounds);
+    [super setCenter:center];
 }
 
 #pragma mark - Callout interaction handlers

@@ -2,7 +2,23 @@ import Mapbox
 
 class CustomCalloutView: UIView, MGLCalloutView {
     var representedObject: MGLAnnotation
-    
+
+    // Allow the callout to remain open during panning.
+    let dismissesAutomatically: Bool = false
+    let isAnchoredToAnnotation: Bool = true
+
+    // https://github.com/mapbox/mapbox-gl-native/issues/9228
+    override var center: CGPoint {
+        set {
+            var newCenter = newValue
+            newCenter.y = newCenter.y - bounds.midY
+            super.center = newCenter
+        }
+        get {
+            return super.center
+        }
+    }
+
     // Lazy initialization of optional vars for protocols causes segmentation fault: 11s in Swift 3.0. https://bugs.swift.org/browse/SR-1825
     
     var leftAccessoryView = UIView() /* unused */
