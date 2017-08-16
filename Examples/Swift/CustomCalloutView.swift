@@ -126,7 +126,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
         
         let tipLeft = rect.origin.x + (rect.size.width / 2.0) - (tipWidth / 2.0)
         let tipBottom = CGPoint(x: rect.origin.x + (rect.size.width / 2.0), y: rect.origin.y + rect.size.height)
-        let heightWithoutTip = rect.size.height - tipHeight
+        let heightWithoutTip = rect.size.height - tipHeight - 1
         
         let currentContext = UIGraphicsGetCurrentContext()!
         
