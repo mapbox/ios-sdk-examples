@@ -19,10 +19,8 @@ class CustomCalloutView: UIView, MGLCalloutView {
         }
     }
 
-    // Lazy initialization of optional vars for protocols causes segmentation fault: 11s in Swift 3.0. https://bugs.swift.org/browse/SR-1825
-    
-    var leftAccessoryView = UIView() /* unused */
-    var rightAccessoryView = UIView() /* unused */
+    lazy var leftAccessoryView = UIView() /* unused */
+    lazy var rightAccessoryView = UIView() /* unused */
     
     weak var delegate: MGLCalloutViewDelegate?
     
