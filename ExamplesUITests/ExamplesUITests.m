@@ -12,6 +12,7 @@
 @interface ExamplesUITests : XCTestCase
 
 @end
+
 @implementation ExamplesUITests
 
 - (void)setUp {
@@ -38,7 +39,8 @@
 
         // XCTest waits for the app to idle before continuing.
 
-        [app.navigationBars.buttons[@"Back"] tap];
+        // Tap 'Back' button.
+        [app.navigationBars.buttons.allElementsBoundByIndex.firstObject tap];
     }
 }
 
