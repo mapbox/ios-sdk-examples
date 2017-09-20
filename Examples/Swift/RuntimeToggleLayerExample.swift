@@ -49,7 +49,7 @@ class RuntimeToggleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         showContours()
     }
     
-    func toggleLayer(sender: UIButton) {
+    @objc func toggleLayer(sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
             showContours()

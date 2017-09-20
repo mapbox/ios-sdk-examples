@@ -86,7 +86,7 @@ class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDeleg
     }
 
     // MARK: - Feature interaction
-    func handleMapTap(sender: UITapGestureRecognizer) {
+    @objc func handleMapTap(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             // Limit feature selection to just the following layer identifiers.
             let layerIdentifiers: Set = ["lighthouse-symbols", "lighthouse-circles"]

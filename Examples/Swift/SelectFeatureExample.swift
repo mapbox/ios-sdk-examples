@@ -41,7 +41,7 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
         style.addLayer(selectedFeaturesLayer)
     }
     
-    func didTapMap(tapGestureRecognizer: UITapGestureRecognizer) {
+    @objc func didTapMap(tapGestureRecognizer: UITapGestureRecognizer) {
         if tapGestureRecognizer.state == .ended {
             // A tap’s center coordinate may not intersect a feature exactly, so let’s make a 44x44 rect that represents a touch and select all features that intersect.
             let point = tapGestureRecognizer.location(in: tapGestureRecognizer.view!)

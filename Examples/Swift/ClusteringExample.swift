@@ -76,7 +76,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         showPopup(false, animated: false)
     }
 
-    func handleTap(_ tap: UITapGestureRecognizer) {
+    @objc func handleTap(_ tap: UITapGestureRecognizer) {
         if tap.state == .ended {
             let point = tap.location(in: tap.view)
             let width = icon.size.width
@@ -106,7 +106,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
                 }
 
                 popup!.text = (port.attribute(forKey: "name")! as! String)
-                let size = (popup!.text! as NSString).size(attributes: [NSFontAttributeName: popup!.font])
+                let size = (popup!.text! as NSString).size(withAttributes: [NSAttributedStringKey.font: popup!.font])
                 popup!.bounds = CGRect(x: 0, y: 0, width: size.width, height: size.height).insetBy(dx: -10, dy: -10)
                 let point = mapView.convert(port.coordinate, toPointTo: mapView)
                 popup!.center = CGPoint(x: point.x, y: point.y - 50)

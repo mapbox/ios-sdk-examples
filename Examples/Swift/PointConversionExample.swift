@@ -26,7 +26,7 @@ class PointConversionExample_Swift: UIViewController, MGLMapViewDelegate {
         print("Screen center: \(centerScreenPoint) = \(mapView.center)")
     }
     
-    func handleSingleTap(tap: UITapGestureRecognizer) {
+    @objc func handleSingleTap(tap: UITapGestureRecognizer) {
         // Convert tap location (CGPoint)
         // to geographic coordinate (CLLocationCoordinate2D).
         let tapCoordinate: CLLocationCoordinate2D = mapView.convert(tap.location(in: mapView), toCoordinateFrom: mapView)

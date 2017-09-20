@@ -110,7 +110,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
         return false
     }
     
-    func calloutTapped() {
+    @objc func calloutTapped() {
         if isCalloutTappable() && delegate!.responds(to: #selector(MGLCalloutViewDelegate.calloutViewTapped)) {
             delegate!.calloutViewTapped!(self)
         }

@@ -57,7 +57,7 @@ class RuntimeAnimateLineExample_Swift: UIViewController, MGLMapViewDelegate {
         timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
     }
 
-    func tick() {
+    @objc func tick() {
         if currentIndex > allCoordinates.count {
             timer?.invalidate()
             timer = nil

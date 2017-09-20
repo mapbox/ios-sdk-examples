@@ -33,7 +33,7 @@ class SourceCustomRasterExample_Swift: UIViewController, MGLMapViewDelegate {
         self.rasterLayer = rasterLayer
     }
     
-    func updateLayerOpacity(_ sender: UISlider) {
+    @objc func updateLayerOpacity(_ sender: UISlider) {
         rasterLayer?.rasterOpacity = MGLStyleValue(rawValue: NSNumber(value: sender.value))
     }
 

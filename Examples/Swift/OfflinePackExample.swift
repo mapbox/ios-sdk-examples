@@ -60,7 +60,7 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
     
     // MARK: - MGLOfflinePack notification handlers
     
-    func offlinePackProgressDidChange(notification: NSNotification) {
+    @objc func offlinePackProgressDidChange(notification: NSNotification) {
         // Get the offline pack this notification is regarding,
         // and the associated user info for the pack; in this case, `name = My Offline Pack`
         if let pack = notification.object as? MGLOfflinePack,
@@ -94,7 +94,7 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         }
     }
     
-    func offlinePackDidReceiveError(notification: NSNotification) {
+    @objc func offlinePackDidReceiveError(notification: NSNotification) {
         if let pack = notification.object as? MGLOfflinePack,
             let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
             let error = notification.userInfo?[MGLOfflinePackUserInfoKey.error] as? NSError {
@@ -102,7 +102,7 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         }
     }
     
-    func offlinePackDidReceiveMaximumAllowedMapboxTiles(notification: NSNotification) {
+    @objc func offlinePackDidReceiveMaximumAllowedMapboxTiles(notification: NSNotification) {
         if let pack = notification.object as? MGLOfflinePack,
             let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
             let maximumCount = (notification.userInfo?[MGLOfflinePackUserInfoKey.maximumCount] as AnyObject).uint64Value {
