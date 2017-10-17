@@ -8,9 +8,9 @@
 @implementation FirstStepsTutorialViewController
 
 - (void)viewDidLoad {
-    // #-code-snippet: first-steps-ios-sdk initialize-map
+
     [super viewDidLoad];
-    
+    // #-code-snippet: first-steps-ios-sdk initialize-map
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(40.74699, -73.98742)

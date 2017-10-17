@@ -2,9 +2,9 @@ import Mapbox
 
 class FirstStepsTutorialViewController: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
-        // code-snippet: first-steps-ios-sdk initialize-map
+
         super.viewDidLoad()
-        
+        // code-snippet: first-steps-ios-sdk initialize-map
         let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.setCenter(CLLocationCoordinate2D(latitude: 40.74699, longitude: -73.98742), zoomLevel: 9, animated: false)
