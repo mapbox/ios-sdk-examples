@@ -8,9 +8,9 @@
 @implementation FirstStepsTutorialViewController
 
 - (void)viewDidLoad {
-
     [super viewDidLoad];
-    // #-code-snippet: first-steps-ios-sdk initialize-map
+
+    // #-code-snippet: first-steps-ios-sdk initialize-map-objc
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(40.74699, -73.98742)
@@ -18,12 +18,12 @@
                         animated:NO];
     [self.view addSubview:mapView];
     // #-end-code-snippet
-    
-    // #-code-snippet: first-steps-ios-sdk change-style
+
+    // #-code-snippet: first-steps-ios-sdk change-style-objc
     mapView.styleURL = [MGLStyle satelliteStreetsStyleURL];
     // #-end-code-snippet
-    
-    // #-code-snippet: first-steps-ios-sdk add-annotation
+
+    // #-code-snippet: first-steps-ios-sdk add-annotation-objc
     // Add a point annotation
     MGLPointAnnotation *annotation = [[MGLPointAnnotation alloc] init];
     annotation.coordinate = CLLocationCoordinate2DMake(40.77014, -73.97480);
@@ -31,19 +31,19 @@
     annotation.subtitle = @"The best park in New York City!";
     [mapView addAnnotation:annotation];
     // #-end-code-snippet
-    
-    // #-code-snippet: first-steps-ios-sdk show-location
+
+    // #-code-snippet: first-steps-ios-sdk show-location-objc
     // Allow the map view to display the user's location
     mapView.showsUserLocation = YES;
     // #-end-code-snippet
-    
-    // #-code-snippet: first-steps-ios-sdk set-delegate
+
+    // #-code-snippet: first-steps-ios-sdk set-delegate-objc
     // Set the map view's delegate
     mapView.delegate = self;
     // #-end-code-snippet
 }
 
-// #-code-snippet: first-steps-ios-sdk add-callout
+// #-code-snippet: first-steps-ios-sdk add-callout-objc
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation {
     // Always allow callouts to popup when annotations are tapped.
     return YES;
