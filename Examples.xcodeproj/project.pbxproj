@@ -14,6 +14,8 @@
 		0503374B1F7199DF007309B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050337491F7199DF007309B0 /* LaunchScreen.storyboard */; };
 		055ABCC11EFB139C0063BACA /* FillPatternExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 055ABCC01EFB139C0063BACA /* FillPatternExample.m */; };
 		055ABCC31EFB14AE0063BACA /* FillPatternExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */; };
+		0587D7031F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */; };
+		0587D7061F9A466000209947 /* DDSCircleLayerTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */; };
 		05A868901F7314EF00242FB4 /* FirstStepsTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A8688F1F7314EF00242FB4 /* FirstStepsTutorialViewController.m */; };
 		05DB802F1F75A4AD00F73326 /* DocsCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DB802E1F75A4AD00F73326 /* DocsCodeTests.swift */; };
 		079E77C51E1C4E2100F92FA8 /* camera.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079E77C41E1C4E2100F92FA8 /* camera.xcassets */; };
@@ -170,6 +172,9 @@
 		055ABCBF1EFB139C0063BACA /* FillPatternExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FillPatternExample.h; sourceTree = "<group>"; };
 		055ABCC01EFB139C0063BACA /* FillPatternExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FillPatternExample.m; sourceTree = "<group>"; };
 		055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillPatternExample.swift; sourceTree = "<group>"; };
+		0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDSCircleLayerTutorialViewController.swift; sourceTree = "<group>"; };
+		0587D7041F9A466000209947 /* DDSCircleLayerTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDSCircleLayerTutorialViewController.h; sourceTree = "<group>"; };
+		0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDSCircleLayerTutorialViewController.m; sourceTree = "<group>"; };
 		05A8688D1F7314EF00242FB4 /* DocsCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DocsCode-Bridging-Header.h"; sourceTree = "<group>"; };
 		05A8688E1F7314EF00242FB4 /* FirstStepsTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstStepsTutorialViewController.h; sourceTree = "<group>"; };
 		05A8688F1F7314EF00242FB4 /* FirstStepsTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstStepsTutorialViewController.m; sourceTree = "<group>"; };
@@ -392,6 +397,7 @@
 		0503373F1F7199DF007309B0 /* DocsCode */ = {
 			isa = PBXGroup;
 			children = (
+				0587D7011F9A435F00209947 /* DDSCircleLayerTutorial */,
 				05DB80361F75A87100F73326 /* FirstStepsTutorial */,
 				050337401F7199DF007309B0 /* AppDelegate.swift */,
 				050337441F7199DF007309B0 /* Main.storyboard */,
@@ -401,6 +407,16 @@
 				05A8688D1F7314EF00242FB4 /* DocsCode-Bridging-Header.h */,
 			);
 			path = DocsCode;
+			sourceTree = "<group>";
+		};
+		0587D7011F9A435F00209947 /* DDSCircleLayerTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */,
+				0587D7041F9A466000209947 /* DDSCircleLayerTutorialViewController.h */,
+				0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */,
+			);
+			path = DDSCircleLayerTutorial;
 			sourceTree = "<group>";
 		};
 		05DB802D1F75A4AD00F73326 /* DocsCodeTests */ = {
@@ -1157,8 +1173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0587D7061F9A466000209947 /* DDSCircleLayerTutorialViewController.m in Sources */,
 				05A868901F7314EF00242FB4 /* FirstStepsTutorialViewController.m in Sources */,
 				050337431F7199DF007309B0 /* FirstStepsTutorialViewController.swift in Sources */,
+				0587D7031F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift in Sources */,
 				050337411F7199DF007309B0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
