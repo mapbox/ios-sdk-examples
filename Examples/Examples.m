@@ -33,6 +33,7 @@
         MBXExampleDrawingAMarker,
         MBXExampleDrawingAPolygon,
         MBXExample3DExtrusions,
+        MBXExampleImageSource,
         MBXExampleLight,
         MBXExampleFillPattern,
         MBXExampleOfflinePack,
