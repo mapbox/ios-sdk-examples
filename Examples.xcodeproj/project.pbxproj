@@ -31,9 +31,9 @@
 		3E3FB66B1F05888E004512C6 /* LightExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66A1F05888E004512C6 /* LightExample.swift */; };
 		3E3FB66E1F0588B3004512C6 /* LightExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66D1F0588B3004512C6 /* LightExample.m */; };
 		3E3FB6711F058A18004512C6 /* PointHotspotExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */; };
-		3E52ACD01EE8D8470056242C /* rocket.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E52ACCF1EE8D8470056242C /* rocket.svg */; };
 		3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */; };
 		3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */; };
+		3E743F431F9FAFBA007A17A6 /* rocket-15.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E743F421F9FAFBA007A17A6 /* rocket-15.svg */; };
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
 		3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */; };
 		3EBCD7181DC28240001E342F /* CameraAnimationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */; };
@@ -198,10 +198,10 @@
 		3E3FB66C1F0588B3004512C6 /* LightExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightExample.h; sourceTree = "<group>"; };
 		3E3FB66D1F0588B3004512C6 /* LightExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightExample.m; sourceTree = "<group>"; };
 		3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PointHotspotExample.m; sourceTree = "<group>"; };
-		3E52ACCF1EE8D8470056242C /* rocket.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rocket.svg; path = "../../../../../Downloads/b&w maki/svgs/rocket.svg"; sourceTree = "<group>"; };
 		3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveDataExample.h; sourceTree = "<group>"; };
 		3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveDataExample.m; sourceTree = "<group>"; };
 		3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDataExample.swift; sourceTree = "<group>"; };
+		3E743F421F9FAFBA007A17A6 /* rocket-15.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "rocket-15.svg"; sourceTree = "<group>"; };
 		3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutDelegateUsageExample.swift; sourceTree = "<group>"; };
 		3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraAnimationExample.swift; sourceTree = "<group>"; };
@@ -494,8 +494,8 @@
 				3EBCD70F1DC28240001E342F /* DrawingAMarkerExample.swift */,
 				3EBCD7101DC28240001E342F /* DrawingAPolygonExample.swift */,
 				3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */,
-				3E3FB66A1F05888E004512C6 /* LightExample.swift */,
 				055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */,
+				3E3FB66A1F05888E004512C6 /* LightExample.swift */,
 				3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */,
 				3EBCD7111DC28240001E342F /* OfflinePackExample.swift */,
 				3EBCD7121DC28240001E342F /* PointConversionExample.swift */,
@@ -603,8 +603,8 @@
 				96D432051C84B9CF007D09D1 /* pisavector.xcassets */,
 				079E77C41E1C4E2100F92FA8 /* camera.xcassets */,
 				DD5939E51E6778480009BEB2 /* clustering.xcassets */,
-				3E52ACCF1EE8D8470056242C /* rocket.svg */,
 				DDF9432A1E5DEACC00545D0F /* ports.geojson */,
+				3E743F421F9FAFBA007A17A6 /* rocket-15.svg */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -886,7 +886,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E52ACD01EE8D8470056242C /* rocket.svg in Resources */,
+				3E743F431F9FAFBA007A17A6 /* rocket-15.svg in Resources */,
 				DDF9432B1E5DEACC00545D0F /* ports.geojson in Resources */,
 				3EC92DB71E78C431001D0503 /* metro-line.geojson in Resources */,
 				9619629F1C581700002D3DAB /* LaunchScreen.storyboard in Resources */,
@@ -947,11 +947,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-<<<<<<< HEAD
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-=======
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
->>>>>>> initial project in Swift
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		22AEEA788A5D2A11DF9F9032 /* [CP] Copy Pods Resources */ = {
@@ -1054,11 +1050,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-<<<<<<< HEAD
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-=======
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
->>>>>>> initial project in Swift
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		964CB5161E445964004549EA /* Insert Mapbox Access Token */ = {
@@ -1120,7 +1112,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E8773E0E765E2B04318A4906 /* [CP] Check Pods Manifest.lock */ = {
@@ -1138,11 +1130,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-<<<<<<< HEAD
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-=======
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
->>>>>>> initial project in Swift
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
