@@ -13,9 +13,9 @@ NSString *const MBXExampleImageSource = @"ImageSourceExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.frame];
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL: [MGLStyle darkStyleURL]];
     mapView.delegate = self;
-    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(43.457, -76.437) zoomLevel:4 animated:NO];
+    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(43.457, -75.789) zoomLevel:4 animated:NO];
     [self.view addSubview:mapView];
 }
 
@@ -24,8 +24,14 @@ NSString *const MBXExampleImageSource = @"ImageSourceExample";
     MGLImageSource *source = [[MGLImageSource alloc] initWithIdentifier:@"radar" coordinateQuad:coordinates URL:[NSURL URLWithString:@"https://www.mapbox.com/mapbox-gl-js/assets/radar.gif"]];
     [style addSource:source];
     
-    MGLRasterStyleLayer *layer = [[MGLRasterStyleLayer alloc] initWithIdentifier:@"radar-layer" source:source];
-    [style addLayer:layer];
+    MGLRasterStyleLayer *radarLayer = [[MGLRasterStyleLayer alloc] initWithIdentifier:@"radar-layer" source:source];
+    
+    for (MGLStyleLayer *layer in style.layers.reverseObjectEnumerator) {
+        if (![layer isKindOfClass:[MGLSymbolStyleLayer class]]) {
+            [style insertLayer:radarLayer aboveLayer:layer];
+            break;
+        }
+    }
 }
 
 @end
