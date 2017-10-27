@@ -11,7 +11,7 @@
 
 NSString *const MBXExampleLiveData = @"LiveDataExample";
 
-@interface LiveDataExample ()
+@interface LiveDataExample () <MGLMapViewDelegate>
 
 @end
 
@@ -19,22 +19,25 @@ NSString *const MBXExampleLiveData = @"LiveDataExample";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURL]];
+    mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    mapView.delegate = self;
+    
+    mapView.tintColor = [UIColor darkGrayColor];
+    [self.view addSubview:mapView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
+    NSURL *url = [NSURL URLWithString:@"https://wanderdrone.appspot.com/"];
+    MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"drone-source" URL:url options:nil];
+    [style addSource:source];
+    
+    MGLSymbolStyleLayer *droneLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"drone-layer" source:source];
+    droneLayer.iconImageName = [MGLStyleValue valueWithRawValue:@"rocket-15"];
+    [style addLayer:droneLayer];
+    
+//    di
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
