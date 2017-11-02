@@ -14,7 +14,7 @@ import Mapbox
 class LiveDataExample: UIViewController, MGLMapViewDelegate {
     
     var source : MGLShapeSource!
-    let timer = Timer()
+    var timer = Timer()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +39,7 @@ class LiveDataExample: UIViewController, MGLMapViewDelegate {
             droneLayer.iconHaloColor = MGLStyleValue(rawValue: .white)
             style.addLayer(droneLayer)
             
-            Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(updateUrl), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(updateUrl), userInfo: nil, repeats: true)
             
         }
     }
@@ -50,7 +50,9 @@ class LiveDataExample: UIViewController, MGLMapViewDelegate {
         }
         print("hi")
     }
-    deinit {
-        
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        timer.invalidate()
+        timer = Timer()
     }
 }

@@ -13,6 +13,8 @@ NSString *const MBXExampleLiveData = @"LiveDataExample";
 
 @interface LiveDataExample () <MGLMapViewDelegate>
 
+@property (nonatomic, strong, nullable) NSTimer *timer;
+@property MGLShapeSource *source;
 @end
 
 @implementation LiveDataExample
@@ -30,19 +32,22 @@ NSString *const MBXExampleLiveData = @"LiveDataExample";
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     NSURL *url = [NSURL URLWithString:@"https://wanderdrone.appspot.com/"];
-    MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"drone-source" URL:url options:nil];
-    [style addSource:source];
+    _source = [[MGLShapeSource alloc] initWithIdentifier:@"drone-source" URL:url options:nil];
+    [style addSource:_source];
     
-    MGLSymbolStyleLayer *droneLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"drone-layer" source:source];
+    MGLSymbolStyleLayer *droneLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"drone-layer" source:_source];
     droneLayer.iconImageName = [MGLStyleValue valueWithRawValue:@"rocket-15"];
     [style addLayer:droneLayer];
     
-    [NSTimer scheduledTimerWithTimeInterval:1.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        source.URL = url;
-    }];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(updateURL) userInfo:nil repeats:YES];
 }
 
+- (void)updateURL {
+    NSURL *url = [NSURL URLWithString:@"https://wanderdrone.appspot.com/"];
+    _source.URL = url;
+}
 - (void)viewWillDisappear:(BOOL)animated {
-    
+    [_timer invalidate];
+    _timer = nil;
 }
 @end
