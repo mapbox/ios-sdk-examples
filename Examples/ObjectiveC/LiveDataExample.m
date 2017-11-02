@@ -37,7 +37,12 @@ NSString *const MBXExampleLiveData = @"LiveDataExample";
     droneLayer.iconImageName = [MGLStyleValue valueWithRawValue:@"rocket-15"];
     [style addLayer:droneLayer];
     
-//    di
+    [NSTimer scheduledTimerWithTimeInterval:1.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        source.URL = url;
+    }];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    
+}
 @end

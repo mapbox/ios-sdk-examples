@@ -13,11 +13,13 @@ import Mapbox
 
 class LiveDataExample: UIViewController, MGLMapViewDelegate {
     
+    var source : MGLShapeSource!
+    let timer = Timer()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let mapView = MGLMapView(frame: view.bounds,
-                             styleURL: MGLStyle.darkStyleURL(withVersion: 9))
+                                 styleURL: MGLStyle.darkStyleURL(withVersion: 9))
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
         
@@ -27,9 +29,9 @@ class LiveDataExample: UIViewController, MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle)
     {
-
+        
         if let url = URL(string: "https://wanderdrone.appspot.com/") {
-            let source = MGLShapeSource(identifier: "drone-source", url: url, options: nil)
+            source = MGLShapeSource(identifier: "drone-source", url: url, options: nil)
             style.addSource(source)
             
             let droneLayer = MGLSymbolStyleLayer(identifier: "drone-layer", source: source)
@@ -37,29 +39,17 @@ class LiveDataExample: UIViewController, MGLMapViewDelegate {
             droneLayer.iconHaloColor = MGLStyleValue(rawValue: .white)
             style.addLayer(droneLayer)
             
+            Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(updateUrl), userInfo: nil, repeats: true)
             
-            // TODO: Use a DispatchSourceTimer to reset the source url.
-            let queue = DispatchQueue(label: "update-drone-timer", attributes: .concurrent, target: .main)
-            
-            let timer = DispatchSource.makeTimerSource(flags: .strict, queue: DispatchQueue.global())
-//            timer.schedule(deadline: .now(), repeating: 1, leeway: .now)
-            timer.schedule(deadline: .now() + 1, repeating: DispatchTimeInterval.seconds(1), leeway: DispatchTimeInterval.seconds(0))
-            timer.setEventHandler { [weak self] in
-                source.url = url
-            }
-            
-            timer.resume()
-//            if #available(iOS 10.0, *) {
-//                Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true, block: { (time) in
-//
-//
-//                })
-//            } else {
-//                // Fallback on earlier versions
-//            }
         }
     }
     
+    @objc func updateUrl() {
+        if let url = URL(string: "https://wanderdrone.appspot.com/") {
+            source.url = url
+        }
+        print("hi")
+    }
     deinit {
         
     }
