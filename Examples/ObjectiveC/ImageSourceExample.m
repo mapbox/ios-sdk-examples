@@ -13,15 +13,24 @@ NSString *const MBXExampleImageSource = @"ImageSourceExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL: [MGLStyle darkStyleURL]];
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURL]];
     mapView.delegate = self;
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(43.457, -75.789) zoomLevel:4 animated:NO];
     [self.view addSubview:mapView];
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
-    MGLCoordinateQuad coordinates = MGLCoordinateQuadMake(CLLocationCoordinate2DMake(46.437, -80.425), CLLocationCoordinate2DMake(37.936, -80.425), CLLocationCoordinate2DMake(37.936, -71.516), CLLocationCoordinate2DMake(46.437, -71.516));
-    MGLImageSource *source = [[MGLImageSource alloc] initWithIdentifier:@"radar" coordinateQuad:coordinates URL:[NSURL URLWithString:@"https://www.mapbox.com/mapbox-gl-js/assets/radar.gif"]];
+    
+    // Set the coordinate bounds for the raster image.
+    MGLCoordinateQuad coordinates = MGLCoordinateQuadMake(
+                                                          CLLocationCoordinate2DMake(46.437, -80.425),
+                                                          CLLocationCoordinate2DMake(37.936, -80.425),
+                                                          CLLocationCoordinate2DMake(37.936, -71.516),
+                                                          CLLocationCoordinate2DMake(46.437, -71.516));
+    
+    // Create a MGLImageSource, which can be used to add georeferenced raster images the style of a map.
+    NSString *radarImage = [[NSBundle mainBundle] pathForResource:@"radar" ofType:@"gif"];
+    MGLImageSource *source = [[MGLImageSource alloc] initWithIdentifier:@"radar" coordinateQuad:coordinates URL:[NSURL URLWithString:radarImage]];
     [style addSource:source];
     
     MGLRasterStyleLayer *radarLayer = [[MGLRasterStyleLayer alloc] initWithIdentifier:@"radar-layer" source:source];
