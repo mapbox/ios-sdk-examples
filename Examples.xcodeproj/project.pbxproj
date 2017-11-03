@@ -33,9 +33,14 @@
 		3E3FB66B1F05888E004512C6 /* LightExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66A1F05888E004512C6 /* LightExample.swift */; };
 		3E3FB66E1F0588B3004512C6 /* LightExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66D1F0588B3004512C6 /* LightExample.m */; };
 		3E3FB6711F058A18004512C6 /* PointHotspotExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */; };
+<<<<<<< HEAD
 		3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */; };
 		3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */; };
 		3E4574ED1FA3D8F1000C8CF1 /* radar.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E4574EC1FA3D8F1000C8CF1 /* radar.gif */; };
+=======
+		3EA5AA021FAD2E96007073C0 /* MapSnapshotterExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5AA011FAD2E95007073C0 /* MapSnapshotterExample.m */; };
+		3EA5AA041FAD2EC7007073C0 /* MapSnapshotterExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5AA031FAD2EC7007073C0 /* MapSnapshotterExample.swift */; };
+>>>>>>> Initial setup
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
 		3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */; };
 		3EBCD7181DC28240001E342F /* CameraAnimationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */; };
@@ -203,10 +208,16 @@
 		3E3FB66C1F0588B3004512C6 /* LightExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightExample.h; sourceTree = "<group>"; };
 		3E3FB66D1F0588B3004512C6 /* LightExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightExample.m; sourceTree = "<group>"; };
 		3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PointHotspotExample.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveDataExample.h; sourceTree = "<group>"; };
 		3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveDataExample.m; sourceTree = "<group>"; };
 		3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDataExample.swift; sourceTree = "<group>"; };
 		3E4574EC1FA3D8F1000C8CF1 /* radar.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = radar.gif; sourceTree = "<group>"; };
+=======
+		3EA5AA001FAD2E95007073C0 /* MapSnapshotterExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSnapshotterExample.h; sourceTree = "<group>"; };
+		3EA5AA011FAD2E95007073C0 /* MapSnapshotterExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapSnapshotterExample.m; sourceTree = "<group>"; };
+		3EA5AA031FAD2EC7007073C0 /* MapSnapshotterExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSnapshotterExample.swift; sourceTree = "<group>"; };
+>>>>>>> Initial setup
 		3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutDelegateUsageExample.swift; sourceTree = "<group>"; };
 		3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraAnimationExample.swift; sourceTree = "<group>"; };
@@ -451,17 +462,25 @@
 				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
 				3E085B821EC526E500163C99 /* ExtrusionsExample.m */,
+<<<<<<< HEAD
 				3E22EF511F8821F800605203 /* ImageSourceExample.m */,
+=======
+				055ABCC01EFB139C0063BACA /* FillPatternExample.m */,
+>>>>>>> Initial setup
 				3E3FB66D1F0588B3004512C6 /* LightExample.m */,
+				3EA5AA011FAD2E95007073C0 /* MapSnapshotterExample.m */,
 				3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */,
+<<<<<<< HEAD
 				055ABCC01EFB139C0063BACA /* FillPatternExample.m */,
 				3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */,
+=======
+				96115A671CAD4E1C000963B8 /* OfflinePackExample.m */,
+>>>>>>> Initial setup
 				646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */,
 				646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */,
 				646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */,
 				646B629B1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m */,
 				64BBDAFC1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m */,
-				96115A671CAD4E1C000963B8 /* OfflinePackExample.m */,
 				968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */,
 				64BBDAF71DF2330B00BB705D /* SelectFeatureExample.m */,
 				07C138BF1E6F646F00D6F678 /* ShapeCollectionFeatureExample.m */,
@@ -499,9 +518,14 @@
 				3EBCD7101DC28240001E342F /* DrawingAPolygonExample.swift */,
 				3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */,
 				055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */,
+<<<<<<< HEAD
 				3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */,
 				3E3FB66A1F05888E004512C6 /* LightExample.swift */,
 				3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */,
+=======
+				3E3FB66A1F05888E004512C6 /* LightExample.swift */,
+				3EA5AA031FAD2EC7007073C0 /* MapSnapshotterExample.swift */,
+>>>>>>> Initial setup
 				3EBCD7111DC28240001E342F /* OfflinePackExample.swift */,
 				3EBCD7121DC28240001E342F /* PointConversionExample.swift */,
 				3EC11D261EA84091001AAAB8 /* PointHotspotExample.swift */,
@@ -638,10 +662,16 @@
 				9682470D1C5BF12700494AB8 /* DrawingAMarkerExample.h */,
 				9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */,
 				3E085B811EC526E500163C99 /* ExtrusionsExample.h */,
+<<<<<<< HEAD
 				3E22EF501F8821F800605203 /* ImageSourceExample.h */,
 				3E3FB66C1F0588B3004512C6 /* LightExample.h */,
 				055ABCBF1EFB139C0063BACA /* FillPatternExample.h */,
 				3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */,
+=======
+				055ABCBF1EFB139C0063BACA /* FillPatternExample.h */,
+				3E3FB66C1F0588B3004512C6 /* LightExample.h */,
+				3EA5AA001FAD2E95007073C0 /* MapSnapshotterExample.h */,
+>>>>>>> Initial setup
 				96115A661CAD4E1C000963B8 /* OfflinePackExample.h */,
 				968247281C5C1FF800494AB8 /* PointConversionExample.h */,
 				3EC11D231EA8405A001AAAB8 /* PointHotspotExample.h */,
@@ -1199,6 +1229,7 @@
 				96A2A1D21C8CA74B0059441E /* CustomCalloutView.m in Sources */,
 				3E085B831EC526E500163C99 /* ExtrusionsExample.m in Sources */,
 				64BBDAF61DF232FD00BB705D /* SelectFeatureExample.swift in Sources */,
+				3EA5AA021FAD2E96007073C0 /* MapSnapshotterExample.m in Sources */,
 				64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */,
 				96D431FC1C84B4F7007D09D1 /* DrawingACustomMarkerExample.m in Sources */,
 				968247031C5BDCBB00494AB8 /* CustomRasterStyleExample.m in Sources */,
@@ -1211,7 +1242,11 @@
 				646B62B01DEF7161000AA523 /* RuntimeAnimateLineExample.swift in Sources */,
 				07F53B851E00D02100B58DB3 /* AnnotationViewMultipleExample.m in Sources */,
 				3E085B801EC526C500163C99 /* ExtrusionsExample.swift in Sources */,
+<<<<<<< HEAD
 				3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */,
+=======
+				3EA5AA041FAD2EC7007073C0 /* MapSnapshotterExample.swift in Sources */,
+>>>>>>> Initial setup
 				3EBCD7231DC28240001E342F /* DrawingAMarkerExample.swift in Sources */,
 				961962911C581700002D3DAB /* main.m in Sources */,
 				968247131C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m in Sources */,
