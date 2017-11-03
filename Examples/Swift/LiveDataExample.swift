@@ -48,7 +48,6 @@ class LiveDataExample: UIViewController, MGLMapViewDelegate {
         if let url = URL(string: "https://wanderdrone.appspot.com/") {
             source.url = url
         }
-        print("hi")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
