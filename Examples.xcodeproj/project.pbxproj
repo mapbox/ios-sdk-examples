@@ -33,7 +33,6 @@
 		3E3FB6711F058A18004512C6 /* PointHotspotExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */; };
 		3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */; };
 		3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */; };
-		3E743F431F9FAFBA007A17A6 /* rocket-15.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3E743F421F9FAFBA007A17A6 /* rocket-15.svg */; };
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
 		3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */; };
 		3EBCD7181DC28240001E342F /* CameraAnimationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */; };
@@ -201,7 +200,6 @@
 		3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveDataExample.h; sourceTree = "<group>"; };
 		3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveDataExample.m; sourceTree = "<group>"; };
 		3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDataExample.swift; sourceTree = "<group>"; };
-		3E743F421F9FAFBA007A17A6 /* rocket-15.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "rocket-15.svg"; sourceTree = "<group>"; };
 		3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutDelegateUsageExample.swift; sourceTree = "<group>"; };
 		3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraAnimationExample.swift; sourceTree = "<group>"; };
@@ -450,14 +448,12 @@
 				3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */,
 				055ABCC01EFB139C0063BACA /* FillPatternExample.m */,
 				3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */,
-				96115A671CAD4E1C000963B8 /* OfflinePackExample.m */,
 				646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */,
 				646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */,
 				646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */,
 				646B629B1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m */,
 				64BBDAFC1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m */,
 				96115A671CAD4E1C000963B8 /* OfflinePackExample.m */,
-				968247291C5C1FF800494AB8 /* PointConversionExample.m */,
 				968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */,
 				64BBDAF71DF2330B00BB705D /* SelectFeatureExample.m */,
 				07C138BF1E6F646F00D6F678 /* ShapeCollectionFeatureExample.m */,
@@ -604,7 +600,6 @@
 				079E77C41E1C4E2100F92FA8 /* camera.xcassets */,
 				DD5939E51E6778480009BEB2 /* clustering.xcassets */,
 				DDF9432A1E5DEACC00545D0F /* ports.geojson */,
-				3E743F421F9FAFBA007A17A6 /* rocket-15.svg */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -886,7 +881,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E743F431F9FAFBA007A17A6 /* rocket-15.svg in Resources */,
 				DDF9432B1E5DEACC00545D0F /* ports.geojson in Resources */,
 				3EC92DB71E78C431001D0503 /* metro-line.geojson in Resources */,
 				9619629F1C581700002D3DAB /* LaunchScreen.storyboard in Resources */,

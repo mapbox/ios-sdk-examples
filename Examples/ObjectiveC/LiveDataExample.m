@@ -1,10 +1,3 @@
-//
-//  LiveDataExample.m
-//  Examples
-//
-//  Created by Jordan Kiley on 6/7/17.
-//  Copyright © 2017 Mapbox. All rights reserved.
-//
 
 #import "LiveDataExample.h"
 @import Mapbox;
@@ -31,22 +24,27 @@ NSString *const MBXExampleLiveData = @"LiveDataExample";
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
+    // Add a source to the map. https://wanderdrone.appspot.com/ generates coordinates for simulated paths.
     NSURL *url = [NSURL URLWithString:@"https://wanderdrone.appspot.com/"];
     _source = [[MGLShapeSource alloc] initWithIdentifier:@"drone-source" URL:url options:nil];
     [style addSource:_source];
     
+    // Add an icon to the map to represent the drone's coordinate.
     MGLSymbolStyleLayer *droneLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"drone-layer" source:_source];
     droneLayer.iconImageName = [MGLStyleValue valueWithRawValue:@"rocket-15"];
     [style addLayer:droneLayer];
     
+    // Create a timer that calls the `updateUrl` function every 1.5 seconds.
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(updateURL) userInfo:nil repeats:YES];
 }
 
 - (void)updateURL {
+    // Update the icon's position by updating the `url` property on the source.
     NSURL *url = [NSURL URLWithString:@"https://wanderdrone.appspot.com/"];
     _source.URL = url;
 }
 - (void)viewWillDisappear:(BOOL)animated {
+    // Invalidate the timer if the view will disappear.
     [_timer invalidate];
     _timer = nil;
 }
