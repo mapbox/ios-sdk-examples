@@ -42,4 +42,12 @@ class FirstStepsTutorialViewController: UIViewController, MGLMapViewDelegate {
         return true
     }
     // #-end-code-snippet: first-steps-ios-sdk can-show-callout-swift
+    
+    // #-code-snippet: first-steps-ios-sdk fly-to-annotation-swift
+    func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
+        let camera = MGLMapCamera(lookingAtCenter: annotation.coordinate, fromDistance: 4500, pitch: 15, heading: 180)
+        mapView.fly(to: camera, withDuration: 4,
+                    peakAltitude: 3000, completionHandler: nil)
+    }
+    // #-end-code-snippet: first-steps-ios-sdk fly-to-annotation-swift
 }
