@@ -22,11 +22,11 @@ class LiveDataExample: UIViewController, MGLMapViewDelegate {
     {
         if let url = URL(string: "https://wanderdrone.appspot.com/") {
             // Add a source to the map. https://wanderdrone.appspot.com/ generates coordinates for simulated paths.
-            source = MGLShapeSource(identifier: "drone-source", url: url, options: nil)
+            source = MGLShapeSource(identifier: "wanderdrone", url: url, options: nil)
             style.addSource(source)
             
             // Add an icon to the map to represent the drone's coordinate.
-            let droneLayer = MGLSymbolStyleLayer(identifier: "drone-layer", source: source)
+            let droneLayer = MGLSymbolStyleLayer(identifier: "wanderdrone-layer", source: source)
             droneLayer.iconImageName = MGLStyleValue(rawValue: "rocket-15")
             droneLayer.iconHaloColor = MGLStyleValue(rawValue: .white)
             style.addLayer(droneLayer)
@@ -37,10 +37,8 @@ class LiveDataExample: UIViewController, MGLMapViewDelegate {
     }
     
     @objc func updateUrl() {
-        // Update the icon's position by updating the `url` property on the source.
-        if let url = URL(string: "https://wanderdrone.appspot.com/") {
-            source.url = url
-        }
+        // Update the icon's position by setting the `url` property on the source.
+            source.url = source.url
     }
     
     override func viewWillDisappear(_ animated: Bool) {
