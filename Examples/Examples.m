@@ -36,6 +36,8 @@
         MBXExampleFillPattern,
         MBXExampleImageSource,
         MBXExampleLight,
+        MBXExampleFillPattern,
+        MBXExampleMapSnapshotter,
         MBXExampleLiveData,
         MBXExampleOfflinePack,
         MBXExamplePointConversion,
