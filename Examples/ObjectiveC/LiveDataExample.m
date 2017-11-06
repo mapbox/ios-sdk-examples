@@ -15,11 +15,14 @@ NSString *const MBXExampleLiveData = @"LiveDataExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Create a new map view using the Mapbox Dark style.
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURL]];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    mapView.tintColor = [UIColor darkGrayColor];
+    
+    // Set the map view‘s delegate property.
     mapView.delegate = self;
     
-    mapView.tintColor = [UIColor darkGrayColor];
     [self.view addSubview:mapView];
 }
 
@@ -29,7 +32,7 @@ NSString *const MBXExampleLiveData = @"LiveDataExample";
     _source = [[MGLShapeSource alloc] initWithIdentifier:@"wanderdrone-source" URL:url options:nil];
     [style addSource:_source];
     
-    // Add an icon to the map to represent the drone's coordinate.
+    // Add a Maki icon to the map to represent the drone's coordinate. For more information about Maki icons, see https://www.mapbox.com/maki-icons/
     MGLSymbolStyleLayer *droneLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"wanderdrone-layer" source:_source];
     droneLayer.iconImageName = [MGLStyleValue valueWithRawValue:@"rocket-15"];
     [style addLayer:droneLayer];

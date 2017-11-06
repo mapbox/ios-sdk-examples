@@ -9,12 +9,14 @@ class LiveDataExample: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Create a new map view using the Mapbox Dark style.
         let mapView = MGLMapView(frame: view.bounds,
                                  styleURL: MGLStyle.darkStyleURL(withVersion: 9))
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.delegate = self
-        
         mapView.tintColor = .gray
+        
+        // Set the map view‘s delegate property.
+        mapView.delegate = self
         view.addSubview(mapView)
     }
     
@@ -25,7 +27,7 @@ class LiveDataExample: UIViewController, MGLMapViewDelegate {
             source = MGLShapeSource(identifier: "wanderdrone", url: url, options: nil)
             style.addSource(source)
             
-            // Add an icon to the map to represent the drone's coordinate.
+            // Add a Maki icon to the map to represent the drone's coordinate. For more information about Maki icons, see https://www.mapbox.com/maki-icons/
             let droneLayer = MGLSymbolStyleLayer(identifier: "wanderdrone-layer", source: source)
             droneLayer.iconImageName = MGLStyleValue(rawValue: "rocket-15")
             droneLayer.iconHaloColor = MGLStyleValue(rawValue: .white)
