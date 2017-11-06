@@ -36,7 +36,7 @@ class MapSnapshotterExample: UIViewController, MGLMapViewDelegate {
             if error != nil {
                 print("Unable to create a map snapshot.")
             } else {
-                
+                let mapSnapshot = image
             }
         }
         
