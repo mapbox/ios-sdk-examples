@@ -14,8 +14,10 @@ NSString *const MBXExampleImageSource = @"ImageSourceExample";
     [super viewDidLoad];
     
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURL]];
-    mapView.delegate = self;
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(43.457, -75.789) zoomLevel:4 animated:NO];
+    
+    // Set the map view‘s delegate property.
+    mapView.delegate = self;
     [self.view addSubview:mapView];
 }
 
@@ -28,7 +30,7 @@ NSString *const MBXExampleImageSource = @"ImageSourceExample";
                                                           CLLocationCoordinate2DMake(37.936, -71.516),
                                                           CLLocationCoordinate2DMake(46.437, -71.516));
     
-    // Create a MGLImageSource, which can be used to add georeferenced raster images the style of a map.
+    // Create a MGLImageSource, which can be used to add georeferenced raster images to a map.
     NSString *radarImage = [[NSBundle mainBundle] pathForResource:@"radar" ofType:@"gif"];
     MGLImageSource *source = [[MGLImageSource alloc] initWithIdentifier:@"radar" coordinateQuad:coordinates URL:[NSURL URLWithString:radarImage]];
     [style addSource:source];
