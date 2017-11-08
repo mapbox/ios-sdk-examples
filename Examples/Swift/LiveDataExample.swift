@@ -27,20 +27,21 @@ class LiveDataExample: UIViewController, MGLMapViewDelegate {
             source = MGLShapeSource(identifier: "wanderdrone", url: url, options: nil)
             style.addSource(source)
             
-            // Add a Maki icon to the map to represent the drone's coordinate. For more information about Maki icons, see https://www.mapbox.com/maki-icons/
-            let droneLayer = MGLSymbolStyleLayer(identifier: "wanderdrone-layer", source: source)
+            // Add a Maki icon to the map to represent the drone's coordinate. The specified icon is included in the Mapbox Dark style's sprite sheet. For more information about Maki icons, see https://www.mapbox.com/maki-icons/
+            let droneLayer = MGLSymbolStyleLayer(identifier: "wanderdrone", source: source)
             droneLayer.iconImageName = MGLStyleValue(rawValue: "rocket-15")
             droneLayer.iconHaloColor = MGLStyleValue(rawValue: .white)
             style.addLayer(droneLayer)
             
             // Create a timer that calls the `updateUrl` function every 1.5 seconds.
+            timer.invalidate()
             timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(updateUrl), userInfo: nil, repeats: true)
         }
     }
     
     @objc func updateUrl() {
         // Update the icon's position by setting the `url` property on the source.
-            source.url = source.url
+        source.url = source.url
     }
     
     override func viewWillDisappear(_ animated: Bool) {

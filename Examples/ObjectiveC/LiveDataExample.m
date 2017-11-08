@@ -29,15 +29,16 @@ NSString *const MBXExampleLiveData = @"LiveDataExample";
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     // Add a source to the map. https://wanderdrone.appspot.com/ generates coordinates for simulated paths.
     NSURL *url = [NSURL URLWithString:@"https://wanderdrone.appspot.com/"];
-    _source = [[MGLShapeSource alloc] initWithIdentifier:@"wanderdrone-source" URL:url options:nil];
+    _source = [[MGLShapeSource alloc] initWithIdentifier:@"wanderdrone" URL:url options:nil];
     [style addSource:_source];
     
-    // Add a Maki icon to the map to represent the drone's coordinate. For more information about Maki icons, see https://www.mapbox.com/maki-icons/
-    MGLSymbolStyleLayer *droneLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"wanderdrone-layer" source:_source];
+    // Add a Maki icon to the map to represent the drone's coordinate. The specified icon is included in the Mapbox Dark style's sprite sheet. For more information about Maki icons, see https://www.mapbox.com/maki-icons/
+    MGLSymbolStyleLayer *droneLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"wanderdrone" source:_source];
     droneLayer.iconImageName = [MGLStyleValue valueWithRawValue:@"rocket-15"];
     [style addLayer:droneLayer];
     
     // Create a timer that calls the `updateUrl` function every 1.5 seconds.
+    [_timer invalidate];
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(updateURL) userInfo:nil repeats:YES];
 }
 
