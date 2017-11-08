@@ -30,7 +30,6 @@ NSString *const MBXExampleMapSnapshotter = @"MapSnapshotterExample";
             [self.view addSubview:imageView];
         }
     }];
-    
 }
 
 @end
