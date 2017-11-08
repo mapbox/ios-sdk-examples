@@ -34,6 +34,7 @@
         MBXExampleDrawingAPolygon,
         MBXExample3DExtrusions,
         MBXExampleFillPattern,
+        MBXExampleImageSource,
         MBXExampleLight,
         MBXExampleLiveData,
         MBXExampleOfflinePack,
