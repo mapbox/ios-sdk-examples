@@ -15,6 +15,7 @@ NSString *const MBXExampleImageSource = @"ImageSourceExample";
     
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURL]];
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(43.457, -75.789) zoomLevel:4 animated:NO];
+    mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth || UIViewAutoresizingFlexibleHeight;
     
     // Set the map view‘s delegate property.
     mapView.delegate = self;

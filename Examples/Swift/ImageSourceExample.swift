@@ -10,6 +10,7 @@ class ImageSourceExample: UIViewController, MGLMapViewDelegate {
 
         let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL())
         mapView.setCenter(CLLocationCoordinate2D(latitude: 43.457, longitude: -75.789), zoomLevel: 4, animated: false)
+        mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
         // Set the map view‘s delegate property.
         mapView.delegate = self
