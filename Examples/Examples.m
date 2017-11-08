@@ -34,8 +34,13 @@
         MBXExampleDrawingAPolygon,
         MBXExample3DExtrusions,
         MBXExampleFillPattern,
+<<<<<<< HEAD
         MBXExampleLight,
         MBXExampleLiveData,
+=======
+        MBXExampleImageSource,
+        MBXExampleLight,
+>>>>>>> Example for MGLImageSource (#120)
         MBXExampleOfflinePack,
         MBXExamplePointConversion,
         MBXExamplePointHotspot,

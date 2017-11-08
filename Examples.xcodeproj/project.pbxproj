@@ -26,13 +26,19 @@
 		1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */; };
 		3E085B801EC526C500163C99 /* ExtrusionsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */; };
 		3E085B831EC526E500163C99 /* ExtrusionsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B821EC526E500163C99 /* ExtrusionsExample.m */; };
+		3E22EF4F1F87F10C00605203 /* ImageSourceExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */; };
+		3E22EF521F8821F800605203 /* ImageSourceExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E22EF511F8821F800605203 /* ImageSourceExample.m */; };
 		3E3BFAD91E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFAD81E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift */; };
 		3E3BFADC1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFADB1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m */; };
 		3E3FB66B1F05888E004512C6 /* LightExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66A1F05888E004512C6 /* LightExample.swift */; };
 		3E3FB66E1F0588B3004512C6 /* LightExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66D1F0588B3004512C6 /* LightExample.m */; };
 		3E3FB6711F058A18004512C6 /* PointHotspotExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */; };
+<<<<<<< HEAD
 		3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */; };
 		3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */; };
+=======
+		3E4574ED1FA3D8F1000C8CF1 /* radar.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E4574EC1FA3D8F1000C8CF1 /* radar.gif */; };
+>>>>>>> Example for MGLImageSource (#120)
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
 		3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */; };
 		3EBCD7181DC28240001E342F /* CameraAnimationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */; };
@@ -190,6 +196,9 @@
 		3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtrusionsExample.swift; sourceTree = "<group>"; };
 		3E085B811EC526E500163C99 /* ExtrusionsExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtrusionsExample.h; sourceTree = "<group>"; };
 		3E085B821EC526E500163C99 /* ExtrusionsExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtrusionsExample.m; sourceTree = "<group>"; };
+		3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSourceExample.swift; sourceTree = "<group>"; };
+		3E22EF501F8821F800605203 /* ImageSourceExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageSourceExample.h; sourceTree = "<group>"; };
+		3E22EF511F8821F800605203 /* ImageSourceExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageSourceExample.m; sourceTree = "<group>"; };
 		3E3BFAD81E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDSLayerSelectionExample.swift; sourceTree = "<group>"; };
 		3E3BFADA1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSLayerSelectionExample.h; sourceTree = "<group>"; };
 		3E3BFADB1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSLayerSelectionExample.m; sourceTree = "<group>"; };
@@ -197,9 +206,13 @@
 		3E3FB66C1F0588B3004512C6 /* LightExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightExample.h; sourceTree = "<group>"; };
 		3E3FB66D1F0588B3004512C6 /* LightExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightExample.m; sourceTree = "<group>"; };
 		3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PointHotspotExample.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveDataExample.h; sourceTree = "<group>"; };
 		3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveDataExample.m; sourceTree = "<group>"; };
 		3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDataExample.swift; sourceTree = "<group>"; };
+=======
+		3E4574EC1FA3D8F1000C8CF1 /* radar.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = radar.gif; sourceTree = "<group>"; };
+>>>>>>> Example for MGLImageSource (#120)
 		3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutDelegateUsageExample.swift; sourceTree = "<group>"; };
 		3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraAnimationExample.swift; sourceTree = "<group>"; };
@@ -444,6 +457,7 @@
 				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
 				3E085B821EC526E500163C99 /* ExtrusionsExample.m */,
+				3E22EF511F8821F800605203 /* ImageSourceExample.m */,
 				3E3FB66D1F0588B3004512C6 /* LightExample.m */,
 				3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */,
 				055ABCC01EFB139C0063BACA /* FillPatternExample.m */,
@@ -490,6 +504,11 @@
 				3EBCD70F1DC28240001E342F /* DrawingAMarkerExample.swift */,
 				3EBCD7101DC28240001E342F /* DrawingAPolygonExample.swift */,
 				3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */,
+<<<<<<< HEAD
+=======
+				3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */,
+				3E3FB66A1F05888E004512C6 /* LightExample.swift */,
+>>>>>>> Example for MGLImageSource (#120)
 				055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */,
 				3E3FB66A1F05888E004512C6 /* LightExample.swift */,
 				3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */,
@@ -593,6 +612,7 @@
 		9682471B1C5C123B00494AB8 /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				3E4574EC1FA3D8F1000C8CF1 /* radar.gif */,
 				3EC92DB61E78C431001D0503 /* metro-line.geojson */,
 				9682471C1C5C123B00494AB8 /* example.geojson */,
 				64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */,
@@ -628,6 +648,7 @@
 				9682470D1C5BF12700494AB8 /* DrawingAMarkerExample.h */,
 				9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */,
 				3E085B811EC526E500163C99 /* ExtrusionsExample.h */,
+				3E22EF501F8821F800605203 /* ImageSourceExample.h */,
 				3E3FB66C1F0588B3004512C6 /* LightExample.h */,
 				055ABCBF1EFB139C0063BACA /* FillPatternExample.h */,
 				3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */,
@@ -810,7 +831,7 @@
 					0503373D1F7199DF007309B0 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = GJZR2MEM28;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					05DB802B1F75A4AD00F73326 = {
@@ -881,6 +902,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E4574ED1FA3D8F1000C8CF1 /* radar.gif in Resources */,
 				DDF9432B1E5DEACC00545D0F /* ports.geojson in Resources */,
 				3EC92DB71E78C431001D0503 /* metro-line.geojson in Resources */,
 				9619629F1C581700002D3DAB /* LaunchScreen.storyboard in Resources */,
@@ -1221,6 +1243,7 @@
 				64CF97171DF2251500C3C27B /* SourceCustomRasterExample.m in Sources */,
 				3EBCD7271DC28240001E342F /* SatelliteStyleExample.swift in Sources */,
 				96115A681CAD4E1C000963B8 /* OfflinePackExample.m in Sources */,
+				3E22EF521F8821F800605203 /* ImageSourceExample.m in Sources */,
 				3EBCD71C1DC28240001E342F /* CustomCalloutViewExample.swift in Sources */,
 				DDF943291E5DE63300545D0F /* ClusteringExample.m in Sources */,
 				3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */,
@@ -1231,6 +1254,7 @@
 				DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */,
 				9682471A1C5C115000494AB8 /* DrawingAGeoJSONLineExample.m in Sources */,
 				64CF970C1DF224C500C3C27B /* SourceCustomVectorExample.m in Sources */,
+				3E22EF4F1F87F10C00605203 /* ImageSourceExample.swift in Sources */,
 				969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */,
 				646B62A41DEF7115000AA523 /* RuntimeAddLineExample.m in Sources */,
 				3E3FB66E1F0588B3004512C6 /* LightExample.m in Sources */,
