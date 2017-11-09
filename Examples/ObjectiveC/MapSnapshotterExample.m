@@ -22,11 +22,11 @@ NSString *const MBXExampleMapSnapshotter = @"MapSnapshotterExample";
     
     MGLMapSnapshotter *snapshotter = [[MGLMapSnapshotter alloc] initWithOptions:options];
     
-    [snapshotter startWithCompletionHandler:^(UIImage * _Nullable snapshot, NSError * _Nullable error) {
+    [snapshotter startWithCompletionHandler:^(MGLMapSnapshot * _Nullable snapshot, NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Unable to create a map snapshot.");
         } else if (snapshot != nil) {
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:snapshot];
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:snapshot.image];
             [self.view addSubview:imageView];
         }
     }];

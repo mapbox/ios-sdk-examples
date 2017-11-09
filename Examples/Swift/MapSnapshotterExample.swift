@@ -46,7 +46,7 @@ class MapSnapshotterExample: UIViewController, MGLMapViewDelegate {
                 print("Unable to create a map snapshot.")
             } else {
                 guard let image = image else { return }
-                snapshot = image
+                snapshot = image.image
             }
         }
         return snapshot
