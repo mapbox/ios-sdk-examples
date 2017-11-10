@@ -2,7 +2,7 @@
 #import "MapSnapshotterExample.h"
 @import Mapbox;
 
-@interface MapSnapshotterExample () <MGLMapViewDelegate>
+@interface MapSnapshotterExample ()
 
 @end
 
@@ -12,6 +12,9 @@ NSString *const MBXExampleMapSnapshotter = @"MapSnapshotterExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    imageView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:imageView];
     // Center map on the Giza Pyramid Complex in Egypt.
     CLLocationCoordinate2D center = CLLocationCoordinate2DMake(29.9773, 31.1325);
     MGLMapCamera *camera = [MGLMapCamera cameraLookingAtCenterCoordinate:center fromDistance:0 pitch:0 heading:0];
@@ -26,8 +29,7 @@ NSString *const MBXExampleMapSnapshotter = @"MapSnapshotterExample";
         if (error != nil) {
             NSLog(@"Unable to create a map snapshot.");
         } else if (snapshot != nil) {
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:snapshot.image];
-            [self.view addSubview:imageView];
+            imageView.image = snapshot.image;
         }
     }];
 }
