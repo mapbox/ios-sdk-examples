@@ -6,8 +6,8 @@ A live Xcode project/app that provides [public examples](https://www.mapbox.com/
 We are not able to answer support questions in this repository — it is intended to show examples of what is possible with the Mapbox Maps SDK for iOS.  If you have questions about how to use the Mapbox Maps SDK for iOS, please see our excellent [documentation](https://www.mapbox.com/help/) or ask the community at [Stack Overflow](http://stackoverflow.com/questions/tagged/mapbox+ios)
 
 ### Other helpful links
-- [Mapbox Maps for iOS SDK API documentation](https://www.mapbox.com/ios-sdk/api/)
-- [First steps with the Mapbox Maps for iOS SDK](https://www.mapbox.com/help/first-steps-ios-sdk/)
+- [Mapbox Maps SDK for iOS API documentation](https://www.mapbox.com/ios-sdk/api/)
+- [First steps with the Mapbox Maps SDK for iOS](https://www.mapbox.com/help/first-steps-ios-sdk/)
 
 ## Getting started
 1. Run `pod install` to download and integrate dependencies using [CocoaPods](https://cocoapods.org).
