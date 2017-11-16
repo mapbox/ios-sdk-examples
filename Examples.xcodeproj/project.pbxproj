@@ -17,6 +17,8 @@
 		0587D7031F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */; };
 		0587D7061F9A466000209947 /* DDSCircleLayerTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */; };
 		05A868901F7314EF00242FB4 /* FirstStepsTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A8688F1F7314EF00242FB4 /* FirstStepsTutorialViewController.m */; };
+		05AB82451FBC09AB005FB704 /* NavigationTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AB82441FBC09AB005FB704 /* NavigationTutorialViewController.swift */; };
+		05AB82481FBC0D41005FB704 /* NavigationTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB82471FBC0D41005FB704 /* NavigationTutorialViewController.m */; };
 		05DB802F1F75A4AD00F73326 /* DocsCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DB802E1F75A4AD00F73326 /* DocsCodeTests.swift */; };
 		079E77C51E1C4E2100F92FA8 /* camera.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079E77C41E1C4E2100F92FA8 /* camera.xcassets */; };
 		07C138C01E6F646F00D6F678 /* ShapeCollectionFeatureExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C138BF1E6F646F00D6F678 /* ShapeCollectionFeatureExample.m */; };
@@ -178,6 +180,9 @@
 		05A8688D1F7314EF00242FB4 /* DocsCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DocsCode-Bridging-Header.h"; sourceTree = "<group>"; };
 		05A8688E1F7314EF00242FB4 /* FirstStepsTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstStepsTutorialViewController.h; sourceTree = "<group>"; };
 		05A8688F1F7314EF00242FB4 /* FirstStepsTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstStepsTutorialViewController.m; sourceTree = "<group>"; };
+		05AB82441FBC09AB005FB704 /* NavigationTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTutorialViewController.swift; sourceTree = "<group>"; };
+		05AB82461FBC0D41005FB704 /* NavigationTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationTutorialViewController.h; sourceTree = "<group>"; };
+		05AB82471FBC0D41005FB704 /* NavigationTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationTutorialViewController.m; sourceTree = "<group>"; };
 		05DB802C1F75A4AD00F73326 /* DocsCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DocsCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DB802E1F75A4AD00F73326 /* DocsCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsCodeTests.swift; sourceTree = "<group>"; };
 		05DB80301F75A4AE00F73326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -397,6 +402,7 @@
 		0503373F1F7199DF007309B0 /* DocsCode */ = {
 			isa = PBXGroup;
 			children = (
+				05AB82431FBC0988005FB704 /* NavigationTutorial */,
 				0587D7011F9A435F00209947 /* DDSCircleLayerTutorial */,
 				05DB80361F75A87100F73326 /* FirstStepsTutorial */,
 				050337401F7199DF007309B0 /* AppDelegate.swift */,
@@ -417,6 +423,16 @@
 				0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */,
 			);
 			path = DDSCircleLayerTutorial;
+			sourceTree = "<group>";
+		};
+		05AB82431FBC0988005FB704 /* NavigationTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				05AB82441FBC09AB005FB704 /* NavigationTutorialViewController.swift */,
+				05AB82461FBC0D41005FB704 /* NavigationTutorialViewController.h */,
+				05AB82471FBC0D41005FB704 /* NavigationTutorialViewController.m */,
+			);
+			path = NavigationTutorial;
 			sourceTree = "<group>";
 		};
 		05DB802D1F75A4AD00F73326 /* DocsCodeTests */ = {
@@ -1174,7 +1190,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0587D7061F9A466000209947 /* DDSCircleLayerTutorialViewController.m in Sources */,
+				05AB82481FBC0D41005FB704 /* NavigationTutorialViewController.m in Sources */,
 				05A868901F7314EF00242FB4 /* FirstStepsTutorialViewController.m in Sources */,
+				05AB82451FBC09AB005FB704 /* NavigationTutorialViewController.swift in Sources */,
 				050337431F7199DF007309B0 /* FirstStepsTutorialViewController.swift in Sources */,
 				0587D7031F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift in Sources */,
 				050337411F7199DF007309B0 /* AppDelegate.swift in Sources */,
