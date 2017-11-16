@@ -15,6 +15,7 @@ NSString *const MBXExampleMapSnapshotter = @"MapSnapshotterExample";
     // Create a UIImageView that will store the map snapshot.
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     imageView.backgroundColor = [UIColor blackColor];
+    imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:imageView];
     
     // Center map on the Giza Pyramid Complex in Egypt.

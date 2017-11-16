@@ -10,6 +10,7 @@ class MapSnapshotterExample: UIViewController, MGLMapViewDelegate {
         // Create a UIImageView that will store the map snapshot.
         let imageView = UIImageView(frame: view.bounds)
         imageView.backgroundColor = .black
+        imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(imageView)
         
         // Center map on the Giza Pyramid Complex in Egypt.
@@ -26,9 +27,7 @@ class MapSnapshotterExample: UIViewController, MGLMapViewDelegate {
         snapshotter.start { (snapshot, error) in
             if error != nil {
                 print("Unable to create a map snapshot.")
-            } else {
-                guard let snapshot = snapshot else { return }
-                
+            } else if let snapshot = snapshot {
                 imageView.image = snapshot.image
             }
         }
