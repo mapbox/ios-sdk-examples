@@ -35,14 +35,14 @@ NSString *const MBXExampleMapSnapshotter = @"MapSnapshotterExample";
     // Create a UIImageView that will store the map snapshot.
     _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height / 2, self.view.bounds.size.width, self.view.bounds.size.height / 2)];
     _imageView.backgroundColor = [UIColor blackColor];
-    _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//    _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:_imageView];
 }
 
 - (void)createSnapshot {
     
     // Use the map's style, camera, size, and zoom level to set the snapshot's options.
-    MGLMapSnapshotOptions *options = [[MGLMapSnapshotOptions alloc] initWithStyleURL:_mapView.styleURL camera:_mapView.camera size:self.view.bounds.size];
+    MGLMapSnapshotOptions *options = [[MGLMapSnapshotOptions alloc] initWithStyleURL:_mapView.styleURL camera:_mapView.camera size:_mapView.bounds.size];
     options.zoomLevel = _mapView.zoomLevel;
     
     // Add an activity indicator to show that the snapshot is loading.
