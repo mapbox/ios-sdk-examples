@@ -41,6 +41,11 @@ class MapSnapshotterExample: UIViewController, MGLMapViewDelegate {
         let options = MGLMapSnapshotOptions(styleURL: mapView.styleURL, camera: mapView.camera, size: mapView.bounds.size)
         options.zoomLevel = mapView.zoomLevel
         
+        // Add an activity indicator to show that the snapshot is loading.
+        let indicator = UIActivityIndicatorView(frame: CGRect(x: self.imageView.center.x - 30, y: self.imageView.center.y - 30, width: 60, height: 60))
+        view.addSubview(indicator)
+        indicator.startAnimating()
+        
         // Create the map snapshot.
         let snapshotter = MGLMapSnapshotter(options: options)
         snapshotter.start { (snapshot, error) in
@@ -48,6 +53,7 @@ class MapSnapshotterExample: UIViewController, MGLMapViewDelegate {
                 print("Unable to create a map snapshot.")
             } else if let snapshot = snapshot {
                 // Add the map snapshot's image to the image view.
+                indicator.stopAnimating()
                 self.imageView.image = snapshot.image
             }
         }
