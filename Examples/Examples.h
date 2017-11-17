@@ -39,6 +39,7 @@ extern NSString *const MBXExampleImageSource;
 extern NSString *const MBXExampleLight;
 extern NSString *const MBXExampleFillPattern;
 extern NSString *const MBXExampleLiveData;
+extern NSString *const MBXExampleMapSnapshotter;
 extern NSString *const MBXExampleOfflinePack;
 extern NSString *const MBXExamplePointConversion;
 extern NSString *const MBXExamplePointHotspot;
