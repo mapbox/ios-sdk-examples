@@ -4,9 +4,9 @@ import Mapbox
 
 class MapSnapshotterExample: UIViewController, MGLMapViewDelegate {
 
-    var mapView : MGLMapView!
-    var button : UIButton!
-    var imageView : UIImageView!
+    var mapView: MGLMapView!
+    var button: UIButton!
+    var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +26,7 @@ class MapSnapshotterExample: UIViewController, MGLMapViewDelegate {
         button.setImage(UIImage(named: "camera"), for: .normal)
         button.addTarget(self, action: #selector(createSnapshot), for: .touchUpInside)
         view.addSubview(button)
-        
-        
+
         // Create a UIImageView that will store the map snapshot.
         imageView = UIImageView(frame: CGRect(x: 0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2))
         imageView.backgroundColor = .black
@@ -36,7 +35,6 @@ class MapSnapshotterExample: UIViewController, MGLMapViewDelegate {
     }
     
     @objc func createSnapshot() {
-
         // Use the map's style, camera, size, and zoom level to set the snapshot's options.
         let options = MGLMapSnapshotOptions(styleURL: mapView.styleURL, camera: mapView.camera, size: mapView.bounds.size)
         options.zoomLevel = mapView.zoomLevel

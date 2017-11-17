@@ -1,4 +1,3 @@
-
 #import "MapSnapshotterExample.h"
 @import Mapbox;
 
@@ -40,7 +39,6 @@ NSString *const MBXExampleMapSnapshotter = @"MapSnapshotterExample";
 }
 
 - (void)createSnapshot {
-    
     // Use the map's style, camera, size, and zoom level to set the snapshot's options.
     MGLMapSnapshotOptions *options = [[MGLMapSnapshotOptions alloc] initWithStyleURL:_mapView.styleURL camera:_mapView.camera size:_mapView.bounds.size];
     options.zoomLevel = _mapView.zoomLevel;
