@@ -35,7 +35,7 @@ NSString *const MBXExampleMapSnapshotter = @"MapSnapshotterExample";
     // Create a UIImageView that will store the map snapshot.
     _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height / 2, self.view.bounds.size.width, self.view.bounds.size.height / 2)];
     _imageView.backgroundColor = [UIColor blackColor];
-//    _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:_imageView];
 }
 
