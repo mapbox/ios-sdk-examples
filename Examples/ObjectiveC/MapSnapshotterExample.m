@@ -46,7 +46,7 @@ NSString *const MBXExampleMapSnapshotter = @"MapSnapshotterExample";
     options.zoomLevel = _mapView.zoomLevel;
     
     // Add an activity indicator to show that the snapshot is loading.
-    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(_imageView.center.x - 30, _imageView.center.y - 30 - 40, 60, 60)];
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(_imageView.center.x - 30, _imageView.center.y - 30, 60, 60)];
     [self.view addSubview:indicator];
     [indicator startAnimating];
     
