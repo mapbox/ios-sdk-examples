@@ -37,7 +37,7 @@ NSString *const MBXExampleMapSnapshotter = @"MapSnapshotterExample";
     imageView.backgroundColor = [UIColor blackColor];
     imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    // Use the map view's style, camera, size, and zoom level to set the snapshot's options.
+    // Use the map's style, camera, size, and zoom level to set the snapshot's options.
     MGLMapSnapshotOptions *options = [[MGLMapSnapshotOptions alloc] initWithStyleURL:_mapView.styleURL camera:_mapView.camera size:self.view.bounds.size];
     options.zoomLevel = _mapView.zoomLevel;
     

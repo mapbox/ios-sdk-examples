@@ -32,7 +32,7 @@ class MapSnapshotterExample: UIViewController, MGLMapViewDelegate {
         imageView.backgroundColor = .black
         imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        // Use the map view's style, camera, size, and zoom level to set the snapshot's options.
+        // Use the map's style, camera, size, and zoom level to set the snapshot's options.
         let options = MGLMapSnapshotOptions(styleURL: mapView.styleURL, camera: mapView.camera, size: mapView.bounds.size)
         options.zoomLevel = mapView.zoomLevel
         
