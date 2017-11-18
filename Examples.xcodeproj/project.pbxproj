@@ -33,9 +33,9 @@
 		3E3FB66B1F05888E004512C6 /* LightExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66A1F05888E004512C6 /* LightExample.swift */; };
 		3E3FB66E1F0588B3004512C6 /* LightExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66D1F0588B3004512C6 /* LightExample.m */; };
 		3E3FB6711F058A18004512C6 /* PointHotspotExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */; };
+		3E4574ED1FA3D8F1000C8CF1 /* radar.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E4574EC1FA3D8F1000C8CF1 /* radar.gif */; };
 		3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */; };
 		3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */; };
-		3E4574ED1FA3D8F1000C8CF1 /* radar.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E4574EC1FA3D8F1000C8CF1 /* radar.gif */; };
 		3EA5AA021FAD2E96007073C0 /* MapSnapshotterExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5AA011FAD2E95007073C0 /* MapSnapshotterExample.m */; };
 		3EA5AA041FAD2EC7007073C0 /* MapSnapshotterExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5AA031FAD2EC7007073C0 /* MapSnapshotterExample.swift */; };
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
@@ -205,10 +205,10 @@
 		3E3FB66C1F0588B3004512C6 /* LightExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightExample.h; sourceTree = "<group>"; };
 		3E3FB66D1F0588B3004512C6 /* LightExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightExample.m; sourceTree = "<group>"; };
 		3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PointHotspotExample.m; sourceTree = "<group>"; };
+		3E4574EC1FA3D8F1000C8CF1 /* radar.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = radar.gif; sourceTree = "<group>"; };
 		3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveDataExample.h; sourceTree = "<group>"; };
 		3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveDataExample.m; sourceTree = "<group>"; };
 		3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDataExample.swift; sourceTree = "<group>"; };
-		3E4574EC1FA3D8F1000C8CF1 /* radar.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = radar.gif; sourceTree = "<group>"; };
 		3EA5AA001FAD2E95007073C0 /* MapSnapshotterExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSnapshotterExample.h; sourceTree = "<group>"; };
 		3EA5AA011FAD2E95007073C0 /* MapSnapshotterExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapSnapshotterExample.m; sourceTree = "<group>"; };
 		3EA5AA031FAD2EC7007073C0 /* MapSnapshotterExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSnapshotterExample.swift; sourceTree = "<group>"; };
@@ -964,7 +964,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		22AEEA788A5D2A11DF9F9032 /* [CP] Copy Pods Resources */ = {
@@ -1067,7 +1067,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		964CB5161E445964004549EA /* Insert Mapbox Access Token */ = {
@@ -1129,7 +1129,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E8773E0E765E2B04318A4906 /* [CP] Check Pods Manifest.lock */ = {
@@ -1147,7 +1147,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

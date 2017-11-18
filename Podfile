@@ -2,7 +2,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 def shared_pods
-  pod 'Mapbox-iOS-SDK-symbols', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios-v3.7.0-rc.1/platform/ios/Mapbox-iOS-SDK-symbols.podspec'
+  pod 'Mapbox-iOS-SDK-symbols', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios-v3.7.0/platform/ios/Mapbox-iOS-SDK-symbols.podspec'
 end
 
 target 'Examples' do
