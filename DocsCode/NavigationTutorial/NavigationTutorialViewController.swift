@@ -1,4 +1,3 @@
-// #-code-snippet: navigation full-tutorial-swift
 // #-code-snippet: navigation dependencies-swift
 import Mapbox
 import MapboxCoreNavigation
@@ -7,11 +6,7 @@ import MapboxDirections
 // #-end-code-snippet: navigation dependencies-swift
 
 class ViewController: UIViewController, MGLMapViewDelegate {
-    
-    // #-code-snippet: navigation mapview-var-swift
     var mapView: MGLMapView!
-    // #-end-code-snippet: navigation mapview-var-swift
-    
     // #-code-snippet: navigation directions-route-swift
     var directionsRoute: Route?
     // #-end-code-snippet: navigation directions-route-swift
@@ -30,9 +25,10 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         // #-code-snippet: navigation user-location-swift
         // Allow the map view to display the user's location
         mapView.showsUserLocation = true
-        // #-end-code-snippet: navigation user-location-swift
+        // #-end-code-snippet: navigation user-location
         
         // #-code-snippet: navigation gesture-recognizer-swift
+        // Add a gesture recognizer to the map view
         let setDestination = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:)))
         mapView.addGestureRecognizer(setDestination)
         // #-end-code-snippet: navigation gesture-recognizer-swift
@@ -59,14 +55,13 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         annotation.title = "Start navigation"
         mapView.addAnnotation(annotation)
         
-        // #-code-snippet: navigation call-calculate-route-swift
+        // Calcuate the route from the user's location to the set destination
         calculateRoute(from: (mapView.userLocation!.coordinate), to: annotation.coordinate) { [unowned self] (route, error) in
             if error != nil {
                 // Print an error message
                 print("Error calculating route")
             }
-        }
-        // #-end-code-snippet: navigation call-calculate-route-swift
+        }t
     }
     // #-end-code-snippet: navigation long-press-swift
     
@@ -77,14 +72,16 @@ class ViewController: UIViewController, MGLMapViewDelegate {
                         completion: @escaping (Route?, Error?) -> ()) {
         
         let origin = Waypoint(coordinate: origin, name: "Start")
-        
         let destination = Waypoint(coordinate: destination, name: "Finish")
         
+        // Specify that the route is intented for automobiles avoiding traffic
         let options = NavigationRouteOptions(waypoints: [origin, destination], profileIdentifier: .automobileAvoidingTraffic)
         
+        // Generate the route object and draw it on the map
         _ = Directions.shared.calculate(options) { (waypoints, routes, error) in
             guard let route = routes?.first else { return }
             self.directionsRoute = route
+            // Draw the route on the map after creating it
             self.drawRoute(route: self.directionsRoute!)
         }
     }
@@ -93,7 +90,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
     // #-code-snippet: navigation draw-route-swift
     func drawRoute(route: Route) {
         guard route.coordinateCount > 0 else { return }
-        // Convert the route’s coordinates into a polyline.
+        // Convert the route’s coordinates into a polyline
         var routeCoordinates = route.coordinates!
         let polyline = MGLPolylineFeature(coordinates: &routeCoordinates, count: route.coordinateCount)
         
@@ -102,56 +99,30 @@ class ViewController: UIViewController, MGLMapViewDelegate {
             source.shape = polyline
         } else {
             let source = MGLShapeSource(identifier: "route-source", features: [polyline], options: nil)
-            // #-code-snippet: navigation route-style-swift
+
+            // Customize the route line color and width
             let lineStyle = MGLLineStyleLayer(identifier: "route-style", source: source)
             lineStyle.lineColor = MGLStyleValue(rawValue:  #colorLiteral(red: 0.1897518039, green: 0.3010634184, blue: 0.7994888425, alpha: 1))
             lineStyle.lineWidth = MGLStyleValue(rawValue: 3)
-            // #-end-code-snippet: navigation route-style-swift
             
+            // Add the source and style layer of the route line to the map
             mapView.style?.addSource(source)
             mapView.style?.addLayer(lineStyle)
         }
     }
     // #-end-code-snippet: navigation draw-route-swift
     
-    // #-code-snippet: navigation present-navigation-swift
-    func presentNavigation(along route: Route) {
-        class CustomStyle: DayStyle {
-            
-            public required init() {
-                super.init()
-                mapStyleURL = URL(string: "mapbox://styles/mapbox/light-v9")!
-            }
-            
-            override func apply() {
-                super.apply()
-                ManeuverView.appearance().backgroundColor =  #colorLiteral(red: 0.1897518039, green: 0.3010634184, blue: 0.7994888425, alpha: 1)
-                RouteTableViewHeaderView.appearance().backgroundColor =  #colorLiteral(red: 0.1897518039, green: 0.3010634184, blue: 0.7994888425, alpha: 1)
-                Button.appearance().textColor = .white
-                WayNameLabel.appearance().textColor = .white
-                DistanceLabel.appearance().textColor = .white
-                DestinationLabel.appearance().textColor = .white
-                ArrivalTimeLabel.appearance().textColor = .white
-                TimeRemainingLabel.appearance().textColor = .white
-                DistanceRemainingLabel.appearance().textColor = .white
-                TurnArrowView.appearance().primaryColor = .white
-                TurnArrowView.appearance().secondaryColor = .white
-                LanesView.appearance().backgroundColor = .white
-                LaneArrowView.appearance().primaryColor = .white
-                CancelButton.appearance().tintColor = .white
-            }
-        }
-        
-        let viewController = NavigationViewController(for: route, styles: [CustomStyle()])
-        self.present(viewController, animated: true, completion: nil)
-    }
-    // #-end-code-snippet: navigation present-navigation-swift
-    
     // #-code-snippet: navigation callout-tap-swift
     func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
         self.presentNavigation(along: directionsRoute!)
     }
     // #-end-code-snippet: navigation callout-tap-swift
+    
+    // #-code-snippet: navigation tap-callout-swift
+    func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
+        let navigationViewController = NavigationViewController(for: directionsRoute!)
+        self.present(navigationViewController, animated: true, completion: nil)
+    }
+    // #-end-code-snippet: navigation tap-callout-swift
 }
-// #-end-code-snippet: navigation full-tutorial-swift
 

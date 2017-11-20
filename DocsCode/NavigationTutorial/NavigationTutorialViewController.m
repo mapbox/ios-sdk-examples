@@ -1,4 +1,3 @@
-// #-code-snippet: navigation full-tutorial-objc
 // #-code-snippet: navigation dependencies-objc
 #import "NavigationTutorialViewController"
 
@@ -10,10 +9,7 @@
 
 @interface NavigationTutorialViewController () <MGLMapViewDelegate>
 
-// #-code-snippet: navigation mapview-property-objc
 @property (nonatomic) MGLMapView *mapView;
-// #-end-code-snippet: navigation mapview-property-objc
-
 // #-code-snippet: navigation directions-route-objc
 @property (nonatomic) MBRoute *directionsRoute;
 // #-end-code-snippet: navigation directions-route-objc
@@ -41,6 +37,7 @@
     // #-end-code-snippet: navigation user-location-objc
     
     // #-code-snippet: navigation gesture-recognizer-objc
+    // Add a gesture recognizer to the map view
     UITapGestureRecognizer *setDestination = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPress:)];
     [self.mapView addGestureRecognizer:setDestination];
     // #-end-code-snippet: navigation gesture-recognizer-objc
@@ -69,7 +66,7 @@
     annotation.title = @"Start navigtation";
     [self.mapView addAnnotation:annotation];
     
-    // #-code-snippet: navigation call-calculate-route-objc
+    // Calcuate the route from the user's location to the set destination
     [self calculateRoutefromOrigin:self.mapView.userLocation.coordinate
                      toDestination:annotation.coordinate
                         completion:^(MBRoute * _Nullable route, NSError * _Nullable error) {
@@ -77,7 +74,6 @@
                                 printf("Error calculating route");
                             }
                         }];
-    // #-end-code-snippet: navigation call-calculate-route-objc
 }
 // #-end-code-snippet: navigation long-press-objc
 
@@ -86,12 +82,14 @@
                  toDestination :(CLLocationCoordinate2D)destination
                      completion:(void(^)(MBRoute *_Nullable route, NSError *_Nullable error))completion {
     
-    MBWaypoint *originWaypoint = [[MBWaypoint alloc] initWithCoordinate:origin coordinateAccuracy:-1 name:@"University of Texas at Austin"];
+    MBWaypoint *originWaypoint = [[MBWaypoint alloc] initWithCoordinate:origin coordinateAccuracy:-1 name:@"Start"];
     
-    MBWaypoint *destinationWaypoint = [[MBWaypoint alloc] initWithCoordinate:destination coordinateAccuracy:-1 name:@"Tacodeli"];
+    MBWaypoint *destinationWaypoint = [[MBWaypoint alloc] initWithCoordinate:destination coordinateAccuracy:-1 name:@"Finish"];
     
+    // Specify that the route is intented for automobiles avoiding traffic
     MBNavigationRouteOptions *options = [[MBNavigationRouteOptions alloc] initWithWaypoints:@[originWaypoint, destinationWaypoint] profileIdentifier:MBDirectionsProfileIdentifierAutomobileAvoidingTraffic];
     
+    // Generate the route object and draw it on the map
     NSURLSessionDataTask *task = [[MBDirections sharedDirections] calculateDirectionsWithOptions:options completionHandler:^(NSArray<MBWaypoint *> * _Nullable waypoints, NSArray<MBRoute *> * _Nullable routes, NSError * _Nullable error){
         
         if (!routes.firstObject) {
@@ -102,6 +100,7 @@
         self.directionsRoute = route;
         CLLocationCoordinate2D *routeCoordinates = malloc(route.coordinateCount * sizeof(CLLocationCoordinate2D));
         [route getCoordinates:routeCoordinates];
+        // Draw the route on the map after creating it
         [self drawRoute:routeCoordinates];
     }];
 }
@@ -123,10 +122,12 @@
     } else {
         MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"route-source" shape:polyline options:nil];
         MGLLineStyleLayer *lineStyle = [[MGLLineStyleLayer alloc] initWithIdentifier:@"route-style" source:source];
-        // #-code-snippet: navigation route-style-objc
+        
+        // Customize the route line color and width
         lineStyle.lineColor = [MGLStyleValue valueWithRawValue:[UIColor blueColor]];
         lineStyle.lineWidth = [MGLStyleValue valueWithRawValue:@"3"];
-        // #-end-code-snippet: navigation route-style-objc
+        
+        // Add the source and style layer of the route line to the map
         [self.mapView.style addSource:source];
         [self.mapView.style addLayer:lineStyle];
     }
@@ -145,11 +146,10 @@
 }
 // #-end-code-snippet: navigation present-navigation-objc
 
-// #-code-snippet: navigation callout-tap-objc
+// #-code-snippet: navigation tap-callout-objc
 -(void)mapView:(MGLMapView *)mapView tapOnCalloutForAnnotation:(id<MGLAnnotation>)annotation {
     [self presentNavigation:_directionsRoute];
 }
-// #-end-code-snippet: navigation callout-tap-objc
+// #-end-code-snippet: navigation tap-callout-objc
 
 @end
-// #-end-code-snippet: navigation full-tutorial-objc
