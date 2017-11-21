@@ -25,7 +25,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         // #-code-snippet: navigation user-location-swift
         // Allow the map view to display the user's location
         mapView.showsUserLocation = true
-        // #-end-code-snippet: navigation user-location
+        // #-end-code-snippet: navigation user-location-swift
         
         // #-code-snippet: navigation gesture-recognizer-swift
         // Add a gesture recognizer to the map view
