@@ -15,7 +15,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         super.viewDidLoad()
         
         // #-code-snippet: navigation init-map-swift
-        mapView = NavigationMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL())
+        mapView = NavigationMapView(frame: view.bounds)
         mapView.setCenter(CLLocationCoordinate2D(latitude: 30.265, longitude: -97.741), zoomLevel: 11, animated: false)
         view.addSubview(mapView)
         // Set the map view's delegate
@@ -61,7 +61,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
                 // Print an error message
                 print("Error calculating route")
             }
-        }t
+        }
     }
     // #-end-code-snippet: navigation long-press-swift
     
@@ -111,12 +111,6 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         }
     }
     // #-end-code-snippet: navigation draw-route-swift
-    
-    // #-code-snippet: navigation callout-tap-swift
-    func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
-        self.presentNavigation(along: directionsRoute!)
-    }
-    // #-end-code-snippet: navigation callout-tap-swift
     
     // #-code-snippet: navigation tap-callout-swift
     func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {

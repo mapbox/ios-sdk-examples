@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '8.0'
 use_frameworks!
 
 def shared_pods
@@ -10,7 +10,8 @@ target 'Examples' do
 end
 
 target 'DocsCode' do
-  shared_pods
+  platform :ios, '9.0'
+  pod 'MapboxNavigation', '~> 0.10'
 end
 
 target 'ExamplesTests' do

@@ -1,5 +1,5 @@
 // #-code-snippet: navigation dependencies-objc
-#import "NavigationTutorialViewController"
+#import "NavigationTutorialViewController.h"
 
 @import Mapbox;
 @import MapboxCoreNavigation;
@@ -9,7 +9,7 @@
 
 @interface NavigationTutorialViewController () <MGLMapViewDelegate>
 
-@property (nonatomic) MGLMapView *mapView;
+@property (nonatomic) MBNavigationMapView *mapView;
 // #-code-snippet: navigation directions-route-objc
 @property (nonatomic) MBRoute *directionsRoute;
 // #-end-code-snippet: navigation directions-route-objc
@@ -23,7 +23,8 @@
     [super viewDidLoad];
     
     // #-code-snippet: navigation init-map-objc
-    self.mapView = [[MBNavigationMapView alloc] initWithFrame:self.view.bounds styleURL: [MGLStyle streetsStyleURL]];
+    self.mapView = [[MBNavigationMapView alloc] initWithFrame:self.view.bounds];
+
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(30.265, -97.741)
                             zoomLevel:11 animated:NO];
     [self.view addSubview:self.mapView];
@@ -135,20 +136,10 @@
 }
 // #-end-code-snippet: navigation draw-route-objc
 
-// #-code-snippet: navigation present-navigation-objc
--(void)presentNavigation:(MBRoute *)route {
-    MBNavigationViewController *viewController = [[MBNavigationViewController alloc] initWithRoute:route
-           directions:[MBDirections sharedDirections]
-                style:nil
-      locationManager:_mapView.locationManager];
-    
-    [self presentViewController:viewController animated:YES completion:nil];
-}
-// #-end-code-snippet: navigation present-navigation-objc
-
 // #-code-snippet: navigation tap-callout-objc
 -(void)mapView:(MGLMapView *)mapView tapOnCalloutForAnnotation:(id<MGLAnnotation>)annotation {
-    [self presentNavigation:_directionsRoute];
+    MBNavigationViewController *navigationViewController = [[MBNavigationViewController alloc] initWithRoute:_directionsRoute directions:[MBDirections sharedDirections] style:nil locationManager:nil];
+    [self presentViewController:navigationViewController animated:YES completion:nil];
 }
 // #-end-code-snippet: navigation tap-callout-objc
 
