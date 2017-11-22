@@ -8,8 +8,8 @@ NSString *const MBXExampleCustomStyle = @"CustomStyleExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Fill in the next line with your style URL from Mapbox Studio.
-    // <#mapbox://styles/userName/styleHash#>
+    // Replace the string in the URL below with your custom style URL from Mapbox Studio.
+    // Read more about style URLs here: https://www.mapbox.com/help/define-style-url/
     NSURL *styleURL = [NSURL URLWithString:@"mapbox://styles/mapbox/outdoors-v9"];
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds
                                                    styleURL:styleURL];
