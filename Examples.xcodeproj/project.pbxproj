@@ -488,9 +488,6 @@
 				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
 				3E085B821EC526E500163C99 /* ExtrusionsExample.m */,
-				3E22EF511F8821F800605203 /* ImageSourceExample.m */,
-				3E3FB66D1F0588B3004512C6 /* LightExample.m */,
-				3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */,
 				055ABCC01EFB139C0063BACA /* FillPatternExample.m */,
 				3E22EF511F8821F800605203 /* ImageSourceExample.m */,
 				3E3FB66D1F0588B3004512C6 /* LightExample.m */,
@@ -1414,6 +1411,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = GJZR2MEM28;
 				INFOPLIST_FILE = DocsCode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.DocsCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1433,6 +1431,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = GJZR2MEM28;
 				INFOPLIST_FILE = DocsCode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.DocsCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
