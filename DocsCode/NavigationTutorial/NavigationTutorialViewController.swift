@@ -42,7 +42,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
     // #-end-code-snippet: navigation allow-callouts-swift
     
     // #-code-snippet: navigation long-press-swift
-    func didLongPress(_ sender: UILongPressGestureRecognizer) {
+    @objc func didLongPress(_ sender: UILongPressGestureRecognizer) {
         guard sender.state == .began else { return }
         
         // Converts point where user did a long press to map coordinates
