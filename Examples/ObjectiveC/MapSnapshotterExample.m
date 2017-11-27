@@ -1,6 +1,8 @@
 #import "MapSnapshotterExample.h"
 @import Mapbox;
 
+NSString *const MBXExampleMapSnapshotter = @"MapSnapshotterExample";
+
 @interface MapSnapshotterExample ()
 
 @property MGLMapView *mapView;
@@ -9,7 +11,6 @@
 
 @end
 
-NSString *const MBXExampleMapSnapshotter = @"MapSnapshotterExample";
 @implementation MapSnapshotterExample
 
 - (void)viewDidLoad {
