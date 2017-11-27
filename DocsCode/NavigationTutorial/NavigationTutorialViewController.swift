@@ -80,8 +80,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         
         // Generate the route object and draw it on the map
         _ = Directions.shared.calculate(options) { (waypoints, routes, error) in
-            guard let route = routes?.first else { return }
-            self.directionsRoute = route
+            self.directionsRoute = routes?.first
             // Draw the route on the map after creating it
             self.drawRoute(route: self.directionsRoute!)
         }
