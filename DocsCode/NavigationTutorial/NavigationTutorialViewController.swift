@@ -56,7 +56,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         mapView.addAnnotation(annotation)
         
         // Calcuate the route from the user's location to the set destination
-        calculateRoute(from: (mapView.userLocation!.coordinate), to: annotation.coordinate) { [unowned self] (route, error) in
+        calculateRoute(from: (mapView.userLocation!.coordinate), to: annotation.coordinate) { (route, error) in
             if error != nil {
                 // Print an error message
                 print("Error calculating route")
