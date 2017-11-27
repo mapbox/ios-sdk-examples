@@ -38,7 +38,7 @@
     // #-end-code-snippet: dds-circle add-vector-source-objc
 
     // #-code-snippet: dds-circle add-circle-layer-objc
-    MGLCircleStyleLayer *layer = [[MGLCircleStyleLayer alloc] initWithIdentifier: @"tree-style" source:source];
+    MGLCircleStyleLayer *layer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"tree-style" source:source];
     
     // The source name from the source's TileJSON metadata: mapbox.com/api-documentation/#retrieve-tilejson-metadata
     layer.sourceLayerIdentifier = @"yoshino-trees-a0puw5";
@@ -56,10 +56,10 @@
     
     // #-code-snippet: dds-circle add-style-layer-objc
     // Style the circle layer color based on the above categorical stops.
-    layer.circleColor = [MGLStyleValue valueWithInterpolationMode: MGLInterpolationModeInterval
-                                                      sourceStops: stops
-                                                    attributeName: @"AGE"
-                                                          options: nil];
+    layer.circleColor = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeInterval
+                                                      sourceStops:stops
+                                                    attributeName:@"AGE"
+                                                          options:nil];
     
     layer.circleRadius = [MGLStyleValue valueWithRawValue:@3];
     
