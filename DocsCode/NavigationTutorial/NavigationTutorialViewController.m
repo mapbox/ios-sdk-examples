@@ -83,6 +83,7 @@
                  toDestination :(CLLocationCoordinate2D)destination
                      completion:(void(^)(MBRoute *_Nullable route, NSError *_Nullable error))completion {
     
+    // Coordinate accuracy is the maximum distance away from the waypoint that the route may still be considered viable, measured in meters. Negative values indicate that a indefinite number of meters away from the route and still be considered viable.
     MBWaypoint *originWaypoint = [[MBWaypoint alloc] initWithCoordinate:origin coordinateAccuracy:-1 name:@"Start"];
     
     MBWaypoint *destinationWaypoint = [[MBWaypoint alloc] initWithCoordinate:destination coordinateAccuracy:-1 name:@"Finish"];
