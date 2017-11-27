@@ -50,9 +50,9 @@ class DDSCircleLayerTutorialViewController: UIViewController, MGLMapViewDelegate
         
         // #-code-snippet: dds-circle add-style-layer-swift
         layer.circleColor = MGLStyleValue<UIColor>(interpolationMode: .interval,
-        sourceStops: stops,
-        attributeName: "AGE",
-        options: nil)
+                                                   sourceStops: stops,
+                                                   attributeName: "AGE",
+                                                   options: nil)
         
         layer.circleRadius = MGLStyleValue(rawValue: 3)
         
