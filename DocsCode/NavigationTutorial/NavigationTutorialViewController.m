@@ -74,7 +74,7 @@
                             if (error != nil) {
                                 NSLog(@"Error calculating route");
                             }
-                        }];
+    }];
 }
 // #-end-code-snippet: navigation long-press-objc
 
