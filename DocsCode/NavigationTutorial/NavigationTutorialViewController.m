@@ -39,7 +39,7 @@
     
     // #-code-snippet: navigation gesture-recognizer-objc
     // Add a gesture recognizer to the map view
-    UITapGestureRecognizer *setDestination = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPress:)];
+    UILongPressGestureRecognizer *setDestination = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPress:)];
     [self.mapView addGestureRecognizer:setDestination];
     // #-end-code-snippet: navigation gesture-recognizer-objc
 }
