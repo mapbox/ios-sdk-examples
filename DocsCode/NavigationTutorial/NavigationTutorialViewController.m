@@ -72,7 +72,7 @@
                      toDestination:annotation.coordinate
                         completion:^(MBRoute * _Nullable route, NSError * _Nullable error) {
                             if (error != nil) {
-                                NSLog(@"Error calculating route");
+                                NSLog(@"Error calculating route: %@", error);
                             }
     }];
 }
