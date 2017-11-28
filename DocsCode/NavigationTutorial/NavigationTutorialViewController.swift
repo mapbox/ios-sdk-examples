@@ -58,7 +58,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         // Calcuate the route from the user's location to the set destination
         calculateRoute(from: (mapView.userLocation!.coordinate), to: annotation.coordinate) { (route, error) in
             if error != nil {
-                NSLog("Error calculating route: \(String(describing: error))")
+                print("Error calculating route")
             }
         }
     }
@@ -78,7 +78,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         let options = NavigationRouteOptions(waypoints: [origin, destination], profileIdentifier: .automobileAvoidingTraffic)
         
         // Generate the route object and draw it on the map
-        Directions.shared.calculate(options) { (waypoints, routes, error) in
+        _ = Directions.shared.calculate(options) { (waypoints, routes, error) in
             self.directionsRoute = routes?.first
             // Draw the route on the map after creating it
             self.drawRoute(route: self.directionsRoute!)
