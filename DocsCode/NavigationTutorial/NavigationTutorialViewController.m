@@ -92,7 +92,7 @@
     MBNavigationRouteOptions *options = [[MBNavigationRouteOptions alloc] initWithWaypoints:@[originWaypoint, destinationWaypoint] profileIdentifier:MBDirectionsProfileIdentifierAutomobileAvoidingTraffic];
     
     // Generate the route object and draw it on the map
-    NSURLSessionDataTask *task = [[MBDirections sharedDirections] calculateDirectionsWithOptions:options completionHandler:^(
+    (void)[[MBDirections sharedDirections] calculateDirectionsWithOptions:options completionHandler:^(
         NSArray<MBWaypoint *> *waypoints,
         NSArray<MBRoute *> *routes,
         NSError *error) {
