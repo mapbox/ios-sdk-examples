@@ -78,7 +78,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         let options = NavigationRouteOptions(waypoints: [origin, destination], profileIdentifier: .automobileAvoidingTraffic)
         
         // Generate the route object and draw it on the map
-        _ = Directions.shared.calculate(options) { (waypoints, routes, error) in
+        Directions.shared.calculate(options) { (waypoints, routes, error) in
             self.directionsRoute = routes?.first
             // Draw the route on the map after creating it
             self.drawRoute(route: self.directionsRoute!)
