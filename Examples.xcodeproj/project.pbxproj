@@ -14,7 +14,11 @@
 		0503374B1F7199DF007309B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050337491F7199DF007309B0 /* LaunchScreen.storyboard */; };
 		055ABCC11EFB139C0063BACA /* FillPatternExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 055ABCC01EFB139C0063BACA /* FillPatternExample.m */; };
 		055ABCC31EFB14AE0063BACA /* FillPatternExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */; };
+		0587D7031F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */; };
+		0587D7061F9A466000209947 /* DDSCircleLayerTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */; };
 		05A868901F7314EF00242FB4 /* FirstStepsTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A8688F1F7314EF00242FB4 /* FirstStepsTutorialViewController.m */; };
+		05AB82451FBC09AB005FB704 /* NavigationTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AB82441FBC09AB005FB704 /* NavigationTutorialViewController.swift */; };
+		05AB82481FBC0D41005FB704 /* NavigationTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB82471FBC0D41005FB704 /* NavigationTutorialViewController.m */; };
 		05DB802F1F75A4AD00F73326 /* DocsCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DB802E1F75A4AD00F73326 /* DocsCodeTests.swift */; };
 		079E77C51E1C4E2100F92FA8 /* camera.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079E77C41E1C4E2100F92FA8 /* camera.xcassets */; };
 		07C138C01E6F646F00D6F678 /* ShapeCollectionFeatureExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C138BF1E6F646F00D6F678 /* ShapeCollectionFeatureExample.m */; };
@@ -170,9 +174,15 @@
 		055ABCBF1EFB139C0063BACA /* FillPatternExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FillPatternExample.h; sourceTree = "<group>"; };
 		055ABCC01EFB139C0063BACA /* FillPatternExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FillPatternExample.m; sourceTree = "<group>"; };
 		055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillPatternExample.swift; sourceTree = "<group>"; };
+		0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDSCircleLayerTutorialViewController.swift; sourceTree = "<group>"; };
+		0587D7041F9A466000209947 /* DDSCircleLayerTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDSCircleLayerTutorialViewController.h; sourceTree = "<group>"; };
+		0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDSCircleLayerTutorialViewController.m; sourceTree = "<group>"; };
 		05A8688D1F7314EF00242FB4 /* DocsCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DocsCode-Bridging-Header.h"; sourceTree = "<group>"; };
 		05A8688E1F7314EF00242FB4 /* FirstStepsTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstStepsTutorialViewController.h; sourceTree = "<group>"; };
 		05A8688F1F7314EF00242FB4 /* FirstStepsTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstStepsTutorialViewController.m; sourceTree = "<group>"; };
+		05AB82441FBC09AB005FB704 /* NavigationTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTutorialViewController.swift; sourceTree = "<group>"; };
+		05AB82461FBC0D41005FB704 /* NavigationTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationTutorialViewController.h; sourceTree = "<group>"; };
+		05AB82471FBC0D41005FB704 /* NavigationTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationTutorialViewController.m; sourceTree = "<group>"; };
 		05DB802C1F75A4AD00F73326 /* DocsCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DocsCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DB802E1F75A4AD00F73326 /* DocsCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsCodeTests.swift; sourceTree = "<group>"; };
 		05DB80301F75A4AE00F73326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -392,6 +402,8 @@
 		0503373F1F7199DF007309B0 /* DocsCode */ = {
 			isa = PBXGroup;
 			children = (
+				05AB82431FBC0988005FB704 /* NavigationTutorial */,
+				0587D7011F9A435F00209947 /* DDSCircleLayerTutorial */,
 				05DB80361F75A87100F73326 /* FirstStepsTutorial */,
 				050337401F7199DF007309B0 /* AppDelegate.swift */,
 				050337441F7199DF007309B0 /* Main.storyboard */,
@@ -401,6 +413,26 @@
 				05A8688D1F7314EF00242FB4 /* DocsCode-Bridging-Header.h */,
 			);
 			path = DocsCode;
+			sourceTree = "<group>";
+		};
+		0587D7011F9A435F00209947 /* DDSCircleLayerTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */,
+				0587D7041F9A466000209947 /* DDSCircleLayerTutorialViewController.h */,
+				0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */,
+			);
+			path = DDSCircleLayerTutorial;
+			sourceTree = "<group>";
+		};
+		05AB82431FBC0988005FB704 /* NavigationTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				05AB82441FBC09AB005FB704 /* NavigationTutorialViewController.swift */,
+				05AB82461FBC0D41005FB704 /* NavigationTutorialViewController.h */,
+				05AB82471FBC0D41005FB704 /* NavigationTutorialViewController.m */,
+			);
+			path = NavigationTutorial;
 			sourceTree = "<group>";
 		};
 		05DB802D1F75A4AD00F73326 /* DocsCodeTests */ = {
@@ -456,9 +488,6 @@
 				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
 				3E085B821EC526E500163C99 /* ExtrusionsExample.m */,
-				3E22EF511F8821F800605203 /* ImageSourceExample.m */,
-				3E3FB66D1F0588B3004512C6 /* LightExample.m */,
-				3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */,
 				055ABCC01EFB139C0063BACA /* FillPatternExample.m */,
 				3E22EF511F8821F800605203 /* ImageSourceExample.m */,
 				3E3FB66D1F0588B3004512C6 /* LightExample.m */,
@@ -725,6 +754,7 @@
 				0503373A1F7199DF007309B0 /* Sources */,
 				0503373B1F7199DF007309B0 /* Frameworks */,
 				0503373C1F7199DF007309B0 /* Resources */,
+				056F105B1FC4C80A0037FFBE /* Insert Mapbox Access Token */,
 				467E4FA75B8B2FDD0E7B32DF /* [CP] Embed Pods Frameworks */,
 				10C0A307CAE7A1B5B741F127 /* [CP] Copy Pods Resources */,
 			);
@@ -934,6 +964,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		056F105B1FC4C80A0037FFBE /* Insert Mapbox Access Token */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Insert Mapbox Access Token";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/Examples/insert-mapbox-token.sh";
+		};
 		10C0A307CAE7A1B5B741F127 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -989,13 +1033,35 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
-				"${PODS_ROOT}/Mapbox-iOS-SDK-symbols/dynamic/Mapbox.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK-symbols/dynamic/Mapbox.framework.dSYM",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSPolly/AWSPolly.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework",
+				"${BUILT_PRODUCTS_DIR}/OSRMTextInstructions/OSRMTextInstructions.framework",
+				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Solar/Solar.framework",
+				"${BUILT_PRODUCTS_DIR}/Turf/Turf.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSPolly.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxCoreNavigation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OSRMTextInstructions.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Solar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Turf.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1039,8 +1105,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh",
-				"${PODS_ROOT}/Mapbox-iOS-SDK-symbols/dynamic/Mapbox.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK-symbols/dynamic/Mapbox.framework.dSYM",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1157,8 +1223,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0587D7061F9A466000209947 /* DDSCircleLayerTutorialViewController.m in Sources */,
+				05AB82481FBC0D41005FB704 /* NavigationTutorialViewController.m in Sources */,
 				05A868901F7314EF00242FB4 /* FirstStepsTutorialViewController.m in Sources */,
+				05AB82451FBC09AB005FB704 /* NavigationTutorialViewController.swift in Sources */,
 				050337431F7199DF007309B0 /* FirstStepsTutorialViewController.swift in Sources */,
+				0587D7031F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift in Sources */,
 				050337411F7199DF007309B0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1341,6 +1411,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = GJZR2MEM28;
 				INFOPLIST_FILE = DocsCode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.DocsCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1360,6 +1431,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = GJZR2MEM28;
 				INFOPLIST_FILE = DocsCode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.DocsCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";

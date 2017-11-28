@@ -1,16 +1,14 @@
 platform :ios, '8.0'
 use_frameworks!
 
-def shared_pods
-  pod 'Mapbox-iOS-SDK-symbols', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios-v3.7.0/platform/ios/Mapbox-iOS-SDK-symbols.podspec'
-end
-
 target 'Examples' do
-  shared_pods
+  pod 'Mapbox-iOS-SDK', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios-v3.7.0/platform/ios/Mapbox-iOS-SDK.podspec'
 end
 
 target 'DocsCode' do
-  shared_pods
+  platform :ios, '9.0'
+  pod 'MapboxCoreNavigation', :git => 'https://github.com/mapbox/mapbox-navigation-ios.git'
+  pod 'MapboxNavigation', :git => 'https://github.com/mapbox/mapbox-navigation-ios.git', :tag => 'v0.11.0-rc.1'
 end
 
 target 'ExamplesTests' do
