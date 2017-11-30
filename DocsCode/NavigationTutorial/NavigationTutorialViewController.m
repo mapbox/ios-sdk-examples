@@ -9,47 +9,35 @@
 
 @interface NavigationTutorialViewController () <MGLMapViewDelegate>
 
+// #-code-snippet: navigation vc-variables-objc
 @property (nonatomic) MBNavigationMapView *mapView;
-// #-code-snippet: navigation directions-route-objc
 @property (nonatomic) MBRoute *directionsRoute;
-// #-end-code-snippet: navigation directions-route-objc
-
+// #-end-code-snippet: navigation vc-variables-objc
 
 @end
 
 @implementation NavigationTutorialViewController
 
+// #-code-snippet: navigation view-did-load-objc
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // #-code-snippet: navigation init-map-objc
+
     self.mapView = [[MBNavigationMapView alloc] initWithFrame:self.view.bounds];
 
-    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(30.265, -97.741)
-                            zoomLevel:11 animated:NO];
     [self.view addSubview:self.mapView];
     // Set the map view's delegate
     self.mapView.delegate = self;
-    // #-end-code-snippet: navigation init-map-objc
-    
-    // #-code-snippet: navigation user-location-objc
+
     // Allow the map view to display the user's location
     self.mapView.showsUserLocation = YES;
-    // #-end-code-snippet: navigation user-location-objc
+    [self.mapView setUserTrackingMode:MGLUserTrackingModeFollow animated:YES];
     
-    // #-code-snippet: navigation gesture-recognizer-objc
     // Add a gesture recognizer to the map view
     UILongPressGestureRecognizer *setDestination = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPress:)];
     [self.mapView addGestureRecognizer:setDestination];
-    // #-end-code-snippet: navigation gesture-recognizer-objc
 }
-
-// #-code-snippet: navigation allow-callouts-objc
-// Implement the delegate method that allows annotations to show callouts when tapped
--(BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation {
-    return true;
-}
-// #-end-code-snippet: navigation allow-callouts-objc
+// #-end-code-snippet: navigation view-did-load-objc
 
 // #-code-snippet: navigation long-press-objc
 -(void)didLongPress:(UITapGestureRecognizer *)sender {
@@ -67,7 +55,7 @@
     annotation.title = @"Start navigtation";
     [self.mapView addAnnotation:annotation];
     
-    // Calcuate the route from the user's location to the set destination
+    // Calculate the route from the user's location to the set destination
     [self calculateRoutefromOrigin:self.mapView.userLocation.coordinate
                      toDestination:annotation.coordinate
                         completion:^(MBRoute * _Nullable route, NSError * _Nullable error) {
@@ -88,7 +76,7 @@
     
     MBWaypoint *destinationWaypoint = [[MBWaypoint alloc] initWithCoordinate:destination coordinateAccuracy:-1 name:@"Finish"];
     
-    // Specify that the route is intented for automobiles avoiding traffic
+    // Specify that the route is intended for automobiles avoiding traffic
     MBNavigationRouteOptions *options = [[MBNavigationRouteOptions alloc] initWithWaypoints:@[originWaypoint, destinationWaypoint] profileIdentifier:MBDirectionsProfileIdentifierAutomobileAvoidingTraffic];
     
     // Generate the route object and draw it on the map
@@ -136,15 +124,20 @@
         [self.mapView.style addSource:source];
         [self.mapView.style addLayer:lineStyle];
     }
-    
 }
 // #-end-code-snippet: navigation draw-route-objc
 
-// #-code-snippet: navigation tap-callout-objc
+// #-code-snippet: navigation callout-functions-objc
+// Implement the delegate method that allows annotations to show callouts when tapped
+-(BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation {
+    return true;
+}
+
+// Present the navigation view controller when the callout is selected
 -(void)mapView:(MGLMapView *)mapView tapOnCalloutForAnnotation:(id<MGLAnnotation>)annotation {
     MBNavigationViewController *navigationViewController = [[MBNavigationViewController alloc] initWithRoute:_directionsRoute directions:[MBDirections sharedDirections] style:nil locationManager:nil];
     [self presentViewController:navigationViewController animated:YES completion:nil];
 }
-// #-end-code-snippet: navigation tap-callout-objc
+// #-end-code-snippet: navigation callout-functions-objc
 
 @end
