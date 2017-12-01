@@ -7,7 +7,7 @@ import MapboxDirections
 
 class ViewController: UIViewController, MGLMapViewDelegate {
     // #-code-snippet: navigation vc-variables-swift
-    var mapView: MGLMapView!
+    var mapView: NavigationMapView!
     var directionsRoute: Route?
     // #-end-code-snippet: navigation vc-variables-swift
     
