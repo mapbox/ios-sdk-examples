@@ -7,8 +7,7 @@ end
 
 target 'DocsCode' do
   platform :ios, '9.0'
-  pod 'MapboxCoreNavigation', :git => 'https://github.com/mapbox/mapbox-navigation-ios.git'
-  pod 'MapboxNavigation', :git => 'https://github.com/mapbox/mapbox-navigation-ios.git', :tag => 'v0.11.0-rc.1'
+  pod 'MapboxNavigation', '~> 0.11'
 end
 
 target 'ExamplesTests' do

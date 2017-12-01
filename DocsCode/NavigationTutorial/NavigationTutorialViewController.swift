@@ -6,40 +6,31 @@ import MapboxDirections
 // #-end-code-snippet: navigation dependencies-swift
 
 class ViewController: UIViewController, MGLMapViewDelegate {
-    var mapView: MGLMapView!
-    // #-code-snippet: navigation directions-route-swift
+    // #-code-snippet: navigation vc-variables-swift
+    var mapView: NavigationMapView!
     var directionsRoute: Route?
-    // #-end-code-snippet: navigation directions-route-swift
+    // #-end-code-snippet: navigation vc-variables-swift
     
+    // #-code-snippet: navigation view-did-load-swift
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // #-code-snippet: navigation init-map-swift
         mapView = NavigationMapView(frame: view.bounds)
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 30.265, longitude: -97.741), zoomLevel: 11, animated: false)
+
         view.addSubview(mapView)
+        
         // Set the map view's delegate
         mapView.delegate = self
-        // #-end-code-snippet: navigation init-map-swift
         
-        // #-code-snippet: navigation user-location-swift
-        // Allow the map view to display the user's location
+        // Allow the map to display the user's location
         mapView.showsUserLocation = true
-        // #-end-code-snippet: navigation user-location-swift
+        mapView.setUserTrackingMode(.follow, animated: true)
         
-        // #-code-snippet: navigation gesture-recognizer-swift
         // Add a gesture recognizer to the map view
         let setDestination = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:)))
         mapView.addGestureRecognizer(setDestination)
-        // #-end-code-snippet: navigation gesture-recognizer-swift
     }
-    
-    // #-code-snippet: navigation allow-callouts-swift
-    // Implement the delegate method that allows annotations to show callouts when tapped
-    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-        return true
-    }
-    // #-end-code-snippet: navigation allow-callouts-swift
+    // #-end-code-snippet: navigation view-did-load-swift
     
     // #-code-snippet: navigation long-press-swift
     @objc func didLongPress(_ sender: UILongPressGestureRecognizer) {
@@ -54,8 +45,8 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         annotation.coordinate = coordinate
         annotation.title = "Start navigation"
         mapView.addAnnotation(annotation)
-        
-        // Calcuate the route from the user's location to the set destination
+
+        // Calculate the route from the user's location to the set destination
         calculateRoute(from: (mapView.userLocation!.coordinate), to: annotation.coordinate) { (route, error) in
             if error != nil {
                 print("Error calculating route")
@@ -74,7 +65,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         let origin = Waypoint(coordinate: origin, coordinateAccuracy: -1, name: "Start")
         let destination = Waypoint(coordinate: destination, coordinateAccuracy: -1, name: "Finish")
         
-        // Specify that the route is intented for automobiles avoiding traffic
+        // Specify that the route is intended for automobiles avoiding traffic
         let options = NavigationRouteOptions(waypoints: [origin, destination], profileIdentifier: .automobileAvoidingTraffic)
         
         // Generate the route object and draw it on the map
@@ -111,11 +102,17 @@ class ViewController: UIViewController, MGLMapViewDelegate {
     }
     // #-end-code-snippet: navigation draw-route-swift
     
-    // #-code-snippet: navigation tap-callout-swift
+    // #-code-snippet: navigation callout-functions-swift
+    // Implement the delegate method that allows annotations to show callouts when tapped
+    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        return true
+    }
+    
+    // Present the navigation view controller when the callout is selected
     func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
         let navigationViewController = NavigationViewController(for: directionsRoute!)
         self.present(navigationViewController, animated: true, completion: nil)
     }
-    // #-end-code-snippet: navigation tap-callout-swift
+    // #-end-code-snippet: navigation callout-functions-swift
 }
 
