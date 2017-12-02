@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 
 // Steps to add a new example:
-//   1. Add `MBXExample...` string constant in NewExample.m, defined as the name of the example view controller's class
-//   2. Add matching external string constant below
-//   3. Add this constant to +list in Examples.m
-//   4. Create NewExample.swift (otherwise Swift is handled automatically)
+//   1. Create a new `NewExample.m` file in ../Examples/Code/Objective-C
+//   2. In your new Objective-C file, add a new string constant defined as the name of the example view controller's class, e.g., `NSString *const MBXExampleSimpleMap = @"SimpleMapExample";`
+//   3. Add a matching external string constant below to this Examples.h file:
+//   4. Add this constant to the `initialList` array in Examples.m
+//   5. Create your `NewExample.swift` file in ../Examples/Code/Swift
+//   6. Add the @objc attribute to your Swift file - e.g., `objc(NewExample_Swift)`
 
 extern NSString *const MBXExampleAnnotationView;
 extern NSString *const MBXExampleAnnotationViewMultiple;
