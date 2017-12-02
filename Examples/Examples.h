@@ -14,7 +14,7 @@
 //   3. Add a matching external string constant below to this Examples.h file:
 //   4. Add this constant to the `initialList` array in Examples.m
 //   5. Create your `NewExample.swift` file in ../Examples/Code/Swift
-//   6. Add the @objc attribute to your Swift file - e.g., `objc(NewExample_Swift)`
+//   6. Add the @objc attribute to your Swift file - e.g., `objc(SimpleMapExample_Swift)`
 
 extern NSString *const MBXExampleAnnotationView;
 extern NSString *const MBXExampleAnnotationViewMultiple;
