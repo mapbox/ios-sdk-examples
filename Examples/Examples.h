@@ -15,7 +15,7 @@
 //   4. Add this constant to the `initialList` array in Examples.m
 //   5. Create your `NewExample.swift` file in ../Examples/Code/Swift
 //   6. Define the interface name of the Swift class being used in Objective-C by
-//      adding the @objc attribute to your Swift file - e.g., `objc(SimpleMapExample_Swift)`
+//      adding the @objc attribute to your Swift file - e.g., `@objc(SimpleMapExample_Swift)`
 
 extern NSString *const MBXExampleAnnotationView;
 extern NSString *const MBXExampleAnnotationViewMultiple;
