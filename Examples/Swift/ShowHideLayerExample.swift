@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(RuntimeToggleLayerExample_Swift)
+@objc(ShowHideLayerExample_Swift)
 
-class RuntimeToggleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
+class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var contoursLayer: MGLStyleLayer?
     
@@ -74,7 +74,7 @@ class RuntimeToggleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         button.sizeToFit()
         button.center.x = self.view.center.x
         button.frame = CGRect(origin: CGPoint(x: button.frame.origin.x, y: self.view.frame.size.height - button.frame.size.height - 5), size: button.frame.size)
-        button.addTarget(self, action: #selector(RuntimeToggleLayerExample_Swift.toggleLayer(sender:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(ShowHideLayerExample_Swift.toggleLayer(sender:)), for: .touchUpInside)
         self.view.addSubview(button)
     }
 }

@@ -1,14 +1,14 @@
-#import "RuntimeToggleLayerExample.h"
+#import "ShowHideLayerExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleRuntimeToggleLayer = @"RuntimeToggleLayerExample";
+NSString *const MBXExampleShowHideLayer = @"ShowHideLayerExample";
 
-@interface RuntimeToggleLayerExample () <MGLMapViewDelegate>
+@interface ShowHideLayerExample () <MGLMapViewDelegate>
 @property (nonatomic) MGLMapView *mapView;
 @property (nonatomic) MGLStyleLayer *contoursLayer;
 @end
 
-@implementation RuntimeToggleLayerExample
+@implementation ShowHideLayerExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];

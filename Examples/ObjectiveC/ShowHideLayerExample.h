@@ -1,5 +1,5 @@
 //
-//  RuntimeToggleLayerExample.h
+//  ShowHideLayerExample.h
 //  Examples
 //
 //  Created by Eric Wolfe on 11/30/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RuntimeToggleLayerExample : UIViewController
+@interface ShowHideLayerExample : UIViewController
 
 @end
