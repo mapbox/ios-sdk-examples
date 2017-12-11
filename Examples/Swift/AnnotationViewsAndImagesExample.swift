@@ -6,9 +6,9 @@ class MyCustomPointAnnotation: MGLPointAnnotation {
 }
 // end MGLPointAnnotation subclass
 
-@objc(AnnotationViewMultipleExample_Swift)
+@objc(AnnotationViewsAndImagesExample_Swift)
 
-class AnnotationViewMultipleExample_Swift: UIViewController, MGLMapViewDelegate {
+class AnnotationViewsAndImagesExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         

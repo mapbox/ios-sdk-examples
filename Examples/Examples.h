@@ -18,8 +18,7 @@
 //      adding the @objc attribute to your Swift file - e.g., `@objc(SimpleMapExample_Swift)`
 
 extern NSString *const MBXExampleAnnotationView;
-extern NSString *const MBXExampleAnnotationViewMultiple;
-extern NSString *const MBXExampleAnnotationViewMultiple;
+extern NSString *const MBXExampleAnnotationViewsAndImagesExample;
 extern NSString *const MBXExampleBlockingGesturesDelegate;
 extern NSString *const MBXExampleCalloutDelegateUsage;
 extern NSString *const MBXExampleCameraAnimation;

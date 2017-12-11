@@ -25,7 +25,7 @@
 		07C138C21E6F65D000D6F678 /* ShapeCollectionFeatureExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C138C11E6F65D000D6F678 /* ShapeCollectionFeatureExample.swift */; };
 		07C138C41E721C8F00D6F678 /* DDSCircleLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C138C31E721C8F00D6F678 /* DDSCircleLayerExample.swift */; };
 		07C138C71E72216E00D6F678 /* DDSCircleLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C138C61E72216E00D6F678 /* DDSCircleLayerExample.m */; };
-		07F53B851E00D02100B58DB3 /* AnnotationViewMultipleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F53B841E00D02100B58DB3 /* AnnotationViewMultipleExample.m */; };
+		07F53B851E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F53B841E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m */; };
 		1F1F84751E538ABB00332CC3 /* BlockingGesturesDelegateExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */; };
 		1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */; };
 		3E085B801EC526C500163C99 /* ExtrusionsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */; };
@@ -96,7 +96,7 @@
 		961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962D11C5821A9002D3DAB /* ExamplesTableViewController.m */; };
 		961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962D41C583FDC002D3DAB /* ExamplesContainerViewController.m */; };
 		962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 962B450E1D1C8520007B7454 /* AnnotationViewExample.m */; };
-		964CB5111E42A0A3004549EA /* AnnotationViewMultipleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CB5101E42A0A3004549EA /* AnnotationViewMultipleExample.swift */; };
+		964CB5111E42A0A3004549EA /* AnnotationViewsAndImagesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CB5101E42A0A3004549EA /* AnnotationViewsAndImagesExample.swift */; };
 		9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */; };
 		968247031C5BDCBB00494AB8 /* CustomRasterStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247021C5BDCBB00494AB8 /* CustomRasterStyleExample.m */; };
 		968247081C5BEBDC00494AB8 /* SatelliteStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */; };
@@ -193,8 +193,8 @@
 		07C138C31E721C8F00D6F678 /* DDSCircleLayerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDSCircleLayerExample.swift; sourceTree = "<group>"; };
 		07C138C51E72216D00D6F678 /* DDSCircleLayerExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSCircleLayerExample.h; sourceTree = "<group>"; };
 		07C138C61E72216E00D6F678 /* DDSCircleLayerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSCircleLayerExample.m; sourceTree = "<group>"; };
-		07F53B841E00D02100B58DB3 /* AnnotationViewMultipleExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewMultipleExample.m; sourceTree = "<group>"; };
-		07F53B861E00D08600B58DB3 /* AnnotationViewMultipleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewMultipleExample.h; sourceTree = "<group>"; };
+		07F53B841E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewsAndImagesExample.m; sourceTree = "<group>"; };
+		07F53B861E00D08600B58DB3 /* AnnotationViewsAndImagesExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewsAndImagesExample.h; sourceTree = "<group>"; };
 		09B325003452DE0B771BDF95 /* Pods-DocsCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocsCode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode.debug.xcconfig"; sourceTree = "<group>"; };
 		0A4917D6B62E749D739044A4 /* Pods-ExamplesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExamplesUITests/Pods-ExamplesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1F1F84731E538ABB00332CC3 /* BlockingGesturesDelegateExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockingGesturesDelegateExample.h; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 		961962D41C583FDC002D3DAB /* ExamplesContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamplesContainerViewController.m; sourceTree = "<group>"; };
 		962B450D1D1C8520007B7454 /* AnnotationViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewExample.h; sourceTree = "<group>"; };
 		962B450E1D1C8520007B7454 /* AnnotationViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewExample.m; sourceTree = "<group>"; };
-		964CB5101E42A0A3004549EA /* AnnotationViewMultipleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewMultipleExample.swift; sourceTree = "<group>"; };
+		964CB5101E42A0A3004549EA /* AnnotationViewsAndImagesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewsAndImagesExample.swift; sourceTree = "<group>"; };
 		964CB5171E445AE1004549EA /* mapbox_access_token */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapbox_access_token; sourceTree = SOURCE_ROOT; };
 		9678E3EC1CEF58DA00F21AE2 /* CustomAnnotationModelExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationModelExample.h; sourceTree = "<group>"; };
 		9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationModelExample.m; sourceTree = "<group>"; };
@@ -467,7 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				962B450E1D1C8520007B7454 /* AnnotationViewExample.m */,
-				07F53B841E00D02100B58DB3 /* AnnotationViewMultipleExample.m */,
+				07F53B841E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m */,
 				1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */,
 				968247121C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m */,
 				968247261C5C1DC700494AB8 /* CameraAnimationExample.m */,
@@ -515,7 +515,7 @@
 			isa = PBXGroup;
 			children = (
 				3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */,
-				964CB5101E42A0A3004549EA /* AnnotationViewMultipleExample.swift */,
+				964CB5101E42A0A3004549EA /* AnnotationViewsAndImagesExample.swift */,
 				1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */,
 				3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */,
 				3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */,
@@ -656,7 +656,7 @@
 		9682472D1C5C226D00494AB8 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				07F53B861E00D08600B58DB3 /* AnnotationViewMultipleExample.h */,
+				07F53B861E00D08600B58DB3 /* AnnotationViewsAndImagesExample.h */,
 				962B450D1D1C8520007B7454 /* AnnotationViewExample.h */,
 				1F1F84731E538ABB00332CC3 /* BlockingGesturesDelegateExample.h */,
 				968247111C5C0F0F00494AB8 /* CalloutDelegateUsageExample.h */,
@@ -1291,7 +1291,7 @@
 				3ED403481E006BE800230C95 /* CameraFlyToExample.m in Sources */,
 				3EBCD71D1DC28240001E342F /* CustomRasterStyleExample.swift in Sources */,
 				646B62B01DEF7161000AA523 /* RuntimeAnimateLineExample.swift in Sources */,
-				07F53B851E00D02100B58DB3 /* AnnotationViewMultipleExample.m in Sources */,
+				07F53B851E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m in Sources */,
 				3E085B801EC526C500163C99 /* ExtrusionsExample.swift in Sources */,
 				3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */,
 				3EA5AA041FAD2EC7007073C0 /* MapSnapshotterExample.swift in Sources */,
@@ -1306,7 +1306,7 @@
 				3EBCD7201DC28240001E342F /* DraggableAnnotationViewExample.swift in Sources */,
 				3EBCD7281DC28240001E342F /* SimpleMapViewExample.swift in Sources */,
 				3EBCD7241DC28240001E342F /* DrawingAPolygonExample.swift in Sources */,
-				964CB5111E42A0A3004549EA /* AnnotationViewMultipleExample.swift in Sources */,
+				964CB5111E42A0A3004549EA /* AnnotationViewsAndImagesExample.swift in Sources */,
 				3EC11D271EA84091001AAAB8 /* PointHotspotExample.swift in Sources */,
 				9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */,
 				64CF97101DF224E400C3C27B /* SourceCustomVectorExample.swift in Sources */,

@@ -1,7 +1,7 @@
-#import "AnnotationViewMultipleExample.h"
+#import "AnnotationViewsAndImagesExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExample";
+NSString *const MBXExampleAnnotationViewsAndImagesExample = @"AnnotationViewsAndImagesExample";
 
 // MGLPointAnnotation subclass
 @interface MyCustomPointAnnotation : MGLPointAnnotation
@@ -12,10 +12,10 @@ NSString *const MBXExampleAnnotationViewMultiple = @"AnnotationViewMultipleExamp
 @end
 // end MGLPointAnnotation subclass
 
-@interface AnnotationViewMultipleExample () <MGLMapViewDelegate>
+@interface AnnotationViewsAndImagesExample () <MGLMapViewDelegate>
 @end
 
-@implementation AnnotationViewMultipleExample
+@implementation AnnotationViewsAndImagesExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];
