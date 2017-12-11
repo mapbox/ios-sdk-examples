@@ -1,16 +1,16 @@
-#import "DDSLayerSelectionExample.h"
+#import "FeatureSelectionExample.h"
 @import Mapbox;
 
-NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
+NSString const *MBXExampleFeatureSelection = @"FeatureSelectionExample";
 
-@interface DDSLayerSelectionExample () <MGLMapViewDelegate>
+@interface FeatureSelectionExample () <MGLMapViewDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
 @property (nonatomic) NSString *layerIdentifier;
 
 @end
 
-@implementation DDSLayerSelectionExample
+@implementation FeatureSelectionExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];

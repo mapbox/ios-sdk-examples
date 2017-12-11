@@ -1,5 +1,5 @@
 //
-//  DDSLayerSelectionExample.h
+//  FeatureSelectionExample.h
 //  Examples
 //
 //  Created by Jordan Kiley on 3/21/17.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DDSLayerSelectionExample : UIViewController
+@interface FeatureSelectionExample : UIViewController
 
 @end

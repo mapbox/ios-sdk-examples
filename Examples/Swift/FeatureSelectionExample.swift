@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(DDSLayerSelectionExample_Swift)
+@objc(FeatureSelectionExample_Swift)
 
-class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate {
+class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGestureRecognizerDelegate {
     
     var mapView: MGLMapView!
     let layerIdentifier = "state-layer"

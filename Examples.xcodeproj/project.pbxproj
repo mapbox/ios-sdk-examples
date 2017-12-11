@@ -32,8 +32,8 @@
 		3E085B831EC526E500163C99 /* BuildingsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B821EC526E500163C99 /* BuildingsExample.m */; };
 		3E22EF4F1F87F10C00605203 /* ImageSourceExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */; };
 		3E22EF521F8821F800605203 /* ImageSourceExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E22EF511F8821F800605203 /* ImageSourceExample.m */; };
-		3E3BFAD91E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFAD81E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift */; };
-		3E3BFADC1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFADB1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m */; };
+		3E3BFAD91E81D7A300D0BEA1 /* FeatureSelectionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFAD81E81D7A300D0BEA1 /* FeatureSelectionExample.swift */; };
+		3E3BFADC1E81D7BB00D0BEA1 /* FeatureSelectionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFADB1E81D7BB00D0BEA1 /* FeatureSelectionExample.m */; };
 		3E3FB66B1F05888E004512C6 /* BuildingLightExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66A1F05888E004512C6 /* BuildingLightExample.swift */; };
 		3E3FB66E1F0588B3004512C6 /* BuildingLightExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66D1F0588B3004512C6 /* BuildingLightExample.m */; };
 		3E3FB6711F058A18004512C6 /* PointHotspotExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */; };
@@ -208,9 +208,9 @@
 		3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSourceExample.swift; sourceTree = "<group>"; };
 		3E22EF501F8821F800605203 /* ImageSourceExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageSourceExample.h; sourceTree = "<group>"; };
 		3E22EF511F8821F800605203 /* ImageSourceExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageSourceExample.m; sourceTree = "<group>"; };
-		3E3BFAD81E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDSLayerSelectionExample.swift; sourceTree = "<group>"; };
-		3E3BFADA1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSLayerSelectionExample.h; sourceTree = "<group>"; };
-		3E3BFADB1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSLayerSelectionExample.m; sourceTree = "<group>"; };
+		3E3BFAD81E81D7A300D0BEA1 /* FeatureSelectionExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureSelectionExample.swift; sourceTree = "<group>"; };
+		3E3BFADA1E81D7BB00D0BEA1 /* FeatureSelectionExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureSelectionExample.h; sourceTree = "<group>"; };
+		3E3BFADB1E81D7BB00D0BEA1 /* FeatureSelectionExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureSelectionExample.m; sourceTree = "<group>"; };
 		3E3FB66A1F05888E004512C6 /* BuildingLightExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingLightExample.swift; sourceTree = "<group>"; };
 		3E3FB66C1F0588B3004512C6 /* BuildingLightExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildingLightExample.h; sourceTree = "<group>"; };
 		3E3FB66D1F0588B3004512C6 /* BuildingLightExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildingLightExample.m; sourceTree = "<group>"; };
@@ -481,11 +481,11 @@
 				96A2A1D11C8CA74B0059441E /* CustomCalloutView.m */,
 				96A2A1CE1C8CA16C0059441E /* CustomCalloutViewExample.m */,
 				07C138C61E72216E00D6F678 /* DDSCircleLayerExample.m */,
-				3E3BFADB1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m */,
 				9682470E1C5BF12700494AB8 /* DefaultAnnotationExample.m */,
 				9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */,
 				960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */,
 				968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */,
+				3E3BFADB1E81D7BB00D0BEA1 /* FeatureSelectionExample.m */,
 				96D431FB1C84B4F7007D09D1 /* ImageAnnotationExample.m */,
 				3E22EF511F8821F800605203 /* ImageSourceExample.m */,
 				3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */,
@@ -529,11 +529,11 @@
 				3EBCD7071DC28240001E342F /* CustomCalloutView.swift */,
 				3EBCD7081DC28240001E342F /* CustomCalloutViewExample.swift */,
 				07C138C31E721C8F00D6F678 /* DDSCircleLayerExample.swift */,
-				3E3BFAD81E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift */,
 				3EBCD70F1DC28240001E342F /* DefaultAnnotationExample.swift */,
 				3EBCD70B1DC28240001E342F /* DefaultStylesExample.swift */,
 				3EBCD70C1DC28240001E342F /* DraggableAnnotationViewExample.swift */,
 				3EBCD70E1DC28240001E342F /* DrawingAGeoJSONLineExample.swift */,
+				3E3BFAD81E81D7A300D0BEA1 /* FeatureSelectionExample.swift */,
 				3EBCD70D1DC28240001E342F /* ImageAnnotationExample.swift */,
 				3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */,
 				3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */,
@@ -670,11 +670,11 @@
 				96A2A1D01C8CA74B0059441E /* CustomCalloutView.h */,
 				96A2A1CD1C8CA16C0059441E /* CustomCalloutViewExample.h */,
 				07C138C51E72216D00D6F678 /* DDSCircleLayerExample.h */,
-				3E3BFADA1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.h */,
 				9682470D1C5BF12700494AB8 /* DefaultAnnotationExample.h */,
 				9691AAA31C5AAD8F006A58C6 /* DefaultStylesExample.h */,
 				960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */,
 				968247181C5C115000494AB8 /* DrawingAGeoJSONLineExample.h */,
+				3E3BFADA1E81D7BB00D0BEA1 /* FeatureSelectionExample.h */,
 				96D431FA1C84B4F7007D09D1 /* ImageAnnotationExample.h */,
 				3E22EF501F8821F800605203 /* ImageSourceExample.h */,
 				3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */,
@@ -1286,7 +1286,7 @@
 				968247031C5BDCBB00494AB8 /* StudioClassicStyleExample.m in Sources */,
 				3E3FB66B1F05888E004512C6 /* BuildingLightExample.swift in Sources */,
 				64CF97121DF224F600C3C27B /* SourceCustomRasterExample.swift in Sources */,
-				3E3BFADC1E81D7BB00D0BEA1 /* DDSLayerSelectionExample.m in Sources */,
+				3E3BFADC1E81D7BB00D0BEA1 /* FeatureSelectionExample.m in Sources */,
 				9682472A1C5C1FF800494AB8 /* PointConversionExample.m in Sources */,
 				3ED403481E006BE800230C95 /* CameraFlyToExample.m in Sources */,
 				3EBCD71D1DC28240001E342F /* StudioClassicStyleExample.swift in Sources */,
@@ -1300,7 +1300,7 @@
 				968247131C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m in Sources */,
 				3EBCD7251DC28240001E342F /* OfflinePackExample.swift in Sources */,
 				3EBCD71A1DC28240001E342F /* CustomAnnotationModels.swift in Sources */,
-				3E3BFAD91E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift in Sources */,
+				3E3BFAD91E81D7A300D0BEA1 /* FeatureSelectionExample.swift in Sources */,
 				3EBCD7181DC28240001E342F /* CameraAnimationExample.swift in Sources */,
 				9691AA941C5AA702006A58C6 /* Examples.m in Sources */,
 				3EBCD7201DC28240001E342F /* DraggableAnnotationViewExample.swift in Sources */,
