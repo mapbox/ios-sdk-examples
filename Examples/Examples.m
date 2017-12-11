@@ -34,7 +34,7 @@
         MBXExampleDrawingAMarker,
         MBXExampleDrawingAPolygon,
         MBXExampleImageSource,
-        MBXExampleMapSnapshotter,
+        MBXExampleStaticSnapshot,
         MBXExampleLiveData,
         MBXExampleOfflinePack,
         MBXExamplePointConversion,

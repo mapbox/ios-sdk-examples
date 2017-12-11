@@ -39,7 +39,6 @@ extern NSString *const MBXExampleDrawingAMarker;
 extern NSString *const MBXExampleDrawingAPolygon;
 extern NSString *const MBXExampleImageSource;
 extern NSString *const MBXExampleLiveData;
-extern NSString *const MBXExampleMapSnapshotter;
 extern NSString *const MBXExampleOfflinePack;
 extern NSString *const MBXExamplePointConversion;
 extern NSString *const MBXExamplePointHotspot;
@@ -55,6 +54,7 @@ extern NSString *const MBXExampleShapeCollectionFeature;
 extern NSString *const MBXExampleSimpleMapView;
 extern NSString *const MBXExampleSourceCustomRaster;
 extern NSString *const MBXExampleSourceCustomVector;
+extern NSString *const MBXExampleStaticSnapshot;
 extern NSString *const MBXExampleStudioStyle;
 extern NSString *const MBXExampleUserTrackingModes;
 

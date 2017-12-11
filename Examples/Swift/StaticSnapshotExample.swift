@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(MapSnapshotterExample_Swift)
+@objc(StaticSnapshotExample_Swift)
 
-class MapSnapshotterExample: UIViewController, MGLMapViewDelegate {
+class StaticSnapshotExample: UIViewController, MGLMapViewDelegate {
 
     var mapView: MGLMapView!
     var button: UIButton!

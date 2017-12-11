@@ -1,9 +1,9 @@
-#import "MapSnapshotterExample.h"
+#import "StaticSnapshotExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleMapSnapshotter = @"MapSnapshotterExample";
+NSString *const MBXExampleStaticSnapshot = @"StaticSnapshotExample";
 
-@interface MapSnapshotterExample ()
+@interface StaticSnapshotExample ()
 
 @property MGLMapView *mapView;
 @property UIButton *button;
@@ -11,7 +11,7 @@ NSString *const MBXExampleMapSnapshotter = @"MapSnapshotterExample";
 
 @end
 
-@implementation MapSnapshotterExample
+@implementation StaticSnapshotExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];
