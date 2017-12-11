@@ -24,7 +24,6 @@
         MBXExampleCustomAnnotationModel,
         MBXExampleCustomCalloutView,
         MBXExampleClustering,
-        MBXExampleCustomRasterStyle,
         MBXExampleDDSCircleLayer,
         MBXExampleDDSLayerSelection,
         MBXExampleDefaultAnnotation,
@@ -51,6 +50,7 @@
         MBXExampleSimpleMapView,
         MBXExampleSourceCustomRaster,
         MBXExampleSourceCustomVector,
+        MBXExampleStudioClassicStyle,
         MBXExampleStudioStyle,
         MBXExampleUserTrackingModes,
     ]];

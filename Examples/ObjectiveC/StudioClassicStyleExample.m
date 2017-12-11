@@ -1,9 +1,9 @@
-#import "CustomRasterStyleExample.h"
+#import "StudioClassicStyleExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleCustomRasterStyle = @"CustomRasterStyleExample";
+NSString *const MBXExampleStudioClassicStyle = @"StudioClassicStyleExample";
 
-@implementation CustomRasterStyleExample
+@implementation StudioClassicStyleExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];

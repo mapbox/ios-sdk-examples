@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(CustomRasterStyleExample_Swift)
+@objc(StudioClassicStyleExample_Swift)
 
-class CustomRasterStyleExample_Swift: UIViewController {
+class StudioClassicStyleExample_Swift: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
