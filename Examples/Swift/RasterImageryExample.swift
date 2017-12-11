@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(SourceCustomRasterExample_Swift)
+@objc(RasterImageryExample_Swift)
 
-class SourceCustomRasterExample_Swift: UIViewController, MGLMapViewDelegate {
+class RasterImageryExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var rasterLayer: MGLRasterStyleLayer?
 

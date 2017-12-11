@@ -82,8 +82,8 @@
 		64BBDB031DF24E0900BB705D /* WebAPIDataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDB021DF24E0900BB705D /* WebAPIDataExample.swift */; };
 		64CF970C1DF224C500C3C27B /* SourceCustomVectorExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970B1DF224C500C3C27B /* SourceCustomVectorExample.m */; };
 		64CF97101DF224E400C3C27B /* SourceCustomVectorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970F1DF224E400C3C27B /* SourceCustomVectorExample.swift */; };
-		64CF97121DF224F600C3C27B /* SourceCustomRasterExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97111DF224F600C3C27B /* SourceCustomRasterExample.swift */; };
-		64CF97171DF2251500C3C27B /* SourceCustomRasterExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97161DF2251500C3C27B /* SourceCustomRasterExample.m */; };
+		64CF97121DF224F600C3C27B /* RasterImageryExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97111DF224F600C3C27B /* RasterImageryExample.swift */; };
+		64CF97171DF2251500C3C27B /* RasterImageryExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97161DF2251500C3C27B /* RasterImageryExample.m */; };
 		960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */; };
 		96115A681CAD4E1C000963B8 /* OfflinePackExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96115A671CAD4E1C000963B8 /* OfflinePackExample.m */; };
 		961962911C581700002D3DAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962901C581700002D3DAB /* main.m */; };
@@ -273,9 +273,9 @@
 		64CF970B1DF224C500C3C27B /* SourceCustomVectorExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceCustomVectorExample.m; sourceTree = "<group>"; };
 		64CF970E1DF224D400C3C27B /* SourceCustomVectorExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SourceCustomVectorExample.h; sourceTree = "<group>"; };
 		64CF970F1DF224E400C3C27B /* SourceCustomVectorExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCustomVectorExample.swift; sourceTree = "<group>"; };
-		64CF97111DF224F600C3C27B /* SourceCustomRasterExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCustomRasterExample.swift; sourceTree = "<group>"; };
-		64CF97161DF2251500C3C27B /* SourceCustomRasterExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceCustomRasterExample.m; sourceTree = "<group>"; };
-		64CF97191DF2252C00C3C27B /* SourceCustomRasterExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SourceCustomRasterExample.h; sourceTree = "<group>"; };
+		64CF97111DF224F600C3C27B /* RasterImageryExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterImageryExample.swift; sourceTree = "<group>"; };
+		64CF97161DF2251500C3C27B /* RasterImageryExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RasterImageryExample.m; sourceTree = "<group>"; };
+		64CF97191DF2252C00C3C27B /* RasterImageryExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RasterImageryExample.h; sourceTree = "<group>"; };
 		7556D44879C1E2866B0355B8 /* Pods-ExamplesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExamplesTests/Pods-ExamplesTests.release.xcconfig"; sourceTree = "<group>"; };
 		7692D1D792EB3849E8754E6B /* Pods_ExamplesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExamplesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableAnnotationViewExample.h; sourceTree = "<group>"; };
@@ -494,6 +494,7 @@
 				3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */,
 				9682471F1C5C1C0400494AB8 /* PolygonAnnotationExample.m */,
 				055ABCC01EFB139C0063BACA /* PolygonPatternExample.m */,
+				64CF97161DF2251500C3C27B /* RasterImageryExample.m */,
 				646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */,
 				646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */,
 				968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */,
@@ -502,7 +503,6 @@
 				9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */,
 				3EA5AA011FAD2E95007073C0 /* StaticSnapshotExample.m */,
 				64CF970B1DF224C500C3C27B /* SourceCustomVectorExample.m */,
-				64CF97161DF2251500C3C27B /* SourceCustomRasterExample.m */,
 				968247021C5BDCBB00494AB8 /* StudioClassicStyleExample.m */,
 				9691AAA21C5AAD8F006A58C6 /* StudioStyleExample.m */,
 				969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */,
@@ -543,6 +543,7 @@
 				3EC11D261EA84091001AAAB8 /* PointHotspotExample.swift */,
 				3EBCD7101DC28240001E342F /* PolygonAnnotationExample.swift */,
 				055ABCC21EFB14AE0063BACA /* PolygonPatternExample.swift */,
+				64CF97111DF224F600C3C27B /* RasterImageryExample.swift */,
 				646B62AD1DEF7155000AA523 /* RuntimeAddLineExample.swift */,
 				646B62B31DEF9613000AA523 /* RuntimeCircleStylesExample.swift */,
 				3EBCD7131DC28240001E342F /* SatelliteStyleExample.swift */,
@@ -550,7 +551,6 @@
 				646B62961DEF6DAF000AA523 /* ShowHideLayerExample.swift */,
 				3EBCD7141DC28240001E342F /* SimpleMapViewExample.swift */,
 				64CF970F1DF224E400C3C27B /* SourceCustomVectorExample.swift */,
-				64CF97111DF224F600C3C27B /* SourceCustomRasterExample.swift */,
 				3EA5AA031FAD2EC7007073C0 /* StaticSnapshotExample.swift */,
 				3EBCD7091DC28240001E342F /* StudioClassicStyleExample.swift */,
 				3EBCD70A1DC28240001E342F /* StudioStyleExample.swift */,
@@ -684,6 +684,7 @@
 				3EC11D231EA8405A001AAAB8 /* PointHotspotExample.h */,
 				9682471E1C5C1C0400494AB8 /* PolygonAnnotationExample.h */,
 				055ABCBF1EFB139C0063BACA /* PolygonPatternExample.h */,
+				64CF97191DF2252C00C3C27B /* RasterImageryExample.h */,
 				646B62A21DEF7106000AA523 /* RuntimeAddLineExample.h */,
 				646B62BB1DEF964A000AA523 /* RuntimeCircleStylesExample.h */,
 				968247061C5BEBDC00494AB8 /* SatelliteStyleExample.h */,
@@ -691,7 +692,6 @@
 				646B629E1DEF6DFD000AA523 /* ShowHideLayerExample.h */,
 				9691AAA51C5AAD8F006A58C6 /* SimpleMapViewExample.h */,
 				64CF970E1DF224D400C3C27B /* SourceCustomVectorExample.h */,
-				64CF97191DF2252C00C3C27B /* SourceCustomRasterExample.h */,
 				3EA5AA001FAD2E95007073C0 /* StaticSnapshotExample.h */,
 				968247011C5BDCBB00494AB8 /* StudioClassicStyleExample.h */,
 				9691AAA11C5AAD8F006A58C6 /* StudioStyleExample.h */,
@@ -1285,7 +1285,7 @@
 				96D431FC1C84B4F7007D09D1 /* ImageAnnotationExample.m in Sources */,
 				968247031C5BDCBB00494AB8 /* StudioClassicStyleExample.m in Sources */,
 				3E3FB66B1F05888E004512C6 /* BuildingLightExample.swift in Sources */,
-				64CF97121DF224F600C3C27B /* SourceCustomRasterExample.swift in Sources */,
+				64CF97121DF224F600C3C27B /* RasterImageryExample.swift in Sources */,
 				3E3BFADC1E81D7BB00D0BEA1 /* FeatureSelectionExample.m in Sources */,
 				9682472A1C5C1FF800494AB8 /* PointConversionExample.m in Sources */,
 				3ED403481E006BE800230C95 /* CameraFlyToExample.m in Sources */,
@@ -1313,7 +1313,7 @@
 				3EBCD7211DC28240001E342F /* ImageAnnotationExample.swift in Sources */,
 				3EBCD71E1DC28240001E342F /* StudioStyleExample.swift in Sources */,
 				968247081C5BEBDC00494AB8 /* SatelliteStyleExample.m in Sources */,
-				64CF97171DF2251500C3C27B /* SourceCustomRasterExample.m in Sources */,
+				64CF97171DF2251500C3C27B /* RasterImageryExample.m in Sources */,
 				3EBCD7271DC28240001E342F /* SatelliteStyleExample.swift in Sources */,
 				96115A681CAD4E1C000963B8 /* OfflinePackExample.m in Sources */,
 				3E22EF521F8821F800605203 /* ImageSourceExample.m in Sources */,

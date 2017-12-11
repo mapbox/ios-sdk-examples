@@ -1,5 +1,5 @@
 //
-//  SourceCustomRasterExample.h
+//  RasterImageryExample.h
 //  Examples
 //
 //  Created by Eric Wolfe on 12/2/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SourceCustomRasterExample : UIViewController
+@interface RasterImageryExample : UIViewController
 
 @end

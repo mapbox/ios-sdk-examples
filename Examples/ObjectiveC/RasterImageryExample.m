@@ -1,13 +1,13 @@
-#import "SourceCustomRasterExample.h"
+#import "RasterImageryExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleSourceCustomRaster = @"SourceCustomRasterExample";
+NSString *const MBXExampleRasterImagery = @"RasterImageryExample";
 
-@interface SourceCustomRasterExample () <MGLMapViewDelegate>
+@interface RasterImageryExample () <MGLMapViewDelegate>
 @property (nonatomic) MGLRasterStyleLayer *rasterLayer;
 @end
 
-@implementation SourceCustomRasterExample
+@implementation RasterImageryExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];
