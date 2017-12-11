@@ -1,13 +1,13 @@
-#import "RuntimeMultipleAnnotationsExample.h"
+#import "WebAPIDataExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleRuntimeMultipleAnnotations = @"RuntimeMultipleAnnotationsExample";
+NSString *const MBXExampleWebAPIData = @"WebAPIDataExample";
 
-@interface RuntimeMultipleAnnotationsExample ()<MGLMapViewDelegate>
+@interface WebAPIDataExample ()<MGLMapViewDelegate>
 @property (nonatomic) MGLMapView *mapView;
 @end
 
-@implementation RuntimeMultipleAnnotationsExample
+@implementation WebAPIDataExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];

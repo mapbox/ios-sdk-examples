@@ -46,7 +46,6 @@ extern NSString *const MBXExamplePolygonPattern;
 extern NSString *const MBXExampleRuntimeAddLine;
 extern NSString *const MBXExampleRuntimeCircleStyles;
 extern NSString *const MBXExampleRuntimeToggleLayer;
-extern NSString *const MBXExampleRuntimeMultipleAnnotations;
 extern NSString *const MBXExampleSatelliteStyle;
 extern NSString *const MBXExampleSelectFeature;
 extern NSString *const MBXExampleShapeCollectionFeature;
@@ -57,6 +56,7 @@ extern NSString *const MBXExampleStaticSnapshot;
 extern NSString *const MBXExampleStudioClassicStyle;
 extern NSString *const MBXExampleStudioStyle;
 extern NSString *const MBXExampleUserTrackingModes;
+extern NSString *const MBXExampleWebAPIData;
 
 @interface Examples : NSObject
 

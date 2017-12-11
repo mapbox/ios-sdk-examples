@@ -43,7 +43,6 @@
         MBXExampleRuntimeAddLine,
         MBXExampleRuntimeCircleStyles,
         MBXExampleRuntimeToggleLayer,
-        MBXExampleRuntimeMultipleAnnotations,
         MBXExampleSatelliteStyle,
         MBXExampleSelectFeature,
         MBXExampleShapeCollectionFeature,
@@ -53,6 +52,7 @@
         MBXExampleStudioClassicStyle,
         MBXExampleStudioStyle,
         MBXExampleUserTrackingModes,
+        MBXExampleWebAPIData
     ]];
 
     NSMutableArray *meh = [[NSMutableArray alloc] init];

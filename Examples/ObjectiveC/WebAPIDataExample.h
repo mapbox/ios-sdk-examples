@@ -1,5 +1,5 @@
 //
-//  RuntimeMultipleAnnotationsExample.h
+//  WebAPIDataExample.h
 //  Examples
 //
 //  Created by Eric Wolfe on 12/2/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RuntimeMultipleAnnotationsExample : UIViewController
+@interface WebAPIDataExample : UIViewController
 
 @end

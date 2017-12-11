@@ -78,8 +78,8 @@
 		64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */ = {isa = PBXBuildFile; fileRef = 64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */; };
 		64BBDAF61DF232FD00BB705D /* SelectFeatureExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAF51DF232FD00BB705D /* SelectFeatureExample.swift */; };
 		64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAF71DF2330B00BB705D /* SelectFeatureExample.m */; };
-		64BBDAFD1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAFC1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m */; };
-		64BBDB031DF24E0900BB705D /* RuntimeMultipleAnnotationsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDB021DF24E0900BB705D /* RuntimeMultipleAnnotationsExample.swift */; };
+		64BBDAFD1DF24DEB00BB705D /* WebAPIDataExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAFC1DF24DEB00BB705D /* WebAPIDataExample.m */; };
+		64BBDB031DF24E0900BB705D /* WebAPIDataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDB021DF24E0900BB705D /* WebAPIDataExample.swift */; };
 		64CF970C1DF224C500C3C27B /* SourceCustomVectorExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970B1DF224C500C3C27B /* SourceCustomVectorExample.m */; };
 		64CF97101DF224E400C3C27B /* SourceCustomVectorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970F1DF224E400C3C27B /* SourceCustomVectorExample.swift */; };
 		64CF97121DF224F600C3C27B /* SourceCustomRasterExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97111DF224F600C3C27B /* SourceCustomRasterExample.swift */; };
@@ -267,9 +267,9 @@
 		64BBDAF51DF232FD00BB705D /* SelectFeatureExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFeatureExample.swift; sourceTree = "<group>"; };
 		64BBDAF71DF2330B00BB705D /* SelectFeatureExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFeatureExample.m; sourceTree = "<group>"; };
 		64BBDAFA1DF2331600BB705D /* SelectFeatureExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectFeatureExample.h; sourceTree = "<group>"; };
-		64BBDAFB1DF24DD700BB705D /* RuntimeMultipleAnnotationsExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeMultipleAnnotationsExample.h; sourceTree = "<group>"; };
-		64BBDAFC1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeMultipleAnnotationsExample.m; sourceTree = "<group>"; };
-		64BBDB021DF24E0900BB705D /* RuntimeMultipleAnnotationsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuntimeMultipleAnnotationsExample.swift; sourceTree = "<group>"; };
+		64BBDAFB1DF24DD700BB705D /* WebAPIDataExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebAPIDataExample.h; sourceTree = "<group>"; };
+		64BBDAFC1DF24DEB00BB705D /* WebAPIDataExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebAPIDataExample.m; sourceTree = "<group>"; };
+		64BBDB021DF24E0900BB705D /* WebAPIDataExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebAPIDataExample.swift; sourceTree = "<group>"; };
 		64CF970B1DF224C500C3C27B /* SourceCustomVectorExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceCustomVectorExample.m; sourceTree = "<group>"; };
 		64CF970E1DF224D400C3C27B /* SourceCustomVectorExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SourceCustomVectorExample.h; sourceTree = "<group>"; };
 		64CF970F1DF224E400C3C27B /* SourceCustomVectorExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCustomVectorExample.swift; sourceTree = "<group>"; };
@@ -496,7 +496,6 @@
 				646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */,
 				646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */,
 				646B629B1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m */,
-				64BBDAFC1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m */,
 				968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */,
 				64BBDAF71DF2330B00BB705D /* SelectFeatureExample.m */,
 				07C138BF1E6F646F00D6F678 /* ShapeCollectionFeatureExample.m */,
@@ -507,6 +506,7 @@
 				968247021C5BDCBB00494AB8 /* StudioClassicStyleExample.m */,
 				9691AAA21C5AAD8F006A58C6 /* StudioStyleExample.m */,
 				969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */,
+				64BBDAFC1DF24DEB00BB705D /* WebAPIDataExample.m */,
 			);
 			name = "Objective-C";
 			sourceTree = "<group>";
@@ -545,7 +545,6 @@
 				646B62AD1DEF7155000AA523 /* RuntimeAddLineExample.swift */,
 				646B62B31DEF9613000AA523 /* RuntimeCircleStylesExample.swift */,
 				646B62961DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift */,
-				64BBDB021DF24E0900BB705D /* RuntimeMultipleAnnotationsExample.swift */,
 				3EBCD7131DC28240001E342F /* SatelliteStyleExample.swift */,
 				64BBDAF51DF232FD00BB705D /* SelectFeatureExample.swift */,
 				07C138C11E6F65D000D6F678 /* ShapeCollectionFeatureExample.swift */,
@@ -556,6 +555,7 @@
 				3EBCD7091DC28240001E342F /* StudioClassicStyleExample.swift */,
 				3EBCD70A1DC28240001E342F /* StudioStyleExample.swift */,
 				3EBCD7151DC28240001E342F /* UserTrackingModesExample.swift */,
+				64BBDB021DF24E0900BB705D /* WebAPIDataExample.swift */,
 			);
 			name = Swift;
 			path = ../Swift;
@@ -686,7 +686,6 @@
 				646B62A21DEF7106000AA523 /* RuntimeAddLineExample.h */,
 				646B62BB1DEF964A000AA523 /* RuntimeCircleStylesExample.h */,
 				646B629E1DEF6DFD000AA523 /* RuntimeToggleLayerExample.h */,
-				64BBDAFB1DF24DD700BB705D /* RuntimeMultipleAnnotationsExample.h */,
 				968247061C5BEBDC00494AB8 /* SatelliteStyleExample.h */,
 				64BBDAFA1DF2331600BB705D /* SelectFeatureExample.h */,
 				07C138BE1E6F646F00D6F678 /* ShapeCollectionFeatureExample.h */,
@@ -697,6 +696,7 @@
 				968247011C5BDCBB00494AB8 /* StudioClassicStyleExample.h */,
 				9691AAA11C5AAD8F006A58C6 /* StudioStyleExample.h */,
 				969E7FDB1D25C31700663F84 /* UserTrackingModesExample.h */,
+				64BBDAFB1DF24DD700BB705D /* WebAPIDataExample.h */,
 			);
 			name = Headers;
 			path = Examples/ObjectiveC;
@@ -1272,7 +1272,7 @@
 				9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */,
 				3EBCD7261DC28240001E342F /* PointConversionExample.swift in Sources */,
 				961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */,
-				64BBDB031DF24E0900BB705D /* RuntimeMultipleAnnotationsExample.swift in Sources */,
+				64BBDB031DF24E0900BB705D /* WebAPIDataExample.swift in Sources */,
 				3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */,
 				646B62971DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift in Sources */,
 				968247201C5C1C0400494AB8 /* PolygonAnnotationExample.m in Sources */,
@@ -1320,7 +1320,7 @@
 				3EBCD71C1DC28240001E342F /* CustomCalloutViewExample.swift in Sources */,
 				DDF943291E5DE63300545D0F /* ClusteringExample.m in Sources */,
 				3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */,
-				64BBDAFD1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m in Sources */,
+				64BBDAFD1DF24DEB00BB705D /* WebAPIDataExample.m in Sources */,
 				055ABCC31EFB14AE0063BACA /* PolygonPatternExample.swift in Sources */,
 				646B62AE1DEF7155000AA523 /* RuntimeAddLineExample.swift in Sources */,
 				3EBCD71F1DC28240001E342F /* DefaultStylesExample.swift in Sources */,

@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(RuntimeMultipleAnnotationsExample_Swift)
+@objc(WebAPIDataExample_Swift)
 
-class RuntimeMultipleAnnotationsExample_Swift: UIViewController, MGLMapViewDelegate {
+class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
 
     override func viewDidLoad() {
