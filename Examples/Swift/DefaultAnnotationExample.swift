@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(DrawingAMarkerExample_Swift)
+@objc(DefaultAnnotationExample_Swift)
 
-class DrawingAMarkerExample_Swift: UIViewController, MGLMapViewDelegate {
+class DefaultAnnotationExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         

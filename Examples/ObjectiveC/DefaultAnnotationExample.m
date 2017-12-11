@@ -1,12 +1,12 @@
-#import "DrawingAMarkerExample.h"
+#import "DefaultAnnotationExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleDrawingAMarker = @"DrawingAMarkerExample";
+NSString *const MBXExampleDefaultAnnotation = @"DefaultAnnotationExample";
 
-@interface DrawingAMarkerExample () <MGLMapViewDelegate>
+@interface DefaultAnnotationExample () <MGLMapViewDelegate>
 @end
 
-@implementation DrawingAMarkerExample
+@implementation DefaultAnnotationExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];
