@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(DrawingAPolygonExample_Swift)
+@objc(PolygonAnnotationExample_Swift)
 
-class DrawingAPolygonExample_Swift: UIViewController, MGLMapViewDelegate {
+class PolygonAnnotationExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     
     override func viewDidLoad() {

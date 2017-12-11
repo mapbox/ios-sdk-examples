@@ -1,5 +1,5 @@
 //
-//  DrawingAPolygonExample.h
+//  PolygonAnnotationExample.h
 //  Examples
 //
 //  Created by Jason Wray on 1/29/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DrawingAPolygonExample : UIViewController
+@interface PolygonAnnotationExample : UIViewController
 
 @end

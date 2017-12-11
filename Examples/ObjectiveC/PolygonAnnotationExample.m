@@ -1,13 +1,13 @@
-#import "DrawingAPolygonExample.h"
+#import "PolygonAnnotationExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleDrawingAPolygon = @"DrawingAPolygonExample";
+NSString *const MBXExamplePolygonAnnotation = @"PolygonAnnotationExample";
 
-@interface DrawingAPolygonExample () <MGLMapViewDelegate>
+@interface PolygonAnnotationExample () <MGLMapViewDelegate>
 @property (nonatomic) MGLMapView *mapView;
 @end
 
-@implementation DrawingAPolygonExample
+@implementation PolygonAnnotationExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];
