@@ -1,12 +1,12 @@
-#import "DrawingACustomMarkerExample.h"
+#import "ImageAnnotationExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleDrawingACustomMarker = @"DrawingACustomMarkerExample";
+NSString *const MBXExampleImageAnnotation = @"ImageAnnotationExample";
 
-@interface DrawingACustomMarkerExample () <MGLMapViewDelegate>
+@interface ImageAnnotationExample () <MGLMapViewDelegate>
 @end
 
-@implementation DrawingACustomMarkerExample
+@implementation ImageAnnotationExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];
