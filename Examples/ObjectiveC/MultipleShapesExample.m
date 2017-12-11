@@ -1,13 +1,13 @@
-#import "ShapeCollectionFeatureExample.h"
+#import "MultipleShapesExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleShapeCollectionFeature = @"ShapeCollectionFeatureExample";
+NSString *const MBXExampleMultipleShapes = @"MultipleShapesExample";
 
-@interface ShapeCollectionFeatureExample () <MGLMapViewDelegate>
+@interface MultipleShapesExample () <MGLMapViewDelegate>
 @property (nonatomic) MGLMapView *mapView;
 @end
 
-@implementation ShapeCollectionFeatureExample
+@implementation MultipleShapesExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];

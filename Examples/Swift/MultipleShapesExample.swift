@@ -1,8 +1,8 @@
 import Mapbox;
 
-@objc(ShapeCollectionFeatureExample_Swift)
+@objc(MultipleShapesExample_Swift)
 
-class ShapeCollectionFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
+class MultipleShapesExample_Swift: UIViewController, MGLMapViewDelegate {
     
     var mapView: MGLMapView!
 
