@@ -1,8 +1,8 @@
 
-#import "LightExample.h"
+#import "BuildingLightExample.h"
 @import Mapbox;
 
-@interface LightExample () <MGLMapViewDelegate>
+@interface BuildingLightExample () <MGLMapViewDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
 @property (nonatomic) MGLLight *light;
@@ -10,9 +10,9 @@
 
 @end
 
-NSString *const MBXExampleLight = @"LightExample";
+NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
 
-@implementation LightExample
+@implementation BuildingLightExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];

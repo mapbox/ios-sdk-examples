@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(LightExample_Swift)
+@objc(BuildingLightExample_Swift)
 
-class LightExample: UIViewController, MGLMapViewDelegate {
+class BuildingLightExample: UIViewController, MGLMapViewDelegate {
     
     var mapView : MGLMapView!
     var light : MGLLight!
