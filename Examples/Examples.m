@@ -23,7 +23,6 @@
         MBXExampleCustomCalloutView,
         MBXExampleClustering,
         MBXExampleCustomRasterStyle,
-        MBXExampleCustomStyle,
         MBXExampleDDSCircleLayer,
         MBXExampleDDSLayerSelection,
         MBXExampleDefaultStyles,
@@ -52,6 +51,7 @@
         MBXExampleSimpleMapView,
         MBXExampleSourceCustomRaster,
         MBXExampleSourceCustomVector,
+        MBXExampleStudioStyle,
         MBXExampleUserTrackingModes,
     ]];
 

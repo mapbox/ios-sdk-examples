@@ -27,7 +27,6 @@ extern NSString *const MBXExampleCustomAnnotationModel;
 extern NSString *const MBXExampleCustomCalloutView;
 extern NSString *const MBXExampleClustering;
 extern NSString *const MBXExampleCustomRasterStyle;
-extern NSString *const MBXExampleCustomStyle;
 extern NSString *const MBXExampleDDSCircleLayer;
 extern NSString *const MBXExampleDDSLayerSelection;
 extern NSString *const MBXExampleDefaultStyles;
@@ -56,6 +55,7 @@ extern NSString *const MBXExampleShapeCollectionFeature;
 extern NSString *const MBXExampleSimpleMapView;
 extern NSString *const MBXExampleSourceCustomRaster;
 extern NSString *const MBXExampleSourceCustomVector;
+extern NSString *const MBXExampleStudioStyle;
 extern NSString *const MBXExampleUserTrackingModes;
 
 @interface Examples : NSObject

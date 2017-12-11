@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(CustomStyleExample_Swift)
+@objc(StudioStyleExample_Swift)
 
-class CustomStyleExample_Swift: UIViewController {
+class StudioStyleExample_Swift: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         

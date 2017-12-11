@@ -1,9 +1,9 @@
-#import "CustomStyleExample.h"
+#import "StudioStyleExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleCustomStyle = @"CustomStyleExample";
+NSString *const MBXExampleStudioStyle = @"StudioStyleExample";
 
-@implementation CustomStyleExample
+@implementation StudioStyleExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];
