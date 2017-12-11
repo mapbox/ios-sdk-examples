@@ -1,15 +1,15 @@
-#import "FillPatternExample.h"
+#import "PolygonPatternExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleFillPattern = @"FillPatternExample";
+NSString *const MBXExamplePolygonPattern = @"PolygonPatternExample";
 
-@interface FillPatternExample ()<MGLMapViewDelegate>
+@interface PolygonPatternExample ()<MGLMapViewDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
 
 @end
 
-@implementation FillPatternExample
+@implementation PolygonPatternExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];

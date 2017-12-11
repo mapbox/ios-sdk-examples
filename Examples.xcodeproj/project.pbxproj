@@ -12,8 +12,8 @@
 		050337461F7199DF007309B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050337441F7199DF007309B0 /* Main.storyboard */; };
 		050337481F7199DF007309B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 050337471F7199DF007309B0 /* Assets.xcassets */; };
 		0503374B1F7199DF007309B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050337491F7199DF007309B0 /* LaunchScreen.storyboard */; };
-		055ABCC11EFB139C0063BACA /* FillPatternExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 055ABCC01EFB139C0063BACA /* FillPatternExample.m */; };
-		055ABCC31EFB14AE0063BACA /* FillPatternExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */; };
+		055ABCC11EFB139C0063BACA /* PolygonPatternExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 055ABCC01EFB139C0063BACA /* PolygonPatternExample.m */; };
+		055ABCC31EFB14AE0063BACA /* PolygonPatternExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055ABCC21EFB14AE0063BACA /* PolygonPatternExample.swift */; };
 		0587D7031F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */; };
 		0587D7061F9A466000209947 /* DDSCircleLayerTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */; };
 		05A868901F7314EF00242FB4 /* FirstStepsTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A8688F1F7314EF00242FB4 /* FirstStepsTutorialViewController.m */; };
@@ -171,9 +171,9 @@
 		050337471F7199DF007309B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0503374A1F7199DF007309B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0503374C1F7199DF007309B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		055ABCBF1EFB139C0063BACA /* FillPatternExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FillPatternExample.h; sourceTree = "<group>"; };
-		055ABCC01EFB139C0063BACA /* FillPatternExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FillPatternExample.m; sourceTree = "<group>"; };
-		055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillPatternExample.swift; sourceTree = "<group>"; };
+		055ABCBF1EFB139C0063BACA /* PolygonPatternExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonPatternExample.h; sourceTree = "<group>"; };
+		055ABCC01EFB139C0063BACA /* PolygonPatternExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolygonPatternExample.m; sourceTree = "<group>"; };
+		055ABCC21EFB14AE0063BACA /* PolygonPatternExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonPatternExample.swift; sourceTree = "<group>"; };
 		0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDSCircleLayerTutorialViewController.swift; sourceTree = "<group>"; };
 		0587D7041F9A466000209947 /* DDSCircleLayerTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDSCircleLayerTutorialViewController.h; sourceTree = "<group>"; };
 		0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDSCircleLayerTutorialViewController.m; sourceTree = "<group>"; };
@@ -487,13 +487,13 @@
 				968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */,
 				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
-				055ABCC01EFB139C0063BACA /* FillPatternExample.m */,
 				3E22EF511F8821F800605203 /* ImageSourceExample.m */,
 				3E3FB66D1F0588B3004512C6 /* LightExample.m */,
 				3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */,
 				3EA5AA011FAD2E95007073C0 /* MapSnapshotterExample.m */,
 				96115A671CAD4E1C000963B8 /* OfflinePackExample.m */,
 				3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */,
+				055ABCC01EFB139C0063BACA /* PolygonPatternExample.m */,
 				646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */,
 				646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */,
 				646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */,
@@ -535,7 +535,6 @@
 				3EBCD70E1DC28240001E342F /* DrawingAGeoJSONLineExample.swift */,
 				3EBCD70F1DC28240001E342F /* DrawingAMarkerExample.swift */,
 				3EBCD7101DC28240001E342F /* DrawingAPolygonExample.swift */,
-				055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */,
 				3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */,
 				3E3FB66A1F05888E004512C6 /* LightExample.swift */,
 				3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */,
@@ -543,6 +542,7 @@
 				3EBCD7111DC28240001E342F /* OfflinePackExample.swift */,
 				3EBCD7121DC28240001E342F /* PointConversionExample.swift */,
 				3EC11D261EA84091001AAAB8 /* PointHotspotExample.swift */,
+				055ABCC21EFB14AE0063BACA /* PolygonPatternExample.swift */,
 				646B62AD1DEF7155000AA523 /* RuntimeAddLineExample.swift */,
 				646B62AF1DEF7161000AA523 /* RuntimeAnimateLineExample.swift */,
 				646B62B31DEF9613000AA523 /* RuntimeCircleStylesExample.swift */,
@@ -676,7 +676,6 @@
 				968247181C5C115000494AB8 /* DrawingAGeoJSONLineExample.h */,
 				9682470D1C5BF12700494AB8 /* DrawingAMarkerExample.h */,
 				9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */,
-				055ABCBF1EFB139C0063BACA /* FillPatternExample.h */,
 				3E22EF501F8821F800605203 /* ImageSourceExample.h */,
 				3E3FB66C1F0588B3004512C6 /* LightExample.h */,
 				3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */,
@@ -684,6 +683,7 @@
 				96115A661CAD4E1C000963B8 /* OfflinePackExample.h */,
 				968247281C5C1FF800494AB8 /* PointConversionExample.h */,
 				3EC11D231EA8405A001AAAB8 /* PointHotspotExample.h */,
+				055ABCBF1EFB139C0063BACA /* PolygonPatternExample.h */,
 				646B62A21DEF7106000AA523 /* RuntimeAddLineExample.h */,
 				646B62A11DEF70DD000AA523 /* RuntimeAnimateLineExample.h */,
 				646B62BB1DEF964A000AA523 /* RuntimeCircleStylesExample.h */,
@@ -1255,7 +1255,7 @@
 				960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */,
 				1F1F84751E538ABB00332CC3 /* BlockingGesturesDelegateExample.m in Sources */,
 				646B62B41DEF9613000AA523 /* RuntimeCircleStylesExample.swift in Sources */,
-				055ABCC11EFB139C0063BACA /* FillPatternExample.m in Sources */,
+				055ABCC11EFB139C0063BACA /* PolygonPatternExample.m in Sources */,
 				07C138C41E721C8F00D6F678 /* DDSCircleLayerExample.swift in Sources */,
 				646B62BD1DEF965A000AA523 /* RuntimeCircleStylesExample.m in Sources */,
 				646B629C1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m in Sources */,
@@ -1321,7 +1321,7 @@
 				DDF943291E5DE63300545D0F /* ClusteringExample.m in Sources */,
 				3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */,
 				64BBDAFD1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m in Sources */,
-				055ABCC31EFB14AE0063BACA /* FillPatternExample.swift in Sources */,
+				055ABCC31EFB14AE0063BACA /* PolygonPatternExample.swift in Sources */,
 				646B62AE1DEF7155000AA523 /* RuntimeAddLineExample.swift in Sources */,
 				3EBCD71F1DC28240001E342F /* DefaultStylesExample.swift in Sources */,
 				DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */,

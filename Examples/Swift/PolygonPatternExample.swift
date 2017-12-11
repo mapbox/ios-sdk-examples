@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(FillPatternExample_Swift)
+@objc(PolygonPatternExample_Swift)
 
-class FillPatternExample_Swift: UIViewController, MGLMapViewDelegate {
+class PolygonPatternExample_Swift: UIViewController, MGLMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
