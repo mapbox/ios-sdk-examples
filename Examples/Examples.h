@@ -20,6 +20,7 @@
 extern NSString *const MBXExampleAnnotationView;
 extern NSString *const MBXExampleAnnotationViewsAndImagesExample;
 extern NSString *const MBXExampleBlockingGesturesDelegate;
+extern NSString *const MBXExampleBuildings;
 extern NSString *const MBXExampleCalloutDelegateUsage;
 extern NSString *const MBXExampleCameraAnimation;
 extern NSString *const MBXExampleCameraFlyTo;
@@ -35,7 +36,6 @@ extern NSString *const MBXExampleDrawingAGeoJSONLine;
 extern NSString *const MBXExampleDrawingACustomMarker;
 extern NSString *const MBXExampleDrawingAMarker;
 extern NSString *const MBXExampleDrawingAPolygon;
-extern NSString *const MBXExample3DExtrusions;
 extern NSString *const MBXExampleImageSource;
 extern NSString *const MBXExampleLight;
 extern NSString *const MBXExampleFillPattern;

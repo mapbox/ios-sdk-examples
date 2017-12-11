@@ -1,15 +1,14 @@
-
-#import "ExtrusionsExample.h"
+#import "BuildingsExample.h"
 
 @import Mapbox;
 
-NSString *const MBXExample3DExtrusions = @"ExtrusionsExample";
+NSString *const MBXExampleBuildings = @"BuildingsExample";
 
-@interface ExtrusionsExample () <MGLMapViewDelegate>
+@interface BuildingsExample () <MGLMapViewDelegate>
 
 @end
 
-@implementation ExtrusionsExample
+@implementation BuildingsExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -1,9 +1,8 @@
-
 import Mapbox
 
-@objc(ExtrusionsExample_Swift)
+@objc(BuildingsExample_Swift)
 
-class ExtrusionsExample: UIViewController, MGLMapViewDelegate {
+class BuildingsExample: UIViewController, MGLMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()

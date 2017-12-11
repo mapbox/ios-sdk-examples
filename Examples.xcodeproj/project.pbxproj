@@ -28,8 +28,8 @@
 		07F53B851E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F53B841E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m */; };
 		1F1F84751E538ABB00332CC3 /* BlockingGesturesDelegateExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */; };
 		1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */; };
-		3E085B801EC526C500163C99 /* ExtrusionsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */; };
-		3E085B831EC526E500163C99 /* ExtrusionsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B821EC526E500163C99 /* ExtrusionsExample.m */; };
+		3E085B801EC526C500163C99 /* BuildingsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B7F1EC526C500163C99 /* BuildingsExample.swift */; };
+		3E085B831EC526E500163C99 /* BuildingsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B821EC526E500163C99 /* BuildingsExample.m */; };
 		3E22EF4F1F87F10C00605203 /* ImageSourceExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */; };
 		3E22EF521F8821F800605203 /* ImageSourceExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E22EF511F8821F800605203 /* ImageSourceExample.m */; };
 		3E3BFAD91E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFAD81E81D7A300D0BEA1 /* DDSLayerSelectionExample.swift */; };
@@ -202,9 +202,9 @@
 		1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockingGesturesDelegateExample.swift; sourceTree = "<group>"; };
 		29A0D7C8DCD539DCA5DA1BAC /* Pods-Examples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Examples.release.xcconfig"; path = "Pods/Target Support Files/Pods-Examples/Pods-Examples.release.xcconfig"; sourceTree = "<group>"; };
 		2ECF27F4ACA1A3CA05DE1954 /* Pods-DocsCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocsCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode.release.xcconfig"; sourceTree = "<group>"; };
-		3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtrusionsExample.swift; sourceTree = "<group>"; };
-		3E085B811EC526E500163C99 /* ExtrusionsExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtrusionsExample.h; sourceTree = "<group>"; };
-		3E085B821EC526E500163C99 /* ExtrusionsExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtrusionsExample.m; sourceTree = "<group>"; };
+		3E085B7F1EC526C500163C99 /* BuildingsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingsExample.swift; sourceTree = "<group>"; };
+		3E085B811EC526E500163C99 /* BuildingsExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingsExample.h; sourceTree = "<group>"; };
+		3E085B821EC526E500163C99 /* BuildingsExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingsExample.m; sourceTree = "<group>"; };
 		3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSourceExample.swift; sourceTree = "<group>"; };
 		3E22EF501F8821F800605203 /* ImageSourceExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageSourceExample.h; sourceTree = "<group>"; };
 		3E22EF511F8821F800605203 /* ImageSourceExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageSourceExample.m; sourceTree = "<group>"; };
@@ -469,6 +469,7 @@
 				962B450E1D1C8520007B7454 /* AnnotationViewExample.m */,
 				07F53B841E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m */,
 				1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */,
+				3E085B821EC526E500163C99 /* BuildingsExample.m */,
 				968247121C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m */,
 				968247261C5C1DC700494AB8 /* CameraAnimationExample.m */,
 				3ED403471E006BE800230C95 /* CameraFlyToExample.m */,
@@ -486,7 +487,6 @@
 				968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */,
 				9682470E1C5BF12700494AB8 /* DrawingAMarkerExample.m */,
 				9682471F1C5C1C0400494AB8 /* DrawingAPolygonExample.m */,
-				3E085B821EC526E500163C99 /* ExtrusionsExample.m */,
 				055ABCC01EFB139C0063BACA /* FillPatternExample.m */,
 				3E22EF511F8821F800605203 /* ImageSourceExample.m */,
 				3E3FB66D1F0588B3004512C6 /* LightExample.m */,
@@ -517,6 +517,7 @@
 				3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */,
 				964CB5101E42A0A3004549EA /* AnnotationViewsAndImagesExample.swift */,
 				1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */,
+				3E085B7F1EC526C500163C99 /* BuildingsExample.swift */,
 				3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */,
 				3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */,
 				3ED403401E006B5200230C95 /* CameraFlyToExample.swift */,
@@ -534,7 +535,6 @@
 				3EBCD70E1DC28240001E342F /* DrawingAGeoJSONLineExample.swift */,
 				3EBCD70F1DC28240001E342F /* DrawingAMarkerExample.swift */,
 				3EBCD7101DC28240001E342F /* DrawingAPolygonExample.swift */,
-				3E085B7F1EC526C500163C99 /* ExtrusionsExample.swift */,
 				055ABCC21EFB14AE0063BACA /* FillPatternExample.swift */,
 				3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */,
 				3E3FB66A1F05888E004512C6 /* LightExample.swift */,
@@ -659,6 +659,7 @@
 				07F53B861E00D08600B58DB3 /* AnnotationViewsAndImagesExample.h */,
 				962B450D1D1C8520007B7454 /* AnnotationViewExample.h */,
 				1F1F84731E538ABB00332CC3 /* BlockingGesturesDelegateExample.h */,
+				3E085B811EC526E500163C99 /* BuildingsExample.h */,
 				968247111C5C0F0F00494AB8 /* CalloutDelegateUsageExample.h */,
 				968247251C5C1DC700494AB8 /* CameraAnimationExample.h */,
 				3ED403461E006BE800230C95 /* CameraFlyToExample.h */,
@@ -675,7 +676,6 @@
 				968247181C5C115000494AB8 /* DrawingAGeoJSONLineExample.h */,
 				9682470D1C5BF12700494AB8 /* DrawingAMarkerExample.h */,
 				9682471E1C5C1C0400494AB8 /* DrawingAPolygonExample.h */,
-				3E085B811EC526E500163C99 /* ExtrusionsExample.h */,
 				055ABCBF1EFB139C0063BACA /* FillPatternExample.h */,
 				3E22EF501F8821F800605203 /* ImageSourceExample.h */,
 				3E3FB66C1F0588B3004512C6 /* LightExample.h */,
@@ -1278,7 +1278,7 @@
 				968247201C5C1C0400494AB8 /* DrawingAPolygonExample.m in Sources */,
 				3EBCD7221DC28240001E342F /* DrawingAGeoJSONLineExample.swift in Sources */,
 				96A2A1D21C8CA74B0059441E /* CustomCalloutView.m in Sources */,
-				3E085B831EC526E500163C99 /* ExtrusionsExample.m in Sources */,
+				3E085B831EC526E500163C99 /* BuildingsExample.m in Sources */,
 				64BBDAF61DF232FD00BB705D /* SelectFeatureExample.swift in Sources */,
 				3EA5AA021FAD2E96007073C0 /* MapSnapshotterExample.m in Sources */,
 				64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */,
@@ -1292,7 +1292,7 @@
 				3EBCD71D1DC28240001E342F /* CustomRasterStyleExample.swift in Sources */,
 				646B62B01DEF7161000AA523 /* RuntimeAnimateLineExample.swift in Sources */,
 				07F53B851E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m in Sources */,
-				3E085B801EC526C500163C99 /* ExtrusionsExample.swift in Sources */,
+				3E085B801EC526C500163C99 /* BuildingsExample.swift in Sources */,
 				3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */,
 				3EA5AA041FAD2EC7007073C0 /* MapSnapshotterExample.swift in Sources */,
 				3EBCD7231DC28240001E342F /* DrawingAMarkerExample.swift in Sources */,
