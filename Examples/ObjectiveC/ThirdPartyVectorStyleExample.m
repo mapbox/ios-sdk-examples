@@ -1,9 +1,9 @@
-#import "SourceCustomVectorExample.h"
+#import "ThirdPartyVectorStyleExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleSourceCustomVector = @"SourceCustomVectorExample";
+NSString *const MBXExampleThirdPartyVectorStyle = @"ThirdPartyVectorStyleExample";
 
-@implementation SourceCustomVectorExample
+@implementation ThirdPartyVectorStyleExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];

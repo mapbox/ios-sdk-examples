@@ -80,8 +80,8 @@
 		64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAF71DF2330B00BB705D /* SelectFeatureExample.m */; };
 		64BBDAFD1DF24DEB00BB705D /* WebAPIDataExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAFC1DF24DEB00BB705D /* WebAPIDataExample.m */; };
 		64BBDB031DF24E0900BB705D /* WebAPIDataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDB021DF24E0900BB705D /* WebAPIDataExample.swift */; };
-		64CF970C1DF224C500C3C27B /* SourceCustomVectorExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970B1DF224C500C3C27B /* SourceCustomVectorExample.m */; };
-		64CF97101DF224E400C3C27B /* SourceCustomVectorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970F1DF224E400C3C27B /* SourceCustomVectorExample.swift */; };
+		64CF970C1DF224C500C3C27B /* ThirdPartyVectorStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970B1DF224C500C3C27B /* ThirdPartyVectorStyleExample.m */; };
+		64CF97101DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970F1DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift */; };
 		64CF97121DF224F600C3C27B /* RasterImageryExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97111DF224F600C3C27B /* RasterImageryExample.swift */; };
 		64CF97171DF2251500C3C27B /* RasterImageryExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97161DF2251500C3C27B /* RasterImageryExample.m */; };
 		960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */; };
@@ -270,9 +270,9 @@
 		64BBDAFB1DF24DD700BB705D /* WebAPIDataExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebAPIDataExample.h; sourceTree = "<group>"; };
 		64BBDAFC1DF24DEB00BB705D /* WebAPIDataExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebAPIDataExample.m; sourceTree = "<group>"; };
 		64BBDB021DF24E0900BB705D /* WebAPIDataExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebAPIDataExample.swift; sourceTree = "<group>"; };
-		64CF970B1DF224C500C3C27B /* SourceCustomVectorExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceCustomVectorExample.m; sourceTree = "<group>"; };
-		64CF970E1DF224D400C3C27B /* SourceCustomVectorExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SourceCustomVectorExample.h; sourceTree = "<group>"; };
-		64CF970F1DF224E400C3C27B /* SourceCustomVectorExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCustomVectorExample.swift; sourceTree = "<group>"; };
+		64CF970B1DF224C500C3C27B /* ThirdPartyVectorStyleExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdPartyVectorStyleExample.m; sourceTree = "<group>"; };
+		64CF970E1DF224D400C3C27B /* ThirdPartyVectorStyleExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdPartyVectorStyleExample.h; sourceTree = "<group>"; };
+		64CF970F1DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdPartyVectorStyleExample.swift; sourceTree = "<group>"; };
 		64CF97111DF224F600C3C27B /* RasterImageryExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterImageryExample.swift; sourceTree = "<group>"; };
 		64CF97161DF2251500C3C27B /* RasterImageryExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RasterImageryExample.m; sourceTree = "<group>"; };
 		64CF97191DF2252C00C3C27B /* RasterImageryExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RasterImageryExample.h; sourceTree = "<group>"; };
@@ -502,9 +502,9 @@
 				646B629B1DEF6DF1000AA523 /* ShowHideLayerExample.m */,
 				9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */,
 				3EA5AA011FAD2E95007073C0 /* StaticSnapshotExample.m */,
-				64CF970B1DF224C500C3C27B /* SourceCustomVectorExample.m */,
 				968247021C5BDCBB00494AB8 /* StudioClassicStyleExample.m */,
 				9691AAA21C5AAD8F006A58C6 /* StudioStyleExample.m */,
+				64CF970B1DF224C500C3C27B /* ThirdPartyVectorStyleExample.m */,
 				969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */,
 				64BBDAFC1DF24DEB00BB705D /* WebAPIDataExample.m */,
 			);
@@ -550,10 +550,10 @@
 				64BBDAF51DF232FD00BB705D /* SelectFeatureExample.swift */,
 				646B62961DEF6DAF000AA523 /* ShowHideLayerExample.swift */,
 				3EBCD7141DC28240001E342F /* SimpleMapViewExample.swift */,
-				64CF970F1DF224E400C3C27B /* SourceCustomVectorExample.swift */,
 				3EA5AA031FAD2EC7007073C0 /* StaticSnapshotExample.swift */,
 				3EBCD7091DC28240001E342F /* StudioClassicStyleExample.swift */,
 				3EBCD70A1DC28240001E342F /* StudioStyleExample.swift */,
+				64CF970F1DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift */,
 				3EBCD7151DC28240001E342F /* UserTrackingModesExample.swift */,
 				64BBDB021DF24E0900BB705D /* WebAPIDataExample.swift */,
 			);
@@ -691,10 +691,10 @@
 				64BBDAFA1DF2331600BB705D /* SelectFeatureExample.h */,
 				646B629E1DEF6DFD000AA523 /* ShowHideLayerExample.h */,
 				9691AAA51C5AAD8F006A58C6 /* SimpleMapViewExample.h */,
-				64CF970E1DF224D400C3C27B /* SourceCustomVectorExample.h */,
 				3EA5AA001FAD2E95007073C0 /* StaticSnapshotExample.h */,
 				968247011C5BDCBB00494AB8 /* StudioClassicStyleExample.h */,
 				9691AAA11C5AAD8F006A58C6 /* StudioStyleExample.h */,
+				64CF970E1DF224D400C3C27B /* ThirdPartyVectorStyleExample.h */,
 				969E7FDB1D25C31700663F84 /* UserTrackingModesExample.h */,
 				64BBDAFB1DF24DD700BB705D /* WebAPIDataExample.h */,
 			);
@@ -1309,7 +1309,7 @@
 				964CB5111E42A0A3004549EA /* AnnotationViewsAndImagesExample.swift in Sources */,
 				3EC11D271EA84091001AAAB8 /* PointHotspotExample.swift in Sources */,
 				9691AAA81C5AAD8F006A58C6 /* DefaultStylesExample.m in Sources */,
-				64CF97101DF224E400C3C27B /* SourceCustomVectorExample.swift in Sources */,
+				64CF97101DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift in Sources */,
 				3EBCD7211DC28240001E342F /* ImageAnnotationExample.swift in Sources */,
 				3EBCD71E1DC28240001E342F /* StudioStyleExample.swift in Sources */,
 				968247081C5BEBDC00494AB8 /* SatelliteStyleExample.m in Sources */,
@@ -1326,7 +1326,7 @@
 				3EBCD71F1DC28240001E342F /* DefaultStylesExample.swift in Sources */,
 				DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */,
 				9682471A1C5C115000494AB8 /* DrawingAGeoJSONLineExample.m in Sources */,
-				64CF970C1DF224C500C3C27B /* SourceCustomVectorExample.m in Sources */,
+				64CF970C1DF224C500C3C27B /* ThirdPartyVectorStyleExample.m in Sources */,
 				3E22EF4F1F87F10C00605203 /* ImageSourceExample.swift in Sources */,
 				969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */,
 				646B62A41DEF7115000AA523 /* RuntimeAddLineExample.m in Sources */,

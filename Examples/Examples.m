@@ -48,9 +48,9 @@
         MBXExampleSelectFeature,
         MBXExampleShowHideLayer,
         MBXExampleSimpleMapView,
-        MBXExampleSourceCustomVector,
         MBXExampleStudioClassicStyle,
         MBXExampleStudioStyle,
+        MBXExampleThirdPartyVectorStyle,
         MBXExampleUserTrackingModes,
         MBXExampleWebAPIData
     ]];

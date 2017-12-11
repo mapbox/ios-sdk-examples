@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(SourceCustomVectorExample_Swift)
+@objc(ThirdPartyVectorStyleExample_Swift)
 
-class SourceCustomVectorExample_Swift: UIViewController {
+class ThirdPartyVectorStyleExample_Swift: UIViewController {
     var mapView: MGLMapView!
 
     override func viewDidLoad() {

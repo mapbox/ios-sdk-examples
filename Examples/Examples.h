@@ -51,10 +51,10 @@ extern NSString *const MBXExampleSatelliteStyle;
 extern NSString *const MBXExampleSelectFeature;
 extern NSString *const MBXExampleShowHideLayer;
 extern NSString *const MBXExampleSimpleMapView;
-extern NSString *const MBXExampleSourceCustomVector;
 extern NSString *const MBXExampleStaticSnapshot;
 extern NSString *const MBXExampleStudioClassicStyle;
 extern NSString *const MBXExampleStudioStyle;
+extern NSString *const MBXExampleThirdPartyVectorStyle;
 extern NSString *const MBXExampleUserTrackingModes;
 extern NSString *const MBXExampleWebAPIData;
 
