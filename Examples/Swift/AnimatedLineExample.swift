@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(RuntimeAnimateLineExample_Swift)
+@objc(AnimatedLineExample_Swift)
 
-class RuntimeAnimateLineExample_Swift: UIViewController, MGLMapViewDelegate {
+class AnimatedLineExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var timer: Timer?
     var polylineSource: MGLShapeSource?

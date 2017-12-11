@@ -17,6 +17,7 @@
 //   6. Define the interface name of the Swift class being used in Objective-C by
 //      adding the @objc attribute to your Swift file - e.g., `@objc(SimpleMapExample_Swift)`
 
+extern NSString *const MBXExampleAnimatedLine;
 extern NSString *const MBXExampleAnnotationView;
 extern NSString *const MBXExampleAnnotationViewsAndImagesExample;
 extern NSString *const MBXExampleBlockingGesturesDelegate;
@@ -43,7 +44,6 @@ extern NSString *const MBXExamplePointHotspot;
 extern NSString *const MBXExamplePolygonAnnotation;
 extern NSString *const MBXExamplePolygonPattern;
 extern NSString *const MBXExampleRuntimeAddLine;
-extern NSString *const MBXExampleRuntimeAnimateLine;
 extern NSString *const MBXExampleRuntimeCircleStyles;
 extern NSString *const MBXExampleRuntimeToggleLayer;
 extern NSString *const MBXExampleRuntimeMultipleAnnotations;

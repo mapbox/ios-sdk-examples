@@ -13,6 +13,7 @@
 + (NSArray *)list {
     
     NSArray *initialList = [[NSMutableArray alloc] initWithArray:@[
+        MBXExampleAnimatedLine,
         MBXExampleAnnotationView,
         MBXExampleAnnotationViewsAndImagesExample,
         MBXExampleBlockingGesturesDelegate,
@@ -40,7 +41,6 @@
         MBXExamplePolygonAnnotation,
         MBXExamplePolygonPattern,
         MBXExampleRuntimeAddLine,
-        MBXExampleRuntimeAnimateLine,
         MBXExampleRuntimeCircleStyles,
         MBXExampleRuntimeToggleLayer,
         MBXExampleRuntimeMultipleAnnotations,

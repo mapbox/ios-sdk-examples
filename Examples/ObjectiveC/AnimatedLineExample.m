@@ -1,9 +1,9 @@
-#import "RuntimeAnimateLineExample.h"
+#import "AnimatedLineExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleRuntimeAnimateLine = @"RuntimeAnimateLineExample";
+NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
 
-@interface RuntimeAnimateLineExample () <MGLMapViewDelegate> {
+@interface AnimatedLineExample () <MGLMapViewDelegate> {
     int _currentIndex;
     NSTimer *_timer;
 }
@@ -14,7 +14,7 @@ NSString *const MBXExampleRuntimeAnimateLine = @"RuntimeAnimateLineExample";
 
 @end
 
-@implementation RuntimeAnimateLineExample
+@implementation AnimatedLineExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];

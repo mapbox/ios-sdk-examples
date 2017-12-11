@@ -70,9 +70,9 @@
 		646B62971DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62961DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift */; };
 		646B629C1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B629B1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m */; };
 		646B62A41DEF7115000AA523 /* RuntimeAddLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */; };
-		646B62A61DEF7121000AA523 /* RuntimeAnimateLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */; };
+		646B62A61DEF7121000AA523 /* AnimatedLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62A51DEF7121000AA523 /* AnimatedLineExample.m */; };
 		646B62AE1DEF7155000AA523 /* RuntimeAddLineExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62AD1DEF7155000AA523 /* RuntimeAddLineExample.swift */; };
-		646B62B01DEF7161000AA523 /* RuntimeAnimateLineExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62AF1DEF7161000AA523 /* RuntimeAnimateLineExample.swift */; };
+		646B62B01DEF7161000AA523 /* AnimatedLineExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62AF1DEF7161000AA523 /* AnimatedLineExample.swift */; };
 		646B62B41DEF9613000AA523 /* RuntimeCircleStylesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62B31DEF9613000AA523 /* RuntimeCircleStylesExample.swift */; };
 		646B62BD1DEF965A000AA523 /* RuntimeCircleStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */; };
 		64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */ = {isa = PBXBuildFile; fileRef = 64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */; };
@@ -254,12 +254,12 @@
 		646B62961DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuntimeToggleLayerExample.swift; sourceTree = "<group>"; };
 		646B629B1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeToggleLayerExample.m; sourceTree = "<group>"; };
 		646B629E1DEF6DFD000AA523 /* RuntimeToggleLayerExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeToggleLayerExample.h; sourceTree = "<group>"; };
-		646B62A11DEF70DD000AA523 /* RuntimeAnimateLineExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeAnimateLineExample.h; sourceTree = "<group>"; };
+		646B62A11DEF70DD000AA523 /* AnimatedLineExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimatedLineExample.h; sourceTree = "<group>"; };
 		646B62A21DEF7106000AA523 /* RuntimeAddLineExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeAddLineExample.h; sourceTree = "<group>"; };
 		646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeAddLineExample.m; sourceTree = "<group>"; };
-		646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeAnimateLineExample.m; sourceTree = "<group>"; };
+		646B62A51DEF7121000AA523 /* AnimatedLineExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedLineExample.m; sourceTree = "<group>"; };
 		646B62AD1DEF7155000AA523 /* RuntimeAddLineExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuntimeAddLineExample.swift; sourceTree = "<group>"; };
-		646B62AF1DEF7161000AA523 /* RuntimeAnimateLineExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuntimeAnimateLineExample.swift; sourceTree = "<group>"; };
+		646B62AF1DEF7161000AA523 /* AnimatedLineExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedLineExample.swift; sourceTree = "<group>"; };
 		646B62B31DEF9613000AA523 /* RuntimeCircleStylesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuntimeCircleStylesExample.swift; sourceTree = "<group>"; };
 		646B62BB1DEF964A000AA523 /* RuntimeCircleStylesExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeCircleStylesExample.h; sourceTree = "<group>"; };
 		646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeCircleStylesExample.m; sourceTree = "<group>"; };
@@ -466,6 +466,7 @@
 		3EBCD6FA1DC26355001E342F /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
+				646B62A51DEF7121000AA523 /* AnimatedLineExample.m */,
 				962B450E1D1C8520007B7454 /* AnnotationViewExample.m */,
 				07F53B841E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m */,
 				1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */,
@@ -493,7 +494,6 @@
 				9682471F1C5C1C0400494AB8 /* PolygonAnnotationExample.m */,
 				055ABCC01EFB139C0063BACA /* PolygonPatternExample.m */,
 				646B62A31DEF7115000AA523 /* RuntimeAddLineExample.m */,
-				646B62A51DEF7121000AA523 /* RuntimeAnimateLineExample.m */,
 				646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */,
 				646B629B1DEF6DF1000AA523 /* RuntimeToggleLayerExample.m */,
 				64BBDAFC1DF24DEB00BB705D /* RuntimeMultipleAnnotationsExample.m */,
@@ -514,6 +514,7 @@
 		3EBCD6FC1DC26364001E342F /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				646B62AF1DEF7161000AA523 /* AnimatedLineExample.swift */,
 				3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */,
 				964CB5101E42A0A3004549EA /* AnnotationViewsAndImagesExample.swift */,
 				1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */,
@@ -542,7 +543,6 @@
 				3EBCD7101DC28240001E342F /* PolygonAnnotationExample.swift */,
 				055ABCC21EFB14AE0063BACA /* PolygonPatternExample.swift */,
 				646B62AD1DEF7155000AA523 /* RuntimeAddLineExample.swift */,
-				646B62AF1DEF7161000AA523 /* RuntimeAnimateLineExample.swift */,
 				646B62B31DEF9613000AA523 /* RuntimeCircleStylesExample.swift */,
 				646B62961DEF6DAF000AA523 /* RuntimeToggleLayerExample.swift */,
 				64BBDB021DF24E0900BB705D /* RuntimeMultipleAnnotationsExample.swift */,
@@ -656,6 +656,7 @@
 		9682472D1C5C226D00494AB8 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				646B62A11DEF70DD000AA523 /* AnimatedLineExample.h */,
 				07F53B861E00D08600B58DB3 /* AnnotationViewsAndImagesExample.h */,
 				962B450D1D1C8520007B7454 /* AnnotationViewExample.h */,
 				1F1F84731E538ABB00332CC3 /* BlockingGesturesDelegateExample.h */,
@@ -683,7 +684,6 @@
 				9682471E1C5C1C0400494AB8 /* PolygonAnnotationExample.h */,
 				055ABCBF1EFB139C0063BACA /* PolygonPatternExample.h */,
 				646B62A21DEF7106000AA523 /* RuntimeAddLineExample.h */,
-				646B62A11DEF70DD000AA523 /* RuntimeAnimateLineExample.h */,
 				646B62BB1DEF964A000AA523 /* RuntimeCircleStylesExample.h */,
 				646B629E1DEF6DFD000AA523 /* RuntimeToggleLayerExample.h */,
 				64BBDAFB1DF24DD700BB705D /* RuntimeMultipleAnnotationsExample.h */,
@@ -1267,7 +1267,7 @@
 				3EBCD71B1DC28240001E342F /* CustomCalloutView.swift in Sources */,
 				07C138C01E6F646F00D6F678 /* ShapeCollectionFeatureExample.m in Sources */,
 				3EBCD7291DC28240001E342F /* UserTrackingModesExample.swift in Sources */,
-				646B62A61DEF7121000AA523 /* RuntimeAnimateLineExample.m in Sources */,
+				646B62A61DEF7121000AA523 /* AnimatedLineExample.m in Sources */,
 				9691AAA71C5AAD8F006A58C6 /* StudioStyleExample.m in Sources */,
 				9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */,
 				3EBCD7261DC28240001E342F /* PointConversionExample.swift in Sources */,
@@ -1290,7 +1290,7 @@
 				9682472A1C5C1FF800494AB8 /* PointConversionExample.m in Sources */,
 				3ED403481E006BE800230C95 /* CameraFlyToExample.m in Sources */,
 				3EBCD71D1DC28240001E342F /* StudioClassicStyleExample.swift in Sources */,
-				646B62B01DEF7161000AA523 /* RuntimeAnimateLineExample.swift in Sources */,
+				646B62B01DEF7161000AA523 /* AnimatedLineExample.swift in Sources */,
 				07F53B851E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m in Sources */,
 				3E085B801EC526C500163C99 /* BuildingsExample.swift in Sources */,
 				3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */,
