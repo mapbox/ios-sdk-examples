@@ -3,7 +3,7 @@
 
 NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
 
-@interface DDSLayerSelectionExample () <MGLMapViewDelegate, UIGestureRecognizerDelegate>
+@interface DDSLayerSelectionExample () <MGLMapViewDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
 
@@ -16,14 +16,13 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.delegate = self;
-    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(39.23225,-97.91015)];
+    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(39.23225, -97.91015)];
     
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.mapView];
     
     // Add a tap gesture recognizer to the map view.
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-    gesture.delegate = self;
     gesture.numberOfTapsRequired = 1;
     [self.mapView addGestureRecognizer:gesture];
 }
@@ -52,7 +51,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     layer.fillColor = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
             sourceStops:stops
             attributeName:@"density"
-            options:@{MGLStyleFunctionOptionDefaultValue: [MGLStyleValue valueWithRawValue:[UIColor whiteColor]]}];
+            options:@{ MGLStyleFunctionOptionDefaultValue: [MGLStyleValue valueWithRawValue:[UIColor whiteColor]] }];
     
     // Insert the new layer below the Mapbox Streets layer that contains state border lines. See the layer reference for more information about layer names: https://www.mapbox.com/vector-tiles/mapbox-streets-v7/
     MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"admin-3-4-boundaries"];
@@ -78,15 +77,14 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
 }
 
 - (void)changeOpacityBasedOn:(NSString*)name {
-    
     MGLFillStyleLayer *layer = (MGLFillStyleLayer *)[self.mapView.style layerWithIdentifier:@"state-layer"];
     
     // Check if a state was selected, then change the opacity of the states that were not selected.
     if (name.length > 0) {
         layer.fillOpacity = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeCategorical
-                sourceStops:@{name: [MGLStyleValue valueWithRawValue:@1]}
+                sourceStops:@{ name: [MGLStyleValue valueWithRawValue:@1] }
                 attributeName:@"name"
-                options:@{MGLStyleFunctionOptionDefaultValue: [MGLStyleValue valueWithRawValue:@0]}];
+                options:@{ MGLStyleFunctionOptionDefaultValue: [MGLStyleValue valueWithRawValue:@0] }];
     } else {
         // Reset the opacity for all states if the user did not tap on a state.
         layer.fillOpacity = [MGLStyleValue valueWithRawValue:@1];

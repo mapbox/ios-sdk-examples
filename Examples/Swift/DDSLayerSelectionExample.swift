@@ -1,24 +1,22 @@
-
 import Mapbox
 
 @objc(DDSLayerSelectionExample_Swift)
 
-class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGestureRecognizerDelegate {
+class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate {
     
-    var mapView : MGLMapView!
+    var mapView: MGLMapView!
  
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapView = MGLMapView(frame: view.bounds)
         mapView.delegate = self
-        mapView.setCenter(CLLocationCoordinate2D(latitude:39.23225, longitude:-97.91015), animated: false)
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 39.23225, longitude: -97.91015), animated: false)
         mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         view.addSubview(mapView)
         
         // Add a tap gesture recognizer to the map view.
         let gesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        gesture.delegate = self
         mapView.addGestureRecognizer(gesture)
     }
     
@@ -67,7 +65,7 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGe
         let layer = mapView.style?.layer(withIdentifier: "state-layer") as! MGLFillStyleLayer
         
         // Check if a state was selected, then change the opacity of the states that were not selected.
-        if name.characters.count > 0 {
+        if name.count > 0 {
             layer.fillOpacity = MGLStyleValue(interpolationMode: .categorical, sourceStops: [name: MGLStyleValue<NSNumber>(rawValue: 1)], attributeName: "name", options: [.defaultValue: MGLStyleValue<NSNumber>(rawValue: 0)])
         } else {
             // Reset the opacity for all states if the user did not tap on a state.
