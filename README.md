@@ -3,7 +3,7 @@
 A live Xcode project/app that provides [public examples](https://www.mapbox.com/ios-sdk/examples/) for the Mapbox Maps SDK for iOS.
 
 ## How to receive help
-We are not able to answer support questions in this repository — it is intended to show examples of what is possible with the Mapbox Maps SDK for iOS.  If you have questions about how to use the Mapbox Maps SDK for iOS, please see our excellent [documentation](https://www.mapbox.com/help/) or ask the community at [Stack Overflow](http://stackoverflow.com/questions/tagged/mapbox+ios)
+We are not able to answer support questions in this repository — it is intended to show examples of what is possible with the Mapbox Maps SDK for iOS.  If you have questions about how to use the Mapbox Maps SDK for iOS, please see our excellent [documentation](https://www.mapbox.com/help/) or ask the community at [Stack Overflow](http://stackoverflow.com/questions/tagged/mapbox+ios).
 
 ### Other helpful links
 - [Mapbox Maps SDK for iOS API documentation](https://www.mapbox.com/ios-sdk/api/)
