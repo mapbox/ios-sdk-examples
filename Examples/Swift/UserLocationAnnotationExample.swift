@@ -4,6 +4,7 @@ import Mapbox
 
 class UserLocationAnnotationExample_Swift: UIViewController, MGLMapViewDelegate {
     let point = MGLPointAnnotation()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let mapView = MGLMapView(frame: view.bounds)
@@ -12,58 +13,74 @@ class UserLocationAnnotationExample_Swift: UIViewController, MGLMapViewDelegate 
         
         // Enable heading tracking mode so that the arrow will appear.
         mapView.userTrackingMode = .followWithHeading
+
+        // Enable the permanent heading indicator, which will appear when the tracking mode is not `.followWithHeading`.
+        mapView.showsUserHeadingIndicator = true
+
         view.addSubview(mapView)
     }
     
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-        // Substitute a custom view for the user location annotation. This custom view is created below.
+        // Substitute our custom view for the user location annotation. This custom view is defined below.
         if annotation is MGLUserLocation && mapView.userLocation != nil {
             return CustomUserLocationAnnotationView()
         }
         return nil
     }
+
+    // Optional: tap the user location annotation to toggle heading tracking mode.
+    func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
+        if mapView.userTrackingMode != .followWithHeading {
+            mapView.userTrackingMode = .followWithHeading
+        } else {
+            mapView.resetNorth()
+        }
+
+        // We're borrowing this method as a gesture recognizer, so reset selection state.
+        mapView.deselectAnnotation(annotation, animated: false)
+    }
 }
 
-// Create subclass of MGLUserLocationAnnotationView.
+
+// Create a subclass of MGLUserLocationAnnotationView.
 class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
-    let size: CGFloat = 25
-    var arrowSize: CGFloat!
+    let size: CGFloat = 48
     var dot: CALayer!
     var arrow: CAShapeLayer!
     
-    // -update is a method inherited from MGLUserLocationAnnotationView. It updates the appearance of the user location annotation when needed.
+    // -update is a method inherited from MGLUserLocationAnnotationView. It updates the appearance of the user location annotation when needed. This can be called many times a second, so be careful to keep it lightweight.
     override func update() {
         if frame.isNull {
             frame = CGRect(x: 0, y: 0, width: size, height: size)
             return setNeedsLayout()
         }
-        // Check whether the user's location is a valid CLLocationCoordinate2D. This can be called many times a second, so be careful to keep it lightweight.
-        if CLLocationCoordinate2DIsValid(self.userLocation!.coordinate) {
+
+        // Check whether we have the user’s location yet.
+        if CLLocationCoordinate2DIsValid(userLocation!.coordinate) {
             setupLayers()
             updateHeading()
         }
     }
     
     private func updateHeading() {
-        // Show the heading arrow, if the heading of the user is being tracked.
-        if let heading = userLocation!.heading, mapView?.userTrackingMode == .followWithHeading {
+        // Show the heading arrow, if the heading of the user is available.
+        if let heading = userLocation!.heading?.trueHeading {
             arrow.isHidden = false
+
+            // Get the difference between the map’s current direction and the user’s heading, then convert it from degrees to radians.
+            let rotation: CGFloat = -MGLRadiansFromDegrees(mapView!.direction - heading)
             
-            // Rotate the arrow according to the user’s heading.
-            let rotation = CGAffineTransform.identity.rotated(
-                by: -MGLRadiansFromDegrees(mapView!.direction - heading.trueHeading))
-            layer.setAffineTransform(rotation)
+            // If the difference would be perceptible, rotate the arrow.
+            if fabs(rotation) > 0.01 {
+                layer.setAffineTransform(CGAffineTransform.identity.rotated(by: rotation))
+            }
         } else {
             arrow.isHidden = true
         }
     }
     
     private func setupLayers() {
-        setupDot()
-        setupArrow()
-    }
-    
-    private func setupDot() {
+        // This dot forms the base of the annotation.
         if dot == nil {
             dot = CALayer()
             dot.bounds = CGRect(x: 0, y: 0, width: size, height: size)
@@ -75,36 +92,36 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
             dot.borderColor = UIColor.white.cgColor
             layer.addSublayer(dot)
         }
-    }
-    
-    private func setupArrow() {
+
+        // This arrow overlays the dot and is rotated with the user’s heading.
         if arrow == nil {
-            arrowSize = size / 2.5
             arrow = CAShapeLayer()
             arrow.path = arrowPath()
-            arrow.frame = CGRect(x: 0, y: 0, width: arrowSize, height: arrowSize)
-            arrow.position = CGPoint(x: size / 2, y: size / -4.5)
-            arrow.fillColor = super.tintColor.cgColor
+            arrow.frame = CGRect(x: 0, y: 0, width: size / 2, height: size / 2)
+            arrow.position = CGPoint(x: dot.frame.midX, y: dot.frame.midY)
+            arrow.fillColor = dot.borderColor
             layer.addSublayer(arrow)
         }
     }
 
+    // Calculate the vector path for an arrow, for use in a shape layer.
     private func arrowPath() -> CGPath {
-        // Draw an arrow.
+        let max: CGFloat = size / 2
+        let pad: CGFloat = 3
         
-        let max: CGFloat = arrowSize
-        
-        let top = CGPoint(x: max * 0.5, y: max * 0.4)
-        let left = CGPoint(x: 0, y: max)
-        let right = CGPoint(x: max, y: max)
-        let center = CGPoint(x: max * 0.5, y: max * 0.8)
-        
+        let top =    CGPoint(x: max * 0.5, y: 0)
+        let left =   CGPoint(x: 0 + pad,   y: max - pad)
+        let right =  CGPoint(x: max - pad, y: max - pad)
+        let center = CGPoint(x: max * 0.5, y: max * 0.6)
+
         let bezierPath = UIBezierPath()
         bezierPath.move(to: top)
         bezierPath.addLine(to: left)
-        bezierPath.addQuadCurve(to: right, controlPoint: center)
+        bezierPath.addLine(to: center)
+        bezierPath.addLine(to: right)
         bezierPath.addLine(to: top)
         bezierPath.close()
+
         return bezierPath.cgPath
     }
 }
