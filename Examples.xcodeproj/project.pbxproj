@@ -54,7 +54,7 @@
 		3EBCD71F1DC28240001E342F /* DefaultStylesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70B1DC28240001E342F /* DefaultStylesExample.swift */; };
 		3EBCD7201DC28240001E342F /* DraggableAnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70C1DC28240001E342F /* DraggableAnnotationViewExample.swift */; };
 		3EBCD7211DC28240001E342F /* ImageAnnotationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70D1DC28240001E342F /* ImageAnnotationExample.swift */; };
-		3EBCD7221DC28240001E342F /* DrawingAGeoJSONLineExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70E1DC28240001E342F /* DrawingAGeoJSONLineExample.swift */; };
+		3EBCD7221DC28240001E342F /* LineAnnotationGeoJSONExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70E1DC28240001E342F /* LineAnnotationGeoJSONExample.swift */; };
 		3EBCD7231DC28240001E342F /* DefaultAnnotationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70F1DC28240001E342F /* DefaultAnnotationExample.swift */; };
 		3EBCD7241DC28240001E342F /* PolygonAnnotationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7101DC28240001E342F /* PolygonAnnotationExample.swift */; };
 		3EBCD7251DC28240001E342F /* OfflinePackExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7111DC28240001E342F /* OfflinePackExample.swift */; };
@@ -102,7 +102,7 @@
 		968247081C5BEBDC00494AB8 /* SatelliteStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247071C5BEBDC00494AB8 /* SatelliteStyleExample.m */; };
 		9682470F1C5BF12700494AB8 /* DefaultAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9682470E1C5BF12700494AB8 /* DefaultAnnotationExample.m */; };
 		968247131C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247121C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m */; };
-		9682471A1C5C115000494AB8 /* DrawingAGeoJSONLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */; };
+		9682471A1C5C115000494AB8 /* LineAnnotationGeoJSONExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247191C5C115000494AB8 /* LineAnnotationGeoJSONExample.m */; };
 		9682471D1C5C123B00494AB8 /* example.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 9682471C1C5C123B00494AB8 /* example.geojson */; };
 		968247201C5C1C0400494AB8 /* PolygonAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9682471F1C5C1C0400494AB8 /* PolygonAnnotationExample.m */; };
 		968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247261C5C1DC700494AB8 /* CameraAnimationExample.m */; };
@@ -234,7 +234,7 @@
 		3EBCD70B1DC28240001E342F /* DefaultStylesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultStylesExample.swift; sourceTree = "<group>"; };
 		3EBCD70C1DC28240001E342F /* DraggableAnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableAnnotationViewExample.swift; sourceTree = "<group>"; };
 		3EBCD70D1DC28240001E342F /* ImageAnnotationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAnnotationExample.swift; sourceTree = "<group>"; };
-		3EBCD70E1DC28240001E342F /* DrawingAGeoJSONLineExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingAGeoJSONLineExample.swift; sourceTree = "<group>"; };
+		3EBCD70E1DC28240001E342F /* LineAnnotationGeoJSONExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineAnnotationGeoJSONExample.swift; sourceTree = "<group>"; };
 		3EBCD70F1DC28240001E342F /* DefaultAnnotationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAnnotationExample.swift; sourceTree = "<group>"; };
 		3EBCD7101DC28240001E342F /* PolygonAnnotationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonAnnotationExample.swift; sourceTree = "<group>"; };
 		3EBCD7111DC28240001E342F /* OfflinePackExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflinePackExample.swift; sourceTree = "<group>"; };
@@ -315,8 +315,8 @@
 		9682470E1C5BF12700494AB8 /* DefaultAnnotationExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultAnnotationExample.m; path = Examples/ObjectiveC/DefaultAnnotationExample.m; sourceTree = SOURCE_ROOT; };
 		968247111C5C0F0F00494AB8 /* CalloutDelegateUsageExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalloutDelegateUsageExample.h; path = Examples/ObjectiveC/CalloutDelegateUsageExample.h; sourceTree = SOURCE_ROOT; };
 		968247121C5C0F0F00494AB8 /* CalloutDelegateUsageExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalloutDelegateUsageExample.m; path = Examples/ObjectiveC/CalloutDelegateUsageExample.m; sourceTree = SOURCE_ROOT; };
-		968247181C5C115000494AB8 /* DrawingAGeoJSONLineExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawingAGeoJSONLineExample.h; path = Examples/ObjectiveC/DrawingAGeoJSONLineExample.h; sourceTree = SOURCE_ROOT; };
-		968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawingAGeoJSONLineExample.m; path = Examples/ObjectiveC/DrawingAGeoJSONLineExample.m; sourceTree = SOURCE_ROOT; };
+		968247181C5C115000494AB8 /* LineAnnotationGeoJSONExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineAnnotationGeoJSONExample.h; path = Examples/ObjectiveC/LineAnnotationGeoJSONExample.h; sourceTree = SOURCE_ROOT; };
+		968247191C5C115000494AB8 /* LineAnnotationGeoJSONExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LineAnnotationGeoJSONExample.m; path = Examples/ObjectiveC/LineAnnotationGeoJSONExample.m; sourceTree = SOURCE_ROOT; };
 		9682471C1C5C123B00494AB8 /* example.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = example.geojson; path = ../Files/example.geojson; sourceTree = "<group>"; };
 		9682471E1C5C1C0400494AB8 /* PolygonAnnotationExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PolygonAnnotationExample.h; path = Examples/ObjectiveC/PolygonAnnotationExample.h; sourceTree = SOURCE_ROOT; };
 		9682471F1C5C1C0400494AB8 /* PolygonAnnotationExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PolygonAnnotationExample.m; path = Examples/ObjectiveC/PolygonAnnotationExample.m; sourceTree = SOURCE_ROOT; };
@@ -484,10 +484,10 @@
 				9682470E1C5BF12700494AB8 /* DefaultAnnotationExample.m */,
 				9691AAA41C5AAD8F006A58C6 /* DefaultStylesExample.m */,
 				960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */,
-				968247191C5C115000494AB8 /* DrawingAGeoJSONLineExample.m */,
 				3E3BFADB1E81D7BB00D0BEA1 /* FeatureSelectionExample.m */,
 				96D431FB1C84B4F7007D09D1 /* ImageAnnotationExample.m */,
 				3E22EF511F8821F800605203 /* ImageSourceExample.m */,
+				968247191C5C115000494AB8 /* LineAnnotationGeoJSONExample.m */,
 				3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */,
 				07C138BF1E6F646F00D6F678 /* MultipleShapesExample.m */,
 				96115A671CAD4E1C000963B8 /* OfflinePackExample.m */,
@@ -532,10 +532,10 @@
 				3EBCD70F1DC28240001E342F /* DefaultAnnotationExample.swift */,
 				3EBCD70B1DC28240001E342F /* DefaultStylesExample.swift */,
 				3EBCD70C1DC28240001E342F /* DraggableAnnotationViewExample.swift */,
-				3EBCD70E1DC28240001E342F /* DrawingAGeoJSONLineExample.swift */,
 				3E3BFAD81E81D7A300D0BEA1 /* FeatureSelectionExample.swift */,
 				3EBCD70D1DC28240001E342F /* ImageAnnotationExample.swift */,
 				3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */,
+				3EBCD70E1DC28240001E342F /* LineAnnotationGeoJSONExample.swift */,
 				3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */,
 				07C138C11E6F65D000D6F678 /* MultipleShapesExample.swift */,
 				3EBCD7111DC28240001E342F /* OfflinePackExample.swift */,
@@ -673,10 +673,10 @@
 				9682470D1C5BF12700494AB8 /* DefaultAnnotationExample.h */,
 				9691AAA31C5AAD8F006A58C6 /* DefaultStylesExample.h */,
 				960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */,
-				968247181C5C115000494AB8 /* DrawingAGeoJSONLineExample.h */,
 				3E3BFADA1E81D7BB00D0BEA1 /* FeatureSelectionExample.h */,
 				96D431FA1C84B4F7007D09D1 /* ImageAnnotationExample.h */,
 				3E22EF501F8821F800605203 /* ImageSourceExample.h */,
+				968247181C5C115000494AB8 /* LineAnnotationGeoJSONExample.h */,
 				3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */,
 				07C138BE1E6F646F00D6F678 /* MultipleShapesExample.h */,
 				96115A661CAD4E1C000963B8 /* OfflinePackExample.h */,
@@ -1276,7 +1276,7 @@
 				3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */,
 				646B62971DEF6DAF000AA523 /* ShowHideLayerExample.swift in Sources */,
 				968247201C5C1C0400494AB8 /* PolygonAnnotationExample.m in Sources */,
-				3EBCD7221DC28240001E342F /* DrawingAGeoJSONLineExample.swift in Sources */,
+				3EBCD7221DC28240001E342F /* LineAnnotationGeoJSONExample.swift in Sources */,
 				96A2A1D21C8CA74B0059441E /* CustomCalloutView.m in Sources */,
 				3E085B831EC526E500163C99 /* BuildingsExample.m in Sources */,
 				64BBDAF61DF232FD00BB705D /* SelectFeatureExample.swift in Sources */,
@@ -1325,7 +1325,7 @@
 				646B62AE1DEF7155000AA523 /* RuntimeAddLineExample.swift in Sources */,
 				3EBCD71F1DC28240001E342F /* DefaultStylesExample.swift in Sources */,
 				DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */,
-				9682471A1C5C115000494AB8 /* DrawingAGeoJSONLineExample.m in Sources */,
+				9682471A1C5C115000494AB8 /* LineAnnotationGeoJSONExample.m in Sources */,
 				64CF970C1DF224C500C3C27B /* ThirdPartyVectorStyleExample.m in Sources */,
 				3E22EF4F1F87F10C00605203 /* ImageSourceExample.swift in Sources */,
 				969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */,

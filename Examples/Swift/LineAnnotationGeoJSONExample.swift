@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(DrawingAGeoJSONLineExample_Swift)
+@objc(LineAnnotationGeoJSONExample_Swift)
 
-class DrawingAGeoJSONLineExample_Swift: UIViewController, MGLMapViewDelegate {
+class LineAnnotationGeoJSONExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     
     override func viewDidLoad() {

@@ -1,5 +1,5 @@
 //
-//  DrawingAGeoJSONLineExample.h
+//  LineAnnotationGeoJSONExample.h
 //  Examples
 //
 //  Created by Jason Wray on 1/29/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DrawingAGeoJSONLineExample : UIViewController
+@interface LineAnnotationGeoJSONExample : UIViewController
 
 @end

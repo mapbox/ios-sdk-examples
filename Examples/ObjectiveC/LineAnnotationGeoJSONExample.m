@@ -1,13 +1,13 @@
-#import "DrawingAGeoJSONLineExample.h"
+#import "LineAnnotationGeoJSONExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleDrawingAGeoJSONLine = @"DrawingAGeoJSONLineExample";
+NSString *const MBXExampleLineAnnotationGeoJSON = @"LineAnnotationGeoJSONExample";
 
-@interface DrawingAGeoJSONLineExample () <MGLMapViewDelegate>
+@interface LineAnnotationGeoJSONExample () <MGLMapViewDelegate>
 @property (nonatomic) MGLMapView *mapView;
 @end
 
-@implementation DrawingAGeoJSONLineExample
+@implementation LineAnnotationGeoJSONExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];
