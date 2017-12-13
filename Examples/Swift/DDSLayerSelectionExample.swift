@@ -5,6 +5,7 @@ import Mapbox
 class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate {
     
     var mapView: MGLMapView!
+    let layerIdentifier = "state-layer"
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate {
         let source = MGLVectorSource(identifier: "state-source", configurationURL: url)
         style.addSource(source)
         
-        let layer = MGLFillStyleLayer(identifier: "state-layer", source: source)
+        let layer = MGLFillStyleLayer(identifier: layerIdentifier, source: source)
         
         // Access the tileset layer.
         layer.sourceLayerIdentifier = "stateData_2-dx853g"
@@ -51,10 +52,10 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate {
         let spot = gesture.location(in: mapView)
         
         // Access the features at that point within the state layer.
-        let features = mapView.visibleFeatures(at: spot, styleLayerIdentifiers: Set(["state-layer"]))
+        let features = mapView.visibleFeatures(at: spot, styleLayerIdentifiers: Set([layerIdentifier]))
         
         // Get the name of the selected state.
-        if let feature = features.first, let state = feature.attribute(forKey: "name") as? String{
+        if let feature = features.first, let state = feature.attribute(forKey: "name") as? String {
             changeOpacity(name: state)
         } else {
             changeOpacity(name: "")
@@ -62,7 +63,7 @@ class DDSLayerSelectionExample_Swift: UIViewController, MGLMapViewDelegate {
     }
     
     func changeOpacity(name: String) {
-        let layer = mapView.style?.layer(withIdentifier: "state-layer") as! MGLFillStyleLayer
+        let layer = mapView.style?.layer(withIdentifier: layerIdentifier) as! MGLFillStyleLayer
         
         // Check if a state was selected, then change the opacity of the states that were not selected.
         if name.count > 0 {

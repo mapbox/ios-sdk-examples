@@ -6,6 +6,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
 @interface DDSLayerSelectionExample () <MGLMapViewDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
+@property (nonatomic) NSString *layerIdentifier;
 
 @end
 
@@ -20,6 +21,9 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.mapView];
+
+    // Store the name of the style layer in which states will be drawn.
+    self.layerIdentifier = @"state-layer";
     
     // Add a tap gesture recognizer to the map view.
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
@@ -35,7 +39,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     MGLVectorSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"state-source" configurationURL:url];
     [style addSource:source];
 
-    MGLFillStyleLayer *layer = [[MGLFillStyleLayer alloc] initWithIdentifier:@"state-layer" source:source];
+    MGLFillStyleLayer *layer = [[MGLFillStyleLayer alloc] initWithIdentifier:self.layerIdentifier source:source];
     
     // Access the tileset layer.
     layer.sourceLayerIdentifier = @"stateData_2-dx853g";
@@ -66,7 +70,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
     
     // Access the features at that point within the state layer.
     NSArray *features = [self.mapView visibleFeaturesAtPoint:spot
-            inStyleLayersWithIdentifiers:[NSSet setWithObject:@"state-layer"]];
+                                inStyleLayersWithIdentifiers:[NSSet setWithObject:self.layerIdentifier]];
     
     MGLPolygonFeature *feature = features.firstObject;
     
@@ -77,7 +81,7 @@ NSString const *MBXExampleDDSLayerSelection = @"DDSLayerSelectionExample";
 }
 
 - (void)changeOpacityBasedOn:(NSString*)name {
-    MGLFillStyleLayer *layer = (MGLFillStyleLayer *)[self.mapView.style layerWithIdentifier:@"state-layer"];
+    MGLFillStyleLayer *layer = (MGLFillStyleLayer *)[self.mapView.style layerWithIdentifier:self.layerIdentifier];
     
     // Check if a state was selected, then change the opacity of the states that were not selected.
     if (name.length > 0) {
