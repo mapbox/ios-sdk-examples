@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(RuntimeAddLineExample_Swift)
+@objc(LineStyleLayerExample_Swift)
 
-class RuntimeAddLineExample_Swift: UIViewController, MGLMapViewDelegate {
+class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
 
     override func viewDidLoad() {

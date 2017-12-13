@@ -1,13 +1,13 @@
-#import "RuntimeAddLineExample.h"
+#import "LineStyleLayerExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleRuntimeAddLine = @"RuntimeAddLineExample";
+NSString *const MBXExampleLineStyleLayer = @"LineStyleLayerExample";
 
-@interface RuntimeAddLineExample () <MGLMapViewDelegate>
+@interface LineStyleLayerExample () <MGLMapViewDelegate>
 @property (nonatomic) MGLMapView *mapView;
 @end
 
-@implementation RuntimeAddLineExample
+@implementation LineStyleLayerExample
 
 - (void)viewDidLoad {
     [super viewDidLoad];
