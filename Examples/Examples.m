@@ -37,6 +37,7 @@
         MBXExampleImageSource,
         MBXExampleLight,
         MBXExampleMapSnapshotter,
+        MBExampleNavigation,
         MBXExampleLiveData,
         MBXExampleOfflinePack,
         MBXExamplePointConversion,
