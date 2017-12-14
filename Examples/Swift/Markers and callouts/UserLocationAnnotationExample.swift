@@ -72,7 +72,11 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
             
             // If the difference would be perceptible, rotate the arrow.
             if fabs(rotation) > 0.01 {
-                layer.setAffineTransform(CGAffineTransform.identity.rotated(by: rotation))
+                // Disable implicit animations of this rotation, which reduces lag between changes.
+                CATransaction.begin()
+                CATransaction.setDisableActions(true)
+                arrow.setAffineTransform(CGAffineTransform.identity.rotated(by: rotation))
+                CATransaction.commit()
             }
         } else {
             arrow.isHidden = true

@@ -41,7 +41,11 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
 
         // If the difference would be perceptible, rotate the arrow.
         if (fabs(rotation) > 0.01) {
-            self.layer.affineTransform = CGAffineTransformRotate(CGAffineTransformIdentity, rotation);
+            // Disable implicit animations of this rotation, which reduces lag between changes.
+            [CATransaction begin];
+            [CATransaction setDisableActions:YES];
+            _arrow.affineTransform = CGAffineTransformRotate(CGAffineTransformIdentity, rotation);
+            [CATransaction commit];
         }
     } else {
         _arrow.hidden = YES;
