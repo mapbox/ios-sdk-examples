@@ -12,7 +12,6 @@
 		050337461F7199DF007309B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050337441F7199DF007309B0 /* Main.storyboard */; };
 		050337481F7199DF007309B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 050337471F7199DF007309B0 /* Assets.xcassets */; };
 		0503374B1F7199DF007309B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050337491F7199DF007309B0 /* LaunchScreen.storyboard */; };
-		055ABCC11EFB139C0063BACA /* PolygonPatternExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 055ABCC01EFB139C0063BACA /* PolygonPatternExample.m */; };
 		055ABCC31EFB14AE0063BACA /* PolygonPatternExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055ABCC21EFB14AE0063BACA /* PolygonPatternExample.swift */; };
 		0587D7031F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */; };
 		0587D7061F9A466000209947 /* DDSCircleLayerTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */; };
@@ -20,6 +19,19 @@
 		05AB82451FBC09AB005FB704 /* NavigationTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AB82441FBC09AB005FB704 /* NavigationTutorialViewController.swift */; };
 		05AB82481FBC0D41005FB704 /* NavigationTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB82471FBC0D41005FB704 /* NavigationTutorialViewController.m */; };
 		05DB802F1F75A4AD00F73326 /* DocsCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DB802E1F75A4AD00F73326 /* DocsCodeTests.swift */; };
+		05FA53981FE2FA00001F3D7D /* SatelliteStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53941FE2F9FE001F3D7D /* SatelliteStyleExample.m */; };
+		05FA53991FE2FA00001F3D7D /* ThirdPartyVectorStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53951FE2F9FE001F3D7D /* ThirdPartyVectorStyleExample.m */; };
+		05FA539A1FE2FA00001F3D7D /* DefaultStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53961FE2F9FF001F3D7D /* DefaultStylesExample.m */; };
+		05FA539B1FE2FA00001F3D7D /* StudioClassicStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53971FE2F9FF001F3D7D /* StudioClassicStyleExample.m */; };
+		05FA53A01FE2FA1E001F3D7D /* LineAnnotationGeoJSONExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA539C1FE2FA1D001F3D7D /* LineAnnotationGeoJSONExample.m */; };
+		05FA53A11FE2FA1E001F3D7D /* PolygonPatternExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA539D1FE2FA1D001F3D7D /* PolygonPatternExample.m */; };
+		05FA53A21FE2FA1E001F3D7D /* PolygonAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA539E1FE2FA1D001F3D7D /* PolygonAnnotationExample.m */; };
+		05FA53A31FE2FA1E001F3D7D /* LineStyleLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA539F1FE2FA1E001F3D7D /* LineStyleLayerExample.m */; };
+		05FA53A61FE2FA34001F3D7D /* OfflinePackExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53A41FE2FA34001F3D7D /* OfflinePackExample.m */; };
+		05FA53A71FE2FA34001F3D7D /* StaticSnapshotExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53A51FE2FA34001F3D7D /* StaticSnapshotExample.m */; };
+		05FA53A91FE2FB46001F3D7D /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53A81FE2FB46001F3D7D /* CustomCalloutView.m */; };
+		05FA53AB1FE2FB9C001F3D7D /* CustomCalloutViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53AA1FE2FB9B001F3D7D /* CustomCalloutViewExample.m */; };
+		05FA53AD1FE2FBB3001F3D7D /* CalloutDelegateUsageExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53AC1FE2FBB2001F3D7D /* CalloutDelegateUsageExample.m */; };
 		079E77C51E1C4E2100F92FA8 /* camera.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079E77C41E1C4E2100F92FA8 /* camera.xcassets */; };
 		07C138C01E6F646F00D6F678 /* MultipleShapesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C138BF1E6F646F00D6F678 /* MultipleShapesExample.m */; };
 		07C138C21E6F65D000D6F678 /* MultipleShapesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C138C11E6F65D000D6F678 /* MultipleShapesExample.swift */; };
@@ -40,7 +52,6 @@
 		3E4574ED1FA3D8F1000C8CF1 /* radar.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E4574EC1FA3D8F1000C8CF1 /* radar.gif */; };
 		3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */; };
 		3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */; };
-		3EA5AA021FAD2E96007073C0 /* StaticSnapshotExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5AA011FAD2E95007073C0 /* StaticSnapshotExample.m */; };
 		3EA5AA041FAD2EC7007073C0 /* StaticSnapshotExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5AA031FAD2EC7007073C0 /* StaticSnapshotExample.swift */; };
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
 		3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */; };
@@ -69,7 +80,6 @@
 		4F1B1A74F32EB5E8C46C9A12 /* Pods_Examples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC12D8F1A97963D68BFA871 /* Pods_Examples.framework */; };
 		646B62971DEF6DAF000AA523 /* ShowHideLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62961DEF6DAF000AA523 /* ShowHideLayerExample.swift */; };
 		646B629C1DEF6DF1000AA523 /* ShowHideLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B629B1DEF6DF1000AA523 /* ShowHideLayerExample.m */; };
-		646B62A41DEF7115000AA523 /* LineStyleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62A31DEF7115000AA523 /* LineStyleLayer.m */; };
 		646B62A61DEF7121000AA523 /* AnimatedLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62A51DEF7121000AA523 /* AnimatedLineExample.m */; };
 		646B62AE1DEF7155000AA523 /* LineStyleLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62AD1DEF7155000AA523 /* LineStyleLayerExample.swift */; };
 		646B62B01DEF7161000AA523 /* AnimatedLineExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62AF1DEF7161000AA523 /* AnimatedLineExample.swift */; };
@@ -80,12 +90,10 @@
 		64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAF71DF2330B00BB705D /* SelectFeatureExample.m */; };
 		64BBDAFD1DF24DEB00BB705D /* WebAPIDataExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAFC1DF24DEB00BB705D /* WebAPIDataExample.m */; };
 		64BBDB031DF24E0900BB705D /* WebAPIDataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDB021DF24E0900BB705D /* WebAPIDataExample.swift */; };
-		64CF970C1DF224C500C3C27B /* ThirdPartyVectorStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970B1DF224C500C3C27B /* ThirdPartyVectorStyleExample.m */; };
 		64CF97101DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970F1DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift */; };
 		64CF97121DF224F600C3C27B /* RasterImageryExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97111DF224F600C3C27B /* RasterImageryExample.swift */; };
 		64CF97171DF2251500C3C27B /* RasterImageryExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97161DF2251500C3C27B /* RasterImageryExample.m */; };
 		960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */; };
-		96115A681CAD4E1C000963B8 /*  in Sources */ = {isa = PBXBuildFile; fileRef = 96115A671CAD4E1C000963B8 /*  */; };
 		961962911C581700002D3DAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962901C581700002D3DAB /* main.m */; };
 		961962941C581700002D3DAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962931C581700002D3DAB /* AppDelegate.m */; };
 		9619629C1C581700002D3DAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9619629B1C581700002D3DAB /* Assets.xcassets */; };
@@ -98,22 +106,14 @@
 		962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 962B450E1D1C8520007B7454 /* AnnotationViewExample.m */; };
 		964CB5111E42A0A3004549EA /* AnnotationViewsAndImagesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CB5101E42A0A3004549EA /* AnnotationViewsAndImagesExample.swift */; };
 		9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */; };
-		968247031C5BDCBB00494AB8 /*  in Sources */ = {isa = PBXBuildFile; fileRef = 968247021C5BDCBB00494AB8 /*  */; };
-		968247081C5BEBDC00494AB8 /*  in Sources */ = {isa = PBXBuildFile; fileRef = 968247071C5BEBDC00494AB8 /*  */; };
 		9682470F1C5BF12700494AB8 /* DefaultAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9682470E1C5BF12700494AB8 /* DefaultAnnotationExample.m */; };
-		968247131C5C0F0F00494AB8 /* Markers and Callouts in Sources */ = {isa = PBXBuildFile; fileRef = 968247121C5C0F0F00494AB8 /* Markers and Callouts */; };
-		9682471A1C5C115000494AB8 /*  in Sources */ = {isa = PBXBuildFile; fileRef = 968247191C5C115000494AB8 /*  */; };
 		9682471D1C5C123B00494AB8 /* example.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 9682471C1C5C123B00494AB8 /* example.geojson */; };
-		968247201C5C1C0400494AB8 /*  in Sources */ = {isa = PBXBuildFile; fileRef = 9682471F1C5C1C0400494AB8 /*  */; };
 		968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247261C5C1DC700494AB8 /* CameraAnimationExample.m */; };
 		9682472A1C5C1FF800494AB8 /* PointConversionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247291C5C1FF800494AB8 /* PointConversionExample.m */; };
 		9691AA941C5AA702006A58C6 /* Examples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AA931C5AA702006A58C6 /* Examples.m */; };
 		9691AAA71C5AAD8F006A58C6 /* StudioStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA21C5AAD8F006A58C6 /* StudioStyleExample.m */; };
-		9691AAA81C5AAD8F006A58C6 /*  in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA41C5AAD8F006A58C6 /*  */; };
 		9691AAA91C5AAD8F006A58C6 /* SimpleMapViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */; };
 		969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */; };
-		96A2A1CF1C8CA16C0059441E /* Markers and Callouts in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A1CE1C8CA16C0059441E /* Markers and Callouts */; };
-		96A2A1D21C8CA74B0059441E /* Markers and Callouts in Sources */ = {isa = PBXBuildFile; fileRef = 96A2A1D11C8CA74B0059441E /* Markers and Callouts */; };
 		96D431FC1C84B4F7007D09D1 /* ImageAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D431FB1C84B4F7007D09D1 /* ImageAnnotationExample.m */; };
 		96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D432051C84B9CF007D09D1 /* pisavector.xcassets */; };
 		ABDAFB44FD9859A9FE77424E /* Pods_DocsCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF6577E027F75C7D93ED70A6 /* Pods_DocsCode.framework */; };
@@ -172,7 +172,6 @@
 		0503374A1F7199DF007309B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0503374C1F7199DF007309B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		055ABCBF1EFB139C0063BACA /* PolygonPatternExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonPatternExample.h; sourceTree = "<group>"; };
-		055ABCC01EFB139C0063BACA /* PolygonPatternExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolygonPatternExample.m; sourceTree = "<group>"; };
 		055ABCC21EFB14AE0063BACA /* PolygonPatternExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonPatternExample.swift; sourceTree = "<group>"; };
 		0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDSCircleLayerTutorialViewController.swift; sourceTree = "<group>"; };
 		0587D7041F9A466000209947 /* DDSCircleLayerTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDSCircleLayerTutorialViewController.h; sourceTree = "<group>"; };
@@ -186,6 +185,19 @@
 		05DB802C1F75A4AD00F73326 /* DocsCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DocsCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DB802E1F75A4AD00F73326 /* DocsCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsCodeTests.swift; sourceTree = "<group>"; };
 		05DB80301F75A4AE00F73326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05FA53941FE2F9FE001F3D7D /* SatelliteStyleExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SatelliteStyleExample.m; sourceTree = "<group>"; };
+		05FA53951FE2F9FE001F3D7D /* ThirdPartyVectorStyleExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdPartyVectorStyleExample.m; sourceTree = "<group>"; };
+		05FA53961FE2F9FF001F3D7D /* DefaultStylesExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DefaultStylesExample.m; sourceTree = "<group>"; };
+		05FA53971FE2F9FF001F3D7D /* StudioClassicStyleExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudioClassicStyleExample.m; sourceTree = "<group>"; };
+		05FA539C1FE2FA1D001F3D7D /* LineAnnotationGeoJSONExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineAnnotationGeoJSONExample.m; sourceTree = "<group>"; };
+		05FA539D1FE2FA1D001F3D7D /* PolygonPatternExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolygonPatternExample.m; sourceTree = "<group>"; };
+		05FA539E1FE2FA1D001F3D7D /* PolygonAnnotationExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolygonAnnotationExample.m; sourceTree = "<group>"; };
+		05FA539F1FE2FA1E001F3D7D /* LineStyleLayerExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineStyleLayerExample.m; sourceTree = "<group>"; };
+		05FA53A41FE2FA34001F3D7D /* OfflinePackExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfflinePackExample.m; sourceTree = "<group>"; };
+		05FA53A51FE2FA34001F3D7D /* StaticSnapshotExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaticSnapshotExample.m; sourceTree = "<group>"; };
+		05FA53A81FE2FB46001F3D7D /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
+		05FA53AA1FE2FB9B001F3D7D /* CustomCalloutViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutViewExample.m; sourceTree = "<group>"; };
+		05FA53AC1FE2FBB2001F3D7D /* CalloutDelegateUsageExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutDelegateUsageExample.m; sourceTree = "<group>"; };
 		079E77C41E1C4E2100F92FA8 /* camera.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = camera.xcassets; sourceTree = "<group>"; };
 		07C138BE1E6F646F00D6F678 /* MultipleShapesExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleShapesExample.h; sourceTree = "<group>"; };
 		07C138BF1E6F646F00D6F678 /* MultipleShapesExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleShapesExample.m; sourceTree = "<group>"; };
@@ -220,7 +232,6 @@
 		3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveDataExample.m; sourceTree = "<group>"; };
 		3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDataExample.swift; sourceTree = "<group>"; };
 		3EA5AA001FAD2E95007073C0 /* StaticSnapshotExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaticSnapshotExample.h; sourceTree = "<group>"; };
-		3EA5AA011FAD2E95007073C0 /* StaticSnapshotExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaticSnapshotExample.m; sourceTree = "<group>"; };
 		3EA5AA031FAD2EC7007073C0 /* StaticSnapshotExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticSnapshotExample.swift; sourceTree = "<group>"; };
 		3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutDelegateUsageExample.swift; sourceTree = "<group>"; };
@@ -256,7 +267,6 @@
 		646B629E1DEF6DFD000AA523 /* ShowHideLayerExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowHideLayerExample.h; sourceTree = "<group>"; };
 		646B62A11DEF70DD000AA523 /* AnimatedLineExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimatedLineExample.h; sourceTree = "<group>"; };
 		646B62A21DEF7106000AA523 /* LineStyleLayerExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineStyleLayerExample.h; sourceTree = "<group>"; };
-		646B62A31DEF7115000AA523 /* LineStyleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineStyleLayer.m; sourceTree = "<group>"; };
 		646B62A51DEF7121000AA523 /* AnimatedLineExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedLineExample.m; sourceTree = "<group>"; };
 		646B62AD1DEF7155000AA523 /* LineStyleLayerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineStyleLayerExample.swift; sourceTree = "<group>"; };
 		646B62AF1DEF7161000AA523 /* AnimatedLineExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedLineExample.swift; sourceTree = "<group>"; };
@@ -270,7 +280,6 @@
 		64BBDAFB1DF24DD700BB705D /* WebAPIDataExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebAPIDataExample.h; sourceTree = "<group>"; };
 		64BBDAFC1DF24DEB00BB705D /* WebAPIDataExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebAPIDataExample.m; sourceTree = "<group>"; };
 		64BBDB021DF24E0900BB705D /* WebAPIDataExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebAPIDataExample.swift; sourceTree = "<group>"; };
-		64CF970B1DF224C500C3C27B /* ThirdPartyVectorStyleExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdPartyVectorStyleExample.m; sourceTree = "<group>"; };
 		64CF970E1DF224D400C3C27B /* ThirdPartyVectorStyleExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdPartyVectorStyleExample.h; sourceTree = "<group>"; };
 		64CF970F1DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdPartyVectorStyleExample.swift; sourceTree = "<group>"; };
 		64CF97111DF224F600C3C27B /* RasterImageryExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterImageryExample.swift; sourceTree = "<group>"; };
@@ -281,7 +290,6 @@
 		960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableAnnotationViewExample.h; sourceTree = "<group>"; };
 		960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableAnnotationViewExample.m; sourceTree = "<group>"; };
 		96115A661CAD4E1C000963B8 /* OfflinePackExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OfflinePackExample.h; path = Examples/ObjectiveC/OfflinePackExample.h; sourceTree = SOURCE_ROOT; };
-		96115A671CAD4E1C000963B8 /*  */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
 		9619628C1C581700002D3DAB /* Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Examples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961962901C581700002D3DAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		961962921C581700002D3DAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -308,18 +316,13 @@
 		9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationModelExample.m; sourceTree = "<group>"; };
 		9678E3F21CEF616700F21AE2 /* CustomAnnotationModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationModels.h; sourceTree = "<group>"; };
 		968247011C5BDCBB00494AB8 /* StudioClassicStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudioClassicStyleExample.h; path = Examples/ObjectiveC/StudioClassicStyleExample.h; sourceTree = SOURCE_ROOT; };
-		968247021C5BDCBB00494AB8 /*  */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
 		968247061C5BEBDC00494AB8 /* SatelliteStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SatelliteStyleExample.h; path = Examples/ObjectiveC/SatelliteStyleExample.h; sourceTree = SOURCE_ROOT; };
-		968247071C5BEBDC00494AB8 /*  */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
 		9682470D1C5BF12700494AB8 /* DefaultAnnotationExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultAnnotationExample.h; path = Examples/ObjectiveC/DefaultAnnotationExample.h; sourceTree = SOURCE_ROOT; };
 		9682470E1C5BF12700494AB8 /* DefaultAnnotationExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultAnnotationExample.m; path = "Examples/ObjectiveC/Getting Started/DefaultAnnotationExample.m"; sourceTree = SOURCE_ROOT; };
 		968247111C5C0F0F00494AB8 /* CalloutDelegateUsageExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalloutDelegateUsageExample.h; path = Examples/ObjectiveC/CalloutDelegateUsageExample.h; sourceTree = SOURCE_ROOT; };
-		968247121C5C0F0F00494AB8 /* Markers and Callouts */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = "Markers and Callouts"; path = "../../Swift/Markers and Callouts"; sourceTree = "<group>"; };
 		968247181C5C115000494AB8 /* LineAnnotationGeoJSONExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineAnnotationGeoJSONExample.h; path = Examples/ObjectiveC/LineAnnotationGeoJSONExample.h; sourceTree = SOURCE_ROOT; };
-		968247191C5C115000494AB8 /*  */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
 		9682471C1C5C123B00494AB8 /* example.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = example.geojson; path = ../Files/example.geojson; sourceTree = "<group>"; };
 		9682471E1C5C1C0400494AB8 /* PolygonAnnotationExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PolygonAnnotationExample.h; path = Examples/ObjectiveC/PolygonAnnotationExample.h; sourceTree = SOURCE_ROOT; };
-		9682471F1C5C1C0400494AB8 /*  */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
 		968247251C5C1DC700494AB8 /* CameraAnimationExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraAnimationExample.h; path = Examples/ObjectiveC/CameraAnimationExample.h; sourceTree = SOURCE_ROOT; };
 		968247261C5C1DC700494AB8 /* CameraAnimationExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraAnimationExample.m; path = "Examples/ObjectiveC/Getting Started/CameraAnimationExample.m"; sourceTree = SOURCE_ROOT; };
 		968247281C5C1FF800494AB8 /* PointConversionExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointConversionExample.h; path = Examples/ObjectiveC/PointConversionExample.h; sourceTree = SOURCE_ROOT; };
@@ -329,16 +332,13 @@
 		9691AAA11C5AAD8F006A58C6 /* StudioStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudioStyleExample.h; path = Examples/ObjectiveC/StudioStyleExample.h; sourceTree = SOURCE_ROOT; };
 		9691AAA21C5AAD8F006A58C6 /* StudioStyleExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudioStyleExample.m; path = "Examples/ObjectiveC/Getting Started/StudioStyleExample.m"; sourceTree = SOURCE_ROOT; };
 		9691AAA31C5AAD8F006A58C6 /* DefaultStylesExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultStylesExample.h; path = Examples/ObjectiveC/DefaultStylesExample.h; sourceTree = SOURCE_ROOT; };
-		9691AAA41C5AAD8F006A58C6 /*  */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
 		9691AAA51C5AAD8F006A58C6 /* SimpleMapViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleMapViewExample.h; path = Examples/ObjectiveC/SimpleMapViewExample.h; sourceTree = SOURCE_ROOT; };
 		9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SimpleMapViewExample.m; path = "Examples/ObjectiveC/Getting Started/SimpleMapViewExample.m"; sourceTree = SOURCE_ROOT; };
 		9691AAAA1C5AB546006A58C6 /* Examples-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Examples-Bridging-Header.h"; sourceTree = "<group>"; };
 		969E7FDB1D25C31700663F84 /* UserTrackingModesExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTrackingModesExample.h; sourceTree = "<group>"; };
 		969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTrackingModesExample.m; sourceTree = "<group>"; };
 		96A2A1CD1C8CA16C0059441E /* CustomCalloutViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCalloutViewExample.h; path = Examples/ObjectiveC/CustomCalloutViewExample.h; sourceTree = SOURCE_ROOT; };
-		96A2A1CE1C8CA16C0059441E /* Markers and Callouts */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = "Markers and Callouts"; path = "../../Swift/Markers and Callouts"; sourceTree = "<group>"; };
 		96A2A1D01C8CA74B0059441E /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCalloutView.h; path = Examples/ObjectiveC/CustomCalloutView.h; sourceTree = SOURCE_ROOT; };
-		96A2A1D11C8CA74B0059441E /* Markers and Callouts */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = "Markers and Callouts"; path = "../../Swift/Markers and Callouts"; sourceTree = "<group>"; };
 		96D431FA1C84B4F7007D09D1 /* ImageAnnotationExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageAnnotationExample.h; path = Examples/ObjectiveC/ImageAnnotationExample.h; sourceTree = SOURCE_ROOT; };
 		96D431FB1C84B4F7007D09D1 /* ImageAnnotationExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageAnnotationExample.m; path = "Examples/ObjectiveC/Markers and Callouts/ImageAnnotationExample.m"; sourceTree = SOURCE_ROOT; };
 		96D432051C84B9CF007D09D1 /* pisavector.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = pisavector.xcassets; sourceTree = "<group>"; };
@@ -539,10 +539,10 @@
 		05A809371FE1908D00E91C4D /* Map styles */ = {
 			isa = PBXGroup;
 			children = (
-				9691AAA41C5AAD8F006A58C6 /*  */,
-				968247071C5BEBDC00494AB8 /*  */,
-				968247021C5BDCBB00494AB8 /*  */,
-				64CF970B1DF224C500C3C27B /* ThirdPartyVectorStyleExample.m */,
+				05FA53961FE2F9FF001F3D7D /* DefaultStylesExample.m */,
+				05FA53941FE2F9FE001F3D7D /* SatelliteStyleExample.m */,
+				05FA53971FE2F9FF001F3D7D /* StudioClassicStyleExample.m */,
+				05FA53951FE2F9FE001F3D7D /* ThirdPartyVectorStyleExample.m */,
 			);
 			path = "Map styles";
 			sourceTree = "<group>";
@@ -552,10 +552,10 @@
 			children = (
 				962B450E1D1C8520007B7454 /* AnnotationViewExample.m */,
 				07F53B841E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m */,
-				968247121C5C0F0F00494AB8 /* Markers and Callouts */,
+				05FA53AC1FE2FBB2001F3D7D /* CalloutDelegateUsageExample.m */,
 				9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */,
-				96A2A1D11C8CA74B0059441E /* Markers and Callouts */,
-				96A2A1CE1C8CA16C0059441E /* Markers and Callouts */,
+				05FA53A81FE2FB46001F3D7D /* CustomCalloutView.m */,
+				05FA53AA1FE2FB9B001F3D7D /* CustomCalloutViewExample.m */,
 				96D431FB1C84B4F7007D09D1 /* ImageAnnotationExample.m */,
 				64BBDAFC1DF24DEB00BB705D /* WebAPIDataExample.m */,
 			);
@@ -566,10 +566,10 @@
 			isa = PBXGroup;
 			children = (
 				646B62A51DEF7121000AA523 /* AnimatedLineExample.m */,
-				968247191C5C115000494AB8 /*  */,
-				646B62A31DEF7115000AA523 /* LineStyleLayer.m */,
-				9682471F1C5C1C0400494AB8 /*  */,
-				055ABCC01EFB139C0063BACA /* PolygonPatternExample.m */,
+				05FA539C1FE2FA1D001F3D7D /* LineAnnotationGeoJSONExample.m */,
+				05FA539F1FE2FA1E001F3D7D /* LineStyleLayerExample.m */,
+				05FA539E1FE2FA1D001F3D7D /* PolygonAnnotationExample.m */,
+				05FA539D1FE2FA1D001F3D7D /* PolygonPatternExample.m */,
 			);
 			path = "Lines and Polygons";
 			sourceTree = "<group>";
@@ -613,8 +613,8 @@
 		05A8093D1FE191B900E91C4D /* Offline */ = {
 			isa = PBXGroup;
 			children = (
-				96115A671CAD4E1C000963B8 /*  */,
-				3EA5AA011FAD2E95007073C0 /* StaticSnapshotExample.m */,
+				05FA53A41FE2FA34001F3D7D /* OfflinePackExample.m */,
+				05FA53A51FE2FA34001F3D7D /* StaticSnapshotExample.m */,
 			);
 			path = Offline;
 			sourceTree = "<group>";
@@ -1376,6 +1376,7 @@
 				3E3FB6711F058A18004512C6 /* PointHotspotExample.m in Sources */,
 				07C138C71E72216E00D6F678 /* DDSCircleLayerExample.m in Sources */,
 				3EBCD7191DC28240001E342F /* CustomAnnotationModelExample.swift in Sources */,
+				05FA53AB1FE2FB9C001F3D7D /* CustomCalloutViewExample.m in Sources */,
 				962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */,
 				1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */,
 				3ED403411E006B5200230C95 /* CameraFlyToExample.swift in Sources */,
@@ -1383,11 +1384,9 @@
 				960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */,
 				1F1F84751E538ABB00332CC3 /* BlockingGesturesDelegateExample.m in Sources */,
 				646B62B41DEF9613000AA523 /* RuntimeCircleStylesExample.swift in Sources */,
-				055ABCC11EFB139C0063BACA /* PolygonPatternExample.m in Sources */,
 				07C138C41E721C8F00D6F678 /* DDSCircleLayerExample.swift in Sources */,
 				646B62BD1DEF965A000AA523 /* RuntimeCircleStylesExample.m in Sources */,
 				646B629C1DEF6DF1000AA523 /* ShowHideLayerExample.m in Sources */,
-				96A2A1CF1C8CA16C0059441E /* Markers and Callouts in Sources */,
 				07C138C21E6F65D000D6F678 /* MultipleShapesExample.swift in Sources */,
 				3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */,
 				9682470F1C5BF12700494AB8 /* DefaultAnnotationExample.m in Sources */,
@@ -1403,16 +1402,14 @@
 				64BBDB031DF24E0900BB705D /* WebAPIDataExample.swift in Sources */,
 				3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */,
 				646B62971DEF6DAF000AA523 /* ShowHideLayerExample.swift in Sources */,
-				968247201C5C1C0400494AB8 /*  in Sources */,
+				05FA539B1FE2FA00001F3D7D /* StudioClassicStyleExample.m in Sources */,
 				3EBCD7221DC28240001E342F /* LineAnnotationGeoJSONExample.swift in Sources */,
-				96A2A1D21C8CA74B0059441E /* Markers and Callouts in Sources */,
 				3E085B831EC526E500163C99 /* BuildingsExample.m in Sources */,
 				64BBDAF61DF232FD00BB705D /* SelectFeatureExample.swift in Sources */,
-				3EA5AA021FAD2E96007073C0 /* StaticSnapshotExample.m in Sources */,
 				64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */,
 				96D431FC1C84B4F7007D09D1 /* ImageAnnotationExample.m in Sources */,
-				968247031C5BDCBB00494AB8 /*  in Sources */,
 				3E3FB66B1F05888E004512C6 /* BuildingLightExample.swift in Sources */,
+				05FA539A1FE2FA00001F3D7D /* DefaultStylesExample.m in Sources */,
 				64CF97121DF224F600C3C27B /* RasterImageryExample.swift in Sources */,
 				3E3BFADC1E81D7BB00D0BEA1 /* FeatureSelectionExample.m in Sources */,
 				9682472A1C5C1FF800494AB8 /* PointConversionExample.m in Sources */,
@@ -1423,9 +1420,11 @@
 				3E085B801EC526C500163C99 /* BuildingsExample.swift in Sources */,
 				3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */,
 				3EA5AA041FAD2EC7007073C0 /* StaticSnapshotExample.swift in Sources */,
+				05FA53A91FE2FB46001F3D7D /* CustomCalloutView.m in Sources */,
+				05FA53A31FE2FA1E001F3D7D /* LineStyleLayerExample.m in Sources */,
 				3EBCD7231DC28240001E342F /* DefaultAnnotationExample.swift in Sources */,
 				961962911C581700002D3DAB /* main.m in Sources */,
-				968247131C5C0F0F00494AB8 /* Markers and Callouts in Sources */,
+				05FA53A21FE2FA1E001F3D7D /* PolygonAnnotationExample.m in Sources */,
 				3EBCD7251DC28240001E342F /* OfflinePackExample.swift in Sources */,
 				3EBCD71A1DC28240001E342F /* CustomAnnotationModels.swift in Sources */,
 				3E3BFAD91E81D7A300D0BEA1 /* FeatureSelectionExample.swift in Sources */,
@@ -1434,30 +1433,31 @@
 				3EBCD7201DC28240001E342F /* DraggableAnnotationViewExample.swift in Sources */,
 				3EBCD7281DC28240001E342F /* SimpleMapViewExample.swift in Sources */,
 				3EBCD7241DC28240001E342F /* PolygonAnnotationExample.swift in Sources */,
+				05FA53981FE2FA00001F3D7D /* SatelliteStyleExample.m in Sources */,
 				964CB5111E42A0A3004549EA /* AnnotationViewsAndImagesExample.swift in Sources */,
 				3EC11D271EA84091001AAAB8 /* PointHotspotExample.swift in Sources */,
-				9691AAA81C5AAD8F006A58C6 /*  in Sources */,
 				64CF97101DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift in Sources */,
 				3EBCD7211DC28240001E342F /* ImageAnnotationExample.swift in Sources */,
+				05FA53991FE2FA00001F3D7D /* ThirdPartyVectorStyleExample.m in Sources */,
 				3EBCD71E1DC28240001E342F /* StudioStyleExample.swift in Sources */,
-				968247081C5BEBDC00494AB8 /*  in Sources */,
 				64CF97171DF2251500C3C27B /* RasterImageryExample.m in Sources */,
 				3EBCD7271DC28240001E342F /* SatelliteStyleExample.swift in Sources */,
-				96115A681CAD4E1C000963B8 /*  in Sources */,
+				05FA53A61FE2FA34001F3D7D /* OfflinePackExample.m in Sources */,
 				3E22EF521F8821F800605203 /* ImageSourceExample.m in Sources */,
+				05FA53A71FE2FA34001F3D7D /* StaticSnapshotExample.m in Sources */,
 				3EBCD71C1DC28240001E342F /* CustomCalloutViewExample.swift in Sources */,
+				05FA53AD1FE2FBB3001F3D7D /* CalloutDelegateUsageExample.m in Sources */,
 				DDF943291E5DE63300545D0F /* ClusteringExample.m in Sources */,
 				3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */,
 				64BBDAFD1DF24DEB00BB705D /* WebAPIDataExample.m in Sources */,
+				05FA53A01FE2FA1E001F3D7D /* LineAnnotationGeoJSONExample.m in Sources */,
 				055ABCC31EFB14AE0063BACA /* PolygonPatternExample.swift in Sources */,
 				646B62AE1DEF7155000AA523 /* LineStyleLayerExample.swift in Sources */,
 				3EBCD71F1DC28240001E342F /* DefaultStylesExample.swift in Sources */,
 				DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */,
-				9682471A1C5C115000494AB8 /*  in Sources */,
-				64CF970C1DF224C500C3C27B /* ThirdPartyVectorStyleExample.m in Sources */,
 				3E22EF4F1F87F10C00605203 /* ImageSourceExample.swift in Sources */,
 				969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */,
-				646B62A41DEF7115000AA523 /* LineStyleLayer.m in Sources */,
+				05FA53A11FE2FA1E001F3D7D /* PolygonPatternExample.m in Sources */,
 				3E3FB66E1F0588B3004512C6 /* BuildingLightExample.m in Sources */,
 				968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */,
 				961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */,
