@@ -38,12 +38,12 @@
 		07C138C41E721C8F00D6F678 /* DDSCircleLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C138C31E721C8F00D6F678 /* DDSCircleLayerExample.swift */; };
 		07C138C71E72216E00D6F678 /* DDSCircleLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C138C61E72216E00D6F678 /* DDSCircleLayerExample.m */; };
 		07F53B851E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F53B841E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m */; };
-		3E1806101EAA800A004DB131 /* UserLocationAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E18060F1EAA800A004DB131 /* UserLocationAnnotationExample.m */; };
-		3E1806121EAA804B004DB131 /* UserLocationAnnotationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1806111EAA804B004DB131 /* UserLocationAnnotationExample.swift */; };
 		1F1F84751E538ABB00332CC3 /* BlockingGesturesDelegateExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */; };
 		1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */; };
 		3E085B801EC526C500163C99 /* BuildingsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B7F1EC526C500163C99 /* BuildingsExample.swift */; };
 		3E085B831EC526E500163C99 /* BuildingsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B821EC526E500163C99 /* BuildingsExample.m */; };
+		3E1806101EAA800A004DB131 /* UserLocationAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E18060F1EAA800A004DB131 /* UserLocationAnnotationExample.m */; };
+		3E1806121EAA804B004DB131 /* UserLocationAnnotationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1806111EAA804B004DB131 /* UserLocationAnnotationExample.swift */; };
 		3E22EF4F1F87F10C00605203 /* ImageSourceExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */; };
 		3E22EF521F8821F800605203 /* ImageSourceExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E22EF511F8821F800605203 /* ImageSourceExample.m */; };
 		3E3BFAD91E81D7A300D0BEA1 /* FeatureSelectionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFAD81E81D7A300D0BEA1 /* FeatureSelectionExample.swift */; };
@@ -219,6 +219,9 @@
 		3E085B7F1EC526C500163C99 /* BuildingsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingsExample.swift; sourceTree = "<group>"; };
 		3E085B811EC526E500163C99 /* BuildingsExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingsExample.h; sourceTree = "<group>"; };
 		3E085B821EC526E500163C99 /* BuildingsExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingsExample.m; sourceTree = "<group>"; };
+		3E18060E1EAA800A004DB131 /* UserLocationAnnotationExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLocationAnnotationExample.h; sourceTree = "<group>"; };
+		3E18060F1EAA800A004DB131 /* UserLocationAnnotationExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLocationAnnotationExample.m; sourceTree = "<group>"; };
+		3E1806111EAA804B004DB131 /* UserLocationAnnotationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocationAnnotationExample.swift; sourceTree = "<group>"; };
 		3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSourceExample.swift; sourceTree = "<group>"; };
 		3E22EF501F8821F800605203 /* ImageSourceExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageSourceExample.h; sourceTree = "<group>"; };
 		3E22EF511F8821F800605203 /* ImageSourceExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageSourceExample.m; sourceTree = "<group>"; };
@@ -228,9 +231,6 @@
 		3E3FB66A1F05888E004512C6 /* BuildingLightExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingLightExample.swift; sourceTree = "<group>"; };
 		3E3FB66C1F0588B3004512C6 /* BuildingLightExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildingLightExample.h; sourceTree = "<group>"; };
 		3E3FB66D1F0588B3004512C6 /* BuildingLightExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildingLightExample.m; sourceTree = "<group>"; };
-		3E18060E1EAA800A004DB131 /* UserLocationAnnotationExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLocationAnnotationExample.h; sourceTree = "<group>"; };
-		3E18060F1EAA800A004DB131 /* UserLocationAnnotationExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLocationAnnotationExample.m; sourceTree = "<group>"; };
-		3E1806111EAA804B004DB131 /* UserLocationAnnotationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocationAnnotationExample.swift; sourceTree = "<group>"; };
 		3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PointHotspotExample.m; sourceTree = "<group>"; };
 		3E4574EC1FA3D8F1000C8CF1 /* radar.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = radar.gif; sourceTree = "<group>"; };
 		3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveDataExample.h; sourceTree = "<group>"; };
@@ -464,6 +464,7 @@
 				3EBCD7081DC28240001E342F /* CustomCalloutViewExample.swift */,
 				3EBCD70F1DC28240001E342F /* DefaultAnnotationExample.swift */,
 				3EBCD70D1DC28240001E342F /* ImageAnnotationExample.swift */,
+				3E1806111EAA804B004DB131 /* UserLocationAnnotationExample.swift */,
 				64BBDB021DF24E0900BB705D /* WebAPIDataExample.swift */,
 			);
 			path = "Markers and callouts";
@@ -561,6 +562,7 @@
 				05FA53AA1FE2FB9B001F3D7D /* CustomCalloutViewExample.m */,
 				9682470E1C5BF12700494AB8 /* DefaultAnnotationExample.m */,
 				96D431FB1C84B4F7007D09D1 /* ImageAnnotationExample.m */,
+				3E18060F1EAA800A004DB131 /* UserLocationAnnotationExample.m */,
 				64BBDAFC1DF24DEB00BB705D /* WebAPIDataExample.m */,
 			);
 			path = "Markers and callouts";
@@ -665,7 +667,6 @@
 				05A8093B1FE1915C00E91C4D /* 3D */,
 				05A8093D1FE191B900E91C4D /* Offline */,
 				9682472D1C5C226D00494AB8 /* Headers */,
-				3E18060F1EAA800A004DB131 /* UserLocationAnnotationExample.m */,
 			);
 			name = "Objective-C";
 			sourceTree = "<group>";
@@ -681,7 +682,6 @@
 				05A809321FE18A8A00E91C4D /* User interaction */,
 				05A809341FE18EB400E91C4D /* 3D */,
 				05A809351FE18EFD00E91C4D /* Offline */,
-				3E1806111EAA804B004DB131 /* UserLocationAnnotationExample.swift */,
 			);
 			name = Swift;
 			path = ../Swift;
