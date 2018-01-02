@@ -39,22 +39,20 @@ NSString *const MBXExamplePointHotspot = @"PointHotspotExample";
 
     // Create a stops dictionary. The keys represent the number of points in a cluster.
     NSDictionary *stops = @{
-                            @0: [MGLStyleValue valueWithRawValue:[UIColor yellowColor]],
-                            @20.0: [MGLStyleValue valueWithRawValue:[UIColor orangeColor]],
-                            @150.0: [MGLStyleValue valueWithRawValue:[UIColor redColor]],
+                            @0: [NSExpression expressionForConstantValue:[UIColor yellowColor]],
+                            @20.0: [NSExpression expressionForConstantValue:[UIColor orangeColor]],
+                            @150.0: [NSExpression expressionForConstantValue:[UIColor redColor]],
                             };
     
     
     // Create and style the clustered circle layer.
     MGLCircleStyleLayer *clusteredLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clustered layer" source:earthquakeSource];
-    clusteredLayer.circleColor = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-                                                sourceStops:stops
-                                                attributeName:@"point_count"
-                                                options:@{MGLStyleFunctionOptionDefaultValue: [MGLConstantStyleValue valueWithRawValue:[UIColor yellowColor]]}];
-    
-    clusteredLayer.circleRadius = [MGLConstantStyleValue valueWithRawValue:@70];
-    clusteredLayer.circleOpacity = [MGLConstantStyleValue valueWithRawValue:@0.5];
-    clusteredLayer.circleBlur = [MGLConstantStyleValue valueWithRawValue:@1];
+    // TODO: Convert default value.
+    clusteredLayer.circleColor = [NSExpression expressionWithFormat:@"FUNCTION(point_count, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", stops];
+//
+//    clusteredLayer.circleRadius = [MGLConstantStyleValue valueWithRawValue:@70];
+//    clusteredLayer.circleOpacity = [MGLConstantStyleValue valueWithRawValue:@0.5];
+//    clusteredLayer.circleBlur = [MGLConstantStyleValue valueWithRawValue:@1];
     
     [style insertLayer:clusteredLayer belowLayer:symbolLayer];
 }

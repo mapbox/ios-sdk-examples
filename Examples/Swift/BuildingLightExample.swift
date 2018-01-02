@@ -67,10 +67,10 @@ class BuildingLightExample: UIViewController, MGLMapViewDelegate {
         let source = style.source(withIdentifier: "composite")!
         let layer = MGLFillExtrusionStyleLayer(identifier: "extrusion-layer", source: source)
         layer.sourceLayerIdentifier = "building"
-        layer.fillExtrusionBase = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "min_height", options: nil)
-        layer.fillExtrusionHeight = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "height", options: nil)
-        layer.fillExtrusionOpacity = MGLStyleValue(rawValue: 0.75)
-        layer.fillExtrusionColor = MGLStyleValue(rawValue: .white)
+//        layer.fillExtrusionBase = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "min_height", options: nil)
+//        layer.fillExtrusionHeight = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "height", options: nil)
+//        layer.fillExtrusionOpacity = MGLStyleValue(rawValue: 0.75)
+//        layer.fillExtrusionColor = MGLStyleValue(rawValue: .white)
         
         // Access the map's layer with the identifier "poi-scalerank3" and insert the fill extrusion layer below it.
         let symbolLayer = style.layer(withIdentifier: "poi-scalerank3")!

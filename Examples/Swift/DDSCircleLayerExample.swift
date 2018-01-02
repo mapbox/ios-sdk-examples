@@ -47,12 +47,12 @@ class DDSCircleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         ]
         
         // Style the circle layer color based on the above categorical stops
-        layer.circleColor = MGLStyleValue<UIColor>(interpolationMode: .interval,
-            sourceStops: stops,
-            attributeName: "AGE",
-            options: nil)
-        
-        layer.circleRadius = MGLStyleValue(rawValue: 3)
+//        layer.circleColor = MGLStyleValue<UIColor>(interpolationMode: .interval,
+//            sourceStops: stops,
+//            attributeName: "AGE",
+//            options: nil)
+//        
+//        layer.circleRadius = MGLStyleValue(rawValue: 3)
         
         style.addLayer(layer)
     }

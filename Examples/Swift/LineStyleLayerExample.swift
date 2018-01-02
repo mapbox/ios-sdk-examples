@@ -67,10 +67,10 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         // We can also add a second layer that will draw a stroke around the original line.
         let casingLayer = MGLLineStyleLayer(identifier: "polyline-case", source: source)
 //        // Copy these attributes from the main line layer.
-//        casingLayer.lineJoin = layer.lineJoin
-//        casingLayer.lineCap = layer.lineCap
+        casingLayer.lineJoin = layer.lineJoin
+        casingLayer.lineCap = layer.lineCap
 //        // Line gap width represents the space before the outline begins, so should match the main line’s line width exactly.
-//        casingLayer.lineGapWidth = layer.lineWidth
+        casingLayer.lineGapWidth = layer.lineWidth
 //        // Stroke color slightly darker than the line color.
 //        casingLayer.lineColor = MGLStyleValue(rawValue: UIColor(red: 41/255, green:145/255, blue:171/255, alpha:1))
 //        // Use a style function to gradually increase the stroke width between zoom levels 14 and 18.

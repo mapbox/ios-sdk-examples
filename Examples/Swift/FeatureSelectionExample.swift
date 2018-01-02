@@ -39,7 +39,7 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
                      1200: MGLStyleValue(rawValue: UIColor.blue)]
         
         // Style the fill color using the stops dictionary, exponential interpolation mode, and the feature attribute name.
-        layer.fillColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "density", options: [.defaultValue: MGLStyleValue(rawValue: UIColor.white)])
+//        layer.fillColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "density", options: [.defaultValue: MGLStyleValue(rawValue: UIColor.white)])
         
         // Insert the new layer below the Mapbox Streets layer that contains state border lines. See the layer reference for more information about layer names: https://www.mapbox.com/vector-tiles/mapbox-streets-v7/
         let symbolLayer = style.layer(withIdentifier: "admin-3-4-boundaries")
@@ -67,10 +67,10 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
         
         // Check if a state was selected, then change the opacity of the states that were not selected.
         if name.count > 0 {
-            layer.fillOpacity = MGLStyleValue(interpolationMode: .categorical, sourceStops: [name: MGLStyleValue<NSNumber>(rawValue: 1)], attributeName: "name", options: [.defaultValue: MGLStyleValue<NSNumber>(rawValue: 0)])
+//            layer.fillOpacity = MGLStyleValue(interpolationMode: .categorical, sourceStops: [name: MGLStyleValue<NSNumber>(rawValue: 1)], attributeName: "name", options: [.defaultValue: MGLStyleValue<NSNumber>(rawValue: 0)])
         } else {
             // Reset the opacity for all states if the user did not tap on a state.
-            layer.fillOpacity = MGLStyleValue(rawValue: 1)
+//            layer.fillOpacity = MGLStyleValue(rawValue: 1)
         }
     }
 }

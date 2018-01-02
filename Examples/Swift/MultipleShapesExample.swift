@@ -49,18 +49,18 @@ class MultipleShapesExample_Swift: UIViewController, MGLMapViewDelegate {
         
         // Use a predicate to filter out non-points.
         circleLayer.predicate = NSPredicate(format: "TYPE = 'Station'")
-        circleLayer.circleColor = MGLStyleValue(rawValue: .red)
-        circleLayer.circleRadius = MGLStyleValue(rawValue: 6)
-        circleLayer.circleStrokeWidth = MGLStyleValue(rawValue: 2)
-        circleLayer.circleStrokeColor = MGLStyleValue(rawValue: .black)
+//        circleLayer.circleColor = MGLStyleValue(rawValue: .red)
+//        circleLayer.circleRadius = MGLStyleValue(rawValue: 6)
+//        circleLayer.circleStrokeWidth = MGLStyleValue(rawValue: 2)
+//        circleLayer.circleStrokeColor = MGLStyleValue(rawValue: .black)
         
         // Create line style layer.
         let lineLayer = MGLLineStyleLayer(identifier: "rail-line", source: source)
         
         // Use a predicate to filter out the stations.
         lineLayer.predicate = NSPredicate(format: "TYPE = 'Rail line'")
-        lineLayer.lineColor = MGLStyleValue(rawValue: .red)
-        lineLayer.lineWidth = MGLStyleValue(rawValue: 2)
+//        lineLayer.lineColor = MGLStyleValue(rawValue: .red)
+//        lineLayer.lineWidth = MGLStyleValue(rawValue: 2)
         
         // Add style layers to the map view's style.
         style.addLayer(circleLayer)

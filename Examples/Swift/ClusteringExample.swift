@@ -33,9 +33,9 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Show unclustered features as icons. The `cluster` attribute is built into clustering-enabled source features.
         let ports = MGLSymbolStyleLayer(identifier: "ports", source: source)
-        ports.iconImageName = MGLStyleValue(rawValue: "icon")
-        ports.iconColor = MGLStyleValue(rawValue: UIColor.darkGray.withAlphaComponent(0.9))
-        ports.predicate = NSPredicate(format: "%K != YES", "cluster")
+//        ports.iconImageName = MGLStyleValue(rawValue: "icon")
+//        ports.iconColor = MGLStyleValue(rawValue: UIColor.darkGray.withAlphaComponent(0.9))
+//        ports.predicate = NSPredicate(format: "%K != YES", "cluster")
         style.addLayer(ports)
 
         // Color clustered features based on clustered point counts.
@@ -48,24 +48,24 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
         let circlesLayer = MGLCircleStyleLayer(identifier: "clusteredPorts", source: source)
-        circlesLayer.circleRadius = MGLStyleValue(rawValue: NSNumber(value: Double(icon.size.width) / 2))
-        circlesLayer.circleOpacity = MGLStyleValue(rawValue: 0.75)
-        circlesLayer.circleStrokeColor = MGLStyleValue(rawValue: UIColor.white.withAlphaComponent(0.75))
-        circlesLayer.circleStrokeWidth = MGLStyleValue(rawValue: 2)
-        circlesLayer.circleColor = MGLSourceStyleFunction(interpolationMode: .interval,
-                                                          stops: stops,
-                                                          attributeName: "point_count",
-                                                          options: nil)
+//        circlesLayer.circleRadius = MGLStyleValue(rawValue: NSNumber(value: Double(icon.size.width) / 2))
+//        circlesLayer.circleOpacity = MGLStyleValue(rawValue: 0.75)
+//        circlesLayer.circleStrokeColor = MGLStyleValue(rawValue: UIColor.white.withAlphaComponent(0.75))
+//        circlesLayer.circleStrokeWidth = MGLStyleValue(rawValue: 2)
+//        circlesLayer.circleColor = MGLSourceStyleFunction(interpolationMode: .interval,
+//                                                          stops: stops,
+//                                                          attributeName: "point_count",
+//                                                          options: nil)
         circlesLayer.predicate = NSPredicate(format: "%K == YES", "cluster")
         style.addLayer(circlesLayer)
 
         // Label cluster circles with a layer of text indicating feature count. Per text token convention, wrap the attribute in {}.
         let numbersLayer = MGLSymbolStyleLayer(identifier: "clusteredPortsNumbers", source: source)
-        numbersLayer.textColor = MGLStyleValue(rawValue: UIColor.white)
-        numbersLayer.textFontSize = MGLStyleValue(rawValue: NSNumber(value: Double(icon.size.width) / 2))
-        numbersLayer.iconAllowsOverlap = MGLStyleValue(rawValue: true)
-        numbersLayer.text = MGLStyleValue(rawValue: "{point_count}")
-        numbersLayer.predicate = NSPredicate(format: "%K == YES", "cluster")
+//        numbersLayer.textColor = MGLStyleValue(rawValue: UIColor.white)
+//        numbersLayer.textFontSize = MGLStyleValue(rawValue: NSNumber(value: Double(icon.size.width) / 2))
+//        numbersLayer.iconAllowsOverlap = MGLStyleValue(rawValue: true)
+//        numbersLayer.text = MGLStyleValue(rawValue: "{point_count}")
+//        numbersLayer.predicate = NSPredicate(format: "%K == YES", "cluster")
         style.addLayer(numbersLayer)
 
         // Add a tap gesture for zooming in to clusters or showing popups on individual features.
