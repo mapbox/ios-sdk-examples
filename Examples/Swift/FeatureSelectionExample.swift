@@ -34,11 +34,13 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
         layer.sourceLayerIdentifier = "stateData_2-dx853g"
         
         // Create a stops dictionary. This defines the relationship between population density and a UIColor.
-        let stops = [0: MGLStyleValue(rawValue: UIColor.yellow),
-                     600: MGLStyleValue(rawValue: UIColor.red),
-                     1200: MGLStyleValue(rawValue: UIColor.blue)]
+        let stops = [0: NSExpression(forConstantValue: UIColor.yellow),
+                     600: NSExpression(forConstantValue: UIColor.red),
+                     1200: NSExpression(forConstantValue: UIColor.blue)]
         
         // Style the fill color using the stops dictionary, exponential interpolation mode, and the feature attribute name.
+        // TODO: Default value
+        layer.fillColor = NSExpression(format: "FUNCTION(density, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", stops)
 //        layer.fillColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "density", options: [.defaultValue: MGLStyleValue(rawValue: UIColor.white)])
         
         // Insert the new layer below the Mapbox Streets layer that contains state border lines. See the layer reference for more information about layer names: https://www.mapbox.com/vector-tiles/mapbox-streets-v7/
@@ -67,10 +69,17 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
         
         // Check if a state was selected, then change the opacity of the states that were not selected.
         if name.count > 0 {
+            // TODO: IDEK
+//            layer.fillOpacity = NSExpression(format: "FUNCTION(name, 'mgl_numberWithFallbackValues:', %@)", 0)
+//            layer.fillOpacity = NSExpression(format:
+//                "TERNARY(name, '%@', %@)",
+//                                             name, 1)
+            
+            
 //            layer.fillOpacity = MGLStyleValue(interpolationMode: .categorical, sourceStops: [name: MGLStyleValue<NSNumber>(rawValue: 1)], attributeName: "name", options: [.defaultValue: MGLStyleValue<NSNumber>(rawValue: 0)])
         } else {
             // Reset the opacity for all states if the user did not tap on a state.
-//            layer.fillOpacity = MGLStyleValue(rawValue: 1)
+            layer.fillOpacity = NSExpression(forConstantValue: 1)
         }
     }
 }

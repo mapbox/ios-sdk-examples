@@ -49,19 +49,18 @@ class RuntimeCircleStylesExample_Swift: UIViewController, MGLMapViewDelegate {
             layer.sourceLayerIdentifier = "sf2010"
 
             // Use a style function to smoothly adjust the circle radius from 2pt to 180pt between zoom levels 12 and 22. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
-//            layer.circleRadius = MGLStyleValue(interpolationMode: .exponential,
-//                cameraStops: [12: MGLStyleValue(rawValue: 2),
-//                              22: MGLStyleValue(rawValue: 180)],
-//                options: [.defaultValue : 1.75])
-//            
-//            layer.circleOpacity = MGLStyleValue(rawValue: 0.7)
+            // TODO: Default Value
+            layer.circleRadius = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", [12: NSExpression(forConstantValue: 2),
+                            22: NSExpression(forConstantValue: 180)])
+            layer.circleOpacity =  NSExpression(forConstantValue: 0.7)
 //
 //            // Set the circle color to match the ethnicity.
-//            layer.circleColor = MGLStyleValue(rawValue: color)
-//            
+            layer.circleColor = NSExpression(forConstantValue: color)
+//
             // Use an NSPredicate to filter to just one ethnicity for this layer.
             layer.predicate = NSPredicate(format: "ethnicity == %@", ethnicity)
             
+            // TODO: Change to insert below labels
             style.addLayer(layer)
         }
     }

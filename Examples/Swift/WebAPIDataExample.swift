@@ -49,12 +49,12 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
         let circles = MGLCircleStyleLayer(identifier: "lighthouse-circles", source: source)
         circles.circleColor = NSExpression(forConstantValue: lighthouseColor)
         
-        let opacityStops = [2: NSExpression(forConstantValue: 0.5),
-                            7: NSExpression(forConstantValue: 1)]
+        let opacityStops = [2: 0.5,
+                            7: 1]
         circles.circleOpacity = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", opacityStops)
         
-        let radiusStops = [2: NSExpression(forConstantValue: 2),
-                           7: NSExpression(forConstantValue: 3)]
+        let radiusStops = [2: 2,
+                           7: 3]
         circles.circleRadius = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", radiusStops)
 
         // Use MGLSymbolStyleLayer for more complex styling of points including custom icons and text rendering.
@@ -72,8 +72,8 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
 //        // {name} references the "name" key in an MGLPointFeature’s attributes dictionary.
         symbols.text = NSExpression(forConstantValue: "{name}")
         symbols.textColor = symbols.iconColor
-        symbols.textFontSize = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", [10: NSExpression(forConstantValue: 10),
-                                                                                                                                                  16: NSExpression(forConstantValue: 16)])
+        symbols.textFontSize = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", [10: 10,
+                                                                                                                                                  16: 16])
         symbols.textTranslation = NSExpression(forConstantValue: NSValue(cgVector: CGVector(dx: 10, dy: 0)))
         symbols.textOpacity = symbols.iconOpacity
         symbols.textHaloColor = symbols.iconHaloColor

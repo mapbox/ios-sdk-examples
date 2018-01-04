@@ -39,37 +39,43 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 
     // Show unclustered features as icons. The `cluster` attribute is built into clustering-enabled source features.
     MGLSymbolStyleLayer *ports = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"ports" source:source];
-    ports.iconImageName = [MGLStyleValue valueWithRawValue:@"icon"];
-    ports.iconColor = [MGLStyleValue valueWithRawValue:[[UIColor darkGrayColor] colorWithAlphaComponent:0.9]];
+    ports.iconImageName = [NSExpression expressionForConstantValue:@"icon"];
+    ports.iconColor = [NSExpression expressionForConstantValue:[[UIColor darkGrayColor] colorWithAlphaComponent:0.9]];
     ports.predicate = [NSPredicate predicateWithFormat:@"%K != YES", @"cluster"];
     [style addLayer:ports];
 
     // Color clustered features based on clustered point counts.
-    NSDictionary *stops = @{ @20:  [MGLStyleValue valueWithRawValue:[UIColor lightGrayColor]],
-                             @50:  [MGLStyleValue valueWithRawValue:[UIColor orangeColor]],
-                             @100: [MGLStyleValue valueWithRawValue:[UIColor redColor]],
-                             @200: [MGLStyleValue valueWithRawValue:[UIColor purpleColor]] };
+//    NSDictionary *stops = @{ @20:  [MGLStyleValue valueWithRawValue:[UIColor lightGrayColor]],
+//                             @50:  [MGLStyleValue valueWithRawValue:[UIColor orangeColor]],
+//                             @100: [MGLStyleValue valueWithRawValue:[UIColor redColor]],
+//                             @200: [MGLStyleValue valueWithRawValue:[UIColor purpleColor]] };
 
+    NSDictionary *stops = @{ @20:  [NSExpression expressionForConstantValue:[UIColor lightGrayColor]],
+                             @50:  [NSExpression expressionForConstantValue:[UIColor orangeColor]],
+                             @100: [NSExpression expressionForConstantValue:[UIColor redColor]],
+                             @200: [NSExpression expressionForConstantValue:[UIColor purpleColor]] };
     // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
     MGLCircleStyleLayer *circlesLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clusteredPorts" source:source];
-    circlesLayer.circleRadius = [MGLStyleValue valueWithRawValue:@(self.icon.size.width / 2)];
-    circlesLayer.circleOpacity = [MGLStyleValue valueWithRawValue:@0.75];
-    circlesLayer.circleStrokeColor = [MGLStyleValue valueWithRawValue:[[UIColor whiteColor] colorWithAlphaComponent:0.75]];
-    circlesLayer.circleStrokeWidth = [MGLStyleValue valueWithRawValue:@2];
-    circlesLayer.circleColor = [MGLSourceStyleFunction
-        functionWithInterpolationMode:MGLInterpolationModeInterval
-                                stops:stops
-                        attributeName:@"point_count"
-                              options:nil];
+    circlesLayer.circleRadius = [NSExpression expressionForConstantValue:@(self.icon.size.width / 2)];
+    circlesLayer.circleOpacity = [NSExpression expressionForConstantValue:@0.75];
+    circlesLayer.circleStrokeColor = [NSExpression expressionForConstantValue:[[UIColor whiteColor] colorWithAlphaComponent:0.75]];
+    circlesLayer.circleStrokeWidth = [NSExpression expressionForConstantValue:@2];
+    circlesLayer.circleColor = [NSExpression expressionWithFormat:@"FUNCTION(point_count, 'mgl_stepWithMinimum:stops:', %@, %@)",
+                                [UIColor lightGrayColor], stops];
+//    circlesLayer.circleColor = [MGLSourceStyleFunction
+//        functionWithInterpolationMode:MGLInterpolationModeInterval
+//                                stops:stops
+//                        attributeName:@"point_count"
+//                              options:nil];
     circlesLayer.predicate = [NSPredicate predicateWithFormat:@"%K == YES", @"cluster"];
     [style addLayer:circlesLayer];
 
     // Label cluster circles with a layer of text indicating feature count. Per text token convention, wrap the attribute in {}.
     MGLSymbolStyleLayer *numbersLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"clusteredPortsNumbers" source:source];
-    numbersLayer.textColor = [MGLStyleValue valueWithRawValue:[UIColor whiteColor]];
-    numbersLayer.textFontSize = [MGLStyleValue valueWithRawValue:@(self.icon.size.width / 2)];
-    numbersLayer.iconAllowsOverlap = [MGLStyleValue valueWithRawValue:@(YES)];
-    numbersLayer.text = [MGLStyleValue valueWithRawValue:@"{point_count}"];
+    numbersLayer.textColor = [NSExpression expressionForConstantValue:[UIColor whiteColor]];
+    numbersLayer.textFontSize = [NSExpression expressionForConstantValue:@(self.icon.size.width / 2)];
+    numbersLayer.iconAllowsOverlap = [NSExpression expressionForConstantValue:@(YES)];
+    numbersLayer.text = [NSExpression expressionForConstantValue:@"{point_count}"];
     numbersLayer.predicate = [NSPredicate predicateWithFormat:@"%K == YES", @"cluster"];
     [style addLayer:numbersLayer];
 

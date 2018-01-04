@@ -34,7 +34,7 @@ class RasterImageryExample_Swift: UIViewController, MGLMapViewDelegate {
     }
     
     @objc func updateLayerOpacity(_ sender: UISlider) {
-//        rasterLayer?.rasterOpacity = MGLStyleValue(rawValue: NSNumber(value: sender.value))
+        rasterLayer?.rasterOpacity = NSExpression(forConstantValue: NSNumber(value: sender.value))
     }
 
     func addSlider() {

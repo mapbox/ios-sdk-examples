@@ -36,17 +36,13 @@ class PointHotspotExample_Swift: UIViewController, MGLMapViewDelegate {
             20.0: NSExpression(forConstantValue: UIColor.orange),
             150.0: NSExpression(forConstantValue: UIColor.red)
         ]
-        // TODO: Default style value, fix this exception
+        // TODO: Default style value
         // Create and style the clustered circle layer.
         let clusteredLayer = MGLCircleStyleLayer(identifier: "clustered layer", source: earthquakeSource)
-//                clusteredLayer.circleColor = NSExpression(format: "FUNCTION(point_count, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, \(stops)")
         clusteredLayer.circleColor = NSExpression(format: "FUNCTION(point_count, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", stops)
-        //
-        clusteredLayer.circleRadius = NSExpression(forConstantValue: 70)
-//        clusteredLayer.circleColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "point_count", options: [.defaultValue: MGLStyleValue<UIColor>(rawValue: .yellow)])
-//        clusteredLayer.circleRadius = MGLConstantStyleValue(rawValue: NSNumber(integerLiteral: 70))
-//        clusteredLayer.circleOpacity = MGLConstantStyleValue(rawValue: 0.5)
-//        clusteredLayer.circleBlur = MGLConstantStyleValue(rawValue: 1)
+        clusteredLayer.circleRadius = NSExpression(forConstantValue: NSNumber(integerLiteral: 70))
+        clusteredLayer.circleOpacity = NSExpression(forConstantValue: 0.5)
+        clusteredLayer.circleBlur = NSExpression(forConstantValue: 1)
         
         style.insertLayer(clusteredLayer, below: symbolLayer)
     }

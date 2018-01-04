@@ -39,20 +39,17 @@ class DDSCircleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         
         // Stops based on age of tree in years.
         let stops = [
-          0: MGLStyleValue(rawValue: UIColor(red:1.00, green:0.72, blue:0.85, alpha:1.0)),
-          2: MGLStyleValue(rawValue: UIColor(red:0.69, green:0.48, blue:0.73, alpha:1.0)),
-          4: MGLStyleValue(rawValue: UIColor(red:0.61, green:0.31, blue:0.47, alpha:1.0)),
-          7: MGLStyleValue(rawValue: UIColor(red:0.43, green:0.20, blue:0.38, alpha:1.0)),
-          16: MGLStyleValue(rawValue: UIColor(red:0.33, green:0.17, blue:0.25, alpha:1.0))
+          0: NSExpression(forConstantValue: UIColor(red:1.00, green:0.72, blue:0.85, alpha:1.0)),
+          2: NSExpression(forConstantValue: UIColor(red:0.69, green:0.48, blue:0.73, alpha:1.0)),
+          4: NSExpression(forConstantValue: UIColor(red:0.61, green:0.31, blue:0.47, alpha:1.0)),
+          7: NSExpression(forConstantValue: UIColor(red:0.43, green:0.20, blue:0.38, alpha:1.0)),
+          16: NSExpression(forConstantValue: UIColor(red:0.33, green:0.17, blue:0.25, alpha:1.0))
         ]
         
         // Style the circle layer color based on the above categorical stops
-//        layer.circleColor = MGLStyleValue<UIColor>(interpolationMode: .interval,
-//            sourceStops: stops,
-//            attributeName: "AGE",
-//            options: nil)
-//        
-//        layer.circleRadius = MGLStyleValue(rawValue: 3)
+        layer.circleColor = NSExpression(format: "FUNCTION(AGE, 'mgl_stepWithMinimum:stops:', %@, %@)", UIColor(red:1.00, green:0.72, blue:0.85, alpha:1.0), stops)
+//
+        layer.circleRadius = NSExpression(forConstantValue: 3)
         
         style.addLayer(layer)
     }
