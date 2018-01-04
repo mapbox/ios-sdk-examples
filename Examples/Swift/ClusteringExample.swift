@@ -40,10 +40,10 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Color clustered features based on clustered point counts.
         let stops = [
-            20:  NSExpression(forConstantValue: UIColor.lightGray),
-            50:  NSExpression(forConstantValue: UIColor.orange),
-            100: NSExpression(forConstantValue: UIColor.red),
-            200: NSExpression(forConstantValue: UIColor.purple)
+            20:  UIColor.lightGray,
+            50:  UIColor.orange,
+            100: UIColor.red,
+            200: UIColor.purple
         ]
 
         // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.

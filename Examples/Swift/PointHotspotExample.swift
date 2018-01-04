@@ -32,9 +32,9 @@ class PointHotspotExample_Swift: UIViewController, MGLMapViewDelegate {
         
         // Create a stops dictionary. The keys represent the number of points in a cluster.
         let stops = [
-            0.0: NSExpression(forConstantValue: UIColor.yellow),
-            20.0: NSExpression(forConstantValue: UIColor.orange),
-            150.0: NSExpression(forConstantValue: UIColor.red)
+            0.0: UIColor.yellow,
+            20.0: UIColor.orange,
+            150.0: UIColor.red
         ]
         // TODO: Default style value
         // Create and style the clustered circle layer.

@@ -45,15 +45,19 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
     
     // Add a layer to style our polyline.
     MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline" source:source];
-    layer.lineJoin = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLineJoin:MGLLineJoinRound]];
-    layer.lineCap = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
-    layer.lineColor = [MGLStyleValue valueWithRawValue:[UIColor redColor]];
-    layer.lineWidth = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-        cameraStops: @{
-            @14: [MGLStyleValue valueWithRawValue:@5],
-            @18: [MGLStyleValue valueWithRawValue:@20]
-        }
-        options:@{MGLStyleFunctionOptionDefaultValue:@1.75}];
+    layer.lineJoin = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineJoin:MGLLineJoinRound]];
+    layer.lineCap = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
+    layer.lineColor = [NSExpression expressionForConstantValue:[UIColor redColor]];
+    // TODO: Default value - 1.75
+    layer.lineWidth = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", @{@14: @5,
+                                                                                                                                                         @18: @20
+                                                                                                                                                         }];
+    //    layer.lineWidth = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
+//        cameraStops: @{
+//            @14: [MGLStyleValue valueWithRawValue:@5],
+//            @18: [MGLStyleValue valueWithRawValue:@20]
+//        }
+//        options:@{MGLStyleFunctionOptionDefaultValue:@1.75}];
 
     [self.mapView.style addLayer:layer];
 }

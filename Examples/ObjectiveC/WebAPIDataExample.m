@@ -49,29 +49,15 @@ NSString *const MBXExampleWebAPIData = @"WebAPIDataExample";
     // In this case, we can use style functions to gradually change properties between zoom level 2 and 7: the circle opacity from 50% to 100% and the circle radius from 2pt to 3pt.
     MGLCircleStyleLayer *circles = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"lighthouse-circles" source:source];
     circles.circleColor = [NSExpression expressionForConstantValue:lighthouseColor];
-    // TODO: Default value
+    // TODO: Default value - 0.75
     circles.circleOpacity = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", @{@2: @0.5,
           @7: @1.0
           }];
-    
-//    circles.circleOpacity = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-//        cameraStops:@{
-//            @2: [MGLStyleValue valueWithRawValue:@0.5],
-//            @7: [MGLStyleValue valueWithRawValue:@1.0]
-//        }
-//        options:@{MGLStyleFunctionOptionDefaultValue:[MGLStyleValue valueWithRawValue:@0.75]}];
-
+    // TODO: Default value - 1
     circles.circleRadius = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_stepWithMinimum:stops:', %@, %@)", @1, @{
                                                                                                                                 @2: @2,
-                                                                                                                                @7: @3
-                                                                                                                                                      }];
-//    circles.circleRadius = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeInterval
-//        cameraStops:@{
-//            @2: [MGLStyleValue valueWithRawValue:@2],
-//            @7: [MGLStyleValue valueWithRawValue:@3]
-//        }
-//        options:@{MGLStyleFunctionOptionDefaultValue:@1}];
-//
+                                                                                                                                @7: @3}];
+
     // Use MGLSymbolStyleLayer for more complex styling of points including custom icons and text rendering.
     MGLSymbolStyleLayer *symbols = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"lighthouse-symbols" source:source];
     symbols.iconImageName = [NSExpression expressionForConstantValue:@"lighthouse"];

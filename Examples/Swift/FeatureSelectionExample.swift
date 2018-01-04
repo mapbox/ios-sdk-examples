@@ -34,9 +34,9 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
         layer.sourceLayerIdentifier = "stateData_2-dx853g"
         
         // Create a stops dictionary. This defines the relationship between population density and a UIColor.
-        let stops = [0: NSExpression(forConstantValue: UIColor.yellow),
-                     600: NSExpression(forConstantValue: UIColor.red),
-                     1200: NSExpression(forConstantValue: UIColor.blue)]
+        let stops = [0: UIColor.yellow,
+                     600: UIColor.red,
+                     1200: UIColor.blue]
         
         // Style the fill color using the stops dictionary, exponential interpolation mode, and the feature attribute name.
         // TODO: Default value
