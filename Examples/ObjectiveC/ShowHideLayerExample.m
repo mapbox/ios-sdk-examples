@@ -39,10 +39,10 @@ NSString *const MBXExampleShowHideLayer = @"ShowHideLayerExample";
 
     MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"contours" source:source];
     layer.sourceLayerIdentifier = @"contour";
-    layer.lineJoin = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLineJoin:MGLLineJoinRound]];
-    layer.lineCap = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
-    layer.lineColor = [MGLStyleValue valueWithRawValue:[UIColor brownColor]];
-    layer.lineWidth = [MGLStyleValue valueWithRawValue:@1];
+    layer.lineJoin = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineJoin:MGLLineJoinRound]];
+    layer.lineCap = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
+    layer.lineColor = [NSExpression expressionForConstantValue:[UIColor brownColor]];
+    layer.lineWidth = [NSExpression expressionForConstantValue:@1];
 
     [self.mapView.style addSource:source];
 

@@ -45,10 +45,10 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     [style addLayer:ports];
 
     // Color clustered features based on clustered point counts.
-//    NSDictionary *stops = @{ @20:  [MGLStyleValue valueWithRawValue:[UIColor lightGrayColor]],
-//                             @50:  [MGLStyleValue valueWithRawValue:[UIColor orangeColor]],
-//                             @100: [MGLStyleValue valueWithRawValue:[UIColor redColor]],
-//                             @200: [MGLStyleValue valueWithRawValue:[UIColor purpleColor]] };
+//    NSDictionary *stops = @{ @20:  [NSExpression expressionForConstantValue:[UIColor lightGrayColor]],
+//                             @50:  [NSExpression expressionForConstantValue:[UIColor orangeColor]],
+//                             @100: [NSExpression expressionForConstantValue:[UIColor redColor]],
+//                             @200: [NSExpression expressionForConstantValue:[UIColor purpleColor]] };
 
     NSDictionary *stops = @{ @20:  [NSExpression expressionForConstantValue:[UIColor lightGrayColor]],
                              @50:  [NSExpression expressionForConstantValue:[UIColor orangeColor]],

@@ -75,8 +75,8 @@ NSString *const MBXExampleWebAPIData = @"WebAPIDataExample";
     symbols.textColor = symbols.iconColor;
 //    symbols.textFontSize = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
 //        cameraStops:@{
-//            @10: [MGLStyleValue valueWithRawValue:@10],
-//            @16: [MGLStyleValue valueWithRawValue:@16],
+//            @10: [NSExpression expressionForConstantValue:@10],
+//            @16: [NSExpression expressionForConstantValue:@16],
 //        }
 //        options:nil];
     symbols.textTranslation = [NSExpression expressionForConstantValue:[NSValue valueWithCGVector:CGVectorMake(10, 0)]];

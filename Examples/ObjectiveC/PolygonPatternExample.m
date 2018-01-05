@@ -54,8 +54,8 @@ NSString *const MBXExamplePolygonPattern = @"PolygonPatternExample";
     // Set the fill pattern and opacity for the style layer. The MGLStyleValue
     // object is a generic container for a style attribute value. In this case,
     // it is a reference to the fillPatternImage.
-    layer.fillPattern = [MGLStyleValue valueWithRawValue:@"stripe-pattern"];
-    layer.fillOpacity = [MGLStyleValue valueWithRawValue:@0.5];
+    layer.fillPattern = [NSExpression expressionForConstantValue:@"stripe-pattern"];
+    layer.fillOpacity = [NSExpression expressionForConstantValue:@0.5];
     
     // Insert the pattern style layer below the layer contining city labels. If the
     // layer is not found, the style layer will be added above all other layers within the

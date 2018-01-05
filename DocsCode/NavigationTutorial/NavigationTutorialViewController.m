@@ -117,8 +117,8 @@
         MGLLineStyleLayer *lineStyle = [[MGLLineStyleLayer alloc] initWithIdentifier:@"route-style" source:source];
         
         // Customize the route line color and width
-        lineStyle.lineColor = [MGLStyleValue valueWithRawValue:[UIColor blueColor]];
-        lineStyle.lineWidth = [MGLStyleValue valueWithRawValue:@"3"];
+        lineStyle.lineColor = [NSExpression expressionForConstantValue:[UIColor blueColor]];
+        lineStyle.lineWidth = [NSExpression expressionForConstantValue:@"3"];
         
         // Add the source and style layer of the route line to the map
         [self.mapView.style addSource:source];

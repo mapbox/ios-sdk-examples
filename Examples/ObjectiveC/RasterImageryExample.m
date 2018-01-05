@@ -41,7 +41,7 @@ NSString *const MBXExampleRasterImagery = @"RasterImageryExample";
 }
 
 - (void)updateLayerOpacity:(UISlider *)sender {
-    [self.rasterLayer setRasterOpacity:[MGLStyleValue valueWithRawValue:@(sender.value)]];
+    [self.rasterLayer setRasterOpacity:[NSExpression expressionForConstantValue:@(sender.value)]];
 }
 
 - (void)addSlider {

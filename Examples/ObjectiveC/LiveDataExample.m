@@ -34,7 +34,7 @@ NSString *const MBXExampleLiveData = @"LiveDataExample";
     
     // Add a Maki icon to the map to represent the drone's coordinate. The specified icon is included in the Mapbox Dark style's sprite sheet. For more information about Maki icons, see https://www.mapbox.com/maki-icons/
     MGLSymbolStyleLayer *droneLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"wanderdrone" source:_source];
-    droneLayer.iconImageName = [MGLStyleValue valueWithRawValue:@"rocket-15"];
+    droneLayer.iconImageName = [NSExpression expressionForConstantValue:@"rocket-15"];
     [style addLayer:droneLayer];
     
     // Create a timer that calls the `updateUrl` function every 1.5 seconds.

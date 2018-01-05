@@ -75,16 +75,16 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
     MGLSource *source = [style sourceWithIdentifier:@"composite"];
     MGLFillExtrusionStyleLayer *layer = [[MGLFillExtrusionStyleLayer alloc] initWithIdentifier:@"extrusion-layer" source:source];
     layer.sourceLayerIdentifier = @"building";
-    layer.fillExtrusionBase = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity
-                                                            sourceStops:nil
-                                                          attributeName:@"min_height"
-                                                                options:nil];
-    layer.fillExtrusionHeight = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity
-                                                              sourceStops:nil
-                                                            attributeName:@"height"
-                                                                  options:nil];
-    layer.fillExtrusionOpacity = [MGLStyleValue valueWithRawValue:@0.75];
-    layer.fillExtrusionColor = [MGLStyleValue valueWithRawValue:[UIColor whiteColor]];
+//    layer.fillExtrusionBase = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity
+//                                                            sourceStops:nil
+//                                                          attributeName:@"min_height"
+//                                                                options:nil];
+//    layer.fillExtrusionHeight = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity
+//                                                              sourceStops:nil
+//                                                            attributeName:@"height"
+//                                                                  options:nil];
+    layer.fillExtrusionOpacity = [NSExpression expressionForConstantValue:@0.75];
+    layer.fillExtrusionColor = [NSExpression expressionForConstantValue:[UIColor whiteColor]];
     
     // Access the map's layer with the identifier "poi-scalerank3" and insert the fill extrusion layer below it.
     MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"poi-scalerank3"];

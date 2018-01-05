@@ -56,16 +56,17 @@ NSString *const MBXExampleRuntimeCircleStyles = @"RuntimeCircleStylesExample";
         layer.sourceLayerIdentifier = @"sf2010";
 
         // Use a style function to smoothly adjust the circle radius from 2pt to 180pt between zoom levels 12 and 22. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
-        layer.circleRadius = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-            cameraStops:@{
-                @12: [MGLStyleValue valueWithRawValue:@2],
-                @22: [MGLStyleValue valueWithRawValue:@180]
-            }
-            options: @{MGLStyleFunctionOptionDefaultValue:@1.75}];
-        layer.circleOpacity = [MGLStyleValue valueWithRawValue:@0.7];
+        // TODO: Default value - 1.75
+        //        layer.circleRadius = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
+//            cameraStops:@{
+//                @12: [NSExpression expressionForConstantValue:@2],
+//                @22: [NSExpression expressionForConstantValue:@180]
+//            }
+//            options: @{MGLStyleFunctionOptionDefaultValue:@1.75}];
+        layer.circleOpacity = [NSExpression expressionForConstantValue:@0.7];
 
         // Set the circle color to match the ethnicity.
-        layer.circleColor = [MGLStyleValue valueWithRawValue:ethnicities[key]];
+        layer.circleColor = [NSExpression expressionForConstantValue:ethnicities[key]];
         
         // Use an NSPredicate to filter to just one ethnicity for this layer.
         layer.predicate = [NSPredicate predicateWithFormat:@"ethnicity == %@", key];

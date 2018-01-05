@@ -39,9 +39,9 @@ NSString *const MBXExamplePointHotspot = @"PointHotspotExample";
 
     // Create a stops dictionary. The keys represent the number of points in a cluster.
     NSDictionary *stops = @{
-                            @0: [NSExpression expressionForConstantValue:[UIColor yellowColor]],
-                            @20.0: [NSExpression expressionForConstantValue:[UIColor orangeColor]],
-                            @150.0: [NSExpression expressionForConstantValue:[UIColor redColor]],
+                            @0: [UIColor yellowColor],
+                            @20.0: [UIColor orangeColor],
+                            @150.0: [UIColor redColor],
                             };
     
     
@@ -50,9 +50,9 @@ NSString *const MBXExamplePointHotspot = @"PointHotspotExample";
     // TODO: Convert default value.
     clusteredLayer.circleColor = [NSExpression expressionWithFormat:@"FUNCTION(point_count, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", stops];
 //
-//    clusteredLayer.circleRadius = [MGLConstantStyleValue valueWithRawValue:@70];
-//    clusteredLayer.circleOpacity = [MGLConstantStyleValue valueWithRawValue:@0.5];
-//    clusteredLayer.circleBlur = [MGLConstantStyleValue valueWithRawValue:@1];
+    clusteredLayer.circleRadius = [NSExpression expressionForConstantValue:@70];
+    clusteredLayer.circleOpacity = [NSExpression expressionForConstantValue:@0.5];
+    clusteredLayer.circleBlur = [NSExpression expressionForConstantValue:@1];
     
     [style insertLayer:clusteredLayer belowLayer:symbolLayer];
 }

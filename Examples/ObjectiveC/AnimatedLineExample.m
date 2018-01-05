@@ -54,8 +54,8 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
                                                                                                                                                          }];
     //    layer.lineWidth = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
 //        cameraStops: @{
-//            @14: [MGLStyleValue valueWithRawValue:@5],
-//            @18: [MGLStyleValue valueWithRawValue:@20]
+//            @14: [NSExpression expressionForConstantValue:@5],
+//            @18: [NSExpression expressionForConstantValue:@20]
 //        }
 //        options:@{MGLStyleFunctionOptionDefaultValue:@1.75}];
 

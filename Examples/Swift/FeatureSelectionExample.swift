@@ -71,10 +71,10 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
         if name.count > 0 {
             // TODO: IDEK
 //            layer.fillOpacity = NSExpression(format: "FUNCTION(name, 'mgl_numberWithFallbackValues:', %@)", 0)
-//            layer.fillOpacity = NSExpression(format:
-//                "TERNARY(name, '%@', %@)",
-//                                             name, 1)
-            
+            layer.fillOpacity = NSExpression(format:
+                "TERNARY(name, '%@', %@)",
+                                             name, 1)
+//
             
 //            layer.fillOpacity = MGLStyleValue(interpolationMode: .categorical, sourceStops: [name: MGLStyleValue<NSNumber>(rawValue: 1)], attributeName: "name", options: [.defaultValue: MGLStyleValue<NSNumber>(rawValue: 0)])
         } else {
