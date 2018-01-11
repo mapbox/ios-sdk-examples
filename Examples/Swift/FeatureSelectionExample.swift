@@ -71,15 +71,36 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
         if name.count > 0 {
             // TODO: IDEK
 //            layer.fillOpacity = NSExpression(format: "FUNCTION(name, 'mgl_numberWithFallbackValues:', %@)", 0)
-            layer.fillOpacity = NSExpression(format:
-                "TERNARY(name, '%@', %@)",
-                                             name, 1)
+//            layer.fillOpacity = NSExpression(format: "TERNARY(FUNCTION(name, 'stringValue') = %@, 1, 0)", name)
+//
+//            layer.fillOpacity = mglCategoricalFunction(stopsDictionary: [name : 1], for: "name", with: 0, attributeValueType: "stringValue")
+                //                "TERNARY(name, '%@', %@)",
+//                                             name, 1)
 //
             
+            e
 //            layer.fillOpacity = MGLStyleValue(interpolationMode: .categorical, sourceStops: [name: MGLStyleValue<NSNumber>(rawValue: 1)], attributeName: "name", options: [.defaultValue: MGLStyleValue<NSNumber>(rawValue: 0)])
         } else {
             // Reset the opacity for all states if the user did not tap on a state.
             layer.fillOpacity = NSExpression(forConstantValue: 1)
         }
+    }
+    
+    func mglCategoricalFunction(stopsDictionary: [AnyHashable : Any], for attributeKey: Any, withOptions options: [AnyHashable : Any]) -> NSExpression {
+        var string = ""
+        var attributeValueType = "\(options["attributeValueType"])"
+        if options["attributeValueType"] == nil {
+            attributeValueType = "stringValue"
+        }
+        for key in stopsDictionary.keys {
+            string.append("TERNARY(FUNCTION(\(attributeKey), '\(attributeValueType)') = '\(key)', \(stopsDictionary[key]!), ")
+            print(string)
+        }
+        if options["defaultValue"] != nil {
+            string.append("\(options["defaultValue"]!))")
+        } else {
+            string.append("nil)")
+        }
+        return NSExpression(format: string)
     }
 }
