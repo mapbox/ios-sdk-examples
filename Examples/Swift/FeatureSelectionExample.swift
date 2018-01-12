@@ -78,7 +78,7 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
 //                                             name, 1)
 //
             
-            e
+            
 //            layer.fillOpacity = MGLStyleValue(interpolationMode: .categorical, sourceStops: [name: MGLStyleValue<NSNumber>(rawValue: 1)], attributeName: "name", options: [.defaultValue: MGLStyleValue<NSNumber>(rawValue: 0)])
         } else {
             // Reset the opacity for all states if the user did not tap on a state.
