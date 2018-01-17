@@ -15,8 +15,7 @@ class SwitchStylesExample: UIViewController {
         
         // Set the map's initial style, center coordinate, and zoom level
         mapView.styleURL = MGLStyle.streetsStyleURL()
-        mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 28.10, longitude: -81.76)
-        mapView.setZoomLevel(5.4, animated: false)
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 28.10, longitude: -81.76), zoomLevel: 5.4, animated: false)
         view.addSubview(mapView)
         
         // Create a UISegmentedControl to toggle between map styles

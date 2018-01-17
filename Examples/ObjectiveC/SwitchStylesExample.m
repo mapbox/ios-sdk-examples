@@ -19,8 +19,9 @@ NSString *const MBXExampleSwitchStyles = @"SwitchStylesExample";
     
     // Set the map's initial style, center coordinate, and zoom level
     self.mapView.styleURL = [MGLStyle streetsStyleURL];
-    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(28.10, -81.76)];
-    [self.mapView setZoomLevel:5.4];
+    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(28.10, -81.76)
+                            zoomLevel:5.4
+                             animated:NO];
     [self.view addSubview:self.mapView];
     
     // Create a UISegmentedControl to toggle between map styles
