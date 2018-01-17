@@ -50,6 +50,7 @@
         MBXExampleStaticSnapshot,
         MBXExampleStudioClassicStyle,
         MBXExampleStudioStyle,
+        MBXExampleSwitchStyles,
         MBXExampleThirdPartyVectorStyle,
         MBXExampleUserLocationAnnotation,
         MBXExampleUserTrackingModes,
