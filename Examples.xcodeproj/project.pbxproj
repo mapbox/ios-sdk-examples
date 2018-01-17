@@ -12,6 +12,8 @@
 		050337461F7199DF007309B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050337441F7199DF007309B0 /* Main.storyboard */; };
 		050337481F7199DF007309B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 050337471F7199DF007309B0 /* Assets.xcassets */; };
 		0503374B1F7199DF007309B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050337491F7199DF007309B0 /* LaunchScreen.storyboard */; };
+		05536CAF200F9A7600657097 /* SwitchStylesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05536CAE200F9A7600657097 /* SwitchStylesExample.swift */; };
+		05536CB2200F9B0900657097 /* SwitchStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05536CB1200F9B0900657097 /* SwitchStylesExample.m */; };
 		055ABCC31EFB14AE0063BACA /* PolygonPatternExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055ABCC21EFB14AE0063BACA /* PolygonPatternExample.swift */; };
 		0587D7031F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */; };
 		0587D7061F9A466000209947 /* DDSCircleLayerTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */; };
@@ -173,6 +175,9 @@
 		050337471F7199DF007309B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0503374A1F7199DF007309B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0503374C1F7199DF007309B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05536CAE200F9A7600657097 /* SwitchStylesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchStylesExample.swift; path = ../../../../Desktop/SwitchStylesExample.swift; sourceTree = "<group>"; };
+		05536CB1200F9B0900657097 /* SwitchStylesExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchStylesExample.m; sourceTree = "<group>"; };
+		05536CB3200F9B4900657097 /* SwitchStylesExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchStylesExample.h; sourceTree = "<group>"; };
 		055ABCBF1EFB139C0063BACA /* PolygonPatternExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonPatternExample.h; sourceTree = "<group>"; };
 		055ABCC21EFB14AE0063BACA /* PolygonPatternExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonPatternExample.swift; sourceTree = "<group>"; };
 		0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDSCircleLayerTutorialViewController.swift; sourceTree = "<group>"; };
@@ -455,6 +460,7 @@
 				3EBCD7131DC28240001E342F /* SatelliteStyleExample.swift */,
 				3EBCD7091DC28240001E342F /* StudioClassicStyleExample.swift */,
 				3EBCD70A1DC28240001E342F /* StudioStyleExample.swift */,
+				05536CAE200F9A7600657097 /* SwitchStylesExample.swift */,
 				64CF970F1DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift */,
 			);
 			name = "Map Styles";
@@ -553,6 +559,7 @@
 				05FA53941FE2F9FE001F3D7D /* SatelliteStyleExample.m */,
 				05FA53971FE2F9FF001F3D7D /* StudioClassicStyleExample.m */,
 				9691AAA21C5AAD8F006A58C6 /* StudioStyleExample.m */,
+				05536CB1200F9B0900657097 /* SwitchStylesExample.m */,
 				05FA53951FE2F9FE001F3D7D /* ThirdPartyVectorStyleExample.m */,
 			);
 			name = "Map styles";
@@ -820,6 +827,7 @@
 				3EA5AA001FAD2E95007073C0 /* StaticSnapshotExample.h */,
 				968247011C5BDCBB00494AB8 /* StudioClassicStyleExample.h */,
 				9691AAA11C5AAD8F006A58C6 /* StudioStyleExample.h */,
+				05536CB3200F9B4900657097 /* SwitchStylesExample.h */,
 				64CF970E1DF224D400C3C27B /* ThirdPartyVectorStyleExample.h */,
 				3E18060E1EAA800A004DB131 /* UserLocationAnnotationExample.h */,
 				969E7FDB1D25C31700663F84 /* UserTrackingModesExample.h */,
@@ -1166,7 +1174,6 @@
 				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework",
-				"${BUILT_PRODUCTS_DIR}/OSRMTextInstructions/OSRMTextInstructions.framework",
 				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Solar/Solar.framework",
@@ -1182,7 +1189,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OSRMTextInstructions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Solar.framework",
@@ -1376,6 +1382,7 @@
 				05FA53AB1FE2FB9C001F3D7D /* CustomCalloutViewExample.m in Sources */,
 				962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */,
 				1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */,
+				05536CB2200F9B0900657097 /* SwitchStylesExample.m in Sources */,
 				3ED403411E006B5200230C95 /* CameraFlyToExample.swift in Sources */,
 				9691AAA91C5AAD8F006A58C6 /* SimpleMapViewExample.m in Sources */,
 				960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */,
@@ -1455,6 +1462,7 @@
 				3EBCD71F1DC28240001E342F /* DefaultStylesExample.swift in Sources */,
 				DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */,
 				3E22EF4F1F87F10C00605203 /* ImageSourceExample.swift in Sources */,
+				05536CAF200F9A7600657097 /* SwitchStylesExample.swift in Sources */,
 				969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */,
 				05FA53A11FE2FA1E001F3D7D /* PolygonPatternExample.m in Sources */,
 				3E3FB66E1F0588B3004512C6 /* BuildingLightExample.m in Sources */,
