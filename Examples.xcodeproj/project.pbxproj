@@ -453,7 +453,7 @@
 			name = "Markers and callouts";
 			sourceTree = "<group>";
 		};
-		0543F6421FE8677F00D0AF54 /* Map Styles */ = {
+		0543F6421FE8677F00D0AF54 /* Map styles */ = {
 			isa = PBXGroup;
 			children = (
 				3EBCD70B1DC28240001E342F /* DefaultStylesExample.swift */,
@@ -463,7 +463,7 @@
 				05536CB4200F9EEB00657097 /* SwitchStylesExample.swift */,
 				64CF970F1DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift */,
 			);
-			name = "Map Styles";
+			name = "Map styles";
 			sourceTree = "<group>";
 		};
 		0543F6431FE8678500D0AF54 /* Lines and polygons */ = {
@@ -685,7 +685,7 @@
 				0543F6441FE8678D00D0AF54 /* Dynamic styling */,
 				0543F6401FE8671100D0AF54 /* Getting started */,
 				0543F6431FE8678500D0AF54 /* Lines and polygons */,
-				0543F6421FE8677F00D0AF54 /* Map Styles */,
+				0543F6421FE8677F00D0AF54 /* Map styles */,
 				0543F6411FE8675000D0AF54 /* Markers and callouts */,
 				0543F6471FE867C400D0AF54 /* Offline */,
 				0543F6451FE8679400D0AF54 /* User interaction */,
