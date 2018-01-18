@@ -1,26 +1,27 @@
 {
     "version": 8,
     "sources": {
-	"mapillary": {
-	    "type": "vector",
-	    "tiles": ["https://d25uarhxywzl1j.cloudfront.net/v0.1/{z}/{x}/{y}.mvt"],
-        "attribution": "Mapillary, CC BY"
-	}
+        "mapillary": {
+            "type": "vector",
+            "tiles": ["https://d25uarhxywzl1j.cloudfront.net/v0.1/{z}/{x}/{y}.mvt"],
+            "attribution": "Mapillary, CC BY"
+        }
     },
     "layers": [{
-	   "id": "background",
-	   "type": "background",
-	   "paint": {
-	       "background-color": "#485E77"
-	    }
-	}, {
-	   "id": "mapillary-sequences",
-	   "type": "line",
-	   "source": "mapillary",
-	   "source-layer": "mapillary-sequences",
-	   "filter": ["==", "$type", "LineString"],
-	   "paint": {
-	   "line-color": "#F56745"
-	}
-    }]
+               "id": "background",
+               "type": "background",
+               "paint": {
+               "background-color": "#485E77"
+               }
+               }, {
+               "id": "mapillary-sequences",
+               "type": "line",
+               "source": "mapillary",
+               "source-layer": "mapillary-sequences",
+               "filter": ["==", "$type", "LineString"],
+               "paint": {
+               "line-color": "#F56745"
+               }
+               }]
 }
+
