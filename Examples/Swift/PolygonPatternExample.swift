@@ -41,7 +41,7 @@ class PolygonPatternExample_Swift: UIViewController, MGLMapViewDelegate {
         // if your source data was added using the Mapbox Studio style editor.
          layer.sourceLayerIdentifier = "drone-restrictions-3f6lsg"
         
-        // Set the fill pattern and opacity for the style layer. The MGLStyleValue
+        // Set the fill pattern and opacity for the style layer. The NSExpression
         // object is a generic container for a style attribute value. In this case,
         // it is a reference to the fillPatternImage.
         layer.fillPattern = NSExpression(forConstantValue: "stripe-pattern")

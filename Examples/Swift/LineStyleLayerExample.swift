@@ -58,12 +58,8 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
                           18: NSExpression(forConstantValue: 20)]
         layer.lineWidth = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", argumentArray: [layerStops])
         
-        // TODO: Convert the default value.
+        // TODO: Convert the default value. - 1.5
         layer.lineWidth = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", [14: 2, 18: 20])
-//        layer.lineWidth = MGLStyleValue(interpolationMode: .exponential,
-//            cameraStops: [14: MGLStyleValue<NSNumber>(rawValue: 2),
-//                          18: MGLStyleValue<NSNumber>(rawValue: 20)],
-//            options: [.defaultValue : MGLConstantStyleValue<NSNumber>(rawValue: 1.5)])
 
         // We can also add a second layer that will draw a stroke around the original line.
         let casingLayer = MGLLineStyleLayer(identifier: "polyline-case", source: source)
@@ -76,12 +72,8 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         casingLayer.lineColor = NSExpression(forConstantValue: UIColor(red: 41/255, green:145/255, blue:171/255, alpha:1))
         // Use a style function to gradually increase the stroke width between zoom levels 14 and 18.
 
-        // TODO: Default value
+        // TODO: Default value - 1.5
         casingLayer.lineWidth = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", [14: 1, 18: 4])
-//        casingLayer.lineWidth = MGLStyleValue(interpolationMode: .exponential,
-//            cameraStops: [14: MGLStyleValue(rawValue: 1),
-//                          18: MGLStyleValue(rawValue: 4)],
-//            options: [.defaultValue : MGLConstantStyleValue<NSNumber>(rawValue: 1.5)])
 //
         // Just for fun, let’s add another copy of the line with a dash pattern.
         let dashedLayer = MGLLineStyleLayer(identifier: "polyline-dash", source: source)

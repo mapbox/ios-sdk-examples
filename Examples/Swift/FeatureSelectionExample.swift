@@ -39,9 +39,8 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
                      1200: UIColor.blue]
         
         // Style the fill color using the stops dictionary, exponential interpolation mode, and the feature attribute name.
-        // TODO: Default value
+        // TODO: Default value - UIColor.white
         layer.fillColor = NSExpression(format: "FUNCTION(density, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", stops)
-//        layer.fillColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "density", options: [.defaultValue: MGLStyleValue(rawValue: UIColor.white)])
         
         // Insert the new layer below the Mapbox Streets layer that contains state border lines. See the layer reference for more information about layer names: https://www.mapbox.com/vector-tiles/mapbox-streets-v7/
         let symbolLayer = style.layer(withIdentifier: "admin-3-4-boundaries")
@@ -70,37 +69,11 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
         // Check if a state was selected, then change the opacity of the states that were not selected.
         if name.count > 0 {
             // TODO: IDEK
-//            layer.fillOpacity = NSExpression(format: "FUNCTION(name, 'mgl_numberWithFallbackValues:', %@)", 0)
-//            layer.fillOpacity = NSExpression(format: "TERNARY(FUNCTION(name, 'stringValue') = %@, 1, 0)", name)
-//
-//            layer.fillOpacity = mglCategoricalFunction(stopsDictionary: [name : 1], for: "name", with: 0, attributeValueType: "stringValue")
-                //                "TERNARY(name, '%@', %@)",
-//                                             name, 1)
-//
-            
-            
-//            layer.fillOpacity = MGLStyleValue(interpolationMode: .categorical, sourceStops: [name: MGLStyleValue<NSNumber>(rawValue: 1)], attributeName: "name", options: [.defaultValue: MGLStyleValue<NSNumber>(rawValue: 0)])
+            layer.fillOpacity = NSExpression(format: "TERNARY(FUNCTION(name, 'stringValue') = %@, 1, 0)", name)
         } else {
             // Reset the opacity for all states if the user did not tap on a state.
             layer.fillOpacity = NSExpression(forConstantValue: 1)
         }
     }
     
-    func mglCategoricalFunction(stopsDictionary: [AnyHashable : Any], for attributeKey: Any, withOptions options: [AnyHashable : Any]) -> NSExpression {
-        var string = ""
-        var attributeValueType = "\(options["attributeValueType"])"
-        if options["attributeValueType"] == nil {
-            attributeValueType = "stringValue"
-        }
-        for key in stopsDictionary.keys {
-            string.append("TERNARY(FUNCTION(\(attributeKey), '\(attributeValueType)') = '\(key)', \(stopsDictionary[key]!), ")
-            print(string)
-        }
-        if options["defaultValue"] != nil {
-            string.append("\(options["defaultValue"]!))")
-        } else {
-            string.append("nil)")
-        }
-        return NSExpression(format: string)
-    }
 }

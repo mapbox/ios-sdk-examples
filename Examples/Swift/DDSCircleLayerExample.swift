@@ -46,9 +46,9 @@ class DDSCircleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
           16: UIColor(red:0.33, green:0.17, blue:0.25, alpha:1.0)
         ]
         
-        // Style the circle layer color based on the above categorical stops
-        layer.circleColor = NSExpression(format: "FUNCTION(AGE, 'mgl_stepWithMinimum:stops:', %@, %@)", UIColor(red:1.00, green:0.72, blue:0.85, alpha:1.0), stops)
-//
+        // Style the circle layer color based on the above categorical stops.
+        layer.circleColor = NSExpression(format: "FUNCTION(AGE, 'mgl_stepWithMinimum:stops:', %@, %@)", UIColor(red:1.0, green:0.72, blue:0.85, alpha:1.0), stops)
+
         layer.circleRadius = NSExpression(forConstantValue: 3)
         
         style.addLayer(layer)

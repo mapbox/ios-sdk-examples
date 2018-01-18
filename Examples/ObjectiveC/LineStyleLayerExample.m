@@ -71,6 +71,7 @@ NSString *const MBXExampleLineStyleLayer = @"LineStyleLayerExample";
     casingLayer.lineColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed:41/255.0 green:145/255.0 blue:171/255.0 alpha:1]];
     // Use a style function to gradually increase the stroke width between zoom levels 14 and 18.
     // TODO: Default value - 1.5
+    casingLayer.lineWidth = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", @{@14: @1, @18: @4}];
 //    casingLayer.lineWidth = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
 //        cameraStops:@{
 //            @14: [NSExpression expressionForConstantValue:@1],

@@ -57,12 +57,8 @@ NSString *const MBXExampleRuntimeCircleStyles = @"RuntimeCircleStylesExample";
 
         // Use a style function to smoothly adjust the circle radius from 2pt to 180pt between zoom levels 12 and 22. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
         // TODO: Default value - 1.75
-        //        layer.circleRadius = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-//            cameraStops:@{
-//                @12: [NSExpression expressionForConstantValue:@2],
-//                @22: [NSExpression expressionForConstantValue:@180]
-//            }
-//            options: @{MGLStyleFunctionOptionDefaultValue:@1.75}];
+        layer.circleRadius = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", @{@12: @2,
+                                                                                                                                                                @22: @180}];
         layer.circleOpacity = [NSExpression expressionForConstantValue:@0.7];
 
         // Set the circle color to match the ethnicity.

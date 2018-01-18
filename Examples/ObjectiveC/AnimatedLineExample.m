@@ -52,13 +52,6 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
     layer.lineWidth = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", @{@14: @5,
                                                                                                                                                          @18: @20
                                                                                                                                                          }];
-    //    layer.lineWidth = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-//        cameraStops: @{
-//            @14: [NSExpression expressionForConstantValue:@5],
-//            @18: [NSExpression expressionForConstantValue:@20]
-//        }
-//        options:@{MGLStyleFunctionOptionDefaultValue:@1.75}];
-
     [self.mapView.style addLayer:layer];
 }
 

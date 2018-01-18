@@ -46,17 +46,15 @@ NSString const *MBXExampleFeatureSelection = @"FeatureSelectionExample";
     
     // Create a stops dictionary. This defines the relationship between population density and a UIColor.
     NSDictionary *stops = @{
-            @0: [NSExpression expressionForConstantValue:[UIColor yellowColor]],
-            @600: [NSExpression expressionForConstantValue:[UIColor redColor]],
-            @1200: [NSExpression expressionForConstantValue:[UIColor blueColor]]
+            @0: [UIColor yellowColor],
+            @600: [UIColor redColor],
+            @1200: [UIColor blueColor]
         };
     
     // Style the fill color using the stops dictionary, exponential interpolation mode, and the feature attribute name.
-    layer.fillColor = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-            sourceStops:stops
-            attributeName:@"density"
-            options:@{ MGLStyleFunctionOptionDefaultValue: [NSExpression expressionForConstantValue:[UIColor whiteColor]] }];
-    
+    // TODO: Default value - [UIColor whiteColor]
+    layer.fillColor = [NSExpression expressionWithFormat:@"FUNCTION(density, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", stops];
+
     // Insert the new layer below the Mapbox Streets layer that contains state border lines. See the layer reference for more information about layer names: https://www.mapbox.com/vector-tiles/mapbox-streets-v7/
     MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"admin-3-4-boundaries"];
     
@@ -85,11 +83,7 @@ NSString const *MBXExampleFeatureSelection = @"FeatureSelectionExample";
     
     // Check if a state was selected, then change the opacity of the states that were not selected.
     if (name.length > 0) {
-        // TODO: Default value - 0
-//        layer.fillOpacity = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeCategorical
-//                sourceStops:@{ name: [NSExpression expressionForConstantValue:@1] }
-//                attributeName:@"name"
-//                options:@{ MGLStyleFunctionOptionDefaultValue: [NSExpression expressionForConstantValue:@0] }];
+        layer.fillOpacity = [NSExpression expressionWithFormat:@"TERNARY(FUNCTION(name, 'stringValue') = %@, 1, 0)", name];
     } else {
         // Reset the opacity for all states if the user did not tap on a state.
         layer.fillOpacity = [NSExpression expressionForConstantValue:@1];
