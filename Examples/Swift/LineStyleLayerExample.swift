@@ -47,16 +47,19 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         let source = MGLShapeSource(identifier: "polyline", shape: shapeFromGeoJSON, options: nil)
         style.addSource(source)
 
-        // Create new layer for the line
+        // Create new layer for the line.
         let layer = MGLLineStyleLayer(identifier: "polyline", source: source)
-        layer.lineJoin = MGLStyleValue(rawValue: NSValue(mglLineJoin: .round))
-        layer.lineCap = MGLStyleValue(rawValue: NSValue(mglLineCap: .round))
-        layer.lineColor = MGLStyleValue(rawValue: UIColor(red: 59/255, green:178/255, blue:208/255, alpha:1))
-        // Use a style function to smoothly adjust the line width from 2pt to 20pt between zoom levels 14 and 18. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
-        layer.lineWidth = MGLStyleValue(interpolationMode: .exponential,
-            cameraStops: [14: MGLStyleValue<NSNumber>(rawValue: 2),
-                          18: MGLStyleValue<NSNumber>(rawValue: 20)],
-            options: [.defaultValue : MGLConstantStyleValue<NSNumber>(rawValue: 1.5)])
+        layer.lineJoin = NSExpression(forConstantValue: NSValue(mglLineJoin: .round))
+        layer.lineCap = NSExpression(forConstantValue: NSValue(mglLineCap: .round))
+        layer.lineColor = NSExpression(forConstantValue: UIColor(red: 59/255, green:178/255, blue:208/255, alpha:1))
+        
+        // Use `NSExpression` to smoothly adjust the line width from 2pt to 20pt between zoom levels 14 and 18. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
+        let layerStops = [14: NSExpression(forConstantValue: 2),
+                          18: NSExpression(forConstantValue: 20)]
+        layer.lineWidth = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", argumentArray: [layerStops])
+        
+        // TODO: Convert the default value. - 1.5
+        layer.lineWidth = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", [14: 2, 18: 20])
 
         // We can also add a second layer that will draw a stroke around the original line.
         let casingLayer = MGLLineStyleLayer(identifier: "polyline-case", source: source)
@@ -66,23 +69,22 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         // Line gap width represents the space before the outline begins, so should match the main line’s line width exactly.
         casingLayer.lineGapWidth = layer.lineWidth
         // Stroke color slightly darker than the line color.
-        casingLayer.lineColor = MGLStyleValue(rawValue: UIColor(red: 41/255, green:145/255, blue:171/255, alpha:1))
-        // Use a style function to gradually increase the stroke width between zoom levels 14 and 18.
-        casingLayer.lineWidth = MGLStyleValue(interpolationMode: .exponential,
-            cameraStops: [14: MGLStyleValue(rawValue: 1),
-                          18: MGLStyleValue(rawValue: 4)],
-            options: [.defaultValue : MGLConstantStyleValue<NSNumber>(rawValue: 1.5)])
+        casingLayer.lineColor = NSExpression(forConstantValue: UIColor(red: 41/255, green:145/255, blue:171/255, alpha:1))
+        // Use `NSExpression` to gradually increase the stroke width between zoom levels 14 and 18.
 
+        // TODO: Default value - 1.5
+        casingLayer.lineWidth = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", [14: 1, 18: 4])
+//
         // Just for fun, let’s add another copy of the line with a dash pattern.
         let dashedLayer = MGLLineStyleLayer(identifier: "polyline-dash", source: source)
         dashedLayer.lineJoin = layer.lineJoin
         dashedLayer.lineCap = layer.lineCap
-        dashedLayer.lineColor = MGLStyleValue(rawValue: .white)
-        dashedLayer.lineOpacity = MGLStyleValue(rawValue: 0.5)
+        dashedLayer.lineColor = NSExpression(forConstantValue: UIColor.white)
+        dashedLayer.lineOpacity = NSExpression(forConstantValue: 0.5)
         dashedLayer.lineWidth = layer.lineWidth
         // Dash pattern in the format [dash, gap, dash, gap, ...]. You’ll want to adjust these values based on the line cap style.
-        dashedLayer.lineDashPattern = MGLStyleValue(rawValue: [0, 1.5])
-        
+        dashedLayer.lineDashPattern = NSExpression(forConstantValue: [0, 1.5])
+ 
         style.addLayer(layer)
         style.addLayer(dashedLayer)
         style.insertLayer(casingLayer, below: layer)

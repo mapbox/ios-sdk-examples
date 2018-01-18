@@ -14,7 +14,7 @@ class SwitchStylesExample: UIViewController {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // Set the map's initial style, center coordinate, and zoom level
-        mapView.styleURL = MGLStyle.streetsStyleURL()
+        mapView.styleURL = MGLStyle.streetsStyleURL
         mapView.setCenter(CLLocationCoordinate2D(latitude: 28.10, longitude: -81.76), zoomLevel: 5.4, animated: false)
         view.addSubview(mapView)
         
@@ -35,13 +35,13 @@ class SwitchStylesExample: UIViewController {
     @objc func changeStyle(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            mapView.styleURL = MGLStyle.darkStyleURL()
+            mapView.styleURL = MGLStyle.darkStyleURL
         case 1:
-            mapView.styleURL = MGLStyle.streetsStyleURL()
+            mapView.styleURL = MGLStyle.streetsStyleURL
         case 2:
-            mapView.styleURL = MGLStyle.lightStyleURL()
+            mapView.styleURL = MGLStyle.lightStyleURL
         default:
-            mapView.styleURL = MGLStyle.streetsStyleURL()
+            mapView.styleURL = MGLStyle.streetsStyleURL
         }
     }
 }

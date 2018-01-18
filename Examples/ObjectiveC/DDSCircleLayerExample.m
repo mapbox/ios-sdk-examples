@@ -34,7 +34,7 @@ NSString *const MBXExampleDDSCircleLayer = @"DDSCircleLayerExample";
     
     // "mapbox://examples.2uf7qges" is a map ID referencing a tileset. For more
     // more information, see mapbox.com/help/define-map-id/
-    MGLSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"trees" configurationURL:[NSURL URLWithString:@"mapbox://examples.2uf7qges"]];
+    MGLSource *source = [[MGLVectorTileSource alloc] initWithIdentifier:@"trees" configurationURL:[NSURL URLWithString:@"mapbox://examples.2uf7qges"]];
     
     [self.mapView.style addSource:source];
     
@@ -45,20 +45,17 @@ NSString *const MBXExampleDDSCircleLayer = @"DDSCircleLayerExample";
     
     // Stops based on age of tree in years.
     NSDictionary *stops = @{
-        @0: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:1.00 green:0.72 blue:0.85 alpha:1.0]],
-        @2: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:0.69 green:0.48 blue:0.73 alpha:1.0]],
-        @4: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:0.61 green:0.31 blue:0.47 alpha:1.0]],
-        @7: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:0.43 green:0.20 blue:0.38 alpha:1.0]],
-        @16: [MGLStyleValue valueWithRawValue:[UIColor colorWithRed:0.33 green:0.17 blue:0.25 alpha:1.0]]
+        @0: [UIColor colorWithRed:1.00 green:0.72 blue:0.85 alpha:1.0],
+        @2: [UIColor colorWithRed:0.69 green:0.48 blue:0.73 alpha:1.0],
+        @4: [UIColor colorWithRed:0.61 green:0.31 blue:0.47 alpha:1.0],
+        @7: [UIColor colorWithRed:0.43 green:0.20 blue:0.38 alpha:1.0],
+        @16: [UIColor colorWithRed:0.33 green:0.17 blue:0.25 alpha:1.0]
     };
     
-    // Style the circle layer color based on the above categorical stops.
-    layer.circleColor = [MGLStyleValue valueWithInterpolationMode: MGLInterpolationModeInterval
-        sourceStops: stops
-        attributeName: @"AGE"
-        options: nil];
-    
-    layer.circleRadius = [MGLStyleValue valueWithRawValue:@3];
+    // Style the circle layer color based on the above stops dictionary.
+    layer.circleColor = [NSExpression expressionWithFormat:@"mgl_step:from:stops:(AGE, %@, %@)", [UIColor colorWithRed:1.0 green:0.72 blue:0.85 alpha:1.0], stops];
+//    
+    layer.circleRadius = [NSExpression expressionForConstantValue:@3];
     
     [self.mapView.style addLayer:layer];
 }

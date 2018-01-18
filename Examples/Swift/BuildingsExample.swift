@@ -26,13 +26,13 @@ class BuildingsExample: UIViewController, MGLMapViewDelegate {
             layer.sourceLayerIdentifier = "building"
             
             // Filter out buildings that should not extrude.
-            layer.predicate = NSPredicate(format: "extrude == 'true' AND height >= 0")
+            layer.predicate = NSPredicate(format: "extrude == 'true'")
             
             // Set the fill extrusion height to the value for the building height attribute.
-            layer.fillExtrusionHeight = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "height", options: nil)
-            layer.fillExtrusionBase = MGLStyleValue(interpolationMode: .identity, sourceStops: nil, attributeName: "min_height", options: nil)
-            layer.fillExtrusionOpacity = MGLStyleValue(rawValue: 0.75)
-            layer.fillExtrusionColor = MGLStyleValue(rawValue: .white)
+            layer.fillExtrusionHeight = NSExpression(forKeyPath: "height")
+            layer.fillExtrusionBase = NSExpression(forKeyPath: "min_height")
+            layer.fillExtrusionOpacity = NSExpression(forConstantValue: 0.75)
+            layer.fillExtrusionColor = NSExpression(forConstantValue: UIColor.white)
             
             // Insert the fill extrusion layer below a POI label layer. If you aren’t sure what the layer is called, you can view the style in Mapbox Studio or iterate over the style’s layers property, printing out each layer’s identifier.
             if let symbolLayer = style.layer(withIdentifier: "poi-scalerank3") {

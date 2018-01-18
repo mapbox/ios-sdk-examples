@@ -33,7 +33,7 @@ NSString *const MBXExampleImageSource = @"ImageSourceExample";
     
     // Create a MGLImageSource, which can be used to add georeferenced raster images to a map.
     NSString *radarImage = [[NSBundle mainBundle] pathForResource:@"radar" ofType:@"gif"];
-    MGLImageSource *source = [[MGLImageSource alloc] initWithIdentifier:@"radar" coordinateQuad:coordinates URL:[NSURL URLWithString:radarImage]];
+    MGLImageSource *source = [[MGLImageSource alloc] initWithIdentifier:@"radar" coordinateQuad:coordinates image:[UIImage imageWithContentsOfFile:radarImage]];
     [style addSource:source];
     
     MGLRasterStyleLayer *radarLayer = [[MGLRasterStyleLayer alloc] initWithIdentifier:@"radar-layer" source:source];

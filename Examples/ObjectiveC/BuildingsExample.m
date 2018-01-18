@@ -32,13 +32,13 @@ NSString *const MBXExampleBuildings = @"BuildingsExample";
     layer.sourceLayerIdentifier = @"building";
     
     // Filter out buildings that should not extrude.
-    layer.predicate = [NSPredicate predicateWithFormat:@"extrude == 'true' AND height >= 0"];
+    layer.predicate = [NSPredicate predicateWithFormat:@"extrude == 'true'"];
     
     // Set the fill extrusion height to the value for the building height attribute.
-    layer.fillExtrusionHeight = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity sourceStops:nil attributeName:@"height" options:nil];
-    layer.fillExtrusionBase =[MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity sourceStops:nil attributeName:@"min_height" options:nil];
-    layer.fillExtrusionOpacity = [MGLStyleValue valueWithRawValue:@0.75];
-    layer.fillExtrusionColor = [MGLStyleValue valueWithRawValue:[UIColor whiteColor]];
+    layer.fillExtrusionHeight = [NSExpression expressionForKeyPath:@"height"];
+    layer.fillExtrusionBase = [NSExpression expressionForKeyPath:@"min_height"];
+    layer.fillExtrusionOpacity = [NSExpression expressionForConstantValue:@0.75];
+    layer.fillExtrusionColor = [NSExpression expressionForConstantValue:[UIColor whiteColor]];
     
     // Insert the fill extrusion layer below a POI label layer. If you aren’t sure what the layer is called, you can view the style in Mapbox Studio or iterate over the style’s layers property, printing out each layer’s identifier.
     MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"poi-scalerank3"];

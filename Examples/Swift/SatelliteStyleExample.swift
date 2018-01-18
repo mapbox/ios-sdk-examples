@@ -9,7 +9,7 @@ class SatelliteStyleExample_Swift: UIViewController {
         super.viewDidLoad()
         
         // A hybrid style with unobtrusive labels is also available via satelliteStreetsStyleURL(withVersion:).
-        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.satelliteStyleURL())
+        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.satelliteStyleURL)
         
         // Tint the ℹ️ button.
         mapView.attributionButton.tintColor = .white

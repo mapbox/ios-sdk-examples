@@ -50,6 +50,11 @@ class CustomCalloutView: UIView, MGLCalloutView {
     }
     
     // MARK: - MGLCalloutView API
+    
+    func presentCallout(from rect: CGRect, in view: UIView, constrainedTo constrainedRect: CGRect, animated: Bool) {
+     presentCallout(from: rect, in: view, constrainedTo: view, animated: animated)
+    }
+
     func presentCallout(from rect: CGRect, in view: UIView, constrainedTo constrainedView: UIView, animated: Bool) {
         if !representedObject.responds(to: #selector(getter: MGLAnnotation.title)) {
             return
@@ -139,3 +144,4 @@ class CustomCalloutView: UIView, MGLCalloutView {
         currentContext.fillPath()
     }
 }
+

@@ -41,7 +41,7 @@ NSString *const MBXExampleSelectFeature = @"SelectFeatureExample";
 
     // Color any selected features red on the map.
     MGLFillStyleLayer *selectedFeaturesLayer = [[MGLFillStyleLayer alloc] initWithIdentifier:@"selected-features" source:source];
-    selectedFeaturesLayer.fillColor = [MGLStyleValue valueWithRawValue:[UIColor redColor]];
+    selectedFeaturesLayer.fillColor = [NSExpression expressionForConstantValue:[UIColor redColor]];
 
     [style addLayer:selectedFeaturesLayer];
 }

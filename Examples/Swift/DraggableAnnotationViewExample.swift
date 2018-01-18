@@ -9,7 +9,7 @@ class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate
         
         let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.styleURL = MGLStyle.lightStyleURL()
+        mapView.styleURL = MGLStyle.lightStyleURL
         mapView.tintColor = .darkGray
         mapView.zoomLevel = 1
         mapView.delegate = self

@@ -9,7 +9,7 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
     
         let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.styleURL = MGLStyle.darkStyleURL()
+        mapView.styleURL = MGLStyle.darkStyleURL
         mapView.tintColor = .lightGray
         mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 0, longitude: 66)
         mapView.zoomLevel = 2

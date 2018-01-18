@@ -26,14 +26,14 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     }
     
     func addLayer(to style: MGLStyle) {
-        let source = MGLVectorSource(identifier: "contours", configurationURL: NSURL(string: "mapbox://mapbox.mapbox-terrain-v2")! as URL)
+        let source = MGLVectorTileSource(identifier: "contours", configurationURL: NSURL(string: "mapbox://mapbox.mapbox-terrain-v2")! as URL)
         
         let layer = MGLLineStyleLayer(identifier: "contours", source: source)
         layer.sourceLayerIdentifier = "contour"
-        layer.lineJoin = MGLStyleValue(rawValue: NSValue(mglLineJoin: .round))
-        layer.lineCap = MGLStyleValue(rawValue: NSValue(mglLineCap: .round))
-        layer.lineColor = MGLStyleValue(rawValue: UIColor.brown)
-        layer.lineWidth = MGLStyleValue(rawValue: 1.0)
+        layer.lineJoin = NSExpression(forConstantValue: NSValue(mglLineJoin: .round))
+        layer.lineCap = NSExpression(forConstantValue: NSValue(mglLineJoin: .round))
+        layer.lineColor = NSExpression(forConstantValue: UIColor.brown)
+        layer.lineWidth = NSExpression(forConstantValue: 1.0)
         
         style.addSource(source)
         if let water = style.layer(withIdentifier: "water") {

@@ -11,7 +11,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL())
+        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .darkGray
         mapView.delegate = self
@@ -33,38 +33,36 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Show unclustered features as icons. The `cluster` attribute is built into clustering-enabled source features.
         let ports = MGLSymbolStyleLayer(identifier: "ports", source: source)
-        ports.iconImageName = MGLStyleValue(rawValue: "icon")
-        ports.iconColor = MGLStyleValue(rawValue: UIColor.darkGray.withAlphaComponent(0.9))
+        ports.iconImageName = NSExpression(forConstantValue: "icon")
+        ports.iconColor = NSExpression(forConstantValue: UIColor.darkGray.withAlphaComponent(0.9))
         ports.predicate = NSPredicate(format: "%K != YES", "cluster")
         style.addLayer(ports)
 
         // Color clustered features based on clustered point counts.
         let stops = [
-            20:  MGLStyleValue(rawValue: UIColor.lightGray),
-            50:  MGLStyleValue(rawValue: UIColor.orange),
-            100: MGLStyleValue(rawValue: UIColor.red),
-            200: MGLStyleValue(rawValue: UIColor.purple)
+            20:  UIColor.lightGray,
+            50:  UIColor.orange,
+            100: UIColor.red,
+            200: UIColor.purple
         ]
 
         // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
         let circlesLayer = MGLCircleStyleLayer(identifier: "clusteredPorts", source: source)
-        circlesLayer.circleRadius = MGLStyleValue(rawValue: NSNumber(value: Double(icon.size.width) / 2))
-        circlesLayer.circleOpacity = MGLStyleValue(rawValue: 0.75)
-        circlesLayer.circleStrokeColor = MGLStyleValue(rawValue: UIColor.white.withAlphaComponent(0.75))
-        circlesLayer.circleStrokeWidth = MGLStyleValue(rawValue: 2)
-        circlesLayer.circleColor = MGLSourceStyleFunction(interpolationMode: .interval,
-                                                          stops: stops,
-                                                          attributeName: "point_count",
-                                                          options: nil)
+        circlesLayer.circleRadius = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
+        circlesLayer.circleOpacity = NSExpression(forConstantValue: 0.75)
+        circlesLayer.circleStrokeColor = NSExpression(forConstantValue: UIColor.white.withAlphaComponent(0.75))
+        circlesLayer.circleStrokeWidth = NSExpression(forConstantValue: 2)
+        circlesLayer.circleColor = NSExpression(format: "mgl_step:from:stops:(point_count, %@, %@)", UIColor.lightGray, stops)
         circlesLayer.predicate = NSPredicate(format: "%K == YES", "cluster")
         style.addLayer(circlesLayer)
 
-        // Label cluster circles with a layer of text indicating feature count. Per text token convention, wrap the attribute in {}.
+        // Label cluster circles with a layer of text indicating feature count. The value for `point_count` is an integer. In order to use that value for the `MGLSymbolStyleLayer.text` property, cast it as a string. 
         let numbersLayer = MGLSymbolStyleLayer(identifier: "clusteredPortsNumbers", source: source)
-        numbersLayer.textColor = MGLStyleValue(rawValue: UIColor.white)
-        numbersLayer.textFontSize = MGLStyleValue(rawValue: NSNumber(value: Double(icon.size.width) / 2))
-        numbersLayer.iconAllowsOverlap = MGLStyleValue(rawValue: true)
-        numbersLayer.text = MGLStyleValue(rawValue: "{point_count}")
+        numbersLayer.textColor = NSExpression(forConstantValue: UIColor.white)
+        numbersLayer.textFontSize = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
+        numbersLayer.iconAllowsOverlap = NSExpression(forConstantValue: true)
+        numbersLayer.text = NSExpression(format: "CAST(point_count, 'NSString')")
+        
         numbersLayer.predicate = NSPredicate(format: "%K == YES", "cluster")
         style.addLayer(numbersLayer)
 
