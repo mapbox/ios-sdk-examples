@@ -75,14 +75,9 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
     MGLSource *source = [style sourceWithIdentifier:@"composite"];
     MGLFillExtrusionStyleLayer *layer = [[MGLFillExtrusionStyleLayer alloc] initWithIdentifier:@"extrusion-layer" source:source];
     layer.sourceLayerIdentifier = @"building";
-//    layer.fillExtrusionBase = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity
-//                                                            sourceStops:nil
-//                                                          attributeName:@"min_height"
-//                                                                options:nil];
-//    layer.fillExtrusionHeight = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity
-//                                                              sourceStops:nil
-//                                                            attributeName:@"height"
-//                                                                  options:nil];
+    // MARK: Getting exception here
+    layer.fillExtrusionHeight = [NSExpression valueForKeyPath:@"height"];
+    layer.fillExtrusionBase = [NSExpression valueForKeyPath:@"min_height"];
     layer.fillExtrusionOpacity = [NSExpression expressionForConstantValue:@0.75];
     layer.fillExtrusionColor = [NSExpression expressionForConstantValue:[UIColor whiteColor]];
     

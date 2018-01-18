@@ -35,6 +35,7 @@ NSString *const MBXExampleBuildings = @"BuildingsExample";
     layer.predicate = [NSPredicate predicateWithFormat:@"extrude == 'true' AND height >= 0"];
     
     // Set the fill extrusion height to the value for the building height attribute.
+    // MARK: Getting exception here
     layer.fillExtrusionHeight = [NSExpression valueForKeyPath:@"height"];
     layer.fillExtrusionBase = [NSExpression valueForKeyPath:@"min_height"];
     layer.fillExtrusionOpacity = [NSExpression expressionForConstantValue:@0.75];

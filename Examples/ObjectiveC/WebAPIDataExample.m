@@ -62,23 +62,15 @@ NSString *const MBXExampleWebAPIData = @"WebAPIDataExample";
     MGLSymbolStyleLayer *symbols = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"lighthouse-symbols" source:source];
     symbols.iconImageName = [NSExpression expressionForConstantValue:@"lighthouse"];
     symbols.iconScale = [NSExpression expressionForConstantValue:@0.5];
-//    symbols.iconOpacity = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-//        cameraStops:@{
-//            @5.9: [NSExpression expressionForConstantValue:@0],
-//            @6: [NSExpression expressionForConstantValue:@1],
-//        }
-//        options:nil];
+    symbols.iconOpacity = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", @{@5.9: @0,
+                                                                                                                                                            @6: @1}];
     symbols.iconHaloColor = [NSExpression expressionForConstantValue:[[UIColor whiteColor] colorWithAlphaComponent:0.5]];
     symbols.iconHaloWidth = [NSExpression expressionForConstantValue:@1];
     // {name} references the "name" key in an MGLPointFeature’s attributes dictionary.
     symbols.text = [NSExpression expressionForConstantValue:@"{name}"];
     symbols.textColor = symbols.iconColor;
-//    symbols.textFontSize = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-//        cameraStops:@{
-//            @10: [NSExpression expressionForConstantValue:@10],
-//            @16: [NSExpression expressionForConstantValue:@16],
-//        }
-//        options:nil];
+    symbols.textFontSize = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", @{@10: @10,
+                                                                                                                                                              @16: @16}];
     symbols.textTranslation = [NSExpression expressionForConstantValue:[NSValue valueWithCGVector:CGVectorMake(10, 0)]];
     symbols.textOpacity = symbols.iconOpacity;
     symbols.textHaloColor = symbols.iconHaloColor;

@@ -46,12 +46,12 @@ NSString *const MBXExampleLineStyleLayer = @"LineStyleLayerExample";
     MGLSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"polyline" shape:shape options:nil];
     [self.mapView.style addSource:source];
 
-    // Create new layer for the line
+    // Create new layer for the line.
     MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline" source:source];
     layer.lineJoin = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
     layer.lineColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed:59/255.0 green:178/255.0 blue:208/255.0 alpha:1]];
     
-    // TODO: Default value - 1.5
+    // TODO: Convert, Default value - 1.5
     // Use a style function to smoothly adjust the line width from 2pt to 20pt between zoom levels 14 and 18. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
 //    layer.lineWidth = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
 //        cameraStops:@{
@@ -72,12 +72,6 @@ NSString *const MBXExampleLineStyleLayer = @"LineStyleLayerExample";
     // Use a style function to gradually increase the stroke width between zoom levels 14 and 18.
     // TODO: Default value - 1.5
     casingLayer.lineWidth = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", @{@14: @1, @18: @4}];
-//    casingLayer.lineWidth = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-//        cameraStops:@{
-//            @14: [NSExpression expressionForConstantValue:@1],
-//            @18: [NSExpression expressionForConstantValue:@4]
-//        }
-//        options:@{MGLStyleFunctionOptionDefaultValue:@1.5}];
 
     // Just for fun, let’s add another copy of the line with a dash pattern.
     MGLLineStyleLayer *dashedLayer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline-dash" source:source];
