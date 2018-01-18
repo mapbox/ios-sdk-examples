@@ -14,7 +14,7 @@ NSString *const MBXExampleThirdPartyVectorStyle = @"ThirdPartyVectorStyleExample
     NSURL *customStyleURL = [[NSBundle mainBundle] URLForResource:@"third_party_vector_style" withExtension:@"json"];
 
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:customStyleURL];
-    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(37.28, -122.44) zoomLevel:11.5 animated:NO];
+    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(60.16, 24.93) zoomLevel:12 animated:NO];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     mapView.tintColor = [UIColor whiteColor];
 

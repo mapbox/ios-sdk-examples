@@ -14,7 +14,7 @@ class ThirdPartyVectorStyleExample_Swift: UIViewController {
         let customStyleURL = Bundle.main.url(forResource: "third_party_vector_style", withExtension: "json")!
 
         mapView = MGLMapView(frame: view.bounds, styleURL: customStyleURL)
-        mapView.setCenter(CLLocationCoordinate2DMake(37.78, -122.44), zoomLevel: 11.5, animated: false)
+        mapView.setCenter(CLLocationCoordinate2DMake(60.16, 24.93), zoomLevel: 12, animated: false)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .white
         
