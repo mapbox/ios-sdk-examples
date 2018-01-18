@@ -3,7 +3,8 @@
     "sources": {
 	"mapillary": {
 	    "type": "vector",
-	    "tiles": ["https://d25uarhxywzl1j.cloudfront.net/v0.1/{z}/{x}/{y}.mvt"]
+	    "tiles": ["https://d25uarhxywzl1j.cloudfront.net/v0.1/{z}/{x}/{y}.mvt"],
+        "attribution": "Mapillary, CC BY"
 	}
     },
     "layers": [{
