@@ -1,25 +1,25 @@
 {
     "version": 8,
     "sources": {
-	"osm": {
+	"mapillary": {
 	    "type": "vector",
-	    "tiles": ["https://vector.mapzen.com/osm/all/{z}/{x}/{y}.mvt?api_key=vector-tiles-LM25tq4"]
+	    "tiles": ["https://d25uarhxywzl1j.cloudfront.net/v0.1/{z}/{x}/{y}.mvt"]
 	}
     },
     "layers": [{
 	   "id": "background",
 	   "type": "background",
 	   "paint": {
-	       "background-color": "#41afa5"
+	       "background-color": "#485E77"
 	    }
 	}, {
-	   "id": "water",
-	   "type": "fill",
-	   "source": "osm",
-	   "source-layer": "water",
-	   "filter": ["==", "$type", "Polygon"],
+	   "id": "mapillary-sequences",
+	   "type": "line",
+	   "source": "mapillary",
+	   "source-layer": "mapillary-sequences",
+	   "filter": ["==", "$type", "LineString"],
 	   "paint": {
-	   "fill-color": "#3887be"
+	   "line-color": "#F56745"
 	}
     }]
 }
