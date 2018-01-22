@@ -54,11 +54,11 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
     // Azimuthal : Position of the light relative to its anchor. Takes a CLLocationDirection.
     // Polar : The height of the light. Takes a CLLocationDirection.
     MGLSphericalPosition position = MGLSphericalPositionMake(5, 180, 80);
-    self.light.position = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLSphericalPosition:position]];
+    self.light.position = [NSExpression expressionForConstantValue:[NSValue valueWithMGLSphericalPosition:position]];
     
     // Set the light anchor to the map and add the light object to the map view's style. The light anchor can be the viewport (or rotates with the viewport) or the map (rotates with the map). To make the viewport the anchor, replace `MGLLightAnchorMap` with `MGLLightAnchorViewport`.
     
-    self.light.anchor = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLightAnchor:MGLLightAnchorMap]];
+    self.light.anchor = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLightAnchor:MGLLightAnchorMap]];
     
     style.light = self.light;
 }
@@ -66,7 +66,7 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
 - (void)shiftLight {
     // Use the slider's value to change the light's polar value.
     MGLSphericalPosition position = MGLSphericalPositionMake(5, 180, self.slider.value);
-    self.light.position = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLSphericalPosition:position]];
+    self.light.position = [NSExpression expressionForConstantValue:[NSValue valueWithMGLSphericalPosition:position]];
     self.mapView.style.light = self.light;
 }
 
