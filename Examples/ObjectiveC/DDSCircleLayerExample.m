@@ -52,7 +52,7 @@ NSString *const MBXExampleDDSCircleLayer = @"DDSCircleLayerExample";
         @16: [UIColor colorWithRed:0.33 green:0.17 blue:0.25 alpha:1.0]
     };
     
-    // Style the circle layer color based on the above categorical stops.
+    // Style the circle layer color based on the above stops dictionary.
     layer.circleColor = [NSExpression expressionWithFormat:@"FUNCTION(AGE, 'mgl_stepWithMinimum:stops:', %@, %@)", [UIColor colorWithRed:1.0 green:0.72 blue:0.85 alpha:1.0], stops];
 //    
     layer.circleRadius = [NSExpression expressionForConstantValue:@3];

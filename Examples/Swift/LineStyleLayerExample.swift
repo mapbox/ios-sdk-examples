@@ -53,7 +53,7 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         layer.lineCap = NSExpression(forConstantValue: NSValue(mglLineCap: .round))
         layer.lineColor = NSExpression(forConstantValue: UIColor(red: 59/255, green:178/255, blue:208/255, alpha:1))
         
-        // Use a style function to smoothly adjust the line width from 2pt to 20pt between zoom levels 14 and 18. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
+        // Use `NSExpression` to smoothly adjust the line width from 2pt to 20pt between zoom levels 14 and 18. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
         let layerStops = [14: NSExpression(forConstantValue: 2),
                           18: NSExpression(forConstantValue: 20)]
         layer.lineWidth = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", argumentArray: [layerStops])
@@ -70,7 +70,7 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         casingLayer.lineGapWidth = layer.lineWidth
         // Stroke color slightly darker than the line color.
         casingLayer.lineColor = NSExpression(forConstantValue: UIColor(red: 41/255, green:145/255, blue:171/255, alpha:1))
-        // Use a style function to gradually increase the stroke width between zoom levels 14 and 18.
+        // Use `NSExpression` to gradually increase the stroke width between zoom levels 14 and 18.
 
         // TODO: Default value - 1.5
         casingLayer.lineWidth = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", [14: 1, 18: 4])
