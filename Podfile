@@ -2,7 +2,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'Examples' do
-  pod 'Mapbox-iOS-SDK', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios-v3.7.4/platform/ios/Mapbox-iOS-SDK.podspec'
+  pod 'Mapbox-iOS-SDK', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios-v3.7.5/platform/ios/Mapbox-iOS-SDK.podspec'
 end
 
 target 'DocsCode' do
