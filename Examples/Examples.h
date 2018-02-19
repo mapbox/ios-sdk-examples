@@ -39,6 +39,7 @@ extern NSString *const MBXExampleImageSource;
 extern NSString *const MBXExampleLineAnnotationGeoJSON;
 extern NSString *const MBXExampleLineStyleLayer;
 extern NSString *const MBXExampleLiveData;
+extern NSString *const MBXExampleMultipleImages;
 extern NSString *const MBXExampleMultipleShapes;
 extern NSString *const MBXExampleOfflinePack;
 extern NSString *const MBXExamplePointConversion;
