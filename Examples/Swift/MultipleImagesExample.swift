@@ -9,21 +9,24 @@ class MultipleImagesExample: UIViewController, MGLMapViewDelegate {
         super.viewDidLoad()
 
         let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.outdoorsStyleURL())
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 60.0438, longitude: -149.8164), zoomLevel: 10, animated: false)
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 37.7, longitude: -119.7), zoomLevel: 10, animated: false)
         mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         mapView.delegate = self
         view.addSubview(mapView)
     }
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        if let url = URL(string: "mapbox://jordankiley.9v2hldnp") {
-            let source = MGLVectorSource(identifier: "park-feature-points", configurationURL: url)
+        if let url = URL(string: "mapbox://jordankiley.asry9k5m") {
+            let source = MGLVectorSource(identifier: "yosemite-pois", configurationURL: url)
             style.addSource(source)
-            
-            let layer = MGLSymbolStyleLayer(identifier: "park-feature-points", source: source)
-            layer.sourceLayerIdentifier = "FWS_HQ_NWRS_TrailPts-33isji"
+//            if let outdoorLayer = style.
+            print(style.layers)
+            let layer = MGLSymbolStyleLayer(identifier: "yosemite-pois", source: source)
+            layer.sourceLayerIdentifier = "Yosemite_POI-8mmqrb"
 //            layer.predicate = NSPredicate(format: "station = 'Kenai NWR'")
-            layer.text = NSExpression(forKeyPath: "type")
+            let imageDictionary = [ "Picnic Area" : "picnic-site-15"]
+            layer.iconImageName = NSExpression(format: "TERNARY(FUNCTION(%@, 'valueForKeyPath:', POITYPE) != nil, FUNCTION(%@, 'valueForKeyPath:', POITYPE))", imageDictionary, "circle-15")
+//            layer.text = NSExpression(forKeyPath: "POITYPE")
             style.addLayer(layer)
         }
     }
