@@ -79,7 +79,7 @@ class UserLocationButton : UIButton {
     }
     
     override func layoutSubviews() {
-        backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        backgroundColor = UIColor.white.withAlphaComponent(0.8)
         layer.cornerRadius = 4
         
         layoutArrow()
@@ -89,6 +89,8 @@ class UserLocationButton : UIButton {
         if arrow == nil {
             let arrow = CAShapeLayer()
             arrow.path = arrowPath()
+            arrow.lineWidth = 2
+            arrow.lineJoin = kCALineJoinRound
             arrow.bounds = CGRect(x: 0, y: 0, width: size / 2, height: size / 2)
             arrow.position = CGPoint(x: size / 2, y: size / 2)
             arrow.shouldRasterize = true
