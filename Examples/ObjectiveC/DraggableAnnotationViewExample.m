@@ -6,6 +6,12 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
 // MGLAnnotationView subclass
 @interface DraggableAnnotationView : MGLAnnotationView
 @end
+
+// Private interface for DraggableAnnotationView
+@interface DraggableAnnotationView ()
+@property (nonatomic, nullable) UIImpactFeedbackGenerator *hapticFeedback;
+@end
+
 @implementation DraggableAnnotationView
 
 - (instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier size:(CGFloat)size {
@@ -63,6 +69,15 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
         self.layer.opacity = 0.8;
         self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.5, 1.5);
     } completion:nil];
+
+    // Initialize haptic feedback generator and give the user a light thud.
+    if (@available(iOS 10.0, *)) {
+        self.hapticFeedback = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
+        [self.hapticFeedback impactOccurred];
+
+        // Keep the generator prepared, as the drop feedback event will probably happen quite soon.
+        [self.hapticFeedback prepare];
+    }
 }
 
 - (void)endDragging {
@@ -71,6 +86,12 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
         self.layer.opacity = 1;
         self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
     } completion:nil];
+
+    // Give the user more haptic feedback when they drop the annotation, then release the current generator.
+    if (@available(iOS 10.0, *)) {
+        [self.hapticFeedback impactOccurred];
+        self.hapticFeedback = nil;
+    }
 }
 
 @end
@@ -97,7 +118,7 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
     CLLocationCoordinate2D coordinates[] = {
         CLLocationCoordinate2DMake(0, -70),
         CLLocationCoordinate2DMake(0, -35),
-        CLLocationCoordinate2DMake(0,  0),
+        CLLocationCoordinate2DMake(0, 0),
         CLLocationCoordinate2DMake(0, 35),
         CLLocationCoordinate2DMake(0, 70),
     };
