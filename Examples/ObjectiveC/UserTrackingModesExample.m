@@ -29,7 +29,8 @@ const CGFloat UserLocationButtonSize = 80;
 
 - (void)layoutArrow {
     if (_arrow == nil) {
-        CAShapeLayer *arrow;
+        
+        CAShapeLayer *arrow = [[CAShapeLayer alloc] init];
         
         arrow.path = [self arrowPath];
         arrow.lineWidth = 2;
@@ -43,63 +44,75 @@ const CGFloat UserLocationButtonSize = 80;
         _arrow = arrow;
         [self updateArrow:MGLUserTrackingModeNone];
         [self.layer addSublayer:_arrow];
+        
     }
 }
 
 - (CGPathRef) arrowPath {
+    
     CGFloat max = UserLocationButtonSize / 2;
     
-    UIBezierPath *bezierPath;
+    UIBezierPath *bezierPath = [UIBezierPath alloc];
     [bezierPath moveToPoint:CGPointMake(max * 0.5, 0)];
     [bezierPath addLineToPoint:CGPointMake(max * 0.1, max)];
     [bezierPath addLineToPoint:CGPointMake(max * 0.5, max * 0.65)];
     [bezierPath addLineToPoint:CGPointMake(max * 0.9, max)];
     [bezierPath addLineToPoint:CGPointMake(max * 0.5, 0)];
+    [bezierPath closePath];
     
     return bezierPath.CGPath;
+    
 }
 
 -(void)updateArrow:(MGLUserTrackingMode)mode {
-    struct CGColor *stroke;
+    UIColor *stroke;
     
     switch (mode) {
         case MGLUserTrackingModeNone:
-            stroke = UIColor.whiteColor.CGColor;
+            stroke = [UIColor greenColor];
             break;
         case MGLUserTrackingModeFollow:
-            stroke = self.tintColor.CGColor;
+            stroke = self.tintColor;
             break;
         case MGLUserTrackingModeFollowWithHeading:
+            stroke = [UIColor blueColor];
+            break;
         case MGLUserTrackingModeFollowWithCourse:
-            stroke = UIColor.clearColor.CGColor;
+            stroke = [UIColor orangeColor];
             break;
     }
-    
-    _arrow.strokeColor = stroke;
-    
+
+    _arrow.strokeColor = stroke.CGColor;
+
     if (mode == MGLUserTrackingModeNone || mode == MGLUserTrackingModeFollowWithCourse) {
-        CGPointMake(UserLocationButtonSize / 2, UserLocationButtonSize / 2);
+        // confirmed (40, 40)
+        _arrow.position = CGPointMake(UserLocationButtonSize / 2, UserLocationButtonSize / 2);
+        
     } else {
-        CGPointMake(UserLocationButtonSize / 2 + 2, UserLocationButtonSize / 2 - 2);
+        // (42, 38)
+        _arrow.position = CGPointMake(UserLocationButtonSize / 2 + 2, UserLocationButtonSize / 2 - 2);
     }
-    
+
     if (mode == MGLUserTrackingModeNone || mode == MGLUserTrackingModeFollow) {
-        // "Property access result unused - getters should not be used for side effects"
-        UIColor.clearColor.CGColor;
+
+        _arrow.fillColor = [[UIColor blueColor] CGColor];
+
     } else {
-        // "Property access result unused - getters should not be used for side effects"
-        self.tintColor.CGColor;
+
+        _arrow.fillColor = self.tintColor.CGColor;
     }
-    
+
     CGFloat rotation;
-    
+
     if (mode == MGLUserTrackingModeNone || mode == MGLUserTrackingModeFollowWithHeading) {
         rotation = 0.66;
     } else {
         rotation = 0;
     }
-    
+
     [_arrow setAffineTransform:CGAffineTransformMakeRotation(rotation)];
+    
+    [self layoutIfNeeded];
 }
 
 @end
@@ -147,9 +160,6 @@ const CGFloat UserLocationButtonSize = 80;
             mode = MGLUserTrackingModeFollowWithCourse;
             break;
         case MGLUserTrackingModeFollowWithCourse:
-            mode = MGLUserTrackingModeNone;
-            break;
-        default:
             mode = MGLUserTrackingModeNone;
             break;
     }
