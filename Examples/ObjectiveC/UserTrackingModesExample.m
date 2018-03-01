@@ -40,11 +40,11 @@ const CGFloat UserLocationButtonSize = 80;
         arrow.shouldRasterize = YES;
         arrow.rasterizationScale = [[UIScreen mainScreen] scale];
         arrow.drawsAsynchronously = YES;
-        
+
         _arrow = arrow;
+        
         [self updateArrow:MGLUserTrackingModeNone];
         [self.layer addSublayer:_arrow];
-        
     }
 }
 
@@ -52,8 +52,10 @@ const CGFloat UserLocationButtonSize = 80;
     
     CGFloat max = UserLocationButtonSize / 2;
     
-    UIBezierPath *bezierPath = [UIBezierPath alloc];
+    UIBezierPath *bezierPath = [[UIBezierPath alloc] init];
+    
     [bezierPath moveToPoint:CGPointMake(max * 0.5, 0)];
+    
     [bezierPath addLineToPoint:CGPointMake(max * 0.1, max)];
     [bezierPath addLineToPoint:CGPointMake(max * 0.5, max * 0.65)];
     [bezierPath addLineToPoint:CGPointMake(max * 0.9, max)];
@@ -61,56 +63,43 @@ const CGFloat UserLocationButtonSize = 80;
     [bezierPath closePath];
     
     return bezierPath.CGPath;
-    
 }
 
 -(void)updateArrow:(MGLUserTrackingMode)mode {
-    UIColor *stroke;
+    UIColor *arrowStroke;
+    CGPoint arrowPosition;
+    UIColor *arrowFillColor;
+    CGFloat arrowRotation;
+    
     
     switch (mode) {
         case MGLUserTrackingModeNone:
-            stroke = [UIColor greenColor];
+            arrowStroke = [UIColor whiteColor];
+            arrowPosition = CGPointMake(UserLocationButtonSize / 2, UserLocationButtonSize / 2);
+            arrowFillColor = [UIColor clearColor];
+            arrowRotation = 0;
             break;
         case MGLUserTrackingModeFollow:
-            stroke = self.tintColor;
+            arrowStroke = self.tintColor;
+            arrowPosition = CGPointMake(UserLocationButtonSize / 2 + 2, UserLocationButtonSize / 2 - 2);
+            arrowFillColor = [UIColor clearColor];
+            arrowRotation = 0.66;
             break;
         case MGLUserTrackingModeFollowWithHeading:
-            stroke = [UIColor blueColor];
+            arrowStroke = [UIColor clearColor];
+            arrowPosition = CGPointMake(UserLocationButtonSize / 2 + 2, UserLocationButtonSize / 2 - 2);
+            arrowFillColor = self.tintColor;
+            arrowRotation = 0.66;
             break;
         case MGLUserTrackingModeFollowWithCourse:
-            stroke = [UIColor orangeColor];
+            arrowStroke = [UIColor clearColor];
+            arrowPosition = CGPointMake(UserLocationButtonSize / 2, UserLocationButtonSize / 2);
+            arrowFillColor = self.tintColor;
+            arrowRotation = 0;
             break;
     }
-
-    _arrow.strokeColor = stroke.CGColor;
-
-    if (mode == MGLUserTrackingModeNone || mode == MGLUserTrackingModeFollowWithCourse) {
-        // confirmed (40, 40)
-        _arrow.position = CGPointMake(UserLocationButtonSize / 2, UserLocationButtonSize / 2);
-        
-    } else {
-        // (42, 38)
-        _arrow.position = CGPointMake(UserLocationButtonSize / 2 + 2, UserLocationButtonSize / 2 - 2);
-    }
-
-    if (mode == MGLUserTrackingModeNone || mode == MGLUserTrackingModeFollow) {
-
-        _arrow.fillColor = [[UIColor blueColor] CGColor];
-
-    } else {
-
-        _arrow.fillColor = self.tintColor.CGColor;
-    }
-
-    CGFloat rotation;
-
-    if (mode == MGLUserTrackingModeNone || mode == MGLUserTrackingModeFollowWithHeading) {
-        rotation = 0.66;
-    } else {
-        rotation = 0;
-    }
-
-    [_arrow setAffineTransform:CGAffineTransformMakeRotation(rotation)];
+    
+    [_arrow setAffineTransform:CGAffineTransformMakeRotation(arrowRotation)];
     
     [self layoutIfNeeded];
 }
@@ -142,13 +131,12 @@ const CGFloat UserLocationButtonSize = 80;
 }
 
 - (void)mapView:(MGLMapView *)mapView didChangeUserTrackingMode:(MGLUserTrackingMode)mode animated:(BOOL)animated {
-    
     [_button updateArrow:mode];
 }
 
 -(void)locationButtonTapped:(UserLocationButton *)sender {
     MGLUserTrackingMode mode;
-    
+
     switch (_mapView.userTrackingMode) {
         case MGLUserTrackingModeNone:
             mode = MGLUserTrackingModeFollow;
@@ -164,12 +152,17 @@ const CGFloat UserLocationButtonSize = 80;
             break;
     }
     
-    _mapView.userTrackingMode = mode;
+//    _mapView.userTrackingMode = mode;
+    [_mapView setUserTrackingMode:mode];
+    
+    NSLog(@"Mode: %lu", (unsigned long)mode); // this is changing to 1 on first press
+    NSLog(@"Mode: %lu", (unsigned long)_mapView.userTrackingMode); // but this isn't changing
+    
 }
 
 -(void)setupLocationButton {
     _button = [[UserLocationButton alloc] init];
-    [_button addTarget:self action:@selector(locationButtonTapped:)  forControlEvents:UIControlEventTouchUpInside];
+    [_button addTarget:self action:@selector(locationButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     _button.tintColor = self.mapView.tintColor;
     [self.view addSubview:_button];
     
