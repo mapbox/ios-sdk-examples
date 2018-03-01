@@ -66,39 +66,40 @@ const CGFloat UserLocationButtonSize = 80;
 }
 
 -(void)updateArrow:(MGLUserTrackingMode)mode {
-    UIColor *arrowStroke;
+    CGColorRef arrowStrokeColor;
     CGPoint arrowPosition;
-    UIColor *arrowFillColor;
+    CGColorRef arrowFillColor;
     CGFloat arrowRotation;
-    
     
     switch (mode) {
         case MGLUserTrackingModeNone:
-            arrowStroke = [UIColor whiteColor];
+            arrowStrokeColor = [[UIColor whiteColor] CGColor];
             arrowPosition = CGPointMake(UserLocationButtonSize / 2, UserLocationButtonSize / 2);
-            arrowFillColor = [UIColor clearColor];
+            arrowFillColor = [[UIColor clearColor] CGColor];
             arrowRotation = 0;
             break;
         case MGLUserTrackingModeFollow:
-            arrowStroke = self.tintColor;
+            arrowStrokeColor = self.tintColor.CGColor;
             arrowPosition = CGPointMake(UserLocationButtonSize / 2 + 2, UserLocationButtonSize / 2 - 2);
-            arrowFillColor = [UIColor clearColor];
+            arrowFillColor = [[UIColor clearColor] CGColor];
             arrowRotation = 0.66;
             break;
         case MGLUserTrackingModeFollowWithHeading:
-            arrowStroke = [UIColor clearColor];
+            arrowStrokeColor = [[UIColor clearColor] CGColor];
             arrowPosition = CGPointMake(UserLocationButtonSize / 2 + 2, UserLocationButtonSize / 2 - 2);
-            arrowFillColor = self.tintColor;
+            arrowFillColor = self.tintColor.CGColor;
             arrowRotation = 0.66;
             break;
         case MGLUserTrackingModeFollowWithCourse:
-            arrowStroke = [UIColor clearColor];
+            arrowStrokeColor = [[UIColor clearColor] CGColor];
             arrowPosition = CGPointMake(UserLocationButtonSize / 2, UserLocationButtonSize / 2);
-            arrowFillColor = self.tintColor;
+            arrowFillColor = self.tintColor.CGColor;
             arrowRotation = 0;
             break;
     }
     
+    [_arrow setFillColor:arrowFillColor];
+    [_arrow setStrokeColor:arrowStrokeColor];
     [_arrow setAffineTransform:CGAffineTransformMakeRotation(arrowRotation)];
     
     [self layoutIfNeeded];
@@ -118,20 +119,20 @@ const CGFloat UserLocationButtonSize = 80;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURL]];
-    mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    mapView.delegate = self;
+    self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURL]];
+    self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.mapView.delegate = self;
 
-    mapView.tintColor = [UIColor redColor];
-    mapView.attributionButton.tintColor = [UIColor lightGrayColor];
+    self.mapView.tintColor = [UIColor redColor];
+    self.mapView.attributionButton.tintColor = [UIColor lightGrayColor];
 
-    [self.view addSubview:mapView];
+    [self.view addSubview:self.mapView];
     
     [self setupLocationButton];
 }
 
 - (void)mapView:(MGLMapView *)mapView didChangeUserTrackingMode:(MGLUserTrackingMode)mode animated:(BOOL)animated {
-    [_button updateArrow:mode];
+    [self.button updateArrow:mode];
 }
 
 -(void)locationButtonTapped:(UserLocationButton *)sender {
@@ -157,22 +158,21 @@ const CGFloat UserLocationButtonSize = 80;
     
     NSLog(@"Mode: %lu", (unsigned long)mode); // this is changing to 1 on first press
     NSLog(@"Mode: %lu", (unsigned long)_mapView.userTrackingMode); // but this isn't changing
-    
 }
 
 -(void)setupLocationButton {
-    _button = [[UserLocationButton alloc] init];
-    [_button addTarget:self action:@selector(locationButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    _button.tintColor = self.mapView.tintColor;
-    [self.view addSubview:_button];
+    self.button = [[UserLocationButton alloc] init];
+    [self.button addTarget:self action:@selector(locationButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    self.button.tintColor = self.mapView.tintColor;
+    [self.view addSubview:self.button];
     
-    _button.translatesAutoresizingMaskIntoConstraints = NO;
+    self.button.translatesAutoresizingMaskIntoConstraints = NO;
     
     NSArray *constraints = @[
-        [NSLayoutConstraint constraintWithItem:_button attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:10],
-        [NSLayoutConstraint constraintWithItem:_button attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10],
-        [NSLayoutConstraint constraintWithItem:_button attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:_button.frame.size.height],
-        [NSLayoutConstraint constraintWithItem:_button attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:_button.frame.size.width]
+        [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:10],
+        [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10],
+        [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.button.frame.size.height],
+        [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.button.frame.size.width]
         
     ];
     
