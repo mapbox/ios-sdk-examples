@@ -118,24 +118,37 @@ class UserLocationButton : UIButton {
     }
     
     func updateArrow(for mode: MGLUserTrackingMode) {
-        var stroke: CGColor
-        switch (mode) {
+        var arrowStrokeColor: CGColor
+        var arrowPosition: CGPoint
+        var arrowFillColor: CGColor
+        var arrowRotation: CGFloat
+        
+        switch mode {
         case .none:
-            stroke = UIColor.white.cgColor
+            arrowStrokeColor = UIColor.white.cgColor
+            arrowPosition = CGPoint(x: size / 2, y: size / 2)
+            arrowFillColor = UIColor.clear.cgColor
+            arrowRotation = 0
         case .follow:
-            stroke = tintColor.cgColor
-        case .followWithHeading, .followWithCourse:
-            stroke = UIColor.clear.cgColor
+            arrowStrokeColor = tintColor.cgColor
+            arrowPosition = CGPoint(x: size / 2 + 2, y: size / 2 - 2)
+            arrowFillColor = UIColor.clear.cgColor
+            arrowRotation = 0.66
+        case .followWithHeading:
+            arrowStrokeColor = UIColor.clear.cgColor
+            arrowPosition = CGPoint(x: size / 2 + 2, y: size / 2 - 2)
+            arrowFillColor = tintColor.cgColor
+            arrowRotation = 0.66
+        case .followWithCourse:
+            arrowStrokeColor = UIColor.clear.cgColor
+            arrowPosition = CGPoint(x: size / 2, y: size / 2)
+            arrowFillColor = tintColor.cgColor
+            arrowRotation = 0
         }
-        arrow!.strokeColor = stroke
         
-        // Re-center the arrow, based on its current orientation.
-        arrow!.position = (mode == .none || mode == .followWithCourse) ? CGPoint(x: size / 2, y: size / 2) : CGPoint(x: size / 2 + 2, y: size / 2 - 2)
-        
-        arrow!.fillColor = (mode == .none || mode == .follow) ? UIColor.clear.cgColor : tintColor.cgColor
-        
-        let rotation: CGFloat = (mode == .follow || mode == .followWithHeading) ? 0.66 : 0
-        arrow!.setAffineTransform(CGAffineTransform.identity.rotated(by: rotation))
+        arrow!.fillColor = arrowFillColor
+        arrow?.strokeColor = arrowStrokeColor
+        arrow!.setAffineTransform(CGAffineTransform.identity.rotated(by: arrowRotation))
         
         layoutIfNeeded()
     }
