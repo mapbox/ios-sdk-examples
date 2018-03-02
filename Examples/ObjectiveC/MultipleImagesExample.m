@@ -19,4 +19,23 @@ NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
     [self.view addSubview:mapView];
 }
 
+- (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
+    NSURL *url = [[NSURL alloc] initWithString:@"mapbox://jordankiley.asry9k5m"];
+    MGLVectorSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"yosemite-pois" configurationURL:url];
+    [style addSource:source];
+    
+    MGLSymbolStyleLayer *layer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"yosemite-pois" source:source];
+    layer.sourceLayerIdentifier = @"Yosemite_POI-8mmqrb";
+    
+    layer.iconImageName = [NSExpression expressionWithFormat:@"FUNCTION(%@, 'valueForKeyPath:', POITYPE)", @{@"Picnic Area" : @"picnic-site-15", @"Restroom" : @"toilet-15", @"Parking" : @"parking-15"}];
+    
+    // This should be a composite function.
+    layer.iconOpacity = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_stepWithMinimum:stops:', 1, %@)", @{@16: @0}];
+    [style addLayer:layer];
+}
+
+- (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    NSLog(@"Current zoom level: %f", mapView.zoomLevel);
+}
+
 @end

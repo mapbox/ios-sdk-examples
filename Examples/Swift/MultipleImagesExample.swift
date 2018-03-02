@@ -19,13 +19,12 @@ class MultipleImagesExample: UIViewController, MGLMapViewDelegate {
         if let url = URL(string: "mapbox://jordankiley.asry9k5m") {
             let source = MGLVectorSource(identifier: "yosemite-pois", configurationURL: url)
             style.addSource(source)
-//            if let outdoorLayer = style.
-            print(style.layers)
+
             let layer = MGLSymbolStyleLayer(identifier: "yosemite-pois", source: source)
             layer.sourceLayerIdentifier = "Yosemite_POI-8mmqrb"
 //            layer.predicate = NSPredicate(format: "station = 'Kenai NWR'")
             let imageDictionary = [ "Picnic Area" : "picnic-site-15"]
-            layer.iconImageName = NSExpression(format: "TERNARY(FUNCTION(%@, 'valueForKeyPath:', POITYPE) != nil, FUNCTION(%@, 'valueForKeyPath:', POITYPE))", imageDictionary, "circle-15")
+//        layer.iconImageName = NSExpression(format: "FUNCTION(%@, 'valueForKeyPath:', POITYPE)", imageDictionary, "circle-15")
 //            layer.text = NSExpression(forKeyPath: "POITYPE")
             style.addLayer(layer)
         }
