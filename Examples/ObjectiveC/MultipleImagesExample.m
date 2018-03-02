@@ -1,17 +1,10 @@
-//
-//  MultipleImagesExample.m
-//  Examples
-//
-//  Created by Jordan Kiley on 2/19/18.
-//  Copyright © 2018 Mapbox. All rights reserved.
-//
 
 #import "MultipleImagesExample.h"
 @import Mapbox;
 
 NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
 
-@interface MultipleImagesExample ()
+@interface MultipleImagesExample () <MGLMapViewDelegate>
 
 @end
 
@@ -19,22 +12,11 @@ NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle outdoorsStyleURL]];
+    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(37.7, -119.7) zoomLevel:10 animated:NO];
+    mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    mapView.delegate = self;
+    [self.view addSubview:mapView];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
