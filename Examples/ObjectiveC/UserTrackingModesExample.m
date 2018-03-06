@@ -12,23 +12,11 @@ const CGFloat UserLocationButtonSize = 80;
 
 @implementation UserLocationButton
 
-- (instancetype)init {
-    self = [super initWithFrame:CGRectMake(0, 0, UserLocationButtonSize, UserLocationButtonSize)];
-    
-    return self;
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-    self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
-    self.layer.cornerRadius = 4;
-    
-    [self layoutArrow];
-}
-
-- (void)layoutArrow {
-    if (_arrow == nil) {
+- (instancetype)initWithButtonSize:(CGFloat)buttonSize {
+    if (self = [super init]) {
+        self.frame = CGRectMake(0, 0, buttonSize, buttonSize);
+        self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
+        self.layer.cornerRadius = 4;
         
         CAShapeLayer *arrow = [[CAShapeLayer alloc] init];
         
@@ -40,12 +28,14 @@ const CGFloat UserLocationButtonSize = 80;
         arrow.shouldRasterize = YES;
         arrow.rasterizationScale = [[UIScreen mainScreen] scale];
         arrow.drawsAsynchronously = YES;
-
+        
         _arrow = arrow;
         
         [self updateArrow:MGLUserTrackingModeNone];
         [self.layer addSublayer:_arrow];
     }
+    
+    return self;
 }
 
 - (CGPathRef) arrowPath {
@@ -161,7 +151,7 @@ const CGFloat UserLocationButtonSize = 80;
 }
 
 -(void)setupLocationButton {
-    self.button = [[UserLocationButton alloc] init];
+    self.button = [[UserLocationButton alloc] initWithButtonSize:UserLocationButtonSize];
     [self.button addTarget:self action:@selector(locationButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     self.button.tintColor = self.mapView.tintColor;
     [self.view addSubview:self.button];
