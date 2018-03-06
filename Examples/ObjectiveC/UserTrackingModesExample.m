@@ -29,10 +29,10 @@ const CGFloat UserLocationButtonSize = 80;
         arrow.rasterizationScale = [[UIScreen mainScreen] scale];
         arrow.drawsAsynchronously = YES;
         
-        _arrow = arrow;
+        self.arrow = arrow;
         
         [self updateArrow:MGLUserTrackingModeNone];
-        [self.layer addSublayer:_arrow];
+        [self.layer addSublayer:self.arrow];
     }
     
     return self;
@@ -88,9 +88,9 @@ const CGFloat UserLocationButtonSize = 80;
             break;
     }
     
-    [_arrow setFillColor:arrowFillColor];
-    [_arrow setStrokeColor:arrowStrokeColor];
-    [_arrow setAffineTransform:CGAffineTransformMakeRotation(arrowRotation)];
+    [self.arrow setFillColor:arrowFillColor];
+    [self.arrow setStrokeColor:arrowStrokeColor];
+    [self.arrow setAffineTransform:CGAffineTransformMakeRotation(arrowRotation)];
     
     [self layoutIfNeeded];
 }
@@ -128,7 +128,7 @@ const CGFloat UserLocationButtonSize = 80;
 -(void)locationButtonTapped:(UserLocationButton *)sender {
     MGLUserTrackingMode mode;
 
-    switch (_mapView.userTrackingMode) {
+    switch (self.mapView.userTrackingMode) {
         case MGLUserTrackingModeNone:
             mode = MGLUserTrackingModeFollow;
             break;
@@ -148,6 +148,7 @@ const CGFloat UserLocationButtonSize = 80;
     
     NSLog(@"Mode: %lu", (unsigned long)mode); // this is changing to 1 on first press
     NSLog(@"Mode: %lu", (unsigned long)_mapView.userTrackingMode); // but this isn't changing
+    [self.mapView setUserTrackingMode:mode];
 }
 
 -(void)setupLocationButton {
