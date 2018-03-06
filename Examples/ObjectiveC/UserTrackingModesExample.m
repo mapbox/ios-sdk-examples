@@ -57,32 +57,27 @@ const CGFloat UserLocationButtonSize = 80;
 
 -(void)updateArrow:(MGLUserTrackingMode)mode {
     CGColorRef arrowStrokeColor;
-    CGPoint arrowPosition;
     CGColorRef arrowFillColor;
     CGFloat arrowRotation;
     
     switch (mode) {
         case MGLUserTrackingModeNone:
             arrowStrokeColor = [[UIColor whiteColor] CGColor];
-            arrowPosition = CGPointMake(UserLocationButtonSize / 2, UserLocationButtonSize / 2);
             arrowFillColor = [[UIColor clearColor] CGColor];
             arrowRotation = 0;
             break;
         case MGLUserTrackingModeFollow:
             arrowStrokeColor = self.tintColor.CGColor;
-            arrowPosition = CGPointMake(UserLocationButtonSize / 2 + 2, UserLocationButtonSize / 2 - 2);
             arrowFillColor = [[UIColor clearColor] CGColor];
             arrowRotation = 0.66;
             break;
         case MGLUserTrackingModeFollowWithHeading:
             arrowStrokeColor = [[UIColor clearColor] CGColor];
-            arrowPosition = CGPointMake(UserLocationButtonSize / 2 + 2, UserLocationButtonSize / 2 - 2);
             arrowFillColor = self.tintColor.CGColor;
             arrowRotation = 0.66;
             break;
         case MGLUserTrackingModeFollowWithCourse:
             arrowStrokeColor = [[UIColor clearColor] CGColor];
-            arrowPosition = CGPointMake(UserLocationButtonSize / 2, UserLocationButtonSize / 2);
             arrowFillColor = self.tintColor.CGColor;
             arrowRotation = 0;
             break;
