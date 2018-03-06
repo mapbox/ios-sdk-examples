@@ -92,6 +92,8 @@ const CGFloat UserLocationButtonSize = 80;
 
 @end
 
+// End custom UIButton subclass
+
 @interface UserTrackingModesExample () <MGLMapViewDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
@@ -108,6 +110,7 @@ const CGFloat UserLocationButtonSize = 80;
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
 
+    // The user location annotation takes its color from the map view's tint color.
     self.mapView.tintColor = [UIColor redColor];
     self.mapView.attributionButton.tintColor = [UIColor lightGrayColor];
 
@@ -138,11 +141,6 @@ const CGFloat UserLocationButtonSize = 80;
             break;
     }
     
-//    _mapView.userTrackingMode = mode;
-    [_mapView setUserTrackingMode:mode];
-    
-    NSLog(@"Mode: %lu", (unsigned long)mode); // this is changing to 1 on first press
-    NSLog(@"Mode: %lu", (unsigned long)_mapView.userTrackingMode); // but this isn't changing
     [self.mapView setUserTrackingMode:mode];
 }
 
