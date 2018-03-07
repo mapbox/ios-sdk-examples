@@ -20,6 +20,9 @@ NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
+    // Add Hiker by Nicolas Vicent from the Noun Project to the map's style.
+    
+    [style setImage:[UIImage imageNamed:@"hiker-icon"] forName:@"trailhead"];
     NSURL *url = [[NSURL alloc] initWithString:@"mapbox://jordankiley.asry9k5m"];
     MGLVectorSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"yosemite-pois" configurationURL:url];
     [style addSource:source];
@@ -27,8 +30,8 @@ NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
     MGLSymbolStyleLayer *layer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"yosemite-pois" source:source];
     layer.sourceLayerIdentifier = @"Yosemite_POI-8mmqrb";
     
-    layer.iconImageName = [NSExpression expressionWithFormat:@"FUNCTION(%@, 'valueForKeyPath:', POITYPE)", @{@"Picnic Area" : @"picnic-site-15", @"Restroom" : @"toilet-15", @"Parking" : @"parking-15"}];
-    
+    layer.iconImageName = [NSExpression expressionWithFormat:@"FUNCTION(%@, 'valueForKeyPath:', POITYPE)", @{@"Picnic Area" : @"picnic-site-15", @"Restroom" : @"toilet-15", @"Parking" : @"parking-15", @"Campsite" : @"campsite-15", @"Trailhead" : @"trailhead"}];
+
     // This should be a composite function.
     layer.iconOpacity = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_stepWithMinimum:stops:', 1, %@)", @{@16: @0}];
     [style addLayer:layer];
