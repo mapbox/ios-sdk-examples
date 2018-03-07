@@ -3,6 +3,8 @@
 
 NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 
+#pragma mark - UIButton subclass
+
 // Subclass UIButton to create a custom user tracking mode button
 @interface UserLocationButton : UIButton
 @property (nonatomic) CAShapeLayer *arrow;
@@ -90,7 +92,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 
 @end
 
-// End custom UIButton subclass
+#pragma mark - ViewController
 
 @interface UserTrackingModesExample () <MGLMapViewDelegate>
 
