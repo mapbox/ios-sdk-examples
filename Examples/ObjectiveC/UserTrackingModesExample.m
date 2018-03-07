@@ -60,22 +60,22 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 -(void)updateArrow:(MGLUserTrackingMode)mode {    
     switch (mode) {
         case MGLUserTrackingModeNone:
-            [self updateArrowStyle:[[UIColor whiteColor] CGColor]
-                     withFillColor:[[UIColor clearColor] CGColor]
+            [self updateArrowStyle:UIColor.whiteColor.CGColor
+                     withFillColor:UIColor.clearColor.CGColor
                        andRotation:0];
             break;
         case MGLUserTrackingModeFollow:
             [self updateArrowStyle:self.tintColor.CGColor
-                     withFillColor:[[UIColor clearColor] CGColor]
+                     withFillColor:UIColor.clearColor.CGColor
                        andRotation:0.66];
             break;
         case MGLUserTrackingModeFollowWithHeading:
-            [self updateArrowStyle:[[UIColor clearColor] CGColor]
+            [self updateArrowStyle:UIColor.clearColor.CGColor
                      withFillColor:self.tintColor.CGColor
                        andRotation:0.66];
             break;
         case MGLUserTrackingModeFollowWithCourse:
-            [self updateArrowStyle:[[UIColor clearColor] CGColor]
+            [self updateArrowStyle:UIColor.clearColor.CGColor
                      withFillColor:self.tintColor.CGColor
                        andRotation:0];
             break;
