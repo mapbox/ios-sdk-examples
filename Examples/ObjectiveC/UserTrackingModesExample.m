@@ -6,9 +6,8 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 // Subclass UIButton to create a custom user tracking mode button
 @interface UserLocationButton : UIButton
 @property (nonatomic) CAShapeLayer *arrow;
+@property (nonatomic) CGFloat buttonSize;
 @end
-
-const CGFloat UserLocationButtonSize = 80;
 
 @implementation UserLocationButton
 
@@ -17,14 +16,15 @@ const CGFloat UserLocationButtonSize = 80;
         self.frame = CGRectMake(0, 0, buttonSize, buttonSize);
         self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
         self.layer.cornerRadius = 4;
+        self.buttonSize = buttonSize;
         
         CAShapeLayer *arrow = [[CAShapeLayer alloc] init];
         
         arrow.path = [self arrowPath];
         arrow.lineWidth = 2;
         arrow.lineJoin = kCALineJoinRound;
-        arrow.bounds = CGRectMake(0, 0, UserLocationButtonSize / 2, UserLocationButtonSize / 2);
-        arrow.position = CGPointMake(UserLocationButtonSize / 2, UserLocationButtonSize / 2);
+        arrow.bounds = CGRectMake(0, 0, buttonSize / 2, buttonSize / 2);
+        arrow.position = CGPointMake(buttonSize / 2, buttonSize / 2);
         arrow.shouldRasterize = YES;
         arrow.rasterizationScale = [[UIScreen mainScreen] scale];
         arrow.drawsAsynchronously = YES;
@@ -40,7 +40,7 @@ const CGFloat UserLocationButtonSize = 80;
 
 - (CGPathRef) arrowPath {
     
-    CGFloat max = UserLocationButtonSize / 2;
+    CGFloat max = self.buttonSize / 2;
     
     UIBezierPath *bezierPath = [[UIBezierPath alloc] init];
     
@@ -143,7 +143,7 @@ const CGFloat UserLocationButtonSize = 80;
 }
 
 -(void)setupLocationButton {
-    self.button = [[UserLocationButton alloc] initWithButtonSize:UserLocationButtonSize];
+    self.button = [[UserLocationButton alloc] initWithButtonSize:80];
     [self.button addTarget:self action:@selector(locationButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     self.button.tintColor = self.mapView.tintColor;
     [self.view addSubview:self.button];
