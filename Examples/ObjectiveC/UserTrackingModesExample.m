@@ -55,37 +55,35 @@ const CGFloat UserLocationButtonSize = 80;
     return bezierPath.CGPath;
 }
 
--(void)updateArrow:(MGLUserTrackingMode)mode {
-    CGColorRef arrowStrokeColor;
-    CGColorRef arrowFillColor;
-    CGFloat arrowRotation;
-    
+-(void)updateArrow:(MGLUserTrackingMode)mode {    
     switch (mode) {
         case MGLUserTrackingModeNone:
-            arrowStrokeColor = [[UIColor whiteColor] CGColor];
-            arrowFillColor = [[UIColor clearColor] CGColor];
-            arrowRotation = 0;
+            [self updateArrowStyle:[[UIColor whiteColor] CGColor]
+                     withFillColor:[[UIColor clearColor] CGColor]
+                       andRotation:0];
             break;
         case MGLUserTrackingModeFollow:
-            arrowStrokeColor = self.tintColor.CGColor;
-            arrowFillColor = [[UIColor clearColor] CGColor];
-            arrowRotation = 0.66;
+            [self updateArrowStyle:self.tintColor.CGColor
+                     withFillColor:[[UIColor clearColor] CGColor]
+                       andRotation:0.66];
             break;
         case MGLUserTrackingModeFollowWithHeading:
-            arrowStrokeColor = [[UIColor clearColor] CGColor];
-            arrowFillColor = self.tintColor.CGColor;
-            arrowRotation = 0.66;
+            [self updateArrowStyle:[[UIColor clearColor] CGColor]
+                     withFillColor:self.tintColor.CGColor
+                       andRotation:0.66];
             break;
         case MGLUserTrackingModeFollowWithCourse:
-            arrowStrokeColor = [[UIColor clearColor] CGColor];
-            arrowFillColor = self.tintColor.CGColor;
-            arrowRotation = 0;
+            [self updateArrowStyle:[[UIColor clearColor] CGColor]
+                     withFillColor:self.tintColor.CGColor
+                       andRotation:0];
             break;
     }
-    
-    [self.arrow setFillColor:arrowFillColor];
-    [self.arrow setStrokeColor:arrowStrokeColor];
-    [self.arrow setAffineTransform:CGAffineTransformMakeRotation(arrowRotation)];
+}
+
+-(void)updateArrowStyle:(CGColorRef)strokeColor withFillColor:(CGColorRef) fillColor andRotation:(CGFloat) rotation {
+    [self.arrow setFillColor:fillColor];
+    [self.arrow setStrokeColor:strokeColor];
+    [self.arrow setAffineTransform:CGAffineTransformMakeRotation(rotation)];
     
     [self layoutIfNeeded];
 }
