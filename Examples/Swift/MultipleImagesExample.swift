@@ -12,7 +12,7 @@ class MultipleImagesExample: UIViewController, MGLMapViewDelegate {
         let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.outdoorsStyleURL())
         
         // Center the map on Yosemite National Park, United States.
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 37.760, longitude: -119.516), zoomLevel: 10, animated: false)
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 37.761, longitude: -119.624), zoomLevel: 10, animated: false)
         mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         mapView.delegate = self
         view.addSubview(mapView)

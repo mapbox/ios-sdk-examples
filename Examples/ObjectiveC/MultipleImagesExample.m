@@ -17,7 +17,7 @@ NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle outdoorsStyleURL]];
     
     // Center the map on Yosemite National Park, United States.
-    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(37.760, -119.516) zoomLevel:10 animated:NO];
+    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(37.761, -119.624) zoomLevel:10 animated:NO];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     mapView.delegate = self;
     [self.view addSubview:mapView];
@@ -49,4 +49,7 @@ NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
     [style addLayer:layer];
 }
 
+- (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    NSLog(@"%f, %f", mapView.centerCoordinate.latitude, mapView.centerCoordinate.longitude);
+}
 @end
