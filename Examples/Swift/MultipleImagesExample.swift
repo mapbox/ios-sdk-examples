@@ -25,6 +25,7 @@ class MultipleImagesExample: UIViewController, MGLMapViewDelegate {
         style.setImage(UIImage(named: "nps-trailhead")!, forName: "trailhead")
         style.setImage(UIImage(named: "nps-picnic-area")!, forName: "picnic-area")
         
+        // Access a vector tileset that contains places of interest at Yosemite National Park. This tileset was created by uploading NPS shapefiles to Mapbox Studio.
         if let url = URL(string: "mapbox://examples.ciuz0vpc") {
             
             // Add the vector tileset to the map's style.
@@ -34,7 +35,7 @@ class MultipleImagesExample: UIViewController, MGLMapViewDelegate {
             // Create a symbol style layer and access the layer containin
             let layer = MGLSymbolStyleLayer(identifier: "yosemite-pois", source: source)
             
-            // The source name from the source's TileJSON metadata: mapbox.com/api-documentation/#retrieve-tilejson-metadata
+            // Access the layer that contains the POI data.
             layer.sourceLayerIdentifier = "Yosemite_POI-38jhes"
             
             // Create a stops dictionary with keys that are possible values for 'POITYPE', paired with icon images that will represent those features.

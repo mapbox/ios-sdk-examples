@@ -29,13 +29,14 @@ NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
     [style setImage:[UIImage imageNamed:@"nps-trailhead"] forName:@"trailhead"];
     [style setImage:[UIImage imageNamed:@"nps-picnic-area"] forName:@"picnic-area"];
     
+    // Access a vector tileset that contains places of interest at Yosemite National Park. This tileset was created by uploading NPS shapefiles to Mapbox Studio.
     NSURL *url = [[NSURL alloc] initWithString:@"mapbox://examples.ciuz0vpc"];
     MGLVectorSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"yosemite-pois" configurationURL:url];
     [style addSource:source];
     
     MGLSymbolStyleLayer *layer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"yosemite-pois" source:source];
     
-    // The source name from the source's TileJSON metadata: mapbox.com/api-documentation/#retrieve-tilejson-metadata
+    // Access the layer that contains the POI data.
     layer.sourceLayerIdentifier = @"Yosemite_POI-38jhes";
     
     // Create a stops dictionary with keys that are possible values for 'POITYPE', paired with icon images that will represent those features.
