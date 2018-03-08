@@ -49,7 +49,4 @@ NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
     [style addLayer:layer];
 }
 
-- (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
-    NSLog(@"%f, %f", mapView.centerCoordinate.latitude, mapView.centerCoordinate.longitude);
-}
 @end
