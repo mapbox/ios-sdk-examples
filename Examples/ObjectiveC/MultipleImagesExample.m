@@ -45,7 +45,7 @@ NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
     layer.iconImageName = [NSExpression expressionWithFormat:@"FUNCTION(%@, 'valueForKeyPath:', POITYPE)", poiIcons];
     
     // Adjust the size of the icons.
-    layer.iconScale = [NSExpression mgl_expressionForValue:@0.6];
+    layer.iconScale = [NSExpression expressionForConstantValue:@0.6];
     [style addLayer:layer];
 }
 

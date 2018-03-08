@@ -44,7 +44,7 @@ class MultipleImagesExample: UIViewController, MGLMapViewDelegate {
             layer.iconImageName = NSExpression(format: "FUNCTION(%@, 'valueForKeyPath:', POITYPE)", poiIcons)
             
             // Adjust the size of the icons.
-            layer.iconScale = NSExpression.mgl_expression(for: NSNumber(value: 0.6))
+            layer.iconScale = NSExpression(forConstantValue: NSNumber(value: 0.6))
             style.addLayer(layer)
         }
     }
