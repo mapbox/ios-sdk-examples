@@ -12,7 +12,10 @@ NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle outdoorsStyleURL]];
+    
+    // Center the map on Yosemite National Park, United States.
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(37.760, -119.516) zoomLevel:10 animated:NO];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     mapView.delegate = self;
@@ -20,24 +23,28 @@ NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
-    // Add Hiker by Nicolas Vicent from the Noun Project to the map's style.
+    // Add icons from the U.S. National Parks Service to the map's style.
+    [style setImage:[UIImage imageNamed:@"nps-restrooms"] forName:@"restrooms"];
+    [style setImage:[UIImage imageNamed:@"nps-trailhead"] forName:@"trailhead"];
+    [style setImage:[UIImage imageNamed:@"nps-picnic-area"] forName:@"picnic-area"];
     
-    NSURL *url = [[NSURL alloc] initWithString:@"mapbox://jordankiley.asry9k5m"];
+    // TODO: Move to Mapbox account.
+    // Add
+    NSURL *url = [[NSURL alloc] initWithString:@"mapbox://examples.ciuz0vpc"];
     MGLVectorSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"yosemite-pois" configurationURL:url];
     [style addSource:source];
     
     MGLSymbolStyleLayer *layer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"yosemite-pois" source:source];
-    layer.sourceLayerIdentifier = @"Yosemite_POI-8mmqrb";
+    // The source name from the source's TileJSON metadata: mapbox.com/api-documentation/#retrieve-tilejson-metadata
+    layer.sourceLayerIdentifier = @"Yosemite_POI-38jhes";
     
-    NSDictionary *poiIcons = @{@"Picnic Area" : @"picnic-site-15", @"Restroom" : @"toilet-15", @"Parking" : @"parking-15", @"Trailhead" : @"pedestrian-polygon"};
+    NSDictionary *poiIcons = @{@"Picnic Area" : @"picnic-area", @"Restroom" : @"restrooms", @"Trailhead" : @"trailhead"};
+    
+    // Use the stops dictionary to assign an icon based on the "POITYPE" for each feature.
     layer.iconImageName = [NSExpression expressionWithFormat:@"FUNCTION(%@, 'valueForKeyPath:', POITYPE)", poiIcons];
-    
-    // This should be a composite function.
-    layer.iconOpacity = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_stepWithMinimum:stops:', 1, %@)", @{@16: @0}];
+    layer.iconScale = [NSExpression mgl_expressionForValue:@0.6];
     [style addLayer:layer];
 }
 
-- (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
-    NSLog(@"%f, %f", mapView.centerCoordinate.latitude, mapView.centerCoordinate.longitude);
-}
+
 @end
