@@ -60,6 +60,35 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     return bezierPath.CGPath;
 }
 
+-(void) updateArrowForTrackingMode:(MGLUserTrackingMode)mode {
+    switch (mode) {
+        case MGLUserTrackingModeNone:
+            mode = MGLUserTrackingModeFollow;
+            [self updateArrowStrokeColor:UIColor.redColor.CGColor
+                                 fillColor:UIColor.clearColor.CGColor
+                                  rotation:0.66];
+            break;
+        case MGLUserTrackingModeFollow:
+            mode = MGLUserTrackingModeFollowWithHeading;
+            [self updateArrowStrokeColor:UIColor.clearColor.CGColor
+                                 fillColor:UIColor.redColor.CGColor
+                                  rotation:0.66];
+            break;
+        case MGLUserTrackingModeFollowWithHeading:
+            mode = MGLUserTrackingModeFollowWithCourse;
+            [self updateArrowStrokeColor:UIColor.clearColor.CGColor
+                                 fillColor:UIColor.redColor.CGColor
+                                  rotation:0];
+            break;
+        case MGLUserTrackingModeFollowWithCourse:
+            mode = MGLUserTrackingModeNone;
+            [self updateArrowStrokeColor:UIColor.whiteColor.CGColor
+                                 fillColor:UIColor.clearColor.CGColor
+                                  rotation:0];
+            break;
+    }
+}
+
 -(void) updateArrowStrokeColor:(CGColorRef)strokeColor fillColor:(CGColorRef) fillColor rotation:(CGFloat) rotation {
     [self.arrow setFillColor:fillColor];
     [self.arrow setStrokeColor:strokeColor];
@@ -95,39 +124,29 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     [self.view addSubview:self.mapView];
     
     [self setupLocationButton];
+    self.mapView.userTrackingMode = MGLUserTrackingModeNone;
 }
 
 -(void)locationButtonTapped:(UserLocationButton *)sender {
     MGLUserTrackingMode mode;
-
+    
     switch (self.mapView.userTrackingMode) {
         case MGLUserTrackingModeNone:
             mode = MGLUserTrackingModeFollow;
-            [sender updateArrowStrokeColor:self.mapView.tintColor.CGColor
-                     fillColor:UIColor.clearColor.CGColor
-                       rotation:0.66];
             break;
         case MGLUserTrackingModeFollow:
             mode = MGLUserTrackingModeFollowWithHeading;
-            [sender updateArrowStrokeColor:UIColor.clearColor.CGColor
-                     fillColor:self.mapView.tintColor.CGColor
-                       rotation:0.66];
             break;
         case MGLUserTrackingModeFollowWithHeading:
             mode = MGLUserTrackingModeFollowWithCourse;
-            [sender updateArrowStrokeColor:UIColor.clearColor.CGColor
-                     fillColor:self.mapView.tintColor.CGColor
-                       rotation:0];
             break;
         case MGLUserTrackingModeFollowWithCourse:
             mode = MGLUserTrackingModeNone;
-            [sender updateArrowStrokeColor:UIColor.whiteColor.CGColor
-                     fillColor:UIColor.clearColor.CGColor
-                       rotation:0];
             break;
     }
-    
+
     [self.mapView setUserTrackingMode:mode];
+    [sender updateArrowForTrackingMode:mode];
 }
 
 -(void)setupLocationButton {
