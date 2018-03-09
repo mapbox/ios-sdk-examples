@@ -33,8 +33,6 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
         
         self.arrow = arrow;
         
-        [self updateArrowStrokeColor:UIColor.whiteColor.CGColor
-             fillColor:UIColor.clearColor.CGColor
         [self updateArrowForTrackingMode:MGLUserTrackingModeNone];
         
         [self.layer addSublayer:self.arrow];
