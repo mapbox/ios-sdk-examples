@@ -60,38 +60,38 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 
 -(void) updateArrowForTrackingMode:(MGLUserTrackingMode)mode {
     
-    struct CGColor *red = UIColor.redColor.CGColor;
-    struct CGColor *clear = UIColor.clearColor.CGColor;
-    struct CGColor *white = UIColor.whiteColor.CGColor;
-    CGFloat twoThirds = 0.66;
+    UIColor *activePrimaryColor = UIColor.redColor;
+    UIColor *disabledPrimaryColor = UIColor.clearColor;
+    UIColor *disabledSecondaryColor = UIColor.whiteColor;
+    CGFloat rotatedArrow = 0.66;
     
     switch (mode) {
         case MGLUserTrackingModeNone:
-            [self updateArrowStrokeColor:white
-                                 fillColor:clear
-                                  rotation:0];
+            [self updateArrowFillColor:disabledPrimaryColor
+                           strokeColor:disabledSecondaryColor
+                              rotation:0];
             break;
         case MGLUserTrackingModeFollow:
-            [self updateArrowStrokeColor:red
-                                 fillColor:clear
-                                  rotation:0];
+            [self updateArrowFillColor:disabledPrimaryColor
+                           strokeColor:activePrimaryColor
+                              rotation:0];
             break;
         case MGLUserTrackingModeFollowWithHeading:
-            [self updateArrowStrokeColor:red
-                                 fillColor:red
-                                  rotation:twoThirds];
+            [self updateArrowFillColor:activePrimaryColor
+                           strokeColor:activePrimaryColor
+                              rotation:rotatedArrow];
             break;
         case MGLUserTrackingModeFollowWithCourse:
-            [self updateArrowStrokeColor:red
-                                 fillColor:white
-                                  rotation:0];
+            [self updateArrowFillColor:activePrimaryColor
+                           strokeColor:activePrimaryColor
+                              rotation:0];
             break;
     }
 }
 
--(void) updateArrowStrokeColor:(CGColorRef)strokeColor fillColor:(CGColorRef) fillColor rotation:(CGFloat) rotation {
-    [self.arrow setFillColor:fillColor];
-    [self.arrow setStrokeColor:strokeColor];
+-(void) updateArrowFillColor:(UIColor*)fillColor strokeColor:(UIColor*) strokeColor rotation:(CGFloat) rotation {
+    [self.arrow setFillColor:fillColor.CGColor];
+    [self.arrow setStrokeColor:strokeColor.CGColor];
     [self.arrow setAffineTransform:CGAffineTransformMakeRotation(rotation)];
     
     [self layoutIfNeeded];
