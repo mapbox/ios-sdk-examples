@@ -35,7 +35,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
         
         [self updateArrowStrokeColor:UIColor.whiteColor.CGColor
              fillColor:UIColor.clearColor.CGColor
-               rotation:0];
+        [self updateArrowForTrackingMode:MGLUserTrackingModeNone];
         
         [self.layer addSublayer:self.arrow];
     }
@@ -61,25 +61,31 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 }
 
 -(void) updateArrowForTrackingMode:(MGLUserTrackingMode)mode {
+    
+    struct CGColor *red = UIColor.redColor.CGColor;
+    struct CGColor *clear = UIColor.clearColor.CGColor;
+    struct CGColor *white = UIColor.whiteColor.CGColor;
+    CGFloat twoThirds = 0.66;
+    
     switch (mode) {
         case MGLUserTrackingModeNone:
-            [self updateArrowStrokeColor:UIColor.redColor.CGColor
-                                 fillColor:UIColor.clearColor.CGColor
-                                  rotation:0.66];
-            break;
-        case MGLUserTrackingModeFollow:
-            [self updateArrowStrokeColor:UIColor.clearColor.CGColor
-                                 fillColor:UIColor.redColor.CGColor
-                                  rotation:0.66];
-            break;
-        case MGLUserTrackingModeFollowWithHeading:
-            [self updateArrowStrokeColor:UIColor.clearColor.CGColor
-                                 fillColor:UIColor.redColor.CGColor
+            [self updateArrowStrokeColor:white
+                                 fillColor:clear
                                   rotation:0];
             break;
+        case MGLUserTrackingModeFollow:
+            [self updateArrowStrokeColor:red
+                                 fillColor:clear
+                                  rotation:0];
+            break;
+        case MGLUserTrackingModeFollowWithHeading:
+            [self updateArrowStrokeColor:red
+                                 fillColor:red
+                                  rotation:twoThirds];
+            break;
         case MGLUserTrackingModeFollowWithCourse:
-            [self updateArrowStrokeColor:UIColor.whiteColor.CGColor
-                                 fillColor:UIColor.clearColor.CGColor
+            [self updateArrowStrokeColor:red
+                                 fillColor:white
                                   rotation:0];
             break;
     }
