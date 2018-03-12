@@ -46,9 +46,9 @@
 		3E085B831EC526E500163C99 /* BuildingsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B821EC526E500163C99 /* BuildingsExample.m */; };
 		3E1806101EAA800A004DB131 /* UserLocationAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E18060F1EAA800A004DB131 /* UserLocationAnnotationExample.m */; };
 		3E1806121EAA804B004DB131 /* UserLocationAnnotationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1806111EAA804B004DB131 /* UserLocationAnnotationExample.swift */; };
-		3E1B0CB82051FE8D00E8EFEF /* parkspoi.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E1B0CB72051FE8D00E8EFEF /* parkspoi.xcassets */; };
 		3E22EF4F1F87F10C00605203 /* ImageSourceExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */; };
 		3E22EF521F8821F800605203 /* ImageSourceExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E22EF511F8821F800605203 /* ImageSourceExample.m */; };
+		3E25C5DF2056E7E2005B031E /* nps-icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E25C5DE2056E7E2005B031E /* nps-icons.xcassets */; };
 		3E3BFAD91E81D7A300D0BEA1 /* FeatureSelectionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFAD81E81D7A300D0BEA1 /* FeatureSelectionExample.swift */; };
 		3E3BFADC1E81D7BB00D0BEA1 /* FeatureSelectionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BFADB1E81D7BB00D0BEA1 /* FeatureSelectionExample.m */; };
 		3E3FB66B1F05888E004512C6 /* BuildingLightExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3FB66A1F05888E004512C6 /* BuildingLightExample.swift */; };
@@ -230,10 +230,10 @@
 		3E18060E1EAA800A004DB131 /* UserLocationAnnotationExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLocationAnnotationExample.h; sourceTree = "<group>"; };
 		3E18060F1EAA800A004DB131 /* UserLocationAnnotationExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLocationAnnotationExample.m; sourceTree = "<group>"; };
 		3E1806111EAA804B004DB131 /* UserLocationAnnotationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocationAnnotationExample.swift; sourceTree = "<group>"; };
-		3E1B0CB72051FE8D00E8EFEF /* parkspoi.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = parkspoi.xcassets; sourceTree = "<group>"; };
 		3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSourceExample.swift; sourceTree = "<group>"; };
 		3E22EF501F8821F800605203 /* ImageSourceExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageSourceExample.h; sourceTree = "<group>"; };
 		3E22EF511F8821F800605203 /* ImageSourceExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageSourceExample.m; sourceTree = "<group>"; };
+		3E25C5DE2056E7E2005B031E /* nps-icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "nps-icons.xcassets"; sourceTree = "<group>"; };
 		3E3BFAD81E81D7A300D0BEA1 /* FeatureSelectionExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureSelectionExample.swift; sourceTree = "<group>"; };
 		3E3BFADA1E81D7BB00D0BEA1 /* FeatureSelectionExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureSelectionExample.h; sourceTree = "<group>"; };
 		3E3BFADB1E81D7BB00D0BEA1 /* FeatureSelectionExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureSelectionExample.m; sourceTree = "<group>"; };
@@ -786,11 +786,11 @@
 				DD5939E51E6778480009BEB2 /* clustering.xcassets */,
 				9682471C1C5C123B00494AB8 /* example.geojson */,
 				3EC92DB61E78C431001D0503 /* metro-line.geojson */,
+				3E25C5DE2056E7E2005B031E /* nps-icons.xcassets */,
 				96D432051C84B9CF007D09D1 /* pisavector.xcassets */,
 				DDF9432A1E5DEACC00545D0F /* ports.geojson */,
 				3E4574EC1FA3D8F1000C8CF1 /* radar.gif */,
 				64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */,
-				3E1B0CB72051FE8D00E8EFEF /* parkspoi.xcassets */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -1077,6 +1077,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E25C5DF2056E7E2005B031E /* nps-icons.xcassets in Resources */,
 				3E4574ED1FA3D8F1000C8CF1 /* radar.gif in Resources */,
 				DDF9432B1E5DEACC00545D0F /* ports.geojson in Resources */,
 				3EC92DB71E78C431001D0503 /* metro-line.geojson in Resources */,
@@ -1087,7 +1088,6 @@
 				9682471D1C5C123B00494AB8 /* example.geojson in Resources */,
 				64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */,
 				961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */,
-				3E1B0CB82051FE8D00E8EFEF /* parkspoi.xcassets in Resources */,
 				96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
