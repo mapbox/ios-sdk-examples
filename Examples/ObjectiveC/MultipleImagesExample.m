@@ -44,9 +44,7 @@ NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
     
     // Use the stops dictionary to assign an icon based on the "POITYPE" for each feature.
     layer.iconImageName = [NSExpression expressionWithFormat:@"FUNCTION(%@, 'valueForKeyPath:', POITYPE)", poiIcons];
-    
-    // Adjust the size of the icons.
-    layer.iconScale = [NSExpression expressionForConstantValue:@0.6];
+
     [style addLayer:layer];
 }
 
