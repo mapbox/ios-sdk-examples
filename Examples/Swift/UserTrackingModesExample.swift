@@ -13,19 +13,17 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
         
+        // The user location annotation takes its color from the map view's tint color.
         mapView.tintColor = .red
         mapView.attributionButton.tintColor = .lightGray
         
         view.addSubview(mapView)
         
         setupLocationButton()
+        mapView.userTrackingMode = .none
     }
     
-    func mapView(_ mapView: MGLMapView, didChange mode: MGLUserTrackingMode, animated: Bool) {
-        button.updateArrow(for: mode)
-    }
-    
-    @IBAction func locationButtonTapped() {
+    @IBAction func locationButtonTapped(sender: UserLocationButton) {
         var mode: MGLUserTrackingMode
         
         switch (mapView.userTrackingMode) {
@@ -44,10 +42,11 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         }
         
         mapView.userTrackingMode = mode
+        sender.updateArrowForTrackingMode(mode: mode)
     }
     
     func setupLocationButton() {
-        button = UserLocationButton()
+        button = UserLocationButton(buttonSize: 80)
         button.addTarget(self, action: #selector(locationButtonTapped), for: .touchUpInside)
         button.tintColor = mapView.tintColor
         view.addSubview(button)
@@ -66,45 +65,44 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 }
 
+// MARK: - Custom UIButton subclass
+
 class UserLocationButton : UIButton {
-    private let size: CGFloat = 80
     private var arrow: CAShapeLayer?
+    private let buttonSize: CGFloat
     
-    required init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: size, height: size))
+    init(buttonSize: CGFloat) {
+        self.buttonSize = buttonSize
+        
+        super.init(frame: CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize))
+
+        self.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        self.layer.cornerRadius = 4
+        
+        let arrow = CAShapeLayer()
+        
+        arrow.path = arrowPath()
+        arrow.lineWidth = 2
+        arrow.lineJoin = kCALineJoinRound
+        arrow.bounds = CGRect(x: 0, y: 0, width: buttonSize / 2, height: buttonSize / 2)
+        arrow.position = CGPoint(x: buttonSize / 2, y: buttonSize / 2)
+        arrow.shouldRasterize = true
+        arrow.rasterizationScale = UIScreen.main.scale
+        arrow.drawsAsynchronously = true
+        
+        self.arrow = arrow
+        
+        updateArrowForTrackingMode(mode: .none)
+        
+        layer.addSublayer(self.arrow!)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        backgroundColor = UIColor.white.withAlphaComponent(0.8)
-        layer.cornerRadius = 4
-        
-        layoutArrow()
-    }
-    
-    private func layoutArrow() {
-        if arrow == nil {
-            let arrow = CAShapeLayer()
-            arrow.path = arrowPath()
-            arrow.lineWidth = 2
-            arrow.lineJoin = kCALineJoinRound
-            arrow.bounds = CGRect(x: 0, y: 0, width: size / 2, height: size / 2)
-            arrow.position = CGPoint(x: size / 2, y: size / 2)
-            arrow.shouldRasterize = true
-            arrow.rasterizationScale = UIScreen.main.scale
-            arrow.drawsAsynchronously = true
-            
-            self.arrow = arrow
-            updateArrow(for: .none)
-            layer.addSublayer(self.arrow!)
-        }
-    }
-    
     private func arrowPath() -> CGPath {
-        let max: CGFloat = size / 2
+        let max: CGFloat = buttonSize / 2
         
         let bezierPath = UIBezierPath()
         bezierPath.move(to: CGPoint(x: max * 0.5, y: 0))
@@ -117,38 +115,35 @@ class UserLocationButton : UIButton {
         return bezierPath.cgPath
     }
     
-    func updateArrow(for mode: MGLUserTrackingMode) {
-        var arrowStrokeColor: CGColor
-        var arrowPosition: CGPoint
-        var arrowFillColor: CGColor
-        var arrowRotation: CGFloat
+    func updateArrowForTrackingMode(mode: MGLUserTrackingMode) {
+        let activePrimaryColor = UIColor.red
+        let disabledPrimaryColor = UIColor.clear
+        let disabledSecondaryColor = UIColor.white
+        let rotatedArrow = CGFloat(0.66)
         
         switch mode {
         case .none:
-            arrowStrokeColor = UIColor.white.cgColor
-            arrowPosition = CGPoint(x: size / 2, y: size / 2)
-            arrowFillColor = UIColor.clear.cgColor
-            arrowRotation = 0
+            updateArrow(with: disabledPrimaryColor, strokeColor: disabledSecondaryColor, rotation: 0)
+            break
         case .follow:
-            arrowStrokeColor = tintColor.cgColor
-            arrowPosition = CGPoint(x: size / 2 + 2, y: size / 2 - 2)
-            arrowFillColor = UIColor.clear.cgColor
-            arrowRotation = 0.66
+            updateArrow(with: disabledPrimaryColor, strokeColor: activePrimaryColor, rotation: 0)
+            break
         case .followWithHeading:
-            arrowStrokeColor = UIColor.clear.cgColor
-            arrowPosition = CGPoint(x: size / 2 + 2, y: size / 2 - 2)
-            arrowFillColor = tintColor.cgColor
-            arrowRotation = 0.66
+            updateArrow(with: activePrimaryColor, strokeColor: activePrimaryColor, rotation: rotatedArrow)
+            break
         case .followWithCourse:
-            arrowStrokeColor = UIColor.clear.cgColor
-            arrowPosition = CGPoint(x: size / 2, y: size / 2)
-            arrowFillColor = tintColor.cgColor
-            arrowRotation = 0
+            updateArrow(with: activePrimaryColor, strokeColor: activePrimaryColor, rotation: 0)
+            break
         }
+    }
+    
+    func updateArrow(with fillColor: UIColor, strokeColor: UIColor, rotation: CGFloat) {
         
-        arrow!.fillColor = arrowFillColor
-        arrow?.strokeColor = arrowStrokeColor
-        arrow!.setAffineTransform(CGAffineTransform.identity.rotated(by: arrowRotation))
+        guard let arrow = arrow else { return }
+        
+        arrow.fillColor = fillColor.cgColor
+        arrow.strokeColor = strokeColor.cgColor
+        arrow.setAffineTransform(CGAffineTransform.identity.rotated(by: rotation))
         
         layoutIfNeeded()
     }
