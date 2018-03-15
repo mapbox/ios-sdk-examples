@@ -13,6 +13,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 
 @implementation UserLocationButton
 
+// Initializer to create the user tracking mode button
 - (instancetype)initWithButtonSize:(CGFloat)buttonSize {
     if (self = [super init]) {
         self.frame = CGRectMake(0, 0, buttonSize, buttonSize);
@@ -21,7 +22,6 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
         self.buttonSize = buttonSize;
         
         CAShapeLayer *arrow = [[CAShapeLayer alloc] init];
-        
         arrow.path = [self arrowPath];
         arrow.lineWidth = 2;
         arrow.lineJoin = kCALineJoinRound;
@@ -33,6 +33,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
         
         self.arrow = arrow;
         
+        // Update arrow for initial tracking mode
         [self updateArrowForTrackingMode:MGLUserTrackingModeNone];
         
         [self.layer addSublayer:self.arrow];
@@ -41,14 +42,13 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     return self;
 }
 
+// Create a new bezier path to represent the tracking mode arrow,
+// making sure the arrow does not get drawn outside of the
+// frame size of the UIButton
 - (CGPathRef) arrowPath {
-    
-    CGFloat max = self.buttonSize / 2;
-    
     UIBezierPath *bezierPath = [[UIBezierPath alloc] init];
-    
+    CGFloat max = self.buttonSize / 2;
     [bezierPath moveToPoint:CGPointMake(max * 0.5, 0)];
-    
     [bezierPath addLineToPoint:CGPointMake(max * 0.1, max)];
     [bezierPath addLineToPoint:CGPointMake(max * 0.5, max * 0.65)];
     [bezierPath addLineToPoint:CGPointMake(max * 0.9, max)];
@@ -58,8 +58,9 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     return bezierPath.CGPath;
 }
 
+// Update the arrow's color and rotation when
+// tracking mode is changed
 -(void) updateArrowForTrackingMode:(MGLUserTrackingMode)mode {
-    
     UIColor *activePrimaryColor = UIColor.redColor;
     UIColor *disabledPrimaryColor = UIColor.clearColor;
     UIColor *disabledSecondaryColor = UIColor.whiteColor;
@@ -93,7 +94,6 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     [self.arrow setFillColor:fillColor.CGColor];
     [self.arrow setStrokeColor:strokeColor.CGColor];
     [self.arrow setAffineTransform:CGAffineTransformMakeRotation(rotation)];
-    
     [self layoutIfNeeded];
 }
 
@@ -113,20 +113,24 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // Create a new Mapbox map using the Mapbox Dark style
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURL]];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
 
-    // The user location annotation takes its color from the map view's tint color.
+    // The user location annotation takes its color from the map view's tint color
     self.mapView.tintColor = [UIColor redColor];
     self.mapView.attributionButton.tintColor = [UIColor lightGrayColor];
 
     [self.view addSubview:self.mapView];
     
+    // Create button to allow user to change the tracking mode
     [self setupLocationButton];
     self.mapView.userTrackingMode = MGLUserTrackingModeNone;
 }
 
+// Update the user tracking mode when the user toggles through the
+// user tracking mode button
 -(void)locationButtonTapped:(UserLocationButton *)sender {
     MGLUserTrackingMode mode;
     
@@ -149,14 +153,16 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     [sender updateArrowForTrackingMode:mode];
 }
 
+// Button creation and autolayout setup
 -(void)setupLocationButton {
     self.button = [[UserLocationButton alloc] initWithButtonSize:80];
     [self.button addTarget:self action:@selector(locationButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     self.button.tintColor = self.mapView.tintColor;
     [self.view addSubview:self.button];
     
+    // Setup constraints such that the button is placed within
+    // the upper left corner of the view
     self.button.translatesAutoresizingMaskIntoConstraints = NO;
-    
     NSArray *constraints = @[
         [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:10],
         [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10],

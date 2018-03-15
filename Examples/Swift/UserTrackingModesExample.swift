@@ -9,6 +9,7 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Create a new Mapbox map using the Mapbox Dark style
         mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL())
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
@@ -19,10 +20,13 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         
         view.addSubview(mapView)
         
+        // Create button to allow user to change the tracking mode
         setupLocationButton()
         mapView.userTrackingMode = .none
     }
     
+    // Update the user tracking mode when the user toggles through the
+    // user tracking mode button
     @IBAction func locationButtonTapped(sender: UserLocationButton) {
         var mode: MGLUserTrackingMode
         
@@ -45,15 +49,16 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         sender.updateArrowForTrackingMode(mode: mode)
     }
     
+    // Button creation and autolayout setup
     func setupLocationButton() {
         button = UserLocationButton(buttonSize: 80)
         button.addTarget(self, action: #selector(locationButtonTapped), for: .touchUpInside)
         button.tintColor = mapView.tintColor
         view.addSubview(button)
         
-        // Do some basic auto layout.
+        // Setup constraints such that the button is placed within
+        // the upper left corner of the view
         button.translatesAutoresizingMaskIntoConstraints = false
-        
         let constraints = [
             NSLayoutConstraint(item: button, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 10),
             NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 10),
@@ -71,16 +76,14 @@ class UserLocationButton : UIButton {
     private var arrow: CAShapeLayer?
     private let buttonSize: CGFloat
     
+    // Initializer to create the user tracking mode button
     init(buttonSize: CGFloat) {
         self.buttonSize = buttonSize
-        
         super.init(frame: CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize))
-
         self.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         self.layer.cornerRadius = 4
         
         let arrow = CAShapeLayer()
-        
         arrow.path = arrowPath()
         arrow.lineWidth = 2
         arrow.lineJoin = kCALineJoinRound
@@ -92,8 +95,9 @@ class UserLocationButton : UIButton {
         
         self.arrow = arrow
         
+        // Update arrow for initial tracking mode
         updateArrowForTrackingMode(mode: .none)
-        
+//
         layer.addSublayer(self.arrow!)
     }
     
@@ -101,10 +105,12 @@ class UserLocationButton : UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // Create a new bezier path to represent the tracking mode arrow,
+    // making sure the arrow does not get drawn outside of the
+    // frame size of the UIButton
     private func arrowPath() -> CGPath {
-        let max: CGFloat = buttonSize / 2
-        
         let bezierPath = UIBezierPath()
+        let max: CGFloat = buttonSize / 2
         bezierPath.move(to: CGPoint(x: max * 0.5, y: 0))
         bezierPath.addLine(to: CGPoint(x: max * 0.1, y: max))
         bezierPath.addLine(to: CGPoint(x: max * 0.5, y: max * 0.65))
@@ -115,6 +121,8 @@ class UserLocationButton : UIButton {
         return bezierPath.cgPath
     }
     
+    // Update the arrow's color and rotation when
+    // tracking mode is changed
     func updateArrowForTrackingMode(mode: MGLUserTrackingMode) {
         let activePrimaryColor = UIColor.red
         let disabledPrimaryColor = UIColor.clear
@@ -138,13 +146,10 @@ class UserLocationButton : UIButton {
     }
     
     func updateArrow(with fillColor: UIColor, strokeColor: UIColor, rotation: CGFloat) {
-        
         guard let arrow = arrow else { return }
-        
         arrow.fillColor = fillColor.cgColor
         arrow.strokeColor = strokeColor.cgColor
         arrow.setAffineTransform(CGAffineTransform.identity.rotated(by: rotation))
-        
         layoutIfNeeded()
     }
 }
