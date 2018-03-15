@@ -22,7 +22,6 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         
         // Create button to allow user to change the tracking mode
         setupLocationButton()
-        mapView.userTrackingMode = .none
     }
     
     // Update the user tracking mode when the user toggles through the

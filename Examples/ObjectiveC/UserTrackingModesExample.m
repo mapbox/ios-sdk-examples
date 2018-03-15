@@ -126,7 +126,6 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     
     // Create button to allow user to change the tracking mode
     [self setupLocationButton];
-    self.mapView.userTrackingMode = MGLUserTrackingModeNone;
 }
 
 // Update the user tracking mode when the user toggles through the
