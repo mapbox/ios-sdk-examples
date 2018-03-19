@@ -148,6 +148,12 @@ class UserLocationButton : UIButton {
         arrow.fillColor = fillColor.cgColor
         arrow.strokeColor = strokeColor.cgColor
         arrow.setAffineTransform(CGAffineTransform.identity.rotated(by: rotation))
+        
+        // Re-center the arrow within the button if rotated
+        if rotation > 0 {
+            arrow.position = CGPoint(x: buttonSize / 2 + 2, y: buttonSize / 2 - 2)
+        }
+        
         layoutIfNeeded()
     }
 }

@@ -94,6 +94,12 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     [self.arrow setFillColor:fillColor.CGColor];
     [self.arrow setStrokeColor:strokeColor.CGColor];
     [self.arrow setAffineTransform:CGAffineTransformMakeRotation(rotation)];
+    
+    // Re-center the arrow within the button if rotated
+    if (rotation > 0) {
+        self.arrow.position = CGPointMake(self.buttonSize / 2 + 2, self.buttonSize / 2 - 2);
+    }
+    
     [self layoutIfNeeded];
 }
 
