@@ -17,7 +17,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 - (instancetype)initWithButtonSize:(CGFloat)buttonSize {
     if (self = [super init]) {
         self.frame = CGRectMake(0, 0, buttonSize, buttonSize);
-        self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
+        self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
         self.layer.cornerRadius = 4;
         self.buttonSize = buttonSize;
         
@@ -63,7 +63,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 -(void)updateArrowForTrackingMode:(MGLUserTrackingMode)mode {
     UIColor *activePrimaryColor = UIColor.redColor;
     UIColor *disabledPrimaryColor = UIColor.clearColor;
-    UIColor *disabledSecondaryColor = UIColor.whiteColor;
+    UIColor *disabledSecondaryColor = UIColor.blackColor;
     CGFloat rotatedArrow = 0.66;
     
     switch (mode) {

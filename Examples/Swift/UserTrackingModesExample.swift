@@ -78,7 +78,7 @@ class UserLocationButton : UIButton {
     init(buttonSize: CGFloat) {
         self.buttonSize = buttonSize
         super.init(frame: CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize))
-        self.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        self.backgroundColor = UIColor.white.withAlphaComponent(0.9)
         self.layer.cornerRadius = 4
         
         let arrow = CAShapeLayer()
@@ -124,7 +124,7 @@ class UserLocationButton : UIButton {
     func updateArrowForTrackingMode(mode: MGLUserTrackingMode) {
         let activePrimaryColor = UIColor.red
         let disabledPrimaryColor = UIColor.clear
-        let disabledSecondaryColor = UIColor.white
+        let disabledSecondaryColor = UIColor.black
         let rotatedArrow = CGFloat(0.66)
         
         switch mode {
