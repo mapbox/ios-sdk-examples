@@ -9,7 +9,6 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Create a new Mapbox map using the Mapbox Dark style
         mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL())
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
@@ -25,7 +24,7 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
     }
     
     // Update the user tracking mode when the user toggles through the
-    // user tracking mode button
+    // user tracking mode button.
     @IBAction func locationButtonTapped(sender: UserLocationButton) {
         var mode: MGLUserTrackingMode
         
@@ -56,7 +55,7 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         view.addSubview(button)
         
         // Setup constraints such that the button is placed within
-        // the upper left corner of the view
+        // the upper left corner of the view.
         button.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
             NSLayoutConstraint(item: button, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 10),

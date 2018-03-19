@@ -45,7 +45,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 // Create a new bezier path to represent the tracking mode arrow,
 // making sure the arrow does not get drawn outside of the
 // frame size of the UIButton
-- (CGPathRef) arrowPath {
+- (CGPathRef)arrowPath {
     UIBezierPath *bezierPath = [[UIBezierPath alloc] init];
     CGFloat max = self.buttonSize / 2;
     [bezierPath moveToPoint:CGPointMake(max * 0.5, 0)];
@@ -60,7 +60,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 
 // Update the arrow's color and rotation when
 // tracking mode is changed
--(void) updateArrowForTrackingMode:(MGLUserTrackingMode)mode {
+-(void)updateArrowForTrackingMode:(MGLUserTrackingMode)mode {
     UIColor *activePrimaryColor = UIColor.redColor;
     UIColor *disabledPrimaryColor = UIColor.clearColor;
     UIColor *disabledSecondaryColor = UIColor.whiteColor;
@@ -90,7 +90,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     }
 }
 
--(void) updateArrowFillColor:(UIColor*)fillColor strokeColor:(UIColor*) strokeColor rotation:(CGFloat) rotation {
+-(void)updateArrowFillColor:(UIColor*)fillColor strokeColor:(UIColor*) strokeColor rotation:(CGFloat) rotation {
     [self.arrow setFillColor:fillColor.CGColor];
     [self.arrow setStrokeColor:strokeColor.CGColor];
     [self.arrow setAffineTransform:CGAffineTransformMakeRotation(rotation)];
@@ -113,7 +113,6 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Create a new Mapbox map using the Mapbox Dark style
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURL]];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
@@ -129,7 +128,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 }
 
 // Update the user tracking mode when the user toggles through the
-// user tracking mode button
+// user tracking mode button.
 -(void)locationButtonTapped:(UserLocationButton *)sender {
     MGLUserTrackingMode mode;
     
@@ -160,13 +159,13 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     [self.view addSubview:self.button];
     
     // Setup constraints such that the button is placed within
-    // the upper left corner of the view
+    // the upper left corner of the view.
     self.button.translatesAutoresizingMaskIntoConstraints = NO;
     NSArray *constraints = @[
-        [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:10],
-        [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10],
-        [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.button.frame.size.height],
-        [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.button.frame.size.width]
+      [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:10],
+      [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10],
+      [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.button.frame.size.height],
+      [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.button.frame.size.width]
         
     ];
     
