@@ -130,21 +130,21 @@ class UserLocationButton : UIButton {
         
         switch mode {
         case .none:
-            updateArrow(with: disabledPrimaryColor, strokeColor: disabledSecondaryColor, rotation: 0)
+            updateArrow(fillColor: disabledPrimaryColor, strokeColor: disabledSecondaryColor, rotation: 0)
             break
         case .follow:
-            updateArrow(with: disabledPrimaryColor, strokeColor: activePrimaryColor, rotation: 0)
+            updateArrow(fillColor: disabledPrimaryColor, strokeColor: activePrimaryColor, rotation: 0)
             break
         case .followWithHeading:
-            updateArrow(with: activePrimaryColor, strokeColor: activePrimaryColor, rotation: rotatedArrow)
+            updateArrow(fillColor: activePrimaryColor, strokeColor: activePrimaryColor, rotation: rotatedArrow)
             break
         case .followWithCourse:
-            updateArrow(with: activePrimaryColor, strokeColor: activePrimaryColor, rotation: 0)
+            updateArrow(fillColor: activePrimaryColor, strokeColor: activePrimaryColor, rotation: 0)
             break
         }
     }
     
-    func updateArrow(with fillColor: UIColor, strokeColor: UIColor, rotation: CGFloat) {
+    func updateArrow(fillColor: UIColor, strokeColor: UIColor, rotation: CGFloat) {
         guard let arrow = arrow else { return }
         arrow.fillColor = fillColor.cgColor
         arrow.strokeColor = strokeColor.cgColor
