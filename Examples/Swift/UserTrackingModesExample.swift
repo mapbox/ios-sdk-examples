@@ -105,7 +105,7 @@ class UserLocationButton : UIButton {
     
     // Create a new bezier path to represent the tracking mode arrow,
     // making sure the arrow does not get drawn outside of the
-    // frame size of the UIButton
+    // frame size of the UIButton.
     private func arrowPath() -> CGPath {
         let bezierPath = UIBezierPath()
         let max: CGFloat = buttonSize / 2
