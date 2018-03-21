@@ -120,7 +120,7 @@ class UserLocationButton : UIButton {
     }
     
     // Update the arrow's color and rotation when
-    // tracking mode is changed
+    // tracking mode is changed.
     func updateArrowForTrackingMode(mode: MGLUserTrackingMode) {
         let activePrimaryColor = UIColor.red
         let disabledPrimaryColor = UIColor.clear

@@ -44,7 +44,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 
 // Create a new bezier path to represent the tracking mode arrow,
 // making sure the arrow does not get drawn outside of the
-// frame size of the UIButton
+// frame size of the UIButton.
 - (CGPathRef)arrowPath {
     UIBezierPath *bezierPath = [[UIBezierPath alloc] init];
     CGFloat max = self.buttonSize / 2;
