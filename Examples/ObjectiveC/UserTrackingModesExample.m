@@ -58,8 +58,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     return bezierPath.CGPath;
 }
 
-// Update the arrow's color and rotation when
-// tracking mode is changed
+// Update the arrow's color and rotation when tracking mode is changed
 -(void)updateArrowForTrackingMode:(MGLUserTrackingMode)mode {
     UIColor *activePrimaryColor = UIColor.redColor;
     UIColor *disabledPrimaryColor = UIColor.clearColor;
