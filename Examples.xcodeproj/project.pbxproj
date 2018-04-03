@@ -87,8 +87,6 @@
 		646B62A61DEF7121000AA523 /* AnimatedLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62A51DEF7121000AA523 /* AnimatedLineExample.m */; };
 		646B62AE1DEF7155000AA523 /* LineStyleLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62AD1DEF7155000AA523 /* LineStyleLayerExample.swift */; };
 		646B62B01DEF7161000AA523 /* AnimatedLineExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62AF1DEF7161000AA523 /* AnimatedLineExample.swift */; };
-		646B62B41DEF9613000AA523 /* RuntimeCircleStylesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62B31DEF9613000AA523 /* RuntimeCircleStylesExample.swift */; };
-		646B62BD1DEF965A000AA523 /* RuntimeCircleStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */; };
 		64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */ = {isa = PBXBuildFile; fileRef = 64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */; };
 		64BBDAF61DF232FD00BB705D /* SelectFeatureExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAF51DF232FD00BB705D /* SelectFeatureExample.swift */; };
 		64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BBDAF71DF2330B00BB705D /* SelectFeatureExample.m */; };
@@ -279,9 +277,7 @@
 		646B62A51DEF7121000AA523 /* AnimatedLineExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedLineExample.m; sourceTree = "<group>"; };
 		646B62AD1DEF7155000AA523 /* LineStyleLayerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineStyleLayerExample.swift; sourceTree = "<group>"; };
 		646B62AF1DEF7161000AA523 /* AnimatedLineExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedLineExample.swift; sourceTree = "<group>"; };
-		646B62B31DEF9613000AA523 /* RuntimeCircleStylesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuntimeCircleStylesExample.swift; sourceTree = "<group>"; };
 		646B62BB1DEF964A000AA523 /* RuntimeCircleStylesExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeCircleStylesExample.h; sourceTree = "<group>"; };
-		646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeCircleStylesExample.m; sourceTree = "<group>"; };
 		64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = third_party_vector_style.json; sourceTree = "<group>"; };
 		64BBDAF51DF232FD00BB705D /* SelectFeatureExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFeatureExample.swift; sourceTree = "<group>"; };
 		64BBDAF71DF2330B00BB705D /* SelectFeatureExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFeatureExample.m; sourceTree = "<group>"; };
@@ -487,7 +483,6 @@
 				3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */,
 				07C138C11E6F65D000D6F678 /* MultipleShapesExample.swift */,
 				64CF97111DF224F600C3C27B /* RasterImageryExample.swift */,
-				646B62B31DEF9613000AA523 /* RuntimeCircleStylesExample.swift */,
 			);
 			name = "Dynamic styling";
 			sourceTree = "<group>";
@@ -586,7 +581,6 @@
 				3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */,
 				07C138BF1E6F646F00D6F678 /* MultipleShapesExample.m */,
 				64CF97161DF2251500C3C27B /* RasterImageryExample.m */,
-				646B62BC1DEF965A000AA523 /* RuntimeCircleStylesExample.m */,
 			);
 			name = "Dynamic styling";
 			sourceTree = "<group>";
@@ -1236,13 +1230,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${PODS_ROOT}/../../mapbox-gl-native/build/ios/pkg/dynamic/Mapbox.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1387,9 +1379,7 @@
 				9691AAA91C5AAD8F006A58C6 /* SimpleMapViewExample.m in Sources */,
 				960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */,
 				1F1F84751E538ABB00332CC3 /* BlockingGesturesDelegateExample.m in Sources */,
-				646B62B41DEF9613000AA523 /* RuntimeCircleStylesExample.swift in Sources */,
 				07C138C41E721C8F00D6F678 /* DDSCircleLayerExample.swift in Sources */,
-				646B62BD1DEF965A000AA523 /* RuntimeCircleStylesExample.m in Sources */,
 				646B629C1DEF6DF1000AA523 /* ShowHideLayerExample.m in Sources */,
 				07C138C21E6F65D000D6F678 /* MultipleShapesExample.swift in Sources */,
 				3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */,

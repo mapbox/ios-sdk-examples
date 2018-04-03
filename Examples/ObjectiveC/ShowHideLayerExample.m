@@ -35,7 +35,7 @@ NSString *const MBXExampleShowHideLayer = @"ShowHideLayerExample";
 }
 
 - (void)addLayer {
-    MGLSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"contours" configurationURL:[NSURL URLWithString:@"mapbox://mapbox.mapbox-terrain-v2"]];
+    MGLSource *source = [[MGLVectorTileSource alloc] initWithIdentifier:@"contours" configurationURL:[NSURL URLWithString:@"mapbox://mapbox.mapbox-terrain-v2"]];
 
     MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"contours" source:source];
     layer.sourceLayerIdentifier = @"contour";

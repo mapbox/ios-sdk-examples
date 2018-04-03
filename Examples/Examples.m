@@ -42,7 +42,6 @@
         MBXExamplePolygonAnnotation,
         MBXExamplePolygonPattern,
         MBXExampleRasterImagery,
-        MBXExampleRuntimeCircleStyles,
         MBXExampleSatelliteStyle,
         MBXExampleSelectFeature,
         MBXExampleShowHideLayer,

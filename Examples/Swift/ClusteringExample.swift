@@ -52,7 +52,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         circlesLayer.circleOpacity = NSExpression(forConstantValue: 0.75)
         circlesLayer.circleStrokeColor = NSExpression(forConstantValue: UIColor.white.withAlphaComponent(0.75))
         circlesLayer.circleStrokeWidth = NSExpression(forConstantValue: 2)
-        circlesLayer.circleColor = NSExpression(format: "FUNCTION(point_count, 'mgl_stepWithMinimum:stops:', %@, %@)", UIColor.lightGray, stops)
+        circlesLayer.circleColor = NSExpression(format: "mgl_step:from:stops:(point_count, %@, %@)", UIColor.lightGray, stops)
         circlesLayer.predicate = NSPredicate(format: "%K == YES", "cluster")
         style.addLayer(circlesLayer)
 

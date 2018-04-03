@@ -28,7 +28,7 @@ class DDSCircleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         
         // "mapbox://examples.2uf7qges" is a map ID referencing a tileset. For more
         // more information, see mapbox.com/help/define-map-id/
-        let source = MGLVectorSource(identifier: "trees", configurationURL: URL(string: "mapbox://examples.2uf7qges")!)
+        let source = MGLVectorTileSource(identifier: "trees", configurationURL: URL(string: "mapbox://examples.2uf7qges")!)
 
         style.addSource(source)
 
@@ -47,7 +47,7 @@ class DDSCircleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         ]
         
         // Style the circle layer color based on the above stops dictionary.
-        layer.circleColor = NSExpression(format: "FUNCTION(AGE, 'mgl_stepWithMinimum:stops:', %@, %@)", UIColor(red:1.0, green:0.72, blue:0.85, alpha:1.0), stops)
+        layer.circleColor = NSExpression(format: "mgl_step:from:stops:(AGE, %@, %@)", UIColor(red:1.0, green:0.72, blue:0.85, alpha:1.0), stops)
 
         layer.circleRadius = NSExpression(forConstantValue: 3)
         

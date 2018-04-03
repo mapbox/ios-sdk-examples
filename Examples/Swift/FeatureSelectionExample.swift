@@ -25,7 +25,7 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
         
         // Load a tileset containing U.S. states and their population density. For more information about working with tilesets, see: https://www.mapbox.com/help/studio-manual-tilesets/
         let url = URL(string: "mapbox://examples.69ytlgls")!
-        let source = MGLVectorSource(identifier: "state-source", configurationURL: url)
+        let source = MGLVectorTileSource(identifier: "state-source", configurationURL: url)
         style.addSource(source)
         
         let layer = MGLFillStyleLayer(identifier: layerIdentifier, source: source)
