@@ -50,10 +50,10 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 //                             @100: [NSExpression expressionForConstantValue:[UIColor redColor]],
 //                             @200: [NSExpression expressionForConstantValue:[UIColor purpleColor]] };
 
-    NSDictionary *stops = @{ @20:  [NSExpression expressionForConstantValue:[UIColor lightGrayColor]],
-                             @50:  [NSExpression expressionForConstantValue:[UIColor orangeColor]],
-                             @100: [NSExpression expressionForConstantValue:[UIColor redColor]],
-                             @200: [NSExpression expressionForConstantValue:[UIColor purpleColor]] };
+    NSDictionary *stops = @{ @20:  [UIColor lightGrayColor],
+                             @50:  [UIColor orangeColor],
+                             @100: [UIColor redColor],
+                             @200: [UIColor purpleColor] };
     // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
     MGLCircleStyleLayer *circlesLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clusteredPorts" source:source];
     circlesLayer.circleRadius = [NSExpression expressionForConstantValue:@(self.icon.size.width / 2)];
@@ -62,20 +62,15 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     circlesLayer.circleStrokeWidth = [NSExpression expressionForConstantValue:@2];
     circlesLayer.circleColor = [NSExpression expressionWithFormat:@"mgl_step:from:stops:(point_count, %@, %@)",
                                 [UIColor lightGrayColor], stops];
-//    circlesLayer.circleColor = [MGLSourceStyleFunction
-//        functionWithInterpolationMode:MGLInterpolationModeInterval
-//                                stops:stops
-//                        attributeName:@"point_count"
-//                              options:nil];
     circlesLayer.predicate = [NSPredicate predicateWithFormat:@"%K == YES", @"cluster"];
     [style addLayer:circlesLayer];
 
-    // Label cluster circles with a layer of text indicating feature count. Per text token convention, wrap the attribute in {}.
+    // Label cluster circles with a layer of text indicating feature count. The value for `point_count` is an integer. In order to use that value for the `MGLSymbolStyleLayer.text` property, cast it as a string. 
     MGLSymbolStyleLayer *numbersLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"clusteredPortsNumbers" source:source];
     numbersLayer.textColor = [NSExpression expressionForConstantValue:[UIColor whiteColor]];
     numbersLayer.textFontSize = [NSExpression expressionForConstantValue:@(self.icon.size.width / 2)];
     numbersLayer.iconAllowsOverlap = [NSExpression expressionForConstantValue:@(YES)];
-    numbersLayer.text = [NSExpression expressionForConstantValue:@"{point_count}"];
+    numbersLayer.text = [NSExpression expressionWithFormat:@"CAST(point_count, 'NSString')"];
     numbersLayer.predicate = [NSPredicate predicateWithFormat:@"%K == YES", @"cluster"];
     [style addLayer:numbersLayer];
 

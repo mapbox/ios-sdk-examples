@@ -68,7 +68,6 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
         
         // Check if a state was selected, then change the opacity of the states that were not selected.
         if name.count > 0 {
-            // TODO: IDEK
             layer.fillOpacity = NSExpression(format: "TERNARY(FUNCTION(name, 'stringValue') = %@, 1, 0)", name)
         } else {
             // Reset the opacity for all states if the user did not tap on a state.

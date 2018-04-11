@@ -50,15 +50,6 @@ NSString *const MBXExampleLineStyleLayer = @"LineStyleLayerExample";
     MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline" source:source];
     layer.lineJoin = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
     layer.lineColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed:59/255.0 green:178/255.0 blue:208/255.0 alpha:1]];
-    
-    // TODO: Convert, Default value - 1.5
-    // Use a style function to smoothly adjust the line width from 2pt to 20pt between zoom levels 14 and 18. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
-//    layer.lineWidth = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-//        cameraStops:@{
-//            @14: [NSExpression expressionForConstantValue:@2],
-//            @18: [NSExpression expressionForConstantValue:@20]
-//        }
-//        options:@{MGLStyleFunctionOptionDefaultValue:@1.5}];
 
     // We can also add a second layer that will draw a stroke around the original line.
     MGLLineStyleLayer *casingLayer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline-case" source:source];

@@ -56,12 +56,13 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         circlesLayer.predicate = NSPredicate(format: "%K == YES", "cluster")
         style.addLayer(circlesLayer)
 
-        // Label cluster circles with a layer of text indicating feature count. Per text token convention, wrap the attribute in {}.
+        // Label cluster circles with a layer of text indicating feature count. The value for `point_count` is an integer. In order to use that value for the `MGLSymbolStyleLayer.text` property, cast it as a string. 
         let numbersLayer = MGLSymbolStyleLayer(identifier: "clusteredPortsNumbers", source: source)
         numbersLayer.textColor = NSExpression(forConstantValue: UIColor.white)
         numbersLayer.textFontSize = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
         numbersLayer.iconAllowsOverlap = NSExpression(forConstantValue: true)
-        numbersLayer.text = NSExpression(forConstantValue: "{point_count}")
+        numbersLayer.text = NSExpression(format: "CAST(point_count, 'NSString')")
+        
         numbersLayer.predicate = NSPredicate(format: "%K == YES", "cluster")
         style.addLayer(numbersLayer)
 
