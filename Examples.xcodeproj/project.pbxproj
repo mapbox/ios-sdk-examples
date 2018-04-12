@@ -14,10 +14,9 @@
 		05536CB2200F9B0900657097 /* SwitchStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05536CB1200F9B0900657097 /* SwitchStylesExample.m */; };
 		05536CB5200F9EEB00657097 /* SwitchStylesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05536CB4200F9EEB00657097 /* SwitchStylesExample.swift */; };
 		055ABCC31EFB14AE0063BACA /* PolygonPatternExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055ABCC21EFB14AE0063BACA /* PolygonPatternExample.swift */; };
-		0597C0D1207FCA4D0045DE7C /* DDSCircleLayerTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */; };
-		0597C0D2207FCA540045DE7C /* DDSCircleLayerTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */; };
-		0597C0D3207FCDD20045DE7C /* FirstStepsTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A8688F1F7314EF00242FB4 /* FirstStepsTutorialViewController.m */; };
-		0597C0D4207FCDD40045DE7C /* FirstStepsTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050337421F7199DF007309B0 /* FirstStepsTutorialViewController.swift */; };
+		0587D7031F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7021F9A43D300209947 /* DDSCircleLayerTutorialViewController.swift */; };
+		0587D7061F9A466000209947 /* DDSCircleLayerTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */; };
+		05A868901F7314EF00242FB4 /* FirstStepsTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A8688F1F7314EF00242FB4 /* FirstStepsTutorialViewController.m */; };
 		05DB802F1F75A4AD00F73326 /* DocsCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DB802E1F75A4AD00F73326 /* DocsCodeTests.swift */; };
 		05FA53981FE2FA00001F3D7D /* SatelliteStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53941FE2F9FE001F3D7D /* SatelliteStyleExample.m */; };
 		05FA53991FE2FA00001F3D7D /* ThirdPartyVectorStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53951FE2F9FE001F3D7D /* ThirdPartyVectorStyleExample.m */; };
