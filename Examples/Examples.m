@@ -35,6 +35,7 @@
         MBXExampleLineAnnotationGeoJSON,
         MBXExampleLineStyleLayer,
         MBXExampleLiveData,
+        MBXExampleMultipleImages,
         MBXExampleMultipleShapes,
         MBXExampleOfflinePack,
         MBXExamplePointConversion,
