@@ -26,16 +26,16 @@ class DDSCircleLayerTutorialViewController: UIViewController, MGLMapViewDelegate
         // #-code-snippet: dds-circle add-vector-source-swift
         // "mapbox://examples.2uf7qges" is the map ID referencing a tileset
         // created from the GeoJSON data uploaded earlier.
-        let source = MGLVectorTileSource(identifier: "trees", configurationURL: URL(string: "mapbox://examples.2uf7qges")!)
+        let source = MGLVectorTileSource(identifier: "historical-places", configurationURL: URL(string: "mapbox://examples.5zzwbooj")!)
         
         style.addSource(source)
         // #-end-code-snippet: dds-circle add-vector-source-swift
         
         // #-code-snippet: dds-circle add-circle-layer-swift
-        let layer = MGLCircleStyleLayer(identifier: "tree-style", source: source)
+        let layer = MGLCircleStyleLayer(identifier: "landmarks", source: source)
     
         // The source name from the source's TileJSON metadata: mapbox.com/api-documentation/#retrieve-tilejson-metadata
-        layer.sourceLayerIdentifier = "yoshino-trees-a0puw5"
+        layer.sourceLayerIdentifier = "HPC_landmarks-b60kqn"
         // #-end-code-snippet: dds-circle add-circle-layer-swift
     
         // #-code-snippet: dds-circle add-stops-dictionary-swift
