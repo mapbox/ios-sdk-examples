@@ -83,7 +83,7 @@ NSString const *MBXExampleFeatureSelection = @"FeatureSelectionExample";
     
     // Check if a state was selected, then change the opacity of the states that were not selected.
     if (name.length > 0) {
-        layer.fillOpacity = [NSExpression expressionWithFormat:@"TERNARY(FUNCTION(name, 'stringValue') = %@, 1, 0)", name];
+        layer.fillOpacity = [NSExpression expressionWithFormat:@"MGL_MATCH(name, %@, 1, 0)", name];
     } else {
         // Reset the opacity for all states if the user did not tap on a state.
         layer.fillOpacity = [NSExpression expressionForConstantValue:@1];
