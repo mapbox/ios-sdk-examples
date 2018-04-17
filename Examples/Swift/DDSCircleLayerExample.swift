@@ -11,7 +11,7 @@ class DDSCircleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         
         // Create a new map view using the Mapbox Light style.
         mapView = MGLMapView(frame: view.bounds)
-        mapView.styleURL = MGLStyle.lightStyleURL()
+        mapView.styleURL = MGLStyle.lightStyleURL
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .darkGray
         

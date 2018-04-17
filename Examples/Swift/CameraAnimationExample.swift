@@ -10,7 +10,7 @@ class CameraAnimationExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
         
-        mapView.styleURL = MGLStyle.outdoorsStyleURL();
+        mapView.styleURL = MGLStyle.outdoorsStyleURL;
         
         // Mauna Kea, Hawaii
         let center = CLLocationCoordinate2D(latitude: 19.820689, longitude: -155.468038)

@@ -9,7 +9,7 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL())
+        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .gray
         mapView.delegate = self
@@ -45,7 +45,7 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
        
         // Create and register an offline pack with the shared offline storage object.
         
-        MGLOfflineStorage.shared().addPack(for: region, withContext: context) { (pack, error) in
+        MGLOfflineStorage.shared.addPack(for: region, withContext: context) { (pack, error) in
             guard error == nil else {
                 // The pack couldn’t be created for some reason.
                 print("Error: \(error?.localizedDescription ?? "unknown error")")

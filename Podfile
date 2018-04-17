@@ -2,7 +2,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'Examples' do
-  pod 'Mapbox-iOS-SDK', podspec: 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios-v4.0.0-beta.3/platform/ios/Mapbox-iOS-SDK.podspec'
+  pod 'Mapbox-iOS-SDK', podspec: 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios-v4.0.0-rc.1/platform/ios/Mapbox-iOS-SDK.podspec'
  # pod 'Mapbox-iOS-SDK-symbols', :path => '/Users/jordankiley/Desktop/repos/mapbox-gl-native/build/ios/pkg/dynamic/Mapbox-iOS-SDK-symbols.podspec'
 
 end
