@@ -34,7 +34,7 @@ NSString *const MBXExampleDDSCircleLayer = @"DDSCircleLayerExample";
     
     // "mapbox://examples.2uf7qges" is a map ID referencing a tileset. For more
     // more information, see mapbox.com/help/define-map-id/
-    MGLSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"trees" configurationURL:[NSURL URLWithString:@"mapbox://examples.2uf7qges"]];
+    MGLSource *source = [[MGLVectorTileSource alloc] initWithIdentifier:@"trees" configurationURL:[NSURL URLWithString:@"mapbox://examples.2uf7qges"]];
     
     [self.mapView.style addSource:source];
     
@@ -53,7 +53,7 @@ NSString *const MBXExampleDDSCircleLayer = @"DDSCircleLayerExample";
     };
     
     // Style the circle layer color based on the above stops dictionary.
-    layer.circleColor = [NSExpression expressionWithFormat:@"FUNCTION(AGE, 'mgl_stepWithMinimum:stops:', %@, %@)", [UIColor colorWithRed:1.0 green:0.72 blue:0.85 alpha:1.0], stops];
+    layer.circleColor = [NSExpression expressionWithFormat:@"mgl_step:from:stops:(AGE, %@, %@)", [UIColor colorWithRed:1.0 green:0.72 blue:0.85 alpha:1.0], stops];
 //    
     layer.circleRadius = [NSExpression expressionForConstantValue:@3];
     

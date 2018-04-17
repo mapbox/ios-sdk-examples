@@ -1,3 +1,4 @@
+import UIKit
 import Mapbox
 
 class FirstStepsTutorialViewController: UIViewController, MGLMapViewDelegate {
@@ -13,7 +14,7 @@ class FirstStepsTutorialViewController: UIViewController, MGLMapViewDelegate {
         // #-end-code-snippet: first-steps-ios-sdk initialize-map-swift
         
         // #-code-snippet: first-steps-ios-sdk change-style-swift
-        mapView.styleURL = MGLStyle.satelliteStyleURL()
+        mapView.styleURL = MGLStyle.satelliteStyleURL
         // #-end-code-snippet: first-steps-ios-sdk change-style-swift
         
         // #-code-snippet: first-steps-ios-sdk add-annotation-swift

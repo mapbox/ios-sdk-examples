@@ -29,7 +29,7 @@ NSString *const MBXExampleRasterImagery = @"RasterImageryExample";
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     // Add a new raster source and layer.
-    MGLRasterSource *source = [[MGLRasterSource alloc] initWithIdentifier:@"stamen-watercolor"
+    MGLRasterTileSource *source = [[MGLRasterTileSource alloc] initWithIdentifier:@"stamen-watercolor"
         tileURLTemplates:@[@"https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"]
         options:@{ MGLTileSourceOptionTileSize: @256}];
     MGLRasterStyleLayer *rasterLayer = [[MGLRasterStyleLayer alloc] initWithIdentifier:@"stamen-watercolor" source:source];

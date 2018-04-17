@@ -36,7 +36,7 @@ NSString const *MBXExampleFeatureSelection = @"FeatureSelectionExample";
     // Load a tileset containing U.S. states and their population density. For more information about working with tilesets, see: https://www.mapbox.com/help/studio-manual-tilesets/
     NSURL *url = [NSURL URLWithString:@"mapbox://examples.69ytlgls"];
     
-    MGLVectorSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"state-source" configurationURL:url];
+    MGLVectorTileSource *source = [[MGLVectorTileSource alloc] initWithIdentifier:@"state-source" configurationURL:url];
     [style addSource:source];
 
     MGLFillStyleLayer *layer = [[MGLFillStyleLayer alloc] initWithIdentifier:self.layerIdentifier source:source];

@@ -29,7 +29,7 @@ class PolygonPatternExample_Swift: UIViewController, MGLMapViewDelegate {
         
         // "mapbox://examples.0cd7imtl" is a map ID referencing a tileset containing vector data.
         // For more information, see mapbox.com/help/define-map-id/
-        let source = MGLVectorSource(identifier: "drone-restrictions", configurationURL: URL(string: "mapbox://examples.0cd7imtl")!)
+        let source = MGLVectorTileSource(identifier: "drone-restrictions", configurationURL: URL(string: "mapbox://examples.0cd7imtl")!)
         style.addSource(source)
         
         // Create a style layer using the vector source.

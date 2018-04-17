@@ -26,7 +26,7 @@ class DDSCircleLayerTutorialViewController: UIViewController, MGLMapViewDelegate
         // #-code-snippet: dds-circle add-vector-source-swift
         // "mapbox://examples.2uf7qges" is the map ID referencing a tileset
         // created from the GeoJSON data uploaded earlier.
-        let source = MGLVectorSource(identifier: "trees", configurationURL: URL(string: "mapbox://examples.2uf7qges")!)
+        let source = MGLVectorTileSource(identifier: "trees", configurationURL: URL(string: "mapbox://examples.2uf7qges")!)
         
         style.addSource(source)
         // #-end-code-snippet: dds-circle add-vector-source-swift
@@ -40,21 +40,18 @@ class DDSCircleLayerTutorialViewController: UIViewController, MGLMapViewDelegate
     
         // #-code-snippet: dds-circle add-stops-dictionary-swift
         let stops = [
-            0: MGLStyleValue(rawValue: UIColor(red:1.00, green:0.72, blue:0.85, alpha:1.0)),
-            2: MGLStyleValue(rawValue: UIColor(red:0.69, green:0.48, blue:0.73, alpha:1.0)),
-            4: MGLStyleValue(rawValue: UIColor(red:0.61, green:0.31, blue:0.47, alpha:1.0)),
-            7: MGLStyleValue(rawValue: UIColor(red:0.43, green:0.20, blue:0.38, alpha:1.0)),
-            16: MGLStyleValue(rawValue: UIColor(red:0.33, green:0.17, blue:0.25, alpha:1.0))
+            0: UIColor(red:1.00, green:0.72, blue:0.85, alpha:1.0),
+            2: UIColor(red:0.69, green:0.48, blue:0.73, alpha:1.0),
+            4: UIColor(red:0.61, green:0.31, blue:0.47, alpha:1.0),
+            7: UIColor(red:0.43, green:0.20, blue:0.38, alpha:1.0),
+            16: UIColor(red:0.33, green:0.17, blue:0.25, alpha:1.0)
         ]
         // #-end-code-snippet: dds-circle add-stops-dictionary-swift
         
         // #-code-snippet: dds-circle add-style-layer-swift
-        layer.circleColor = MGLStyleValue<UIColor>(interpolationMode: .interval,
-                                                   sourceStops: stops,
-                                                   attributeName: "AGE",
-                                                   options: nil)
+        layer.circleColor = NSExpression(format: "mgl_step:from:stops:(AGE, %@, %@)", UIColor(red:1.0, green:0.72, blue:0.85, alpha:1.0), stops)
         
-        layer.circleRadius = MGLStyleValue(rawValue: 3)
+        layer.circleRadius = NSExpression(forConstantValue: 3)
         
         style.addLayer(layer)
         // #-end-code-snippet: dds-circle add-style-layer-swift

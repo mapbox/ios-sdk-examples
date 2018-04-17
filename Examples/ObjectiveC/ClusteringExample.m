@@ -60,7 +60,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     circlesLayer.circleOpacity = [NSExpression expressionForConstantValue:@0.75];
     circlesLayer.circleStrokeColor = [NSExpression expressionForConstantValue:[[UIColor whiteColor] colorWithAlphaComponent:0.75]];
     circlesLayer.circleStrokeWidth = [NSExpression expressionForConstantValue:@2];
-    circlesLayer.circleColor = [NSExpression expressionWithFormat:@"FUNCTION(point_count, 'mgl_stepWithMinimum:stops:', %@, %@)",
+    circlesLayer.circleColor = [NSExpression expressionWithFormat:@"mgl_step:from:stops:(point_count, %@, %@)",
                                 [UIColor lightGrayColor], stops];
 //    circlesLayer.circleColor = [MGLSourceStyleFunction
 //        functionWithInterpolationMode:MGLInterpolationModeInterval

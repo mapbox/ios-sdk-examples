@@ -38,7 +38,7 @@ NSString *const MBXExamplePolygonPattern = @"PolygonPatternExample";
     
     // "mapbox://examples.0cd7imtl" is a map ID referencing a tileset containing vector data.
     // For more information, see mapbox.com/help/define-map-id/
-    MGLSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"drone-restrictions" configurationURL:[NSURL URLWithString:@"mapbox://examples.0cd7imtl"]];
+    MGLSource *source = [[MGLVectorTileSource alloc] initWithIdentifier:@"drone-restrictions" configurationURL:[NSURL URLWithString:@"mapbox://examples.0cd7imtl"]];
     
     [style addSource:source];
     
