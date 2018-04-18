@@ -33,15 +33,15 @@
     MGLCircleStyleLayer *layer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"landmarks" source:source];
     
     layer.sourceLayerIdentifier = @"HPC_landmarks-b60kqn";
+    
+    layer.circleColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed:0.67 green:0.28 blue:0.13 alpha:1.0]];
+    
+    layer.circleOpacity = [NSExpression expressionForConstantValue:@"0.8"];
 
     NSDictionary *zoomStops = @{
                                 @10: [NSExpression expressionWithFormat:@"(Constructi - 2018) / 30"],
                                 @13: [NSExpression expressionWithFormat:@"(Constructi - 2018) / 10"]
     };
-    
-    layer.circleRadius = [NSExpression expressionWithFormat:@"(Constructi - 2018) / 10"];
-    layer.circleColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed:0.67 green:0.28 blue:0.13 alpha:1.0]];
-    layer.circleOpacity = [NSExpression expressionForConstantValue:@"0.8"];
     
     layer.circleRadius = [NSExpression expressionWithFormat:@"FUNCTION(Constructi, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", zoomStops];
     
