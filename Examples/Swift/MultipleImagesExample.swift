@@ -9,7 +9,7 @@ class MultipleImagesExample: UIViewController, MGLMapViewDelegate {
         super.viewDidLoad()
         
         // Create and add a map view.
-        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.outdoorsStyleURL())
+        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.outdoorsStyleURL)
         
         // Center the map on Yosemite National Park, United States.
         mapView.setCenter(CLLocationCoordinate2D(latitude: 37.761, longitude: -119.624), zoomLevel: 10, animated: false)
@@ -29,7 +29,7 @@ class MultipleImagesExample: UIViewController, MGLMapViewDelegate {
         if let url = URL(string: "mapbox://examples.ciuz0vpc") {
             
             // Add the vector tileset to the map's style.
-            let source = MGLVectorSource(identifier: "yosemite-pois", configurationURL: url)
+            let source = MGLVectorTileSource(identifier: "yosemite-pois", configurationURL: url)
             style.addSource(source)
             
             // Create a symbol style layer and access the layer containin

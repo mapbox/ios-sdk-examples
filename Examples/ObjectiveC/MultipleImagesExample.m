@@ -31,7 +31,7 @@ NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
     
     // Access a vector tileset that contains places of interest at Yosemite National Park. This tileset was created by uploading NPS shapefiles to Mapbox Studio.
     NSURL *url = [[NSURL alloc] initWithString:@"mapbox://examples.ciuz0vpc"];
-    MGLVectorSource *source = [[MGLVectorSource alloc] initWithIdentifier:@"yosemite-pois" configurationURL:url];
+    MGLVectorTileSource *source = [[MGLVectorTileSource alloc] initWithIdentifier:@"yosemite-pois" configurationURL:url];
     [style addSource:source];
     
     MGLSymbolStyleLayer *layer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"yosemite-pois" source:source];
