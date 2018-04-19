@@ -27,12 +27,12 @@ class AnimatedLineExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     // Wait until the map is loaded before adding to the map.
-    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        addLayer(to: style)
+    func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
+        addPolyline(to: mapView.style!)
         animatePolyline()
     }
 
-    func addLayer(to style: MGLStyle) {
+    func addPolyline(to style: MGLStyle) {
         // Add an empty MGLShapeSource, we’ll keep a reference to this and add points to this later.
         let source = MGLShapeSource(identifier: "polyline", shape: nil, options: nil)
         style.addSource(source)
