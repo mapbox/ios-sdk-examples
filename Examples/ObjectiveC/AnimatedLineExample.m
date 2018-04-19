@@ -32,15 +32,15 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
 }
 
 // Wait until the map is loaded before adding to the map.
-- (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
-    [self addLayer];
+- (void)mapViewDidFinishLoadingMap:(MGLMapView *)mapView {
+    [self addPolylineToStyle:mapView.style];
     [self animatePolyline];
 }
 
-- (void)addLayer {
+- (void)addPolylineToStyle:(MGLStyle *)style {
     // Add an empty MGLShapeSource, we’ll keep a reference to this and add points to this later.
     MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"polyline" features:@[] options:nil];
-    [self.mapView.style addSource:source];
+    [style addSource:source];
     self.polylineSource = source;
     
     // Add a layer to style our polyline.
@@ -52,7 +52,7 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
     layer.lineWidth = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", @{@14: @5,
                                                                                                                                                          @18: @20
                                                                                                                                                          }];
-    [self.mapView.style addLayer:layer];
+    [style addLayer:layer];
 }
 
 - (void)animatePolyline {
