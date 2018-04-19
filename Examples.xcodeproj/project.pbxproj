@@ -891,6 +891,7 @@
 				0503373B1F7199DF007309B0 /* Frameworks */,
 				0503373C1F7199DF007309B0 /* Resources */,
 				056F105B1FC4C80A0037FFBE /* Insert Mapbox Access Token */,
+				AE0655B20C8AA154EF5BC4BE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1177,6 +1178,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "$SRCROOT/Examples/insert-mapbox-token.sh";
+		};
+		AE0655B20C8AA154EF5BC4BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		D8896F91CDF96A2DF29EF047 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
