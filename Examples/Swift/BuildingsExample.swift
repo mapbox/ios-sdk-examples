@@ -26,7 +26,7 @@ class BuildingsExample: UIViewController, MGLMapViewDelegate {
             layer.sourceLayerIdentifier = "building"
             
             // Filter out buildings that should not extrude.
-            layer.predicate = NSPredicate(format: "extrude == 'true' AND height >= 0")
+            layer.predicate = NSPredicate(format: "extrude == 'true'")
             
             // Set the fill extrusion height to the value for the building height attribute.
             layer.fillExtrusionHeight = NSExpression(forKeyPath: "height")
