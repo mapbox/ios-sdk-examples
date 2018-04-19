@@ -9,7 +9,7 @@ class DDSCircleLayerTutorialViewController: UIViewController, MGLMapViewDelegate
         super.viewDidLoad()
         
         mapView = MGLMapView(frame: view.bounds)
-        mapView.styleURL = MGLStyle.lightStyleURL()
+        mapView.styleURL = MGLStyle.lightStyleURL
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .darkGray
         
