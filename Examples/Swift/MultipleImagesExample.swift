@@ -19,7 +19,6 @@ class MultipleImagesExample: UIViewController, MGLMapViewDelegate {
     }
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        
         // Add icons from the U.S. National Parks Service to the map's style.
         style.setImage(UIImage(named: "nps-restrooms")!, forName: "restrooms")
         style.setImage(UIImage(named: "nps-trailhead")!, forName: "trailhead")
