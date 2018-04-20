@@ -11,21 +11,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // #-code-snippet: expressions initialize-map-objc
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL: [MGLStyle lightStyleURL]];
     
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    mapView.tintColor = [UIColor darkGrayColor];
     
     mapView.centerCoordinate = CLLocationCoordinate2DMake(44.971, -93.261);
     mapView.zoomLevel = 10;
     
     [self.view addSubview:mapView];
     mapView.delegate = self;
+    // #-end-code-snippet: expressions initialize-map-objc
 }
 
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
-
+    
+    // #-code-snippet: expressions add-layer-objc
     MGLSource *source = [[MGLVectorTileSource alloc] initWithIdentifier:@"historical-places" configurationURL:[NSURL URLWithString:@"mapbox://examples.5zzwbooj"]];
     
     [mapView.style addSource:source];
@@ -46,6 +48,7 @@
     layer.circleRadius = [NSExpression expressionWithFormat:@"FUNCTION(Constructi, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", zoomStops];
     
     [mapView.style addLayer:layer];
+    // #-end-code-snippet: expressions add-layer-objc
 }
 
 @end

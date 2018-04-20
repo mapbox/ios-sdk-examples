@@ -3,25 +3,25 @@ import Mapbox
 
 class DDSCircleLayerTutorialViewController: UIViewController, MGLMapViewDelegate {
     
-    var mapView: MGLMapView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView = MGLMapView(frame: view.bounds)
+        // #-code-snippet: expressions initialize-map-swift
+        let mapView = MGLMapView(frame: view.bounds)
         mapView.styleURL = MGLStyle.lightStyleURL
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.tintColor = .darkGray
         
         mapView.setCenter(CLLocationCoordinate2D(latitude: 44.971, longitude: -93.261), animated: false)
         mapView.zoomLevel = 10
         
         mapView.delegate = self
         view.addSubview(mapView)
+        // #-end-code-snippet: expressions initialize-map-swift
     }
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
+        // #-code-snippet: expressions add-layer-swift
         let source = MGLVectorTileSource(identifier: "historical-places", configurationURL: URL(string: "mapbox://examples.5zzwbooj")!)
         
         style.addSource(source)
@@ -42,5 +42,6 @@ class DDSCircleLayerTutorialViewController: UIViewController, MGLMapViewDelegate
         layer.circleRadius = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", zoomStops)
         
         style.addLayer(layer)
+        // #-end-code-snippet: expressions add-layer-swift
     }
 }
