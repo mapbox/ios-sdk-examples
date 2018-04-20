@@ -19,7 +19,7 @@ class DraggableAnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate
         let coordinates = [
             CLLocationCoordinate2D(latitude: 0, longitude: -70),
             CLLocationCoordinate2D(latitude: 0, longitude: -35),
-            CLLocationCoordinate2D(latitude: 0,  longitude: 0),
+            CLLocationCoordinate2D(latitude: 0, longitude: 0),
             CLLocationCoordinate2D(latitude: 0, longitude: 35),
             CLLocationCoordinate2D(latitude: 0, longitude: 70)
         ]
@@ -115,6 +115,12 @@ class DraggableAnnotationView: MGLAnnotationView {
             self.layer.opacity = 0.8
             self.transform = CGAffineTransform.identity.scaledBy(x: 1.5, y: 1.5)
         }, completion: nil)
+
+        // Initialize haptic feedback generator and give the user a light thud.
+        if #available(iOS 10.0, *) {
+            let hapticFeedback = UIImpactFeedbackGenerator(style: .light)
+            hapticFeedback.impactOccurred()
+        }
     }
     
     func endDragging() {
@@ -123,5 +129,11 @@ class DraggableAnnotationView: MGLAnnotationView {
             self.layer.opacity = 1
             self.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 1)
         }, completion: nil)
+
+        // Give the user more haptic feedback when they drop the annotation.
+        if #available(iOS 10.0, *) {
+            let hapticFeedback = UIImpactFeedbackGenerator(style: .light)
+            hapticFeedback.impactOccurred()
+        }
     }
 }

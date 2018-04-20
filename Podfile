@@ -6,8 +6,12 @@ def shared_pods
 end
 
 target 'Examples' do
+<<<<<<< v4.0.0-expressions
     shared_pods
     #pod 'Mapbox-iOS-SDK-symbols', :path => '/Users/jordankiley/Desktop/repos/mapbox-gl-native/build/ios/pkg/dynamic/Mapbox-iOS-SDK-symbols.podspec'
+=======
+  pod 'Mapbox-iOS-SDK', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios-v3.7.5/platform/ios/Mapbox-iOS-SDK.podspec'
+>>>>>>> master
 end
 
 target 'DocsCode' do
