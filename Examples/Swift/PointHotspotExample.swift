@@ -36,7 +36,7 @@ class PointHotspotExample_Swift: UIViewController, MGLMapViewDelegate {
             20.0: UIColor.orange,
             150.0: UIColor.red
         ]
-        // TODO: Default style value
+        
         // Create and style the clustered circle layer.
         let clusteredLayer = MGLCircleStyleLayer(identifier: "clustered layer", source: earthquakeSource)
         clusteredLayer.circleColor = NSExpression(format: "FUNCTION(point_count, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", stops)

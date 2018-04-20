@@ -49,28 +49,24 @@ NSString *const MBXExampleWebAPIData = @"WebAPIDataExample";
     // In this case, we can use style functions to gradually change properties between zoom level 2 and 7: the circle opacity from 50% to 100% and the circle radius from 2pt to 3pt.
     MGLCircleStyleLayer *circles = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"lighthouse-circles" source:source];
     circles.circleColor = [NSExpression expressionForConstantValue:lighthouseColor];
-    // TODO: Default value - 0.75
-    circles.circleOpacity = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", @{@2: @0.5,
-          @7: @1.0
-          }];
-    // TODO: Default value - 1
-    circles.circleRadius = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_stepWithMinimum:stops:', %@, %@)", @1, @{
-                                                                                                                                @2: @2,
-                                                                                                                                @7: @3}];
+    circles.circleOpacity = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                             @{@2: @0.5, @7: @1.0 }];
+    circles.circleRadius = [NSExpression expressionWithFormat:@"mgl_step:from:stops:($zoomLevel, %@, %@)",
+                            @1, @{@2: @2, @7: @3}];
 
     // Use MGLSymbolStyleLayer for more complex styling of points including custom icons and text rendering.
     MGLSymbolStyleLayer *symbols = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"lighthouse-symbols" source:source];
     symbols.iconImageName = [NSExpression expressionForConstantValue:@"lighthouse"];
     symbols.iconScale = [NSExpression expressionForConstantValue:@0.5];
-    symbols.iconOpacity = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", @{@5.9: @0,
-                                                                                                                                                            @6: @1}];
+    symbols.iconOpacity = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                           @{@5.9: @0, @6: @1}];
     symbols.iconHaloColor = [NSExpression expressionForConstantValue:[[UIColor whiteColor] colorWithAlphaComponent:0.5]];
     symbols.iconHaloWidth = [NSExpression expressionForConstantValue:@1];
     // {name} references the "name" key in an MGLPointFeature’s attributes dictionary.
-    symbols.text = [NSExpression expressionForConstantValue:@"{name}"];
+    symbols.text = [NSExpression expressionForKeyPath:@"name"];
     symbols.textColor = symbols.iconColor;
-    symbols.textFontSize = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", @{@10: @10,
-                                                                                                                                                              @16: @16}];
+    symbols.textFontSize = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                            @{@10: @10, @16: @16}];
     symbols.textTranslation = [NSExpression expressionForConstantValue:[NSValue valueWithCGVector:CGVectorMake(10, 0)]];
     symbols.textOpacity = symbols.iconOpacity;
     symbols.textHaloColor = symbols.iconHaloColor;

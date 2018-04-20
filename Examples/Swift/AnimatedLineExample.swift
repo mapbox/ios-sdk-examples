@@ -43,9 +43,8 @@ class AnimatedLineExample_Swift: UIViewController, MGLMapViewDelegate {
         layer.lineJoin = NSExpression(forConstantValue: NSValue(mglLineJoin: .round))
         layer.lineCap = NSExpression(forConstantValue: NSValue(mglLineJoin: .round))
         layer.lineColor = NSExpression(forConstantValue: UIColor.red)
-        // TODO: Default value
-        layer.lineWidth = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", [14: 5,
-                   18: 20])
+        layer.lineWidth = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                                       [14: 5, 18: 20])
         style.addLayer(layer)
     }
 

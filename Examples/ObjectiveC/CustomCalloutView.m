@@ -48,12 +48,7 @@ static CGFloat const tipWidth = 20.0;
 
 #pragma mark - MGLCalloutView API
 
-- (void)presentCalloutFromRect:(CGRect)rect inView:(UIView *)view constrainedToView:(UIView *)constrainedView animated:(BOOL)animated
-{
-    [self presentCalloutFromRect:rect inView:view constrainedToRect:CGRectNull animated:animated];
-}
-
-- (void)presentCalloutFromRect:(CGRect)rect inView:(nonnull UIView *)view constrainedToRect:(__unused CGRect)constrainedRect animated:(BOOL)animated
+- (void)presentCalloutFromRect:(CGRect)rect inView:(UIView *)view constrainedToRect:(CGRect *)constrainedView animated:(BOOL)animated
 {
     // Do not show a callout if there is no title set for the annotation.
     if (![self.representedObject respondsToSelector:@selector(title)])
@@ -63,22 +58,22 @@ static CGFloat const tipWidth = 20.0;
 
     [view addSubview:self];
 
-    // Prepare title label
+    // Prepare title label.
     [self.mainBody setTitle:self.representedObject.title forState:UIControlStateNormal];
     [self.mainBody sizeToFit];
 
     if ([self isCalloutTappable])
     {
-        // Handle taps and eventually try to send them to the delegate (usually the map view)
+        // Handle taps and eventually try to send them to the delegate (usually the map view).
         [self.mainBody addTarget:self action:@selector(calloutTapped) forControlEvents:UIControlEventTouchUpInside];
     }
     else
     {
-        // Disable tapping and highlighting
+        // Disable tapping and highlighting.
         self.mainBody.userInteractionEnabled = NO;
     }
 
-    // Prepare our frame, adding extra space at the bottom for the tip
+    // Prepare our frame, adding extra space at the bottom for the tip.
     CGFloat frameWidth = self.mainBody.bounds.size.width;
     CGFloat frameHeight = self.mainBody.bounds.size.height + tipHeight;
     CGFloat frameOriginX = rect.origin.x + (rect.size.width/2.0) - (frameWidth/2.0);

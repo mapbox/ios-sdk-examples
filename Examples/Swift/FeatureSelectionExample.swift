@@ -39,7 +39,6 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
                      1200: UIColor.blue]
         
         // Style the fill color using the stops dictionary, exponential interpolation mode, and the feature attribute name.
-        // TODO: Default value - UIColor.white
         layer.fillColor = NSExpression(format: "FUNCTION(density, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", stops)
         
         // Insert the new layer below the Mapbox Streets layer that contains state border lines. See the layer reference for more information about layer names: https://www.mapbox.com/vector-tiles/mapbox-streets-v7/

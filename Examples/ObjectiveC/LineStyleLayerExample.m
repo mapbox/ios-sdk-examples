@@ -50,7 +50,9 @@ NSString *const MBXExampleLineStyleLayer = @"LineStyleLayerExample";
     MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline" source:source];
     layer.lineJoin = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
     layer.lineColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed:59/255.0 green:178/255.0 blue:208/255.0 alpha:1]];
-
+    layer.lineWidth = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                       @{@14: @2, @18: @20}];
+    
     // We can also add a second layer that will draw a stroke around the original line.
     MGLLineStyleLayer *casingLayer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline-case" source:source];
     // Copy these attributes from the main line layer.
@@ -62,7 +64,8 @@ NSString *const MBXExampleLineStyleLayer = @"LineStyleLayerExample";
     casingLayer.lineColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed:41/255.0 green:145/255.0 blue:171/255.0 alpha:1]];
     // Use a style function to gradually increase the stroke width between zoom levels 14 and 18.
     // TODO: Default value - 1.5
-    casingLayer.lineWidth = [NSExpression expressionWithFormat:@"FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", @{@14: @1, @18: @4}];
+    casingLayer.lineWidth = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                             @{@14: @1, @18: @4}];
 
     // Just for fun, let’s add another copy of the line with a dash pattern.
     MGLLineStyleLayer *dashedLayer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline-dash" source:source];

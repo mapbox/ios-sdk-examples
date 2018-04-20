@@ -48,14 +48,9 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
         
         let circles = MGLCircleStyleLayer(identifier: "lighthouse-circles", source: source)
         circles.circleColor = NSExpression(forConstantValue: lighthouseColor)
-        
-        let opacityStops = [2: 0.5,
-                            7: 1]
-        circles.circleOpacity = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", opacityStops)
-        
-        let radiusStops = [2: 2,
-                           7: 3]
-        circles.circleRadius = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", radiusStops)
+        circles.circleOpacity = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", [2: 0.5, 7: 1])
+        circles.circleRadius = NSExpression(format: "mgl_step:from:stops:($zoomLevel, 'linear', nil, %@)",
+                                            1, [2: 2, 7: 3])
 
         // Use MGLSymbolStyleLayer for more complex styling of points including custom icons and text rendering.
         let symbols = MGLSymbolStyleLayer(identifier: "lighthouse-symbols", source: source)
@@ -64,16 +59,14 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
         symbols.iconScale = NSExpression(forConstantValue: 0.5)
         symbols.iconHaloColor = NSExpression(forConstantValue: UIColor.white.withAlphaComponent(0.5))
         symbols.iconHaloWidth = NSExpression(forConstantValue: 1)
-        
-        let symbolsOpacityStops = [5.9: NSExpression(forConstantValue: 0),
-                                   6: NSExpression(forConstantValue: 1)]
-        symbols.iconOpacity = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", symbolsOpacityStops)
+        symbols.iconOpacity = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                                           [5.9: 0, 6: 1])
 
 //        // {name} references the "name" key in an MGLPointFeature’s attributes dictionary.
-        symbols.text = NSExpression(forConstantValue: "{name}")
+        symbols.text = NSExpression(forKeyPath: "name")
         symbols.textColor = symbols.iconColor
-        symbols.textFontSize = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", [10: 10,
-                                                                                                                                                  16: 16])
+        symbols.textFontSize = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                                            [10: 10, 16: 16])
         symbols.textTranslation = NSExpression(forConstantValue: NSValue(cgVector: CGVector(dx: 10, dy: 0)))
         symbols.textOpacity = symbols.iconOpacity
         symbols.textHaloColor = symbols.iconHaloColor

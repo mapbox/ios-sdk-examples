@@ -54,12 +54,8 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         layer.lineColor = NSExpression(forConstantValue: UIColor(red: 59/255, green:178/255, blue:208/255, alpha:1))
         
         // Use `NSExpression` to smoothly adjust the line width from 2pt to 20pt between zoom levels 14 and 18. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
-        let layerStops = [14: NSExpression(forConstantValue: 2),
-                          18: NSExpression(forConstantValue: 20)]
-        layer.lineWidth = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", argumentArray: [layerStops])
-        
-        // TODO: Convert the default value. - 1.5
-        layer.lineWidth = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", [14: 2, 18: 20])
+        layer.lineWidth = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                                       [14: 2, 18: 20])
 
         // We can also add a second layer that will draw a stroke around the original line.
         let casingLayer = MGLLineStyleLayer(identifier: "polyline-case", source: source)
@@ -71,10 +67,9 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         // Stroke color slightly darker than the line color.
         casingLayer.lineColor = NSExpression(forConstantValue: UIColor(red: 41/255, green:145/255, blue:171/255, alpha:1))
         // Use `NSExpression` to gradually increase the stroke width between zoom levels 14 and 18.
-
-        // TODO: Default value - 1.5
-        casingLayer.lineWidth = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", [14: 1, 18: 4])
-//
+        casingLayer.lineWidth = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                                             [14: 1, 18: 4])
+        
         // Just for fun, let’s add another copy of the line with a dash pattern.
         let dashedLayer = MGLLineStyleLayer(identifier: "polyline-dash", source: source)
         dashedLayer.lineJoin = layer.lineJoin

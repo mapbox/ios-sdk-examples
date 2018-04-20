@@ -52,29 +52,22 @@ class CustomCalloutView: UIView, MGLCalloutView {
     // MARK: - MGLCalloutView API
     
     func presentCallout(from rect: CGRect, in view: UIView, constrainedTo constrainedRect: CGRect, animated: Bool) {
-     presentCallout(from: rect, in: view, constrainedTo: view, animated: animated)
-    }
-
-    func presentCallout(from rect: CGRect, in view: UIView, constrainedTo constrainedView: UIView, animated: Bool) {
-        if !representedObject.responds(to: #selector(getter: MGLAnnotation.title)) {
-            return
-        }
         
         view.addSubview(self)
         
-        // Prepare title label
+        // Prepare title label.
         mainBody.setTitle(representedObject.title!, for: .normal)
         mainBody.sizeToFit()
         
         if isCalloutTappable() {
-            // Handle taps and eventually try to send them to the delegate (usually the map view)
+            // Handle taps and eventually try to send them to the delegate (usually the map view).
             mainBody.addTarget(self, action: #selector(CustomCalloutView.calloutTapped), for: .touchUpInside)
         } else {
-            // Disable tapping and highlighting
+            // Disable tapping and highlighting.
             mainBody.isUserInteractionEnabled = false
         }
         
-        // Prepare our frame, adding extra space at the bottom for the tip
+        // Prepare our frame, adding extra space at the bottom for the tip.
         let frameWidth = mainBody.bounds.size.width
         let frameHeight = mainBody.bounds.size.height + tipHeight
         let frameOriginX = rect.origin.x + (rect.size.width/2.0) - (frameWidth/2.0)
@@ -124,7 +117,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
     // MARK: - Custom view styling
     
     override func draw(_ rect: CGRect) {
-        // Draw the pointed tip at the bottom
+        // Draw the pointed tip at the bottom.
         let fillColor : UIColor = .darkGray
         
         let tipLeft = rect.origin.x + (rect.size.width / 2.0) - (tipWidth / 2.0)
