@@ -49,8 +49,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
         let circles = MGLCircleStyleLayer(identifier: "lighthouse-circles", source: source)
         circles.circleColor = NSExpression(forConstantValue: lighthouseColor)
         circles.circleOpacity = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", [2: 0.5, 7: 1])
-        circles.circleRadius = NSExpression(format: "mgl_step:from:stops:($zoomLevel, 'linear', nil, %@)",
-                                            1, [2: 2, 7: 3])
+        circles.circleRadius = NSExpression(forMGLStepping: .zoomLevelVariable, from: NSExpression(forConstantValue: 1), stops: NSExpression(forConstantValue: [2: 2, 7: 3]))
 
         // Use MGLSymbolStyleLayer for more complex styling of points including custom icons and text rendering.
         let symbols = MGLSymbolStyleLayer(identifier: "lighthouse-symbols", source: source)

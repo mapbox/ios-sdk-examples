@@ -47,9 +47,7 @@ NSString *const MBXExamplePointHotspot = @"PointHotspotExample";
     
     // Create and style the clustered circle layer.
     MGLCircleStyleLayer *clusteredLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clustered layer" source:earthquakeSource];
-    // TODO: Convert default value.
-    clusteredLayer.circleColor = [NSExpression expressionWithFormat:@"FUNCTION(point_count, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", stops];
-//
+    clusteredLayer.circleColor = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:(point_count, 'linear', nil, %@)", stops];
     clusteredLayer.circleRadius = [NSExpression expressionForConstantValue:@70];
     clusteredLayer.circleOpacity = [NSExpression expressionForConstantValue:@0.5];
     clusteredLayer.circleBlur = [NSExpression expressionForConstantValue:@1];

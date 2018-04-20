@@ -39,7 +39,7 @@ class DDSCircleLayerTutorialViewController: UIViewController, MGLMapViewDelegate
             13: NSExpression(format: "(Constructi - 2018) / 10")
         ]
         
-        layer.circleRadius = NSExpression(format: "FUNCTION($zoomLevel, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", zoomStops)
+        layer.circleRadius = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", zoomStops)
         
         style.addLayer(layer)
         // #-end-code-snippet: expressions add-layer-swift
