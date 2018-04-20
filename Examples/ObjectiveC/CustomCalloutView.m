@@ -55,7 +55,7 @@ static CGFloat const tipWidth = 20.0;
 
 - (void)presentCalloutFromRect:(CGRect)rect inView:(nonnull UIView *)view constrainedToRect:(__unused CGRect)constrainedRect animated:(BOOL)animated
 {
-    // Do not show a callout if there is no title set for the annotation
+    // Do not show a callout if there is no title set for the annotation.
     if (![self.representedObject respondsToSelector:@selector(title)])
     {
         return;
