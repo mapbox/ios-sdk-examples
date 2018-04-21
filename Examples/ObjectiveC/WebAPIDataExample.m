@@ -53,9 +53,8 @@ NSString *const MBXExampleWebAPIData = @"WebAPIDataExample";
     // The circles should increase in opacity from 0.5 to 1 based on zoom level.
     circles.circleOpacity = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
                              @{@2: @0.5, @7: @1.0 }];
-    circles.circleRadius = [NSExpression mgl_expressionForSteppingExpression: NSExpression.zoomLevelVariableExpression
-                                                              fromExpression:[NSExpression expressionForConstantValue:@1]
-                                                                       stops:[NSExpression expressionForConstantValue: @{@2: @2, @7: @3}]];
+    circles.circleRadius = circles.circleRadius = [NSExpression expressionWithFormat:@"mgl_step:from:stops:($zoomLevel, 1, %@)",
+                                                   @{@2: @2, @7: @3}];
 
     // Use MGLSymbolStyleLayer for more complex styling of points including custom icons and text rendering.
     MGLSymbolStyleLayer *symbols = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"lighthouse-symbols" source:source];
