@@ -41,7 +41,7 @@ class AnimatedLineExample_Swift: UIViewController, MGLMapViewDelegate {
         // Add a layer to style our polyline.
         let layer = MGLLineStyleLayer(identifier: "polyline", source: source)
         layer.lineJoin = NSExpression(forConstantValue: NSValue(mglLineJoin: .round))
-        layer.lineCap = NSExpression(forConstantValue: NSValue(mglLineJoin: .round))
+        layer.lineCap = NSExpression(forConstantValue: "round"))
         layer.lineColor = NSExpression(forConstantValue: UIColor.red)
         
         // The line width should gradually increase based on the zoom level.
