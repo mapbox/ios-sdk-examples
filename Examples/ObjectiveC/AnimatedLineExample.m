@@ -45,7 +45,7 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
     
     // Add a layer to style our polyline.
     MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline" source:source];
-    layer.lineJoin = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineJoin:MGLLineJoinRound]];
+    layer.lineJoin = [NSExpression expressionForConstantValue:@"round"];
     layer.lineCap = layer.lineJoin = [NSExpression expressionForConstantValue:@"round"];
     layer.lineColor = [NSExpression expressionForConstantValue:[UIColor redColor]];
     
