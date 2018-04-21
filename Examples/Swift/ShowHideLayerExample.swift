@@ -30,8 +30,8 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         
         let layer = MGLLineStyleLayer(identifier: "contours", source: source)
         layer.sourceLayerIdentifier = "contour"
-        layer.lineJoin = NSExpression(forConstantValue: NSValue(mglLineJoin: .round))
-        layer.lineCap = NSExpression(forConstantValue: NSValue(mglLineJoin: .round))
+        layer.lineJoin = NSExpression(forConstantValue: "round")
+        layer.lineCap = NSExpression(forConstantValue: "round")
         layer.lineColor = NSExpression(forConstantValue: UIColor.brown)
         layer.lineWidth = NSExpression(forConstantValue: 1.0)
         

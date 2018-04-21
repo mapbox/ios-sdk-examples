@@ -35,7 +35,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         let ports = MGLSymbolStyleLayer(identifier: "ports", source: source)
         ports.iconImageName = NSExpression(forConstantValue: "icon")
         ports.iconColor = NSExpression(forConstantValue: UIColor.darkGray.withAlphaComponent(0.9))
-        ports.predicate = NSPredicate(format: "%K != YES", "cluster")
+        ports.predicate = NSPredicate(format: "cluster != YES")
         style.addLayer(ports)
 
         // Color clustered features based on clustered point counts.
@@ -53,7 +53,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         circlesLayer.circleStrokeColor = NSExpression(forConstantValue: UIColor.white.withAlphaComponent(0.75))
         circlesLayer.circleStrokeWidth = NSExpression(forConstantValue: 2)
         circlesLayer.circleColor = NSExpression(format: "mgl_step:from:stops:(point_count, %@, %@)", UIColor.lightGray, stops)
-        circlesLayer.predicate = NSPredicate(format: "%K == YES", "cluster")
+        circlesLayer.predicate = NSPredicate(format: "cluster == YES")
         style.addLayer(circlesLayer)
 
         // Label cluster circles with a layer of text indicating feature count. The value for `point_count` is an integer. In order to use that value for the `MGLSymbolStyleLayer.text` property, cast it as a string. 
@@ -63,7 +63,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         numbersLayer.iconAllowsOverlap = NSExpression(forConstantValue: true)
         numbersLayer.text = NSExpression(format: "CAST(point_count, 'NSString')")
         
-        numbersLayer.predicate = NSPredicate(format: "%K == YES", "cluster")
+        numbersLayer.predicate = NSPredicate(format: "cluster == YES")
         style.addLayer(numbersLayer)
 
         // Add a tap gesture for zooming in to clusters or showing popups on individual features.

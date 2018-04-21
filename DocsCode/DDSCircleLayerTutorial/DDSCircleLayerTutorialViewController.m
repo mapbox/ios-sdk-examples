@@ -45,7 +45,7 @@
                                 @13: [NSExpression expressionWithFormat:@"(Constructi - 2018) / 10"]
     };
     
-    layer.circleRadius = [NSExpression expressionWithFormat:@"FUNCTION(Constructi, 'mgl_interpolateWithCurveType:parameters:stops:', 'linear', nil, %@)", zoomStops];
+    layer.circleRadius = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:(Constructi, 'linear', nil, %@)", zoomStops];
     
     [mapView.style addLayer:layer];
     // #-end-code-snippet: expressions add-layer-objc

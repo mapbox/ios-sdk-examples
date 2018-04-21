@@ -25,25 +25,25 @@ class MultipleImagesExample: UIViewController, MGLMapViewDelegate {
         style.setImage(UIImage(named: "nps-picnic-area")!, forName: "picnic-area")
         
         // Access a vector tileset that contains places of interest at Yosemite National Park. This tileset was created by uploading NPS shapefiles to Mapbox Studio.
-        if let url = URL(string: "mapbox://examples.ciuz0vpc") {
-            
-            // Add the vector tileset to the map's style.
-            let source = MGLVectorTileSource(identifier: "yosemite-pois", configurationURL: url)
-            style.addSource(source)
-            
-            // Create a symbol style layer and access the layer containin
-            let layer = MGLSymbolStyleLayer(identifier: "yosemite-pois", source: source)
-            
-            // Access the layer that contains the POI data. The source layer identifier is a unique identifier for a layer within a vector tile source.
-            layer.sourceLayerIdentifier = "Yosemite_POI-38jhes"
-            
-            // Create a stops dictionary with keys that are possible values for 'POITYPE', paired with icon images that will represent those features.
-            let poiIcons = ["Picnic Area" : "picnic-area", "Restroom" : "restrooms", "Trailhead" : "trailhead"]
-            
-            // Use the stops dictionary to assign an icon based on the "POITYPE" for each feature.
-            layer.iconImageName = NSExpression(format: "FUNCTION(%@, 'valueForKeyPath:', POITYPE)", poiIcons)
+        let url = URL(string: "mapbox://examples.ciuz0vpc")!
+        
+        // Add the vector tileset to the map's style.
+        let source = MGLVectorTileSource(identifier: "yosemite-pois", configurationURL: url)
+        style.addSource(source)
+        
+        // Create a symbol style layer and access the layer containin
+        let layer = MGLSymbolStyleLayer(identifier: "yosemite-pois", source: source)
+        
+        // Access the layer that contains the POI data. The source layer identifier is a unique identifier for a layer within a vector tile source.
+        layer.sourceLayerIdentifier = "Yosemite_POI-38jhes"
+        
+        // Create a stops dictionary with keys that are possible values for 'POITYPE', paired with icon images that will represent those features.
+        let poiIcons = ["Picnic Area" : "picnic-area", "Restroom" : "restrooms", "Trailhead" : "trailhead"]
+        
+        // Use the stops dictionary to assign an icon based on the "POITYPE" for each feature.
+        layer.iconImageName = NSExpression(format: "FUNCTION(%@, 'valueForKeyPath:', POITYPE)", poiIcons)
+        
+        style.addLayer(layer)
 
-            style.addLayer(layer)
-        }
     }
 }

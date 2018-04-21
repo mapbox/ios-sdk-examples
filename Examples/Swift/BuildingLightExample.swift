@@ -49,8 +49,8 @@ class BuildingLightExample: UIViewController, MGLMapViewDelegate {
         let position = MGLSphericalPositionMake(5, 180, 80)
         light.position = NSExpression(forConstantValue: NSValue(mglSphericalPosition: position))
         
-        // Set the light anchor to the map and add the light object to the map view's style. The light anchor can be the viewport (or rotates with the viewport) or the map (rotates with the map). To make the viewport the anchor, replace `MGLLightAnchor.map` with `MGLLightAnchor.viewport`.
-        light.anchor = NSExpression(forConstantValue: NSValue(mglLightAnchor: MGLLightAnchor.map))
+        // Set the light anchor to the map and add the light object to the map view's style. The light anchor can be the viewport (or rotates with the viewport) or the map (rotates with the map). To make the viewport the anchor, replace `map` with `viewport`.
+        light.anchor = NSExpression(forConstantValue: "map")
         style.light = light
     }
     

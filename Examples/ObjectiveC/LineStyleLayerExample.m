@@ -16,8 +16,8 @@ NSString *const MBXExampleLineStyleLayer = @"LineStyleLayerExample";
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(45.5076, -122.6736)
-                zoomLevel:11
-                 animated:NO];
+                           zoomLevel:11
+                             animated:NO];
 
     [self.view addSubview:self.mapView];
 

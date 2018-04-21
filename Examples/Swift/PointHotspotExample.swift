@@ -40,7 +40,7 @@ class PointHotspotExample_Swift: UIViewController, MGLMapViewDelegate {
             150.0: UIColor.red
         ]
         clusteredLayer.circleColor = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:(point_count, 'linear', nil, %@)", stops)
-        clusteredLayer.circleRadius = NSExpression(forConstantValue: NSNumber(integerLiteral: 70))
+        clusteredLayer.circleRadius = NSExpression(forConstantValue: 70)
         clusteredLayer.circleOpacity = NSExpression(forConstantValue: 0.5)
         clusteredLayer.circleBlur = NSExpression(forConstantValue: 1)
         

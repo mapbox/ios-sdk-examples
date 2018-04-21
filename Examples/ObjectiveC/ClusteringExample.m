@@ -41,7 +41,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     MGLSymbolStyleLayer *ports = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"ports" source:source];
     ports.iconImageName = [NSExpression expressionForConstantValue:@"icon"];
     ports.iconColor = [NSExpression expressionForConstantValue:[[UIColor darkGrayColor] colorWithAlphaComponent:0.9]];
-    ports.predicate = [NSPredicate predicateWithFormat:@"%K != YES", @"cluster"];
+    ports.predicate = [NSPredicate predicateWithFormat:@"cluster != YES"];
     [style addLayer:ports];
 
     // Color clustered features based on clustered point counts.
@@ -57,7 +57,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     circlesLayer.circleStrokeWidth = [NSExpression expressionForConstantValue:@2];
     circlesLayer.circleColor = [NSExpression expressionWithFormat:@"mgl_step:from:stops:(point_count, %@, %@)",
                                 [UIColor lightGrayColor], stops];
-    circlesLayer.predicate = [NSPredicate predicateWithFormat:@"%K == YES", @"cluster"];
+    circlesLayer.predicate = [NSPredicate predicateWithFormat:@"cluster == YES"];
     [style addLayer:circlesLayer];
 
     // Label cluster circles with a layer of text indicating feature count. The value for `point_count` is an integer. In order to use that value for the `MGLSymbolStyleLayer.text` property, cast it as a string. 
@@ -66,7 +66,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     numbersLayer.textFontSize = [NSExpression expressionForConstantValue:@(self.icon.size.width / 2)];
     numbersLayer.iconAllowsOverlap = [NSExpression expressionForConstantValue:@(YES)];
     numbersLayer.text = [NSExpression expressionWithFormat:@"CAST(point_count, 'NSString')"];
-    numbersLayer.predicate = [NSPredicate predicateWithFormat:@"%K == YES", @"cluster"];
+    numbersLayer.predicate = [NSPredicate predicateWithFormat:@"cluster == YES"];
     [style addLayer:numbersLayer];
 
     // Add a tap gesture for zooming in to clusters or showing popups on individual features.

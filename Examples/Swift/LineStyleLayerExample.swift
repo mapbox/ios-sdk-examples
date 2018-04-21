@@ -51,8 +51,8 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         let layer = MGLLineStyleLayer(identifier: "polyline", source: source)
         
         // Set the line join and cap to a rounded end.
-        layer.lineJoin = NSExpression(forConstantValue: NSValue(mglLineJoin: .round))
-        layer.lineCap = NSExpression(forConstantValue: NSValue(mglLineCap: .round))
+        layer.lineJoin = NSExpression(forConstantValue: "round")
+        layer.lineCap = NSExpression(forConstantValue: "round")
         
         // Set the line color to a constant blue color.
         layer.lineColor = NSExpression(forConstantValue: UIColor(red: 59/255, green:178/255, blue:208/255, alpha:1))

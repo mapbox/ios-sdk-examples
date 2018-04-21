@@ -56,9 +56,9 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
     MGLSphericalPosition position = MGLSphericalPositionMake(5, 180, 80);
     self.light.position = [NSExpression expressionForConstantValue:[NSValue valueWithMGLSphericalPosition:position]];
     
-    // Set the light anchor to the map and add the light object to the map view's style. The light anchor can be the viewport (or rotates with the viewport) or the map (rotates with the map). To make the viewport the anchor, replace `MGLLightAnchorMap` with `MGLLightAnchorViewport`.
+    // Set the light anchor to the map and add the light object to the map view's style. The light anchor can be the viewport (or rotates with the viewport) or the map (rotates with the map). To make the viewport the anchor, replace `map` with `viewport`.
     
-    self.light.anchor = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLightAnchor:MGLLightAnchorMap]];
+    self.light.anchor = [NSExpression expressionForConstantValue:@"map"];
     
     style.light = self.light;
 }
