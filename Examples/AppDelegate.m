@@ -12,6 +12,7 @@
 
 @end
 @implementation AppDelegate
+NSString * const MBXMapboxAccessTokenDefaultsKey = @"MBXMapboxAccessToken";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Speed-up Core Animation-based animations in testing scenarios.

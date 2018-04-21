@@ -48,48 +48,33 @@ NSString *const MBXExampleWebAPIData = @"WebAPIDataExample";
     // Use MGLCircleStyleLayer to represent the points with simple circles.
     // In this case, we can use style functions to gradually change properties between zoom level 2 and 7: the circle opacity from 50% to 100% and the circle radius from 2pt to 3pt.
     MGLCircleStyleLayer *circles = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"lighthouse-circles" source:source];
-    circles.circleColor = [MGLStyleValue valueWithRawValue:lighthouseColor];
-    circles.circleOpacity = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-        cameraStops:@{
-            @2: [MGLStyleValue valueWithRawValue:@0.5],
-            @7: [MGLStyleValue valueWithRawValue:@1.0]
-        }
-        options:@{MGLStyleFunctionOptionDefaultValue:[MGLStyleValue valueWithRawValue:@0.75]}];
-                             
-    circles.circleRadius = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeInterval
-        cameraStops:@{
-            @2: [MGLStyleValue valueWithRawValue:@2],
-            @7: [MGLStyleValue valueWithRawValue:@3]
-        }
-        options:@{MGLStyleFunctionOptionDefaultValue:@1}];
+    circles.circleColor = [NSExpression expressionForConstantValue:lighthouseColor];
     
+    // The circles should increase in opacity from 0.5 to 1 based on zoom level.
+    circles.circleOpacity = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                             @{@2: @0.5, @7: @1.0 }];
+    circles.circleRadius = circles.circleRadius = [NSExpression expressionWithFormat:@"mgl_step:from:stops:($zoomLevel, 1, %@)",
+                                                   @{@2: @2, @7: @3}];
+
     // Use MGLSymbolStyleLayer for more complex styling of points including custom icons and text rendering.
     MGLSymbolStyleLayer *symbols = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"lighthouse-symbols" source:source];
-    symbols.iconImageName = [MGLStyleValue valueWithRawValue:@"lighthouse"];
-    symbols.iconScale = [MGLStyleValue valueWithRawValue:@0.5];
-    symbols.iconOpacity = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-        cameraStops:@{
-            @5.9: [MGLStyleValue valueWithRawValue:@0],
-            @6: [MGLStyleValue valueWithRawValue:@1],
-        }
-        options:nil];
-    symbols.iconHaloColor = [MGLStyleValue valueWithRawValue:[[UIColor whiteColor] colorWithAlphaComponent:0.5]];
-    symbols.iconHaloWidth = [MGLStyleValue valueWithRawValue:@1];
-    // {name} references the "name" key in an MGLPointFeature’s attributes dictionary.
-    symbols.text = [MGLStyleValue valueWithRawValue:@"{name}"];
+    symbols.iconImageName = [NSExpression expressionForConstantValue:@"lighthouse"];
+    symbols.iconScale = [NSExpression expressionForConstantValue:@0.5];
+    symbols.iconOpacity = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                           @{@5.9: @0, @6: @1}];
+    symbols.iconHaloColor = [NSExpression expressionForConstantValue:[[UIColor whiteColor] colorWithAlphaComponent:0.5]];
+    symbols.iconHaloWidth = [NSExpression expressionForConstantValue:@1];
+    // "name" references the "name" key in an MGLPointFeature’s attributes dictionary.
+    symbols.text = [NSExpression expressionForKeyPath:@"name"];
     symbols.textColor = symbols.iconColor;
-    symbols.textFontSize = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-        cameraStops:@{
-            @10: [MGLStyleValue valueWithRawValue:@10],
-            @16: [MGLStyleValue valueWithRawValue:@16],
-        }
-        options:nil];
-    symbols.textTranslation = [MGLStyleValue valueWithRawValue:[NSValue valueWithCGVector:CGVectorMake(10, 0)]];
+    symbols.textFontSize = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                            @{@10: @10, @16: @16}];
+    symbols.textTranslation = [NSExpression expressionForConstantValue:[NSValue valueWithCGVector:CGVectorMake(10, 0)]];
     symbols.textOpacity = symbols.iconOpacity;
     symbols.textHaloColor = symbols.iconHaloColor;
     symbols.textHaloWidth = symbols.iconHaloWidth;
-    symbols.textJustification = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLTextJustification:MGLTextJustificationLeft]];
-    symbols.textAnchor = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLTextAnchor:MGLTextAnchorLeft]];
+    symbols.textJustification = [NSExpression expressionForConstantValue:[NSValue valueWithMGLTextJustification:MGLTextJustificationLeft]];
+    symbols.textAnchor = [NSExpression expressionForConstantValue:[NSValue valueWithMGLTextAnchor:MGLTextAnchorLeft]];
 
     [self.mapView.style addLayer:circles];
     [self.mapView.style addLayer:symbols];

@@ -30,19 +30,19 @@ class PointHotspotExample_Swift: UIViewController, MGLMapViewDelegate {
         let earthquakeSource = MGLShapeSource(identifier: "earthquakes", url: url, options: options)
         style.addSource(earthquakeSource)
         
-        // Create a stops dictionary. The keys represent the number of points in a cluster.
-        let stops = [
-            0.0: MGLStyleValue<UIColor>(rawValue: .yellow),
-            20.0: MGLStyleValue<UIColor>(rawValue: .orange),
-            150.0: MGLStyleValue<UIColor>(rawValue: .red)
-        ]
-        
         // Create and style the clustered circle layer.
         let clusteredLayer = MGLCircleStyleLayer(identifier: "clustered layer", source: earthquakeSource)
-        clusteredLayer.circleColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "point_count", options: [.defaultValue: MGLStyleValue<UIColor>(rawValue: .yellow)])
-        clusteredLayer.circleRadius = MGLConstantStyleValue(rawValue: NSNumber(integerLiteral: 70))
-        clusteredLayer.circleOpacity = MGLConstantStyleValue(rawValue: 0.5)
-        clusteredLayer.circleBlur = MGLConstantStyleValue(rawValue: 1)
+        
+        // Create a stops dictionary. The keys represent the number of points in a cluster. Use the dictionary to determine the cluster color.
+        let stops = [
+            0.0: UIColor.yellow,
+            20.0: UIColor.orange,
+            150.0: UIColor.red
+        ]
+        clusteredLayer.circleColor = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:(point_count, 'linear', nil, %@)", stops)
+        clusteredLayer.circleRadius = NSExpression(forConstantValue: 70)
+        clusteredLayer.circleOpacity = NSExpression(forConstantValue: 0.5)
+        clusteredLayer.circleBlur = NSExpression(forConstantValue: 1)
         
         style.insertLayer(clusteredLayer, below: symbolLayer)
     }

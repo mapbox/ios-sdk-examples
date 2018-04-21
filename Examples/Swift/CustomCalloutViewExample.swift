@@ -6,7 +6,7 @@ class CustomCalloutViewExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL())
+        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .darkGray
         view.addSubview(mapView)
@@ -47,3 +47,4 @@ class CustomCalloutViewExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.deselectAnnotation(annotation, animated: true)
     }
 }
+

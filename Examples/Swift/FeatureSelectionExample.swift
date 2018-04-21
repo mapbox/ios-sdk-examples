@@ -25,7 +25,7 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
         
         // Load a tileset containing U.S. states and their population density. For more information about working with tilesets, see: https://www.mapbox.com/help/studio-manual-tilesets/
         let url = URL(string: "mapbox://examples.69ytlgls")!
-        let source = MGLVectorSource(identifier: "state-source", configurationURL: url)
+        let source = MGLVectorTileSource(identifier: "state-source", configurationURL: url)
         style.addSource(source)
         
         let layer = MGLFillStyleLayer(identifier: layerIdentifier, source: source)
@@ -34,12 +34,12 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
         layer.sourceLayerIdentifier = "stateData_2-dx853g"
         
         // Create a stops dictionary. This defines the relationship between population density and a UIColor.
-        let stops = [0: MGLStyleValue(rawValue: UIColor.yellow),
-                     600: MGLStyleValue(rawValue: UIColor.red),
-                     1200: MGLStyleValue(rawValue: UIColor.blue)]
+        let stops = [0: UIColor.yellow,
+                     600: UIColor.red,
+                     1200: UIColor.blue]
         
         // Style the fill color using the stops dictionary, exponential interpolation mode, and the feature attribute name.
-        layer.fillColor = MGLStyleValue(interpolationMode: .exponential, sourceStops: stops, attributeName: "density", options: [.defaultValue: MGLStyleValue(rawValue: UIColor.white)])
+        layer.fillColor = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:(density, 'linear', nil, %@)", stops)
         
         // Insert the new layer below the Mapbox Streets layer that contains state border lines. See the layer reference for more information about layer names: https://www.mapbox.com/vector-tiles/mapbox-streets-v7/
         let symbolLayer = style.layer(withIdentifier: "admin-3-4-boundaries")
@@ -67,10 +67,11 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
         
         // Check if a state was selected, then change the opacity of the states that were not selected.
         if name.count > 0 {
-            layer.fillOpacity = MGLStyleValue(interpolationMode: .categorical, sourceStops: [name: MGLStyleValue<NSNumber>(rawValue: 1)], attributeName: "name", options: [.defaultValue: MGLStyleValue<NSNumber>(rawValue: 0)])
+            layer.fillOpacity = NSExpression(format: "TERNARY(name = %@, 1, 0)", name)
         } else {
             // Reset the opacity for all states if the user did not tap on a state.
-            layer.fillOpacity = MGLStyleValue(rawValue: 1)
+            layer.fillOpacity = NSExpression(forConstantValue: 1)
         }
     }
+    
 }

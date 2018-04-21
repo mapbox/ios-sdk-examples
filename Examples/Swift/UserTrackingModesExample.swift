@@ -9,7 +9,7 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL())
+        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
         

@@ -48,16 +48,16 @@ NSString *const MBXExampleMultipleShapes = @"MultipleShapesExample";
     // Create station style layer.
     MGLCircleStyleLayer *circleLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"stations" source:source];
     circleLayer.predicate = [NSPredicate predicateWithFormat:@"TYPE = 'Station'"];
-    circleLayer.circleColor = [MGLStyleValue valueWithRawValue:[UIColor redColor]];
-    circleLayer.circleRadius = [MGLStyleValue valueWithRawValue:@6];
-    circleLayer.circleStrokeWidth = [MGLStyleValue valueWithRawValue:@2];
-    circleLayer.circleStrokeColor = [MGLStyleValue valueWithRawValue:[UIColor blackColor]];
+    circleLayer.circleColor = [NSExpression expressionForConstantValue:[UIColor redColor]];
+    circleLayer.circleRadius = [NSExpression expressionForConstantValue:@6];
+    circleLayer.circleStrokeWidth = [NSExpression expressionForConstantValue:@2];
+    circleLayer.circleStrokeColor = [NSExpression expressionForConstantValue:[UIColor blackColor]];
     
     // Create line style layer.
     MGLLineStyleLayer *lineLayer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"rail-line" source: source];
     lineLayer.predicate = [NSPredicate predicateWithFormat:@"TYPE = 'Rail line'"];
-    lineLayer.lineColor = [MGLStyleValue valueWithRawValue:[UIColor redColor]];
-    lineLayer.lineWidth = [MGLStyleValue valueWithRawValue:@2];
+    lineLayer.lineColor = [NSExpression expressionForConstantValue:[UIColor redColor]];
+    lineLayer.lineWidth = [NSExpression expressionForConstantValue:@2];
     
     // Add style layers to the map view's style.
     [self.mapView.style addLayer:circleLayer];

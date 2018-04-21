@@ -24,7 +24,7 @@ class RasterImageryExample_Swift: UIViewController, MGLMapViewDelegate {
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         // Add a new raster source and layer.
-        let source = MGLRasterSource(identifier: "stamen-watercolor", tileURLTemplates: ["https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"], options: [ .tileSize: 256 ])
+        let source = MGLRasterTileSource(identifier: "stamen-watercolor", tileURLTemplates: ["https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"], options: [ .tileSize: 256 ])
         let rasterLayer = MGLRasterStyleLayer(identifier: "stamen-watercolor", source: source)
 
         style.addSource(source)
@@ -34,7 +34,7 @@ class RasterImageryExample_Swift: UIViewController, MGLMapViewDelegate {
     }
     
     @objc func updateLayerOpacity(_ sender: UISlider) {
-        rasterLayer?.rasterOpacity = MGLStyleValue(rawValue: NSNumber(value: sender.value))
+        rasterLayer?.rasterOpacity = NSExpression(forConstantValue: sender.value as NSNumber)
     }
 
     func addSlider() {

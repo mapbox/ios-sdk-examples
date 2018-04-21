@@ -45,16 +45,13 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
     
     // Add a layer to style our polyline.
     MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline" source:source];
-    layer.lineJoin = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLineJoin:MGLLineJoinRound]];
-    layer.lineCap = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
-    layer.lineColor = [MGLStyleValue valueWithRawValue:[UIColor redColor]];
-    layer.lineWidth = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeExponential
-        cameraStops: @{
-            @14: [MGLStyleValue valueWithRawValue:@5],
-            @18: [MGLStyleValue valueWithRawValue:@20]
-        }
-        options:@{MGLStyleFunctionOptionDefaultValue:@1.75}];
-
+    layer.lineJoin = [NSExpression expressionForConstantValue:@"round"];
+    layer.lineCap = layer.lineJoin = [NSExpression expressionForConstantValue:@"round"];
+    layer.lineColor = [NSExpression expressionForConstantValue:[UIColor redColor]];
+    
+    // The line width should gradually increase based on the zoom level.
+    layer.lineWidth = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                       @{@14: @5, @18: @20}];
     [self.mapView.style addLayer:layer];
 }
 

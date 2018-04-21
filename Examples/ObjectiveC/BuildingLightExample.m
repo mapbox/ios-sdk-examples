@@ -54,11 +54,11 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
     // Azimuthal : Position of the light relative to its anchor. Takes a CLLocationDirection.
     // Polar : The height of the light. Takes a CLLocationDirection.
     MGLSphericalPosition position = MGLSphericalPositionMake(5, 180, 80);
-    self.light.position = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLSphericalPosition:position]];
+    self.light.position = [NSExpression expressionForConstantValue:[NSValue valueWithMGLSphericalPosition:position]];
     
-    // Set the light anchor to the map and add the light object to the map view's style. The light anchor can be the viewport (or rotates with the viewport) or the map (rotates with the map). To make the viewport the anchor, replace `MGLLightAnchorMap` with `MGLLightAnchorViewport`.
+    // Set the light anchor to the map and add the light object to the map view's style. The light anchor can be the viewport (or rotates with the viewport) or the map (rotates with the map). To make the viewport the anchor, replace `map` with `viewport`.
     
-    self.light.anchor = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLLightAnchor:MGLLightAnchorMap]];
+    self.light.anchor = [NSExpression expressionForConstantValue:@"map"];
     
     style.light = self.light;
 }
@@ -66,7 +66,7 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
 - (void)shiftLight {
     // Use the slider's value to change the light's polar value.
     MGLSphericalPosition position = MGLSphericalPositionMake(5, 180, self.slider.value);
-    self.light.position = [MGLStyleValue valueWithRawValue:[NSValue valueWithMGLSphericalPosition:position]];
+    self.light.position = [NSExpression expressionForConstantValue:[NSValue valueWithMGLSphericalPosition:position]];
     self.mapView.style.light = self.light;
 }
 
@@ -75,16 +75,10 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
     MGLSource *source = [style sourceWithIdentifier:@"composite"];
     MGLFillExtrusionStyleLayer *layer = [[MGLFillExtrusionStyleLayer alloc] initWithIdentifier:@"extrusion-layer" source:source];
     layer.sourceLayerIdentifier = @"building";
-    layer.fillExtrusionBase = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity
-                                                            sourceStops:nil
-                                                          attributeName:@"min_height"
-                                                                options:nil];
-    layer.fillExtrusionHeight = [MGLStyleValue valueWithInterpolationMode:MGLInterpolationModeIdentity
-                                                              sourceStops:nil
-                                                            attributeName:@"height"
-                                                                  options:nil];
-    layer.fillExtrusionOpacity = [MGLStyleValue valueWithRawValue:@0.75];
-    layer.fillExtrusionColor = [MGLStyleValue valueWithRawValue:[UIColor whiteColor]];
+    layer.fillExtrusionHeight = [NSExpression expressionForKeyPath:@"height"];
+    layer.fillExtrusionBase = [NSExpression expressionForKeyPath:@"min_height"];
+    layer.fillExtrusionOpacity = [NSExpression expressionForConstantValue:@0.75];
+    layer.fillExtrusionColor = [NSExpression expressionForConstantValue:[UIColor whiteColor]];
     
     // Access the map's layer with the identifier "poi-scalerank3" and insert the fill extrusion layer below it.
     MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"poi-scalerank3"];
