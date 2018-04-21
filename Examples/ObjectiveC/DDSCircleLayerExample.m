@@ -54,7 +54,7 @@ NSString *const MBXExampleDDSCircleLayer = @"DDSCircleLayerExample";
     
     // Style the circle layer color based on the above stops dictionary.
     layer.circleColor = [NSExpression expressionWithFormat:@"mgl_step:from:stops:(AGE, %@, %@)", [UIColor colorWithRed:1.0 green:0.72 blue:0.85 alpha:1.0], stops];
-//    
+ 
     layer.circleRadius = [NSExpression expressionForConstantValue:@3];
     
     [self.mapView.style addLayer:layer];

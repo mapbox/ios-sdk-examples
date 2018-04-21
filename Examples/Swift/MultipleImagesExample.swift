@@ -34,7 +34,7 @@ class MultipleImagesExample: UIViewController, MGLMapViewDelegate {
             // Create a symbol style layer and access the layer containin
             let layer = MGLSymbolStyleLayer(identifier: "yosemite-pois", source: source)
             
-            // Access the layer that contains the POI data.
+            // Access the layer that contains the POI data. The source layer identifier is a unique identifier for a layer within a vector tile source.
             layer.sourceLayerIdentifier = "Yosemite_POI-38jhes"
             
             // Create a stops dictionary with keys that are possible values for 'POITYPE', paired with icon images that will represent those features.

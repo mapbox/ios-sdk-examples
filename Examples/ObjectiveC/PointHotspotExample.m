@@ -36,17 +36,16 @@ NSString *const MBXExamplePointHotspot = @"PointHotspotExample";
     
     MGLShapeSource *earthquakeSource = [[MGLShapeSource alloc] initWithIdentifier:@"earthquakes" URL:url options:options];
     [style addSource:earthquakeSource];
-
-    // Create a stops dictionary. The keys represent the number of points in a cluster.
+    
+    // Create and style the clustered circle layer.
+    MGLCircleStyleLayer *clusteredLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clustered layer" source:earthquakeSource];
+    
+    // Create a stops dictionary. The keys represent the number of points in a cluster. Use the dictionary to determine the cluster color.
     NSDictionary *stops = @{
                             @0: [UIColor yellowColor],
                             @20.0: [UIColor orangeColor],
                             @150.0: [UIColor redColor],
                             };
-    
-    
-    // Create and style the clustered circle layer.
-    MGLCircleStyleLayer *clusteredLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clustered layer" source:earthquakeSource];
     clusteredLayer.circleColor = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:(point_count, 'linear', nil, %@)", stops];
     clusteredLayer.circleRadius = [NSExpression expressionForConstantValue:@70];
     clusteredLayer.circleOpacity = [NSExpression expressionForConstantValue:@0.5];

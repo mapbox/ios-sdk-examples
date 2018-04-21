@@ -43,6 +43,8 @@ class AnimatedLineExample_Swift: UIViewController, MGLMapViewDelegate {
         layer.lineJoin = NSExpression(forConstantValue: NSValue(mglLineJoin: .round))
         layer.lineCap = NSExpression(forConstantValue: NSValue(mglLineJoin: .round))
         layer.lineColor = NSExpression(forConstantValue: UIColor.red)
+        
+        // The line width should gradually increase based on the zoom level.
         layer.lineWidth = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
                                        [14: 5, 18: 20])
         style.addLayer(layer)

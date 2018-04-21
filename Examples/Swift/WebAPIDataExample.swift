@@ -48,6 +48,8 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
         
         let circles = MGLCircleStyleLayer(identifier: "lighthouse-circles", source: source)
         circles.circleColor = NSExpression(forConstantValue: lighthouseColor)
+        
+        // The circles should increase in opacity from 0.5 to 1 based on zoom level.
         circles.circleOpacity = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", [2: 0.5, 7: 1])
         circles.circleRadius = NSExpression(forMGLStepping: .zoomLevelVariable, from: NSExpression(forConstantValue: 1), stops: NSExpression(forConstantValue: [2: 2, 7: 3]))
 
@@ -61,7 +63,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
         symbols.iconOpacity = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
                                            [5.9: 0, 6: 1])
 
-//        // {name} references the "name" key in an MGLPointFeature’s attributes dictionary.
+//        // "name" references the "name" key in an MGLPointFeature’s attributes dictionary.
         symbols.text = NSExpression(forKeyPath: "name")
         symbols.textColor = symbols.iconColor
         symbols.textFontSize = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",

@@ -30,15 +30,15 @@ class PointHotspotExample_Swift: UIViewController, MGLMapViewDelegate {
         let earthquakeSource = MGLShapeSource(identifier: "earthquakes", url: url, options: options)
         style.addSource(earthquakeSource)
         
-        // Create a stops dictionary. The keys represent the number of points in a cluster.
+        // Create and style the clustered circle layer.
+        let clusteredLayer = MGLCircleStyleLayer(identifier: "clustered layer", source: earthquakeSource)
+        
+        // Create a stops dictionary. The keys represent the number of points in a cluster. Use the dictionary to determine the cluster color.
         let stops = [
             0.0: UIColor.yellow,
             20.0: UIColor.orange,
             150.0: UIColor.red
         ]
-        
-        // Create and style the clustered circle layer.
-        let clusteredLayer = MGLCircleStyleLayer(identifier: "clustered layer", source: earthquakeSource)
         clusteredLayer.circleColor = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:(point_count, 'linear', nil, %@)", stops)
         clusteredLayer.circleRadius = NSExpression(forConstantValue: NSNumber(integerLiteral: 70))
         clusteredLayer.circleOpacity = NSExpression(forConstantValue: 0.5)

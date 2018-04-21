@@ -48,6 +48,8 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
     layer.lineJoin = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineJoin:MGLLineJoinRound]];
     layer.lineCap = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
     layer.lineColor = [NSExpression expressionForConstantValue:[UIColor redColor]];
+    
+    // The line width should gradually increase based on the zoom level.
     layer.lineWidth = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
                        @{@14: @5, @18: @20}];
     [self.mapView.style addLayer:layer];

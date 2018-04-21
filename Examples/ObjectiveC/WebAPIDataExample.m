@@ -49,6 +49,8 @@ NSString *const MBXExampleWebAPIData = @"WebAPIDataExample";
     // In this case, we can use style functions to gradually change properties between zoom level 2 and 7: the circle opacity from 50% to 100% and the circle radius from 2pt to 3pt.
     MGLCircleStyleLayer *circles = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"lighthouse-circles" source:source];
     circles.circleColor = [NSExpression expressionForConstantValue:lighthouseColor];
+    
+    // The circles should increase in opacity from 0.5 to 1 based on zoom level.
     circles.circleOpacity = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
                              @{@2: @0.5, @7: @1.0 }];
     circles.circleRadius = [NSExpression mgl_expressionForSteppingExpression: NSExpression.zoomLevelVariableExpression
@@ -63,7 +65,7 @@ NSString *const MBXExampleWebAPIData = @"WebAPIDataExample";
                            @{@5.9: @0, @6: @1}];
     symbols.iconHaloColor = [NSExpression expressionForConstantValue:[[UIColor whiteColor] colorWithAlphaComponent:0.5]];
     symbols.iconHaloWidth = [NSExpression expressionForConstantValue:@1];
-    // {name} references the "name" key in an MGLPointFeature’s attributes dictionary.
+    // "name" references the "name" key in an MGLPointFeature’s attributes dictionary.
     symbols.text = [NSExpression expressionForKeyPath:@"name"];
     symbols.textColor = symbols.iconColor;
     symbols.textFontSize = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",

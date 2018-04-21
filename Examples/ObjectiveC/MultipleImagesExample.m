@@ -36,7 +36,7 @@ NSString *const MBXExampleMultipleImages = @"MultipleImagesExample";
     
     MGLSymbolStyleLayer *layer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"yosemite-pois" source:source];
     
-    // Access the layer that contains the POI data.
+    // Access the layer that contains the POI data. The source layer identifier is a unique identifier for a layer within a vector tile source.
     layer.sourceLayerIdentifier = @"Yosemite_POI-38jhes";
     
     // Create a stops dictionary with keys that are possible values for 'POITYPE', paired with icon images that will represent those features.
