@@ -52,7 +52,6 @@ class CustomCalloutView: UIView, MGLCalloutView {
     // MARK: - MGLCalloutView API
     
     func presentCallout(from rect: CGRect, in view: UIView, constrainedTo constrainedRect: CGRect, animated: Bool) {
-        
         view.addSubview(self)
         
         // Prepare title label.

@@ -58,7 +58,7 @@ NSString *const MBXExampleStaticSnapshot = @"StaticSnapshotExample";
         } else if (snapshot != nil) {
             // Add the map snapshot's image to the image view.
             [indicator stopAnimating];
-            _imageView.image = snapshot.image;
+            self.imageView.image = snapshot.image;
         }
     }];
 }

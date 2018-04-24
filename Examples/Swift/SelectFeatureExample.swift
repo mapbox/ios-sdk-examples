@@ -37,7 +37,7 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
         // Color any selected features red on the map.
         let selectedFeaturesLayer = MGLFillStyleLayer(identifier: "selected-features", source: selectedFeaturesSource)
         selectedFeaturesLayer.fillColor = NSExpression(forConstantValue: UIColor.red)
-//
+
         style.addLayer(selectedFeaturesLayer)
     }
     

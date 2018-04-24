@@ -48,7 +48,7 @@ static CGFloat const tipWidth = 20.0;
 
 #pragma mark - MGLCalloutView API
 
-- (void)presentCalloutFromRect:(CGRect)rect inView:(UIView *)view constrainedToRect:(CGRect *)constrainedView animated:(BOOL)animated
+- (void)presentCalloutFromRect:(CGRect)rect inView:(UIView *)view constrainedToRect:(CGRect)constrainedRect animated:(BOOL)animated
 {
     // Do not show a callout if there is no title set for the annotation.
     if (![self.representedObject respondsToSelector:@selector(title)])

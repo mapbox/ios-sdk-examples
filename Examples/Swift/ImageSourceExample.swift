@@ -18,7 +18,6 @@ class ImageSourceExample: UIViewController, MGLMapViewDelegate {
     }
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        
         // Set the coordinate bounds for the raster image.
         let coordinates = MGLCoordinateQuad(
             topLeft: CLLocationCoordinate2D(latitude: 46.437, longitude: -80.425),
@@ -28,9 +27,7 @@ class ImageSourceExample: UIViewController, MGLMapViewDelegate {
         
         // Create a MGLImageSource, which can be used to add georeferenced raster images to a map.
         if let radarImage = Bundle.main.path(forResource: "radar", ofType: "gif") {
-            
             let source = MGLImageSource(identifier: "radar", coordinateQuad: coordinates, image: UIImage(contentsOfFile: radarImage)!)
-            
             style.addSource(source)
             
             // Create a raster layer from the MGLImageSource.
