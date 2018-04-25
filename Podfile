@@ -2,7 +2,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 def shared_pods
-    pod 'Mapbox-iOS-SDK', podspec: 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios-v4.0.0/platform/ios/Mapbox-iOS-SDK.podspec'
+    pod 'Mapbox-iOS-SDK', '~> 4.0.0'
 end
 
 target 'Examples' do
@@ -11,7 +11,8 @@ end
 
 target 'DocsCode' do
   platform :ios, '9.0'
-  #pod 'MapboxNavigation', '~> 0.11'
+  pod 'MapboxCoreNavigation', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-navigation-ios/v0.17.0-beta.1/MapboxCoreNavigation.podspec'
+  pod 'MapboxNavigation', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-navigation-ios/v0.17.0-beta.1/MapboxNavigation.podspec'
   shared_pods
 end
 
