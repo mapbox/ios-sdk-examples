@@ -22,25 +22,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
     self.mapView = [[MBNavigationMapView alloc] initWithFrame:self.view.bounds];
-
+    
     [self.view addSubview:self.mapView];
     // Set the map view's delegate
     self.mapView.delegate = self;
-
+    
     // Allow the map view to display the user's location
     self.mapView.showsUserLocation = YES;
     [self.mapView setUserTrackingMode:MGLUserTrackingModeFollow animated:YES];
     
     // Add a gesture recognizer to the map view
-    UILongPressGestureRecognizer *setDestination = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPress:)];
-    [self.mapView addGestureRecognizer:setDestination];
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPress:)];
+    [self.mapView addGestureRecognizer:longPress];
 }
 // #-end-code-snippet: navigation view-did-load-objc
 
 // #-code-snippet: navigation long-press-objc
--(void)didLongPress:(UITapGestureRecognizer *)sender {
+- (void)didLongPress:(UITapGestureRecognizer *)sender {
     if (sender.state != UIGestureRecognizerStateEnded) {
         return;
     }
@@ -52,24 +51,24 @@
     // Create a basic point annotation and add it to the map
     MGLPointAnnotation *annotation = [MGLPointAnnotation alloc];
     annotation.coordinate = coordinate;
-    annotation.title = @"Start navigtation";
+    annotation.title = @"Start navigation";
     [self.mapView addAnnotation:annotation];
     
     // Calculate the route from the user's location to the set destination
     [self calculateRoutefromOrigin:self.mapView.userLocation.coordinate
                      toDestination:annotation.coordinate
                         completion:^(MBRoute * _Nullable route, NSError * _Nullable error) {
-                            if (error != nil) {
-                                NSLog(@"Error calculating route: %@", error);
-                            }
+        if (error != nil) {
+            NSLog(@"Error calculating route: %@", error);
+        }
     }];
 }
 // #-end-code-snippet: navigation long-press-objc
 
 // #-code-snippet: navigation calculate-route-objc
--(void)calculateRoutefromOrigin:(CLLocationCoordinate2D)origin
-                  toDestination:(CLLocationCoordinate2D)destination
-                     completion:(void(^)(MBRoute *_Nullable route, NSError *_Nullable error))completion {
+- (void)calculateRoutefromOrigin:(CLLocationCoordinate2D)origin
+                   toDestination:(CLLocationCoordinate2D)destination
+                      completion:(void(^)(MBRoute *_Nullable route, NSError *_Nullable error))completion {
     
     // Coordinate accuracy is the maximum distance away from the waypoint that the route may still be considered viable, measured in meters. Negative values indicate that a indefinite number of meters away from the route and still be considered viable.
     MBWaypoint *originWaypoint = [[MBWaypoint alloc] initWithCoordinate:origin coordinateAccuracy:-1 name:@"Start"];
@@ -100,7 +99,7 @@
 // #-end-code-snippet: navigation calculate-route-objc
 
 // #-code-snippet: navigation draw-route-objc
--(void)drawRoute:(CLLocationCoordinate2D *)route {
+- (void)drawRoute:(CLLocationCoordinate2D *)route {
     if (self.directionsRoute.coordinateCount == 0) {
         return;
     }
@@ -110,7 +109,7 @@
     
     if ([self.mapView.style sourceWithIdentifier:@"route-source"]) {
         // If there's already a route line on the map, reset its shape to the new route
-        MGLShapeSource *source = [self.mapView.style sourceWithIdentifier:@"route-source"];
+        MGLShapeSource *source = (MGLShapeSource *)[self.mapView.style sourceWithIdentifier:@"route-source"];
         source.shape = polyline;
     } else {
         MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"route-source" shape:polyline options:nil];
@@ -129,13 +128,13 @@
 
 // #-code-snippet: navigation callout-functions-objc
 // Implement the delegate method that allows annotations to show callouts when tapped
--(BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation {
+- (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation {
     return true;
 }
 
 // Present the navigation view controller when the callout is selected
--(void)mapView:(MGLMapView *)mapView tapOnCalloutForAnnotation:(id<MGLAnnotation>)annotation {
-    MBNavigationViewController *navigationViewController = [[MBNavigationViewController alloc] initWithRoute:_directionsRoute directions:[MBDirections sharedDirections] style:nil locationManager:nil];
+- (void)mapView:(MGLMapView *)mapView tapOnCalloutForAnnotation:(id<MGLAnnotation>)annotation {
+    MBNavigationViewController *navigationViewController = [[MBNavigationViewController alloc] initWithRoute:self.directionsRoute directions:[MBDirections sharedDirections] style:nil locationManager:nil];
     [self presentViewController:navigationViewController animated:YES completion:nil];
 }
 // #-end-code-snippet: navigation callout-functions-objc
