@@ -16,7 +16,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         super.viewDidLoad()
         
         mapView = NavigationMapView(frame: view.bounds)
-
+        
         view.addSubview(mapView)
         
         // Set the map view's delegate
@@ -27,8 +27,8 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         mapView.setUserTrackingMode(.follow, animated: true)
         
         // Add a gesture recognizer to the map view
-        let setDestination = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:)))
-        mapView.addGestureRecognizer(setDestination)
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:)))
+        mapView.addGestureRecognizer(longPress)
     }
     // #-end-code-snippet: navigation view-did-load-swift
     
@@ -45,7 +45,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         annotation.coordinate = coordinate
         annotation.title = "Start navigation"
         mapView.addAnnotation(annotation)
-
+        
         // Calculate the route from the user's location to the set destination
         calculateRoute(from: (mapView.userLocation!.coordinate), to: annotation.coordinate) { (route, error) in
             if error != nil {
@@ -89,7 +89,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
             source.shape = polyline
         } else {
             let source = MGLShapeSource(identifier: "route-source", features: [polyline], options: nil)
-
+            
             // Customize the route line color and width
             let lineStyle = MGLLineStyleLayer(identifier: "route-style", source: source)
             lineStyle.lineColor = MGLStyleValue(rawValue: #colorLiteral(red: 0.1897518039, green: 0.3010634184, blue: 0.7994888425, alpha: 1))
