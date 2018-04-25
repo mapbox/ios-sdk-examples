@@ -117,7 +117,7 @@
         
         // Customize the route line color and width
         lineStyle.lineColor = [NSExpression expressionForConstantValue:[UIColor blueColor]];
-        lineStyle.lineWidth = [NSExpression expressionForConstantValue:@"3"];
+        lineStyle.lineWidth = [NSExpression expressionForConstantValue:@3];
         
         // Add the source and style layer of the route line to the map
         [self.mapView.style addSource:source];
