@@ -121,6 +121,8 @@
 		96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D432051C84B9CF007D09D1 /* pisavector.xcassets */; };
 		ABDAFB44FD9859A9FE77424E /* Pods_DocsCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF6577E027F75C7D93ED70A6 /* Pods_DocsCode.framework */; };
 		BBD05676206B24335DEA52C4 /* Pods_ExamplesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7692D1D792EB3849E8754E6B /* Pods_ExamplesUITests.framework */; };
+		DAE87506209041D600638AAB /* NavigationTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AB82441FBC09AB005FB704 /* NavigationTutorialViewController.swift */; };
+		DAE87507209041DD00638AAB /* NavigationTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB82471FBC0D41005FB704 /* NavigationTutorialViewController.m */; };
 		DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5939E31E6639BA0009BEB2 /* ClusteringExample.swift */; };
 		DD5939E61E6778480009BEB2 /* clustering.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD5939E51E6778480009BEB2 /* clustering.xcassets */; };
 		DDF943291E5DE63300545D0F /* ClusteringExample.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF943281E5DE63300545D0F /* ClusteringExample.m */; };
@@ -1168,11 +1170,27 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxSpeech/MapboxSpeech.framework",
+				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
+				"${BUILT_PRODUCTS_DIR}/Solar/Solar.framework",
+				"${BUILT_PRODUCTS_DIR}/Turf/Turf.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxCoreNavigation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxSpeech.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Solar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Turf.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1243,7 +1261,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0597C0D2207FCA540045DE7C /* DDSCircleLayerTutorialViewController.m in Sources */,
+				DAE87507209041DD00638AAB /* NavigationTutorialViewController.m in Sources */,
 				0597C0D1207FCA4D0045DE7C /* DDSCircleLayerTutorialViewController.swift in Sources */,
+				DAE87506209041D600638AAB /* NavigationTutorialViewController.swift in Sources */,
 				050337411F7199DF007309B0 /* AppDelegate.swift in Sources */,
 				0597C0D3207FCDD20045DE7C /* FirstStepsTutorialViewController.m in Sources */,
 				0597C0D4207FCDD40045DE7C /* FirstStepsTutorialViewController.swift in Sources */,
