@@ -17,7 +17,7 @@ NSString *const MBXExamplePointConversion = @"PointConversionExample";
     [self.view addSubview:self.mapView];
 
     // Add a single tap gesture recognizer. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMapTap:)];
     for (UIGestureRecognizer *recognizer in self.mapView.gestureRecognizers) {
         if ([recognizer isKindOfClass:[UITapGestureRecognizer class]]) {
             [singleTap requireGestureRecognizerToFail:recognizer];
@@ -30,7 +30,7 @@ NSString *const MBXExamplePointConversion = @"PointConversionExample";
     NSLog(@"Screen center: %@ = %@", NSStringFromCGPoint(centerScreenPoint), NSStringFromCGPoint(self.mapView.center));
 }
 
-- (void)handleSingleTap:(UITapGestureRecognizer *)tap {
+- (IBAction)handleMapTap:(UITapGestureRecognizer *)tap {
     // Convert tap location (CGPoint) to geographic coordinate (CLLocationCoordinate2D).
     CGPoint tapPoint = [tap locationInView:self.mapView];
     CLLocationCoordinate2D tapCoordinate = [self.mapView convertPoint:tapPoint toCoordinateFromView:nil];

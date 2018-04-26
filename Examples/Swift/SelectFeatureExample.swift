@@ -9,21 +9,18 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mapView = MGLMapView(frame: view.bounds)
+        mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
-        mapView.setCenter(
-            CLLocationCoordinate2D(latitude: 45.5076, longitude: -122.6736),
-            zoomLevel: 11,
-            animated: false)
-        view.addSubview(mapView)
-        
-        // Add our own gesture recognizer to handle taps on our custom map features.
-        mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapMap(tapGestureRecognizer:))))
-        
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 45.5076, longitude: -122.6736), zoomLevel: 11, animated: false)
         mapView.delegate = self
-        
-        self.mapView = mapView
+        view.addSubview(mapView)
+
+        // Add a single tap gesture recognizer. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
+        for recognizer in mapView.gestureRecognizers! where recognizer is UITapGestureRecognizer {
+            singleTap.require(toFail: recognizer)
+        }
+        mapView.addGestureRecognizer(singleTap)
     }
     
     func mapView(_ didFinishLoadingmapView: MGLMapView, didFinishLoading style: MGLStyle) {
@@ -41,10 +38,10 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
         style.addLayer(selectedFeaturesLayer)
     }
     
-    @objc func didTapMap(tapGestureRecognizer: UITapGestureRecognizer) {
-        if tapGestureRecognizer.state == .ended {
+    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
             // A tap’s center coordinate may not intersect a feature exactly, so let’s make a 44x44 rect that represents a touch and select all features that intersect.
-            let point = tapGestureRecognizer.location(in: tapGestureRecognizer.view!)
+            let point = sender.location(in: sender.view!)
             let touchRect = CGRect(origin: point, size: .zero).insetBy(dx: -22.0, dy: -22.0)
             
             // Let’s only select parks near the rect. There’s a layer within the Mapbox Streets style with "id" = "park". You can see all of the layers used within the default mapbox styles by creating a new style using Mapbox Studio.

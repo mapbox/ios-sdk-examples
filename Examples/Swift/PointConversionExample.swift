@@ -13,7 +13,7 @@ class PointConversionExample_Swift: UIViewController, MGLMapViewDelegate {
         view.addSubview(mapView)
 
         // Add a single tap gesture recognizer. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(tap:)))
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
         for recognizer in mapView.gestureRecognizers! where recognizer is UITapGestureRecognizer {
             singleTap.require(toFail: recognizer)
         }
@@ -24,9 +24,9 @@ class PointConversionExample_Swift: UIViewController, MGLMapViewDelegate {
         print("Screen center: \(centerScreenPoint) = \(mapView.center)")
     }
     
-    @objc func handleSingleTap(tap: UITapGestureRecognizer) {
+    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) {
         // Convert tap location (CGPoint) to geographic coordinate (CLLocationCoordinate2D).
-        let tapPoint: CGPoint = tap.location(in: mapView)
+        let tapPoint: CGPoint = sender.location(in: mapView)
         let tapCoordinate: CLLocationCoordinate2D = mapView.convert(tapPoint, toCoordinateFrom: nil)
         print("You tapped at: \(tapCoordinate.latitude), \(tapCoordinate.longitude)")
         

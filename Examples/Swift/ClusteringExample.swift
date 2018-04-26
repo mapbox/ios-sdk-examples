@@ -17,6 +17,13 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.delegate = self
         view.addSubview(mapView)
 
+        // Add a single tap gesture recognizer. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
+        for recognizer in mapView.gestureRecognizers! where recognizer is UITapGestureRecognizer {
+            singleTap.require(toFail: recognizer)
+        }
+        mapView.addGestureRecognizer(singleTap)
+
         icon = UIImage(named: "port")
     }
 
@@ -65,18 +72,15 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         
         numbersLayer.predicate = NSPredicate(format: "cluster == YES")
         style.addLayer(numbersLayer)
-
-        // Add a tap gesture for zooming in to clusters or showing popups on individual features.
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(_:))))
     }
 
     func mapViewRegionIsChanging(_ mapView: MGLMapView) {
         showPopup(false, animated: false)
     }
 
-    @objc func handleTap(_ tap: UITapGestureRecognizer) {
-        if tap.state == .ended {
-            let point = tap.location(in: tap.view)
+    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            let point = sender.location(in: sender.view)
             let width = icon.size.width
             let rect = CGRect(x: point.x - width / 2, y: point.y - width / 2, width: width, height: width)
 

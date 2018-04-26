@@ -12,20 +12,23 @@ NSString *const MBXExampleWebAPIData = @"WebAPIDataExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(37.090240, -95.712891) zoomLevel:2 animated:NO];
 
-    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(37.090240, -95.712891) zoomLevel:2 animated:NO];
+    self.mapView.delegate = self;
 
-    mapView.delegate = self;
+    // Add our own gesture recognizer to handle taps on our custom map features. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMapTap:)];
+    for (UIGestureRecognizer *recognizer in self.mapView.gestureRecognizers) {
+        if ([recognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+            [singleTap requireGestureRecognizerToFail:recognizer];
+        }
+    }
+    [self.mapView addGestureRecognizer:singleTap];
 
-    // Add our own gesture recognizer to handle taps on our custom map features.
-    [mapView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMapTap:)]];
-
-    [self.view addSubview:mapView];
-
-    self.mapView = mapView;
+    [self.view addSubview:self.mapView];
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
@@ -82,7 +85,7 @@ NSString *const MBXExampleWebAPIData = @"WebAPIDataExample";
 
 #pragma mark - Feature interaction
 
-- (void)handleMapTap:(UITapGestureRecognizer *)sender {
+- (IBAction)handleMapTap:(UITapGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
         // Limit feature selection to just the following layer identifiers.
         NSArray *layerIdentifiers = @[@"lighthouse-symbols", @"lighthouse-circles"];

@@ -22,6 +22,15 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
 
+    // Add our own gesture recognizer to handle taps on our custom map features. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMapTap:)];
+    for (UIGestureRecognizer *recognizer in self.mapView.gestureRecognizers) {
+        if ([recognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+            [singleTap requireGestureRecognizerToFail:recognizer];
+        }
+    }
+    [self.mapView addGestureRecognizer:singleTap];
+
     self.icon = [UIImage imageNamed:@"port"];
 }
 
@@ -68,16 +77,13 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     numbersLayer.text = [NSExpression expressionWithFormat:@"CAST(point_count, 'NSString')"];
     numbersLayer.predicate = [NSPredicate predicateWithFormat:@"cluster == YES"];
     [style addLayer:numbersLayer];
-
-    // Add a tap gesture for zooming in to clusters or showing popups on individual features.
-    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
 }
 
 - (void)mapViewRegionIsChanging:(MGLMapView *)mapView {
     [self showPopup:NO animated:NO];
 }
 
-- (void)handleTap:(UITapGestureRecognizer *)tap {
+- (IBAction)handleMapTap:(UITapGestureRecognizer *)tap {
     if (tap.state == UIGestureRecognizerStateEnded) {
         CGPoint point = [tap locationInView:tap.view];
         CGFloat width = self.icon.size.width;

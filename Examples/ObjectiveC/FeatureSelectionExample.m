@@ -24,15 +24,18 @@ NSString const *MBXExampleFeatureSelection = @"FeatureSelectionExample";
 
     // Store the name of the style layer in which states will be drawn.
     self.layerIdentifier = @"state-layer";
-    
-    // Add a tap gesture recognizer to the map view.
-    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-    gesture.numberOfTapsRequired = 1;
-    [self.mapView addGestureRecognizer:gesture];
+
+    // Add our own gesture recognizer to handle taps on our custom map features. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMapTap:)];
+    for (UIGestureRecognizer *recognizer in self.mapView.gestureRecognizers) {
+        if ([recognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+            [singleTap requireGestureRecognizerToFail:recognizer];
+        }
+    }
+    [self.mapView addGestureRecognizer:singleTap];
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
-    
     // Load a tileset containing U.S. states and their population density. For more information about working with tilesets, see: https://www.mapbox.com/help/studio-manual-tilesets/
     NSURL *url = [NSURL URLWithString:@"mapbox://examples.69ytlgls"];
     
@@ -60,8 +63,7 @@ NSString const *MBXExampleFeatureSelection = @"FeatureSelectionExample";
     [style insertLayer:layer belowLayer:symbolLayer];
 }
 
-- (void)handleTap:(UITapGestureRecognizer *)gesture {
-    
+- (IBAction)handleMapTap:(UITapGestureRecognizer *)gesture {
     // Get the CGPoint where the user tapped.
     CGPoint spot = [gesture locationInView:self.mapView];
     

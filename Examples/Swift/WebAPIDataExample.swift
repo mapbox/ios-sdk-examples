@@ -8,19 +8,18 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let mapView = MGLMapView(frame: view.bounds)
+        mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
         mapView.setCenter(CLLocationCoordinate2D(latitude: 37.090240, longitude: -95.712891), zoomLevel: 2, animated: false)
-
         mapView.delegate = self
-
         view.addSubview(mapView)
 
-        // Add our own gesture recognizer to handle taps on our custom map features.
-        mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:))))
-        
-        self.mapView = mapView
+        // Add a single tap gesture recognizer. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
+        for recognizer in mapView.gestureRecognizers! where recognizer is UITapGestureRecognizer {
+            singleTap.require(toFail: recognizer)
+        }
+        mapView.addGestureRecognizer(singleTap)
     }
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
@@ -63,7 +62,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
         symbols.iconOpacity = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
                                            [5.9: 0, 6: 1])
 
-//        // "name" references the "name" key in an MGLPointFeature’s attributes dictionary.
+        // "name" references the "name" key in an MGLPointFeature’s attributes dictionary.
         symbols.text = NSExpression(forKeyPath: "name")
         symbols.textColor = symbols.iconColor
         symbols.textFontSize = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
@@ -80,7 +79,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     // MARK: - Feature interaction
-    @objc func handleMapTap(sender: UITapGestureRecognizer) {
+    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             // Limit feature selection to just the following layer identifiers.
             let layerIdentifiers: Set = ["lighthouse-symbols", "lighthouse-circles"]

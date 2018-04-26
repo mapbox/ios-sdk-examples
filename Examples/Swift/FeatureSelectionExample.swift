@@ -2,7 +2,7 @@ import Mapbox
 
 @objc(FeatureSelectionExample_Swift)
 
-class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGestureRecognizerDelegate {
+class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate {
     
     var mapView: MGLMapView!
     let layerIdentifier = "state-layer"
@@ -16,13 +16,15 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
         mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         view.addSubview(mapView)
         
-        // Add a tap gesture recognizer to the map view.
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        mapView.addGestureRecognizer(gesture)
+        // Add a single tap gesture recognizer. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
+        for recognizer in mapView.gestureRecognizers! where recognizer is UITapGestureRecognizer {
+            singleTap.require(toFail: recognizer)
+        }
+        mapView.addGestureRecognizer(singleTap)
     }
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        
         // Load a tileset containing U.S. states and their population density. For more information about working with tilesets, see: https://www.mapbox.com/help/studio-manual-tilesets/
         let url = URL(string: "mapbox://examples.69ytlgls")!
         let source = MGLVectorTileSource(identifier: "state-source", configurationURL: url)
@@ -46,10 +48,9 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate, UIGes
         style.insertLayer(layer, below: symbolLayer!)
     }
     
-    @objc func handleTap(_ gesture: UITapGestureRecognizer) {
-        
+    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) {
         // Get the CGPoint where the user tapped.
-        let spot = gesture.location(in: mapView)
+        let spot = sender.location(in: mapView)
         
         // Access the features at that point within the state layer.
         let features = mapView.visibleFeatures(at: spot, styleLayerIdentifiers: Set([layerIdentifier]))
