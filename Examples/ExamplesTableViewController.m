@@ -14,10 +14,21 @@ NSString *const MBXSegueTableToExample = @"TableToExampleSegue";
 
 @interface ExamplesTableViewController ()
 
-@property (nonatomic) NSArray *examples;
+@property (nonatomic) NSArray *exampleGroups;
+@property (nonatomic) UISegmentedControl *languagesSegementControl;
+@property (nonatomic, readonly) NSDictionary *selectedGroup;
 
 @end
 @implementation ExamplesTableViewController
+
+- (NSArray *)selectedGroup {
+    return self.exampleGroups[self.languagesSegementControl.selectedSegmentIndex];
+}
+
+- (NSDictionary *)exampleAtIndexPath:(NSIndexPath *)indexPath {
+    return self.selectedGroup[@"categories"][indexPath.section][@"examples"][indexPath.row];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,48 +40,98 @@ NSString *const MBXSegueTableToExample = @"TableToExampleSegue";
 
     // testing: explicitly jump to an example, later defined in prepareForSegue
     //[self performSegueWithIdentifier:MBXSegueTableToExample sender:self];
+    
+    // To avoid gesture conflict with mapview,  disable menu presented and dismissed using a swipe gesture.
+    self.splitViewController.presentsWithGesture = NO;
+    // The menu and example view controllers are displayed side-by-side onscreen.
+    self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
+    
+    if (!self.exampleGroups) {
+        self.exampleGroups = [Examples groups];
+    }
+    NSMutableArray *languageNames = [NSMutableArray array];
+    [self.exampleGroups enumerateObjectsUsingBlock:^(NSDictionary *exampleGroup, NSUInteger index, BOOL *stop) {
+        [languageNames addObject:exampleGroup[@"title"]];
+    }];
+
+    UISegmentedControl *languagesSegementControl = [[UISegmentedControl alloc] initWithItems:languageNames];
+    [languagesSegementControl sizeToFit];
+    languagesSegementControl.selectedSegmentIndex = 0;
+    [languagesSegementControl addTarget:self
+                                 action:@selector(onLanguagesSegementControlValueChanged:)
+                       forControlEvents:UIControlEventValueChanged];
+    self.navigationItem.titleView = languagesSegementControl;
+    
+    self.languagesSegementControl = languagesSegementControl;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
+}
+
+#pragma mark - Segement control event handle
+- (void)onLanguagesSegementControlValueChanged:(id)sender {
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [self.selectedGroup[@"categories"] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (!self.examples) {
-        self.examples = [Examples list];
-    }
-
-    return self.examples.count;
+    NSArray *examples = self.selectedGroup[@"categories"][section][@"examples"];
+    
+    return  examples.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExampleCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = self.examples[indexPath.row];
+    cell.textLabel.text = [self exampleAtIndexPath:indexPath][@"title"];
     
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *exampleName = [self exampleAtIndexPath:indexPath][@"className"];
+    [self showExample:exampleName];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:true];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] init];
+    headerView.backgroundColor = tableView.separatorColor;
+    headerView.bounds = CGRectMake(0, 0, tableView.bounds.size.width, 40);
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.frame = UIEdgeInsetsInsetRect(headerView.bounds, UIEdgeInsetsMake(0, tableView.separatorInset.left, 0, 0));
+    label.text = self.selectedGroup[@"categories"][section][@"title"];
+    
+    [headerView addSubview:label];
+
+    return headerView;
+}
+
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:MBXSegueTableToExample]) {
-        if ([sender isKindOfClass:[UITableViewCell class]]) {
-            UITableViewCell *senderCell = sender;
-            ExamplesContainerViewController *destinationVC = [segue destinationViewController];
-            destinationVC.exampleToLoad = senderCell.textLabel.text;
-        } /* else {
-            ExamplesContainerViewController *destinationVC = [segue destinationViewController];
-            destinationVC.exampleToLoad = MBXExampleOfflinePack;
-        } */
-    }
+- (void)showExample: (NSString *)exampleName {
+    ExamplesContainerViewController* containerController =[self.storyboard instantiateViewControllerWithIdentifier:@"ExamplesContainer"];
+    containerController.exampleToLoad = exampleName;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:containerController];
+    
+    containerController.navigationItem.leftItemsSupplementBackButton = true;
+    containerController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+    
+    [self.splitViewController showDetailViewController:navController sender:nil];
 }
 
 @end

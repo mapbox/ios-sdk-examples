@@ -62,6 +62,6 @@ extern NSString *const MBXExampleWebAPIData;
 
 @interface Examples : NSObject
 
-+ (NSArray *)list;
++ (NSArray *)groups;
 
 @end
