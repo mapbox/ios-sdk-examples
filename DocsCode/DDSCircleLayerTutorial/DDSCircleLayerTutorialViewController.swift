@@ -11,8 +11,7 @@ class DDSCircleLayerTutorialViewController: UIViewController, MGLMapViewDelegate
         mapView.styleURL = MGLStyle.lightStyleURL
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 44.971, longitude: -93.261), animated: false)
-        mapView.zoomLevel = 10
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 44.971, longitude: -93.261), zoomLevel: 10, animated: false)
         
         mapView.delegate = self
         view.addSubview(mapView)
@@ -30,13 +29,13 @@ class DDSCircleLayerTutorialViewController: UIViewController, MGLMapViewDelegate
         
         layer.sourceLayerIdentifier = "HPC_landmarks-b60kqn"
         
-        layer.circleColor = NSExpression(forConstantValue: UIColor(red: 0.67, green: 0.28, blue: 0.13, alpha: 1.0))
+        layer.circleColor = NSExpression(forConstantValue: #colorLiteral(red: 0.67, green: 0.28, blue: 0.13, alpha: 1))
         
         layer.circleOpacity = NSExpression(forConstantValue: 0.8)
         
         let zoomStops = [
-            10: NSExpression(format: "(Constructi - 2018) / 30"),
-            13: NSExpression(format: "(Constructi - 2018) / 10")
+            10: NSExpression(format: "(2018 - Constructi) / 30"),
+            13: NSExpression(format: "(2018 - Constructi) / 10")
         ]
         
         layer.circleRadius = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", zoomStops)

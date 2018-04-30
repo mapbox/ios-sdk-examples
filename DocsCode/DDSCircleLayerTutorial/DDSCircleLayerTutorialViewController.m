@@ -16,8 +16,9 @@
     
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    mapView.centerCoordinate = CLLocationCoordinate2DMake(44.971, -93.261);
-    mapView.zoomLevel = 10;
+    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(44.971, -93.261)
+                       zoomLevel:10
+                        animated:NO];
     
     [self.view addSubview:mapView];
     mapView.delegate = self;
@@ -41,8 +42,8 @@
     layer.circleOpacity = [NSExpression expressionForConstantValue:@"0.8"];
 
     NSDictionary *zoomStops = @{
-                                @10: [NSExpression expressionWithFormat:@"(Constructi - 2018) / 30"],
-                                @13: [NSExpression expressionWithFormat:@"(Constructi - 2018) / 10"]
+        @10: [NSExpression expressionWithFormat:@"(2018 - Constructi) / 30"],
+        @13: [NSExpression expressionWithFormat:@"(2018 - Constructi) / 10"]
     };
     
     layer.circleRadius = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:(Constructi, 'linear', nil, %@)", zoomStops];
