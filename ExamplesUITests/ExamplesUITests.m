@@ -34,13 +34,40 @@
 - (void)testEveryExample {
     XCUIApplication *app = [[XCUIApplication alloc] init];
 
-    for (int i = 0; i < app.tables.cells.count; i++) {
-        [app.tables.cells.allElementsBoundByIndex[i] tap];
+    __block NSUInteger count;
+    __block NSMutableArray<XCUIElement*> *elements;
+    __block NSMutableArray<NSString*> *titles;
 
-        // XCTest waits for the app to idle before continuing.
+    // Build arrays of the examples (so the report can be broken into readable
+    // activities)
+    [XCTContext runActivityNamed:@"Get examples"
+                           block:^(id<XCTActivity>  _Nonnull activity) {
 
-        // Tap 'Back' button.
-        [app.navigationBars.buttons.allElementsBoundByIndex.firstObject tap];
+                               XCUIElementQuery *cells = app.tables.cells;
+                               count = cells.count;
+
+                               elements = [NSMutableArray arrayWithCapacity:count];
+                               titles = [NSMutableArray arrayWithCapacity:count];
+
+                               for (int i = 0; i < count; i++) {
+                                   XCUIElement *el = cells.allElementsBoundByIndex[i];
+                                   NSString *title = [[el.staticTexts element] label];
+
+                                   [elements addObject:el];
+                                   [titles addObject:title];
+                               }
+                           }];
+
+    for (NSUInteger i = 0; i < count; i++) {
+        [XCTContext runActivityNamed:titles[i]
+                               block:^(id<XCTActivity>  _Nonnull activity) {
+            [elements[i] tap];
+                                   
+            // XCTest waits for the app to idle before continuing.
+
+           // Tap 'Back' button.
+           [app.navigationBars.buttons.allElementsBoundByIndex.firstObject tap];
+        }];
     }
 }
 
