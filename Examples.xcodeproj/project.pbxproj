@@ -125,6 +125,8 @@
 		BBD05676206B24335DEA52C4 /* Pods_ExamplesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7692D1D792EB3849E8754E6B /* Pods_ExamplesUITests.framework */; };
 		DAE87506209041D600638AAB /* NavigationTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AB82441FBC09AB005FB704 /* NavigationTutorialViewController.swift */; };
 		DAE87507209041DD00638AAB /* NavigationTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB82471FBC0D41005FB704 /* NavigationTutorialViewController.m */; };
+		CA3B162C2098C724005C087B /* TestingSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3B162B2098C724005C087B /* TestingSupport.m */; };
+		CA3B162E2098CA7E005C087B /* TestingSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3B162B2098C724005C087B /* TestingSupport.m */; };
 		DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5939E31E6639BA0009BEB2 /* ClusteringExample.swift */; };
 		DD5939E61E6778480009BEB2 /* clustering.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD5939E51E6778480009BEB2 /* clustering.xcassets */; };
 		DDF943291E5DE63300545D0F /* ClusteringExample.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF943281E5DE63300545D0F /* ClusteringExample.m */; };
@@ -363,6 +365,8 @@
 		9A1ECC25B13FE3249B26BE0A /* Pods-Shared-DocsCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-DocsCode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shared-DocsCode/Pods-Shared-DocsCode.debug.xcconfig"; sourceTree = "<group>"; };
 		9EC12D8F1A97963D68BFA871 /* Pods_Examples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Examples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C057E98F506AAA58F0473788 /* Pods-Shared-Examples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-Examples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shared-Examples/Pods-Shared-Examples.debug.xcconfig"; sourceTree = "<group>"; };
+		CA3B162B2098C724005C087B /* TestingSupport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestingSupport.m; sourceTree = "<group>"; };
+		CA3B162D2098C7B3005C087B /* TestingSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestingSupport.h; sourceTree = "<group>"; };
 		DD5939E31E6639BA0009BEB2 /* ClusteringExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusteringExample.swift; sourceTree = "<group>"; };
 		DD5939E51E6778480009BEB2 /* clustering.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = clustering.xcassets; sourceTree = "<group>"; };
 		DDF943271E5DE63300545D0F /* ClusteringExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusteringExample.h; sourceTree = "<group>"; };
@@ -675,6 +679,7 @@
 		3EBCD6FA1DC26355001E342F /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
+				CA3B162A2098C6FF005C087B /* Testing Support */,
 				0543F64E1FE8697800D0AF54 /* 3D */,
 				0543F64C1FE868EE00D0AF54 /* Dynamic styling */,
 				0543F6481FE8688E00D0AF54 /* Getting started */,
@@ -876,6 +881,15 @@
 				2ECF27F4ACA1A3CA05DE1954 /* Pods-DocsCode.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CA3B162A2098C6FF005C087B /* Testing Support */ = {
+			isa = PBXGroup;
+			children = (
+				CA3B162B2098C724005C087B /* TestingSupport.m */,
+				CA3B162D2098C7B3005C087B /* TestingSupport.h */,
+			);
+			name = "Testing Support";
 			sourceTree = "<group>";
 		};
 		CBAD5BE154F4126883B2A6DC /* Frameworks */ = {
@@ -1324,6 +1338,7 @@
 				3E085B831EC526E500163C99 /* BuildingsExample.m in Sources */,
 				3E9EF27C209CFD460053D1D7 /* HeatmapExample.swift in Sources */,
 				64BBDAF61DF232FD00BB705D /* SelectFeatureExample.swift in Sources */,
+				CA3B162E2098CA7E005C087B /* TestingSupport.m in Sources */,
 				64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */,
 				96D431FC1C84B4F7007D09D1 /* ImageAnnotationExample.m in Sources */,
 				3E3FB66B1F05888E004512C6 /* BuildingLightExample.swift in Sources */,
@@ -1399,6 +1414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA3B162C2098C724005C087B /* TestingSupport.m in Sources */,
 				961962B51C581700002D3DAB /* ExamplesUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

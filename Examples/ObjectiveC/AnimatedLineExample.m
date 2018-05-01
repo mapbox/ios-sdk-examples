@@ -1,4 +1,5 @@
 #import "AnimatedLineExample.h"
+#import "TestingSupport.h"
 @import Mapbox;
 
 NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
@@ -66,6 +67,8 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
     if (_currentIndex > self.locations.count) {
         [_timer invalidate];
         _timer = nil;
+
+        testingSupportPostExampleCompleteNotification();
         return;
     }
 

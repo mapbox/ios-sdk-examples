@@ -31,6 +31,23 @@
     [super tearDown];
 }
 
+- (void)testAnimatedLineExample {
+
+    [XCTContext runActivityNamed:@"AnimatedLineExample"
+                           block:^(id<XCTActivity>  _Nonnull activity) {
+
+                               XCUIApplication *app = [[XCUIApplication alloc] init];
+                               [app.tables.staticTexts[@"AnimatedLineExample"] tap];
+
+                               // Wait for notification
+                               XCTDarwinNotificationExpectation *expectation = [[XCTDarwinNotificationExpectation alloc] initWithNotificationName:@"com.mapbox.examples.example-complete"];
+
+                               [self waitForExpectations:@[expectation] timeout:30.0];
+
+                               [app.navigationBars[@"AnimatedLineExample"].buttons[@"Examples"] tap];
+                           }];
+}
+
 - (void)testEveryExample {
     XCUIApplication *app = [[XCUIApplication alloc] init];
 
