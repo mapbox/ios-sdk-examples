@@ -1,5 +1,6 @@
 
 #import "BuildingLightExample.h"
+#import "TestingSupport.h"
 @import Mapbox;
 
 @interface BuildingLightExample () <MGLMapViewDelegate>
@@ -21,7 +22,11 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle streetsStyleURLWithVersion:9]];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
-    
+
+    // For UI Testing
+    self.mapView.isAccessibilityElement = NO;
+    self.mapView.accessibilityIdentifier = @"MGLMapViewId";
+
     // Center the map on the Flatiron Building in New York, NY.
     self.mapView.camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(40.7411, -73.9897) fromDistance:600 pitch:45 heading:200];
     
@@ -37,6 +42,11 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
     self.slider.minimumValue = -180;
     self.slider.maximumValue = 180;
     self.slider.value = 0;
+
+    // For UI testing
+    self.slider.isAccessibilityElement = NO;
+    self.slider.accessibilityIdentifier = @"SliderId";
+
     [self.slider addTarget:self action:@selector(shiftLight) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.slider];
 }
@@ -61,6 +71,12 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
     self.light.anchor = [NSExpression expressionForConstantValue:@"map"];
     
     style.light = self.light;
+
+    testingSupportPostNotification(MBXTestingSupportNotificationMapViewStyleLoaded);
+}
+
+- (void)mapViewDidFinishRenderingMap:(MGLMapView *)mapView fullyRendered:(BOOL)fullyRendered {
+    testingSupportPostNotification(MBXTestingSupportNotificationMapViewRendered);
 }
 
 - (void)shiftLight {

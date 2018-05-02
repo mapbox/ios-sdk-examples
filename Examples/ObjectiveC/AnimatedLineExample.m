@@ -68,7 +68,7 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
         [_timer invalidate];
         _timer = nil;
 
-        testingSupportPostExampleCompleteNotification();
+        testingSupportPostNotification(MBXTestingSupportNotificationExampleComplete);
         return;
     }
 

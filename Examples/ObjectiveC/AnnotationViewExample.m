@@ -1,4 +1,5 @@
 #import "AnnotationViewExample.h"
+#import "TestingSupport.h"
 @import Mapbox;
 
 NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
@@ -48,6 +49,13 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
     mapView.centerCoordinate = CLLocationCoordinate2DMake(0, 66);
     mapView.zoomLevel = 2;
     mapView.delegate = self;
+
+    // For UI Testing
+    mapView.isAccessibilityElement = NO;
+    mapView.accessibilityIdentifier = @"MGLMapViewId";
+    mapView.compassView.isAccessibilityElement = NO;
+    mapView.compassView.accessibilityIdentifier = @"MGLMapViewCompassId";
+                                                    
     [self.view addSubview:mapView];
 
     // Specify coordinates for our annotations.
@@ -72,6 +80,14 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
 }
 
 #pragma mark - MGLMapViewDelegate methods
+
+- (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style   {
+    testingSupportPostNotification(MBXTestingSupportNotificationMapViewStyleLoaded);
+}
+
+- (void)mapViewDidFinishRenderingMap:(MGLMapView *)mapView fullyRendered:(BOOL)fullyRendered {
+    testingSupportPostNotification(MBXTestingSupportNotificationMapViewRendered);
+}
 
 // This delegate method is where you tell the map to load a view for a specific annotation. To load a static MGLAnnotationImage, you would use `-mapView:imageForAnnotation:`.
 - (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id <MGLAnnotation>)annotation {

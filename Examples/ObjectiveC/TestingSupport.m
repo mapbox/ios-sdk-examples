@@ -1,8 +1,10 @@
 #import "TestingSupport.h"
 
-NSString * const testingSupportExampleCompleteNotificationName = @"com.mapbox.examples.example-complete";
+const MBXTestingSupportNotification MBXTestingSupportNotificationExampleComplete = @"com.mapbox.examples.example-complete";
+const MBXTestingSupportNotification MBXTestingSupportNotificationMapViewStyleLoaded = @"com.mapbox.examples.mapview-style-loaded";
+const MBXTestingSupportNotification MBXTestingSupportNotificationMapViewRendered = @"com.mapbox.examples.mapview-rendered";
 
-void testingSupportPostExampleCompleteNotification(void) {
+void testingSupportPostNotification(MBXTestingSupportNotification name) {
     CFNotificationCenterRef center = CFNotificationCenterGetDarwinNotifyCenter();
-    CFNotificationCenterPostNotification(center, (CFNotificationName)testingSupportExampleCompleteNotificationName, NULL, NULL, true);
+    CFNotificationCenterPostNotification(center, (CFNotificationName)name, NULL, NULL, true);
 }

@@ -1,5 +1,9 @@
 @import Foundation;
 
-FOUNDATION_EXTERN NSString * const testingSupportExampleCompleteNotificationName;
+typedef NSString *MBXTestingSupportNotification NS_TYPED_ENUM;
 
-FOUNDATION_EXTERN void testingSupportPostExampleCompleteNotification(void);
+extern const MBXTestingSupportNotification MBXTestingSupportNotificationExampleComplete;
+extern const MBXTestingSupportNotification MBXTestingSupportNotificationMapViewStyleLoaded;
+extern const MBXTestingSupportNotification MBXTestingSupportNotificationMapViewRendered;
+
+FOUNDATION_EXTERN void testingSupportPostNotification(MBXTestingSupportNotification name);
