@@ -125,6 +125,10 @@
 		BBD05676206B24335DEA52C4 /* Pods_ExamplesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7692D1D792EB3849E8754E6B /* Pods_ExamplesUITests.framework */; };
 		DAE87506209041D600638AAB /* NavigationTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AB82441FBC09AB005FB704 /* NavigationTutorialViewController.swift */; };
 		DAE87507209041DD00638AAB /* NavigationTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB82471FBC0D41005FB704 /* NavigationTutorialViewController.m */; };
+		CA39B2BF209B881300D37037 /* BuildingLightExample+UITesting.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39B2BA209B881300D37037 /* BuildingLightExample+UITesting.m */; };
+		CA39B2C0209B881300D37037 /* AnimatedLineExample+UITesting.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39B2BB209B881300D37037 /* AnimatedLineExample+UITesting.m */; };
+		CA39B2C1209B881300D37037 /* AnnotationViewExample+UITesting.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39B2BC209B881300D37037 /* AnnotationViewExample+UITesting.m */; };
+		CA39B2C2209B881300D37037 /* ForwardingMapViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39B2BD209B881300D37037 /* ForwardingMapViewDelegate.m */; };
 		CA3B162C2098C724005C087B /* TestingSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3B162B2098C724005C087B /* TestingSupport.m */; };
 		CA3B162E2098CA7E005C087B /* TestingSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3B162B2098C724005C087B /* TestingSupport.m */; };
 		DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5939E31E6639BA0009BEB2 /* ClusteringExample.swift */; };
@@ -365,6 +369,11 @@
 		9A1ECC25B13FE3249B26BE0A /* Pods-Shared-DocsCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-DocsCode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shared-DocsCode/Pods-Shared-DocsCode.debug.xcconfig"; sourceTree = "<group>"; };
 		9EC12D8F1A97963D68BFA871 /* Pods_Examples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Examples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C057E98F506AAA58F0473788 /* Pods-Shared-Examples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-Examples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shared-Examples/Pods-Shared-Examples.debug.xcconfig"; sourceTree = "<group>"; };
+		CA39B2BA209B881300D37037 /* BuildingLightExample+UITesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BuildingLightExample+UITesting.m"; sourceTree = "<group>"; };
+		CA39B2BB209B881300D37037 /* AnimatedLineExample+UITesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AnimatedLineExample+UITesting.m"; sourceTree = "<group>"; };
+		CA39B2BC209B881300D37037 /* AnnotationViewExample+UITesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AnnotationViewExample+UITesting.m"; sourceTree = "<group>"; };
+		CA39B2BD209B881300D37037 /* ForwardingMapViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForwardingMapViewDelegate.m; sourceTree = "<group>"; };
+		CA39B2BE209B881300D37037 /* ForwardingMapViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForwardingMapViewDelegate.h; sourceTree = "<group>"; };
 		CA3B162B2098C724005C087B /* TestingSupport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestingSupport.m; sourceTree = "<group>"; };
 		CA3B162D2098C7B3005C087B /* TestingSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestingSupport.h; sourceTree = "<group>"; };
 		DD5939E31E6639BA0009BEB2 /* ClusteringExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusteringExample.swift; sourceTree = "<group>"; };
@@ -679,7 +688,6 @@
 		3EBCD6FA1DC26355001E342F /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
-				CA3B162A2098C6FF005C087B /* Testing Support */,
 				0543F64E1FE8697800D0AF54 /* 3D */,
 				0543F64C1FE868EE00D0AF54 /* Dynamic styling */,
 				0543F6481FE8688E00D0AF54 /* Getting started */,
@@ -857,6 +865,8 @@
 		9691AAA01C5AAD8F006A58C6 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				CA39B2B9209B881300D37037 /* Testing Categories */,
+				CA3B162A2098C6FF005C087B /* Testing Support */,
 				3EBCD6FC1DC26364001E342F /* Swift */,
 				3EBCD6FA1DC26355001E342F /* Objective-C */,
 			);
@@ -882,6 +892,19 @@
 			);
 			name = Pods;
 			sourceTree = "<group>";
+		};
+		CA39B2B9209B881300D37037 /* Testing Categories */ = {
+			isa = PBXGroup;
+			children = (
+				CA39B2BA209B881300D37037 /* BuildingLightExample+UITesting.m */,
+				CA39B2BB209B881300D37037 /* AnimatedLineExample+UITesting.m */,
+				CA39B2BC209B881300D37037 /* AnnotationViewExample+UITesting.m */,
+				CA39B2BD209B881300D37037 /* ForwardingMapViewDelegate.m */,
+				CA39B2BE209B881300D37037 /* ForwardingMapViewDelegate.h */,
+			);
+			name = "Testing Categories";
+			path = "Examples/Testing Categories";
+			sourceTree = SOURCE_ROOT;
 		};
 		CA3B162A2098C6FF005C087B /* Testing Support */ = {
 			isa = PBXGroup;
@@ -1311,6 +1334,7 @@
 				962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */,
 				1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */,
 				05536CB2200F9B0900657097 /* SwitchStylesExample.m in Sources */,
+				CA39B2C0209B881300D37037 /* AnimatedLineExample+UITesting.m in Sources */,
 				3ED403411E006B5200230C95 /* CameraFlyToExample.swift in Sources */,
 				9691AAA91C5AAD8F006A58C6 /* SimpleMapViewExample.m in Sources */,
 				960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */,
@@ -1369,6 +1393,7 @@
 				9691AA941C5AA702006A58C6 /* Examples.m in Sources */,
 				3EBCD7201DC28240001E342F /* DraggableAnnotationViewExample.swift in Sources */,
 				3EBCD7281DC28240001E342F /* SimpleMapViewExample.swift in Sources */,
+				CA39B2C2209B881300D37037 /* ForwardingMapViewDelegate.m in Sources */,
 				3EBCD7241DC28240001E342F /* PolygonAnnotationExample.swift in Sources */,
 				05FA53981FE2FA00001F3D7D /* SatelliteStyleExample.m in Sources */,
 				964CB5111E42A0A3004549EA /* AnnotationViewsAndImagesExample.swift in Sources */,
@@ -1384,6 +1409,7 @@
 				05FA53A71FE2FA34001F3D7D /* StaticSnapshotExample.m in Sources */,
 				3EBCD71C1DC28240001E342F /* CustomCalloutViewExample.swift in Sources */,
 				05FA53AD1FE2FBB3001F3D7D /* CalloutDelegateUsageExample.m in Sources */,
+				CA39B2C1209B881300D37037 /* AnnotationViewExample+UITesting.m in Sources */,
 				DDF943291E5DE63300545D0F /* ClusteringExample.m in Sources */,
 				3E44BA58203B54260072DE4B /* MultipleImagesExample.m in Sources */,
 				3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */,
@@ -1398,6 +1424,7 @@
 				05FA53A11FE2FA1E001F3D7D /* PolygonPatternExample.m in Sources */,
 				3E3FB66E1F0588B3004512C6 /* BuildingLightExample.m in Sources */,
 				968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */,
+				CA39B2BF209B881300D37037 /* BuildingLightExample+UITesting.m in Sources */,
 				961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -84,7 +84,7 @@
     // Wait, just so we can see something
     [XCTContext runActivityNamed:@"Wait" block:^(id<XCTActivity>  _Nonnull activity) {
         XCTestExpectation *expectation = [self expectationWithDescription:@"wait"];
-        (void)[XCTWaiter waitForExpectations:@[expectation] timeout:10.0]; // Let it timeout
+        (void)[XCTWaiter waitForExpectations:@[expectation] timeout:3.0]; // Let it timeout
 
         [app.navigationBars[@"AnnotationViewExample"].buttons[@"Examples"] tap];
     }];

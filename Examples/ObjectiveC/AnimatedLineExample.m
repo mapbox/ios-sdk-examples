@@ -4,14 +4,12 @@
 
 NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
 
-@interface AnimatedLineExample () <MGLMapViewDelegate> {
-    int _currentIndex;
-    NSTimer *_timer;
-}
+@interface AnimatedLineExample () <MGLMapViewDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
 @property (nonatomic) MGLShapeSource *polylineSource;
 @property (nonatomic) NSArray<CLLocation *> *locations;
+@property (nonatomic) NSInteger currentIndex;
 
 @end
 
@@ -21,15 +19,16 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
     [super viewDidLoad];
 
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView.delegate = self;
+
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(45.5076, -122.6736)
-			    zoomLevel:11
-			     animated:NO];
+                            zoomLevel:11
+                             animated:NO];
 
     [self.view addSubview:self.mapView];
 
-    self.mapView.delegate = self;
 }
 
 // Wait until the map is loaded before adding to the map.
@@ -57,18 +56,15 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
 }
 
 - (void)animatePolyline {
-    _currentIndex = 1;
+    self.currentIndex = 1;
 
     // Start a timer that will simulate adding points to our polyline. This could also represent coordinates being added to our polyline from another source, such as a CLLocationManagerDelegate.
-    _timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(tick:) userInfo:nil repeats:YES];
 }
 
-- (void)tick {
-    if (_currentIndex > self.locations.count) {
-        [_timer invalidate];
-        _timer = nil;
-
-        testingSupportPostNotification(MBXTestingSupportNotificationExampleComplete);
+- (void)tick:(NSTimer*)timer {
+    if (self.currentIndex > self.locations.count) {
+        [timer invalidate];
         return;
     }
 
@@ -78,7 +74,7 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
     // Update our MGLShapeSource with the current locations.
     [self updatePolylineWithLocations:currentLocations];
 
-    _currentIndex++;
+    self.currentIndex++;
 }
 
 - (void)updatePolylineWithLocations:(NSArray<CLLocation *> *)locations {
