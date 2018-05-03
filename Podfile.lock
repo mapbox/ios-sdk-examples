@@ -22,16 +22,6 @@ DEPENDENCIES:
   - MapboxCoreNavigation (from `https://raw.githubusercontent.com/mapbox/mapbox-navigation-ios/v0.17.0-beta.1/MapboxCoreNavigation.podspec`)
   - MapboxNavigation (from `https://raw.githubusercontent.com/mapbox/mapbox-navigation-ios/v0.17.0-beta.1/MapboxNavigation.podspec`)
 
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Mapbox-iOS-SDK
-    - MapboxDirections.swift
-    - MapboxMobileEvents
-    - MapboxSpeech
-    - Polyline
-    - Solar
-    - Turf
-
 EXTERNAL SOURCES:
   MapboxCoreNavigation:
     :podspec: https://raw.githubusercontent.com/mapbox/mapbox-navigation-ios/v0.17.0-beta.1/MapboxCoreNavigation.podspec
@@ -51,4 +41,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 3121d6b2eb4dc288551d5a9283c5a66e08b11c2e
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.4.0
