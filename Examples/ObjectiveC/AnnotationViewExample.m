@@ -12,10 +12,6 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-    // Force the annotation view to maintain a constant size when the map is tilted.
-    self.scalesWithViewingDistance = NO;
-    self.rotatesToMatchCamera = YES;
-
     // Use CALayer’s corner radius to turn this view into a circle.
     self.layer.cornerRadius = self.bounds.size.width / 2;
     self.layer.borderWidth = 2;
