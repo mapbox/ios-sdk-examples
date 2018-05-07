@@ -57,6 +57,8 @@
 		3E4574ED1FA3D8F1000C8CF1 /* radar.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E4574EC1FA3D8F1000C8CF1 /* radar.gif */; };
 		3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */; };
 		3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */; };
+		3E9EF27C209CFD460053D1D7 /* HeatmapExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9EF27B209CFD460053D1D7 /* HeatmapExample.swift */; };
+		3E9EF27E209CFD570053D1D7 /* HeatmapExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9EF27D209CFD570053D1D7 /* HeatmapExample.m */; };
 		3EA5AA041FAD2EC7007073C0 /* StaticSnapshotExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5AA031FAD2EC7007073C0 /* StaticSnapshotExample.swift */; };
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
 		3EBCD7171DC28240001E342F /* CalloutDelegateUsageExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7031DC28240001E342F /* CalloutDelegateUsageExample.swift */; };
@@ -246,6 +248,9 @@
 		3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveDataExample.h; sourceTree = "<group>"; };
 		3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveDataExample.m; sourceTree = "<group>"; };
 		3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDataExample.swift; sourceTree = "<group>"; };
+		3E9EF27B209CFD460053D1D7 /* HeatmapExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatmapExample.swift; sourceTree = "<group>"; };
+		3E9EF27D209CFD570053D1D7 /* HeatmapExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeatmapExample.m; sourceTree = "<group>"; };
+		3E9EF27F209CFD6C0053D1D7 /* HeatmapExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeatmapExample.h; sourceTree = "<group>"; };
 		3EA5AA001FAD2E95007073C0 /* StaticSnapshotExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaticSnapshotExample.h; sourceTree = "<group>"; };
 		3EA5AA031FAD2EC7007073C0 /* StaticSnapshotExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticSnapshotExample.swift; sourceTree = "<group>"; };
 		3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewExample.swift; sourceTree = "<group>"; };
@@ -486,6 +491,7 @@
 			children = (
 				DD5939E31E6639BA0009BEB2 /* ClusteringExample.swift */,
 				07C138C31E721C8F00D6F678 /* DDSCircleLayerExample.swift */,
+				3E9EF27B209CFD460053D1D7 /* HeatmapExample.swift */,
 				3E22EF4E1F87F10C00605203 /* ImageSourceExample.swift */,
 				3E52ACD41EE8D94A0056242C /* LiveDataExample.swift */,
 				3E44BA54203B54120072DE4B /* MultipleImagesExample.swift */,
@@ -585,6 +591,7 @@
 			children = (
 				DDF943281E5DE63300545D0F /* ClusteringExample.m */,
 				07C138C61E72216E00D6F678 /* DDSCircleLayerExample.m */,
+				3E9EF27D209CFD570053D1D7 /* HeatmapExample.m */,
 				3E22EF511F8821F800605203 /* ImageSourceExample.m */,
 				3E52ACD21EE8D8AF0056242C /* LiveDataExample.m */,
 				3E44BA57203B54260072DE4B /* MultipleImagesExample.m */,
@@ -811,6 +818,7 @@
 				9691AAA31C5AAD8F006A58C6 /* DefaultStylesExample.h */,
 				960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */,
 				3E3BFADA1E81D7BB00D0BEA1 /* FeatureSelectionExample.h */,
+				3E9EF27F209CFD6C0053D1D7 /* HeatmapExample.h */,
 				96D431FA1C84B4F7007D09D1 /* ImageAnnotationExample.h */,
 				3E22EF501F8821F800605203 /* ImageSourceExample.h */,
 				968247181C5C115000494AB8 /* LineAnnotationGeoJSONExample.h */,
@@ -1314,12 +1322,14 @@
 				05FA539B1FE2FA00001F3D7D /* StudioClassicStyleExample.m in Sources */,
 				3EBCD7221DC28240001E342F /* LineAnnotationGeoJSONExample.swift in Sources */,
 				3E085B831EC526E500163C99 /* BuildingsExample.m in Sources */,
+				3E9EF27C209CFD460053D1D7 /* HeatmapExample.swift in Sources */,
 				64BBDAF61DF232FD00BB705D /* SelectFeatureExample.swift in Sources */,
 				64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */,
 				96D431FC1C84B4F7007D09D1 /* ImageAnnotationExample.m in Sources */,
 				3E3FB66B1F05888E004512C6 /* BuildingLightExample.swift in Sources */,
 				05FA539A1FE2FA00001F3D7D /* DefaultStylesExample.m in Sources */,
 				64CF97121DF224F600C3C27B /* RasterImageryExample.swift in Sources */,
+				3E9EF27E209CFD570053D1D7 /* HeatmapExample.m in Sources */,
 				3E3BFADC1E81D7BB00D0BEA1 /* FeatureSelectionExample.m in Sources */,
 				96BAED2E1FE304DD00A58BEB /* PointConversionExample.m in Sources */,
 				3E1806121EAA804B004DB131 /* UserLocationAnnotationExample.swift in Sources */,
