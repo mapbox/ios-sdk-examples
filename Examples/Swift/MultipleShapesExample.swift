@@ -41,29 +41,17 @@ class MultipleShapesExample_Swift: UIViewController, MGLMapViewDelegate {
         let feature = try! MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as! MGLShapeCollectionFeature
         
         // Create source and add it to the map style.
-        let source = MGLShapeSource(identifier: "transit", shape: feature, options: nil)
+        let source = MGLShapeSource(identifier: "line-source", shape: feature, options: nil)
         style.addSource(source)
         
-        // Create station style layer.
-        let circleLayer = MGLCircleStyleLayer(identifier: "stations", source: source)
-        
-        // Use a predicate to filter out non-points.
-        circleLayer.predicate = NSPredicate(format: "TYPE = 'Station'")
-        circleLayer.circleColor = NSExpression(forConstantValue: UIColor.red)
-        circleLayer.circleRadius = NSExpression(forConstantValue: 6)
-        circleLayer.circleStrokeWidth = NSExpression(forConstantValue: 2)
-        circleLayer.circleStrokeColor = NSExpression(forConstantValue: UIColor.black)
-        
         // Create line style layer.
-        let lineLayer = MGLLineStyleLayer(identifier: "rail-line", source: source)
+        let lineLayer = MGLLineStyleLayer(identifier: "line", source: source)
         
-        // Use a predicate to filter out the stations.
-        lineLayer.predicate = NSPredicate(format: "TYPE = 'Rail line'")
-        lineLayer.lineColor = NSExpression(forConstantValue: UIColor.red)
+        lineLayer.lineColor = NSExpression(forKeyPath: "color")
+        
         lineLayer.lineWidth = NSExpression(forConstantValue: 2)
         
         // Add style layers to the map view's style.
-        style.addLayer(circleLayer)
-        style.insertLayer(lineLayer, below: circleLayer)
+        style.addLayer(lineLayer)
     }
 }
