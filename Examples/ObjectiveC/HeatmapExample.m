@@ -28,7 +28,7 @@ NSString *const MBXExampleHeatmap = @"HeatmapExample";
     
     
     // Create a heatmap layer.
-    MGLHeatmapStyleLayer *layer = [[MGLHeatmapStyleLayer alloc] initWithIdentifier:@"earthquakes" source:source];
+    MGLHeatmapStyleLayer *heatmapLayer = [[MGLHeatmapStyleLayer alloc] initWithIdentifier:@"earthquakes" source:source];
     
     // Adjust the color of the heatmap based on the density.
     NSDictionary *colorDictionary = @{ @0 : [UIColor clearColor],
@@ -37,14 +37,18 @@ NSString *const MBXExampleHeatmap = @"HeatmapExample";
                                        @0.5 : [UIColor colorWithRed:0.73 green:0.23 blue:0.25 alpha:1.0],
                                        @1 : [UIColor yellowColor]
                                        };
-    layer.heatmapColor = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($heatmapDensity, 'linear', nil, %@)", colorDictionary];
+    heatmapLayer.heatmapColor = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($heatmapDensity, 'linear', nil, %@)", colorDictionary];
 
-    layer.heatmapIntensity = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", @{@0: @1, @9: @3 }];
-    layer.heatmapRadius = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", @{@0: @4, @9: @30}];
-    layer.heatmapWeight = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:(mag, 'linear', nil, %@)", @{@0: @0, @6: @1}];
-    layer.heatmapOpacity = [NSExpression expressionWithFormat:@"mgl_step:from:stops:($zoomLevel, 0.75, %@)", @{@0: @0.75, @9: @0}];
-    [style addLayer:layer];
+    heatmapLayer.heatmapIntensity = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", @{@0: @1, @9: @3 }];
+    heatmapLayer.heatmapRadius = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", @{@0: @4, @9: @30}];
+    heatmapLayer.heatmapWeight = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:(mag, 'linear', nil, %@)", @{@0: @0, @6: @1}];
+    heatmapLayer.heatmapOpacity = [NSExpression expressionWithFormat:@"mgl_step:from:stops:($zoomLevel, 0.75, %@)", @{@0: @0.75, @9: @0}];
+    [style addLayer:heatmapLayer];
     
+    
+    MGLCircleStyleLayer *circleLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"circle-layer" source:source];
+    
+    NSDictionary *magnitudeDictionary = @{};
 }
 
 @end
