@@ -53,7 +53,7 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
         // If there’s no reusable annotation view available, initialize a new one.
         if annotationView == nil {
             annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
-            annotationView!.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+            annotationView!.bounds = CGRect(x: 0, y: 0, width: 40, height: 40)
             
             // Set the annotation view’s background color to a value determined by its longitude.
             let hue = CGFloat(annotation.coordinate.longitude) / 100
@@ -74,11 +74,8 @@ class CustomAnnotationView: MGLAnnotationView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        // Force the annotation view to maintain a constant size when the map is tilted.
-        scalesWithViewingDistance = false
-        
         // Use CALayer’s corner radius to turn this view into a circle.
-        layer.cornerRadius = frame.width / 2
+        layer.cornerRadius = bounds.width / 2
         layer.borderWidth = 2
         layer.borderColor = UIColor.white.cgColor
     }
@@ -89,7 +86,7 @@ class CustomAnnotationView: MGLAnnotationView {
         // Animate the border width in/out, creating an iris effect.
         let animation = CABasicAnimation(keyPath: "borderWidth")
         animation.duration = 0.1
-        layer.borderWidth = selected ? frame.width / 4 : 2
+        layer.borderWidth = selected ? bounds.width / 4 : 2
         layer.add(animation, forKey: "borderWidth")
     }
 }
