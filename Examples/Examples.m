@@ -33,7 +33,7 @@
             ]
         },
         @{
-            @"title": @"Markers and callouts",
+            @"title": @"Annotations",
             @"examples":@[
                     @{@"className": MBXExampleCustomAnnotationModel, @"title": @"Annotation models"},
                     @{@"className": MBXExampleAnnotationViewsAndImagesExample, @"title": @"Add annotation views and images"},
