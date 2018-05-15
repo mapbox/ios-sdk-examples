@@ -72,6 +72,9 @@
             @"examples":@[
                     @{@"className": MBXExampleClustering, @"title": @"Cluster point data"},
                     @{@"className": MBXExampleDDSCircleLayer, @"title": @"Data-driven circles"},
+                    @{@"className": MBXExampleHeatmap,
+                      @"title": @"Add a heatmap layer"
+                      },
                     @{@"className": MBXExampleImageSource, @"title": @"Add an image"},
                     @{@"className": MBXExampleLiveData, @"title": @"Add live data"},
                     @{@"className": MBXExampleMultipleShapes, @"title": @"Add multiple shapes from a single shape source"},
