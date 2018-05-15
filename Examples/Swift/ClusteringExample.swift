@@ -7,6 +7,11 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var icon: UIImage!
     var popup: UILabel?
+    
+    var circleImage: UIImage!
+    var rectangleImage: UIImage!
+    var starImage: UIImage!
+    var polygonImage: UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +30,12 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.addGestureRecognizer(singleTap)
 
         icon = UIImage(named: "port")
+        
+        circleImage = UIImage(named: "circle")
+        rectangleImage = UIImage(named: "rectangle")
+        starImage = UIImage(named: "star")
+        polygonImage = UIImage(named: "polygon")
+        
     }
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
@@ -46,28 +57,36 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         style.addLayer(ports)
 
         // Color clustered features based on clustered point counts.
+        style.setImage(icon.withRenderingMode(.alwaysOriginal), forName: "circle")
+        style.setImage(icon.withRenderingMode(.alwaysOriginal), forName: "rectangle")
+        style.setImage(icon.withRenderingMode(.alwaysOriginal), forName: "star")
+        style.setImage(icon.withRenderingMode(.alwaysOriginal), forName: "polygon")
+        
         let stops = [
-            20:  UIColor.lightGray,
-            50:  UIColor.orange,
-            100: UIColor.red,
-            200: UIColor.purple
+            20:  NSExpression(forConstantValue: "circle"),
+            50:  NSExpression(forConstantValue: "rectangle"),
+            100: NSExpression(forConstantValue: "star"),
+            200: NSExpression(forConstantValue: "polygon")
         ]
 
         // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
-        let circlesLayer = MGLCircleStyleLayer(identifier: "clusteredPorts", source: source)
-        circlesLayer.circleRadius = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
-        circlesLayer.circleOpacity = NSExpression(forConstantValue: 0.75)
-        circlesLayer.circleStrokeColor = NSExpression(forConstantValue: UIColor.white.withAlphaComponent(0.75))
-        circlesLayer.circleStrokeWidth = NSExpression(forConstantValue: 2)
-        circlesLayer.circleColor = NSExpression(format: "mgl_step:from:stops:(point_count, %@, %@)", UIColor.lightGray, stops)
-        circlesLayer.predicate = NSPredicate(format: "cluster == YES")
-        style.addLayer(circlesLayer)
+//        let circlesLayer = MGLCircleStyleLayer(identifier: "clusteredPorts", source: source)
+//        circlesLayer.circleRadius = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
+//        circlesLayer.circleOpacity = NSExpression(forConstantValue: 0.75)
+//        circlesLayer.circleStrokeColor = NSExpression(forConstantValue: UIColor.white.withAlphaComponent(0.75))
+//        circlesLayer.circleStrokeWidth = NSExpression(forConstantValue: 2)
+//        circlesLayer.circleColor = NSExpression(format: "mgl_step:from:stops:(point_count, %@, %@)", UIColor.lightGray, stops)
+//        circlesLayer.predicate = NSPredicate(format: "cluster == YES")
+//        style.addLayer(circlesLayer)
+        
+        
 
         // Label cluster circles with a layer of text indicating feature count. The value for `point_count` is an integer. In order to use that value for the `MGLSymbolStyleLayer.text` property, cast it as a string. 
         let numbersLayer = MGLSymbolStyleLayer(identifier: "clusteredPortsNumbers", source: source)
         numbersLayer.textColor = NSExpression(forConstantValue: UIColor.white)
         numbersLayer.textFontSize = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
         numbersLayer.iconAllowsOverlap = NSExpression(forConstantValue: true)
+        numbersLayer.iconImageName = NSExpression(format: "mgl_step:from:stops:(point_count, %@, %@)", NSExpression(forConstantValue: "polygon"), stops)
         numbersLayer.text = NSExpression(format: "CAST(point_count, 'NSString')")
         
         numbersLayer.predicate = NSPredicate(format: "cluster == YES")
