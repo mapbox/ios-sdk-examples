@@ -30,6 +30,7 @@
                     @{@"className": MBXExampleThirdPartyVectorStyle, @"title": @"Use third-party vector tiles"},
                     @{@"className": MBXExampleSwitchStyles, @"title": @"Switch between map styles"},
                     @{@"className": MBXExampleCameraFlyTo, @"title": @"Camera fly to"},
+                    @{@"className": MBXExampleHillshade, @"title": @"Hillshade example"},
             ]
         },
         @{

@@ -40,6 +40,8 @@
 		07F53B851E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F53B841E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m */; };
 		1F1F84751E538ABB00332CC3 /* BlockingGesturesDelegateExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */; };
 		1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */; };
+		3E044A5520AB9F7200559FA8 /* HillshadeExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E044A5420AB9F7200559FA8 /* HillshadeExample.swift */; };
+		3E044A5820AB9FDC00559FA8 /* HillshadeExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E044A5720AB9FDC00559FA8 /* HillshadeExample.m */; };
 		3E085B801EC526C500163C99 /* BuildingsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B7F1EC526C500163C99 /* BuildingsExample.swift */; };
 		3E085B831EC526E500163C99 /* BuildingsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B821EC526E500163C99 /* BuildingsExample.m */; };
 		3E1806101EAA800A004DB131 /* UserLocationAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E18060F1EAA800A004DB131 /* UserLocationAnnotationExample.m */; };
@@ -222,6 +224,9 @@
 		1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockingGesturesDelegateExample.swift; sourceTree = "<group>"; };
 		29A0D7C8DCD539DCA5DA1BAC /* Pods-Examples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Examples.release.xcconfig"; path = "Pods/Target Support Files/Pods-Examples/Pods-Examples.release.xcconfig"; sourceTree = "<group>"; };
 		2ECF27F4ACA1A3CA05DE1954 /* Pods-DocsCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocsCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode.release.xcconfig"; sourceTree = "<group>"; };
+		3E044A5420AB9F7200559FA8 /* HillshadeExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HillshadeExample.swift; sourceTree = "<group>"; };
+		3E044A5620AB9FDC00559FA8 /* HillshadeExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HillshadeExample.h; sourceTree = "<group>"; };
+		3E044A5720AB9FDC00559FA8 /* HillshadeExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HillshadeExample.m; sourceTree = "<group>"; };
 		3E085B7F1EC526C500163C99 /* BuildingsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingsExample.swift; sourceTree = "<group>"; };
 		3E085B811EC526E500163C99 /* BuildingsExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingsExample.h; sourceTree = "<group>"; };
 		3E085B821EC526E500163C99 /* BuildingsExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingsExample.m; sourceTree = "<group>"; };
@@ -460,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				3EBCD70B1DC28240001E342F /* DefaultStylesExample.swift */,
+				3E044A5420AB9F7200559FA8 /* HillshadeExample.swift */,
 				3EBCD7131DC28240001E342F /* SatelliteStyleExample.swift */,
 				3EBCD7091DC28240001E342F /* StudioClassicStyleExample.swift */,
 				3EBCD70A1DC28240001E342F /* StudioStyleExample.swift */,
@@ -561,6 +567,7 @@
 				05FA53961FE2F9FF001F3D7D /* DefaultStylesExample.m */,
 				05FA53941FE2F9FE001F3D7D /* SatelliteStyleExample.m */,
 				05FA53971FE2F9FF001F3D7D /* StudioClassicStyleExample.m */,
+				3E044A5720AB9FDC00559FA8 /* HillshadeExample.m */,
 				9691AAA21C5AAD8F006A58C6 /* StudioStyleExample.m */,
 				05536CB1200F9B0900657097 /* SwitchStylesExample.m */,
 				05FA53951FE2F9FE001F3D7D /* ThirdPartyVectorStyleExample.m */,
@@ -811,6 +818,7 @@
 				9691AAA31C5AAD8F006A58C6 /* DefaultStylesExample.h */,
 				960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */,
 				3E3BFADA1E81D7BB00D0BEA1 /* FeatureSelectionExample.h */,
+				3E044A5620AB9FDC00559FA8 /* HillshadeExample.h */,
 				96D431FA1C84B4F7007D09D1 /* ImageAnnotationExample.h */,
 				3E22EF501F8821F800605203 /* ImageSourceExample.h */,
 				968247181C5C115000494AB8 /* LineAnnotationGeoJSONExample.h */,
@@ -1307,6 +1315,7 @@
 				9691AAA71C5AAD8F006A58C6 /* StudioStyleExample.m in Sources */,
 				9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */,
 				3EBCD7261DC28240001E342F /* PointConversionExample.swift in Sources */,
+				3E044A5820AB9FDC00559FA8 /* HillshadeExample.m in Sources */,
 				961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */,
 				64BBDB031DF24E0900BB705D /* WebAPIDataExample.swift in Sources */,
 				3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */,
@@ -1315,6 +1324,7 @@
 				3EBCD7221DC28240001E342F /* LineAnnotationGeoJSONExample.swift in Sources */,
 				3E085B831EC526E500163C99 /* BuildingsExample.m in Sources */,
 				64BBDAF61DF232FD00BB705D /* SelectFeatureExample.swift in Sources */,
+				3E044A5520AB9F7200559FA8 /* HillshadeExample.swift in Sources */,
 				64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */,
 				96D431FC1C84B4F7007D09D1 /* ImageAnnotationExample.m in Sources */,
 				3E3FB66B1F05888E004512C6 /* BuildingLightExample.swift in Sources */,
