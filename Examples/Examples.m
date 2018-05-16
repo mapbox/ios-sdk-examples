@@ -123,7 +123,7 @@
                                     }];
         [swifCategories addObject:@{
                                     @"title": category[@"title"],
-                                    @"examples": objcExamples
+                                    @"examples": swiftExamples
                                     }];
     }];
     
