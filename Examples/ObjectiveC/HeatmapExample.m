@@ -14,7 +14,7 @@ NSString *const MBXExampleHeatmap = @"HeatmapExample";
     [super viewDidLoad];
 
     // Create and add a map view.
-    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle darkStyleURL]];
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURL]];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     mapView.delegate = self;
     mapView.tintColor = [UIColor lightGrayColor];
@@ -44,10 +44,10 @@ NSString *const MBXExampleHeatmap = @"HeatmapExample";
     heatmapLayer.heatmapWeight = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:(mag, 'linear', nil, %@)", @{@0: @0, @6: @1}];
     
     // Heatmap intensity multiplies the heatmap weight based on zoom level.
-    heatmapLayer.heatmapIntensity = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", @{@0: @1, @9: @3 }];
+    heatmapLayer.heatmapIntensity = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", @{@0: @1, @9: @3}];
     heatmapLayer.heatmapRadius = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", @{@0: @4, @9: @30}];
     
-    // The heatmap layer should be visible up to zoom level 9.
+    // The heatmap layer will have an opacity of 0.75 up to zoom level 9, when the opacity becomes 0.
     heatmapLayer.heatmapOpacity = [NSExpression expressionWithFormat:@"mgl_step:from:stops:($zoomLevel, 0.75, %@)", @{@0: @0.75, @9: @0}];
     [style addLayer:heatmapLayer];
     
@@ -64,9 +64,6 @@ NSString *const MBXExampleHeatmap = @"HeatmapExample";
     // The circle layer becomes visible at zoom level 9.
     circleLayer.circleOpacity = [NSExpression expressionWithFormat:@"mgl_step:from:stops:($zoomLevel, 0, %@)", @{@0: @0, @9: @0.75}];
     circleLayer.circleRadius = [NSExpression expressionForConstantValue:@20];
-    circleLayer.circleStrokeColor = [NSExpression expressionForConstantValue:[UIColor whiteColor]];
-    circleLayer.circleStrokeWidth = [NSExpression expressionForConstantValue:@6];
-    circleLayer.circleStrokeOpacity = circleLayer.circleOpacity;
     [style addLayer:circleLayer];
 }
 

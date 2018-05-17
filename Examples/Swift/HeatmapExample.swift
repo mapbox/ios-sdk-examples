@@ -9,7 +9,7 @@ class HeatmapExample: UIViewController, MGLMapViewDelegate {
         super.viewDidLoad()
 
         // Create and add a map view.
-        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL)
+        let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL)
         mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         mapView.delegate = self
         mapView.tintColor = .lightGray
@@ -25,7 +25,7 @@ class HeatmapExample: UIViewController, MGLMapViewDelegate {
         // Create a heatmap layer.
         let heatmapLayer = MGLHeatmapStyleLayer(identifier: "earthquakes", source: source)
         
-    // Adjust the color of the heatmap based on the point density.
+        // Adjust the color of the heatmap based on the point density.
         let colorDictionary : [NSNumber : UIColor] = [
                                 0.0 :  .clear,
                                0.01 : .white,
@@ -48,8 +48,6 @@ class HeatmapExample: UIViewController, MGLMapViewDelegate {
                                            [0: 4,
                                             9: 30])
         
-
-        
         // The heatmap layer should be visible up to zoom level 9.
         heatmapLayer.heatmapOpacity = NSExpression(format: "mgl_step:from:stops:($zoomLevel, 0.75, %@)", [0: 0.75, 9: 0])
         style.addLayer(heatmapLayer)
@@ -64,13 +62,9 @@ class HeatmapExample: UIViewController, MGLMapViewDelegate {
         ]
         circleLayer.circleColor = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:(mag, 'linear', nil, %@)", magnitudeDictionary)
         
-        // The circle layer becomes visible at zoom level 9.
+        // The heatmap layer will have an opacity of 0.75 up to zoom level 9, when the opacity becomes 0.
         circleLayer.circleOpacity = NSExpression(format: "mgl_step:from:stops:($zoomLevel, 0, %@)", [0: 0, 9: 0.75])
         circleLayer.circleRadius = NSExpression(forConstantValue: 20)
-        circleLayer.circleStrokeColor = NSExpression(forConstantValue: UIColor.white)
-        circleLayer.circleStrokeWidth = NSExpression(forConstantValue: 6)
-        
-        circleLayer.circleStrokeOpacity = circleLayer.circleOpacity
         style.addLayer(circleLayer)
     }
 }
