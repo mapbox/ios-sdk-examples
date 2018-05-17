@@ -17,6 +17,7 @@ class ThirdPartyVectorStyleExample_Swift: UIViewController {
         mapView.setCenter(CLLocationCoordinate2DMake(60.16, 24.93), zoomLevel: 12, animated: false)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .white
+        
         view.addSubview(mapView)
     }
 }
