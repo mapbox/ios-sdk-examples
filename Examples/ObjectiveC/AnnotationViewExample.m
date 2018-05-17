@@ -1,5 +1,4 @@
 #import "AnnotationViewExample.h"
-#import "TestingSupport.h"
 @import Mapbox;
 
 NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
@@ -49,7 +48,6 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
     mapView.centerCoordinate = CLLocationCoordinate2DMake(0, 66);
     mapView.zoomLevel = 2;
     mapView.delegate = self;
-
     [self.view addSubview:mapView];
 
     // Specify coordinates for our annotations.

@@ -1,5 +1,4 @@
 #import "AnimatedLineExample.h"
-#import "TestingSupport.h"
 @import Mapbox;
 
 NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";

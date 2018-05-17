@@ -41,7 +41,7 @@
     XCUIApplication *app = [[XCUIApplication alloc] init];
 
     [XCTContext runActivityNamed:@"AnimatedLineExample" block:^(id<XCTActivity>  _Nonnull activity) {
-        [app.tables.staticTexts[@"AnimatedLineExample"] tap];
+        [app.tables.staticTexts[@"Animate a line"] tap];
 
         // Wait for notification
         XCTDarwinNotificationExpectation *expectation = [[XCTDarwinNotificationExpectation alloc] initWithNotificationName:MBXTestingSupportNotificationExampleComplete];
@@ -62,7 +62,7 @@
     __block XCUIElement *compass;
 
     [XCTContext runActivityNamed:@"Wait for initial render" block:^(id<XCTActivity>  _Nonnull activity) {
-        [app.tables.staticTexts[@"AnnotationViewExample"] tap];
+        [app.tables.staticTexts[@"Annotation views"] tap];
         XCUIElementQuery *allQuery = [app descendantsMatchingType:XCUIElementTypeAny];
         element = [allQuery elementMatchingType:XCUIElementTypeAny identifier:@"MGLMapViewId"];
         compass = [allQuery elementMatchingType:XCUIElementTypeAny identifier:@"MGLMapViewCompassId"];
@@ -72,11 +72,13 @@
     }];
 
     [XCTContext runActivityNamed:@"Pinch & Rotate" block:^(id<XCTActivity>  _Nonnull activity) {
-        [element pinchWithScale:2 velocity:10.0];
+        [element pinchWithScale:3 velocity:10.0];
         [element rotate:M_PI*0.75 withVelocity:M_PI*0.75]; // should take 1 second
-        [element pinchWithScale:0.20 velocity:-10.0];
+        [element pinchWithScale:0.2 velocity:-10.0];
 
         [compass tap];
+
+        [element pinchWithScale:0.2 velocity:-10.0];
     }];
 
     // TODO: Check orientation & shape of annotations.
@@ -97,7 +99,7 @@
     __block XCUIElement *slider;
 
     [XCTContext runActivityNamed:@"Wait for initial render" block:^(id<XCTActivity>  _Nonnull activity) {
-        [app.tables.staticTexts[@"BuildingLightExample"] tap];
+        [app.tables.staticTexts[@"Adjust lighting of 3D buildings"] tap];
         XCUIElementQuery *allQuery = [app descendantsMatchingType:XCUIElementTypeAny];
         element = [allQuery elementMatchingType:XCUIElementTypeAny identifier:@"MGLMapViewId"];
         slider = [allQuery elementMatchingType:XCUIElementTypeSlider identifier:@"SliderId"];
