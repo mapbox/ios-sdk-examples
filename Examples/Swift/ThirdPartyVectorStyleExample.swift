@@ -18,7 +18,7 @@ class ThirdPartyVectorStyleExample_Swift: UIViewController {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .white
         
-    // Set the minimum zoom level to prevent the map from zooming out past zoom level 6.
+        // Set the minimum zoom level to prevent the map from zooming out past zoom level 6.
         mapView.minimumZoomLevel = 6
         
         view.addSubview(mapView)
