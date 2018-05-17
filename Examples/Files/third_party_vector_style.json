@@ -4,7 +4,8 @@
         "mapillary": {
             "type": "vector",
             "tiles": ["https://d25uarhxywzl1j.cloudfront.net/v0.1/{z}/{x}/{y}.mvt"],
-            "attribution": "<a href=\"https://www.mapillary.com\" target=\"_blank\">© Mapillary, CC BY</a>"
+            "attribution": "<a href=\"https://www.mapillary.com\" target=\"_blank\">© Mapillary, CC BY</a>",
+            "maxzoom": 14
         }
     },
     "layers": [{
