@@ -25,7 +25,7 @@ class HeatmapExample: UIViewController, MGLMapViewDelegate {
         // Create a heatmap layer.
         let heatmapLayer = MGLHeatmapStyleLayer(identifier: "earthquakes", source: source)
         
-    // Adjust the color of the heatmap based on the density.
+    // Adjust the color of the heatmap based on the point density.
         let colorDictionary : [NSNumber : UIColor] = [
                                 0.0 :  .clear,
                                0.01 : .white,
@@ -35,10 +35,12 @@ class HeatmapExample: UIViewController, MGLMapViewDelegate {
         ]
         heatmapLayer.heatmapColor = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($heatmapDensity, 'linear', nil, %@)", colorDictionary)
         
-        
+        // Heatmap weight measures how much a single data point impacts the layer's appearance.
         heatmapLayer.heatmapWeight = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:(mag, 'linear', nil, %@)",
                                                   [0: 0,
                                                    6: 1])
+        
+        // Heatmap intensity multiplies the heatmap weight based on zoom level.
         heatmapLayer.heatmapIntensity = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
                                               [0: 1,
                                                9: 3])
@@ -48,13 +50,11 @@ class HeatmapExample: UIViewController, MGLMapViewDelegate {
         
 
         
-        // The heatmap should be visible up to zoom level 9.
+        // The heatmap layer should be visible up to zoom level 9.
         heatmapLayer.heatmapOpacity = NSExpression(format: "mgl_step:from:stops:($zoomLevel, 0.75, %@)", [0: 0.75, 9: 0])
         style.addLayer(heatmapLayer)
         
-        
-
-        
+        // Add a circle layer to represent the earthquakes at higher zoom levels.
         let circleLayer = MGLCircleStyleLayer(identifier: "circle-layer", source: source)
         
         let magnitudeDictionary : [NSNumber : UIColor] = [0 : .white,
@@ -63,11 +63,14 @@ class HeatmapExample: UIViewController, MGLMapViewDelegate {
                                                           5 : UIColor(red:0.19, green:0.30, blue:0.80, alpha:1.0)
         ]
         circleLayer.circleColor = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:(mag, 'linear', nil, %@)", magnitudeDictionary)
+        
+        // The circle layer becomes visible at zoom level 9.
         circleLayer.circleOpacity = NSExpression(format: "mgl_step:from:stops:($zoomLevel, 0, %@)", [0: 0, 9: 0.75])
         circleLayer.circleRadius = NSExpression(forConstantValue: 20)
         circleLayer.circleStrokeColor = NSExpression(forConstantValue: UIColor.white)
         circleLayer.circleStrokeWidth = NSExpression(forConstantValue: 6)
-        circleLayer.circleStrokeOpacity = NSExpression(format: "mgl_step:from:stops:($zoomLevel, 0, %@)",  [0: 0, 9: 0.75])
+        
+        circleLayer.circleStrokeOpacity = circleLayer.circleOpacity
         style.addLayer(circleLayer)
     }
 }

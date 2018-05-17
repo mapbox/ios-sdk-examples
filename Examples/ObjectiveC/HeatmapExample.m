@@ -31,7 +31,7 @@ NSString *const MBXExampleHeatmap = @"HeatmapExample";
     // Create a heatmap layer.
     MGLHeatmapStyleLayer *heatmapLayer = [[MGLHeatmapStyleLayer alloc] initWithIdentifier:@"earthquakes" source:source];
     
-    // Adjust the color of the heatmap based on the density.
+    // Adjust the color of the heatmap based on the point density.
     NSDictionary *colorDictionary = @{ @0 : [UIColor clearColor],
                                        @0.01 : [UIColor whiteColor],
                                        @0.1 : [UIColor colorWithRed:0.19 green:0.3 blue:0.8 alpha:1.0],
@@ -40,14 +40,18 @@ NSString *const MBXExampleHeatmap = @"HeatmapExample";
                                        };
     heatmapLayer.heatmapColor = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($heatmapDensity, 'linear', nil, %@)", colorDictionary];
 
-    // Heatmap weight 
+    // Heatmap weight measures how much a single data point impacts the layer's appearance.
     heatmapLayer.heatmapWeight = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:(mag, 'linear', nil, %@)", @{@0: @0, @6: @1}];
+    
+    // Heatmap intensity multiplies the heatmap weight based on zoom level.
     heatmapLayer.heatmapIntensity = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", @{@0: @1, @9: @3 }];
     heatmapLayer.heatmapRadius = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", @{@0: @4, @9: @30}];
+    
+    // The heatmap layer should be visible up to zoom level 9.
     heatmapLayer.heatmapOpacity = [NSExpression expressionWithFormat:@"mgl_step:from:stops:($zoomLevel, 0.75, %@)", @{@0: @0.75, @9: @0}];
     [style addLayer:heatmapLayer];
     
-    
+    // Add a circle layer to represent the earthquakes at higher zoom levels.
     MGLCircleStyleLayer *circleLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"circle-layer" source:source];
     
     NSDictionary *magnitudeDictionary = @{@0 : [UIColor whiteColor],
@@ -56,11 +60,13 @@ NSString *const MBXExampleHeatmap = @"HeatmapExample";
                                           @5 : [UIColor colorWithRed:0.19 green:0.30 blue:0.80 alpha:1.0]
                                           };
     circleLayer.circleColor = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:(mag, 'linear', nil, %@)", magnitudeDictionary];
+    
+    // The circle layer becomes visible at zoom level 9.
     circleLayer.circleOpacity = [NSExpression expressionWithFormat:@"mgl_step:from:stops:($zoomLevel, 0, %@)", @{@0: @0, @9: @0.75}];
     circleLayer.circleRadius = [NSExpression expressionForConstantValue:@20];
     circleLayer.circleStrokeColor = [NSExpression expressionForConstantValue:[UIColor whiteColor]];
     circleLayer.circleStrokeWidth = [NSExpression expressionForConstantValue:@6];
-    circleLayer.circleStrokeOpacity = [NSExpression expressionWithFormat:@"mgl_step:from:stops:($zoomLevel, 0, %@)", @{@0: @0, @9: @0.75}];
+    circleLayer.circleStrokeOpacity = circleLayer.circleOpacity;
     [style addLayer:circleLayer];
 }
 
