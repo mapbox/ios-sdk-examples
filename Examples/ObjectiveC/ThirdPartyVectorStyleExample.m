@@ -17,7 +17,10 @@ NSString *const MBXExampleThirdPartyVectorStyle = @"ThirdPartyVectorStyleExample
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(60.16, 24.93) zoomLevel:12 animated:NO];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     mapView.tintColor = [UIColor whiteColor];
-
+    
+    // Set the minimum zoom level to prevent the map from zooming out past zoom level 6.
+    mapView.minimumZoomLevel = 6;
+    
     [self.view addSubview:mapView];
 }
 
