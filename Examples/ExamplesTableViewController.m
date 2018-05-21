@@ -90,6 +90,7 @@ NSString *const MBXSegueTableToExample = @"TableToExampleSegue";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExampleCell" forIndexPath:indexPath];
     
     cell.textLabel.text = [self exampleAtIndexPath:indexPath][@"title"];
+    cell.detailTextLabel.text = [self exampleAtIndexPath:indexPath][@"className"];
     
     return cell;
 }

@@ -112,9 +112,11 @@
             NSString *swiftName = [NSString stringWithFormat:@"%@_Swift", objcName];
             NSString *title = example[@"title"] ? example[@"title"] : example[@"className"];
             
+            NSAssert(NSClassFromString(objcName) != nil, ([NSString stringWithFormat:@"The class %@ does not exist", objcName]));
             [objcExamples addObject:@{@"className": objcName,
                                       @"title": title
                                       }];
+            NSAssert(NSClassFromString(swiftName) != nil, ([NSString stringWithFormat:@"The class %@ does not exist", swiftName]));
             [swiftExamples addObject:@{@"className": swiftName,
                                        @"title": title
                                        }];
@@ -126,7 +128,7 @@
                                     }];
         [swifCategories addObject:@{
                                     @"title": category[@"title"],
-                                    @"examples": objcExamples
+                                    @"examples": swiftExamples
                                     }];
     }];
     
