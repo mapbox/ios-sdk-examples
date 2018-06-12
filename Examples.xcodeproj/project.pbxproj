@@ -98,6 +98,7 @@
 		64CF97101DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970F1DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift */; };
 		64CF97121DF224F600C3C27B /* RasterImageryExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97111DF224F600C3C27B /* RasterImageryExample.swift */; };
 		64CF97171DF2251500C3C27B /* RasterImageryExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97161DF2251500C3C27B /* RasterImageryExample.m */; };
+		6FE66DED20C9D1260099A4CB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FE66DEF20C9D1260099A4CB /* Localizable.strings */; };
 		960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */; };
 		961962911C581700002D3DAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962901C581700002D3DAB /* main.m */; };
 		961962941C581700002D3DAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962931C581700002D3DAB /* AppDelegate.m */; };
@@ -302,6 +303,8 @@
 		64CF97111DF224F600C3C27B /* RasterImageryExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterImageryExample.swift; sourceTree = "<group>"; };
 		64CF97161DF2251500C3C27B /* RasterImageryExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RasterImageryExample.m; sourceTree = "<group>"; };
 		64CF97191DF2252C00C3C27B /* RasterImageryExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RasterImageryExample.h; sourceTree = "<group>"; };
+		6FE66DEE20C9D1260099A4CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6FE66DF020C9D1370099A4CB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		7556D44879C1E2866B0355B8 /* Pods-ExamplesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExamplesTests/Pods-ExamplesTests.release.xcconfig"; sourceTree = "<group>"; };
 		7692D1D792EB3849E8754E6B /* Pods_ExamplesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExamplesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableAnnotationViewExample.h; sourceTree = "<group>"; };
@@ -758,6 +761,7 @@
 				9691AAAA1C5AB546006A58C6 /* Examples-Bridging-Header.h */,
 				961962901C581700002D3DAB /* main.m */,
 				964CB5171E445AE1004549EA /* mapbox_access_token */,
+				6FE66DEF20C9D1260099A4CB /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1036,6 +1040,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 961962831C581700002D3DAB;
 			productRefGroup = 9619628D1C581700002D3DAB /* Products */;
@@ -1082,6 +1087,7 @@
 				079E77C51E1C4E2100F92FA8 /* camera.xcassets in Resources */,
 				9619629C1C581700002D3DAB /* Assets.xcassets in Resources */,
 				9682471D1C5C123B00494AB8 /* example.geojson in Resources */,
+				6FE66DED20C9D1260099A4CB /* Localizable.strings in Resources */,
 				64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */,
 				961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */,
 				96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */,
@@ -1440,6 +1446,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		6FE66DEF20C9D1260099A4CB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6FE66DEE20C9D1260099A4CB /* en */,
+				6FE66DF020C9D1370099A4CB /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		9619629D1C581700002D3DAB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1544,6 +1559,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1598,6 +1614,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

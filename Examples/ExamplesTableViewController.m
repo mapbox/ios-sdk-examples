@@ -89,7 +89,7 @@ NSString *const MBXSegueTableToExample = @"TableToExampleSegue";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExampleCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [self exampleAtIndexPath:indexPath][@"title"];
+    cell.textLabel.text = NSLocalizedString([self exampleAtIndexPath:indexPath][@"title"], nil);
     cell.detailTextLabel.text = [self exampleAtIndexPath:indexPath][@"className"];
     
     return cell;
@@ -115,7 +115,7 @@ NSString *const MBXSegueTableToExample = @"TableToExampleSegue";
     
     UILabel *label = [[UILabel alloc] init];
     label.frame = UIEdgeInsetsInsetRect(headerView.bounds, UIEdgeInsetsMake(0, tableView.separatorInset.left, 0, 0));
-    label.text = self.selectedGroup[@"categories"][section][@"title"];
+    label.text = NSLocalizedString(self.selectedGroup[@"categories"][section][@"title"], nil);
     
     [headerView addSubview:label];
 
