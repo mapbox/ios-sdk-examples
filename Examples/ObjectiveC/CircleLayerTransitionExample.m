@@ -19,7 +19,6 @@ NSString *const MBXExampleCircleLayerTransition = @"CircleLayerTransitionExample
                                             styleURL:[MGLStyle outdoorsStyleURL]];
     
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.mapView.tintColor = [UIColor darkGrayColor];
     
     // Set the map’s center coordinate and zoom level.
     self.mapView.centerCoordinate = CLLocationCoordinate2DMake(28.437,-81.91);
