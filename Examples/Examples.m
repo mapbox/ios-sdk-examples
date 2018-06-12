@@ -72,6 +72,7 @@
             @"examples":@[
                     @{@"className": MBXExampleClustering, @"title": @"Cluster point data"},
                     @{@"className": MBXExampleDDSCircleLayer, @"title": @"Data-driven circles"},
+                    @{@"className": MBXExampleCircleLayerTransition, @"title": @"Use a transition to animate circles"},
                     @{@"className": MBXExampleHeatmap,
                       @"title": @"Add a heatmap layer"
                       },
