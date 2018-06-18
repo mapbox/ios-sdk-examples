@@ -4,9 +4,10 @@ import Mapbox
 
 // Example view controller
 class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
+    var pointAnnotations : [MGLPointAnnotation]!
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.styleURL = MGLStyle.darkStyleURL
@@ -21,10 +22,10 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
             CLLocationCoordinate2D(latitude: 0, longitude: 33),
             CLLocationCoordinate2D(latitude: 0, longitude: 66),
             CLLocationCoordinate2D(latitude: 0, longitude: 99),
-        ]
+            ]
         
         // Fill an array with point annotations and add it to the map.
-        var pointAnnotations = [MGLPointAnnotation]()
+        pointAnnotations = [MGLPointAnnotation]()
         for coordinate in coordinates {
             let point = MGLPointAnnotation()
             point.coordinate = coordinate
@@ -66,6 +67,11 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
     }
+    
+    func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
+        let annot = pointAnnotations.filter { $0.coordinate.longitude == annotation.coordinate.longitude }
+        
+    }
 }
 
 //
@@ -78,15 +84,36 @@ class CustomAnnotationView: MGLAnnotationView {
         layer.cornerRadius = bounds.width / 2
         layer.borderWidth = 2
         layer.borderColor = UIColor.white.cgColor
+
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Animate the border width in/out, creating an iris effect.
-        let animation = CABasicAnimation(keyPath: "borderWidth")
-        animation.duration = 0.1
-        layer.borderWidth = selected ? bounds.width / 4 : 2
-        layer.add(animation, forKey: "borderWidth")
+        
+        if #available(iOS 9.0, *) {
+            let animation = CASpringAnimation(keyPath: "bounds.size")
+            setupAnimation(animation: animation, selected: selected)
+        } else {
+            let animation = CABasicAnimation(keyPath: "bounds.size")
+            setupAnimation(animation: animation, selected: selected)
+        }
+        
+    }
+    
+    func setupAnimation(animation: CABasicAnimation, selected: Bool) {
+                animation.duration = 0.1
+                animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            layer.add(animation, forKey: "bounds.size")
+        if selected {
+            layer.setAffineTransform(CGAffineTransform(scaleX: 2, y: 2))
+        } else {
+            layer.setAffineTransform(CGAffineTransform(scaleX: 1, y: 1))
+        }
+//            layer.bounds.size.width = selected ? bounds.width * 2 : 40
+//                layer.bounds.size.height = selected ? bounds.height * 2 : 40
+//                layer.cornerRadius = bounds.width / 2
+//        layoutSubviews()
     }
 }
