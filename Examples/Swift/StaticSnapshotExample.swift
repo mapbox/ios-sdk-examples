@@ -45,8 +45,8 @@ class StaticSnapshotExample: UIViewController, MGLMapViewDelegate {
         indicator.startAnimating()
         
         // Create the map snapshot.
-        let snapshotter = MGLMapSnapshotter(options: options)
-        snapshotter.start { (snapshot, error) in
+        var snapshotter: MGLMapSnapshotter? = MGLMapSnapshotter(options: options)
+        snapshotter?.start { (snapshot, error) in
             if error != nil {
                 print("Unable to create a map snapshot.")
             } else if let snapshot = snapshot {
@@ -54,6 +54,8 @@ class StaticSnapshotExample: UIViewController, MGLMapViewDelegate {
                 indicator.stopAnimating()
                 self.imageView.image = snapshot.image
             }
+
+            snapshotter = nil
         }
     }
 }
