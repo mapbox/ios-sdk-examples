@@ -5,132 +5,135 @@ import Mapbox
 class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
     var mapView: MGLMapView!
-    var icon: UIImage!
-    var popup: UILabel?
+    var progressView: UIProgressView!
+    var downloadButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.tintColor = .darkGray
+        mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 44.645208223, longitude: -63.0175781)
+        mapView.zoomLevel = 6.5
         mapView.delegate = self
         view.addSubview(mapView)
-
-        // Add a single tap gesture recognizer. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
-        for recognizer in mapView.gestureRecognizers! where recognizer is UITapGestureRecognizer {
-            singleTap.require(toFail: recognizer)
-        }
-        mapView.addGestureRecognizer(singleTap)
-
-        icon = UIImage(named: "port")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(offlinePackProgressDidChange), name: NSNotification.Name.MGLOfflinePackProgressChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(offlinePackDidReceiveError), name: NSNotification.Name.MGLOfflinePackError, object: nil)
     }
-
+    
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "ports", ofType: "geojson")!)
-
+        
+        // Data pulled from: "https://opendata.arcgis.com/datasets/47fe59959754485c9025e7249444c94f_0.geojson
+        
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "halifax", ofType: "geojson")!)
         let source = MGLShapeSource(identifier: "clusteredPorts",
                                     url: url,
-                                    options: [.clustered: true, .clusterRadius: icon.size.width])
+                                    options: [.clustered: true, .clusterRadius: 50])
         style.addSource(source)
-
-        // Use a template image so that we can tint it with the `iconColor` runtime styling property.
-        style.setImage(icon.withRenderingMode(.alwaysTemplate), forName: "icon")
-
-        // Show unclustered features as icons. The `cluster` attribute is built into clustering-enabled source features.
+        
+        // Unclustered symbols
         let ports = MGLSymbolStyleLayer(identifier: "ports", source: source)
-        ports.iconImageName = NSExpression(forConstantValue: "icon")
-        ports.iconColor = NSExpression(forConstantValue: UIColor.darkGray.withAlphaComponent(0.9))
+        ports.iconImageName = NSExpression(forConstantValue: "harbor-15")
         ports.predicate = NSPredicate(format: "cluster != YES")
         style.addLayer(ports)
-
-        // Color clustered features based on clustered point counts.
+        
+        // Clustered circles
         let stops = [
-            20:  UIColor.lightGray,
-            50:  UIColor.orange,
-            100: UIColor.red,
-            200: UIColor.purple
+            1:  UIColor.lightGray,
+            5:  UIColor.orange,
+            7: UIColor.red,
+            9: UIColor.purple
         ]
-
-        // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
+        
         let circlesLayer = MGLCircleStyleLayer(identifier: "clusteredPorts", source: source)
-        circlesLayer.circleRadius = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
+        circlesLayer.circleRadius = NSExpression(forConstantValue: NSNumber(value: 18))
         circlesLayer.circleOpacity = NSExpression(forConstantValue: 0.75)
         circlesLayer.circleStrokeColor = NSExpression(forConstantValue: UIColor.white.withAlphaComponent(0.75))
         circlesLayer.circleStrokeWidth = NSExpression(forConstantValue: 2)
         circlesLayer.circleColor = NSExpression(format: "mgl_step:from:stops:(point_count, %@, %@)", UIColor.lightGray, stops)
         circlesLayer.predicate = NSPredicate(format: "cluster == YES")
         style.addLayer(circlesLayer)
-
-        // Label cluster circles with a layer of text indicating feature count. The value for `point_count` is an integer. In order to use that value for the `MGLSymbolStyleLayer.text` property, cast it as a string. 
+        
+        // Labels for clustered circles
         let numbersLayer = MGLSymbolStyleLayer(identifier: "clusteredPortsNumbers", source: source)
         numbersLayer.textColor = NSExpression(forConstantValue: UIColor.white)
-        numbersLayer.textFontSize = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
+        numbersLayer.textFontSize = NSExpression(forConstantValue: NSNumber(value: 12))
         numbersLayer.iconAllowsOverlap = NSExpression(forConstantValue: true)
         numbersLayer.text = NSExpression(format: "CAST(point_count, 'NSString')")
         
         numbersLayer.predicate = NSPredicate(format: "cluster == YES")
         style.addLayer(numbersLayer)
     }
-
-    func mapViewRegionIsChanging(_ mapView: MGLMapView) {
-        showPopup(false, animated: false)
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
+        downloadButton = UIButton(frame: CGRect(x: 20, y: 50, width: 150, height: 40))
+        downloadButton.setTitle("Download map", for: .normal)
+        downloadButton.backgroundColor = .blue
+        downloadButton.addTarget(self, action: #selector(startOfflinePackDownload(sender:)), for: .touchUpInside)
+        mapView.addSubview(downloadButton)
     }
+    
+    @objc func startOfflinePackDownload(sender: UIButton) {
+        
+        downloadButton.setTitle("Downloading...", for: .disabled)
+        downloadButton.backgroundColor = UIColor(red: 0, green: 0, blue: 50, alpha: 0.5)
+        downloadButton.isEnabled = false
+        
+        let region = MGLTilePyramidOfflineRegion(styleURL: mapView.styleURL, bounds: mapView.visibleCoordinateBounds, fromZoomLevel: mapView.zoomLevel, toZoomLevel: 11)
+        
+        let userInfo = ["name": "Halifax offline pack"]
+        let context = NSKeyedArchiver.archivedData(withRootObject: userInfo)
+        
+        MGLOfflineStorage.shared.addPack(for: region, withContext: context) { (pack, error) in
+            guard error == nil else {
+                print("Error: \(error?.localizedDescription ?? "unknown error")")
+                return
+            }
+            
+            pack!.resume()
+        }
+    }
+    
+    @objc func offlinePackProgressDidChange(notification: NSNotification) {
 
-    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) {
-        if sender.state == .ended {
-            let point = sender.location(in: sender.view)
-            let width = icon.size.width
-            let rect = CGRect(x: point.x - width / 2, y: point.y - width / 2, width: width, height: width)
-
-            let clusters = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["clusteredPorts"])
-            let ports = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["ports"])
-
-            if clusters.count > 0 {
-                showPopup(false, animated: true)
-                let cluster = clusters.first!
-                mapView.setCenter(cluster.coordinate, zoomLevel: (mapView.zoomLevel + 1), animated: true)
-            } else if ports.count > 0 {
-                let port = ports.first!
-
-                if popup == nil {
-                    popup = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-                    popup!.backgroundColor = UIColor.white.withAlphaComponent(0.9)
-                    popup!.layer.cornerRadius = 4
-                    popup!.layer.masksToBounds = true
-                    popup!.textAlignment = .center
-                    popup!.lineBreakMode = .byTruncatingTail
-                    popup!.font = UIFont.systemFont(ofSize: 16)
-                    popup!.textColor = UIColor.black
-                    popup!.alpha = 0
-                    view.addSubview(popup!)
-                }
-
-                popup!.text = (port.attribute(forKey: "name")! as! String)
-                let size = (popup!.text! as NSString).size(withAttributes: [NSAttributedStringKey.font: popup!.font])
-                popup!.bounds = CGRect(x: 0, y: 0, width: size.width, height: size.height).insetBy(dx: -10, dy: -10)
-                let point = mapView.convert(port.coordinate, toPointTo: mapView)
-                popup!.center = CGPoint(x: point.x, y: point.y - 50)
-
-                if popup!.alpha < 1 {
-                    showPopup(true, animated: true)
-                }
+        if let pack = notification.object as? MGLOfflinePack,
+            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String] {
+            let progress = pack.progress
+            let completedResources = progress.countOfResourcesCompleted
+            let expectedResources = progress.countOfResourcesExpected
+            
+            let progressPercentage = Float(completedResources) / Float(expectedResources)
+            
+            if progressView == nil {
+                progressView = UIProgressView(progressViewStyle: .default)
+                let frame = view.bounds.size
+                progressView.frame = CGRect(x: frame.width / 4, y: frame.height * 0.75, width: frame.width / 2, height: 10)
+                view.addSubview(progressView)
+            }
+            
+            progressView.progress = progressPercentage
+            
+            if completedResources == expectedResources {
+                let byteCount = ByteCountFormatter.string(fromByteCount: Int64(pack.progress.countOfBytesCompleted), countStyle: ByteCountFormatter.CountStyle.memory)
+                print("Offline pack “\(userInfo["name"] ?? "unknown")” completed: \(byteCount), \(completedResources) resources")
+                
+                downloadButton.setTitle("Downlowded", for: .disabled)
             } else {
-                showPopup(false, animated: true)
+                print("Offline pack “\(userInfo["name"] ?? "unknown")” has \(completedResources) of \(expectedResources) resources — \(progressPercentage * 100)%.")
             }
         }
     }
-
-    func showPopup(_ shouldShow: Bool, animated: Bool) {
-        let alpha: CGFloat = (shouldShow ? 1 : 0)
-        if animated {
-            UIView.animate(withDuration: 0.25) { [unowned self] in
-                self.popup?.alpha = alpha
-            }
-        } else {
-            popup?.alpha = alpha
+    
+    @objc func offlinePackDidReceiveError(notification: NSNotification) {
+        if let pack = notification.object as? MGLOfflinePack,
+            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
+            let error = notification.userInfo?[MGLOfflinePackUserInfoKey.error] as? NSError {
+            print("Offline pack “\(userInfo["name"] ?? "unknown")” received error: \(error.localizedFailureReason ?? "unknown error")")
         }
     }
-
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }

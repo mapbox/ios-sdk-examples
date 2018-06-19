@@ -18,6 +18,7 @@
 		0597C0D2207FCA540045DE7C /* DDSCircleLayerTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */; };
 		0597C0D3207FCDD20045DE7C /* FirstStepsTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A8688F1F7314EF00242FB4 /* FirstStepsTutorialViewController.m */; };
 		0597C0D4207FCDD40045DE7C /* FirstStepsTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050337421F7199DF007309B0 /* FirstStepsTutorialViewController.swift */; };
+		05C440A320D8505100EA4541 /* halifax.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 05C440A220D8505100EA4541 /* halifax.geojson */; };
 		05DB802F1F75A4AD00F73326 /* DocsCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DB802E1F75A4AD00F73326 /* DocsCodeTests.swift */; };
 		05FA53981FE2FA00001F3D7D /* SatelliteStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53941FE2F9FE001F3D7D /* SatelliteStyleExample.m */; };
 		05FA53991FE2FA00001F3D7D /* ThirdPartyVectorStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53951FE2F9FE001F3D7D /* ThirdPartyVectorStyleExample.m */; };
@@ -192,6 +193,7 @@
 		05AB82441FBC09AB005FB704 /* NavigationTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTutorialViewController.swift; sourceTree = "<group>"; };
 		05AB82461FBC0D41005FB704 /* NavigationTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationTutorialViewController.h; sourceTree = "<group>"; };
 		05AB82471FBC0D41005FB704 /* NavigationTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationTutorialViewController.m; sourceTree = "<group>"; };
+		05C440A220D8505100EA4541 /* halifax.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = halifax.geojson; path = ../../../../Downloads/halifax.geojson; sourceTree = "<group>"; };
 		05DB802C1F75A4AD00F73326 /* DocsCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DocsCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DB802E1F75A4AD00F73326 /* DocsCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsCodeTests.swift; sourceTree = "<group>"; };
 		05DB80301F75A4AE00F73326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -783,6 +785,7 @@
 		9682471B1C5C123B00494AB8 /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				05C440A220D8505100EA4541 /* halifax.geojson */,
 				079E77C41E1C4E2100F92FA8 /* camera.xcassets */,
 				DD5939E51E6778480009BEB2 /* clustering.xcassets */,
 				9682471C1C5C123B00494AB8 /* example.geojson */,
@@ -902,6 +905,7 @@
 				0503373C1F7199DF007309B0 /* Resources */,
 				056F105B1FC4C80A0037FFBE /* Insert Mapbox Access Token */,
 				AE0655B20C8AA154EF5BC4BE /* [CP] Embed Pods Frameworks */,
+				0BADD7A5A60CBC75BF04FFB4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -941,6 +945,7 @@
 				961962C71C5818EB002D3DAB /* Embed Frameworks */,
 				964CB5161E445964004549EA /* Insert Mapbox Access Token */,
 				B8CEDEEE83C3362F5C012330 /* [CP] Embed Pods Frameworks */,
+				0D1C7B19C8B3F3F128B3B5BF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -959,6 +964,8 @@
 				961962A11C581700002D3DAB /* Sources */,
 				961962A21C581700002D3DAB /* Frameworks */,
 				961962A31C581700002D3DAB /* Resources */,
+				3835CF32108DE43B1CB4F21D /* [CP] Embed Pods Frameworks */,
+				4F7FBDA94733B3CC31119F17 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -978,6 +985,8 @@
 				961962AC1C581700002D3DAB /* Sources */,
 				961962AD1C581700002D3DAB /* Frameworks */,
 				961962AE1C581700002D3DAB /* Resources */,
+				70CB26207CC9665E0729DF87 /* [CP] Embed Pods Frameworks */,
+				998DEDAD417211B3CABC1983 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1083,6 +1092,7 @@
 				9619629C1C581700002D3DAB /* Assets.xcassets in Resources */,
 				9682471D1C5C123B00494AB8 /* example.geojson in Resources */,
 				64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */,
+				05C440A320D8505100EA4541 /* halifax.geojson in Resources */,
 				961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */,
 				96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */,
 			);
@@ -1119,6 +1129,36 @@
 			shellPath = /bin/sh;
 			shellScript = "$SRCROOT/Examples/insert-mapbox-token.sh";
 		};
+		0BADD7A5A60CBC75BF04FFB4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0D1C7B19C8B3F3F128B3B5BF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Examples/Pods-Examples-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		227ED455385772D85979EFDA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1135,6 +1175,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3835CF32108DE43B1CB4F21D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ExamplesTests/Pods-ExamplesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F7FBDA94733B3CC31119F17 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ExamplesTests/Pods-ExamplesTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70CB26207CC9665E0729DF87 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ExamplesUITests/Pods-ExamplesUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		86411F4AADC7F6D3F4B54A6C /* [CP] Check Pods Manifest.lock */ = {
@@ -1168,6 +1253,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "$SRCROOT/Examples/insert-mapbox-token.sh";
+		};
+		998DEDAD417211B3CABC1983 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ExamplesUITests/Pods-ExamplesUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		AE0655B20C8AA154EF5BC4BE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
