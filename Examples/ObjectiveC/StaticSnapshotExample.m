@@ -50,7 +50,7 @@ NSString *const MBXExampleStaticSnapshot = @"StaticSnapshotExample";
     [indicator startAnimating];
     
     // Create the map snapshot.
-    MGLMapSnapshotter *snapshotter = [[MGLMapSnapshotter alloc] initWithOptions:options];
+    __block MGLMapSnapshotter *snapshotter = [[MGLMapSnapshotter alloc] initWithOptions:options];
     
     [snapshotter startWithCompletionHandler:^(MGLMapSnapshot * _Nullable snapshot, NSError * _Nullable error) {
         if (error != nil) {
@@ -60,6 +60,8 @@ NSString *const MBXExampleStaticSnapshot = @"StaticSnapshotExample";
             [indicator stopAnimating];
             self.imageView.image = snapshot.image;
         }
+        
+        snapshotter = nil;
     }];
 }
 @end
