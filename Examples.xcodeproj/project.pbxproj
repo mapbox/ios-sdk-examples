@@ -1019,7 +1019,7 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = GJZR2MEM28;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					961962A41C581700002D3DAB = {
 						CreatedOnToolsVersion = 7.3;
@@ -1668,7 +1668,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = GJZR2MEM28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1676,8 +1677,10 @@
 				);
 				INFOPLIST_FILE = Examples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.examples;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.examples.china;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
@@ -1689,9 +1692,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mapbox, Inc. (GJZR2MEM28)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = GJZR2MEM28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1699,8 +1703,10 @@
 				);
 				INFOPLIST_FILE = Examples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.examples;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.examples.china;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ad0dbda7-e7dd-424a-a725-bcc65a6c7f3c";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.mapbox.examples.china";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
