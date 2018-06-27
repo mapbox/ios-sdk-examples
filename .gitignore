@@ -1,5 +1,6 @@
 # Ignore the file containing your Mapbox access token, to keep it out of public repos.
 mapbox_access_token
+mapbox_endpoint
 
 xcuserdata
 DerivedData/

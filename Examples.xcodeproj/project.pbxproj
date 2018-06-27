@@ -991,6 +991,7 @@
 				964CB5161E445964004549EA /* Insert Mapbox Access Token */,
 				07CF859D20F41654007B26B6 /* Lint examples */,
 				B8CEDEEE83C3362F5C012330 /* [CP] Embed Pods Frameworks */,
+				6F98F1C520E3A4430056D426 /* Change Mapbox Endpoint */,
 			);
 			buildRules = (
 			);
@@ -1202,6 +1203,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		6F98F1C520E3A4430056D426 /* Change Mapbox Endpoint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Change Mapbox Endpoint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/Examples/change-mapbox-endpoint.sh";
 		};
 		86411F4AADC7F6D3F4B54A6C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
