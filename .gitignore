@@ -5,6 +5,8 @@ xcuserdata
 DerivedData/
 Pods
 *.xcworkspace
+*.ipa
+*.dSYM.zip
 
 fastlane/README.md
 fastlane/report.xml
