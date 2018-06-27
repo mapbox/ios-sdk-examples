@@ -11,7 +11,7 @@
 #import "TestingSupport.h"
 
 @interface ExamplesUITests : XCTestCase
-
+@property (nonatomic) XCUIApplication *app;
 @end
 
 @implementation ExamplesUITests
@@ -23,9 +23,11 @@
     self.continueAfterFailure = NO;
 
     // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-    XCUIApplication *app = [[XCUIApplication alloc] init];
-    app.launchArguments = [app.launchArguments arrayByAddingObject:@"useFastAnimations"];
-    [app launch];
+    self.app = [[XCUIApplication alloc] init];
+    self.app.launchArguments = [self.app.launchArguments arrayByAddingObject:@"useFastAnimations"];
+    [self.app launch];
+
+    [self.app.navigationBars[@"Examples"].buttons[@"ObjC"] tap];
 }
 
 - (void)tearDown {
@@ -38,16 +40,14 @@
  */
 - (void)testAnimatedLineExample {
 
-    XCUIApplication *app = [[XCUIApplication alloc] init];
-
     [XCTContext runActivityNamed:@"AnimatedLineExample" block:^(id<XCTActivity>  _Nonnull activity) {
-        [app.tables.staticTexts[@"Animate a line"] tap];
+        [self.app.tables.staticTexts[@"Animate a line"] tap];
 
         // Wait for notification
         XCTDarwinNotificationExpectation *expectation = [[XCTDarwinNotificationExpectation alloc] initWithNotificationName:MBXTestingSupportNotificationExampleComplete];
         [self waitForExpectations:@[expectation] timeout:30.0];
 
-        [app.navigationBars[@"AnimatedLineExample"].buttons[@"Examples"] tap];
+        [self.app.navigationBars[@"AnimatedLineExample"].buttons[@"Examples"] tap];
     }];
 }
 
@@ -56,14 +56,13 @@
  Zoom and rotate the map.
  */
 - (void)testCustomAnnotationView {
-    XCUIApplication *app = [[XCUIApplication alloc] init];
 
     __block XCUIElement *element;
     __block XCUIElement *compass;
 
     [XCTContext runActivityNamed:@"Wait for initial render" block:^(id<XCTActivity>  _Nonnull activity) {
-        [app.tables.staticTexts[@"Annotation views"] tap];
-        XCUIElementQuery *allQuery = [app descendantsMatchingType:XCUIElementTypeAny];
+        [self.app.tables.staticTexts[@"Annotation views"] tap];
+        XCUIElementQuery *allQuery = [self.app descendantsMatchingType:XCUIElementTypeAny];
         element = [allQuery elementMatchingType:XCUIElementTypeAny identifier:@"MGLMapViewId"];
         compass = [allQuery elementMatchingType:XCUIElementTypeAny identifier:@"MGLMapViewCompassId"];
 
@@ -88,19 +87,17 @@
         XCTestExpectation *expectation = [self expectationWithDescription:@"wait"];
         (void)[XCTWaiter waitForExpectations:@[expectation] timeout:3.0]; // Let it timeout
 
-        [app.navigationBars[@"AnnotationViewExample"].buttons[@"Examples"] tap];
+        [self.app.navigationBars[@"AnnotationViewExample"].buttons[@"Examples"] tap];
     }];
 }
 
 - (void)testBuildingLightExample {
-    XCUIApplication *app = [[XCUIApplication alloc] init];
-
     __block XCUIElement *element;
     __block XCUIElement *slider;
 
     [XCTContext runActivityNamed:@"Wait for initial render" block:^(id<XCTActivity>  _Nonnull activity) {
-        [app.tables.staticTexts[@"Adjust lighting of 3D buildings"] tap];
-        XCUIElementQuery *allQuery = [app descendantsMatchingType:XCUIElementTypeAny];
+        [self.app.tables.staticTexts[@"Adjust lighting of 3D buildings"] tap];
+        XCUIElementQuery *allQuery = [self.app descendantsMatchingType:XCUIElementTypeAny];
         element = [allQuery elementMatchingType:XCUIElementTypeAny identifier:@"MGLMapViewId"];
         slider = [allQuery elementMatchingType:XCUIElementTypeSlider identifier:@"SliderId"];
 
@@ -114,12 +111,11 @@
         [slider adjustToNormalizedSliderPosition:0.5];
     }];
 
-    [app.navigationBars[@"BuildingLightExample"].buttons[@"Examples"] tap];
+    [self.app.navigationBars[@"BuildingLightExample"].buttons[@"Examples"] tap];
 }
 
 
 - (void)testEveryExample {
-    XCUIApplication *app = [[XCUIApplication alloc] init];
 
     __block NSUInteger count;
     __block NSMutableArray<XCUIElement*> *elements;
@@ -129,7 +125,7 @@
     // activities)
     [XCTContext runActivityNamed:@"Get examples" block:^(id<XCTActivity>  _Nonnull activity) {
 
-        XCUIElementQuery *cells = app.tables.cells;
+        XCUIElementQuery *cells = self.app.tables.cells;
         count = cells.count;
 
         elements = [NSMutableArray arrayWithCapacity:count];
@@ -137,7 +133,7 @@
 
         for (int i = 0; i < count; i++) {
             XCUIElement *el = cells.allElementsBoundByIndex[i];
-            NSString *title = [[el.staticTexts element] label];
+            NSString *title = [[el.staticTexts element].firstMatch label];
 
             [elements addObject:el];
             [titles addObject:title];
@@ -151,7 +147,7 @@
             // XCTest waits for the app to idle before continuing.
 
             // Tap 'Back' button.
-            [app.navigationBars.buttons.allElementsBoundByIndex.firstObject tap];
+            [self.app.navigationBars.buttons.allElementsBoundByIndex.firstObject tap];
         }];
     }
 }
