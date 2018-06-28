@@ -17,8 +17,8 @@ NSString *const MBXExampleBuildings = @"BuildingsExample";
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle lightStyleURLWithVersion:9]];
 	mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    // Center the map view on the Colosseum in Rome, Italy and set the camera's pitch and distance.
-    mapView.camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(41.8902, 12.4922) fromDistance:600 pitch:60 heading:0];
+    // Center the map view on the Castel Sant'Angelo in Rome, Italy and set the camera's pitch, heading, and distance.
+    mapView.camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(41.9036, 12.4665) fromDistance:600 pitch:60 heading:210];
     mapView.delegate = self;
     
     [self.view addSubview:mapView];
@@ -36,7 +36,6 @@ NSString *const MBXExampleBuildings = @"BuildingsExample";
     
     // Set the fill extrusion height to the value for the building height attribute.
     layer.fillExtrusionHeight = [NSExpression expressionForKeyPath:@"height"];
-    layer.fillExtrusionBase = [NSExpression expressionForKeyPath:@"min_height"];
     layer.fillExtrusionOpacity = [NSExpression expressionForConstantValue:@0.75];
     layer.fillExtrusionColor = [NSExpression expressionForConstantValue:[UIColor whiteColor]];
     
