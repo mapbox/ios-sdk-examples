@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CalloutDelegateUsageExample : UIViewController
+@interface DefaultCalloutExample : UIViewController
 
 @end

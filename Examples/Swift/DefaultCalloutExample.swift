@@ -1,8 +1,8 @@
 import Mapbox
 
-@objc(CalloutDelegateUsageExample_Swift)
+@objc(DefaultCalloutExample_Swift)
 
-class CalloutDelegateUsageExample_Swift: UIViewController, MGLMapViewDelegate {
+class DefaultCalloutExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     
     override func viewDidLoad() {

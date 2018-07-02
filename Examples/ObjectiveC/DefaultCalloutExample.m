@@ -1,13 +1,13 @@
-#import "CalloutDelegateUsageExample.h"
+#import "DefaultCalloutExample.h"
 @import Mapbox;
 
-NSString *const MBXExampleCalloutDelegateUsage = @"CalloutDelegateUsageExample";
+NSString *const MBXExampleDefaultCallout = @"DefaultCalloutExample";
 
-@interface CalloutDelegateUsageExample () <MGLMapViewDelegate>
+@interface DefaultCalloutExample () <MGLMapViewDelegate>
 @property MGLMapView *mapView;
 @end
 
-@implementation CalloutDelegateUsageExample
+@implementation DefaultCalloutExample
 
 - (void)viewDidLoad
 {
