@@ -21,11 +21,14 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Animate the border width in/out, creating an iris effect.
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderWidth"];
-    animation.duration = 0.1;
-    self.layer.borderWidth = selected ? self.bounds.size.width / 4 : 2;
-    [self.layer addAnimation:animation forKey:@"borderWidth"];
+    // Increase the size of the annotation if it is selected, and restore annotation to its original size if it is not selected.
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"bounds.size"];
+    [self.layer addAnimation:animation forKey:@"bounds.size"];
+    if (selected) {
+        [self.layer setAffineTransform:CGAffineTransformMakeScale(2, 2)];
+    } else {
+        [self.layer setAffineTransform:CGAffineTransformMakeScale(1, 1)];
+    }
 }
 
 @end
@@ -101,6 +104,11 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
 
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation {
     return YES;
+}
+
+// Adjust the positioning of the callout view once the annotation is selected.
+- (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
+    [mapView layoutSubviews];
 }
 
 @end

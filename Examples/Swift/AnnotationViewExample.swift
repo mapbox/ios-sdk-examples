@@ -68,10 +68,11 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
         return true
     }
     
+    // Adjust the positioning of the callout view once the annotation is selected.
     func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
-        let annot = pointAnnotations.filter { $0.coordinate.longitude == annotation.coordinate.longitude }
-        
+        mapView.layoutSubviews()
     }
+    
 }
 
 //
@@ -84,36 +85,21 @@ class CustomAnnotationView: MGLAnnotationView {
         layer.cornerRadius = bounds.width / 2
         layer.borderWidth = 2
         layer.borderColor = UIColor.white.cgColor
-
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        // Animate the border width in/out, creating an iris effect.
-        
-        if #available(iOS 9.0, *) {
-            let animation = CASpringAnimation(keyPath: "bounds.size")
-            setupAnimation(animation: animation, selected: selected)
-        } else {
-            let animation = CABasicAnimation(keyPath: "bounds.size")
-            setupAnimation(animation: animation, selected: selected)
-        }
-        
-    }
-    
-    func setupAnimation(animation: CABasicAnimation, selected: Bool) {
-                animation.duration = 0.1
-                animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            layer.add(animation, forKey: "bounds.size")
+        // Increase the size of the annotation if it is selected, and restore annotation to its original size if it is not selected.
+        let animation = CABasicAnimation(keyPath: "bounds.size")
+        animation.duration = 0.1
+        layer.add(animation, forKey: "bounds.size")
         if selected {
             layer.setAffineTransform(CGAffineTransform(scaleX: 2, y: 2))
         } else {
             layer.setAffineTransform(CGAffineTransform(scaleX: 1, y: 1))
         }
-//            layer.bounds.size.width = selected ? bounds.width * 2 : 40
-//                layer.bounds.size.height = selected ? bounds.height * 2 : 40
-//                layer.cornerRadius = bounds.width / 2
-//        layoutSubviews()
+        
     }
 }
