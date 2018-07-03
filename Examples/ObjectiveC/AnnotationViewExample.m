@@ -108,7 +108,7 @@ NSString *const MBXExampleAnnotationView = @"AnnotationViewExample";
 
 // Adjust the positioning of the callout view once the annotation is selected.
 - (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
-    [mapView layoutSubviews];
+    [mapView setNeedsLayout];
 }
 
 @end

@@ -70,7 +70,7 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
     
     // Adjust the positioning of the callout view once the annotation is selected.
     func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
-        mapView.layoutSubviews()
+        mapView.setNeedsLayout()
     }
     
 }
