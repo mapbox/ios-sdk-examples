@@ -15,12 +15,14 @@ PODS:
   - MapboxSpeech (0.0.1)
   - Polyline (4.2.0)
   - Solar (2.1.0)
+  - SwiftLint (0.26.0)
   - Turf (0.2.0)
 
 DEPENDENCIES:
   - Mapbox-iOS-SDK (~> 4.1.1)
   - MapboxCoreNavigation (from `https://raw.githubusercontent.com/mapbox/mapbox-navigation-ios/v0.17.0-beta.1/MapboxCoreNavigation.podspec`)
   - MapboxNavigation (from `https://raw.githubusercontent.com/mapbox/mapbox-navigation-ios/v0.17.0-beta.1/MapboxNavigation.podspec`)
+  - SwiftLint (~> 0.26.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -30,6 +32,7 @@ SPEC REPOS:
     - MapboxSpeech
     - Polyline
     - Solar
+    - SwiftLint
     - Turf
 
 EXTERNAL SOURCES:
@@ -47,8 +50,13 @@ SPEC CHECKSUMS:
   MapboxSpeech: 6cc9b3d53adc2988af3ebc704dd17907b84a3f9f
   Polyline: 3d69f75bb136357e27291d439d0436c6ebda57a4
   Solar: 2dc6e7cc39186cb0c8228fa08df76fb50c7d8f24
+  SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
   Turf: 65817136031583da7ea2b43e6611dd10ddbdab2f
 
+<<<<<<< HEAD
 PODFILE CHECKSUM: 23a6ca5758b29f77c2a22955d1520ed5d8022cf3
+=======
+PODFILE CHECKSUM: ab6e2e6d3f48fdaeb0959d55e39efa77bedb88c3
+>>>>>>> Add SwiftLint to Podfile
 
 COCOAPODS: 1.5.3

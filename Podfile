@@ -2,7 +2,12 @@ platform :ios, '9.0'
 use_frameworks!
 
 def shared_pods
+<<<<<<< HEAD
     pod 'Mapbox-iOS-SDK', '~> 4.1.1'
+=======
+    pod 'Mapbox-iOS-SDK', '~> 4.1.0'
+    pod 'SwiftLint', '~> 0.26.0'
+>>>>>>> Add SwiftLint to Podfile
 end
 
 target 'Examples' do
