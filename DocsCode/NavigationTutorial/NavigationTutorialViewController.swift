@@ -115,4 +115,3 @@ class ViewController: UIViewController, MGLMapViewDelegate {
     }
     // #-end-code-snippet: navigation callout-functions-swift
 }
-

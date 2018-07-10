@@ -86,7 +86,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
 
             // Try matching the exact point first.
             let point = sender.location(in: sender.view!)
-            for f in mapView.visibleFeatures(at: point, styleLayerIdentifiers:layerIdentifiers)
+            for f in mapView.visibleFeatures(at: point, styleLayerIdentifiers: layerIdentifiers)
               where f is MGLPointFeature {
                 showCallout(feature: f as! MGLPointFeature)
                 return
@@ -166,7 +166,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
 
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             guard let data = data else { return }
-            guard let json = try? JSONSerialization.jsonObject(with: data, options:[]) as? [String: AnyObject] else { return }
+            guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] else { return }
             guard let results = json?["results"] as? [String: AnyObject] else { return }
             guard let items = results["bindings"] as? [[String: AnyObject]] else { return }
             DispatchQueue.main.async {

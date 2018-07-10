@@ -1,4 +1,3 @@
-
 import Mapbox
 
 @objc(HeatmapExample_Swift)
@@ -26,12 +25,12 @@ class HeatmapExample: UIViewController, MGLMapViewDelegate {
         let heatmapLayer = MGLHeatmapStyleLayer(identifier: "earthquakes", source: source)
         
         // Adjust the color of the heatmap based on the point density.
-        let colorDictionary : [NSNumber : UIColor] = [
-                                0.0 :  .clear,
-                               0.01 : .white,
-                               0.15 : UIColor(red:0.19, green:0.30, blue:0.80, alpha:1.0),
-                               0.5 : UIColor(red:0.73, green:0.23, blue:0.25, alpha:1.0),
-                               1 : .yellow
+        let colorDictionary: [NSNumber: UIColor] = [
+                                0.0: .clear,
+                               0.01: .white,
+                               0.15: UIColor(red: 0.19, green: 0.30, blue: 0.80, alpha: 1.0),
+                               0.5: UIColor(red: 0.73, green: 0.23, blue: 0.25, alpha: 1.0),
+                               1: .yellow
         ]
         heatmapLayer.heatmapColor = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($heatmapDensity, 'linear', nil, %@)", colorDictionary)
         
@@ -55,10 +54,10 @@ class HeatmapExample: UIViewController, MGLMapViewDelegate {
         // Add a circle layer to represent the earthquakes at higher zoom levels.
         let circleLayer = MGLCircleStyleLayer(identifier: "circle-layer", source: source)
         
-        let magnitudeDictionary : [NSNumber : UIColor] = [0 : .white,
-                                                          0.5 : .yellow,
-                                                          2.5 : UIColor(red:0.73, green:0.23, blue:0.25, alpha:1.0),
-                                                          5 : UIColor(red:0.19, green:0.30, blue:0.80, alpha:1.0)
+        let magnitudeDictionary: [NSNumber: UIColor] = [0: .white,
+                                                          0.5: .yellow,
+                                                          2.5: UIColor(red: 0.73, green: 0.23, blue: 0.25, alpha: 1.0),
+                                                          5: UIColor(red: 0.19, green: 0.30, blue: 0.80, alpha: 1.0)
         ]
         circleLayer.circleColor = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:(mag, 'linear', nil, %@)", magnitudeDictionary)
         

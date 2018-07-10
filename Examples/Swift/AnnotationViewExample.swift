@@ -20,7 +20,7 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
         let coordinates = [
             CLLocationCoordinate2D(latitude: 0, longitude: 33),
             CLLocationCoordinate2D(latitude: 0, longitude: 66),
-            CLLocationCoordinate2D(latitude: 0, longitude: 99),
+            CLLocationCoordinate2D(latitude: 0, longitude: 99)
         ]
         
         // Fill an array with point annotations and add it to the map.

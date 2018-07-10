@@ -1,4 +1,3 @@
-
 import Mapbox
 
 @objc(MultipleImagesExample_Swift)
@@ -38,7 +37,7 @@ class MultipleImagesExample: UIViewController, MGLMapViewDelegate {
         layer.sourceLayerIdentifier = "Yosemite_POI-38jhes"
         
         // Create a stops dictionary with keys that are possible values for 'POITYPE', paired with icon images that will represent those features.
-        let poiIcons = ["Picnic Area" : "picnic-area", "Restroom" : "restrooms", "Trailhead" : "trailhead"]
+        let poiIcons = ["Picnic Area": "picnic-area", "Restroom": "restrooms", "Trailhead": "trailhead"]
         
         // Use the stops dictionary to assign an icon based on the "POITYPE" for each feature.
         layer.iconImageName = NSExpression(format: "FUNCTION(%@, 'valueForKeyPath:', POITYPE)", poiIcons)

@@ -4,9 +4,9 @@ import Mapbox
 
 class BuildingLightExample: UIViewController, MGLMapViewDelegate {
     
-    var mapView : MGLMapView!
-    var light : MGLLight!
-    var slider : UISlider!
+    var mapView: MGLMapView!
+    var light: MGLLight!
+    var slider: UISlider!
     override func viewDidLoad() {
         super.viewDidLoad()
         

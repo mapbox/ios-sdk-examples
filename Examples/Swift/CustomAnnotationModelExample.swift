@@ -17,12 +17,12 @@ class CustomAnnotationModelExample_Swift: UIViewController, MGLMapViewDelegate {
         // Polyline
         // Create a coordinates array with all of the coordinates for our polyline.
         var coordinates = [
-            CLLocationCoordinate2D(latitude: 35,  longitude: -25),
-            CLLocationCoordinate2D(latitude: 20,  longitude: -30),
-            CLLocationCoordinate2D(latitude: 0,   longitude: -25),
+            CLLocationCoordinate2D(latitude: 35, longitude: -25),
+            CLLocationCoordinate2D(latitude: 20, longitude: -30),
+            CLLocationCoordinate2D(latitude: 0, longitude: -25),
             CLLocationCoordinate2D(latitude: -15, longitude: 0),
             CLLocationCoordinate2D(latitude: -45, longitude: 10),
-            CLLocationCoordinate2D(latitude: -45, longitude: 40),
+            CLLocationCoordinate2D(latitude: -45, longitude: 40)
         ]
         
         let polyline = CustomPolyline(coordinates: &coordinates, count: UInt(coordinates.count))
@@ -46,7 +46,7 @@ class CustomAnnotationModelExample_Swift: UIViewController, MGLMapViewDelegate {
             // Create a unique reuse identifier for each new annotation image.
             point.reuseIdentifier = "customAnnotation\(count)"
             // This dot image grows in size as more annotations are added to the array.
-            point.image = dot(size:5 * count)
+            point.image = dot(size: 5 * count)
             
             // Append each annotation to the array, which will be added to the map all at once.
             pointAnnotations.append(point)

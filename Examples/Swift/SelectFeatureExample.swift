@@ -57,5 +57,4 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
         }
     }
     
-    
 }

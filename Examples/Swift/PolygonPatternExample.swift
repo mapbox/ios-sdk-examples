@@ -59,4 +59,3 @@ class PolygonPatternExample_Swift: UIViewController, MGLMapViewDelegate {
         }
     }
 }
-

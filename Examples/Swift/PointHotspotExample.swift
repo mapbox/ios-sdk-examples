@@ -1,4 +1,3 @@
-
 import Mapbox
 
 @objc(PointHotspotExample_Swift)
@@ -25,7 +24,7 @@ class PointHotspotExample_Swift: UIViewController, MGLMapViewDelegate {
         // Set the MGLShapeSourceOptions to allow clustering.
         let options = [MGLShapeSourceOption.clustered: true,
                        MGLShapeSourceOption.clusterRadius: 20,
-                       MGLShapeSourceOption.maximumZoomLevel: 15] as [MGLShapeSourceOption : Any]
+                       MGLShapeSourceOption.maximumZoomLevel: 15] as [MGLShapeSourceOption: Any]
         
         let earthquakeSource = MGLShapeSource(identifier: "earthquakes", url: url, options: options)
         style.addSource(earthquakeSource)

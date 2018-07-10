@@ -70,7 +70,7 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
 
 // MARK: - Custom UIButton subclass
 
-class UserLocationButton : UIButton {
+class UserLocationButton: UIButton {
     private var arrow: CAShapeLayer?
     private let buttonSize: CGFloat
     

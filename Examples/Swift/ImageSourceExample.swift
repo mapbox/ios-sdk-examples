@@ -1,4 +1,3 @@
-
 import Mapbox
 
 @objc(ImageSourceExample_Swift)

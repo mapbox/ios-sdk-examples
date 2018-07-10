@@ -1,4 +1,4 @@
-import Mapbox;
+import Mapbox
 
 @objc(MultipleShapesExample_Swift)
 
@@ -14,7 +14,7 @@ class MultipleShapesExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .darkGray
         
-        mapView.setCenter(CLLocationCoordinate2D(latitude:38.897435, longitude: -77.039679), zoomLevel: 12, animated: false)
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 38.897435, longitude: -77.039679), zoomLevel: 12, animated: false)
         
         mapView.delegate = self
         view.addSubview(mapView)

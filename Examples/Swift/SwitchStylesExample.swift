@@ -27,7 +27,7 @@ class SwitchStylesExample: UIViewController {
         
         // Configure autolayout constraints for the UISegmentedControl to align
         // at the bottom of the map view and above the Mapbox logo and attribution
-        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|-40-[styleToggle]-40-|", options: [], metrics: nil, views: ["styleToggle" : styleToggle]))
+        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|-40-[styleToggle]-40-|", options: [], metrics: nil, views: ["styleToggle": styleToggle]))
         NSLayoutConstraint.activate([NSLayoutConstraint(item: styleToggle, attribute: .bottom, relatedBy: .equal, toItem: mapView.logoView, attribute: .top, multiplier: 1, constant: -20)])
     }
     
@@ -45,4 +45,3 @@ class SwitchStylesExample: UIViewController {
         }
     }
 }
-

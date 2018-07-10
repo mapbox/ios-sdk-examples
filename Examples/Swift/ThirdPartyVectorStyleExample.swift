@@ -24,4 +24,3 @@ class ThirdPartyVectorStyleExample_Swift: UIViewController {
         view.addSubview(mapView)
     }
 }
-

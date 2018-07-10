@@ -46,8 +46,7 @@ class LineAnnotationGeoJSONExample_Swift: UIViewController, MGLMapViewDelegate {
                         self.mapView.addAnnotation(polyline)
                     })
                 }
-            }
-            catch {
+            } catch {
                 print("GeoJSON parsing failed")
             }
             
@@ -69,10 +68,8 @@ class LineAnnotationGeoJSONExample_Swift: UIViewController, MGLMapViewDelegate {
         // Give our polyline a unique color by checking for its `title` property
         if (annotation.title == "Crema to Council Crest" && annotation is MGLPolyline) {
             // Mapbox cyan
-            return UIColor(red: 59/255, green:178/255, blue:208/255, alpha:1)
-        }
-        else
-        {
+            return UIColor(red: 59/255, green: 178/255, blue: 208/255, alpha: 1)
+        } else {
             return .red
         }
     }

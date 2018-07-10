@@ -47,4 +47,3 @@ class CustomCalloutViewExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.deselectAnnotation(annotation, animated: true)
     }
 }
-

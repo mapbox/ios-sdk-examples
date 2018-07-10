@@ -4,7 +4,7 @@ import Mapbox
 
 class LiveDataExample: UIViewController, MGLMapViewDelegate {
     
-    var source : MGLShapeSource!
+    var source: MGLShapeSource!
     var timer = Timer()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +20,7 @@ class LiveDataExample: UIViewController, MGLMapViewDelegate {
         view.addSubview(mapView)
     }
     
-    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle)
-    {
+    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         if let url = URL(string: "https://wanderdrone.appspot.com/") {
             // Add a source to the map. https://wanderdrone.appspot.com/ generates coordinates for simulated paths.
             source = MGLShapeSource(identifier: "wanderdrone", url: url, options: nil)

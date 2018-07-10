@@ -15,7 +15,7 @@ class CameraFlyToExample_Swift: UIViewController, MGLMapViewDelegate {
         let honolulu = CLLocationCoordinate2D(latitude: 21.3069,
                                               longitude: -157.8583)
         mapView.setCenter(honolulu,
-                          zoomLevel:14, animated: false)
+                          zoomLevel: 14, animated: false)
         
         mapView.delegate = self
         view.addSubview(mapView)

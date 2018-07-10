@@ -22,7 +22,7 @@ class StaticSnapshotExample: UIViewController, MGLMapViewDelegate {
         // Create a button to take a map snapshot.
         button = UIButton(frame: CGRect(x: mapView.bounds.width / 2 - 40, y: mapView.bounds.height - 40, width: 80, height: 30))
         button.layer.cornerRadius = 15
-        button.backgroundColor = UIColor(red:0.96, green:0.65, blue:0.14, alpha:1.0)
+        button.backgroundColor = UIColor(red: 0.96, green: 0.65, blue: 0.14, alpha: 1.0)
         button.setImage(UIImage(named: "camera"), for: .normal)
         button.addTarget(self, action: #selector(createSnapshot), for: .touchUpInside)
         view.addSubview(button)

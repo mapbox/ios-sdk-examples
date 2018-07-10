@@ -47,8 +47,8 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Color clustered features based on clustered point counts.
         let stops = [
-            20:  UIColor.lightGray,
-            50:  UIColor.orange,
+            20: UIColor.lightGray,
+            50: UIColor.orange,
             100: UIColor.red,
             200: UIColor.purple
         ]
