@@ -1,0 +1,24 @@
+disabled_rules:
+  - control_statement
+  - type_name
+  - line_length
+opt_in_rules:
+  - empty_count
+excluded:
+  - Carthage
+  - Pods
+force_cast: warning
+force_try:
+  severity: warning
+type_body_length:
+  - 300 # warning
+  - 400 # error
+file_length:
+  warning: 500
+  error: 1200
+# Lower minimum identifier_name character count from 4 to 3
+identifier_name:
+  min_length:
+    error: 3
+reporter: "xcode"
+    
