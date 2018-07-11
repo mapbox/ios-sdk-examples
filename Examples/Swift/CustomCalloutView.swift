@@ -11,7 +11,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
     override var center: CGPoint {
         set {
             var newCenter = newValue
-            newCenter.y = newCenter.y - bounds.midY
+            newCenter.y -= bounds.midY
             super.center = newCenter
         }
         get {
