@@ -20,9 +20,9 @@ class BlockingGesturesDelegateExample_Swift: UIViewController, MGLMapViewDelegat
         mapView.setCenter(center, zoomLevel: 10, direction: 0, animated: false)
         
         // Colorado’s bounds
-        let ne = CLLocationCoordinate2D(latitude: 40.989329, longitude: -102.062592)
-        let sw = CLLocationCoordinate2D(latitude: 36.986207, longitude: -109.049896)
-        colorado = MGLCoordinateBounds(sw: sw, ne: ne)
+        let northeast = CLLocationCoordinate2D(latitude: 40.989329, longitude: -102.062592)
+        let southwest = CLLocationCoordinate2D(latitude: 36.986207, longitude: -109.049896)
+        colorado = MGLCoordinateBounds(sw: southwest, ne: northeast)
         
         view.addSubview(mapView)
     }

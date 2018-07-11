@@ -86,9 +86,9 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
 
             // Try matching the exact point first.
             let point = sender.location(in: sender.view!)
-            for f in mapView.visibleFeatures(at: point, styleLayerIdentifiers: layerIdentifiers)
-              where f is MGLPointFeature {
-                showCallout(feature: f as! MGLPointFeature)
+            for feature in mapView.visibleFeatures(at: point, styleLayerIdentifiers: layerIdentifiers)
+              where feature is MGLPointFeature {
+                showCallout(feature: feature as! MGLPointFeature)
                 return
             }
 
@@ -103,8 +103,8 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
             let closestFeatures = possibleFeatures.sorted(by: {
                 return CLLocation(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude).distance(from: touchLocation) < CLLocation(latitude: $1.coordinate.latitude, longitude: $1.coordinate.longitude).distance(from: touchLocation)
             })
-            if let f = closestFeatures.first {
-                showCallout(feature: f as! MGLPointFeature)
+            if let feature = closestFeatures.first {
+                showCallout(feature: feature as! MGLPointFeature)
                 return
             }
             
