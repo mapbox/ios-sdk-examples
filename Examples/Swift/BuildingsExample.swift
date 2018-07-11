@@ -11,8 +11,8 @@ class BuildingsExample: UIViewController, MGLMapViewDelegate {
         let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL(withVersion: 9))
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        // Center the map view on the Colosseum in Rome, Italy and set the camera's pitch and distance.
-        mapView.camera = MGLMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: 41.8902, longitude: 12.4922), fromDistance: 600, pitch: 60, heading: 0)
+        // Center the map view on the Castel Sant'Angelo in Rome, Italy and set the camera's pitch, heading, and distance.
+        mapView.camera = MGLMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: 41.9036, longitude: 12.4665), fromDistance: 600, pitch: 60, heading: 210)
         mapView.delegate = self
         
         view.addSubview(mapView)
@@ -30,7 +30,6 @@ class BuildingsExample: UIViewController, MGLMapViewDelegate {
             
             // Set the fill extrusion height to the value for the building height attribute.
             layer.fillExtrusionHeight = NSExpression(forKeyPath: "height")
-            layer.fillExtrusionBase = NSExpression(forKeyPath: "min_height")
             layer.fillExtrusionOpacity = NSExpression(forConstantValue: 0.75)
             layer.fillExtrusionColor = NSExpression(forConstantValue: UIColor.white)
             
