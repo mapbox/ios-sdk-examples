@@ -31,16 +31,12 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         switch (mapView.userTrackingMode) {
         case .none:
             mode = .follow
-            break
         case .follow:
             mode = .followWithHeading
-            break
         case .followWithHeading:
             mode = .followWithCourse
-            break
         case .followWithCourse:
             mode = .none
-            break
         }
         
         mapView.userTrackingMode = mode
@@ -129,16 +125,12 @@ class UserLocationButton: UIButton {
         switch mode {
         case .none:
             updateArrow(fillColor: disabledPrimaryColor, strokeColor: disabledSecondaryColor, rotation: 0)
-            break
         case .follow:
             updateArrow(fillColor: disabledPrimaryColor, strokeColor: activePrimaryColor, rotation: 0)
-            break
         case .followWithHeading:
             updateArrow(fillColor: activePrimaryColor, strokeColor: activePrimaryColor, rotation: rotatedArrow)
-            break
         case .followWithCourse:
             updateArrow(fillColor: activePrimaryColor, strokeColor: activePrimaryColor, rotation: 0)
-            break
         }
     }
     
