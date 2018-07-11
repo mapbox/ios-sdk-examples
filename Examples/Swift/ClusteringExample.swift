@@ -87,11 +87,11 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
             let clusters = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["clusteredPorts"])
             let ports = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["ports"])
 
-            if clusters.count > 0 {
+            if !clusters.isEmpty {
                 showPopup(false, animated: true)
                 let cluster = clusters.first!
                 mapView.setCenter(cluster.coordinate, zoomLevel: (mapView.zoomLevel + 1), animated: true)
-            } else if ports.count > 0 {
+            } else if !ports.isEmpty {
                 let port = ports.first!
 
                 if popup == nil {
