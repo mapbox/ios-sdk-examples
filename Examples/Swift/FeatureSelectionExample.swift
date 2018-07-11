@@ -64,8 +64,9 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate {
     }
     
     func changeOpacity(name: String) {
-        let layer = mapView.style?.layer(withIdentifier: layerIdentifier) as! MGLFillStyleLayer
-        
+        guard let layer = mapView.style?.layer(withIdentifier: layerIdentifier) as? MGLFillStyleLayer else {
+            fatalError("Could not cast to specified MGLFillStyleLayer")
+        }
         // Check if a state was selected, then change the opacity of the states that were not selected.
         if !name.isEmpty {
             layer.fillOpacity = NSExpression(format: "TERNARY(name = %@, 1, 0)", name)
