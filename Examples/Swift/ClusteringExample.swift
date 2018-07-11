@@ -7,6 +7,10 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var icon: UIImage!
     var popup: UILabel?
+    
+    enum CustomError: Error {
+        case castingError(String)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +82,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         showPopup(false, animated: false)
     }
 
-    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) {
+    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) throws {
         if sender.state == .ended {
             let point = sender.location(in: sender.view)
             let width = icon.size.width
@@ -106,8 +110,12 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
                     popup!.alpha = 0
                     view.addSubview(popup!)
                 }
+                
+                guard let portName = port.attribute(forKey: "name")! as? String else {
+                    throw CustomError.castingError("Could not cast port name to string")
+                }
 
-                popup!.text = (port.attribute(forKey: "name")! as! String)
+                popup!.text = portName
                 let size = (popup!.text! as NSString).size(withAttributes: [NSAttributedStringKey.font: popup!.font])
                 popup!.bounds = CGRect(x: 0, y: 0, width: size.width, height: size.height).insetBy(dx: -10, dy: -10)
                 let point = mapView.convert(port.coordinate, toPointTo: mapView)
