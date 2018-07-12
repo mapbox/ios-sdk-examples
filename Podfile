@@ -2,7 +2,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 def shared_pods
-    pod 'Mapbox-iOS-SDK', '~> 4.1.0'
+    pod 'Mapbox-iOS-SDK', '~> 4.1.1'
 end
 
 target 'Examples' do
