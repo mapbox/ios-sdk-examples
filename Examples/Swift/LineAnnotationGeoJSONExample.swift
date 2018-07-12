@@ -31,7 +31,10 @@ class LineAnnotationGeoJSONExample_Swift: UIViewController, MGLMapViewDelegate {
             do {
                 // Convert the file contents to a shape collection feature object
                 let data = try Data(contentsOf: url)
-                let shapeCollectionFeature = try MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as! MGLShapeCollectionFeature
+
+                guard let shapeCollectionFeature = try MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as? MGLShapeCollectionFeature else {
+                    fatalError("Could not cast to specified MGLShapeCollectionFeature")
+                }
                 
                 if let polyline = shapeCollectionFeature.shapes.first as? MGLPolylineFeature {
                     // Optionally set the title of the polyline, which can be used for:
