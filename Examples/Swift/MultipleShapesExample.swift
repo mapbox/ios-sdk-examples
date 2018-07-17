@@ -26,19 +26,26 @@ class MultipleShapesExample_Swift: UIViewController, MGLMapViewDelegate {
         DispatchQueue.global().async {
             guard let url = Bundle.main.url(forResource: "metro-line", withExtension: "geojson") else { return }
 
-            let data = try! Data(contentsOf: url)
+            guard let data = try? Data(contentsOf: url) else {
+                let alert = UIAlertController(title: "Error", message: "Failed to decode GeoJSON data", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
             
             DispatchQueue.main.async {
-                self.drawShapeCollection(data: data)
+                try? self.drawShapeCollection(data: data)
             }
         }
     }
     
-    func drawShapeCollection(data: Data) {
+    func drawShapeCollection(data: Data) throws {
         guard let style = self.mapView.style else { return }
         
         // Use [MGLShape shapeWithData:encoding:error:] to create a MGLShapeCollectionFeature from GeoJSON data.
-        let feature = try! MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as! MGLShapeCollectionFeature
+        guard let feature = try? MGLShape(data: data, encoding: String.Encoding.utf8.rawValue) as? MGLShapeCollectionFeature else {
+            fatalError("Could not cast to specified MGLShapeCollectionFeature")
+        }
         
         // Create source and add it to the map style.
         let source = MGLShapeSource(identifier: "transit", shape: feature, options: nil)
