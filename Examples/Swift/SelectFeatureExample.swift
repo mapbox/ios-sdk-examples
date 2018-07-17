@@ -38,7 +38,7 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
         style.addLayer(selectedFeaturesLayer)
     }
     
-    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) {
+    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) throws {
         if sender.state == .ended {
             // A tap’s center coordinate may not intersect a feature exactly, so let’s make a 44x44 rect that represents a touch and select all features that intersect.
             let point = sender.location(in: sender.view!)
@@ -48,8 +48,10 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
             let layerIdentifiers = Set(["park"])
             
             // Query the map view for any visible features that intersect our rect.
-            let features = mapView.visibleFeatures(in: touchRect, styleLayerIdentifiers: layerIdentifiers).map { $0 as! MGLShape }
-
+            guard let features = mapView.visibleFeatures(in: touchRect, styleLayerIdentifiers: layerIdentifiers) as? [MGLShape & MGLFeature] else {
+                fatalError("Could not cast to specified MGLShape/MGLFeature")
+            }
+            
             let shapes = MGLShapeCollectionFeature(shapes: features)
 
             // Update our MGLShapeSource to match our selected features.
