@@ -88,7 +88,11 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
             let point = sender.location(in: sender.view!)
             for feature in mapView.visibleFeatures(at: point, styleLayerIdentifiers: layerIdentifiers)
               where feature is MGLPointFeature {
-                showCallout(feature: feature as! MGLPointFeature)
+                guard let selectedFeature = feature as? MGLPointFeature else {
+                    self.displayWarning(description: "Failed to cast selected feature as MGLPointFeature")
+                    return
+                }
+                showCallout(feature: selectedFeature)
                 return
             }
 
@@ -104,7 +108,11 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
                 return CLLocation(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude).distance(from: touchLocation) < CLLocation(latitude: $1.coordinate.latitude, longitude: $1.coordinate.longitude).distance(from: touchLocation)
             })
             if let feature = closestFeatures.first {
-                showCallout(feature: feature as! MGLPointFeature)
+                guard let closestFeature = feature as? MGLPointFeature else {
+                    self.displayWarning(description: "Failed to cast selected feature as MGLPointFeature")
+                    return
+                }
+                showCallout(feature: closestFeature)
                 return
             }
             
@@ -165,12 +173,23 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
         let request = URLRequest(url: URL(string: "https://query.wikidata.org/sparql?query=\(encodedQuery)&format=json")!)
 
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            guard let data = data else { return }
-            guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] else { return }
-            guard let results = json?["results"] as? [String: AnyObject] else { return }
-            guard let items = results["bindings"] as? [[String: AnyObject]] else { return }
+            guard error != nil else {
+                self.displayWarning(description: "Failed to load GeoJSON data")
+                return
+            }
+            
+            guard
+                let data = data,
+                let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject],
+                let results = json?["results"] as? [String: AnyObject],
+                let items = results["bindings"] as? [[String: AnyObject]]
+                else {
+                    self.displayWarning(description: "Failed to parse GeoJSON data")
+                    return
+            }
+            
             DispatchQueue.main.async {
-            completion(self.parseJSONItems(items: items))
+                completion(self.parseJSONItems(items: items))
             }
         }).resume()
     }
@@ -196,5 +215,11 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
             features.append(feature)
         }
         return features
+    }
+    
+    func displayWarning(description: String) {
+        let alert = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
