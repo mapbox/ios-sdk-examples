@@ -28,8 +28,17 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     func loadGeoJson() {
         DispatchQueue.global().async {
             // Get the path for example.geojson in the app’s bundle.
-            guard let jsonUrl = Bundle.main.url(forResource: "example", withExtension: "geojson") else { return }
-            guard let jsonData = try? Data(contentsOf: jsonUrl) else { return }
+            guard let jsonUrl = Bundle.main.url(forResource: "example", withExtension: "geojson") else {
+                preconditionFailure("Failed to load local GeoJSON file")
+            }
+            
+            guard let jsonData = try? Data(contentsOf: jsonUrl) else {
+                let alert = UIAlertController(title: "Error", message: "Failed to decode GeoJSON data", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            
             DispatchQueue.main.async {
                 self.drawPolyline(geoJson: jsonData)
             }
@@ -42,8 +51,14 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // MGLMapView.style is optional, so you must guard against it not being set.
         guard let style = self.mapView.style else { return }
-
-        let shapeFromGeoJSON = try! MGLShape(data: geoJson, encoding: String.Encoding.utf8.rawValue)
+        
+        guard let shapeFromGeoJSON = try? MGLShape(data: geoJson, encoding: String.Encoding.utf8.rawValue) else {
+            let alert = UIAlertController(title: "Error", message: "Could not generate MGLShape from GeoJSON", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
         let source = MGLShapeSource(identifier: "polyline", shape: shapeFromGeoJSON, options: nil)
         style.addSource(source)
 
