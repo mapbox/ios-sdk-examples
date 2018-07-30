@@ -71,6 +71,7 @@
             @"title": @"Dynamic styling",
             @"examples":@[
                     @{@"className": MBXExampleClustering, @"title": @"Cluster point data"},
+                    @{@"className": MBXExampleClusteringWithImages, @"title": @"Cluster point data with images"},
                     @{@"className": MBXExampleDDSCircleLayer, @"title": @"Data-driven circles"},
                     @{@"className": MBXExampleHeatmap,
                       @"title": @"Add a heatmap layer"
