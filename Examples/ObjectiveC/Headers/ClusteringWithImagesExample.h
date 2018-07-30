@@ -6,8 +6,8 @@
 //  Copyright © 2018 Mapbox. All rights reserved.
 //
 
-#ifndef ClusteringWithImagesExample_h
-#define ClusteringWithImagesExample_h
+#import <UIKit/UIKit.h>
 
+@interface ClusteringWithImagesExample : UIViewController
 
-#endif /* ClusteringWithImagesExample_h */
+@end
