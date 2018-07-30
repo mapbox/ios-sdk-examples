@@ -5,11 +5,7 @@ import Mapbox
 class ClusteringWithImagesExample_Swift: UIViewController, MGLMapViewDelegate {
     
     var mapView: MGLMapView!
-    var polygonImage: UIImage!
-    var starImage: UIImage!
-    var rectangleImage: UIImage!
-    var circleImage: UIImage!
-    var popup: UILabel?
+    var icon: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,20 +13,45 @@ class ClusteringWithImagesExample_Swift: UIViewController, MGLMapViewDelegate {
         // Initialize the Map
         mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.tintColor = .darkGray
         mapView.delegate = self
         view.addSubview(mapView)
         
-        // Assign appropriate icon images
-        polygonImage = UIImage(named: "polygon")
-        starImage = UIImage(named: "star")
-        rectangleImage = UIImage(named: "rectangle")
-        circleImage = UIImage(named: "circle")
+        icon = UIImage(named: "circle")
     }
 
-//    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-//        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "ports", ofType: "geojson")!)
-//
-//    }
+    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
+        
+        // Retrieve data and set as style layer source
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "ports", ofType: "geojson")!)
+        let source = MGLShapeSource(identifier: "clusteredPorts",
+                                    url: url,
+                                    options: [.clustered: true, .clusterRadius: icon.size.width])
+        style.addSource(source)
+        
+        let numbersLayer = MGLSymbolStyleLayer(identifier: "clusteredPortsNumbers", source: source)
+        numbersLayer.textColor = NSExpression(forConstantValue: UIColor.white)
+        numbersLayer.textFontSize = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
+        numbersLayer.iconAllowsOverlap = NSExpression(forConstantValue: true)
+        
+        // Style clusters
+        style.setImage(UIImage(named: "circle")!, forName: "circle")
+        style.setImage(UIImage(named: "rectangle")!, forName: "rectangle")
+        style.setImage(UIImage(named: "star")!, forName: "star")
+        style.setImage(UIImage(named: "polygon")!, forName: "polygon")
+       
+        
+        let stops = [
+            10:  NSExpression(forConstantValue: "circle"),
+            25:  NSExpression(forConstantValue: "rectangle"),
+            75: NSExpression(forConstantValue: "star"),
+            150: NSExpression(forConstantValue: "polygon")
+        ]
+        
+        let defaultCircle = NSExpression(forConstantValue: "circle")
+        numbersLayer.iconImageName = NSExpression(format: "mgl_step:from:stops:(point_count, %@, %@)", defaultCircle, stops)
+        numbersLayer.text = NSExpression(format: "CAST(point_count, 'NSString')")
+        
+        style.addLayer(numbersLayer)
+    }
 
 }
