@@ -24,13 +24,12 @@ class MultipleShapesExample_Swift: UIViewController, MGLMapViewDelegate {
         
         // Parse the GeoJSON data.
         DispatchQueue.global().async {
-            guard let url = Bundle.main.url(forResource: "metro-line", withExtension: "geojson") else { return }
+            guard let url = Bundle.main.url(forResource: "metro-line", withExtension: "geojson") else {
+                preconditionFailure("Failed to load local GeoJSON file")
+            }
 
             guard let data = try? Data(contentsOf: url) else {
-                let alert = UIAlertController(title: "Error", message: "Failed to decode GeoJSON data", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                return
+                preconditionFailure("Failed to decode GeoJSON file")
             }
             
             DispatchQueue.main.async {
