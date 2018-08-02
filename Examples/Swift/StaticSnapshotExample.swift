@@ -7,13 +7,13 @@ class StaticSnapshotExample: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var button: UIButton!
     var imageView: UIImageView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         mapView = MGLMapView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 2), styleURL: MGLStyle.satelliteStreetsStyleURL)
         mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
+
         // Center map on the Giza Pyramid Complex in Egypt.
         let center = CLLocationCoordinate2D(latitude: 29.9773, longitude: 31.1325)
         mapView.setCenter(center, zoomLevel: 14, animated: false)
@@ -33,17 +33,17 @@ class StaticSnapshotExample: UIViewController, MGLMapViewDelegate {
         imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.addSubview(imageView)
     }
-    
+
     @objc func createSnapshot() {
         // Use the map's style, camera, size, and zoom level to set the snapshot's options.
         let options = MGLMapSnapshotOptions(styleURL: mapView.styleURL, camera: mapView.camera, size: mapView.bounds.size)
         options.zoomLevel = mapView.zoomLevel
-        
+
         // Add an activity indicator to show that the snapshot is loading.
         let indicator = UIActivityIndicatorView(frame: CGRect(x: self.imageView.center.x - 30, y: self.imageView.center.y - 30, width: 60, height: 60))
         view.addSubview(indicator)
         indicator.startAnimating()
-        
+
         // Create the map snapshot.
         var snapshotter: MGLMapSnapshotter? = MGLMapSnapshotter(options: options)
         snapshotter?.start { (snapshot, error) in

@@ -7,7 +7,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var icon: UIImage!
     var popup: UILabel?
-    
+
     enum CustomError: Error {
         case castingError(String)
     }
@@ -73,7 +73,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         numbersLayer.textFontSize = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
         numbersLayer.iconAllowsOverlap = NSExpression(forConstantValue: true)
         numbersLayer.text = NSExpression(format: "CAST(point_count, 'NSString')")
-        
+
         numbersLayer.predicate = NSPredicate(format: "cluster == YES")
         style.addLayer(numbersLayer)
     }
@@ -110,7 +110,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
                     popup!.alpha = 0
                     view.addSubview(popup!)
                 }
-                
+
                 guard let portName = port.attribute(forKey: "name")! as? String else {
                     throw CustomError.castingError("Could not cast port name to string")
                 }

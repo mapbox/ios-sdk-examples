@@ -11,12 +11,12 @@ class MyCustomPointAnnotation: MGLPointAnnotation {
 class AnnotationViewsAndImagesExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Create a new map view using the Mapbox Light style.
         let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.lightStyleURL)
-        
+
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
+
         // Set the map’s center coordinate and zoom level.
         mapView.setCenter(CLLocationCoordinate2D(latitude: 36.54, longitude: -116.97), zoomLevel: 9, animated: false)
         view.addSubview(mapView)
@@ -36,34 +36,34 @@ class AnnotationViewsAndImagesExample_Swift: UIViewController, MGLMapViewDelegat
         let pointC = MyCustomPointAnnotation()
         pointC.title = "Zabriskie Point"
         pointC.coordinate = CLLocationCoordinate2D(latitude: 36.4208, longitude: -116.8101)
-        
+
         let pointD = MyCustomPointAnnotation()
         pointD.title = "Mesquite Flat Sand Dunes"
         pointD.coordinate = CLLocationCoordinate2D(latitude: 36.6836, longitude: -117.1005)
-        
+
         // Fill an array with four point annotations.
         let myPlaces = [pointA, pointB, pointC, pointD]
-        
+
         // Add all annotations to the map all at once, instead of individually.
         mapView.addAnnotations(myPlaces)
-        
+
     }
-    
+
     // This delegate method is where you tell the map to load a view for a specific annotation based on the willUseImage property of the custom subclass.
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-        
+
         if let castAnnotation = annotation as? MyCustomPointAnnotation {
             if (castAnnotation.willUseImage) {
                 return nil
             }
         }
-        
+
         // Assign a reuse identifier to be used by both of the annotation views, taking advantage of their similarities.
         let reuseIdentifier = "reusableDotView"
-        
+
         // For better performance, always try to reuse existing annotations.
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-        
+
         // If there’s no reusable annotation view available, initialize a new one.
         if annotationView == nil {
             annotationView = MGLAnnotationView(reuseIdentifier: reuseIdentifier)
@@ -73,30 +73,30 @@ class AnnotationViewsAndImagesExample_Swift: UIViewController, MGLMapViewDelegat
             annotationView?.layer.borderColor = UIColor.white.cgColor
             annotationView!.backgroundColor = UIColor(red: 0.03, green: 0.80, blue: 0.69, alpha: 1.0)
         }
-        
+
         return annotationView
     }
-    
+
     // This delegate method is where you tell the map to load an image for a specific annotation based on the willUseImage property of the custom subclass.
     func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
-        
+
         if let castAnnotation = annotation as? MyCustomPointAnnotation {
             if (!castAnnotation.willUseImage) {
                 return nil
             }
         }
-        
+
         // For better performance, always try to reuse existing annotations.
         var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: "camera")
-        
+
         // If there is no reusable annotation image available, initialize a new one.
         if(annotationImage == nil) {
             annotationImage = MGLAnnotationImage(image: UIImage(named: "camera")!, reuseIdentifier: "camera")
         }
-        
+
         return annotationImage
     }
-    
+
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         // Always allow callouts to popup when annotations are tapped.
         return true

@@ -44,10 +44,10 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Use MGLCircleStyleLayer to represent the points with simple circles.
         // In this case, we can use style functions to gradually change properties between zoom level 2 and 7: the circle opacity from 50% to 100% and the circle radius from 2pt to 3pt.
-        
+
         let circles = MGLCircleStyleLayer(identifier: "lighthouse-circles", source: source)
         circles.circleColor = NSExpression(forConstantValue: lighthouseColor)
-        
+
         // The circles should increase in opacity from 0.5 to 1 based on zoom level.
         circles.circleOpacity = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", [2: 0.5, 7: 1])
         circles.circleRadius = NSExpression(format: "mgl_step:from:stops:($zoomLevel, 1, %@)", [2: 2, 7: 3])
@@ -115,7 +115,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
                 showCallout(feature: closestFeature)
                 return
             }
-            
+
             // If no features were found, deselect the selected annotation, if any.
             mapView.deselectAnnotation(mapView.selectedAnnotations.first, animated: true)
         }
@@ -177,7 +177,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
                 self.displayWarning(description: "Failed to load GeoJSON data")
                 return
             }
-            
+
             guard
                 let data = data,
                 let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject],
@@ -187,7 +187,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
                     self.displayWarning(description: "Failed to parse GeoJSON data")
                     return
             }
-            
+
             DispatchQueue.main.async {
                 completion(self.parseJSONItems(items: items))
             }
@@ -216,7 +216,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
         }
         return features
     }
-    
+
     func displayWarning(description: String) {
         let alert = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
