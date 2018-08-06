@@ -33,18 +33,18 @@ class ClusteringWithImagesExample_Swift: UIViewController, MGLMapViewDelegate {
         numbersLayer.textFontSize = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
         numbersLayer.iconAllowsOverlap = NSExpression(forConstantValue: true)
         
+        
         // Style clusters
         style.setImage(UIImage(named: "circle")!, forName: "circle")
         style.setImage(UIImage(named: "rectangle")!, forName: "rectangle")
-        style.setImage(UIImage(named: "star")!, forName: "star")
-        style.setImage(UIImage(named: "polygon")!, forName: "polygon")
-       
+        style.setImage(UIImage(named: "cloud")!, forName: "cloud")
+        style.setImage(UIImage(named: "oval")!, forName: "oval")
         
         let stops = [
             10:  NSExpression(forConstantValue: "circle"),
             25:  NSExpression(forConstantValue: "rectangle"),
-            75: NSExpression(forConstantValue: "star"),
-            150: NSExpression(forConstantValue: "polygon")
+            75: NSExpression(forConstantValue: "cloud"),
+            150: NSExpression(forConstantValue: "oval")
         ]
         
         let defaultCircle = NSExpression(forConstantValue: "circle")
