@@ -45,6 +45,7 @@ NSString *const MBXExampleClusteringWithImages = @"ClusteringWithImagesExample";
     markerLayer.iconImageName = [NSExpression expressionForConstantValue:@"marker"];
     markerLayer.predicate = [NSPredicate predicateWithFormat:@"cluster != YES"];
     [style addLayer:markerLayer];
+    [style setImage:[UIImage imageNamed:@"marker"] forName:@"marker"];
     
     // Create image cluster style layer
     MGLSymbolStyleLayer *clusterLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"clusteredPortsNumbers" source:source];
