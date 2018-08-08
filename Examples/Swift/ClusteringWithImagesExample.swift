@@ -5,7 +5,6 @@ import Mapbox
 class ClusteringWithImagesExample_Swift: UIViewController, MGLMapViewDelegate {
     
     var mapView: MGLMapView!
-    var icon = UIImage(named: "squircle")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +18,9 @@ class ClusteringWithImagesExample_Swift: UIViewController, MGLMapViewDelegate {
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
+        let icon = UIImage(named: "squircle")!
+        let marker = UIImage(named: "marker")!
+        
         // Retrieve data and set as style layer source
         let url = URL(fileURLWithPath: Bundle.main.path(forResource: "ports", ofType: "geojson")!)
         let source = MGLShapeSource(identifier: "clusteredPorts",
@@ -26,10 +28,10 @@ class ClusteringWithImagesExample_Swift: UIViewController, MGLMapViewDelegate {
                                     options: [.clustered: true, .clusterRadius: icon.size.width])
         style.addSource(source)
         
-        let numbersLayer = MGLSymbolStyleLayer(identifier: "clusteredPortsNumbers", source: source)
-        numbersLayer.textColor = NSExpression(forConstantValue: UIColor.white)
-        numbersLayer.textFontSize = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
-        numbersLayer.iconAllowsOverlap = NSExpression(forConstantValue: true)
+        let clusterLayer = MGLSymbolStyleLayer(identifier: "clusteredPortsNumbers", source: source)
+        clusterLayer.textColor = NSExpression(forConstantValue: UIColor.white)
+        clusterLayer.textFontSize = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
+        clusterLayer.iconAllowsOverlap = NSExpression(forConstantValue: true)
         
         
         // Style clusters
@@ -47,10 +49,10 @@ class ClusteringWithImagesExample_Swift: UIViewController, MGLMapViewDelegate {
         ]
         
         let defaultShape = NSExpression(forConstantValue: "squircle")
-        numbersLayer.iconImageName = NSExpression(format: "mgl_step:from:stops:(point_count, %@, %@)", defaultShape, stops)
-        numbersLayer.text = NSExpression(format: "CAST(point_count, 'NSString')")
+        clusterLayer.iconImageName = NSExpression(format: "mgl_step:from:stops:(point_count, %@, %@)", defaultShape, stops)
+        clusterLayer.text = NSExpression(format: "CAST(point_count, 'NSString')")
         
-        style.addLayer(numbersLayer)
+        style.addLayer(clusterLayer)
     }
 
 }
