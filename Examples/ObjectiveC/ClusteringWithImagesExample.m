@@ -29,7 +29,6 @@ NSString *const MBXExampleClusteringWithImages = @"ClusteringWithImagesExample";
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     self.icon = [UIImage imageNamed:@"squircle"];
-    self.marker = [UIImage imageNamed:@"marker"];
     
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ports" ofType:@"geojson"]];
     
