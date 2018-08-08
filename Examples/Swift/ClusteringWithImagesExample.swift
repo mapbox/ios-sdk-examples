@@ -19,7 +19,7 @@ class ClusteringWithImagesExample_Swift: UIViewController, MGLMapViewDelegate {
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         
         let icon = UIImage(named: "squircle")!
-        let marker = UIImage(named: "marker")!
+
         
         // Retrieve data and set as style layer source
         let url = URL(fileURLWithPath: Bundle.main.path(forResource: "ports", ofType: "geojson")!)
@@ -28,6 +28,14 @@ class ClusteringWithImagesExample_Swift: UIViewController, MGLMapViewDelegate {
                                     options: [.clustered: true, .clusterRadius: icon.size.width])
         style.addSource(source)
         
+        // Show unclustered features as icons. The `cluster` attribute is built into clustering-enabled source features.
+        let markerLayer = MGLSymbolStyleLayer(identifier: "ports", source:source)
+        markerLayer.iconImageName = NSExpression(forConstantValue: "marker")
+        markerLayer.predicate = NSPredicate(format: "cluster != YES")
+        style.addLayer(markerLayer)
+        style.setImage(UIImage(named: "marker")!, forName: "marker")
+        
+        // Create style layer with images and labels
         let clusterLayer = MGLSymbolStyleLayer(identifier: "clusteredPortsNumbers", source: source)
         clusterLayer.textColor = NSExpression(forConstantValue: UIColor.white)
         clusterLayer.textFontSize = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
