@@ -26,6 +26,7 @@ extern NSString *const MBXExampleBuildings;
 extern NSString *const MBXExampleCameraAnimation;
 extern NSString *const MBXExampleCameraFlyTo;
 extern NSString *const MBXExampleClustering;
+extern NSString *const MBXExampleClusteringWithImages;
 extern NSString *const MBXExampleCustomAnnotationModel;
 extern NSString *const MBXExampleCustomCalloutView;
 extern NSString *const MBXExampleDDSCircleLayer;
