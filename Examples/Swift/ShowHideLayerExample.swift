@@ -5,36 +5,36 @@ import Mapbox
 class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var contoursLayer: MGLStyleLayer?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
+
         mapView.setCenter(CLLocationCoordinate2D(latitude: 37.745395, longitude: -119.594421), zoomLevel: 11, animated: false)
         view.addSubview(mapView)
-        
+
         addToggleButton()
-        
+
         mapView.delegate = self
     }
-    
+
     // Wait until the style is loaded before modifying the map style
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         addLayer(to: style)
     }
-    
+
     func addLayer(to style: MGLStyle) {
         let source = MGLVectorTileSource(identifier: "contours", configurationURL: NSURL(string: "mapbox://mapbox.mapbox-terrain-v2")! as URL)
-        
+
         let layer = MGLLineStyleLayer(identifier: "contours", source: source)
         layer.sourceLayerIdentifier = "contour"
         layer.lineJoin = NSExpression(forConstantValue: "round")
         layer.lineCap = NSExpression(forConstantValue: "round")
         layer.lineColor = NSExpression(forConstantValue: UIColor.brown)
         layer.lineWidth = NSExpression(forConstantValue: 1.0)
-        
+
         style.addSource(source)
         if let water = style.layer(withIdentifier: "water") {
             // You can insert a layer below an existing style layer
@@ -43,12 +43,12 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
             // or you can simply add it above all layers
             style.addLayer(layer)
         }
-        
+
         self.contoursLayer = layer
-        
+
         showContours()
     }
-    
+
     @objc func toggleLayer(sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
@@ -57,15 +57,15 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
             hideContours()
         }
     }
-    
+
     func showContours() {
         self.contoursLayer?.isVisible = true
     }
-    
+
     func hideContours() {
         self.contoursLayer?.isVisible = false
     }
-    
+
     func addToggleButton() {
         let button = UIButton(type: .system)
         button.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
