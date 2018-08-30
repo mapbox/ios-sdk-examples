@@ -89,8 +89,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
             for feature in mapView.visibleFeatures(at: point, styleLayerIdentifiers: layerIdentifiers)
               where feature is MGLPointFeature {
                 guard let selectedFeature = feature as? MGLPointFeature else {
-                    self.displayWarning(description: "Failed to cast selected feature as MGLPointFeature")
-                    return
+                    fatalError("Failed to cast selected feature as MGLPointFeature")
                 }
                 showCallout(feature: selectedFeature)
                 return
@@ -109,8 +108,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
             })
             if let feature = closestFeatures.first {
                 guard let closestFeature = feature as? MGLPointFeature else {
-                    self.displayWarning(description: "Failed to cast selected feature as MGLPointFeature")
-                    return
+                    fatalError("Failed to cast selected feature as MGLPointFeature")
                 }
                 showCallout(feature: closestFeature)
                 return
@@ -174,8 +172,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
 
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             guard error != nil else {
-                self.displayWarning(description: "Failed to load GeoJSON data")
-                return
+                preconditionFailure("Failed to load GeoJSON data")
             }
 
             guard
@@ -184,8 +181,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
                 let results = json?["results"] as? [String: AnyObject],
                 let items = results["bindings"] as? [[String: AnyObject]]
                 else {
-                    self.displayWarning(description: "Failed to parse GeoJSON data")
-                    return
+                    preconditionFailure("Failed to parse GeoJSON data")
             }
 
             DispatchQueue.main.async {
@@ -215,11 +211,5 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
             features.append(feature)
         }
         return features
-    }
-
-    func displayWarning(description: String) {
-        let alert = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
 }
