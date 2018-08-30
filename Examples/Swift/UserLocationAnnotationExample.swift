@@ -113,7 +113,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
         let pad: CGFloat = 3
 
         let top =    CGPoint(x: max * 0.5, y: 0)
-        let left =   CGPoint(x: 0 + pad, y: max - pad)
+        let left =   CGPoint(x: 0 + pad,   y: max - pad)
         let right =  CGPoint(x: max - pad, y: max - pad)
         let center = CGPoint(x: max * 0.5, y: max * 0.6)
 
