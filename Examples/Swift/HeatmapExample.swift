@@ -54,7 +54,8 @@ class HeatmapExample: UIViewController, MGLMapViewDelegate {
         // Add a circle layer to represent the earthquakes at higher zoom levels.
         let circleLayer = MGLCircleStyleLayer(identifier: "circle-layer", source: source)
 
-        let magnitudeDictionary: [NSNumber: UIColor] = [0: .white,
+        let magnitudeDictionary: [NSNumber: UIColor] = [
+                                                        0: .white,
                                                       0.5: .yellow,
                                                       2.5: UIColor(red: 0.73, green: 0.23, blue: 0.25, alpha: 1.0),
                                                         5: UIColor(red: 0.19, green: 0.30, blue: 0.80, alpha: 1.0)
