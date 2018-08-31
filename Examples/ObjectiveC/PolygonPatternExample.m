@@ -3,10 +3,7 @@
 
 NSString *const MBXExamplePolygonPattern = @"PolygonPatternExample";
 
-@interface PolygonPatternExample ()<MGLMapViewDelegate>
-
-@property (nonatomic) MGLMapView *mapView;
-
+@interface PolygonPatternExample () <MGLMapViewDelegate>
 @end
 
 @implementation PolygonPatternExample
@@ -25,11 +22,10 @@ NSString *const MBXExamplePolygonPattern = @"PolygonPatternExample";
     mapView.delegate = self;
     
     [self.view addSubview:mapView];
-    
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
-    
+
     // Set the UIImage to be used for the fill pattern.
     UIImage *fillPatternImage = [UIImage imageNamed:@"stripe-pattern"];
     
