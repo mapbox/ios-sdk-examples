@@ -335,6 +335,7 @@
 		961962D41C583FDC002D3DAB /* ExamplesContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamplesContainerViewController.m; sourceTree = "<group>"; };
 		962B450D1D1C8520007B7454 /* AnnotationViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewExample.h; sourceTree = "<group>"; };
 		962B450E1D1C8520007B7454 /* AnnotationViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewExample.m; sourceTree = "<group>"; };
+		9637341B2139B30A00BE4B39 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		964CB5101E42A0A3004549EA /* AnnotationViewsAndImagesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewsAndImagesExample.swift; sourceTree = "<group>"; };
 		964CB5171E445AE1004549EA /* mapbox_access_token */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapbox_access_token; sourceTree = SOURCE_ROOT; };
 		9678E3EC1CEF58DA00F21AE2 /* CustomAnnotationModelExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationModelExample.h; sourceTree = "<group>"; };
@@ -775,6 +776,7 @@
 		9619628F1C581700002D3DAB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9637341B2139B30A00BE4B39 /* .swiftlint.yml */,
 				9691AAAA1C5AB546006A58C6 /* Examples-Bridging-Header.h */,
 				961962901C581700002D3DAB /* main.m */,
 				964CB5171E445AE1004549EA /* mapbox_access_token */,
