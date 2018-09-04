@@ -60,6 +60,7 @@ extern NSString *const MBXExampleThirdPartyVectorStyle;
 extern NSString *const MBXExampleUserLocationAnnotation;
 extern NSString *const MBXExampleUserTrackingModes;
 extern NSString *const MBXExampleWebAPIData;
+extern NSString *const MBXExampleRainFall;
 
 @interface Examples : NSObject
 

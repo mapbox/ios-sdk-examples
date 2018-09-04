@@ -15,7 +15,7 @@
         @{
             @"title": @"Getting started",
             @"examples":@[
-                    @{@"className": MBXExampleCameraAnimation, @"title": @"Camera animation"},
+                    @{@"className": @"ClusteringExample", @"title": @"Camera animation"},
                     @{@"className": MBXExampleStudioStyle, @"title": @"Apply a style designed in Mapbox Studio"},
                     @{@"className": MBXExampleDefaultAnnotation, @"title": @"Mark a place on the map with an annotation"},
                     @{@"className": MBXExampleSimpleMapView, @"title": @"Simple map view"},
@@ -81,6 +81,7 @@
                     @{@"className": MBXExampleMultipleImages, @"title": @"Add multiple images"},
                     @{@"className": MBXExampleRasterImagery, @"title": @"Add raster imagery"},
                     @{@"className": MBXExamplePointHotspot, @"title": @"Add point hotspot"},
+                    @{@"className": MBXExampleRainFall, @"title": @"Rain follow maps"}
                     ]
         },
         @{
