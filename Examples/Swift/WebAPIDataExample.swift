@@ -44,10 +44,10 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Use MGLCircleStyleLayer to represent the points with simple circles.
         // In this case, we can use style functions to gradually change properties between zoom level 2 and 7: the circle opacity from 50% to 100% and the circle radius from 2pt to 3pt.
-        
+
         let circles = MGLCircleStyleLayer(identifier: "lighthouse-circles", source: source)
         circles.circleColor = NSExpression(forConstantValue: lighthouseColor)
-        
+
         // The circles should increase in opacity from 0.5 to 1 based on zoom level.
         circles.circleOpacity = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", [2: 0.5, 7: 1])
         circles.circleRadius = NSExpression(format: "mgl_step:from:stops:($zoomLevel, 1, %@)", [2: 2, 7: 3])
@@ -86,9 +86,12 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
 
             // Try matching the exact point first.
             let point = sender.location(in: sender.view!)
-            for f in mapView.visibleFeatures(at: point, styleLayerIdentifiers:layerIdentifiers)
-              where f is MGLPointFeature {
-                showCallout(feature: f as! MGLPointFeature)
+            for feature in mapView.visibleFeatures(at: point, styleLayerIdentifiers: layerIdentifiers)
+              where feature is MGLPointFeature {
+                guard let selectedFeature = feature as? MGLPointFeature else {
+                    fatalError("Failed to cast selected feature as MGLPointFeature")
+                }
+                showCallout(feature: selectedFeature)
                 return
             }
 
@@ -103,11 +106,14 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
             let closestFeatures = possibleFeatures.sorted(by: {
                 return CLLocation(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude).distance(from: touchLocation) < CLLocation(latitude: $1.coordinate.latitude, longitude: $1.coordinate.longitude).distance(from: touchLocation)
             })
-            if let f = closestFeatures.first {
-                showCallout(feature: f as! MGLPointFeature)
+            if let feature = closestFeatures.first {
+                guard let closestFeature = feature as? MGLPointFeature else {
+                    fatalError("Failed to cast selected feature as MGLPointFeature")
+                }
+                showCallout(feature: closestFeature)
                 return
             }
-            
+
             // If no features were found, deselect the selected annotation, if any.
             mapView.deselectAnnotation(mapView.selectedAnnotations.first, animated: true)
         }
@@ -165,12 +171,21 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
         let request = URLRequest(url: URL(string: "https://query.wikidata.org/sparql?query=\(encodedQuery)&format=json")!)
 
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            guard let data = data else { return }
-            guard let json = try? JSONSerialization.jsonObject(with: data, options:[]) as? [String: AnyObject] else { return }
-            guard let results = json?["results"] as? [String: AnyObject] else { return }
-            guard let items = results["bindings"] as? [[String: AnyObject]] else { return }
+            guard error != nil else {
+                preconditionFailure("Failed to load GeoJSON data")
+            }
+
+            guard
+                let data = data,
+                let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject],
+                let results = json?["results"] as? [String: AnyObject],
+                let items = results["bindings"] as? [[String: AnyObject]]
+                else {
+                    preconditionFailure("Failed to parse GeoJSON data")
+            }
+
             DispatchQueue.main.async {
-            completion(self.parseJSONItems(items: items))
+                completion(self.parseJSONItems(items: items))
             }
         }).resume()
     }

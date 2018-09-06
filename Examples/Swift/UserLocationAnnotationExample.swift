@@ -10,7 +10,7 @@ class UserLocationAnnotationExample_Swift: UIViewController, MGLMapViewDelegate 
         let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
-        
+
         // Enable heading tracking mode so that the arrow will appear.
         mapView.userTrackingMode = .followWithHeading
 
@@ -19,7 +19,7 @@ class UserLocationAnnotationExample_Swift: UIViewController, MGLMapViewDelegate 
 
         view.addSubview(mapView)
     }
-    
+
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
         // Substitute our custom view for the user location annotation. This custom view is defined below.
         if annotation is MGLUserLocation && mapView.userLocation != nil {
@@ -41,13 +41,12 @@ class UserLocationAnnotationExample_Swift: UIViewController, MGLMapViewDelegate 
     }
 }
 
-
 // Create a subclass of MGLUserLocationAnnotationView.
 class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
     let size: CGFloat = 48
     var dot: CALayer!
     var arrow: CAShapeLayer!
-    
+
     // -update is a method inherited from MGLUserLocationAnnotationView. It updates the appearance of the user location annotation when needed. This can be called many times a second, so be careful to keep it lightweight.
     override func update() {
         if frame.isNull {
@@ -61,7 +60,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
             updateHeading()
         }
     }
-    
+
     private func updateHeading() {
         // Show the heading arrow, if the heading of the user is available.
         if let heading = userLocation!.heading?.trueHeading {
@@ -69,7 +68,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
 
             // Get the difference between the map’s current direction and the user’s heading, then convert it from degrees to radians.
             let rotation: CGFloat = -MGLRadiansFromDegrees(mapView!.direction - heading)
-            
+
             // If the difference would be perceptible, rotate the arrow.
             if fabs(rotation) > 0.01 {
                 // Disable implicit animations of this rotation, which reduces lag between changes.
@@ -82,7 +81,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
             arrow.isHidden = true
         }
     }
-    
+
     private func setupLayers() {
         // This dot forms the base of the annotation.
         if dot == nil {
@@ -112,7 +111,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
     private func arrowPath() -> CGPath {
         let max: CGFloat = size / 2
         let pad: CGFloat = 3
-        
+
         let top =    CGPoint(x: max * 0.5, y: 0)
         let left =   CGPoint(x: 0 + pad,   y: max - pad)
         let right =  CGPoint(x: max - pad, y: max - pad)

@@ -38,7 +38,7 @@
                     @{@"className": MBXExampleCustomAnnotationModel, @"title": @"Annotation models"},
                     @{@"className": MBXExampleAnnotationViewsAndImagesExample, @"title": @"Add annotation views and images"},
                     @{@"className": MBXExampleAnnotationView, @"title": @"Annotation views"},
-                    @{@"className": MBXExampleCalloutDelegateUsage, @"title": @"Callout delegate usage"},
+                    @{@"className": MBXExampleDefaultCallout, @"title": @"Use the default callout"},
                     @{@"className": MBXExampleCustomCalloutView, @"title": @"Display custom views as callouts"},
                     @{@"className": MBXExampleImageAnnotation, @"title": @"Mark a place on the map with an image"},
                     @{@"className": MBXExampleWebAPIData, @"title": @"Dynamically style interactive points"},
@@ -71,6 +71,7 @@
             @"title": @"Dynamic styling",
             @"examples":@[
                     @{@"className": MBXExampleClustering, @"title": @"Cluster point data"},
+                    @{@"className": MBXExampleClusteringWithImages, @"title": @"Cluster point data with images"},
                     @{@"className": MBXExampleDDSCircleLayer, @"title": @"Data-driven circles"},
                     @{@"className": MBXExampleHeatmap,
                       @"title": @"Add a heatmap layer"

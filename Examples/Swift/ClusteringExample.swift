@@ -8,6 +8,10 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
     var icon: UIImage!
     var popup: UILabel?
 
+    enum CustomError: Error {
+        case castingError(String)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,8 +51,8 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Color clustered features based on clustered point counts.
         let stops = [
-            20:  UIColor.lightGray,
-            50:  UIColor.orange,
+            20: UIColor.lightGray,
+            50: UIColor.orange,
             100: UIColor.red,
             200: UIColor.purple
         ]
@@ -69,7 +73,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         numbersLayer.textFontSize = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
         numbersLayer.iconAllowsOverlap = NSExpression(forConstantValue: true)
         numbersLayer.text = NSExpression(format: "CAST(point_count, 'NSString')")
-        
+
         numbersLayer.predicate = NSPredicate(format: "cluster == YES")
         style.addLayer(numbersLayer)
     }
@@ -78,7 +82,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         showPopup(false, animated: false)
     }
 
-    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) {
+    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) throws {
         if sender.state == .ended {
             let point = sender.location(in: sender.view)
             let width = icon.size.width
@@ -87,11 +91,11 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
             let clusters = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["clusteredPorts"])
             let ports = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["ports"])
 
-            if clusters.count > 0 {
+            if !clusters.isEmpty {
                 showPopup(false, animated: true)
                 let cluster = clusters.first!
                 mapView.setCenter(cluster.coordinate, zoomLevel: (mapView.zoomLevel + 1), animated: true)
-            } else if ports.count > 0 {
+            } else if !ports.isEmpty {
                 let port = ports.first!
 
                 if popup == nil {
@@ -107,7 +111,11 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
                     view.addSubview(popup!)
                 }
 
-                popup!.text = (port.attribute(forKey: "name")! as! String)
+                guard let portName = port.attribute(forKey: "name")! as? String else {
+                    throw CustomError.castingError("Could not cast port name to string")
+                }
+
+                popup!.text = portName
                 let size = (popup!.text! as NSString).size(withAttributes: [NSAttributedStringKey.font: popup!.font])
                 popup!.bounds = CGRect(x: 0, y: 0, width: size.width, height: size.height).insetBy(dx: -10, dy: -10)
                 let point = mapView.convert(port.coordinate, toPointTo: mapView)

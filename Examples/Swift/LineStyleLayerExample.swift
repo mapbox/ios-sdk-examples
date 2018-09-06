@@ -28,8 +28,14 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     func loadGeoJson() {
         DispatchQueue.global().async {
             // Get the path for example.geojson in the app’s bundle.
-            guard let jsonUrl = Bundle.main.url(forResource: "example", withExtension: "geojson") else { return }
-            guard let jsonData = try? Data(contentsOf: jsonUrl) else { return }
+            guard let jsonUrl = Bundle.main.url(forResource: "example", withExtension: "geojson") else {
+                preconditionFailure("Failed to load local GeoJSON file")
+            }
+
+            guard let jsonData = try? Data(contentsOf: jsonUrl) else {
+                preconditionFailure("Failed to parse GeoJSON file")
+            }
+
             DispatchQueue.main.async {
                 self.drawPolyline(geoJson: jsonData)
             }
@@ -43,20 +49,23 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         // MGLMapView.style is optional, so you must guard against it not being set.
         guard let style = self.mapView.style else { return }
 
-        let shapeFromGeoJSON = try! MGLShape(data: geoJson, encoding: String.Encoding.utf8.rawValue)
+        guard let shapeFromGeoJSON = try? MGLShape(data: geoJson, encoding: String.Encoding.utf8.rawValue) else {
+            fatalError("Could not generate MGLShape")
+        }
+
         let source = MGLShapeSource(identifier: "polyline", shape: shapeFromGeoJSON, options: nil)
         style.addSource(source)
 
         // Create new layer for the line.
         let layer = MGLLineStyleLayer(identifier: "polyline", source: source)
-        
+
         // Set the line join and cap to a rounded end.
         layer.lineJoin = NSExpression(forConstantValue: "round")
         layer.lineCap = NSExpression(forConstantValue: "round")
-        
+
         // Set the line color to a constant blue color.
-        layer.lineColor = NSExpression(forConstantValue: UIColor(red: 59/255, green:178/255, blue:208/255, alpha:1))
-        
+        layer.lineColor = NSExpression(forConstantValue: UIColor(red: 59/255, green: 178/255, blue: 208/255, alpha: 1))
+
         // Use `NSExpression` to smoothly adjust the line width from 2pt to 20pt between zoom levels 14 and 18. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
         layer.lineWidth = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
                                        [14: 2, 18: 20])
@@ -69,11 +78,10 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         // Line gap width represents the space before the outline begins, so should match the main line’s line width exactly.
         casingLayer.lineGapWidth = layer.lineWidth
         // Stroke color slightly darker than the line color.
-        casingLayer.lineColor = NSExpression(forConstantValue: UIColor(red: 41/255, green:145/255, blue:171/255, alpha:1))
+        casingLayer.lineColor = NSExpression(forConstantValue: UIColor(red: 41/255, green: 145/255, blue: 171/255, alpha: 1))
         // Use `NSExpression` to gradually increase the stroke width between zoom levels 14 and 18.
-        casingLayer.lineWidth = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
-                                             [14: 1, 18: 4])
-        
+        casingLayer.lineWidth = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", [14: 1, 18: 4])
+
         // Just for fun, let’s add another copy of the line with a dash pattern.
         let dashedLayer = MGLLineStyleLayer(identifier: "polyline-dash", source: source)
         dashedLayer.lineJoin = layer.lineJoin
@@ -83,7 +91,7 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         dashedLayer.lineWidth = layer.lineWidth
         // Dash pattern in the format [dash, gap, dash, gap, ...]. You’ll want to adjust these values based on the line cap style.
         dashedLayer.lineDashPattern = NSExpression(forConstantValue: [0, 1.5])
- 
+
         style.addLayer(layer)
         style.addLayer(dashedLayer)
         style.insertLayer(casingLayer, below: layer)
