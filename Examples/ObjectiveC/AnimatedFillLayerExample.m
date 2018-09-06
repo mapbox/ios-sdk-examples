@@ -57,7 +57,7 @@ NSString *const MBXExampleAnimatedFillLayer = @"AnimatedFillLayerExample";
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
-    NSURL *url = [NSURL URLWithString:@"mapbox://lloydsheng.4z2g1v2i"];
+    NSURL *url = [NSURL URLWithString:@"mapbox://examples.dwtmhwpu"];
     MGLVectorTileSource *source = [[MGLVectorTileSource alloc] initWithIdentifier:@"weather-source" configurationURL:url];
     [style addSource:source];
     

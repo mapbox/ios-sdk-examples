@@ -51,7 +51,7 @@ class AnimatedFillLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        guard let url = URL(string: "mapbox://lloydsheng.4z2g1v2i") else {
+        guard let url = URL(string: "mapbox://examples.dwtmhwpu") else {
             return;
         }
         
