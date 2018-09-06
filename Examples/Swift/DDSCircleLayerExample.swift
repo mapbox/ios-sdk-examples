@@ -26,31 +26,28 @@ class DDSCircleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     // Wait until the style is loaded before modifying the map style.
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
 
-        // "mapbox://examples.2uf7qges" is a map ID referencing a tileset. For more
-        // more information, see mapbox.com/help/define-map-id/
-        let source = MGLVectorTileSource(identifier: "trees", configurationURL: URL(string: "mapbox://examples.2uf7qges")!)
+        // Upgrade the Podfile to 4.3.0 to reproduce the issues.
+        // This filters properly on 4.0.0
 
-        style.addSource(source)
+        let pointA = MGLPointFeature()
+        pointA.coordinate = CLLocationCoordinate2DMake(38.897, -77.039)
+        pointA.attributes = ["rowindex": 1]
 
-        let layer = MGLCircleStyleLayer(identifier: "tree-style", source: source)
+        let pointB = MGLPointFeature()
+        pointB.coordinate = CLLocationCoordinate2DMake(38.9, -77.0)
+        pointB.attributes = ["rowindex": 2]
 
-        // The source name from the source's TileJSON metadata: mapbox.com/api-documentation/#retrieve-tilejson-metadata
-        layer.sourceLayerIdentifier = "yoshino-trees-a0puw5"
+        let shapeSource = MGLShapeSource(identifier: "shapes", features: [pointA, pointB], options: nil)
 
-        // Stops based on age of tree in years.
-        let stops = [
-            0: UIColor(red: 1.00, green: 0.72, blue: 0.85, alpha: 1.0),
-            2: UIColor(red: 0.69, green: 0.48, blue: 0.73, alpha: 1.0),
-            4: UIColor(red: 0.61, green: 0.31, blue: 0.47, alpha: 1.0),
-            7: UIColor(red: 0.43, green: 0.20, blue: 0.38, alpha: 1.0),
-           16: UIColor(red: 0.33, green: 0.17, blue: 0.25, alpha: 1.0)
-        ]
+        // Using circle layer for easier visibility
+        let layer = MGLCircleStyleLayer(identifier: "shapes-style", source: shapeSource)
+        layer.circleRadius = NSExpression(forConstantValue: 5)
+        layer.circleColor = NSExpression(forConstantValue: UIColor.red)
 
-        // Style the circle layer color based on the above stops dictionary.
-        layer.circleColor = NSExpression(format: "mgl_step:from:stops:(AGE, %@, %@)", UIColor(red: 1.0, green: 0.72, blue: 0.85, alpha: 1.0), stops)
+        let filter: Set<Int> = [1,3,5]
+        layer.predicate = NSPredicate(format: "ANY %K IN %@", "rowindex", filter)
 
-        layer.circleRadius = NSExpression(forConstantValue: 3)
-
+        style.addSource(shapeSource)
         style.addLayer(layer)
     }
 }
