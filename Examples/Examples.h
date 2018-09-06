@@ -20,6 +20,7 @@
 extern NSString *const MBXExampleAnimatedLine;
 extern NSString *const MBXExampleAnnotationView;
 extern NSString *const MBXExampleAnnotationViewsAndImagesExample;
+extern NSString *const MBXExampleAnimatedFillLayer;
 extern NSString *const MBXExampleBlockingGesturesDelegate;
 extern NSString *const MBXExampleBuildingLight;
 extern NSString *const MBXExampleBuildings;
@@ -60,7 +61,6 @@ extern NSString *const MBXExampleThirdPartyVectorStyle;
 extern NSString *const MBXExampleUserLocationAnnotation;
 extern NSString *const MBXExampleUserTrackingModes;
 extern NSString *const MBXExampleWebAPIData;
-extern NSString *const MBXExampleRainFall;
 
 @interface Examples : NSObject
 

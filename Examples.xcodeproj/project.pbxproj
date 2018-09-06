@@ -98,8 +98,8 @@
 		64CF97101DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970F1DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift */; };
 		64CF97121DF224F600C3C27B /* RasterImageryExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97111DF224F600C3C27B /* RasterImageryExample.swift */; };
 		64CF97171DF2251500C3C27B /* RasterImageryExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97161DF2251500C3C27B /* RasterImageryExample.m */; };
-		6FE4044A213E5CC100E85F5C /* RainFallExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE40449213E5CC100E85F5C /* RainFallExample.m */; };
-		6FE4044D213E5CE400E85F5C /* RainFallExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE4044C213E5CE400E85F5C /* RainFallExample.swift */; };
+		6FE4044A213E5CC100E85F5C /* AnimatedFillLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE40449213E5CC100E85F5C /* AnimatedFillLayerExample.m */; };
+		6FE4044D213E5CE400E85F5C /* AnimatedFillLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE4044C213E5CE400E85F5C /* AnimatedFillLayerExample.swift */; };
 		6FE66DED20C9D1260099A4CB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FE66DEF20C9D1260099A4CB /* Localizable.strings */; };
 		960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */; };
 		961962911C581700002D3DAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962901C581700002D3DAB /* main.m */; };
@@ -305,9 +305,9 @@
 		64CF97111DF224F600C3C27B /* RasterImageryExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterImageryExample.swift; sourceTree = "<group>"; };
 		64CF97161DF2251500C3C27B /* RasterImageryExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RasterImageryExample.m; sourceTree = "<group>"; };
 		64CF97191DF2252C00C3C27B /* RasterImageryExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RasterImageryExample.h; sourceTree = "<group>"; };
-		6FE40449213E5CC100E85F5C /* RainFallExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RainFallExample.m; sourceTree = "<group>"; };
-		6FE4044B213E5CDA00E85F5C /* RainFallExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RainFallExample.h; sourceTree = "<group>"; };
-		6FE4044C213E5CE400E85F5C /* RainFallExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainFallExample.swift; sourceTree = "<group>"; };
+		6FE40449213E5CC100E85F5C /* AnimatedFillLayerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedFillLayerExample.m; sourceTree = "<group>"; };
+		6FE4044B213E5CDA00E85F5C /* AnimatedFillLayerExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedFillLayerExample.h; sourceTree = "<group>"; };
+		6FE4044C213E5CE400E85F5C /* AnimatedFillLayerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedFillLayerExample.swift; sourceTree = "<group>"; };
 		6FE66DEE20C9D1260099A4CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6FE66DF020C9D1370099A4CB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		7556D44879C1E2866B0355B8 /* Pods-ExamplesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExamplesTests/Pods-ExamplesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -497,7 +497,7 @@
 		0543F6441FE8678D00D0AF54 /* Dynamic styling */ = {
 			isa = PBXGroup;
 			children = (
-				6FE4044C213E5CE400E85F5C /* RainFallExample.swift */,
+				6FE4044C213E5CE400E85F5C /* AnimatedFillLayerExample.swift */,
 				DD5939E31E6639BA0009BEB2 /* ClusteringExample.swift */,
 				07C138C31E721C8F00D6F678 /* DDSCircleLayerExample.swift */,
 				3E9EF27B209CFD460053D1D7 /* HeatmapExample.swift */,
@@ -598,7 +598,7 @@
 		0543F64C1FE868EE00D0AF54 /* Dynamic styling */ = {
 			isa = PBXGroup;
 			children = (
-				6FE40449213E5CC100E85F5C /* RainFallExample.m */,
+				6FE40449213E5CC100E85F5C /* AnimatedFillLayerExample.m */,
 				DDF943281E5DE63300545D0F /* ClusteringExample.m */,
 				07C138C61E72216E00D6F678 /* DDSCircleLayerExample.m */,
 				3E9EF27D209CFD570053D1D7 /* HeatmapExample.m */,
@@ -810,7 +810,7 @@
 		9682472D1C5C226D00494AB8 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				6FE4044B213E5CDA00E85F5C /* RainFallExample.h */,
+				6FE4044B213E5CDA00E85F5C /* AnimatedFillLayerExample.h */,
 				646B62A11DEF70DD000AA523 /* AnimatedLineExample.h */,
 				07F53B861E00D08600B58DB3 /* AnnotationViewsAndImagesExample.h */,
 				962B450D1D1C8520007B7454 /* AnnotationViewExample.h */,
@@ -1323,7 +1323,7 @@
 				07C138C71E72216E00D6F678 /* DDSCircleLayerExample.m in Sources */,
 				3EBCD7191DC28240001E342F /* CustomAnnotationModelExample.swift in Sources */,
 				05FA53AB1FE2FB9C001F3D7D /* CustomCalloutViewExample.m in Sources */,
-				6FE4044A213E5CC100E85F5C /* RainFallExample.m in Sources */,
+				6FE4044A213E5CC100E85F5C /* AnimatedFillLayerExample.m in Sources */,
 				962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */,
 				1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */,
 				05536CB2200F9B0900657097 /* SwitchStylesExample.m in Sources */,
@@ -1388,7 +1388,7 @@
 				05FA53981FE2FA00001F3D7D /* SatelliteStyleExample.m in Sources */,
 				964CB5111E42A0A3004549EA /* AnnotationViewsAndImagesExample.swift in Sources */,
 				3EC11D271EA84091001AAAB8 /* PointHotspotExample.swift in Sources */,
-				6FE4044D213E5CE400E85F5C /* RainFallExample.swift in Sources */,
+				6FE4044D213E5CE400E85F5C /* AnimatedFillLayerExample.swift in Sources */,
 				64CF97101DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift in Sources */,
 				3EBCD7211DC28240001E342F /* ImageAnnotationExample.swift in Sources */,
 				05FA53991FE2FA00001F3D7D /* ThirdPartyVectorStyleExample.m in Sources */,

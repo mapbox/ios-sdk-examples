@@ -81,7 +81,7 @@
                     @{@"className": MBXExampleMultipleImages, @"title": @"Add multiple images"},
                     @{@"className": MBXExampleRasterImagery, @"title": @"Add raster imagery"},
                     @{@"className": MBXExamplePointHotspot, @"title": @"Add point hotspot"},
-                    @{@"className": MBXExampleRainFall, @"title": @"Rain follow maps"}
+                    @{@"className": MBXExampleAnimatedFillLayer, @"title": @"Animate a fill layer"}
                     ]
         },
         @{
