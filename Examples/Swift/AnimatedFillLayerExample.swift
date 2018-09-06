@@ -42,7 +42,7 @@ class AnimatedFillLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         slider = UISlider()
         slider.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
         slider.minimumValue = 0
-        slider.maximumValue = 40
+        slider.maximumValue = 37
         slider.value = 0
         slider.addTarget(self, action: #selector(slideValueChanged(_:event:)), for: .valueChanged)
         view.addSubview(slider)
@@ -51,15 +51,15 @@ class AnimatedFillLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        guard let url = URL(string: "mapbox://shenhongissky.6vm8ssjm") else {
+        guard let url = URL(string: "mapbox://lloydsheng.4z2g1v2i") else {
             return;
         }
         
-        let source = MGLVectorTileSource(identifier: "moji-source", configurationURL: url)
+        let source = MGLVectorTileSource(identifier: "weather-source", configurationURL: url)
         style.addSource(source)
         
-        let fillLayer = MGLFillStyleLayer(identifier: "moji-layer", source: source)
-        fillLayer.sourceLayerIdentifier = "whole"
+        let fillLayer = MGLFillStyleLayer(identifier: "weather-layer", source: source)
+        fillLayer.sourceLayerIdentifier = "201806261518"
         fillLayer.fillColor = NSExpression(format: "mgl_step:from:stops:(value, %@, %@)", UIColor.clear, self.fillColors)
         fillLayer.fillOpacity = NSExpression(forConstantValue: 0.7)
         fillLayer.fillOutlineColor = NSExpression(forConstantValue: UIColor.clear)

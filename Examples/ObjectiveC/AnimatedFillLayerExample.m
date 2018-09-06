@@ -48,7 +48,7 @@ NSString *const MBXExampleAnimatedFillLayer = @"AnimatedFillLayerExample";
     self.slider = [[UISlider alloc] init];
     self.slider.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     self.slider.minimumValue = 0;
-    self.slider.maximumValue = 40;
+    self.slider.maximumValue = 37;
     self.slider.value = 0;
     [self.slider addTarget:self action:@selector(slideValueChanged:event:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.slider];
@@ -57,12 +57,12 @@ NSString *const MBXExampleAnimatedFillLayer = @"AnimatedFillLayerExample";
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
-    NSURL *url = [NSURL URLWithString:@"mapbox://shenhongissky.6vm8ssjm"];
-    MGLVectorTileSource *source = [[MGLVectorTileSource alloc] initWithIdentifier:@"moji-source" configurationURL:url];
+    NSURL *url = [NSURL URLWithString:@"mapbox://lloydsheng.4z2g1v2i"];
+    MGLVectorTileSource *source = [[MGLVectorTileSource alloc] initWithIdentifier:@"weather-source" configurationURL:url];
     [style addSource:source];
     
-    MGLFillStyleLayer *fillLayer = [[MGLFillStyleLayer alloc] initWithIdentifier:@"moji-layer" source:source];
-    fillLayer.sourceLayerIdentifier = @"whole";
+    MGLFillStyleLayer *fillLayer = [[MGLFillStyleLayer alloc] initWithIdentifier:@"weather-layer" source:source];
+    fillLayer.sourceLayerIdentifier = @"201806261518";
     fillLayer.fillColor = [NSExpression expressionWithFormat:@"mgl_step:from:stops:(value, %@, %@)", [UIColor clearColor], [self fillColors]];
     fillLayer.fillOpacity = [NSExpression expressionForConstantValue:@(0.7)];
     fillLayer.fillOutlineColor = [NSExpression expressionForConstantValue:[UIColor clearColor]];
