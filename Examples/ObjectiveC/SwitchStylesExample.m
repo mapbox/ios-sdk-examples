@@ -25,8 +25,12 @@ NSString *const MBXExampleSwitchStyles = @"SwitchStylesExample";
     [self.view addSubview:self.mapView];
     
     // Create a UISegmentedControl to toggle between map styles
-    UISegmentedControl *styleToggle =[[UISegmentedControl alloc] initWithItems:@[@"Dark", @"Streets", @"Light"]];
+    UISegmentedControl *styleToggle =[[UISegmentedControl alloc] initWithItems:@[@"Satellite", @"Streets", @"Light"]];
     styleToggle.translatesAutoresizingMaskIntoConstraints = NO;
+    styleToggle.tintColor = [UIColor colorWithRed:0.976 green:0.843 blue:0.831 alpha:1];
+    styleToggle.backgroundColor = [UIColor colorWithRed:0.973 green:0.329 blue:0.294 alpha:1];
+    styleToggle.layer.cornerRadius = 4;
+    styleToggle.clipsToBounds = YES;
     styleToggle.selectedSegmentIndex = 1;
     [self.view insertSubview:styleToggle aboveSubview:self.mapView];
     [styleToggle addTarget:self action:@selector(changeStyle:) forControlEvents:UIControlEventValueChanged];
@@ -34,8 +38,10 @@ NSString *const MBXExampleSwitchStyles = @"SwitchStylesExample";
     // Configure autolayout constraints for the UISegmentedControl to align
     // at the bottom of the map view and above the Mapbox logo and attribution
     NSMutableArray *constraints = [NSMutableArray array];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-40-[styleToggle]-40-|" options:0 metrics:0 views:@{@"styleToggle":styleToggle}]];
+
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:styleToggle attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.mapView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:1.0]];
     [constraints addObject:[NSLayoutConstraint constraintWithItem:styleToggle attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.mapView.logoView attribute:NSLayoutAttributeTop multiplier:1 constant:-20]];
+    
     [self.view addConstraints:constraints];
 }
 
@@ -43,7 +49,7 @@ NSString *const MBXExampleSwitchStyles = @"SwitchStylesExample";
 - (void)changeStyle:(UISegmentedControl *)sender {
     switch(sender.selectedSegmentIndex){
         case 0:
-            self.mapView.styleURL = [MGLStyle darkStyleURL];
+            self.mapView.styleURL = [MGLStyle satelliteStyleURL];
             break;
         case 1:
             self.mapView.styleURL = [MGLStyle streetsStyleURL];
