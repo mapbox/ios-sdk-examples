@@ -134,7 +134,7 @@
 
 // Present the navigation view controller when the callout is selected
 - (void)mapView:(MGLMapView *)mapView tapOnCalloutForAnnotation:(id<MGLAnnotation>)annotation {
-    MBNavigationViewController *navigationViewController = [[MBNavigationViewController alloc] initWithRoute:self.directionsRoute directions:[MBDirections sharedDirections] styles:nil locationManager:nil voiceController:nil];
+    MBNavigationViewController *navigationViewController = [[MBNavigationViewController alloc] initWithRoute:self.directionsRoute directions:[MBDirections sharedDirections] styles:nil routeController:nil locationManager:nil voiceController:nil eventsManager:nil];
     [self presentViewController:navigationViewController animated:YES completion:nil];
 }
 // #-end-code-snippet: navigation callout-functions-objc
