@@ -1159,13 +1159,14 @@
 			files = (
 			);
 			inputPaths = (
+				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
 			);
 			name = "Insert Mapbox Access Token";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Examples/insert-mapbox-token.sh";
+			shellScript = "$SRCROOT/Examples/insert-mapbox-token.sh\n";
 		};
 		07CF859D20F41654007B26B6 /* Lint examples */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1223,13 +1224,14 @@
 			files = (
 			);
 			inputPaths = (
+				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
 			);
 			name = "Insert Mapbox Access Token";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Examples/insert-mapbox-token.sh";
+			shellScript = "$SRCROOT/Examples/insert-mapbox-token.sh\n";
 		};
 		AE0655B20C8AA154EF5BC4BE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
