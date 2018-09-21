@@ -73,7 +73,7 @@ NSString *const MBXExampleAnimatedFillLayer = @"AnimatedFillLayerExample";
     fillLayer.fillColor = [NSExpression expressionWithFormat:@"mgl_step:from:stops:(value, %@, %@)", [UIColor clearColor], [self fillColors]];
     fillLayer.fillOpacity = [NSExpression expressionForConstantValue:@(0.7)];
     fillLayer.fillOutlineColor = [NSExpression expressionForConstantValue:[UIColor clearColor]];
-    self.radarLayer.predicate = [NSPredicate predicateWithFormat:@"idx == %d", self.timeIndex];
+    fillLayer.predicate = [NSPredicate predicateWithFormat:@"idx == %d", self.timeIndex];
     [style addLayer:fillLayer];
     
     // Store the layer as a property in order to update it later. If your use case involves style changes, do not store the layer as a property. Instead, access the layer using its layer identifier.
