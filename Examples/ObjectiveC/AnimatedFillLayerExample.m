@@ -78,11 +78,15 @@ NSString *const MBXExampleAnimatedFillLayer = @"AnimatedFillLayerExample";
     
     // Store the layer as a property in order to update it later. If your use case involves style changes, do not store the layer as a property. Instead, access the layer using its layer identifier.
     self.radarLayer = fillLayer;
+    
+    // Use a timer to trigger changes to the fill layer every 0.15 seconds.
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.15 target:self selector:@selector(timerTick) userInfo:nil repeats:YES];
 }
 
 - (void)timerTick {
     self.timeIndex = self.timeIndex + 1;
+   
+    // Filter the layer based on the value for the attribute `idx`.
     self.radarLayer.predicate = [NSPredicate predicateWithFormat:@"idx == %d", self.timeIndex];
 }
 

@@ -82,6 +82,8 @@ class AnimatedFillLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         
         // Store the layer as a property in order to update it later. If your use case involves style changes, do not store the layer as a property. Instead, access the layer using its layer identifier.
         self.radarLayer = fillLayer
+        
+        // Use a timer to trigger changes to the fill layer every 0.15 seconds.
         timer = Timer.scheduledTimer(timeInterval: 0.15, target: self, selector: #selector(timerTick), userInfo: nil, repeats: true)
     }
     
@@ -96,6 +98,8 @@ class AnimatedFillLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         guard let layer = self.radarLayer else {
             return
         }
+        
+        // Filter the layer based on the value for the attribute `idx`.
         layer.predicate = NSPredicate(format: "idx == %d", timeIndex)
         timeIndex = timeIndex + 1
     }
