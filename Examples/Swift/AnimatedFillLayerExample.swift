@@ -4,9 +4,19 @@ import Mapbox
 class AnimatedFillLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     
     private var mapView: MGLMapView!
-    private var slider: UISlider!
     private var radarLayer: MGLFillStyleLayer?
-    
+    private var timer: Timer?
+    private var _timeIndex: Int = 0
+    private var timeIndex: Int {
+        get {
+            return _timeIndex
+        }
+        set {
+            let value = newValue >= 37 ? 0 : newValue
+            _timeIndex = value
+        }
+    }
+
     // Convert RGB values to UIColor.
     private func RGB(_ red: Int, _ green: Int, _ blue: Int) -> UIColor {
         return UIColor(red: CGFloat(red)/256.0, green: CGFloat(green)/256.0, blue: CGFloat(blue)/256.0, alpha: 1);
@@ -44,16 +54,6 @@ class AnimatedFillLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.setCenter(CLLocationCoordinate2D(latitude: 28.22894, longitude: 102.45434), zoomLevel: 2, animated: false)
         mapView.delegate = self
         view.addSubview(mapView)
-        
-        slider = UISlider()
-        slider.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
-        slider.minimumValue = 0
-        slider.maximumValue = 37
-        slider.value = 0
-        slider.addTarget(self, action: #selector(slideValueChanged(_:event:)), for: .valueChanged)
-        view.addSubview(slider)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(didChangeOrientation), name: .UIDeviceOrientationDidChange, object: nil)
     }
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
@@ -77,44 +77,26 @@ class AnimatedFillLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         fillLayer.fillColor = NSExpression(format: "mgl_step:from:stops:(value, %@, %@)", UIColor.clear, self.fillColors)
         fillLayer.fillOpacity = NSExpression(forConstantValue: 0.7)
         fillLayer.fillOutlineColor = NSExpression(forConstantValue: UIColor.clear)
+        fillLayer.predicate = NSPredicate(format: "idx == %d", timeIndex)
         style.addLayer(fillLayer)
         
         // Store the layer as a property in order to update it later. If your use case involves style changes, do not store the layer as a property. Instead, access the layer using its layer identifier.
         self.radarLayer = fillLayer
-    }
-    
-    @objc private func slideValueChanged(_ slider: UISlider, event: UIEvent) {
-        if let layer = self.radarLayer {
-            // Filter the layer based on the value for the attribute `idx`.
-            layer.predicate = NSPredicate(format: "idx == %d", Int(slider.value))
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.slider.frame = self.adjustSliderFrame()
+        timer = Timer.scheduledTimer(timeInterval: 0.15, target: self, selector: #selector(timerTick), userInfo: nil, repeats: true)
     }
     
     deinit {
+        if let timer = self.timer {
+            timer.invalidate()
+        }
         NotificationCenter.default.removeObserver(self)
     }
-
-    private func adjustSliderFrame() -> CGRect {
-        if (UIApplication.shared.statusBarOrientation == .portrait) {
-            return CGRect(x: 10,
-                          y: view.frame.height - 60 - self.bottomLayoutGuide.length,
-                          width: view.frame.width - 20,
-                          height: 20)
-        }
-        return CGRect(x: self.topLayoutGuide.length,
-                      y: view.frame.height - 60 - self.bottomLayoutGuide.length,
-                      width: view.frame.width - self.topLayoutGuide.length*2,
-                      height: 20)
-    }
     
-    @objc private func didChangeOrientation() {
-        UIView.animate(withDuration: 0.3) {
-            self.slider.frame = self.adjustSliderFrame()
+    @objc private func timerTick() {
+        guard let layer = self.radarLayer else {
+            return
         }
+        layer.predicate = NSPredicate(format: "idx == %d", timeIndex)
+        timeIndex = timeIndex + 1
     }
 }

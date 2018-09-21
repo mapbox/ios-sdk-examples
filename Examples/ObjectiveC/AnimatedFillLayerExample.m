@@ -10,13 +10,19 @@ NSString *const MBXExampleAnimatedFillLayer = @"AnimatedFillLayerExample";
 @interface AnimatedFillLayerExample () <MGLMapViewDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
-@property (nonatomic) UISlider *slider;
 @property (nonatomic) MGLFillStyleLayer *radarLayer;
 @property (nonatomic, readonly) NSDictionary *fillColors;
+@property (nonatomic, assign) NSInteger timeIndex;
+@property (nonatomic) NSTimer *timer;
 
 @end
 
 @implementation AnimatedFillLayerExample
+
+- (void)setTimeIndex:(NSInteger)timeIndex {
+    NSInteger value = timeIndex >= 37 ? 0 : timeIndex;
+    _timeIndex = value;
+}
 
 // Create a stops dictionary. This will be used to determine the color of polygons within the fill layer.
 - (NSDictionary *)fillColors {
@@ -46,16 +52,6 @@ NSString *const MBXExampleAnimatedFillLayer = @"AnimatedFillLayerExample";
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(28.22894, 102.45434) zoomLevel:2 animated:NO];
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
-    
-    self.slider = [[UISlider alloc] init];
-    self.slider.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    self.slider.minimumValue = 0;
-    self.slider.maximumValue = 37;
-    self.slider.value = 0;
-    [self.slider addTarget:self action:@selector(slideValueChanged:event:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:self.slider];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeOrientation) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
@@ -77,43 +73,22 @@ NSString *const MBXExampleAnimatedFillLayer = @"AnimatedFillLayerExample";
     fillLayer.fillColor = [NSExpression expressionWithFormat:@"mgl_step:from:stops:(value, %@, %@)", [UIColor clearColor], [self fillColors]];
     fillLayer.fillOpacity = [NSExpression expressionForConstantValue:@(0.7)];
     fillLayer.fillOutlineColor = [NSExpression expressionForConstantValue:[UIColor clearColor]];
+    self.radarLayer.predicate = [NSPredicate predicateWithFormat:@"idx == %d", self.timeIndex];
     [style addLayer:fillLayer];
     
     // Store the layer as a property in order to update it later. If your use case involves style changes, do not store the layer as a property. Instead, access the layer using its layer identifier.
     self.radarLayer = fillLayer;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.15 target:self selector:@selector(timerTick) userInfo:nil repeats:YES];
 }
 
-- (void)slideValueChanged:(UISlider *)silder event:(UIEvent *)event {
-   // Filter the layer based on the value for the attribute `idx`.
-    self.radarLayer.predicate = [NSPredicate predicateWithFormat:@"idx == %d", (int)silder.value];
+- (void)timerTick {
+    self.timeIndex = self.timeIndex + 1;
+    self.radarLayer.predicate = [NSPredicate predicateWithFormat:@"idx == %d", self.timeIndex];
 }
 
 - (void)dealloc {
+    [_timer invalidate];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    self.slider.frame = [self adjustSliderFrame];
-}
-
-- (CGRect)adjustSliderFrame {
-    if (UIApplication.sharedApplication.statusBarOrientation == UIDeviceOrientationPortrait) {
-        return CGRectMake(10,
-                          self.view.frame.size.height - 60 - self.bottomLayoutGuide.length,
-                          self.view.frame.size.width - 20,
-                          20);
-    }
-    return CGRectMake(self.topLayoutGuide.length,
-                      self.view.frame.size.height - 60 - self.bottomLayoutGuide.length,
-                      self.view.frame.size.width - self.topLayoutGuide.length - 20,
-                      20);
-}
-
-- (void)didChangeOrientation {
-    [UIView animateWithDuration:0.3 animations:^{
-        self.slider.frame = [self adjustSliderFrame];
-    }];
 }
 
 @end
