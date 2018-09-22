@@ -40,6 +40,7 @@
 "Select a park feature" = "选中公园元素";
 "Switch between user tracking modes" = "用户追踪模式切换";
 "Cluster point data" = "数据聚类";
+"Cluster point data with images" = "不同图标显示聚类数据";
 "Data-driven circles" = "原点图层";
 "Add an image" = "栅格图层（雷达图）";
 "Add live data" = "符号图层";
