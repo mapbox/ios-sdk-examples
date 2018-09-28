@@ -25,7 +25,7 @@ class ImageSourceExample: UIViewController, MGLMapViewDelegate {
             topRight: CLLocationCoordinate2D(latitude: 46.437, longitude: -71.516))
 
         // Create a MGLImageSource, which can be used to add georeferenced raster images to a map.
-        if let radarImage = Bundle.main.path(forResource: "radar", ofType: "gif") {
+        if let radarImage = Bundle.main.path(forResource: "red-rect", ofType: "png") {
             let source = MGLImageSource(identifier: "radar", coordinateQuad: coordinates, image: UIImage(contentsOfFile: radarImage)!)
             style.addSource(source)
 
