@@ -77,6 +77,7 @@
                       @"title": @"Add a heatmap layer"
                       },
                     @{@"className": MBXExampleImageSource, @"title": @"Add an image"},
+                    @{@"className": MBXExampleLineGradient, @"title": @"Style with a gradient"},
                     @{@"className": MBXExampleLiveData, @"title": @"Add live data"},
                     @{@"className": MBXExampleMultipleShapes, @"title": @"Add multiple shapes from a single shape source"},
                     @{@"className": MBXExampleMultipleImages, @"title": @"Add multiple images"},
