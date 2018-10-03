@@ -27,35 +27,28 @@ NSString *const MBXExampleLineGradient = @"LineGradientExample";
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     
-    CLLocationCoordinate2D coordinates[] = {
-        CLLocationCoordinate2DMake(38.852924, -77.044211),
-        CLLocationCoordinate2DMake(38.860158, -77.045659),
-        CLLocationCoordinate2DMake(38.862326, -77.044232),
-        CLLocationCoordinate2DMake(38.865454, -77.040879),
-        CLLocationCoordinate2DMake(38.867698, -77.039936),
-        CLLocationCoordinate2DMake(38.86943, -77.040338),
-        CLLocationCoordinate2DMake(38.872528, -77.04264),
-        CLLocationCoordinate2DMake(38.878424, -77.03696),
-        CLLocationCoordinate2DMake(38.87937, -77.032309),
-        CLLocationCoordinate2DMake(38.880945, -77.030056),
-        CLLocationCoordinate2DMake(38.881779, -77.027645),
-        CLLocationCoordinate2DMake(38.882645, -77.026946),
-        CLLocationCoordinate2DMake(38.885502, -77.026942),
-        CLLocationCoordinate2DMake(38.887449, -77.028054),
-        CLLocationCoordinate2DMake(38.892088, -77.02806),
-        CLLocationCoordinate2DMake(38.892108, -77.03364),
-        CLLocationCoordinate2DMake(38.899926, -77.033643)
-    };
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"line-gradient" ofType:@"geojson"]];
+    MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"line-source" URL:url options:nil];
     
-    NSUInteger numberOfCoordinates = sizeof(coordinates) / sizeof(CLLocationCoordinate2D);
     
-    MGLPolyline *polylineShape = [MGLPolyline polylineWithCoordinates:coordinates count:numberOfCoordinates];
+    [style addSource:source];
     
-    MGLShapeSource *polylineSource = [[MGLShapeSource alloc] initWithIdentifier:@"polyline" shape:polylineShape options:nil];
+    MGLLineStyleLayer *polylineStyle = [[MGLLineStyleLayer alloc] initWithIdentifier:@"lineStyle" source:source];
+    polylineStyle.lineWidth = [NSExpression expressionForConstantValue:@14];
+    polylineStyle.lineCap = [NSExpression expressionForConstantValue:@"round"];
     
-    [style addSource:polylineSource];
+    NSDictionary *stops = @{
+                            @0: UIColor.blueColor,
+                            @0.1: UIColor.purpleColor,
+                            @0.3: UIColor.cyanColor,
+                            @0.5: UIColor.greenColor,
+                            @0.7: UIColor.yellowColor,
+                            @1: UIColor.redColor
+                            };
+        
+    NSExpression *gradientExpression = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($lineProgress, 'linear', nil, %@)", stops];
     
-    MGLLineStyleLayer *polylineStyle = [[MGLLineStyleLayer alloc] initWithIdentifier:@"lineStyle" source:polylineSource];
+    polylineStyle.lineColor = gradientExpression;
     
     [style addLayer:polylineStyle];
     
