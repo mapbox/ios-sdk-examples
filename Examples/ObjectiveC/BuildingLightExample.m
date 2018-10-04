@@ -23,7 +23,7 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
     self.mapView.delegate = self;
      
     // Center the map on the Flatiron Building in New York, NY.
-    self.mapView.camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(40.7411, -73.9897) fromDistance:600 pitch:45 heading:200];
+    self.mapView.camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(40.7411, -73.9897) altitude:600 pitch:45 heading:200];
     
     [self.view addSubview:self.mapView];
     

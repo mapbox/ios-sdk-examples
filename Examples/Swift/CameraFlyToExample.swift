@@ -27,7 +27,7 @@ class CameraFlyToExample_Swift: UIViewController, MGLMapViewDelegate {
         // Defines the destination camera as Hawaii Island.
         let camera = MGLMapCamera(lookingAtCenter:
             CLLocationCoordinate2D(latitude: 19.784213, longitude: -155.784605),
-                                  fromDistance: 35000, pitch: 70, heading: 90)
+                                  altitude: 35000, pitch: 70, heading: 90)
 
         // Goes from Honolulu to destination camera.
         mapView.fly(to: camera, withDuration: 4,

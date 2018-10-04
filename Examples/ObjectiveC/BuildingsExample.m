@@ -18,7 +18,7 @@ NSString *const MBXExampleBuildings = @"BuildingsExample";
 	mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     // Center the map view on the Castel Sant'Angelo in Rome, Italy and set the camera's pitch, heading, and distance.
-    mapView.camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(41.9036, 12.4665) fromDistance:600 pitch:60 heading:210];
+    mapView.camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(41.9036, 12.4665) altitude:600 pitch:60 heading:210];
     mapView.delegate = self;
     
     [self.view addSubview:mapView];
