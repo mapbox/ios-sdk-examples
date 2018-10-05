@@ -171,8 +171,8 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
         let request = URLRequest(url: URL(string: "https://query.wikidata.org/sparql?query=\(encodedQuery)&format=json")!)
 
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            guard error != nil else {
-                preconditionFailure("Failed to load GeoJSON data")
+            guard error == nil else {
+                preconditionFailure("Failed to load GeoJSON data: \(error!)")
             }
 
             guard
