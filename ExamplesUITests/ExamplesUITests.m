@@ -45,7 +45,7 @@
 
         // Wait for notification
         XCTDarwinNotificationExpectation *expectation = [[XCTDarwinNotificationExpectation alloc] initWithNotificationName:MBXTestingSupportNotificationExampleComplete];
-        [self waitForExpectations:@[expectation] timeout:30.0];
+        [self waitForExpectations:@[expectation] timeout:60.0];
 
         [self.app.navigationBars[@"AnimatedLineExample"].buttons[@"Examples"] tap];
     }];
