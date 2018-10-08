@@ -27,6 +27,7 @@ platform :ios do
   end
 
   lane :match_bitrise do
+    match(verbose: true, git_url: ENV["MATCH_REPO"], username: ENV["MATCH_USER"], type: "development", readonly: true)
     match(verbose: true, git_url: ENV["MATCH_REPO"], username: ENV["MATCH_USER"], type: "appstore", readonly: true)
   end
 
