@@ -24,10 +24,10 @@ platform :ios do
 
   desc "Submit a new build to Apple TestFlight."
   lane :beta do
-    match(git_url: ENV["MATCH_REPO"], username: ENV["MATCH_USER"], type: "appstore", readonly: true)
+    match(app_identifier: "com.mapbox.examples", git_url: ENV["MATCH_REPO"], username: ENV["MATCH_USER"], type: "appstore", readonly: true)
     increment_build_number(build_number: latest_testflight_build_number(version: "1.0", initial_build_number: 20) + 1)
-    gym(scheme: "Examples", include_bitcode: true, verbose: true, configuration: "Release")
-    pilot(changelog: release_notes,skip_waiting_for_build_processing: false)
+    gym(scheme: "Examples", include_bitcode: true, verbose: true)
+    pilot(changelog: release_notes, skip_waiting_for_build_processing: false)
   end
 
   desc "Generate release notes."
