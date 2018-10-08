@@ -33,7 +33,7 @@ platform :ios do
   desc "Submit a new build to Apple TestFlight."
   lane :beta do
     increment_build_number(build_number: latest_testflight_build_number(version: "1.0", initial_build_number: 20) + 1)
-    gym(scheme: "Examples", include_bitcode: true, export_options: {'signingStyle' => 'manual'}, disable_xcpretty: true)
+    gym(clean: true, scheme: "Examples", include_bitcode: true, export_options: {'signingStyle' => 'manual'}, disable_xcpretty: true)
     pilot(changelog: release_notes, skip_waiting_for_build_processing: false)
   end
 
