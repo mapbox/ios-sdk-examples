@@ -27,13 +27,13 @@ platform :ios do
   end
 
   lane :match_bitrise do
-    match(keychain_password: ENV["BITRISE_KEYCHAIN_PASSWORD"], git_url: ENV["MATCH_REPO"], username: ENV["MATCH_USER"], type: "appstore", readonly: true)
+    match(verbose: true, keychain_password: ENV["BITRISE_KEYCHAIN_PASSWORD"], git_url: ENV["MATCH_REPO"], username: ENV["MATCH_USER"], type: "appstore", readonly: true)
   end
 
   desc "Submit a new build to Apple TestFlight."
   lane :beta do
     increment_build_number(build_number: latest_testflight_build_number(version: "1.0", initial_build_number: 20) + 1)
-    gym(scheme: "Examples", include_bitcode: true)
+    gym(scheme: "Examples", include_bitcode: true, skip_profile_detection: true)
     pilot(changelog: release_notes, skip_waiting_for_build_processing: false)
   end
 
