@@ -52,6 +52,17 @@
                BlueprintName = "ExamplesUITests"
                ReferencedContainer = "container:Examples.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "ExamplesUITests/testAnimatedLineExample">
+               </Test>
+               <Test
+                  Identifier = "ExamplesUITests/testBuildingLightExample">
+               </Test>
+               <Test
+                  Identifier = "ExamplesUITests/testCustomAnnotationView">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
