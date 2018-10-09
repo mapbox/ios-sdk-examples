@@ -22,6 +22,7 @@
 "Annotation models" = "复杂标注";
 "Add annotation views and images" = "图片和自定义视图";
 "Annotation views" = "自定义视图标注";
+"Use the default callout" = "使用默认提示框";
 "Callout delegate usage" = "自定义提示框";
 "Display custom views as callouts" = "自定义提示框视图";
 "Mark a place on the map with an image" = "图片标注";
