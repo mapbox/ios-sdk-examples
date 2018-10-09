@@ -12,6 +12,8 @@
 
 @interface ExamplesUITests : XCTestCase
 @property (nonatomic) XCUIApplication *app;
+@property __block NSMutableArray<XCUIElement*> *exampleElements;
+@property __block NSMutableArray<NSString*> *exampleTitles;
 @end
 
 @implementation ExamplesUITests
@@ -26,8 +28,6 @@
     self.app = [[XCUIApplication alloc] init];
     self.app.launchArguments = [self.app.launchArguments arrayByAddingObject:@"useFastAnimations"];
     [self.app launch];
-
-    [self.app.navigationBars[@"Examples"].buttons[@"ObjC"] tap];
 }
 
 - (void)tearDown {
@@ -116,33 +116,46 @@
 
 
 - (void)testEveryExample {
+    [self runTestsForEveryExampleWithLanguage:@"ObjC"];
+    [self runTestsForEveryExampleWithLanguage:@"Swift"];
+}
 
-    __block NSUInteger count;
-    __block NSMutableArray<XCUIElement*> *elements;
-    __block NSMutableArray<NSString*> *titles;
+- (void)setupTestsForEveryExample {
 
     // Build arrays of the examples (so the report can be broken into readable
     // activities)
     [XCTContext runActivityNamed:@"Get examples" block:^(id<XCTActivity>  _Nonnull activity) {
 
         XCUIElementQuery *cells = self.app.tables.cells;
-        count = cells.count;
+        NSUInteger count = cells.count;
 
-        elements = [NSMutableArray arrayWithCapacity:count];
-        titles = [NSMutableArray arrayWithCapacity:count];
+        self.exampleElements = [NSMutableArray arrayWithCapacity:count];
+        self.exampleTitles = [NSMutableArray arrayWithCapacity:count];
 
         for (int i = 0; i < count; i++) {
             XCUIElement *el = cells.allElementsBoundByIndex[i];
             NSString *title = [[el.staticTexts element].firstMatch label];
 
-            [elements addObject:el];
-            [titles addObject:title];
+            [self.exampleElements addObject:el];
+            [self.exampleTitles addObject:title];
         }
     }];
+}
+
+- (void)runTestsForEveryExampleWithLanguage:(NSString *)language {
+
+    [self.app.navigationBars[@"Examples"].buttons[language] tap];
+
+    if (!self.exampleElements || !self.exampleTitles) {
+        [self setupTestsForEveryExample];
+    }
+
+    NSUInteger count = self.exampleElements.count;
 
     for (NSUInteger i = 0; i < count; i++) {
-        [XCTContext runActivityNamed:titles[i] block:^(id<XCTActivity>  _Nonnull activity) {
-            [elements[i] tap];
+        NSString *title = [NSString stringWithFormat:@"%@ (%@)", self.exampleTitles[i], language];
+        [XCTContext runActivityNamed:title block:^(id<XCTActivity>  _Nonnull activity) {
+            [self.exampleElements[i] tap];
 
             // XCTest waits for the app to idle before continuing.
 
