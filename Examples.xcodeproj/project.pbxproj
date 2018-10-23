@@ -40,6 +40,8 @@
 		07F53B851E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F53B841E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m */; };
 		1F1F84751E538ABB00332CC3 /* BlockingGesturesDelegateExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */; };
 		1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */; };
+		2F00FCD121750D5A0028FC69 /* SymbolLayerZOrderExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F00FCD021750D5A0028FC69 /* SymbolLayerZOrderExample.m */; };
+		2F00FCD3217511760028FC69 /* SymbolLayerZOrderExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F00FCD2217511760028FC69 /* SymbolLayerZOrderExample.swift */; };
 		3E085B801EC526C500163C99 /* BuildingsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B7F1EC526C500163C99 /* BuildingsExample.swift */; };
 		3E085B831EC526E500163C99 /* BuildingsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E085B821EC526E500163C99 /* BuildingsExample.m */; };
 		3E1806101EAA800A004DB131 /* UserLocationAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E18060F1EAA800A004DB131 /* UserLocationAnnotationExample.m */; };
@@ -232,6 +234,9 @@
 		1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockingGesturesDelegateExample.swift; sourceTree = "<group>"; };
 		29A0D7C8DCD539DCA5DA1BAC /* Pods-Examples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Examples.release.xcconfig"; path = "Pods/Target Support Files/Pods-Examples/Pods-Examples.release.xcconfig"; sourceTree = "<group>"; };
 		2ECF27F4ACA1A3CA05DE1954 /* Pods-DocsCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocsCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode.release.xcconfig"; sourceTree = "<group>"; };
+		2F00FCCF21750D5A0028FC69 /* SymbolLayerZOrderExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SymbolLayerZOrderExample.h; sourceTree = "<group>"; };
+		2F00FCD021750D5A0028FC69 /* SymbolLayerZOrderExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SymbolLayerZOrderExample.m; sourceTree = "<group>"; };
+		2F00FCD2217511760028FC69 /* SymbolLayerZOrderExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolLayerZOrderExample.swift; sourceTree = "<group>"; };
 		3E085B7F1EC526C500163C99 /* BuildingsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingsExample.swift; sourceTree = "<group>"; };
 		3E085B811EC526E500163C99 /* BuildingsExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingsExample.h; sourceTree = "<group>"; };
 		3E085B821EC526E500163C99 /* BuildingsExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingsExample.m; sourceTree = "<group>"; };
@@ -476,6 +481,7 @@
 				3EBCD70D1DC28240001E342F /* ImageAnnotationExample.swift */,
 				3E1806111EAA804B004DB131 /* UserLocationAnnotationExample.swift */,
 				64BBDB021DF24E0900BB705D /* WebAPIDataExample.swift */,
+				2F00FCD2217511760028FC69 /* SymbolLayerZOrderExample.swift */,
 			);
 			name = "Markers and callouts";
 			sourceTree = "<group>";
@@ -577,6 +583,7 @@
 				96D431FB1C84B4F7007D09D1 /* ImageAnnotationExample.m */,
 				3E18060F1EAA800A004DB131 /* UserLocationAnnotationExample.m */,
 				64BBDAFC1DF24DEB00BB705D /* WebAPIDataExample.m */,
+				2F00FCD021750D5A0028FC69 /* SymbolLayerZOrderExample.m */,
 			);
 			name = "Markers and callouts";
 			sourceTree = "<group>";
@@ -864,6 +871,7 @@
 				968247011C5BDCBB00494AB8 /* StudioClassicStyleExample.h */,
 				9691AAA11C5AAD8F006A58C6 /* StudioStyleExample.h */,
 				05536CB3200F9B4900657097 /* SwitchStylesExample.h */,
+				2F00FCCF21750D5A0028FC69 /* SymbolLayerZOrderExample.h */,
 				64CF970E1DF224D400C3C27B /* ThirdPartyVectorStyleExample.h */,
 				3E18060E1EAA800A004DB131 /* UserLocationAnnotationExample.h */,
 				969E7FDB1D25C31700663F84 /* UserTrackingModesExample.h */,
@@ -1061,7 +1069,7 @@
 					};
 					9619628B1C581700002D3DAB = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = GJZR2MEM28;
+						DevelopmentTeam = GM7DBR7Y3J;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -1239,7 +1247,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework",
@@ -1266,7 +1274,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B8CEDEEE83C3362F5C012330 /* [CP] Embed Pods Frameworks */ = {
@@ -1275,7 +1283,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 			);
@@ -1286,7 +1294,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D8896F91CDF96A2DF29EF047 /* [CP] Check Pods Manifest.lock */ = {
@@ -1390,6 +1398,7 @@
 				3EBCD7221DC28240001E342F /* LineAnnotationGeoJSONExample.swift in Sources */,
 				3E085B831EC526E500163C99 /* BuildingsExample.m in Sources */,
 				3E9EF27C209CFD460053D1D7 /* HeatmapExample.swift in Sources */,
+				2F00FCD3217511760028FC69 /* SymbolLayerZOrderExample.swift in Sources */,
 				64BBDAF61DF232FD00BB705D /* SelectFeatureExample.swift in Sources */,
 				CA3B162E2098CA7E005C087B /* TestingSupport.m in Sources */,
 				64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */,
@@ -1436,6 +1445,7 @@
 				05FA53A61FE2FA34001F3D7D /* OfflinePackExample.m in Sources */,
 				3E22EF521F8821F800605203 /* ImageSourceExample.m in Sources */,
 				05FA53A71FE2FA34001F3D7D /* StaticSnapshotExample.m in Sources */,
+				2F00FCD121750D5A0028FC69 /* SymbolLayerZOrderExample.m in Sources */,
 				3EBCD71C1DC28240001E342F /* CustomCalloutViewExample.swift in Sources */,
 				05FA53AD1FE2FBB3001F3D7D /* DefaultCalloutExample.m in Sources */,
 				CA39B2C1209B881300D37037 /* AnnotationViewExample+UITesting.m in Sources */,
@@ -1724,16 +1734,18 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = GJZR2MEM28;
+				DEVELOPMENT_TEAM = GM7DBR7Y3J;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Examples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.examples;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.examples6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
@@ -1747,16 +1759,18 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = GJZR2MEM28;
+				DEVELOPMENT_TEAM = GM7DBR7Y3J;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Examples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.examples;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.examples6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
