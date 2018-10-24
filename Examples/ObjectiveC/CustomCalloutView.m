@@ -130,7 +130,7 @@ static CGFloat const tipWidth = 20.0;
 - (BOOL)isCalloutTappable
 {
     if ([self.delegate respondsToSelector:@selector(calloutViewShouldHighlight:)]) {
-        return [self.delegate performSelector:@selector(calloutViewShouldHighlight:) withObject:self];
+        return (BOOL)[self.delegate performSelector:@selector(calloutViewShouldHighlight:) withObject:self];
     }
 
     return NO;
