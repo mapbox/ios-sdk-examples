@@ -21,7 +21,7 @@ PODS:
   - Turf (0.2.1)
 
 DEPENDENCIES:
-  - Mapbox-iOS-SDK (~> 4.6.0-alpha.2)
+  - Mapbox-iOS-SDK (~> 4.6.0-beta.1)
   - MapboxNavigation (~> 0.23.0)
   - SwiftLint (~> 0.27)
 
@@ -52,6 +52,6 @@ SPEC CHECKSUMS:
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Turf: 9763a5a2d7da05dfdd5ed56aeb0414b291b0fee1
 
-PODFILE CHECKSUM: 8c0b189fe6dc60e5a2d6dd9597fe25f32effba19
+PODFILE CHECKSUM: 3400519c459543a8e46529a77321feb2906b1187
 
 COCOAPODS: 1.6.0.beta.2
