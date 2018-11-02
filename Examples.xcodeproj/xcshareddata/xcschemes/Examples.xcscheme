@@ -54,13 +54,13 @@
             </BuildableReference>
             <SkippedTests>
                <Test
-                  Identifier = "ExamplesUITests/testAnimatedLineExample">
+                  Identifier = "ExamplesUITests/testAnimatedLineExampleObjC">
                </Test>
                <Test
-                  Identifier = "ExamplesUITests/testBuildingLightExample">
+                  Identifier = "ExamplesUITests/testBuildingLightExampleObjC">
                </Test>
                <Test
-                  Identifier = "ExamplesUITests/testCustomAnnotationView">
+                  Identifier = "ExamplesUITests/testCustomAnnotationViewObjC">
                </Test>
             </SkippedTests>
          </TestableReference>
