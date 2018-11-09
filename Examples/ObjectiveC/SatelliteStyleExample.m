@@ -8,7 +8,7 @@ NSString *const MBXExampleSatelliteStyle = @"SatelliteStyleExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // A hybrid style with unobtrusive labels is also available via +satelliteStreetsStyleURLWithVersion:.
+    // A hybrid style with unobtrusive labels is also available via +satelliteStreetsStyleURL.
     NSURL *styleURL = [MGLStyle satelliteStyleURL];
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:styleURL];
 
