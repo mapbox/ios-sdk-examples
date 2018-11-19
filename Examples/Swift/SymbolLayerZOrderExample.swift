@@ -35,7 +35,7 @@ func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         // Add icons to the map's style.
         style.setImage(UIImage(named: "oval")!, forName: "oval")
         style.setImage(UIImage(named: "squircle")!, forName: "squircle")
-        style.setImage(UIImage(named: "star")!, forName: "star")
+        style.setImage(UIImage(named: "star")!, forName: "star"
     
         let feature1 = MGLPointFeature()
         feature1.coordinate = CLLocationCoordinate2DMake(-41.292650, 174.778768)
@@ -67,8 +67,8 @@ func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         // Create a UISegmentedControl to toggle between map styles
         let styleToggle = UISegmentedControl(items: ["viewport-y", "source"])
         styleToggle.translatesAutoresizingMaskIntoConstraints = false
-        styleToggle.tintColor = UIColor(red: 0.976, green: 0.843, blue: 0.831, alpha: 1)
-        styleToggle.backgroundColor = UIColor(red: 0.973, green: 0.329, blue: 0.294, alpha: 1)
+        styleToggle.backgroundColor = UIColor(red: 0.83, green: 0.84, blue: 0.95, alpha: 1.0)
+        styleToggle.tintColor = UIColor(red: 0.26, green: 0.39, blue: 0.98, alpha: 1.0)
         styleToggle.layer.cornerRadius = 4
         styleToggle.clipsToBounds = true
         styleToggle.selectedSegmentIndex = 1
@@ -84,19 +84,11 @@ func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
     @objc func toggleLayer(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            useSource()
+            self.symbolLayer?.symbolZOrder = NSExpression(forConstantValue: "viewport-y")
         case 1:
-            useViewportY()
+            self.symbolLayer?.symbolZOrder = NSExpression(forConstantValue: "source")
         default:
-            useSource()
+            self.symbolLayer?.symbolZOrder = NSExpression(forConstantValue: "source")
         }
-    }
-    
-    func useSource() {
-        self.symbolLayer?.symbolZOrder = NSExpression(forConstantValue: "source")
-    }
-    
-    func useViewportY() {
-        self.symbolLayer?.symbolZOrder = NSExpression(forConstantValue: "viewport-y")
     }
 }
