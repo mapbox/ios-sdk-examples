@@ -1069,7 +1069,7 @@
 					};
 					9619628B1C581700002D3DAB = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = GM7DBR7Y3J;
+						DevelopmentTeam = GJZR2MEM28;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -1247,7 +1247,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework",
@@ -1274,7 +1274,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B8CEDEEE83C3362F5C012330 /* [CP] Embed Pods Frameworks */ = {
@@ -1283,7 +1283,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 			);
@@ -1294,7 +1294,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D8896F91CDF96A2DF29EF047 /* [CP] Check Pods Manifest.lock */ = {
@@ -1736,14 +1736,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = GM7DBR7Y3J;
+				DEVELOPMENT_TEAM = GJZR2MEM28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Examples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.examples6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
@@ -1761,14 +1761,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = GM7DBR7Y3J;
+				DEVELOPMENT_TEAM = GJZR2MEM28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Examples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.examples6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Examples/Examples-Bridging-Header.h";
