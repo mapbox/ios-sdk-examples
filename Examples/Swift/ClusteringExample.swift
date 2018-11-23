@@ -83,10 +83,15 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) throws {
-        guard sender.state == .ended else {
+        
+        guard let source = mapView.style?.source(withIdentifier: "clusteredPorts") as? MGLShapeSource else {
             return
         }
 
+        guard sender.state == .ended else {
+            return
+        }
+        
         showPopup(false, animated: false)
 
         let point = sender.location(in: sender.view)
@@ -112,9 +117,10 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         let color: UIColor
 
         if let cluster = feature as? MGLCluster {
-            description = "Cluster with \(cluster.clusterPointCountAbbreviation) points"
+
+            let children = source.children(of: cluster)
+            description = "Cluster #\(cluster.clusterIdentifier)\n\(children.count) children\n\(cluster.clusterPointCountAbbreviation) points"
             color = .blue
-            cluster.debugDescription
         } else if let featureName = feature.attribute(forKey: "name") as? String?,
             let portName = featureName {
             description = portName
@@ -138,6 +144,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         popup.layer.masksToBounds = true
         popup.textAlignment       = .center
         popup.lineBreakMode       = .byTruncatingTail
+        popup.numberOfLines       = 0
         popup.font                = .systemFont(ofSize: 16)
         popup.textColor           = textColor
         popup.alpha               = 0
