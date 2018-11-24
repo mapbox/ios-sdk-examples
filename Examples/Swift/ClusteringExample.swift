@@ -83,7 +83,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) throws {
-        
+
         guard let source = mapView.style?.source(withIdentifier: "clusteredPorts") as? MGLShapeSource else {
             return
         }
@@ -91,7 +91,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         guard sender.state == .ended else {
             return
         }
-        
+
         showPopup(false, animated: false)
 
         let point = sender.location(in: sender.view)
@@ -117,15 +117,17 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         let color: UIColor
 
         if let cluster = feature as? MGLCluster {
-
+            // Tapped on a cluster
             let children = source.children(of: cluster)
             description = "Cluster #\(cluster.clusterIdentifier)\n\(children.count) children\n\(cluster.clusterPointCountAbbreviation) points"
             color = .blue
         } else if let featureName = feature.attribute(forKey: "name") as? String?,
+            // Tapped on a port
             let portName = featureName {
             description = portName
             color = .black
         } else {
+            // Tapped on a port (missing a name)
             description = "No port name"
             color = .red
         }
@@ -165,20 +167,18 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
             return
         }
 
-        if (shouldShow) {
+        if shouldShow {
             view.addSubview(popup)
         }
 
         let alpha: CGFloat = (shouldShow ? 1 : 0)
 
         let animation = {
-            UIView.animate(withDuration: 0.25) {
-                popup.alpha = alpha
-            }
+            popup.alpha = alpha
         }
 
         let completion = { (_: Bool) in
-            if (!shouldShow) {
+            if !shouldShow {
                 popup.removeFromSuperview()
             }
         }

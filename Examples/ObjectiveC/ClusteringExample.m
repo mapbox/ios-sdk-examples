@@ -7,7 +7,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 
 @property (nonatomic) MGLMapView *mapView;
 @property (nonatomic) UIImage *icon;
-@property (nonatomic) UILabel *popup;
+@property (nonatomic) UIView *popup;
 
 @end
 
@@ -84,61 +84,123 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 }
 
 - (IBAction)handleMapTap:(UITapGestureRecognizer *)tap {
-    if (tap.state == UIGestureRecognizerStateEnded) {
-        CGPoint point = [tap locationInView:tap.view];
-        CGFloat width = self.icon.size.width;
-        CGRect rect = CGRectMake(point.x - width / 2, point.y - width / 2, width, width);
+    
+    MGLSource *source = [self.mapView.style sourceWithIdentifier:@"clusteredPorts"];
+    
+    if (![source isKindOfClass:[MGLShapeSource class]]) {
+        return;
+    }
+    
+    if (tap.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
+    
+    [self showPopup:NO animated:NO];
+    
+    CGPoint point = [tap locationInView:tap.view];
+    CGFloat width = self.icon.size.width;
+    CGRect rect = CGRectMake(point.x - width / 2, point.y - width / 2, width, width);
 
-        // Find cluster circles and/or individual port icons in a touch-sized region around the tap.
-        // In theory, we should only find either one cluster (since they don't overlap) or one port
-        // (since overlapping ones would be clustered).
-        NSArray *clusters = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"clusteredPorts"]];
-        NSArray *ports    = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"ports"]];
+    // If you want to identify the ports or clusters separately you can do
+    // the following:
+    //
+    //    NSArray *clusters = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"clusteredPorts"]];
+    //    NSArray *ports    = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"ports"]];
+    //
+    // However, this example shows how to check if a feature is a cluster by
+    // checking for conformance with the `MGLCluster` protocol.
 
-        if (clusters.count) {
-            [self showPopup:NO animated:YES];
-            MGLPointFeature *cluster = (MGLPointFeature *)clusters.firstObject;
-            [self.mapView setCenterCoordinate:cluster.coordinate zoomLevel:(self.mapView.zoomLevel + 1) animated:YES];
-        } else if (ports.count) {
-            MGLPointFeature *port = ((MGLPointFeature *)ports.firstObject);
-
-            if (!self.popup) {
-                self.popup = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
-                self.popup.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
-                self.popup.layer.cornerRadius = 4;
-                self.popup.layer.masksToBounds = YES;
-                self.popup.textAlignment = NSTextAlignmentCenter;
-                self.popup.lineBreakMode = NSLineBreakByTruncatingTail;
-                self.popup.font = [UIFont systemFontOfSize:16];
-                self.popup.textColor = [UIColor blackColor];
-                self.popup.alpha = 0;
-                [self.view addSubview:self.popup];
-            }
-
-            self.popup.text = [NSString stringWithFormat:@"%@", [port attributeForKey:@"name"]];
-            CGSize size = [self.popup.text sizeWithAttributes:@{ NSFontAttributeName: self.popup.font }];
-            self.popup.bounds = CGRectInset(CGRectMake(0, 0, size.width, size.height), -10, -10);
-            point = [self.mapView convertCoordinate:port.coordinate toPointToView:self.mapView];
-            self.popup.center = CGPointMake(point.x, point.y - 50);
-
-            if (self.popup.alpha < 1) {
-                [self showPopup:YES animated:YES];
-            }
-        } else {
-            [self showPopup:NO animated:YES];
+    NSArray<id<MGLFeature>> *features = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObjects:@"clusteredPorts", @"ports", nil]];
+    
+    id<MGLFeature> feature = features.firstObject;
+    
+    if (!feature) {
+        return;
+    }
+    
+    NSString *description = @"No port name";
+    UIColor *color = UIColor.redColor;
+    
+    if ([feature conformsToProtocol:@protocol(MGLCluster)]) {
+        // Tapped on a cluster
+        id<MGLCluster> cluster = (id<MGLCluster>)feature;
+        
+        NSArray *children = [(MGLShapeSource*)source childrenOfCluster:cluster];
+        description = [NSString stringWithFormat:@"Cluster #%ld\n%ld children\n%@ points",
+                       cluster.clusterIdentifier,
+                       children.count,
+                       cluster.clusterPointCountAbbreviation];
+        color = UIColor.blueColor;
+    } else {
+        // Tapped on a port
+        id name = [feature attributeForKey:@"name"];
+        if ([name isKindOfClass:[NSString class]]) {
+            description = (NSString *)name;
+            color = UIColor.blackColor;
         }
     }
+    
+    self.popup = [self popupAtCoordinate:feature.coordinate
+                         withDescription:description
+                               textColor:color];
+    
+    [self showPopup:YES animated:YES];
+}
+
+- (UIView *)popupAtCoordinate:(CLLocationCoordinate2D)coordinate withDescription:(NSString *)description textColor:(UIColor *)textColor {
+    UILabel *popup = [[UILabel alloc] init];
+    
+    popup.backgroundColor     = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
+    popup.layer.cornerRadius  = 4;
+    popup.layer.masksToBounds = YES;
+    popup.textAlignment       = NSTextAlignmentCenter;
+    popup.lineBreakMode       = NSLineBreakByTruncatingTail;
+    popup.numberOfLines       = 0;
+    popup.font                = [UIFont systemFontOfSize:16];
+    popup.textColor           = textColor;
+    popup.alpha               = 0;
+    popup.text                = description;
+
+    [popup sizeToFit];
+    
+    // Expand
+    popup.bounds = CGRectInset(popup.bounds, -10, -10);
+    CGPoint point = [self.mapView convertCoordinate:coordinate toPointToView:self.mapView];
+    popup.center = CGPointMake(point.x, point.y - 50);
+
+    return popup;
 }
 
 - (void)showPopup:(BOOL)shouldShow animated:(BOOL)animated {
+    if (!self.popup) {
+        return;
+    }
+    
+    UIView *popup = self.popup;
+    
+    if (shouldShow) {
+        [self.view addSubview:popup];
+    }
+    
     CGFloat alpha = (shouldShow ? 1 : 0);
+    
+    dispatch_block_t animation = ^{
+        popup.alpha = alpha;
+    };
+    
+    void (^completion)(BOOL) = ^(BOOL finished){
+        if (!shouldShow) {
+            [popup removeFromSuperview];
+        }
+    };
+    
     if (animated) {
-        __typeof__(self) __weak weakSelf = self;
-        [UIView animateWithDuration:0.25 animations:^{
-            weakSelf.popup.alpha = alpha;
-        }];
+        [UIView animateWithDuration:0.25
+                         animations:animation
+                         completion:completion];
     } else {
-        self.popup.alpha = alpha;
+        animation();
+        completion(YES);
     }
 }
 
