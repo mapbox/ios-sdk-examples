@@ -53,7 +53,7 @@
                     @{@"className": MBXExamplePolygonAnnotation, @"title": @"Add a polygon annotation"},
                     @{@"className": MBXExampleLineStyleLayer, @"title": @"Add a line style layer from GeoJSON"},
                     @{@"className": MBXExampleAnimatedLine, @"title": @"Animate a line"},
-                    @{@"className": MBXExampleSymbolLayerZOrder, @"title": @"Specify z order of features in symbol layer"}
+                    @{@"className": MBXExampleSymbolLayerZOrder, @"title": @"Specify z order of features in a symbol layer"}
                     ]
         },
         @{
