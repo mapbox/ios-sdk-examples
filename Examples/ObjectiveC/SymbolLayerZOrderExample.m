@@ -34,6 +34,8 @@ NSString *const MBXExampleSymbolLayerZOrder = @"SymbolLayerZOrderExample";
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     
     // Add icons to the map's style.
+    // Note that adding icons to the map's style does not mean they have
+    // been added to the map yet.
     [style setImage:([UIImage imageNamed:@"oval"]) forName:@"oval"];
     [style setImage:([UIImage imageNamed:@"squircle"]) forName:@"squircle"];
     [style setImage:([UIImage imageNamed:@"star"]) forName:@"star"];
@@ -57,13 +59,20 @@ NSString *const MBXExampleSymbolLayerZOrder = @"SymbolLayerZOrderExample";
     self.layer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"points-style" source:source];
     self.layer.sourceLayerIdentifier = @"symbol-layer-z-order-example";
     // Create a stops dictionary with keys that are possible values for 'id', paired with icon images that will represent those features.
-    NSDictionary *icons = @{@"squircle": @"squircle", @"oval": @"oval", @"star": @"star"};
+    NSDictionary *icons = @{
+        @"squircle": @"squircle",
+        @"oval": @"oval",
+        @"star": @"star"};
     // Use the stops dictionary to assign an icon based on the "POITYPE" for each feature.
     self.layer.iconImageName = [NSExpression expressionWithFormat:@"FUNCTION(%@, 'valueForKeyPath:', id)", icons];
     self.layer.iconAllowsOverlap = [NSExpression expressionForConstantValue:@(YES)];
     self.layer.symbolZOrder = [NSExpression expressionForConstantValue:@"source"];
     [style addLayer:self.layer];
 
+    [self addToggleButton];
+}
+
+- (void)addToggleButton {
     UISegmentedControl *styleToggle =[[UISegmentedControl alloc] initWithItems:@[@"viewport-y", @"source"]];
     styleToggle.translatesAutoresizingMaskIntoConstraints = NO;
     styleToggle.backgroundColor = [UIColor colorWithRed:0.83 green:0.84 blue:0.95 alpha:1.0];
@@ -73,14 +82,14 @@ NSString *const MBXExampleSymbolLayerZOrder = @"SymbolLayerZOrderExample";
     styleToggle.selectedSegmentIndex = 1;
     [self.view insertSubview:styleToggle aboveSubview:self.mapView];
     [styleToggle addTarget:self action:@selector(changeStyle:) forControlEvents:UIControlEventValueChanged];
-    
+
     // Configure autolayout constraints for the UISegmentedControl to align
     // at the bottom of the map view and above the Mapbox logo and attribution
     NSMutableArray *constraints = [NSMutableArray array];
-    
+
     [constraints addObject:[NSLayoutConstraint constraintWithItem:styleToggle attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.mapView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:1.0]];
     [constraints addObject:[NSLayoutConstraint constraintWithItem:styleToggle attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.mapView.logoView attribute:NSLayoutAttributeTop multiplier:1 constant:-20]];
-    
+
     [self.view addConstraints:constraints];
 }
 

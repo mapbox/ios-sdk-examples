@@ -25,6 +25,7 @@ override func viewDidLoad() {
 // Wait until the style is loaded before modifying the map style.
 func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         // Add icons to the map's style.
+        // Note that adding icons to the map's style does not mean they have been added to the map yet.
         style.setImage(UIImage(named: "oval")!, forName: "oval")
         style.setImage(UIImage(named: "squircle")!, forName: "squircle")
         style.setImage(UIImage(named: "star")!, forName: "star")
@@ -46,7 +47,10 @@ func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         layer.sourceLayerIdentifier = "symbol-layer-z-order-example"
 
         // Create a stops dictionary with keys that are possible values for 'id', paired with icon images that will represent those features.
-        let icons = ["squircle": "squircle", "oval": "oval", "star": "star"]
+        let icons =
+            ["squircle": "squircle",
+             "oval": "oval",
+             "star": "star"]
         // Use the stops dictionary to assign an icon based on the "POITYPE" for each feature.
         layer.iconImageName = NSExpression(format: "FUNCTION(%@, 'valueForKeyPath:', id)", icons)
 
@@ -56,6 +60,9 @@ func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
 
         self.symbolLayer = layer
 
+        addToggleButton()
+    }
+    func addToggleButton() {
         // Create a UISegmentedControl to toggle between map styles
         let styleToggle = UISegmentedControl(items: ["viewport-y", "source"])
         styleToggle.translatesAutoresizingMaskIntoConstraints = false
@@ -66,12 +73,13 @@ func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         styleToggle.selectedSegmentIndex = 1
         view.insertSubview(styleToggle, aboveSubview: mapView)
         styleToggle.addTarget(self, action: #selector(toggleLayer(sender:)), for: .valueChanged)
-
+        
         // Configure autolayout constraints for the UISegmentedControl to align
         // at the bottom of the map view and above the Mapbox logo and attribution
         NSLayoutConstraint.activate([NSLayoutConstraint(item: styleToggle, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: mapView, attribute: NSLayoutAttribute.centerX, multiplier: 1.0, constant: 0.0)])
         NSLayoutConstraint.activate([NSLayoutConstraint(item: styleToggle, attribute: .bottom, relatedBy: .equal, toItem: mapView.logoView, attribute: .top, multiplier: 1, constant: -20)])
     }
+    
     // Change the map style based on the selected index of the UISegmentedControl
     @objc func toggleLayer(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
