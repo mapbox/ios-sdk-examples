@@ -16,7 +16,7 @@ override func viewDidLoad() {
     mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     mapView.tintColor = .darkGray
     // Set the map’s center coordinate and zoom level.
-    mapView.setCenter(CLLocationCoordinate2D(latitude: -41.292650, longitude: 174.778768), animated: false)
+    mapView.setCenter(CLLocationCoordinate2D(latitude: -41.25, longitude: 174.77), animated: false)
     mapView.zoomLevel = 11.5
     mapView.delegate = self
     view.addSubview(mapView)
@@ -26,21 +26,24 @@ override func viewDidLoad() {
 func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         // Add icons to the map's style.
         // Note that adding icons to the map's style does not mean they have been added to the map yet.
-        style.setImage(UIImage(named: "oval")!, forName: "oval")
-        style.setImage(UIImage(named: "squircle")!, forName: "squircle")
-        style.setImage(UIImage(named: "star")!, forName: "star")
 
-        let feature1 = MGLPointFeature()
-        feature1.coordinate = CLLocationCoordinate2DMake(-41.292650, 174.778768)
-        feature1.attributes = ["id": "squircle"]
-        let feature2 = MGLPointFeature()
-        feature2.coordinate = CLLocationCoordinate2DMake(-41.292650, 174.778768)
-        feature2.attributes = ["id": "oval"]
-        let feature3 = MGLPointFeature()
-        feature3.coordinate = CLLocationCoordinate2DMake(-41.292650, 174.778768)
-        feature3.attributes = ["id": "star"]
+        style.setImage(UIImage(named: "yellow-triangle-image")!, forName: "yellow-triangle")
+        style.setImage(UIImage(named: "green-triangle-image")!, forName: "green-triangle")
+        style.setImage(UIImage(named: "purple-triangle-image")!, forName: "purple-triangle")
+    
+        let purple = MGLPointFeature()
+        purple.coordinate = CLLocationCoordinate2DMake(-41.24, 174.77)
+        purple.attributes = ["id": "purple-triangle"]
+    
+        let green = MGLPointFeature()
+        green.coordinate = CLLocationCoordinate2DMake(-41.25, 174.77)
+        green.attributes = ["id": "green-triangle"]
+    
+        let yellow = MGLPointFeature()
+        yellow.coordinate = CLLocationCoordinate2DMake(-41.26, 174.77)
+        yellow.attributes = ["id": "yellow-triangle"]
 
-        let shapeCollection = MGLShapeCollectionFeature(shapes: [feature1, feature2, feature3])
+        let shapeCollection = MGLShapeCollectionFeature(shapes: [purple, green, yellow])
         let source = MGLShapeSource(identifier: "symbol-layer-z-order-example", shape: shapeCollection, options: nil)
         style.addSource(source)
         let layer = MGLSymbolStyleLayer(identifier: "points-style", source: source)
@@ -48,9 +51,9 @@ func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
 
         // Create a stops dictionary with keys that are possible values for 'id', paired with icon images that will represent those features.
         let icons =
-            ["squircle": "squircle",
-             "oval": "oval",
-             "star": "star"]
+            ["yellow-triangle": "yellow-triangle",
+             "green-triangle": "green-triangle",
+             "purple-triangle": "purple-triangle"]
         // Use the stops dictionary to assign an icon based on the "POITYPE" for each feature.
         layer.iconImageName = NSExpression(format: "FUNCTION(%@, 'valueForKeyPath:', id)", icons)
 
@@ -73,13 +76,13 @@ func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         styleToggle.selectedSegmentIndex = 1
         view.insertSubview(styleToggle, aboveSubview: mapView)
         styleToggle.addTarget(self, action: #selector(toggleLayer(sender:)), for: .valueChanged)
-        
+
         // Configure autolayout constraints for the UISegmentedControl to align
         // at the bottom of the map view and above the Mapbox logo and attribution
         NSLayoutConstraint.activate([NSLayoutConstraint(item: styleToggle, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: mapView, attribute: NSLayoutAttribute.centerX, multiplier: 1.0, constant: 0.0)])
         NSLayoutConstraint.activate([NSLayoutConstraint(item: styleToggle, attribute: .bottom, relatedBy: .equal, toItem: mapView.logoView, attribute: .top, multiplier: 1, constant: -20)])
     }
-    
+
     // Change the map style based on the selected index of the UISegmentedControl
     @objc func toggleLayer(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
