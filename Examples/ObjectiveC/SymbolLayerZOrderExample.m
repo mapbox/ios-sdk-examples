@@ -36,23 +36,23 @@ NSString *const MBXExampleSymbolLayerZOrder = @"SymbolLayerZOrderExample";
     // Add icons to the map's style.
     // Note that adding icons to the map's style does not mean they have
     // been added to the map yet.
-    [style setImage:([UIImage imageNamed:@"oval"]) forName:@"oval"];
-    [style setImage:([UIImage imageNamed:@"squircle"]) forName:@"squircle"];
-    [style setImage:([UIImage imageNamed:@"star"]) forName:@"star"];
+    [style setImage:([UIImage imageNamed:@"yellow-triangle-image"]) forName:@"yellow-triangle"];
+    [style setImage:([UIImage imageNamed:@"green-triangle-image"]) forName:@"green-triangle"];
+    [style setImage:([UIImage imageNamed:@"purple-triangle-image"]) forName:@"purple-triangle"];
 
-    MGLPointFeature *feature1 = [MGLPointFeature alloc];
-    feature1.coordinate = CLLocationCoordinate2DMake(-41.292650, 174.778768);
-    feature1.attributes = @{@"id": @"squircle"};
+    MGLPointFeature *yellow = [MGLPointFeature alloc];
+    yellow.coordinate = CLLocationCoordinate2DMake(-41.292650, 174.778768);
+    yellow.attributes = @{@"id": @"yellow-triangle"};
 
-    MGLPointFeature *feature2 = [MGLPointFeature alloc];
-    feature2.coordinate = CLLocationCoordinate2DMake(-41.292650, 174.778768);
-    feature2.attributes = @{@"id": @"oval"};
+    MGLPointFeature *green = [MGLPointFeature alloc];
+    green.coordinate = CLLocationCoordinate2DMake(-41.292650, 174.778768);
+    green.attributes = @{@"id": @"green-triangle"};
 
-    MGLPointFeature *feature3 = [MGLPointFeature alloc];
-    feature3.coordinate = CLLocationCoordinate2DMake(-41.292650, 174.778768);
-    feature3.attributes = @{@"id": @"star"};
+    MGLPointFeature *purple = [MGLPointFeature alloc];
+    purple.coordinate = CLLocationCoordinate2DMake(-41.292650, 174.778768);
+    purple.attributes = @{@"id": @"purple-triangle"};
 
-    MGLShapeCollectionFeature *shapeCollection = [MGLShapeCollectionFeature shapeCollectionWithShapes:@[feature1, feature2, feature3]];
+    MGLShapeCollectionFeature *shapeCollection = [MGLShapeCollectionFeature shapeCollectionWithShapes:@[yellow, green, purple]];
     MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"symbol-layer-z-order-example" shape:shapeCollection options:nil];
 
     [style addSource:source];
@@ -60,9 +60,9 @@ NSString *const MBXExampleSymbolLayerZOrder = @"SymbolLayerZOrderExample";
     self.layer.sourceLayerIdentifier = @"symbol-layer-z-order-example";
     // Create a stops dictionary with keys that are possible values for 'id', paired with icon images that will represent those features.
     NSDictionary *icons = @{
-        @"squircle": @"squircle",
-        @"oval": @"oval",
-        @"star": @"star"};
+        @"yellow-triangle": @"yellow-triangle",
+        @"green-triangle": @"green-triangle",
+        @"purple-triangle": @"purple-triangle"};
     // Use the stops dictionary to assign an icon based on the "POITYPE" for each feature.
     self.layer.iconImageName = [NSExpression expressionWithFormat:@"FUNCTION(%@, 'valueForKeyPath:', id)", icons];
     self.layer.iconAllowsOverlap = [NSExpression expressionForConstantValue:@(YES)];

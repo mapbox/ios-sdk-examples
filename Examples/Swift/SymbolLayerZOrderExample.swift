@@ -43,7 +43,7 @@ func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         yellow.coordinate = CLLocationCoordinate2DMake(-41.26, 174.77)
         yellow.attributes = ["id": "yellow-triangle"]
 
-        let shapeCollection = MGLShapeCollectionFeature(shapes: [purple, green, yellow])
+        let shapeCollection = MGLShapeCollectionFeature(shapes: [yellow, green, purple])
         let source = MGLShapeSource(identifier: "symbol-layer-z-order-example", shape: shapeCollection, options: nil)
         style.addSource(source)
         let layer = MGLSymbolStyleLayer(identifier: "points-style", source: source)
