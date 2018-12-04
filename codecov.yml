@@ -1,3 +1,4 @@
 ignore:
   - "ExamplesTests/"
   - "ExamplesUITests/"
+  - "Examples/Testing Categories"
