@@ -1,28 +1,28 @@
 PODS:
   - Mapbox-iOS-SDK (4.6.0)
-  - MapboxCoreNavigation (0.25.0):
+  - MapboxCoreNavigation (0.26.0):
     - MapboxDirections.swift (~> 0.25.1)
     - MapboxMobileEvents (~> 0.6.0)
-    - MapboxNavigationNative (~> 3.2.0)
+    - MapboxNavigationNative (~> 3.4.6)
     - Turf (~> 0.2.0)
-  - MapboxDirections.swift (0.25.1):
+  - MapboxDirections.swift (0.25.2):
     - Polyline (~> 4.2)
   - MapboxMobileEvents (0.6.0)
-  - MapboxNavigation (0.25.0):
+  - MapboxNavigation (0.26.0):
     - Mapbox-iOS-SDK (~> 4.3)
-    - MapboxCoreNavigation (= 0.25.0)
+    - MapboxCoreNavigation (= 0.26.0)
     - MapboxSpeech (~> 0.1.0)
     - Solar (~> 2.1)
-  - MapboxNavigationNative (3.2.0)
+  - MapboxNavigationNative (3.4.9)
   - MapboxSpeech (0.1.0)
   - Polyline (4.2.0)
   - Solar (2.1.0)
-  - SwiftLint (0.28.1)
+  - SwiftLint (0.29.1)
   - Turf (0.2.1)
 
 DEPENDENCIES:
   - Mapbox-iOS-SDK (~> 4.6.0)
-  - MapboxNavigation (~> 0.25.0)
+  - MapboxNavigation (~> 0.26.0)
   - SwiftLint (~> 0.27)
 
 SPEC REPOS:
@@ -41,17 +41,17 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Mapbox-iOS-SDK: 204c04713477cf2a88c52c5a8eed1790eb75a02a
-  MapboxCoreNavigation: e372e4db93ceee0ca6ac21bb654aecd323193080
-  MapboxDirections.swift: d08d40a6b50c13e1e83c165565b7aaec752eb087
+  MapboxCoreNavigation: b78d9ba4cd191e688d10962dc193faee333a4b74
+  MapboxDirections.swift: b56df67e980d8abc5eb07391485ad5696043dce1
   MapboxMobileEvents: 0218869f556a7fdac9f869e2f9c10e8c6dd7eed5
-  MapboxNavigation: 2b267765bb7d7145e7307bf2817818b661efa5de
-  MapboxNavigationNative: 1173dc73d6643e321065cfaa55d253f67b55ab12
+  MapboxNavigation: 74b4f1bc6d2d106c635413114ec485fa0c900cc8
+  MapboxNavigationNative: 92d063b8c10b7b832e257e62fdb934f71fe0c849
   MapboxSpeech: d7569ee91dd8bdca3ef8d19b6828e8754c1073ec
   Polyline: 3d69f75bb136357e27291d439d0436c6ebda57a4
   Solar: 2dc6e7cc39186cb0c8228fa08df76fb50c7d8f24
-  SwiftLint: 7f5f7de0da74a649b16616cb5246ae323489656e
+  SwiftLint: 6772320e40b52049053a518c17db9b0634a0b45a
   Turf: 9763a5a2d7da05dfdd5ed56aeb0414b291b0fee1
 
-PODFILE CHECKSUM: 76e4ac0c30276b20b14e0b9f14fcf317af923083
+PODFILE CHECKSUM: fd4625512c89faa7e2235f97d9d07726252c6348
 
 COCOAPODS: 1.6.0.beta.2
