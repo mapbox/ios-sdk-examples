@@ -2,7 +2,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 def shared_pods
-    pod 'Mapbox-iOS-SDK', '~> 4.0.5'
+    pod 'Mapbox-iOS-SDK', podspec: 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/ios8-release-gazpacho/platform/ios/Mapbox-iOS-SDK.podspec'
     pod 'SwiftLint', '~> 0.27.0'
 end
 
