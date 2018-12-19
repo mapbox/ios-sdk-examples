@@ -43,7 +43,7 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate {
         // Style the fill color using the stops dictionary, exponential interpolation mode, and the feature attribute name.
         layer.fillColor = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:(density, 'linear', nil, %@)", stops)
 
-        // Insert the new layer below the Mapbox Streets layer that contains state border lines. See the layer reference for more information about layer names: https://www.mapbox.com/vector-tiles/mapbox-streets-v7/
+        // Insert the new layer below the Mapbox Streets layer that contains state border lines. See the layer reference for more information about layer names: https://www.mapbox.com/vector-tiles/mapbox-streets-v8/
         let symbolLayer = style.layer(withIdentifier: "admin-1-boundary")
         style.insertLayer(layer, below: symbolLayer!)
     }
