@@ -23,7 +23,7 @@ PODS:
 DEPENDENCIES:
   - Mapbox-iOS-SDK (~> 4.7.0)
   - MapboxNavigation (~> 0.27.0)
-  - SwiftLint (~> 0.27)
+  - SwiftLint (~> 0.29)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -52,6 +52,6 @@ SPEC CHECKSUMS:
   SwiftLint: 6772320e40b52049053a518c17db9b0634a0b45a
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: 3b8d3b246ccf3e793538f5d67a493c634bde9758
+PODFILE CHECKSUM: 27a37682984bb1f29da3f01c40810fe7bcfa6310
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.6.0.beta.1

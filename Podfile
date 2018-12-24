@@ -3,7 +3,7 @@ use_frameworks!
 
 def shared_pods
     pod 'Mapbox-iOS-SDK', '~> 4.7.0'
-    pod 'SwiftLint', '~> 0.27'
+    pod 'SwiftLint', '~> 0.29'
 end
 
 target 'Examples' do
