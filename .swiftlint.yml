@@ -6,7 +6,6 @@ disabled_rules:
   - void_return
   - empty_parentheses_with_trailing_closure
   - comma
-  - trailing_whitespace
 opt_in_rules:
   - empty_count
 excluded:
