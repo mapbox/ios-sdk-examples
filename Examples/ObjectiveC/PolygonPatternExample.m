@@ -42,7 +42,7 @@ NSString *const MBXExamplePolygonPattern = @"PolygonPatternExample";
     MGLFillStyleLayer *layer = [[MGLFillStyleLayer alloc] initWithIdentifier:@"drone-restrictions-style" source:source];
     
     // Set the source's identifier using the source name retrieved from its
-    // TileJSON metadata: mapbox.com/api-documentation/#retrieve-tilejson-metadata
+    // TileJSON metadata: mapbox.com/api-documentation/maps/#retrieve-tilejson-metadata
     // You can also retrieve the source layer identifier in the Mapbox Studio layers list,
     // if your source data was added using the Mapbox Studio style editor.
     layer.sourceLayerIdentifier = @"drone-restrictions-3f6lsg";
