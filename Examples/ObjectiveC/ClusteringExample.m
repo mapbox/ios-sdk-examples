@@ -3,7 +3,7 @@
 
 NSString *const MBXExampleClustering = @"ClusteringExample";
 
-@interface ClusteringExample () <MGLMapViewDelegate>
+@interface ClusteringExample () <MGLMapViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
 @property (nonatomic) UIImage *icon;
@@ -22,7 +22,28 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
 
-    // Add our own gesture recognizer to handle taps on our custom map features. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
+    
+    // Add a double tap gesture recognizer. This gesture is used for double
+    // tapping on clusters, and then zooming in so the cluster expands to its
+    // children
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTapCluster:)];
+    doubleTap.numberOfTapsRequired = 2;
+    doubleTap.delegate = self;
+    
+    // We require this new double tap fails before the map view's built-in
+    // gesture is recognized. (Note this is different from the order below for
+    // the single tap.)
+    for (UIGestureRecognizer *recognizer in self.mapView.gestureRecognizers) {
+        if ([recognizer isKindOfClass:[UITapGestureRecognizer class]] &&
+            ((UITapGestureRecognizer*)recognizer).numberOfTapsRequired == 2) {
+            [recognizer requireGestureRecognizerToFail:doubleTap];
+        }
+    }
+    [self.mapView addGestureRecognizer:doubleTap];
+    
+    // Add a single tap gesture recognizer. This gesture requires the built-in
+    // MGLMapView tap gestures (such as those for zoom and annotation selection)
+    // to fail.
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMapTap:)];
     for (UIGestureRecognizer *recognizer in self.mapView.gestureRecognizers) {
         if ([recognizer isKindOfClass:[UITapGestureRecognizer class]]) {
@@ -58,6 +79,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
                              @50:  [UIColor orangeColor],
                              @100: [UIColor redColor],
                              @200: [UIColor purpleColor] };
+    
     // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
     MGLCircleStyleLayer *circlesLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clusteredPorts" source:source];
     circlesLayer.circleRadius = [NSExpression expressionForConstantValue:@(self.icon.size.width / 2)];
@@ -82,6 +104,64 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 - (void)mapViewRegionIsChanging:(MGLMapView *)mapView {
     [self showPopup:NO animated:NO];
 }
+
+- (MGLPointFeatureCluster *)firstClusterWithGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer {
+    CGPoint point = [gestureRecognizer locationInView:gestureRecognizer.view];
+    CGFloat width = self.icon.size.width;
+    CGRect rect = CGRectMake(point.x - width / 2, point.y - width / 2, width, width);
+
+    // If you want to identify the ports or clusters separately you can do
+    // the following:
+    //
+    //    NSArray *clusters = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"clusteredPorts"]];
+    //    NSArray *ports    = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"ports"]];
+    //
+    // However, this example shows how to check if a feature is a cluster by
+    // checking for that the feature is a `MGLPointFeatureCluster` (you could
+    // also check for conformance with `MGLCluster`
+
+    NSArray<id<MGLFeature>> *features = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObjects:@"clusteredPorts", @"ports", nil]];
+    
+    NSPredicate *clusterPredicate = [NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [evaluatedObject isKindOfClass:[MGLPointFeatureCluster class]];
+    }];
+
+    NSArray *clusters = [features filteredArrayUsingPredicate:clusterPredicate];
+
+    // Here we pick the first cluster, but ideally we'd pick the nearest one to
+    // the touch point
+    return (MGLPointFeatureCluster *)clusters.firstObject;
+}
+
+- (IBAction)handleDoubleTapCluster:(UITapGestureRecognizer *)sender {
+    
+    MGLSource *source = [self.mapView.style sourceWithIdentifier:@"clusteredPorts"];
+    
+    if (![source isKindOfClass:[MGLShapeSource class]]) {
+        return;
+    }
+
+    if (sender.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
+
+    [self showPopup:NO animated:NO];
+    
+    MGLPointFeatureCluster *cluster = [self firstClusterWithGestureRecognizer:sender];
+    
+    if (!cluster) {
+        return;
+    }
+
+    double zoom = [(MGLShapeSource *)source zoomLevelForExpandingCluster:cluster];
+
+    if (zoom > 0.0) {
+        [self.mapView setCenterCoordinate:cluster.coordinate
+                                zoomLevel:zoom
+                                 animated:YES];
+    }
+}
+
 
 - (IBAction)handleMapTap:(UITapGestureRecognizer *)tap {
     
@@ -112,6 +192,8 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 
     NSArray<id<MGLFeature>> *features = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObjects:@"clusteredPorts", @"ports", nil]];
     
+    // Here we pick the first feature, but ideally we'd pick the nearest feature
+    // to the touch point
     id<MGLFeature> feature = features.firstObject;
     
     if (!feature) {
@@ -121,15 +203,14 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     NSString *description = @"No port name";
     UIColor *color = UIColor.redColor;
     
-    if ([feature conformsToProtocol:@protocol(MGLCluster)]) {
+    if ([feature isKindOfClass:[MGLPointFeatureCluster class]]) {
         // Tapped on a cluster
-        id<MGLCluster> cluster = (id<MGLCluster>)feature;
+        MGLPointFeatureCluster *cluster = (MGLPointFeatureCluster *)feature;
         
         NSArray *children = [(MGLShapeSource*)source childrenOfCluster:cluster];
-        description = [NSString stringWithFormat:@"Cluster #%ld\n%ld children\n%@ points",
+        description = [NSString stringWithFormat:@"Cluster #%ld\n%ld children",
                        cluster.clusterIdentifier,
-                       children.count,
-                       cluster.clusterPointCountAbbreviation];
+                       children.count];
         color = UIColor.blueColor;
     } else {
         // Tapped on a port
@@ -204,4 +285,14 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     }
 }
 
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    return [self firstClusterWithGestureRecognizer:gestureRecognizer] != nil;
+}
+    
 @end

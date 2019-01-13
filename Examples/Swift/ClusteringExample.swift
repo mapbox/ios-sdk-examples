@@ -21,7 +21,25 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.delegate = self
         view.addSubview(mapView)
 
-        // Add a single tap gesture recognizer. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
+        // Add a double tap gesture recognizer. This gesture is used for double
+        // tapping on clusters, and then zooming in so the cluster expands to its
+        // children
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTapCluster(sender:)))
+        doubleTap.numberOfTapsRequired = 2
+        doubleTap.delegate = self
+
+        // We require this new double tap fails before the map view's built-in
+        // gesture is recognized. (Note this is different from the order below for
+        // the single tap.)
+        for recognizer in mapView.gestureRecognizers!
+            where (recognizer as? UITapGestureRecognizer)?.numberOfTapsRequired == 2 {
+            recognizer.require(toFail: doubleTap)
+        }
+        mapView.addGestureRecognizer(doubleTap)
+
+        // Add a single tap gesture recognizer. This gesture requires the built-in
+        // MGLMapView tap gestures (such as those for zoom and annotation selection)
+        // to fail.
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
         for recognizer in mapView.gestureRecognizers! where recognizer is UITapGestureRecognizer {
             singleTap.require(toFail: recognizer)
@@ -82,7 +100,53 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         showPopup(false, animated: false)
     }
 
-    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) throws {
+    private func firstCluster(with gestureRecognizer: UIGestureRecognizer) -> MGLPointFeatureCluster? {
+        let point = gestureRecognizer.location(in: gestureRecognizer.view)
+        let width = icon.size.width
+        let rect = CGRect(x: point.x - width / 2, y: point.y - width / 2, width: width, height: width)
+
+        // If you want to identify the ports or clusters separately you can do
+        // the following:
+        //
+        //     let ports = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["ports"])
+        //     let clusters = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["clusteredPorts"])
+        //
+        // However, this example shows how to check if a feature is a cluster by
+        // checking for that the feature is a `MGLPointFeatureCluster` (you could
+        // also check for conformance with `MGLCluster`
+
+        let features = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["clusteredPorts", "ports"])
+        let clusters = features.compactMap { $0 as? MGLPointFeatureCluster }
+
+        // Here we pick the first cluster, but ideally we'd pick the nearest one to
+        // the touch point
+        return clusters.first
+    }
+
+    @objc func handleDoubleTapCluster(sender: UITapGestureRecognizer) {
+
+        guard let source = mapView.style?.source(withIdentifier: "clusteredPorts") as? MGLShapeSource else {
+            return
+        }
+
+        guard sender.state == .ended else {
+            return
+        }
+
+        showPopup(false, animated: false)
+
+        guard let cluster = firstCluster(with: sender) else {
+            return
+        }
+
+        let zoom = source.zoomLevel(forExpanding: cluster)
+
+        if zoom > 0 {
+            mapView.setCenter(cluster.coordinate, zoomLevel: zoom, animated: true)
+        }
+    }
+
+    @objc func handleMapTap(sender: UITapGestureRecognizer) {
 
         guard let source = mapView.style?.source(withIdentifier: "clusteredPorts") as? MGLShapeSource else {
             return
@@ -98,17 +162,10 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         let width = icon.size.width
         let rect = CGRect(x: point.x - width / 2, y: point.y - width / 2, width: width, height: width)
 
-        // If you want to identify the ports or clusters separately you can do
-        // the following:
-        //
-        //     let ports = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["ports"])
-        //     let clusters = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["clusteredPorts"])
-        //
-        // However, this example shows how to check if a feature is a cluster by
-        // checking for conformance with the `MGLCluster` protocol.
-
         let features = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["clusteredPorts", "ports"])
 
+        // Here we pick the first feature, but ideally we'd pick the nearest feature
+        // to the touch point
         guard let feature = features.first else {
             return
         }
@@ -116,10 +173,10 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         let description: String
         let color: UIColor
 
-        if let cluster = feature as? MGLCluster {
+        if let cluster = feature as? MGLPointFeatureCluster {
             // Tapped on a cluster
             let children = source.children(of: cluster)
-            description = "Cluster #\(cluster.clusterIdentifier)\n\(children.count) children\n\(cluster.clusterPointCountAbbreviation) points"
+            description = "Cluster #\(cluster.clusterIdentifier)\n\(children.count) children"
             color = .blue
         } else if let featureName = feature.attribute(forKey: "name") as? String?,
             // Tapped on a port
@@ -189,5 +246,19 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
             animation()
             completion(true)
         }
+    }
+}
+
+extension ClusteringExample_Swift: UIGestureRecognizerDelegate {
+
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        // Note, this will only get called for our custom double tap gesture,
+        // that we always want to recognize simultaneously.
+        return true
+    }
+
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        // Note, this will only get called for our custom double tap gesture.
+        return firstCluster(with: gestureRecognizer) != nil
     }
 }
