@@ -21,18 +21,18 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     self.mapView.tintColor = [UIColor darkGrayColor];
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
-
     
     // Add a double tap gesture recognizer. This gesture is used for double
-    // tapping on clusters, and then zooming in so the cluster expands to its
+    // tapping on clusters and then zooming in so the cluster expands to its
     // children
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTapCluster:)];
     doubleTap.numberOfTapsRequired = 2;
     doubleTap.delegate = self;
     
-    // We require this new double tap fails before the map view's built-in
-    // gesture is recognized. (Note this is different from the order below for
-    // the single tap.)
+    // It's important that this new double tap fails before the map view's
+    // built-in gesture can be recognized. This is to prevent the map's gesture from
+    // overriding this new gesture (and then not detecting a cluster that had been
+    // tapped on).
     for (UIGestureRecognizer *recognizer in self.mapView.gestureRecognizers) {
         if ([recognizer isKindOfClass:[UITapGestureRecognizer class]] &&
             ((UITapGestureRecognizer*)recognizer).numberOfTapsRequired == 2) {
@@ -43,7 +43,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     
     // Add a single tap gesture recognizer. This gesture requires the built-in
     // MGLMapView tap gestures (such as those for zoom and annotation selection)
-    // to fail.
+    // to fail. (This order differs from the double tap above.)
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMapTap:)];
     for (UIGestureRecognizer *recognizer in self.mapView.gestureRecognizers) {
         if ([recognizer isKindOfClass:[UITapGestureRecognizer class]]) {
@@ -110,16 +110,9 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     CGFloat width = self.icon.size.width;
     CGRect rect = CGRectMake(point.x - width / 2, point.y - width / 2, width, width);
 
-    // If you want to identify the ports or clusters separately you can do
-    // the following:
-    //
-    //    NSArray *clusters = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"clusteredPorts"]];
-    //    NSArray *ports    = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"ports"]];
-    //
-    // However, this example shows how to check if a feature is a cluster by
+    // This example shows how to check if a feature is a cluster by
     // checking for that the feature is a `MGLPointFeatureCluster` (you could
-    // also check for conformance with `MGLCluster`
-
+    // also check for conformance with `MGLCluster`)
     NSArray<id<MGLFeature>> *features = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObjects:@"clusteredPorts", @"ports", nil]];
     
     NSPredicate *clusterPredicate = [NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
@@ -128,8 +121,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 
     NSArray *clusters = [features filteredArrayUsingPredicate:clusterPredicate];
 
-    // Here we pick the first cluster, but ideally we'd pick the nearest one to
-    // the touch point
+    // Pick the first cluster. Ideally this would pick the nearest cluster to the touch point
     return (MGLPointFeatureCluster *)clusters.firstObject;
 }
 
@@ -181,19 +173,10 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     CGFloat width = self.icon.size.width;
     CGRect rect = CGRectMake(point.x - width / 2, point.y - width / 2, width, width);
 
-    // If you want to identify the ports or clusters separately you can do
-    // the following:
-    //
-    //    NSArray *clusters = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"clusteredPorts"]];
-    //    NSArray *ports    = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"ports"]];
-    //
-    // However, this example shows how to check if a feature is a cluster by
-    // checking for conformance with the `MGLCluster` protocol.
-
     NSArray<id<MGLFeature>> *features = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObjects:@"clusteredPorts", @"ports", nil]];
     
-    // Here we pick the first feature, but ideally we'd pick the nearest feature
-    // to the touch point
+    // Pick the first feature (which could be a port or a cluster). Ideally this
+    // would pick the nearest feature to the touch point
     id<MGLFeature> feature = features.firstObject;
     
     if (!feature) {
@@ -288,10 +271,13 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 #pragma mark - UIGestureRecognizerDelegate
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    // This will only get called for the custom double tap gesture,
+    // that should always be recognized simultaneously.
     return YES;
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    // This will only get called for the custom double tap gesture.
     return [self firstClusterWithGestureRecognizer:gestureRecognizer] != nil;
 }
     
