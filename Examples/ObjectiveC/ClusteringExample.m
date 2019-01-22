@@ -24,7 +24,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     
     // Add a double tap gesture recognizer. This gesture is used for double
     // tapping on clusters and then zooming in so the cluster expands to its
-    // children
+    // children.
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTapCluster:)];
     doubleTap.numberOfTapsRequired = 2;
     doubleTap.delegate = self;
@@ -43,7 +43,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     
     // Add a single tap gesture recognizer. This gesture requires the built-in
     // MGLMapView tap gestures (such as those for zoom and annotation selection)
-    // to fail. (This order differs from the double tap above.)
+    // to fail (this order differs from the double tap above).
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMapTap:)];
     for (UIGestureRecognizer *recognizer in self.mapView.gestureRecognizers) {
         if ([recognizer isKindOfClass:[UITapGestureRecognizer class]]) {
@@ -67,7 +67,8 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     // Use a template image so that we can tint it with the `iconColor` runtime styling property.
     [style setImage:[self.icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forName:@"icon"];
 
-    // Show unclustered features as icons. The `cluster` attribute is built into clustering-enabled source features.
+    // Show unclustered features as icons. The `cluster` attribute is built into clustering-enabled
+    // source features.
     MGLSymbolStyleLayer *ports = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"ports" source:source];
     ports.iconImageName = [NSExpression expressionForConstantValue:@"icon"];
     ports.iconColor = [NSExpression expressionForConstantValue:[[UIColor darkGrayColor] colorWithAlphaComponent:0.9]];
@@ -80,7 +81,8 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
                              @100: [UIColor redColor],
                              @200: [UIColor purpleColor] };
     
-    // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
+    // Show clustered features as circles. The `point_count` attribute is built into
+    // clustering-enabled source features.
     MGLCircleStyleLayer *circlesLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clusteredPorts" source:source];
     circlesLayer.circleRadius = [NSExpression expressionForConstantValue:@(self.icon.size.width / 2)];
     circlesLayer.circleOpacity = [NSExpression expressionForConstantValue:@0.75];
@@ -91,7 +93,9 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     circlesLayer.predicate = [NSPredicate predicateWithFormat:@"cluster == YES"];
     [style addLayer:circlesLayer];
 
-    // Label cluster circles with a layer of text indicating feature count. The value for `point_count` is an integer. In order to use that value for the `MGLSymbolStyleLayer.text` property, cast it as a string. 
+    // Label cluster circles with a layer of text indicating feature count. The value for
+    // `point_count` is an integer. In order to use that value for the
+    // `MGLSymbolStyleLayer.text` property, cast it as a string.
     MGLSymbolStyleLayer *numbersLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"clusteredPortsNumbers" source:source];
     numbersLayer.textColor = [NSExpression expressionForConstantValue:[UIColor whiteColor]];
     numbersLayer.textFontSize = [NSExpression expressionForConstantValue:@(self.icon.size.width / 2)];
@@ -111,8 +115,8 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     CGRect rect = CGRectMake(point.x - width / 2, point.y - width / 2, width, width);
 
     // This example shows how to check if a feature is a cluster by
-    // checking for that the feature is a `MGLPointFeatureCluster` (you could
-    // also check for conformance with `MGLCluster`)
+    // checking for that the feature is a `MGLPointFeatureCluster`. Alternatively, you could
+    // also check for conformance with `MGLCluster` instead.
     NSArray<id<MGLFeature>> *features = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObjects:@"clusteredPorts", @"ports", nil]];
     
     NSPredicate *clusterPredicate = [NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
@@ -121,7 +125,8 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 
     NSArray *clusters = [features filteredArrayUsingPredicate:clusterPredicate];
 
-    // Pick the first cluster. Ideally this would pick the nearest cluster to the touch point
+    // Pick the first cluster, ideally selecting the one nearest nearest one to
+    // the touch point.
     return (MGLPointFeatureCluster *)clusters.firstObject;
 }
 
@@ -175,8 +180,8 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 
     NSArray<id<MGLFeature>> *features = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObjects:@"clusteredPorts", @"ports", nil]];
     
-    // Pick the first feature (which could be a port or a cluster). Ideally this
-    // would pick the nearest feature to the touch point
+    // Pick the first feature (which may be a port or a cluster), ideally selecting
+    // the one nearest nearest one to the touch point.
     id<MGLFeature> feature = features.firstObject;
     
     if (!feature) {
@@ -187,7 +192,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     UIColor *color = UIColor.redColor;
     
     if ([feature isKindOfClass:[MGLPointFeatureCluster class]]) {
-        // Tapped on a cluster
+        // Tapped on a cluster.
         MGLPointFeatureCluster *cluster = (MGLPointFeatureCluster *)feature;
         
         NSArray *children = [(MGLShapeSource*)source childrenOfCluster:cluster];
@@ -196,7 +201,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
                        children.count];
         color = UIColor.blueColor;
     } else {
-        // Tapped on a port
+        // Tapped on a port.
         id name = [feature attributeForKey:@"name"];
         if ([name isKindOfClass:[NSString class]]) {
             description = (NSString *)name;
@@ -227,7 +232,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 
     [popup sizeToFit];
     
-    // Expand
+    // Expand the popup.
     popup.bounds = CGRectInset(popup.bounds, -10, -10);
     CGPoint point = [self.mapView convertCoordinate:coordinate toPointToView:self.mapView];
     popup.center = CGPointMake(point.x, point.y - 50);

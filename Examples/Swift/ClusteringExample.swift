@@ -23,7 +23,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Add a double tap gesture recognizer. This gesture is used for double
         // tapping on clusters and then zooming in so the cluster expands to its
-        // children
+        // children.
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTapCluster(sender:)))
         doubleTap.numberOfTapsRequired = 2
         doubleTap.delegate = self
@@ -40,7 +40,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Add a single tap gesture recognizer. This gesture requires the built-in
         // MGLMapView tap gestures (such as those for zoom and annotation selection)
-        // to fail. (This order differs from the double tap above.)
+        // to fail (this order differs from the double tap above).
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
         for recognizer in mapView.gestureRecognizers! where recognizer is UITapGestureRecognizer {
             singleTap.require(toFail: recognizer)
@@ -61,7 +61,8 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         // Use a template image so that we can tint it with the `iconColor` runtime styling property.
         style.setImage(icon.withRenderingMode(.alwaysTemplate), forName: "icon")
 
-        // Show unclustered features as icons. The `cluster` attribute is built into clustering-enabled source features.
+        // Show unclustered features as icons. The `cluster` attribute is built into clustering-enabled
+        // source features.
         let ports = MGLSymbolStyleLayer(identifier: "ports", source: source)
         ports.iconImageName = NSExpression(forConstantValue: "icon")
         ports.iconColor = NSExpression(forConstantValue: UIColor.darkGray.withAlphaComponent(0.9))
@@ -76,7 +77,8 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
             200: UIColor.purple
         ]
 
-        // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
+        // Show clustered features as circles. The `point_count` attribute is built into
+        // clustering-enabled source features.
         let circlesLayer = MGLCircleStyleLayer(identifier: "clusteredPorts", source: source)
         circlesLayer.circleRadius = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
         circlesLayer.circleOpacity = NSExpression(forConstantValue: 0.75)
@@ -86,7 +88,9 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         circlesLayer.predicate = NSPredicate(format: "cluster == YES")
         style.addLayer(circlesLayer)
 
-        // Label cluster circles with a layer of text indicating feature count. The value for `point_count` is an integer. In order to use that value for the `MGLSymbolStyleLayer.text` property, cast it as a string. 
+        // Label cluster circles with a layer of text indicating feature count. The value for
+        // `point_count` is an integer. In order to use that value for the
+        // `MGLSymbolStyleLayer.text` property, cast it as a string.
         let numbersLayer = MGLSymbolStyleLayer(identifier: "clusteredPortsNumbers", source: source)
         numbersLayer.textColor = NSExpression(forConstantValue: UIColor.white)
         numbersLayer.textFontSize = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
@@ -107,13 +111,13 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         let rect = CGRect(x: point.x - width / 2, y: point.y - width / 2, width: width, height: width)
 
         // This example shows how to check if a feature is a cluster by
-        // checking for that the feature is a `MGLPointFeatureCluster` (you could
-        // also check for conformance with `MGLCluster`)
+        // checking for that the feature is a `MGLPointFeatureCluster`. Alternatively, you could
+        // also check for conformance with `MGLCluster` instead.
         let features = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["clusteredPorts", "ports"])
         let clusters = features.compactMap { $0 as? MGLPointFeatureCluster }
 
-        // Here we pick the first cluster, but ideally we'd pick the nearest one to
-        // the touch point
+        // Pick the first cluster, ideally selecting the one nearest nearest one to
+        // the touch point.
         return clusters.first
     }
 
@@ -158,8 +162,8 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
         let features = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["clusteredPorts", "ports"])
 
-        // Pick the first feature (which could be a port or a cluster). Ideally this
-        // would pick the nearest feature to the touch point
+        // Pick the first feature (which may be a port or a cluster), ideally selecting
+        // the one nearest nearest one to the touch point.
         guard let feature = features.first else {
             return
         }
@@ -168,17 +172,17 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         let color: UIColor
 
         if let cluster = feature as? MGLPointFeatureCluster {
-            // Tapped on a cluster
+            // Tapped on a cluster.
             let children = source.children(of: cluster)
             description = "Cluster #\(cluster.clusterIdentifier)\n\(children.count) children"
             color = .blue
         } else if let featureName = feature.attribute(forKey: "name") as? String?,
-            // Tapped on a port
+            // Tapped on a port.
             let portName = featureName {
             description = portName
             color = .black
         } else {
-            // Tapped on a port (missing a name)
+            // Tapped on a port that is missing a name.
             description = "No port name"
             color = .red
         }
@@ -188,7 +192,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         showPopup(true, animated: true)
     }
 
-    // Convenience method to create a reusable popup view
+    // Convenience method to create a reusable popup view.
     private func popup(at coordinate: CLLocationCoordinate2D, with description: String, textColor: UIColor) -> UIView {
         let popup = UILabel()
 
@@ -205,7 +209,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
 
         popup.sizeToFit()
 
-        // Expand
+        // Expand the popup.
         popup.bounds = popup.bounds.insetBy(dx: -10, dy: -10)
         let point = mapView.convert(coordinate, toPointTo: mapView)
         popup.center = CGPoint(x: point.x, y: point.y - 50)
