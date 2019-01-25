@@ -58,7 +58,8 @@ NSString const *MBXExampleFeatureSelection = @"FeatureSelectionExample";
     layer.fillColor = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:(density, 'linear', nil, %@)", stops];
 
     // Insert the new layer below the Mapbox Streets layer that contains state border lines. See the layer reference for more information about layer names: https://www.mapbox.com/vector-tiles/mapbox-streets-v8/
-    MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"admin-1-boundary"];
+    // admin-1-boundary is available starting in mapbox-streets-v8, while admin-3-4-boundaries is provided here as a fallback for styles using older data sources.
+    MGLStyleLayer *symbolLayer = [style layerWithIdentifier:@"admin-1-boundary"] ?: [style layerWithIdentifier:@"admin-3-4-boundaries"];
     
     [style insertLayer:layer belowLayer:symbolLayer];
 }
