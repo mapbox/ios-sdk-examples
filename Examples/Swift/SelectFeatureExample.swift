@@ -11,7 +11,6 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
 
         mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
         mapView.setCenter(CLLocationCoordinate2D(latitude: 45.5076, longitude: -122.6736), zoomLevel: 11, animated: false)
         mapView.delegate = self
         view.addSubview(mapView)
@@ -52,7 +51,6 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
             guard let features = mapView.visibleFeatures(in: touchRect, styleLayerIdentifiers: layerIdentifiers) as? [MGLShape & MGLFeature] else {
                 fatalError("Could not cast to specified MGLShape/MGLFeature")
             }
-            
             let shapes = MGLShapeCollectionFeature(shapes: features)
 
             // Update our MGLShapeSource to match our selected features.
