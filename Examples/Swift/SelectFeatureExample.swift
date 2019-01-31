@@ -11,6 +11,8 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
 
         mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        // Set the map's style to Mapbox Streets Style version 10. The style's layers will be queried later.
+        mapView.styleURL = MGLStyle.streetsStyleURL(withVersion: 10)
         mapView.setCenter(CLLocationCoordinate2D(latitude: 45.5076, longitude: -122.6736), zoomLevel: 11, animated: false)
         mapView.delegate = self
         view.addSubview(mapView)

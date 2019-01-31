@@ -15,7 +15,10 @@ NSString *const MBXExampleSelectFeature = @"SelectFeatureExample";
 
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-
+    
+    // Set the map's style to Mapbox Streets Style version 10. The style's layers will be queried later.
+    self.mapView.styleURL = [MGLStyle streetsStyleURLWithVersion:10];
+    
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(45.5076, -122.6736) zoomLevel:11 animated:NO];
 
     // Add our own gesture recognizer to handle taps on our custom map features. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
