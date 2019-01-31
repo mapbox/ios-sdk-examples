@@ -15,10 +15,7 @@ NSString *const MBXExampleSelectFeature = @"SelectFeatureExample";
 
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
-    // Set the map's style to Mapbox Streets Style version 10. The style's layers will be queried later.
-    self.mapView.styleURL = [MGLStyle streetsStyleURLWithVersion:10];
-    
+
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(45.5076, -122.6736) zoomLevel:11 animated:NO];
 
     // Add our own gesture recognizer to handle taps on our custom map features. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
@@ -56,8 +53,8 @@ NSString *const MBXExampleSelectFeature = @"SelectFeatureExample";
         CGRect pointRect = { [recognizer locationInView:recognizer.view], CGSizeZero };
         CGRect touchRect = CGRectInset(pointRect, -22.0, -22.0);
 
-        // Let’s only select parks near the rect. There’s a layer within the Mapbox Streets style with "id" = "park". You can see all of the layers used within the default mapbox styles by creating a new style using Mapbox Studio.
-        NSSet *layerIdentifiers = [NSSet setWithObject:@"park"];
+        // Let’s only select parks near the rect. There’s a layer within the Mapbox Streets style with "id" = "water". You can see all of the layers used within the default mapbox styles by creating a new style using Mapbox Studio.
+        NSSet *layerIdentifiers = [NSSet setWithObject:@"water"];
 
         // Query the current mapview for any features that intersect our rect.
         NSMutableArray *features = [NSMutableArray array];

@@ -11,8 +11,7 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
 
         mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        // Set the map's style to Mapbox Streets Style version 10. The style's layers will be queried later.
-        mapView.styleURL = MGLStyle.streetsStyleURL(withVersion: 10)
+
         mapView.setCenter(CLLocationCoordinate2D(latitude: 45.5076, longitude: -122.6736), zoomLevel: 11, animated: false)
         mapView.delegate = self
         view.addSubview(mapView)
@@ -46,14 +45,14 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
             let point = sender.location(in: sender.view!)
             let touchRect = CGRect(origin: point, size: .zero).insetBy(dx: -22.0, dy: -22.0)
 
-            // Let’s only select parks near the rect. There’s a layer within the Mapbox Streets style with "id" = "park". You can see all of the layers used within the default mapbox styles by creating a new style using Mapbox Studio.
-            let layerIdentifiers = Set(["park"])
+            // Let’s only select parks near the rect. There’s a layer within the Mapbox Streets style with "id" = "water". You can see all of the layers used within the default mapbox styles by creating a new style using Mapbox Studio.
+            let layerIdentifiers = Set(["water"])
 
             // Query the map view for any visible features that intersect our rect.
             guard let features = mapView.visibleFeatures(in: touchRect, styleLayerIdentifiers: layerIdentifiers) as? [MGLShape & MGLFeature] else {
                 fatalError("Could not cast to specified MGLShape/MGLFeature")
             }
-
+            
             let shapes = MGLShapeCollectionFeature(shapes: features)
 
             // Update our MGLShapeSource to match our selected features.
