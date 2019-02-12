@@ -50,7 +50,8 @@ NSString *const MBXExampleLineStyleLayer = @"LineStyleLayerExample";
     MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline" source:source];
     
     // Set the line join and cap to a rounded end.
-    layer.lineJoin = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
+    layer.lineJoin = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineJoin:MGLLineJoinRound]];
+    layer.lineCap = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
     
     // Set the line color to a constant blue color.
     layer.lineColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed:59/255.0 green:178/255.0 blue:208/255.0 alpha:1]];
