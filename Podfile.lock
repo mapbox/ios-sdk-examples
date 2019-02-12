@@ -1,19 +1,19 @@
 PODS:
   - Mapbox-iOS-SDK (4.8.0)
-  - MapboxCoreNavigation (0.28.0):
-    - MapboxDirections.swift (~> 0.26.0)
-    - MapboxMobileEvents (~> 0.6.0)
-    - MapboxNavigationNative (~> 3.4.6)
+  - MapboxCoreNavigation (0.29.0):
+    - MapboxDirections.swift (~> 0.27.0)
+    - MapboxMobileEvents (~> 0.8.1)
+    - MapboxNavigationNative (~> 5.0.0)
     - Turf (~> 0.3.0)
-  - MapboxDirections.swift (0.26.1):
+  - MapboxDirections.swift (0.27.0):
     - Polyline (~> 4.2)
-  - MapboxMobileEvents (0.6.0)
-  - MapboxNavigation (0.28.0):
+  - MapboxMobileEvents (0.8.1)
+  - MapboxNavigation (0.29.0):
     - Mapbox-iOS-SDK (~> 4.3)
-    - MapboxCoreNavigation (= 0.28.0)
+    - MapboxCoreNavigation (= 0.29.0)
     - MapboxSpeech (~> 0.1.0)
     - Solar (~> 2.1)
-  - MapboxNavigationNative (3.4.12)
+  - MapboxNavigationNative (5.0.0)
   - MapboxSpeech (0.1.0)
   - Polyline (4.2.0)
   - Solar (2.1.0)
@@ -22,7 +22,7 @@ PODS:
 
 DEPENDENCIES:
   - Mapbox-iOS-SDK (~> 4.8.0)
-  - MapboxNavigation (~> 0.28.0)
+  - MapboxNavigation (~> 0.29.0)
   - SwiftLint (~> 0.29)
 
 SPEC REPOS:
@@ -41,17 +41,17 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Mapbox-iOS-SDK: 864bc732a20c183d87f04923295e988b504453d9
-  MapboxCoreNavigation: b34af46883ca243b60244aa0e7370aa1558cb5ac
-  MapboxDirections.swift: 514610ac52a9cd080062085f35b8a9fdb27a83cb
-  MapboxMobileEvents: 0218869f556a7fdac9f869e2f9c10e8c6dd7eed5
-  MapboxNavigation: c65f0cceb87924fbe171095eeebe1914940c97ba
-  MapboxNavigationNative: f836f10df1fa8b4aeca554b8593b75ceb72c8150
+  MapboxCoreNavigation: af1a5719a8ecf8d15e9bddea409070fee2c47dd2
+  MapboxDirections.swift: 622bfe28c216eb6124331a0a03c97d7f587b286f
+  MapboxMobileEvents: 0f30fe39687f26fd8f255335053023ba039a0392
+  MapboxNavigation: 9ca2b90e85df7dd2ef5a1e6e7ef0e275c68b32a4
+  MapboxNavigationNative: bb220f45f93123adae2c05dfb74080773af128f3
   MapboxSpeech: d7569ee91dd8bdca3ef8d19b6828e8754c1073ec
   Polyline: 3d69f75bb136357e27291d439d0436c6ebda57a4
   Solar: 2dc6e7cc39186cb0c8228fa08df76fb50c7d8f24
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: 8ca8b04d95525abd34105c3ca72663f13a3dcf55
+PODFILE CHECKSUM: ee7d4412892836a2acfaff39b3e26f322d104287
 
-COCOAPODS: 1.6.0.rc.2
+COCOAPODS: 1.6.0
