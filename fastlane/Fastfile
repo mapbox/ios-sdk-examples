@@ -28,7 +28,7 @@ platform :ios do
     match(git_url: ENV["MATCH_REPO"], username: ENV["MATCH_USER"], type: "appstore", readonly: true)
     increment_build_number(build_number: latest_testflight_build_number + 1)
     gym(scheme: "Examples", include_bitcode: true)
-    pilot(changelog: release_notes, skip_waiting_for_build_processing: false)
+    pilot(changelog: release_notes, wait_for_uploaded_build: true)
   end
 
   desc "Generate release notes."
