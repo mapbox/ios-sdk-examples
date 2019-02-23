@@ -2,7 +2,14 @@ platform :ios, '9.0'
 use_frameworks!
 
 def shared_pods
-    pod 'Mapbox-iOS-SDK', '~> 4.8.0'
+    # This uses a local build of the Maps SDK if you are installing from within mapbox-gl-native
+    # Build the framework first with `make iframework` to use this option.
+    if Dir.pwd.include?('mapbox-gl-native')
+      pod 'Mapbox-iOS-SDK', :path => '../../../build/ios/pkg/dynamic/Mapbox-iOS-SDK.podspec'
+    else
+      pod 'Mapbox-iOS-SDK', '~> 4.8.0'
+    end
+   
     pod 'SwiftLint', '~> 0.29'
 end
 
