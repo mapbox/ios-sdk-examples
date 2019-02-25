@@ -40,11 +40,21 @@ class RasterImageryExample_Swift: UIViewController, MGLMapViewDelegate {
     func addSlider() {
         let padding: CGFloat = 10
         let slider = UISlider(frame: CGRect(x: padding, y: self.view.frame.size.height - 44 - 30, width: self.view.frame.size.width - padding *  2, height: 44))
-        slider.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
         slider.minimumValue = 0
         slider.maximumValue = 1
         slider.value = 1
         slider.addTarget(self, action: #selector(updateLayerOpacity), for: .valueChanged)
-        view.addSubview(slider)
+        view.insertSubview(slider, aboveSubview: mapView)
+        if #available(iOS 11.0, *) {
+            let safeArea = view.safeAreaLayoutGuide
+            slider.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                slider.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -mapView.logoView.bounds.height),
+                slider.widthAnchor.constraint(equalToConstant: self.view.frame.size.width - padding *  2),
+                slider.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor)
+                ])
+        } else {
+            slider.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
+        }
     }
 }
