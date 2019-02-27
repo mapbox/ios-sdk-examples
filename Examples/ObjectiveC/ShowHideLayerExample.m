@@ -79,7 +79,6 @@ NSString *const MBXExampleShowHideLayer = @"ShowHideLayerExample";
 
 - (void)addToggleButton {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [button setTitle:@"Toggle Contours" forState:UIControlStateNormal];
     [button setSelected:YES];
     [button sizeToFit];
@@ -87,6 +86,17 @@ NSString *const MBXExampleShowHideLayer = @"ShowHideLayerExample";
     button.frame = CGRectMake(button.frame.origin.x, self.view.frame.size.height - button.frame.size.height - 5, button.frame.size.width, button.frame.size.height);
     [button addTarget:self action:@selector(toggleLayer:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    
+    if (@available(iOS 11, *)) {
+        UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
+        button.translatesAutoresizingMaskIntoConstraints = NO;
+        [NSLayoutConstraint activateConstraints:@[
+                                                  [button.bottomAnchor constraintEqualToAnchor: safeArea.bottomAnchor constant:-5],
+                                                  [button.centerXAnchor constraintEqualToAnchor:safeArea.centerXAnchor]
+                                                  ]];
+    } else {
+        button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    }
 }
 
 @end

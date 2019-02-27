@@ -62,7 +62,6 @@ NSString *const MBXExampleRasterImagery = @"RasterImageryExample";
                                                   [slider.widthAnchor constraintEqualToConstant:self.view.frame.size.width - padding * 2],
                                                   [slider.centerXAnchor constraintEqualToAnchor:safeArea.centerXAnchor]
                                                   ]];
-        
     } else {
             slider.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     }

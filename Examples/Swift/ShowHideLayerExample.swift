@@ -68,7 +68,6 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
 
     func addToggleButton() {
         let button = UIButton(type: .system)
-        button.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
         button.setTitle("Toggle Contours", for: .normal)
         button.isSelected = true
         button.sizeToFit()
@@ -76,5 +75,16 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         button.frame = CGRect(origin: CGPoint(x: button.frame.origin.x, y: self.view.frame.size.height - button.frame.size.height - 5), size: button.frame.size)
         button.addTarget(self, action: #selector(toggleLayer(sender:)), for: .touchUpInside)
         self.view.addSubview(button)
+
+        if #available(iOS 11.0, *) {
+            let safeArea = view.safeAreaLayoutGuide
+            button.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                button.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -5),
+                button.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor)
+                ])
+        } else {
+            button.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
+        }
     }
 }
