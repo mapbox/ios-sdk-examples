@@ -48,11 +48,13 @@ class RasterImageryExample_Swift: UIViewController, MGLMapViewDelegate {
         if #available(iOS 11.0, *) {
             let safeArea = view.safeAreaLayoutGuide
             slider.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
+            let constraints = [
                 slider.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -mapView.logoView.bounds.height),
                 slider.widthAnchor.constraint(equalToConstant: self.view.frame.size.width - padding *  2),
                 slider.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor)
-                ])
+            ]
+
+            NSLayoutConstraint.activate(constraints)
         } else {
             slider.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
         }

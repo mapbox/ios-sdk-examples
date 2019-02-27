@@ -89,11 +89,12 @@ NSString *const MBXExampleShowHideLayer = @"ShowHideLayerExample";
     
     if (@available(iOS 11, *)) {
         UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
-        button.translatesAutoresizingMaskIntoConstraints = NO;
-        [NSLayoutConstraint activateConstraints:@[
-                                                  [button.bottomAnchor constraintEqualToAnchor: safeArea.bottomAnchor constant:-5],
-                                                  [button.centerXAnchor constraintEqualToAnchor:safeArea.centerXAnchor]
-                                                  ]];
+        NSArray *constraints = @[
+          [button.bottomAnchor constraintEqualToAnchor: safeArea.bottomAnchor constant:-5],
+          [button.centerXAnchor constraintEqualToAnchor:safeArea.centerXAnchor]
+        ];
+
+        [NSLayoutConstraint activateConstraints:constraints];
     } else {
         button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     }

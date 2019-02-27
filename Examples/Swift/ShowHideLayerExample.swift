@@ -79,10 +79,12 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         if #available(iOS 11.0, *) {
             let safeArea = view.safeAreaLayoutGuide
             button.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
+            let constraints = [
                 button.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -5),
                 button.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor)
-                ])
+            ]
+
+            NSLayoutConstraint.activate(constraints)
         } else {
             button.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
         }

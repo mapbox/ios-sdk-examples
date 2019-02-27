@@ -57,11 +57,13 @@ NSString *const MBXExampleRasterImagery = @"RasterImageryExample";
     if (@available(iOS 11, *)) {
         UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
         slider.translatesAutoresizingMaskIntoConstraints = NO;
-        [NSLayoutConstraint activateConstraints:@[
-                                                  [slider.bottomAnchor constraintEqualToAnchor: safeArea.bottomAnchor constant:-self.mapView.logoView.bounds.size.height],
-                                                  [slider.widthAnchor constraintEqualToConstant:self.view.frame.size.width - padding * 2],
-                                                  [slider.centerXAnchor constraintEqualToAnchor:safeArea.centerXAnchor]
-                                                  ]];
+        NSArray *constraints = @[
+          [slider.bottomAnchor constraintEqualToAnchor: safeArea.bottomAnchor constant:-self.mapView.logoView.bounds.size.height],
+          [slider.widthAnchor constraintEqualToConstant:self.view.frame.size.width - padding * 2],
+          [slider.centerXAnchor constraintEqualToAnchor:safeArea.centerXAnchor]
+        ];
+
+        [NSLayoutConstraint activateConstraints:constraints];
     } else {
             slider.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     }
