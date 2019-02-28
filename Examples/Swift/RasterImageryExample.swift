@@ -5,6 +5,7 @@ import Mapbox
 class RasterImageryExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var rasterLayer: MGLRasterStyleLayer?
+    var secondRasterLayer: MGLRasterStyleLayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +28,23 @@ class RasterImageryExample_Swift: UIViewController, MGLMapViewDelegate {
         let source = MGLRasterTileSource(identifier: "stamen-watercolor", tileURLTemplates: ["https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"], options: [ .tileSize: 256 ])
         let rasterLayer = MGLRasterStyleLayer(identifier: "stamen-watercolor", source: source)
 
+        let secondSource = MGLRasterTileSource(identifier: "cloud-cover", tileURLTemplates: ["https://re.ssec.wisc.edu/api/image?products=G16-ABI-FD-BAND02&x={x}&y={y}&z={z}&client=RealEarth&device=Browser"], options: [ .tileSize: 256 ])
+        let secondRasterLayer = MGLRasterStyleLayer(identifier: "cloud-cover", source: secondSource)
+
         style.addSource(source)
         style.addLayer(rasterLayer)
+        style.addSource(secondSource)
+        style.addLayer(secondRasterLayer)
 
         self.rasterLayer = rasterLayer
+        self.secondRasterLayer = secondRasterLayer
+        rasterLayer.rasterOpacity = NSExpression(forConstantValue: 0.5)
+        secondRasterLayer.rasterOpacity = NSExpression(forConstantValue: 0.5)
     }
 
     @objc func updateLayerOpacity(_ sender: UISlider) {
         rasterLayer?.rasterOpacity = NSExpression(forConstantValue: sender.value as NSNumber)
+        secondRasterLayer?.rasterOpacity = NSExpression(forConstantValue: (1 - sender.value) as NSNumber)
     }
 
     func addSlider() {
@@ -43,7 +53,7 @@ class RasterImageryExample_Swift: UIViewController, MGLMapViewDelegate {
         slider.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
         slider.minimumValue = 0
         slider.maximumValue = 1
-        slider.value = 1
+        slider.value = 0.5
         slider.addTarget(self, action: #selector(updateLayerOpacity), for: .valueChanged)
         view.addSubview(slider)
     }
