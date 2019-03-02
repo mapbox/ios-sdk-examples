@@ -89,6 +89,7 @@ NSString *const MBXExampleShowHideLayer = @"ShowHideLayerExample";
     
     if (@available(iOS 11, *)) {
         UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
+        button.translatesAutoresizingMaskIntoConstraints = NO;
         NSArray *constraints = @[
           [button.bottomAnchor constraintEqualToAnchor: safeArea.bottomAnchor constant:-5],
           [button.centerXAnchor constraintEqualToAnchor:safeArea.centerXAnchor]

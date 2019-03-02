@@ -58,7 +58,7 @@ NSString *const MBXExampleRasterImagery = @"RasterImageryExample";
         UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
         slider.translatesAutoresizingMaskIntoConstraints = NO;
         NSArray *constraints = @[
-          [slider.bottomAnchor constraintEqualToAnchor: safeArea.bottomAnchor constant:-self.mapView.logoView.bounds.size.height],
+          [slider.bottomAnchor constraintEqualToAnchor: safeArea.bottomAnchor constant:-self.mapView.logoView.bounds.size.height - 10],
           [slider.widthAnchor constraintEqualToConstant:self.view.frame.size.width - padding * 2],
           [slider.centerXAnchor constraintEqualToAnchor:safeArea.centerXAnchor]
         ];
