@@ -166,12 +166,20 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     // Setup constraints such that the button is placed within
     // the upper left corner of the view.
     self.button.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *leadingConstraint;
+    
+    if (@available(iOS 11, *)) {
+        UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
+        leadingConstraint = [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:safeArea attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
+        
+    } else {
+        leadingConstraint = [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
+    }
     NSArray *constraints = @[
       [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:10],
-      [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10],
+      leadingConstraint,
       [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.button.frame.size.height],
       [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.button.frame.size.width]
-        
     ];
     
     [self.view addConstraints:constraints];
