@@ -8,6 +8,7 @@ def shared_pods
       pod 'Mapbox-iOS-SDK', :path => '../../../build/ios/pkg/dynamic/Mapbox-iOS-SDK.podspec'
     else
       pod 'Mapbox-iOS-SDK', '4.9.0'
+      pod 'Turf', '~> 0.3'
     end
 
     pod 'SwiftLint', '~> 0.29'
