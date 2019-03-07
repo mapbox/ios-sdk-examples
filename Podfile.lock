@@ -1,11 +1,11 @@
 PODS:
-  - Mapbox-iOS-SDK (4.9.0)
+  - Mapbox-iOS-SDK (4.10.0-alpha.1)
   - MapboxCoreNavigation (0.30.0):
     - MapboxDirections.swift (~> 0.27.0)
     - MapboxMobileEvents (~> 0.8.1)
     - MapboxNavigationNative (~> 5.0.0)
     - Turf (~> 0.3.0)
-  - MapboxDirections.swift (0.27.2):
+  - MapboxDirections.swift (0.27.3):
     - Polyline (~> 4.2)
   - MapboxMobileEvents (0.8.1)
   - MapboxNavigation (0.30.0):
@@ -21,7 +21,7 @@ PODS:
   - Turf (0.3.0)
 
 DEPENDENCIES:
-  - Mapbox-iOS-SDK (= 4.9.0)
+  - Mapbox-iOS-SDK (= 4.10.0-alpha.1)
   - MapboxNavigation (= 0.30.0)
   - SwiftLint (~> 0.29)
 
@@ -40,9 +40,9 @@ SPEC REPOS:
     - Turf
 
 SPEC CHECKSUMS:
-  Mapbox-iOS-SDK: 225036950837cbe408e6b333e51cd6001c122499
+  Mapbox-iOS-SDK: fb59b79ac79721406464dd6f950b053ba12e2c6e
   MapboxCoreNavigation: f446c90e4324157e76a224c233e3daa2042f181e
-  MapboxDirections.swift: b67d0b0bd0ac46906642baba38f4be777c50d68e
+  MapboxDirections.swift: af3d8bc8cd80ed6e498dd6ed933f3c348799e1e2
   MapboxMobileEvents: 0f30fe39687f26fd8f255335053023ba039a0392
   MapboxNavigation: 785961459d7b59ee442a2a80b7b8bcfc88a9383b
   MapboxNavigationNative: bb220f45f93123adae2c05dfb74080773af128f3
@@ -52,6 +52,6 @@ SPEC CHECKSUMS:
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: cb8b085b96aa608d8a671a31b25d0a3ddc2a39f9
+PODFILE CHECKSUM: 1b1e59e189bdbe8b08f1c309d851c7516bdc5c8a
 
 COCOAPODS: 1.6.1
