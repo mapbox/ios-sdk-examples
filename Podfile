@@ -7,7 +7,7 @@ def shared_pods
     if Dir.pwd.include?('mapbox-gl-native')
       pod 'Mapbox-iOS-SDK', :path => '../../../build/ios/pkg/dynamic/Mapbox-iOS-SDK.podspec'
     else
-      pod 'Mapbox-iOS-SDK', '4.10.0-alpha.2'
+      pod 'Mapbox-iOS-SDK', '4.10.0-beta.1'
     end
 
     pod 'SwiftLint', '~> 0.29'
