@@ -63,6 +63,7 @@ extern NSString *const MBXExampleUserLocationAnnotation;
 extern NSString *const MBXExampleUserTrackingModes;
 extern NSString *const MBXExampleWebAPIData;
 extern NSString *const MBXExampleMissingIcons;
+extern NSString *const MBXExampleFormattingExpression;
 
 @interface Examples : NSObject
 
