@@ -7,7 +7,7 @@
             ["get", "name"], {
                 "font-scale" : 0.7,
                 "text-color" : "red",
-                "text-font" : [ "literal", "Arial Unicode MS Bold" ]
+                "text-font" : [ "literal", ["Arial Unicode MS Bold"] ]
             }
 
         ], 

@@ -9,7 +9,7 @@ class TextFormattingExample_Swift: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // TODO: This is a test case, it should be changed to fulfill an ios example spec.
         mapView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -41,9 +41,9 @@ class TextFormattingExample_Swift: UIViewController {
             let firstRowAttribute = MGLAttributedExpression(expression: NSExpression(format:"name"))
             let lineBreak = MGLAttributedExpression(expression: NSExpression(forConstantValue:"\n"))
             let formatAttribute = MGLAttributedExpression(expression: NSExpression(format:"name"),
-                                                          attributes: [.fontSizeAttribute : 0.8,
-                                                                       .fontColorAttribute : "blue",
-                                                                       .fontNamesAttribute : ["Arial Unicode MS Bold"]])
+                                                          attributes: [.fontScaleAttribute : NSExpression(forConstantValue:0.8),
+                                                                       .fontColorAttribute : NSExpression(forConstantValue:"blue"),
+                                                                       .fontNamesAttribute : NSExpression(forConstantValue:["Arial Unicode MS Bold"])])
             let attributedExpression = NSExpression(format: "mgl_attributed:(%@, %@, %@)", NSExpression(forConstantValue: firstRowAttribute),
                                                                                             NSExpression(forConstantValue: lineBreak),
                                                                                             NSExpression(forConstantValue: formatAttribute))

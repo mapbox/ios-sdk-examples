@@ -13,7 +13,7 @@ NSString *const MBXExampleFormattingExpression = @"TextFormattingExample";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    // TODO: This is a test case, it should be changed to fulfill an ios example spec.
     self.mapView = [[MGLMapView alloc] initWithFrame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
@@ -52,11 +52,15 @@ NSString *const MBXExampleFormattingExpression = @"TextFormattingExample";
             MGLAttributedExpression *lineBreak = [MGLAttributedExpression attributedExpression:[NSExpression expressionForConstantValue:@"\n"]
                                                                                      fontNames:nil
                                                                                      fontScale:nil];
-            MGLAttributedExpression *formatAttribute = [[MGLAttributedExpression alloc] initWithExpression:[NSExpression expressionForKeyPath:@"name"]
-                                                                                                attributes:@{ MGLFontScaleAttribute: [NSExpression expressionForConstantValue:@(0.8)],
-                                                                                                              MGLFontColorAttribute: [NSExpression expressionForConstantValue:@"blue"],
-                                                                                                              MGLFontNamesAttribute: [NSExpression expressionForConstantValue:@[ @"Arial Unicode MS Bold" ]]
-                                                                                                              }] ;
+            NSExpression *fontNames = [NSExpression expressionForAggregate:@[ [NSExpression expressionForConstantValue:@"Arial Unicode MS Bold"] ]];
+            MGLAttributedExpression *formatAttribute = [MGLAttributedExpression attributedExpression:[NSExpression expressionForKeyPath:@"name"]
+                                                                                          attributes:@{ MGLFontScaleAttribute :
+                                                                                                            [NSExpression expressionForConstantValue:@(0.8)],
+                                                                                                        MGLFontColorAttribute :
+                                                                                                            [NSExpression expressionForConstantValue:@"blue"],
+                                                                                                        MGLFontNamesAttribute :
+                                                                                                            fontNames
+                                                                                                        }];
             
             NSExpression *attributedExpression = [NSExpression expressionWithFormat:@"mgl_attributed:(%@, %@, %@)",
                                                   [NSExpression expressionForConstantValue:firstRowAttribute],
@@ -64,7 +68,7 @@ NSString *const MBXExampleFormattingExpression = @"TextFormattingExample";
                                                   [NSExpression expressionForConstantValue:formatAttribute]
                                                   ];
             
-            expression = attributedExpression;// [NSExpression expressionWithFormat:@"MGL_MATCH(2 - 1,  1, %@, 'Foo')", attributedExpression];
+            expression = [NSExpression expressionWithFormat:@"MGL_MATCH(2 - 1,  1, %@, 'Foo')", attributedExpression];
             
         }
             break;
