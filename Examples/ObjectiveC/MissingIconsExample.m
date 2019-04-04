@@ -14,6 +14,7 @@ NSString *const MBXExampleMissingIcons = @"MissingIconsExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // TODO: This is a test case, it should be changed to fulfill an ios example spec.
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:[MGLStyle streetsStyleURL]];
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(0, 0) zoomLevel:1 animated:NO];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -51,8 +52,11 @@ NSString *const MBXExampleMissingIcons = @"MissingIconsExample";
 }
 
 - (UIImage *)mapView:(MGLMapView *)mapView didFailToLoadImage:(NSString *)imageName {
-    UIImage *backupImage = [UIImage imageNamed:@"mapbox"];
-    return backupImage;
+    if (![imageName isEqualToString:@"skip-this-missing-icon"]) {
+        UIImage *backupImage = [UIImage imageNamed:@"mapbox"];
+        return backupImage;
+    }
+    return nil;
 }
 
 @end

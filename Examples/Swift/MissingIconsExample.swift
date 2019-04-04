@@ -10,6 +10,7 @@ class MissingIconsExample: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // TODO: This is a test case, it should be changed to fulfill an ios example spec.
         mapView.styleURL = MGLStyle.streetsStyleURL
         mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
         mapView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
@@ -34,8 +35,9 @@ class MissingIconsExample: UIViewController {
             NSLayoutConstraint.activate([button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
                                          button.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20)])
         } else {
-            NSLayoutConstraint.activate([button.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
-                                         button.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)])
+            // This code should be enabled once we require iOS 9.0 as minimum target.
+//            NSLayoutConstraint.activate([button.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+//                                         button.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)])
         }
     }
     
@@ -49,6 +51,13 @@ class MissingIconsExample: UIViewController {
 
 extension MissingIconsExample: MGLMapViewDelegate {
     
-
+    func mapView(_ mapView: MGLMapView, didFailToLoadImage imageName: String) -> UIImage? {
+        
+        if (!(imageName == "skip-this-missing-icon")) {
+            let backupImage = UIImage(named: "mapbox")
+            return backupImage
+        }
+        return nil;
+    }
     
 }
