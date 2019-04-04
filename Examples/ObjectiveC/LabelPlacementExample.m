@@ -14,6 +14,7 @@ NSString *const MBXExampleLabelPlacement = @"LabelPlacementExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // TODO: This is a test case, it should be changed to fulfill an ios example spec.
     self.mapView = [[MGLMapView alloc] initWithFrame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
@@ -27,14 +28,16 @@ NSString *const MBXExampleLabelPlacement = @"LabelPlacementExample";
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
+    // poi-label symbol style layer is specific to mapbox-streets-v8
+    // https://docs.mapbox.com/vector-tiles/reference/mapbox-streets-v8/#poi_labe
     MGLSymbolStyleLayer *poiLabelLayers = (MGLSymbolStyleLayer *)[self.mapView.style layerWithIdentifier:@"poi-label"];
     poiLabelLayers.textAnchor = nil;
     poiLabelLayers.textOffset = nil;
     poiLabelLayers.symbolPlacement = nil;
     poiLabelLayers.textOffset = nil;
-//    poiLabelLayers.textVariableAnchor = [NSExpression expressionForConstantValue:@[@(MGLTextAnchorTop), @(MGLTextAnchorRight)]];
-//    poiLabelLayers.textRadialOffset = [NSExpression expressionForConstantValue:@(1.2)];
-//    poiLabelLayers.textJustification = [NSExpression expressionForConstantValue:@(MGLTextJustificationAuto)];
+    poiLabelLayers.textVariableAnchor = [NSExpression expressionForConstantValue:@[@(MGLTextAnchorTop), @(MGLTextAnchorRight)]];
+    poiLabelLayers.textRadialOffset = [NSExpression expressionForConstantValue:@(1.2)];
+    poiLabelLayers.textJustification = [NSExpression expressionForConstantValue:@(MGLTextJustificationAuto)];
 }
 
 @end
