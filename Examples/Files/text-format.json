@@ -1,0 +1,16 @@
+{
+    "expression": [
+        "match",
+        ["-", 2, 1], 
+        1, ["format", ["get", "name"], {},
+            "\n", {},
+            ["get", "name"], {
+                "font-scale" : 0.7,
+                "text-color" : "red",
+                "text-font" : [ "literal", ["Arial Unicode MS Bold"] ]
+            }
+
+        ], 
+        "Foo"
+        ]
+}

@@ -84,6 +84,7 @@
                     @{@"className": MBXExampleRasterImagery, @"title": @"Add raster imagery"},
                     @{@"className": MBXExamplePointHotspot, @"title": @"Add point hotspot"},
                     @{@"className": MBXExampleLabelPlacement, @"title": @"Change label placement"},
+                    @{@"className": MBXExampleFormattingExpression, @"title": @"Format label text"},
                     ]
         },
         @{

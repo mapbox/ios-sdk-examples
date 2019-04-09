@@ -40,9 +40,12 @@
 		07F53B851E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F53B841E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m */; };
 		1F07015F225553F60045E061 /* MissingIconsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F07015E225553F50045E061 /* MissingIconsExample.m */; };
 		1F070161225556FA0045E061 /* MissingIconsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F070160225556FA0045E061 /* MissingIconsExample.swift */; };
+		1F0701532252CE420045E061 /* TextFormattingExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0701522252CE420045E061 /* TextFormattingExample.m */; };
+		1F0701552252D2090045E061 /* TextFormattingExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0701542252D2090045E061 /* TextFormattingExample.swift */; };
 		1F07015A22541F2A0045E061 /* LabelPlacementExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F07015922541F2A0045E061 /* LabelPlacementExample.m */; };
 		1F07015C225422B90045E061 /* LabelPlacementExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F07015B225422B90045E061 /* LabelPlacementExample.swift */; };
 		1F0701632255789D0045E061 /* missing_icon.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F0701622255789D0045E061 /* missing_icon.json */; };
+		1F07015722530BDF0045E061 /* text-format.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F07015622530BDF0045E061 /* text-format.json */; };
 		1F07016522557B0B0045E061 /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F07016422557B0B0045E061 /* icons.xcassets */; };
 		1F1F84751E538ABB00332CC3 /* BlockingGesturesDelegateExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */; };
 		1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */; };
@@ -235,10 +238,14 @@
 		1F07015D225553F50045E061 /* MissingIconsExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MissingIconsExample.h; sourceTree = "<group>"; };
 		1F07015E225553F50045E061 /* MissingIconsExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MissingIconsExample.m; sourceTree = "<group>"; };
 		1F070160225556FA0045E061 /* MissingIconsExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissingIconsExample.swift; sourceTree = "<group>"; };
+		1F0701512252CE420045E061 /* TextFormattingExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFormattingExample.h; sourceTree = "<group>"; };
+		1F0701522252CE420045E061 /* TextFormattingExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextFormattingExample.m; sourceTree = "<group>"; };
+		1F0701542252D2090045E061 /* TextFormattingExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormattingExample.swift; sourceTree = "<group>"; };
 		1F07015822541F2A0045E061 /* LabelPlacementExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LabelPlacementExample.h; sourceTree = "<group>"; };
 		1F07015922541F2A0045E061 /* LabelPlacementExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabelPlacementExample.m; sourceTree = "<group>"; };
 		1F07015B225422B90045E061 /* LabelPlacementExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPlacementExample.swift; sourceTree = "<group>"; };
 		1F0701622255789D0045E061 /* missing_icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missing_icon.json; sourceTree = "<group>"; };
+		1F07015622530BDF0045E061 /* text-format.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "text-format.json"; sourceTree = "<group>"; };
 		1F07016422557B0B0045E061 /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
 		1F1F84731E538ABB00332CC3 /* BlockingGesturesDelegateExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockingGesturesDelegateExample.h; sourceTree = "<group>"; };
 		1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockingGesturesDelegateExample.m; sourceTree = "<group>"; };
@@ -531,6 +538,7 @@
 				3E44BA54203B54120072DE4B /* MultipleImagesExample.swift */,
 				07C138C11E6F65D000D6F678 /* MultipleShapesExample.swift */,
 				64CF97111DF224F600C3C27B /* RasterImageryExample.swift */,
+				1F0701542252D2090045E061 /* TextFormattingExample.swift */,
 			);
 			name = "Dynamic styling";
 			sourceTree = "<group>";
@@ -634,6 +642,7 @@
 				3E44BA57203B54260072DE4B /* MultipleImagesExample.m */,
 				07C138BF1E6F646F00D6F678 /* MultipleShapesExample.m */,
 				64CF97161DF2251500C3C27B /* RasterImageryExample.m */,
+				1F0701522252CE420045E061 /* TextFormattingExample.m */,
 			);
 			name = "Dynamic styling";
 			sourceTree = "<group>";
@@ -832,6 +841,7 @@
 				1F0701622255789D0045E061 /* missing_icon.json */,
 				64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */,
 				1F07016422557B0B0045E061 /* icons.xcassets */,
+				1F07015622530BDF0045E061 /* text-format.json */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -884,6 +894,7 @@
 				968247011C5BDCBB00494AB8 /* StudioClassicStyleExample.h */,
 				9691AAA11C5AAD8F006A58C6 /* StudioStyleExample.h */,
 				05536CB3200F9B4900657097 /* SwitchStylesExample.h */,
+				1F0701512252CE420045E061 /* TextFormattingExample.h */,
 				64CF970E1DF224D400C3C27B /* ThirdPartyVectorStyleExample.h */,
 				3E18060E1EAA800A004DB131 /* UserLocationAnnotationExample.h */,
 				969E7FDB1D25C31700663F84 /* UserTrackingModesExample.h */,
@@ -1155,6 +1166,7 @@
 				1F07016522557B0B0045E061 /* icons.xcassets in Resources */,
 				64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */,
 				961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */,
+				1F07015722530BDF0045E061 /* text-format.json in Resources */,
 				96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1263,8 +1275,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${PODS_ROOT}/../../mapbox-gl-native/build/ios/pkg/dynamic/Mapbox.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
@@ -1279,7 +1290,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxCoreNavigation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
@@ -1303,13 +1313,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${PODS_ROOT}/../../mapbox-gl-native/build/ios/pkg/dynamic/Mapbox.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1411,6 +1419,7 @@
 				CA987E30210F787B00C19855 /* ClusteringWithImagesExample.swift in Sources */,
 				3EBCD7261DC28240001E342F /* PointConversionExample.swift in Sources */,
 				961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */,
+				1F0701532252CE420045E061 /* TextFormattingExample.m in Sources */,
 				64BBDB031DF24E0900BB705D /* WebAPIDataExample.swift in Sources */,
 				CA987E32210F7FAE00C19855 /* ClusteringWithImagesExample.m in Sources */,
 				3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */,
@@ -1445,6 +1454,7 @@
 				3E1806101EAA800A004DB131 /* UserLocationAnnotationExample.m in Sources */,
 				961962911C581700002D3DAB /* main.m in Sources */,
 				05FA53A21FE2FA1E001F3D7D /* PolygonAnnotationExample.m in Sources */,
+				1F0701552252D2090045E061 /* TextFormattingExample.swift in Sources */,
 				3EBCD7251DC28240001E342F /* OfflinePackExample.swift in Sources */,
 				3EBCD71A1DC28240001E342F /* CustomAnnotationModels.swift in Sources */,
 				3E3BFAD91E81D7A300D0BEA1 /* FeatureSelectionExample.swift in Sources */,
