@@ -38,6 +38,7 @@ extern NSString *const MBXExampleFeatureSelection;
 extern NSString *const MBXExampleHeatmap;
 extern NSString *const MBXExampleImageAnnotation;
 extern NSString *const MBXExampleImageSource;
+extern NSString *const MBXExampleLabelPlacement;
 extern NSString *const MBXExampleLineAnnotationGeoJSON;
 extern NSString *const MBXExampleLineStyleLayer;
 extern NSString *const MBXExampleLiveData;
