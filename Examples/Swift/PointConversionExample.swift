@@ -2,8 +2,9 @@ import Mapbox
 
 @objc(PointConversionExample_Swift)
 
-class PointConversionExample_Swift: UIViewController, MGLMapViewDelegate {
+class PointConversionExample_Swift: UIViewController {
     var mapView: MGLMapView!
+    var singleTap: UIGestureRecognizer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -13,10 +14,9 @@ class PointConversionExample_Swift: UIViewController, MGLMapViewDelegate {
         view.addSubview(mapView)
 
         // Add a single tap gesture recognizer. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
-        for recognizer in mapView.gestureRecognizers! where recognizer is UITapGestureRecognizer {
-            singleTap.require(toFail: recognizer)
-        }
+        singleTap = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
+        singleTap.delegate = self
+
         mapView.addGestureRecognizer(singleTap)
 
         // Convert `mapView.centerCoordinate` (CLLocationCoordinate2D) to screen location (CGPoint).
@@ -41,5 +41,33 @@ class PointConversionExample_Swift: UIViewController, MGLMapViewDelegate {
         // Add a polyline with the new coordinates.
         let polyline = MGLPolyline(coordinates: &coordinates, count: UInt(coordinates.count))
         mapView.addAnnotation(polyline)
+    }
+}
+
+extension PointConversionExample_Swift: UIGestureRecognizerDelegate {
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        // Sanity check
+        guard
+            (gestureRecognizer != otherGestureRecognizer) &&
+            (gestureRecognizer == singleTap) else {
+                fatalError()
+        }
+
+        // We're only interested in the other tap gestures installed on the MGLMapView
+        guard
+            let otherTapGestureRecognizer = otherGestureRecognizer as? UITapGestureRecognizer,
+            otherTapGestureRecognizer.view == self.mapView else {
+                return false
+        }
+
+        /*
+        // Check number of taps
+        let otherGestureShouldFail = (otherTapGestureRecognizer.numberOfTapsRequired == 1)
+        return otherGestureShouldFail
+        */
+        
+        return true
     }
 }
