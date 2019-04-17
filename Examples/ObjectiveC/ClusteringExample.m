@@ -71,6 +71,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     // source features.
     MGLSymbolStyleLayer *ports = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"ports" source:source];
     ports.iconImageName = [NSExpression expressionForConstantValue:@"icon"];
+    ports.iconAllowsOverlap = [NSExpression expressionForConstantValue:@(YES)];
     ports.iconColor = [NSExpression expressionForConstantValue:[[UIColor darkGrayColor] colorWithAlphaComponent:0.9]];
     ports.predicate = [NSPredicate predicateWithFormat:@"cluster != YES"];
     [style addLayer:ports];

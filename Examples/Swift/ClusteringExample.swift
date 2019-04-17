@@ -67,6 +67,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         ports.iconImageName = NSExpression(forConstantValue: "icon")
         ports.iconColor = NSExpression(forConstantValue: UIColor.darkGray.withAlphaComponent(0.9))
         ports.predicate = NSPredicate(format: "cluster != YES")
+        ports.iconAllowsOverlap = NSExpression(forConstantValue: true)
         style.addLayer(ports)
 
         // Color clustered features based on clustered point counts.
