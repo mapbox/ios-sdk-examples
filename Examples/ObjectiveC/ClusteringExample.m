@@ -196,7 +196,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
         MGLPointFeatureCluster *cluster = (MGLPointFeatureCluster *)feature;
         
         NSArray *children = [(MGLShapeSource*)source childrenOfCluster:cluster];
-        description = [NSString stringWithFormat:@"Cluster #%ld\n%ld children",
+        description = [NSString stringWithFormat:@"Cluster #%zd\n%zd children",
                        cluster.clusterIdentifier,
                        children.count];
         color = UIColor.blueColor;
