@@ -65,6 +65,7 @@ extern NSString *const MBXExampleUserTrackingModes;
 extern NSString *const MBXExampleWebAPIData;
 extern NSString *const MBXExampleMissingIcons;
 extern NSString *const MBXExampleCacheManagement;
+extern NSString *const MBXExampleOrnamentsLayout;
 
 @interface Examples : NSObject
 

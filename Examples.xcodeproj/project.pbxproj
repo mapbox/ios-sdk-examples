@@ -107,6 +107,8 @@
 		64CF97101DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970F1DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift */; };
 		64CF97121DF224F600C3C27B /* RasterImageryExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97111DF224F600C3C27B /* RasterImageryExample.swift */; };
 		64CF97171DF2251500C3C27B /* RasterImageryExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97161DF2251500C3C27B /* RasterImageryExample.m */; };
+		6FAC014522718DF300F7FA18 /* OrnamentsLayoutExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC014422718DF300F7FA18 /* OrnamentsLayoutExample.m */; };
+		6FAC014722718FCC00F7FA18 /* OrnamentsLayoutExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC014622718FCC00F7FA18 /* OrnamentsLayoutExample.swift */; };
 		960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */; };
 		961962911C581700002D3DAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962901C581700002D3DAB /* main.m */; };
 		961962941C581700002D3DAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962931C581700002D3DAB /* AppDelegate.m */; };
@@ -327,6 +329,9 @@
 		64CF97111DF224F600C3C27B /* RasterImageryExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterImageryExample.swift; sourceTree = "<group>"; };
 		64CF97161DF2251500C3C27B /* RasterImageryExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RasterImageryExample.m; sourceTree = "<group>"; };
 		64CF97191DF2252C00C3C27B /* RasterImageryExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RasterImageryExample.h; sourceTree = "<group>"; };
+		6FAC014322718DD100F7FA18 /* OrnamentsLayoutExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrnamentsLayoutExample.h; sourceTree = "<group>"; };
+		6FAC014422718DF300F7FA18 /* OrnamentsLayoutExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrnamentsLayoutExample.m; sourceTree = "<group>"; };
+		6FAC014622718FCC00F7FA18 /* OrnamentsLayoutExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrnamentsLayoutExample.swift; sourceTree = "<group>"; };
 		7556D44879C1E2866B0355B8 /* Pods-ExamplesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExamplesTests/Pods-ExamplesTests.release.xcconfig"; sourceTree = "<group>"; };
 		7692D1D792EB3849E8754E6B /* Pods_ExamplesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExamplesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7823ECBC65EEAAC3EA0B6E42 /* Pods-DocsCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocsCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode.release.xcconfig"; sourceTree = "<group>"; };
@@ -554,6 +559,7 @@
 				64BBDAF51DF232FD00BB705D /* SelectFeatureExample.swift */,
 				646B62961DEF6DAF000AA523 /* ShowHideLayerExample.swift */,
 				3EBCD7151DC28240001E342F /* UserTrackingModesExample.swift */,
+				6FAC014622718FCC00F7FA18 /* OrnamentsLayoutExample.swift */,
 			);
 			name = "User interaction";
 			sourceTree = "<group>";
@@ -658,6 +664,7 @@
 				64BBDAF71DF2330B00BB705D /* SelectFeatureExample.m */,
 				646B629B1DEF6DF1000AA523 /* ShowHideLayerExample.m */,
 				969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */,
+				6FAC014422718DF300F7FA18 /* OrnamentsLayoutExample.m */,
 			);
 			name = "User interaction";
 			sourceTree = "<group>";
@@ -874,6 +881,7 @@
 				3E44BA56203B54260072DE4B /* MultipleImagesExample.h */,
 				07C138BE1E6F646F00D6F678 /* MultipleShapesExample.h */,
 				96115A661CAD4E1C000963B8 /* OfflinePackExample.h */,
+				6FAC014322718DD100F7FA18 /* OrnamentsLayoutExample.h */,
 				968247281C5C1FF800494AB8 /* PointConversionExample.h */,
 				3EC11D231EA8405A001AAAB8 /* PointHotspotExample.h */,
 				9682471E1C5C1C0400494AB8 /* PolygonAnnotationExample.h */,
@@ -1414,6 +1422,7 @@
 				3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */,
 				9682470F1C5BF12700494AB8 /* DefaultAnnotationExample.m in Sources */,
 				961962941C581700002D3DAB /* AppDelegate.m in Sources */,
+				6FAC014522718DF300F7FA18 /* OrnamentsLayoutExample.m in Sources */,
 				3EBCD71B1DC28240001E342F /* CustomCalloutView.swift in Sources */,
 				07C138C01E6F646F00D6F678 /* MultipleShapesExample.m in Sources */,
 				3EBCD7291DC28240001E342F /* UserTrackingModesExample.swift in Sources */,
@@ -1458,6 +1467,7 @@
 				3EBCD7231DC28240001E342F /* DefaultAnnotationExample.swift in Sources */,
 				3E1806101EAA800A004DB131 /* UserLocationAnnotationExample.m in Sources */,
 				961962911C581700002D3DAB /* main.m in Sources */,
+				6FAC014722718FCC00F7FA18 /* OrnamentsLayoutExample.swift in Sources */,
 				05FA53A21FE2FA1E001F3D7D /* PolygonAnnotationExample.m in Sources */,
 				1F0701552252D2090045E061 /* TextFormattingExample.swift in Sources */,
 				3EBCD7251DC28240001E342F /* OfflinePackExample.swift in Sources */,
