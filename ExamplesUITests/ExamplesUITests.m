@@ -156,7 +156,14 @@
     NSUInteger count = self.exampleElements.count;
 
     for (NSUInteger i = 0; i < count; i++) {
+        if ([self.exampleTitles[i] isEqualToString:@"Animate a line"] &&
+            ![NSProcessInfo.processInfo isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){11,0,0}]) {
+            NSLog(@"Skipped 'Animate a line' example on iOS 10.x, see: https://github.com/mapbox/ios-sdk-examples/issues/287");
+            continue;
+        }
+
         NSString *title = [NSString stringWithFormat:@"%@ (%@)", self.exampleTitles[i], language];
+
         [XCTContext runActivityNamed:title block:^(id<XCTActivity>  _Nonnull activity) {
             [self.exampleElements[i] tap];
 

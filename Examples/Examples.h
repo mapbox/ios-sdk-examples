@@ -35,9 +35,11 @@ extern NSString *const MBXExampleDefaultCallout;
 extern NSString *const MBXExampleDefaultStyles;
 extern NSString *const MBXExampleDraggableAnnotationView;
 extern NSString *const MBXExampleFeatureSelection;
+extern NSString *const MBXExampleFormattingExpression;
 extern NSString *const MBXExampleHeatmap;
 extern NSString *const MBXExampleImageAnnotation;
 extern NSString *const MBXExampleImageSource;
+extern NSString *const MBXExampleLabelPlacement;
 extern NSString *const MBXExampleLineAnnotationGeoJSON;
 extern NSString *const MBXExampleLineStyleLayer;
 extern NSString *const MBXExampleLiveData;
@@ -61,6 +63,7 @@ extern NSString *const MBXExampleThirdPartyVectorStyle;
 extern NSString *const MBXExampleUserLocationAnnotation;
 extern NSString *const MBXExampleUserTrackingModes;
 extern NSString *const MBXExampleWebAPIData;
+extern NSString *const MBXExampleMissingIcons;
 
 @interface Examples : NSObject
 

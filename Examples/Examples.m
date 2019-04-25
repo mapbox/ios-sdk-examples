@@ -25,6 +25,7 @@
             @"title": @"Map styles",
             @"examples":@[
                     @{@"className": MBXExampleDefaultStyles, @"title": @"Default styles"},
+                    @{@"className": MBXExampleMissingIcons, @"title": @"Load missing style icons"},
                     @{@"className": MBXExampleStudioClassicStyle, @"title": @"Apply a style designed in Mapbox Studio Classic"},
                     @{@"className": MBXExampleSatelliteStyle, @"title": @"Satellite styles"},
                     @{@"className": MBXExampleThirdPartyVectorStyle, @"title": @"Use third-party vector tiles"},
@@ -82,6 +83,8 @@
                     @{@"className": MBXExampleMultipleImages, @"title": @"Add multiple images"},
                     @{@"className": MBXExampleRasterImagery, @"title": @"Add raster imagery"},
                     @{@"className": MBXExamplePointHotspot, @"title": @"Add point hotspot"},
+                    @{@"className": MBXExampleLabelPlacement, @"title": @"Change label placement"},
+                    @{@"className": MBXExampleFormattingExpression, @"title": @"Format label text"},
                     ]
         },
         @{
