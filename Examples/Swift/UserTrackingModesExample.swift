@@ -53,9 +53,16 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         // Setup constraints such that the button is placed within
         // the upper left corner of the view.
         button.translatesAutoresizingMaskIntoConstraints = false
-        let constraints = [
+        var leadingConstraint : NSLayoutConstraint!
+        if #available(iOS 11.0, *) {
+            let safeArea = view.safeAreaLayoutGuide
+            leadingConstraint = NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: safeArea, attribute: .leading, multiplier: 1, constant: 10)
+        } else {
+            leadingConstraint = NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 10)
+        }
+        let constraints: [NSLayoutConstraint] = [
             NSLayoutConstraint(item: button, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 10),
-            NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 10),
+            leadingConstraint,
             NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: button.frame.size.height),
             NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: button.frame.size.width)
         ]

@@ -3,11 +3,11 @@
 
 NSString *const MBXExampleClustering = @"ClusteringExample";
 
-@interface ClusteringExample () <MGLMapViewDelegate>
+@interface ClusteringExample () <MGLMapViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
 @property (nonatomic) UIImage *icon;
-@property (nonatomic) UILabel *popup;
+@property (nonatomic) UIView *popup;
 
 @end
 
@@ -21,8 +21,29 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     self.mapView.tintColor = [UIColor darkGrayColor];
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
-
-    // Add our own gesture recognizer to handle taps on our custom map features. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
+    
+    // Add a double tap gesture recognizer. This gesture is used for double
+    // tapping on clusters and then zooming in so the cluster expands to its
+    // children.
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTapCluster:)];
+    doubleTap.numberOfTapsRequired = 2;
+    doubleTap.delegate = self;
+    
+    // It's important that this new double tap fails before the map view's
+    // built-in gesture can be recognized. This is to prevent the map's gesture from
+    // overriding this new gesture (and then not detecting a cluster that had been
+    // tapped on).
+    for (UIGestureRecognizer *recognizer in self.mapView.gestureRecognizers) {
+        if ([recognizer isKindOfClass:[UITapGestureRecognizer class]] &&
+            ((UITapGestureRecognizer*)recognizer).numberOfTapsRequired == 2) {
+            [recognizer requireGestureRecognizerToFail:doubleTap];
+        }
+    }
+    [self.mapView addGestureRecognizer:doubleTap];
+    
+    // Add a single tap gesture recognizer. This gesture requires the built-in
+    // MGLMapView tap gestures (such as those for zoom and annotation selection)
+    // to fail (this order differs from the double tap above).
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMapTap:)];
     for (UIGestureRecognizer *recognizer in self.mapView.gestureRecognizers) {
         if ([recognizer isKindOfClass:[UITapGestureRecognizer class]]) {
@@ -46,9 +67,11 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     // Use a template image so that we can tint it with the `iconColor` runtime styling property.
     [style setImage:[self.icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forName:@"icon"];
 
-    // Show unclustered features as icons. The `cluster` attribute is built into clustering-enabled source features.
+    // Show unclustered features as icons. The `cluster` attribute is built into clustering-enabled
+    // source features.
     MGLSymbolStyleLayer *ports = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"ports" source:source];
     ports.iconImageName = [NSExpression expressionForConstantValue:@"icon"];
+    ports.iconAllowsOverlap = [NSExpression expressionForConstantValue:@(YES)];
     ports.iconColor = [NSExpression expressionForConstantValue:[[UIColor darkGrayColor] colorWithAlphaComponent:0.9]];
     ports.predicate = [NSPredicate predicateWithFormat:@"cluster != YES"];
     [style addLayer:ports];
@@ -58,7 +81,9 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
                              @50:  [UIColor orangeColor],
                              @100: [UIColor redColor],
                              @200: [UIColor purpleColor] };
-    // Show clustered features as circles. The `point_count` attribute is built into clustering-enabled source features.
+    
+    // Show clustered features as circles. The `point_count` attribute is built into
+    // clustering-enabled source features.
     MGLCircleStyleLayer *circlesLayer = [[MGLCircleStyleLayer alloc] initWithIdentifier:@"clusteredPorts" source:source];
     circlesLayer.circleRadius = [NSExpression expressionForConstantValue:@(self.icon.size.width / 2)];
     circlesLayer.circleOpacity = [NSExpression expressionForConstantValue:@0.75];
@@ -69,7 +94,9 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     circlesLayer.predicate = [NSPredicate predicateWithFormat:@"cluster == YES"];
     [style addLayer:circlesLayer];
 
-    // Label cluster circles with a layer of text indicating feature count. The value for `point_count` is an integer. In order to use that value for the `MGLSymbolStyleLayer.text` property, cast it as a string. 
+    // Label cluster circles with a layer of text indicating feature count. The value for
+    // `point_count` is an integer. In order to use that value for the
+    // `MGLSymbolStyleLayer.text` property, cast it as a string.
     MGLSymbolStyleLayer *numbersLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"clusteredPortsNumbers" source:source];
     numbersLayer.textColor = [NSExpression expressionForConstantValue:[UIColor whiteColor]];
     numbersLayer.textFontSize = [NSExpression expressionForConstantValue:@(self.icon.size.width / 2)];
@@ -83,63 +110,181 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     [self showPopup:NO animated:NO];
 }
 
+- (MGLPointFeatureCluster *)firstClusterWithGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer {
+    CGPoint point = [gestureRecognizer locationInView:gestureRecognizer.view];
+    CGFloat width = self.icon.size.width;
+    CGRect rect = CGRectMake(point.x - width / 2, point.y - width / 2, width, width);
+
+    // This example shows how to check if a feature is a cluster by
+    // checking for that the feature is a `MGLPointFeatureCluster`. Alternatively, you could
+    // also check for conformance with `MGLCluster` instead.
+    NSArray<id<MGLFeature>> *features = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObjects:@"clusteredPorts", @"ports", nil]];
+    
+    NSPredicate *clusterPredicate = [NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [evaluatedObject isKindOfClass:[MGLPointFeatureCluster class]];
+    }];
+
+    NSArray *clusters = [features filteredArrayUsingPredicate:clusterPredicate];
+
+    // Pick the first cluster, ideally selecting the one nearest nearest one to
+    // the touch point.
+    return (MGLPointFeatureCluster *)clusters.firstObject;
+}
+
+- (IBAction)handleDoubleTapCluster:(UITapGestureRecognizer *)sender {
+    
+    MGLSource *source = [self.mapView.style sourceWithIdentifier:@"clusteredPorts"];
+    
+    if (![source isKindOfClass:[MGLShapeSource class]]) {
+        return;
+    }
+
+    if (sender.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
+
+    [self showPopup:NO animated:NO];
+    
+    MGLPointFeatureCluster *cluster = [self firstClusterWithGestureRecognizer:sender];
+    
+    if (!cluster) {
+        return;
+    }
+
+    double zoom = [(MGLShapeSource *)source zoomLevelForExpandingCluster:cluster];
+
+    if (zoom > 0.0) {
+        [self.mapView setCenterCoordinate:cluster.coordinate
+                                zoomLevel:zoom
+                                 animated:YES];
+    }
+}
+
+
 - (IBAction)handleMapTap:(UITapGestureRecognizer *)tap {
-    if (tap.state == UIGestureRecognizerStateEnded) {
-        CGPoint point = [tap locationInView:tap.view];
-        CGFloat width = self.icon.size.width;
-        CGRect rect = CGRectMake(point.x - width / 2, point.y - width / 2, width, width);
+    
+    MGLSource *source = [self.mapView.style sourceWithIdentifier:@"clusteredPorts"];
+    
+    if (![source isKindOfClass:[MGLShapeSource class]]) {
+        return;
+    }
+    
+    if (tap.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
+    
+    [self showPopup:NO animated:NO];
+    
+    CGPoint point = [tap locationInView:tap.view];
+    CGFloat width = self.icon.size.width;
+    CGRect rect = CGRectMake(point.x - width / 2, point.y - width / 2, width, width);
 
-        // Find cluster circles and/or individual port icons in a touch-sized region around the tap.
-        // In theory, we should only find either one cluster (since they don't overlap) or one port
-        // (since overlapping ones would be clustered).
-        NSArray *clusters = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"clusteredPorts"]];
-        NSArray *ports    = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObject:@"ports"]];
-
-        if (clusters.count) {
-            [self showPopup:NO animated:YES];
-            MGLPointFeature *cluster = (MGLPointFeature *)clusters.firstObject;
-            [self.mapView setCenterCoordinate:cluster.coordinate zoomLevel:(self.mapView.zoomLevel + 1) animated:YES];
-        } else if (ports.count) {
-            MGLPointFeature *port = ((MGLPointFeature *)ports.firstObject);
-
-            if (!self.popup) {
-                self.popup = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
-                self.popup.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
-                self.popup.layer.cornerRadius = 4;
-                self.popup.layer.masksToBounds = YES;
-                self.popup.textAlignment = NSTextAlignmentCenter;
-                self.popup.lineBreakMode = NSLineBreakByTruncatingTail;
-                self.popup.font = [UIFont systemFontOfSize:16];
-                self.popup.textColor = [UIColor blackColor];
-                self.popup.alpha = 0;
-                [self.view addSubview:self.popup];
-            }
-
-            self.popup.text = [NSString stringWithFormat:@"%@", [port attributeForKey:@"name"]];
-            CGSize size = [self.popup.text sizeWithAttributes:@{ NSFontAttributeName: self.popup.font }];
-            self.popup.bounds = CGRectInset(CGRectMake(0, 0, size.width, size.height), -10, -10);
-            point = [self.mapView convertCoordinate:port.coordinate toPointToView:self.mapView];
-            self.popup.center = CGPointMake(point.x, point.y - 50);
-
-            if (self.popup.alpha < 1) {
-                [self showPopup:YES animated:YES];
-            }
-        } else {
-            [self showPopup:NO animated:YES];
+    NSArray<id<MGLFeature>> *features = [self.mapView visibleFeaturesInRect:rect inStyleLayersWithIdentifiers:[NSSet setWithObjects:@"clusteredPorts", @"ports", nil]];
+    
+    // Pick the first feature (which may be a port or a cluster), ideally selecting
+    // the one nearest nearest one to the touch point.
+    id<MGLFeature> feature = features.firstObject;
+    
+    if (!feature) {
+        return;
+    }
+    
+    NSString *description = @"No port name";
+    UIColor *color = UIColor.redColor;
+    
+    if ([feature isKindOfClass:[MGLPointFeatureCluster class]]) {
+        // Tapped on a cluster.
+        MGLPointFeatureCluster *cluster = (MGLPointFeatureCluster *)feature;
+        
+        NSArray *children = [(MGLShapeSource*)source childrenOfCluster:cluster];
+        description = [NSString stringWithFormat:@"Cluster #%zd\n%zd children",
+                       cluster.clusterIdentifier,
+                       children.count];
+        color = UIColor.blueColor;
+    } else {
+        // Tapped on a port.
+        id name = [feature attributeForKey:@"name"];
+        if ([name isKindOfClass:[NSString class]]) {
+            description = (NSString *)name;
+            color = UIColor.blackColor;
         }
     }
+    
+    self.popup = [self popupAtCoordinate:feature.coordinate
+                         withDescription:description
+                               textColor:color];
+    
+    [self showPopup:YES animated:YES];
+}
+
+- (UIView *)popupAtCoordinate:(CLLocationCoordinate2D)coordinate withDescription:(NSString *)description textColor:(UIColor *)textColor {
+    UILabel *popup = [[UILabel alloc] init];
+    
+    popup.backgroundColor     = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
+    popup.layer.cornerRadius  = 4;
+    popup.layer.masksToBounds = YES;
+    popup.textAlignment       = NSTextAlignmentCenter;
+    popup.lineBreakMode       = NSLineBreakByTruncatingTail;
+    popup.numberOfLines       = 0;
+    popup.font                = [UIFont systemFontOfSize:16];
+    popup.textColor           = textColor;
+    popup.alpha               = 0;
+    popup.text                = description;
+
+    [popup sizeToFit];
+    
+    // Expand the popup.
+    popup.bounds = CGRectInset(popup.bounds, -10, -10);
+    CGPoint point = [self.mapView convertCoordinate:coordinate toPointToView:self.mapView];
+    popup.center = CGPointMake(point.x, point.y - 50);
+
+    return popup;
 }
 
 - (void)showPopup:(BOOL)shouldShow animated:(BOOL)animated {
+    if (!self.popup) {
+        return;
+    }
+    
+    UIView *popup = self.popup;
+    
+    if (shouldShow) {
+        [self.view addSubview:popup];
+    }
+    
     CGFloat alpha = (shouldShow ? 1 : 0);
+    
+    dispatch_block_t animation = ^{
+        popup.alpha = alpha;
+    };
+    
+    void (^completion)(BOOL) = ^(BOOL finished){
+        if (!shouldShow) {
+            [popup removeFromSuperview];
+        }
+    };
+    
     if (animated) {
-        __typeof__(self) __weak weakSelf = self;
-        [UIView animateWithDuration:0.25 animations:^{
-            weakSelf.popup.alpha = alpha;
-        }];
+        [UIView animateWithDuration:0.25
+                         animations:animation
+                         completion:completion];
     } else {
-        self.popup.alpha = alpha;
+        animation();
+        completion(YES);
     }
 }
 
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    // This will only get called for the custom double tap gesture,
+    // that should always be recognized simultaneously.
+    return YES;
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    // This will only get called for the custom double tap gesture.
+    return [self firstClusterWithGestureRecognizer:gestureRecognizer] != nil;
+}
+    
 @end

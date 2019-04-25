@@ -5,6 +5,7 @@ NSString *const MBXExampleRasterImagery = @"RasterImageryExample";
 
 @interface RasterImageryExample () <MGLMapViewDelegate>
 @property (nonatomic) MGLRasterStyleLayer *rasterLayer;
+@property (nonatomic) MGLMapView *mapView;
 @end
 
 @implementation RasterImageryExample
@@ -12,16 +13,16 @@ NSString *const MBXExampleRasterImagery = @"RasterImageryExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
-    mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(45.5188, -122.6748)
+    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(45.5188, -122.6748)
 		       zoomLevel:13
 			animated:NO];
 
-    mapView.delegate = self;
+    self.mapView.delegate = self;
 
-    [self.view addSubview:mapView];
+    [self.view addSubview:self.mapView];
 
     // Add a UISlider that will control the raster layer’s opacity.
     [self addSlider];
@@ -47,12 +48,25 @@ NSString *const MBXExampleRasterImagery = @"RasterImageryExample";
 - (void)addSlider {
     CGFloat padding = 10.0;
     UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(padding, self.view.frame.size.height - 44 - 30, self.view.frame.size.width - padding * 2, 44)];
-    slider.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     slider.minimumValue = 0;
     slider.maximumValue = 1;
     slider.value = 1;
     [slider addTarget:self action:@selector(updateLayerOpacity:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:slider];
+    
+    if (@available(iOS 11, *)) {
+        UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
+        slider.translatesAutoresizingMaskIntoConstraints = NO;
+        NSArray *constraints = @[
+          [slider.bottomAnchor constraintEqualToAnchor: safeArea.bottomAnchor constant:-self.mapView.logoView.bounds.size.height - 10],
+          [slider.widthAnchor constraintEqualToConstant:self.view.frame.size.width - padding * 2],
+          [slider.centerXAnchor constraintEqualToAnchor:safeArea.centerXAnchor]
+        ];
+
+        [NSLayoutConstraint activateConstraints:constraints];
+    } else {
+            slider.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    }
 }
 
 @end

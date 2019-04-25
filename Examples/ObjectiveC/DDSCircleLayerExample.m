@@ -40,7 +40,7 @@ NSString *const MBXExampleDDSCircleLayer = @"DDSCircleLayerExample";
     
     MGLCircleStyleLayer *layer = [[MGLCircleStyleLayer alloc] initWithIdentifier: @"tree-style" source:source];
     
-    // The source name from the source's TileJSON metadata: mapbox.com/api-documentation/#retrieve-tilejson-metadata
+    // The source name from the source's TileJSON metadata: mapbox.com/api-documentation/maps/#retrieve-tilejson-metadata
     layer.sourceLayerIdentifier = @"yoshino-trees-a0puw5";
     
     // Stops based on age of tree in years.

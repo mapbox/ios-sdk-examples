@@ -16,7 +16,7 @@ class BuildingLightExample: UIViewController, MGLMapViewDelegate {
         mapView.delegate = self
 
         // Center the map on the Flatiron Building in New York, NY.
-        mapView.camera = MGLMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: 40.7411, longitude: -73.9897), fromDistance: 600, pitch: 45, heading: 200)
+        mapView.camera = MGLMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: 40.7411, longitude: -73.9897), altitude: 600, pitch: 45, heading: 200)
 
         view.addSubview(mapView)
 
