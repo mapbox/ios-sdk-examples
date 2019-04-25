@@ -58,7 +58,8 @@
                     @{@"className": MBXExampleShowHideLayer, @"title": @"Show and hide a layer"},
                     @{@"className": MBXExampleFeatureSelection, @"title": @"Select a feature within a layer"},
                     @{@"className": MBXExampleUserTrackingModes, @"title": @"Switch between user tracking modes"},
-            ]
+                    @{@"className": MBXExampleOrnamentsLayout, @"title": @"Ornaments layout"}
+                    ]
         },
         @{
             @"title": @"Dynamic styling",

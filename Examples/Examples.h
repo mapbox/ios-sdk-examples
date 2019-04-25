@@ -56,6 +56,7 @@ extern NSString *const MBXExampleWebAPIData;
 extern NSString *const MBXExampleMissingIcons;
 extern NSString *const MBXExampleCacheManagement;
 extern NSString *const MBXExampleShapeAnnotations;
+extern NSString *const MBXExampleOrnamentsLayout;
 
 @interface Examples : NSObject
 
