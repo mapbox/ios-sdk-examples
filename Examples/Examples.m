@@ -65,7 +65,8 @@
                     @{@"className": MBXExampleFeatureSelection, @"title": @"Select a feature within a layer"},
                     @{@"className": MBXExampleSelectFeature, @"title": @"Select a water feature"},
                     @{@"className": MBXExampleUserTrackingModes, @"title": @"Switch between user tracking modes"},
-            ]
+                    @{@"className": MBXExampleOrnamentsLayout, @"title": @"Ornaments layout"}
+                    ]
         },
         @{
             @"title": @"Dynamic styling",
