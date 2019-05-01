@@ -5,22 +5,37 @@ import Mapbox
 class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var selectedFeaturesSource: MGLShapeSource?
+    var streetsSource: MGLShapeSource!
+    var streetsLayer: MGLLineStyleLayer?
+    var shapes: MGLShapeCollectionFeature!
+
+    let roadLayers: Set<String> = [
+        "road-minor-low",
+        "road-street-low",
+        "road-major-link",
+        "road-minor",
+        "road-street",
+        ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 45.5076, longitude: -122.6736), zoomLevel: 11, animated: false)
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 45.5076, longitude: -122.6736), zoomLevel: 14, animated: false)
         mapView.delegate = self
+        mapView.debugMask = [.tileBoundariesMask, .tileInfoMask]
         view.addSubview(mapView)
 
-        // Add a single tap gesture recognizer. This gesture requires the built-in MGLMapView tap gestures (such as those for zoom and annotation selection) to fail.
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(sender:)))
-        for recognizer in mapView.gestureRecognizers! where recognizer is UITapGestureRecognizer {
-            singleTap.require(toFail: recognizer)
-        }
-        mapView.addGestureRecognizer(singleTap)
+    }
+
+    func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {
+        let visibleFeatures: [MGLShape] = mapView.visibleFeatures(in: mapView.bounds, styleLayerIdentifiers: roadLayers, predicate: NSPredicate(format: "type != %@", "footway")).compactMap { $0 as? MGLShape }
+        let shapes = MGLShapeCollectionFeature(shapes: visibleFeatures)
+        selectedFeaturesSource?.shape = shapes
+
+        // Update our MGLShapeSource to match our selected features.
+        selectedFeaturesSource?.shape = shapes
     }
 
     func mapView(_ didFinishLoadingmapView: MGLMapView, didFinishLoading style: MGLStyle) {
@@ -32,30 +47,9 @@ class SelectFeatureExample_Swift: UIViewController, MGLMapViewDelegate {
         self.selectedFeaturesSource = selectedFeaturesSource
 
         // Color any selected features red on the map.
-        let selectedFeaturesLayer = MGLFillStyleLayer(identifier: "selected-features", source: selectedFeaturesSource)
-        selectedFeaturesLayer.fillColor = NSExpression(forConstantValue: UIColor.red)
+        let selectedFeaturesLayer = MGLLineStyleLayer(identifier: "selected-features", source: selectedFeaturesSource)
+        selectedFeaturesLayer.lineColor = NSExpression(forConstantValue: UIColor.red)
 
         style.addLayer(selectedFeaturesLayer)
     }
-
-    @objc @IBAction func handleMapTap(sender: UITapGestureRecognizer) throws {
-        if sender.state == .ended {
-            // A tap’s center coordinate may not intersect a feature exactly, so let’s make a 44x44 rect that represents a touch and select all features that intersect.
-            let point = sender.location(in: sender.view!)
-            let touchRect = CGRect(origin: point, size: .zero).insetBy(dx: -22.0, dy: -22.0)
-
-            // Let’s only select water near the rect. There’s a layer within the Mapbox Streets style with "id" = "water". You can see all of the layers used within the default mapbox styles by creating a new style using Mapbox Studio.
-            let layerIdentifiers = Set(["water"])
-
-            // Query the map view for any visible features that intersect our rect.
-            guard let features = mapView.visibleFeatures(in: touchRect, styleLayerIdentifiers: layerIdentifiers) as? [MGLShape & MGLFeature] else {
-                fatalError("Could not cast to specified MGLShape/MGLFeature")
-            }
-            let shapes = MGLShapeCollectionFeature(shapes: features)
-
-            // Update our MGLShapeSource to match our selected features.
-            selectedFeaturesSource?.shape = shapes
-        }
-    }
-
 }
