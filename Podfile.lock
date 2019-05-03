@@ -1,28 +1,28 @@
 PODS:
   - Mapbox-iOS-SDK (4.10.0)
-  - MapboxCoreNavigation (0.30.0):
-    - MapboxDirections.swift (~> 0.27.0)
-    - MapboxMobileEvents (~> 0.8.1)
-    - MapboxNavigationNative (~> 5.0.0)
+  - MapboxCoreNavigation (0.32.0):
+    - MapboxDirections.swift (~> 0.27.3)
+    - MapboxMobileEvents (~> 0.9.3)
+    - MapboxNavigationNative (~> 6.1.3)
     - Turf (~> 0.3.0)
   - MapboxDirections.swift (0.27.3):
     - Polyline (~> 4.2)
-  - MapboxMobileEvents (0.8.1)
-  - MapboxNavigation (0.30.0):
+  - MapboxMobileEvents (0.9.3)
+  - MapboxNavigation (0.32.0):
     - Mapbox-iOS-SDK (~> 4.3)
-    - MapboxCoreNavigation (= 0.30.0)
+    - MapboxCoreNavigation (= 0.32.0)
     - MapboxSpeech (~> 0.1.0)
     - Solar (~> 2.1)
-  - MapboxNavigationNative (5.0.0)
+  - MapboxNavigationNative (6.1.3)
   - MapboxSpeech (0.1.1)
-  - Polyline (4.2.0)
+  - Polyline (4.2.1)
   - Solar (2.1.0)
-  - SwiftLint (0.31.0)
+  - SwiftLint (0.32.0)
   - Turf (0.3.0)
 
 DEPENDENCIES:
   - Mapbox-iOS-SDK (= 4.10.0)
-  - MapboxNavigation (= 0.30.0)
+  - MapboxNavigation (= 0.32.0)
   - SwiftLint (~> 0.29)
 
 SPEC REPOS:
@@ -41,17 +41,17 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Mapbox-iOS-SDK: 8b1b777de7de373cdf000994c91af101ef886477
-  MapboxCoreNavigation: f446c90e4324157e76a224c233e3daa2042f181e
+  MapboxCoreNavigation: bcfc8625124c50774140f49b09f59be6aa0a40ab
   MapboxDirections.swift: af3d8bc8cd80ed6e498dd6ed933f3c348799e1e2
-  MapboxMobileEvents: 0f30fe39687f26fd8f255335053023ba039a0392
-  MapboxNavigation: 785961459d7b59ee442a2a80b7b8bcfc88a9383b
-  MapboxNavigationNative: bb220f45f93123adae2c05dfb74080773af128f3
+  MapboxMobileEvents: dea3b845b1a8528def7150dedf0cedefc6dfe284
+  MapboxNavigation: a8200b70ae9481ba245a6cfe8b48263421f7eff1
+  MapboxNavigationNative: c7340cdfcb28f88aa02b6e3896151f4cd897f323
   MapboxSpeech: 59b3984d3f433a443d24acf53097f918c5cc70f9
-  Polyline: 3d69f75bb136357e27291d439d0436c6ebda57a4
+  Polyline: 0e9890790292741c8186201a536b6bb6a78d02dd
   Solar: 2dc6e7cc39186cb0c8228fa08df76fb50c7d8f24
-  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
+  SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: 6508778eaa7deb1a2d8bfafdd86d2546f6e3305e
+PODFILE CHECKSUM: 609f9bedb127db4ebb0f6ad7f72f2971678e398f
 
 COCOAPODS: 1.6.1
