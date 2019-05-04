@@ -56,6 +56,11 @@ static CGFloat const tipWidth = 20.0;
         return;
     }
 
+    if ([self.delegate respondsToSelector:@selector(calloutViewWillAppear:)])
+    {
+        [self.delegate calloutViewWillAppear:self];
+    }
+    
     [view addSubview:self];
 
     // Prepare title label.
@@ -81,13 +86,25 @@ static CGFloat const tipWidth = 20.0;
     self.frame = CGRectMake(frameOriginX, frameOriginY,
                             frameWidth, frameHeight);
 
+    dispatch_block_t didAppear = ^{
+        if ([self.delegate respondsToSelector:@selector(calloutViewDidAppear:)])
+        {
+            [self.delegate calloutViewDidAppear:self];
+        }
+    };
+    
     if (animated)
     {
         self.alpha = 0.0;
 
         [UIView animateWithDuration:0.2 animations:^{
             self.alpha = 1.0;
+            didAppear();
         }];
+    }
+    else
+    {
+        didAppear();
     }
 }
 
