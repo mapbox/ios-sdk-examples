@@ -7,7 +7,7 @@ def shared_pods
     if Dir.pwd.include?('mapbox-gl-native')
       pod 'Mapbox-iOS-SDK', :path => '../../../build/ios/pkg/dynamic/Mapbox-iOS-SDK.podspec'
     else
-      pod 'Mapbox-iOS-SDK', '4.11.0'
+      pod 'Mapbox-iOS-SDK', '4.12.0-alpha.1'
     end
 
     pod 'SwiftLint', '~> 0.29'
@@ -18,7 +18,7 @@ target 'Examples' do
 end
 
 target 'DocsCode' do
-  pod 'MapboxNavigation', '0.33.0'
+  pod 'MapboxNavigation', '0.31.0'
   # pod 'MapboxCoreNavigation', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-navigation-ios/v0.17.0-beta.1/MapboxCoreNavigation.podspec'
   # pod 'MapboxNavigation', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-navigation-ios/v0.17.0-beta.1/MapboxNavigation.podspec'
   shared_pods
