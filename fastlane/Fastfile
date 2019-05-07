@@ -33,7 +33,7 @@ platform :ios do
 
   desc "Generate release notes."
   private_lane :release_notes do
-    changelog = changelog_from_git_commits(commits_count: 5, pretty: "- %s. (%cd)", date_format: "short", quiet: true)
+    changelog = changelog_from_git_commits(commits_count: 5, pretty: "- %s. (%ad)", date_format: "short", quiet: true)
 
     # Get maps SDK version number, but convert it to an XML plist first.
     mapbox_plist_path = Dir.glob("#{ENV['PWD']}/**/Mapbox.framework/Info.plist").first
