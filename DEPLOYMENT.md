@@ -14,6 +14,7 @@ TestFlight builds are available only to internal Mapbox developers. For access, 
 
 ## Notes
 
+- Make sure you've set these two environment variables: `MATCH_REPO` and `MATCH_USER`
 - Fastlane Match information can be found in your password manager under "Fastlane Match Repo".
 - Only regenerate Fastlane Match certificates and profiles using the "Apple Machine User".
-- Do not commit any changes that might happen during deployment — version bumps happen automatically based on TestFlight status and do not depend on local state.
+- Do not commit any changes that might happen during deployment — version bumps happen automatically based on TestFlight status and do not depend on local state.
