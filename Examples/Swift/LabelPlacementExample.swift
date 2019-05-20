@@ -4,7 +4,7 @@ import Mapbox
 @objc(LabelPlacementExample_Swift)
 
 class LabelPlacementExample: UIViewController {
-    
+
     let mapView = MGLMapView()
 
     override func viewDidLoad() {
@@ -12,7 +12,7 @@ class LabelPlacementExample: UIViewController {
         // TODO: This is a test case, it should be changed to fulfill an ios example spec.
         mapView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
+
         // Set the map's initial style, center coordinate, and zoom level
         mapView.styleURL = MGLStyle.streetsStyleURL
         mapView.setCenter(CLLocationCoordinate2D(latitude: 37.791282, longitude: -122.396301), zoomLevel: 15.0, animated: false)
