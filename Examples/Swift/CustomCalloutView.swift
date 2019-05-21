@@ -50,11 +50,10 @@ class CustomCalloutView: UIView, MGLCalloutView {
     }
 
     // MARK: - MGLCalloutView API
-    
     func presentCallout(from rect: CGRect, in view: UIView, constrainedTo constrainedRect: CGRect, animated: Bool) {
 
         delegate?.calloutViewWillAppear?(self)
-        
+
         view.addSubview(self)
 
         // Prepare title label.
@@ -83,12 +82,11 @@ class CustomCalloutView: UIView, MGLCalloutView {
                 guard let strongSelf = self else {
                     return
                 }
-                
+
                 strongSelf.alpha = 1
                 strongSelf.delegate?.calloutViewDidAppear?(strongSelf)
             }
-        }
-        else {
+        } else {
             delegate?.calloutViewDidAppear?(self)
         }
     }
