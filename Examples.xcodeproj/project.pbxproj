@@ -130,7 +130,6 @@
 		96BAED2E1FE304DD00A58BEB /* PointConversionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BAED2D1FE304DD00A58BEB /* PointConversionExample.m */; };
 		96D431FC1C84B4F7007D09D1 /* ImageAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D431FB1C84B4F7007D09D1 /* ImageAnnotationExample.m */; };
 		96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D432051C84B9CF007D09D1 /* pisavector.xcassets */; };
-		ABDAFB44FD9859A9FE77424E /* Pods_DocsCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF6577E027F75C7D93ED70A6 /* Pods_DocsCode.framework */; };
 		BBD05676206B24335DEA52C4 /* Pods_ExamplesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7692D1D792EB3849E8754E6B /* Pods_ExamplesUITests.framework */; };
 		CA39B2BF209B881300D37037 /* BuildingLightExample+UITesting.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39B2BA209B881300D37037 /* BuildingLightExample+UITesting.m */; };
 		CA39B2C0209B881300D37037 /* AnimatedLineExample+UITesting.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39B2BB209B881300D37037 /* AnimatedLineExample+UITesting.m */; };
@@ -234,7 +233,6 @@
 		07C138C61E72216E00D6F678 /* DDSCircleLayerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSCircleLayerExample.m; sourceTree = "<group>"; };
 		07F53B841E00D02100B58DB3 /* AnnotationViewsAndImagesExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewsAndImagesExample.m; sourceTree = "<group>"; };
 		07F53B861E00D08600B58DB3 /* AnnotationViewsAndImagesExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewsAndImagesExample.h; sourceTree = "<group>"; };
-		09B325003452DE0B771BDF95 /* Pods-DocsCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocsCode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode.debug.xcconfig"; sourceTree = "<group>"; };
 		0A4917D6B62E749D739044A4 /* Pods-ExamplesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExamplesUITests/Pods-ExamplesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1F0701512252CE420045E061 /* TextFormattingExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFormattingExample.h; sourceTree = "<group>"; };
 		1F0701522252CE420045E061 /* TextFormattingExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextFormattingExample.m; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 		1F1F84741E538ABB00332CC3 /* BlockingGesturesDelegateExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockingGesturesDelegateExample.m; sourceTree = "<group>"; };
 		1F1F84761E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockingGesturesDelegateExample.swift; sourceTree = "<group>"; };
 		29A0D7C8DCD539DCA5DA1BAC /* Pods-Examples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Examples.release.xcconfig"; path = "Pods/Target Support Files/Pods-Examples/Pods-Examples.release.xcconfig"; sourceTree = "<group>"; };
-		2ECF27F4ACA1A3CA05DE1954 /* Pods-DocsCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocsCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode.release.xcconfig"; sourceTree = "<group>"; };
 		3E085B7F1EC526C500163C99 /* BuildingsExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingsExample.swift; sourceTree = "<group>"; };
 		3E085B811EC526E500163C99 /* BuildingsExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingsExample.h; sourceTree = "<group>"; };
 		3E085B821EC526E500163C99 /* BuildingsExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingsExample.m; sourceTree = "<group>"; };
@@ -409,7 +406,6 @@
 		DDF943281E5DE63300545D0F /* ClusteringExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusteringExample.m; sourceTree = "<group>"; };
 		DDF9432A1E5DEACC00545D0F /* ports.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ports.geojson; sourceTree = "<group>"; };
 		E0520BEE090DE0364897BAF3 /* Pods-ExamplesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExamplesUITests/Pods-ExamplesUITests.release.xcconfig"; sourceTree = "<group>"; };
-		EF6577E027F75C7D93ED70A6 /* Pods_DocsCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DocsCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EE2FB6BE39BB48832DA94C /* Pods_ExamplesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExamplesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -418,7 +414,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABDAFB44FD9859A9FE77424E /* Pods_DocsCode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -930,8 +925,6 @@
 				532FB53EE0142E4DAC3FB49B /* Pods-Shared-Examples.release.xcconfig */,
 				9A1ECC25B13FE3249B26BE0A /* Pods-Shared-DocsCode.debug.xcconfig */,
 				976D90ED8B2046B3B8A6C39C /* Pods-Shared-DocsCode.release.xcconfig */,
-				09B325003452DE0B771BDF95 /* Pods-DocsCode.debug.xcconfig */,
-				2ECF27F4ACA1A3CA05DE1954 /* Pods-DocsCode.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -964,7 +957,6 @@
 				9EC12D8F1A97963D68BFA871 /* Pods_Examples.framework */,
 				F8EE2FB6BE39BB48832DA94C /* Pods_ExamplesTests.framework */,
 				7692D1D792EB3849E8754E6B /* Pods_ExamplesUITests.framework */,
-				EF6577E027F75C7D93ED70A6 /* Pods_DocsCode.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -976,12 +968,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0503374F1F7199DF007309B0 /* Build configuration list for PBXNativeTarget "DocsCode" */;
 			buildPhases = (
-				D8896F91CDF96A2DF29EF047 /* [CP] Check Pods Manifest.lock */,
 				0503373A1F7199DF007309B0 /* Sources */,
 				0503373B1F7199DF007309B0 /* Frameworks */,
 				0503373C1F7199DF007309B0 /* Resources */,
 				056F105B1FC4C80A0037FFBE /* Insert Mapbox Access Token */,
-				AE0655B20C8AA154EF5BC4BE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1269,46 +1259,6 @@
 			shellPath = /bin/sh;
 			shellScript = "$SRCROOT/Examples/insert-mapbox-token.sh\n";
 		};
-		AE0655B20C8AA154EF5BC4BE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
-				"${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework",
-				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
-				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
-				"${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework",
-				"${PODS_ROOT}/MapboxNavigationNative/MapboxNavigationNative.framework",
-				"${PODS_ROOT}/MapboxNavigationNative/MapboxNavigationNative.framework.dSYM",
-				"${BUILT_PRODUCTS_DIR}/MapboxSpeech/MapboxSpeech.framework",
-				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
-				"${BUILT_PRODUCTS_DIR}/Solar/Solar.framework",
-				"${BUILT_PRODUCTS_DIR}/Turf/Turf.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxCoreNavigation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigationNative.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/MapboxNavigationNative.framework.dSYM",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxSpeech.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Solar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Turf.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B8CEDEEE83C3362F5C012330 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1318,33 +1268,19 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/CD548FF3-ECB4-31D0-8E4F-AE55F70E287F.bcsymbolmap",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/70E1902C-569B-3192-A297-3622F9745C20.bcsymbolmap",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/CD548FF3-ECB4-31D0-8E4F-AE55F70E287F.bcsymbolmap",
+				"${BUILT_PRODUCTS_DIR}/70E1902C-569B-3192-A297-3622F9745C20.bcsymbolmap",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D8896F91CDF96A2DF29EF047 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DocsCode-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E8773E0E765E2B04318A4906 /* [CP] Check Pods Manifest.lock */ = {
@@ -1571,7 +1507,6 @@
 /* Begin XCBuildConfiguration section */
 		0503374D1F7199DF007309B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 09B325003452DE0B771BDF95 /* Pods-DocsCode.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1591,7 +1526,6 @@
 		};
 		0503374E1F7199DF007309B0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2ECF27F4ACA1A3CA05DE1954 /* Pods-DocsCode.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
