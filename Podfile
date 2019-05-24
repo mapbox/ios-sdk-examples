@@ -2,12 +2,12 @@ platform :ios, '9.0'
 use_frameworks!
 
 def shared_pods
+    pod 'Mapbox-iOS-SDK', '5.0.0'
     pod 'SwiftLint', '~> 0.29'
 end
 
 target 'Examples' do
   shared_pods
-  pod 'Mapbox-iOS-SDK', '5.0.0'
 end
 
 # Temporary solution to unblock https://github.com/mapbox/ios-sdk-examples/issues/222
