@@ -65,7 +65,6 @@ NSString *const MBXExampleCustomAnnotationModel = @"CustomAnnotationModelExample
 }
 
 - (UIImage *)dotWithSize:(NSUInteger)size {
-    size = (CGFloat)size;
     CGRect rect = CGRectMake(0, 0, size, size);
     CGFloat strokeWidth = 1;
 

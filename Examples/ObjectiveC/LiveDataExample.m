@@ -8,6 +8,7 @@ NSString *const MBXExampleLiveData = @"LiveDataExample";
 
 @property (nonatomic, strong, nullable) NSTimer *timer;
 @property MGLShapeSource *source;
+
 @end
 
 @implementation LiveDataExample
@@ -47,8 +48,11 @@ NSString *const MBXExampleLiveData = @"LiveDataExample";
     _source.URL = _source.URL;
 }
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+
     // Invalidate the timer if the view will disappear.
     [_timer invalidate];
     _timer = nil;
 }
+
 @end

@@ -33,7 +33,7 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
 
 - (void)updateHeading {
     // Show the heading arrow, if the heading of the user is available.
-    if (self.userLocation.heading.trueHeading) {
+    if (self.userLocation.heading.trueHeading > 0) {
         _arrow.hidden = NO;
         
         // Get the difference between the map’s current direction and the user’s heading, then convert it from degrees to radians.

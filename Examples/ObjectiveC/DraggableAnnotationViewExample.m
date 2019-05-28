@@ -34,7 +34,7 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
         self.layer.borderWidth = 1;
         self.layer.borderColor = [UIColor whiteColor].CGColor;
         self.layer.shadowColor = [UIColor blackColor].CGColor;
-        self.layer.shadowOpacity = 0.1;
+        self.layer.shadowOpacity = 0.1f;
     }
     return self;
 }
@@ -66,7 +66,7 @@ NSString *const MBXExampleDraggableAnnotationView = @"DraggableAnnotationViewExa
 // When the user interacts with an annotation, animate opacity and scale changes.
 - (void)startDragging {
     [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0 options:0 animations:^{
-        self.layer.opacity = 0.8;
+        self.layer.opacity = 0.8f;
         self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.5, 1.5);
     } completion:nil];
 
