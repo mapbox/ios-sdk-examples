@@ -70,7 +70,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
             let rotation: CGFloat = -MGLRadiansFromDegrees(mapView!.direction - heading)
 
             // If the difference would be perceptible, rotate the arrow.
-            if fabs(rotation) > 0.01 {
+            if abs(rotation) > 0.01 {
                 // Disable implicit animations of this rotation, which reduces lag between changes.
                 CATransaction.begin()
                 CATransaction.setDisableActions(true)

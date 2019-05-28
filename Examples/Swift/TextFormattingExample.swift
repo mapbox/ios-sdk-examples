@@ -26,7 +26,7 @@ class TextFormattingExample_Swift: UIViewController {
         view.insertSubview(styleToggle, aboveSubview: mapView)
         styleToggle.addTarget(self, action: #selector(formatText(sender:)), for: .valueChanged)
 
-        NSLayoutConstraint.activate([NSLayoutConstraint(item: styleToggle, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: mapView, attribute: NSLayoutAttribute.centerX, multiplier: 1.0, constant: 0.0)])
+        NSLayoutConstraint.activate([NSLayoutConstraint(item: styleToggle, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: mapView, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1.0, constant: 0.0)])
         NSLayoutConstraint.activate([NSLayoutConstraint(item: styleToggle, attribute: .bottom, relatedBy: .equal, toItem: mapView.logoView, attribute: .top, multiplier: 1, constant: -20)])
     }
 
