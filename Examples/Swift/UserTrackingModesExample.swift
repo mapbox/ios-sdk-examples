@@ -4,7 +4,6 @@ import Mapbox
 
 class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
-    @IBOutlet var button: UserLocationButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +36,8 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
             mode = .followWithCourse
         case .followWithCourse:
             mode = .none
+        @unknown default:
+            fatalError("Unknown user tracking mode")
         }
 
         mapView.userTrackingMode = mode
@@ -45,28 +46,28 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
 
     // Button creation and autolayout setup
     func setupLocationButton() {
-        button = UserLocationButton(buttonSize: 80)
-        button.addTarget(self, action: #selector(locationButtonTapped), for: .touchUpInside)
-        button.tintColor = mapView.tintColor
-        view.addSubview(button)
+        let userLocationButton = UserLocationButton(buttonSize: 80)
+        userLocationButton.addTarget(self, action: #selector(locationButtonTapped), for: .touchUpInside)
+        userLocationButton.tintColor = mapView.tintColor
 
         // Setup constraints such that the button is placed within
         // the upper left corner of the view.
-        button.translatesAutoresizingMaskIntoConstraints = false
+        userLocationButton.translatesAutoresizingMaskIntoConstraints = false
         var leadingConstraint: NSLayoutConstraint!
         if #available(iOS 11.0, *) {
             let safeArea = view.safeAreaLayoutGuide
-            leadingConstraint = NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: safeArea, attribute: .leading, multiplier: 1, constant: 10)
+            leadingConstraint = NSLayoutConstraint(item: userLocationButton, attribute: .leading, relatedBy: .equal, toItem: safeArea, attribute: .leading, multiplier: 1, constant: 10)
         } else {
-            leadingConstraint = NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 10)
+            leadingConstraint = NSLayoutConstraint(item: userLocationButton, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 10)
         }
         let constraints: [NSLayoutConstraint] = [
-            NSLayoutConstraint(item: button, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 10),
+            NSLayoutConstraint(item: userLocationButton, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 10),
             leadingConstraint,
-            NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: button.frame.size.height),
-            NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: button.frame.size.width)
+            NSLayoutConstraint(item: userLocationButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: userLocationButton.frame.size.height),
+            NSLayoutConstraint(item: userLocationButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: userLocationButton.frame.size.width)
         ]
 
+        view.addSubview(userLocationButton)
         view.addConstraints(constraints)
     }
 }
@@ -87,7 +88,7 @@ class UserLocationButton: UIButton {
         let arrow = CAShapeLayer()
         arrow.path = arrowPath()
         arrow.lineWidth = 2
-        arrow.lineJoin = kCALineJoinRound
+        arrow.lineJoin = CAShapeLayerLineJoin.round
         arrow.bounds = CGRect(x: 0, y: 0, width: buttonSize / 2, height: buttonSize / 2)
         arrow.position = CGPoint(x: buttonSize / 2, y: buttonSize / 2)
         arrow.shouldRasterize = true
@@ -98,7 +99,6 @@ class UserLocationButton: UIButton {
 
         // Update arrow for initial tracking mode
         updateArrowForTrackingMode(mode: .none)
-//
         layer.addSublayer(self.arrow!)
     }
 
@@ -138,6 +138,8 @@ class UserLocationButton: UIButton {
             updateArrow(fillColor: activePrimaryColor, strokeColor: activePrimaryColor, rotation: rotatedArrow)
         case .followWithCourse:
             updateArrow(fillColor: activePrimaryColor, strokeColor: activePrimaryColor, rotation: 0)
+        @unknown default:
+            fatalError("Unknown user tracking mode")
         }
     }
 

@@ -178,7 +178,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
             guard
                 let data = data,
                 let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject],
-                let results = json?["results"] as? [String: AnyObject],
+                let results = json["results"] as? [String: AnyObject],
                 let items = results["bindings"] as? [[String: AnyObject]]
                 else {
                     preconditionFailure("Failed to parse GeoJSON data")

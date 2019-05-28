@@ -105,7 +105,9 @@ class DraggableAnnotationView: MGLAnnotationView {
             print("Ending")
             endDragging()
         case .none:
-            return
+            break
+        @unknown default:
+            fatalError("Unknown drag state")
         }
     }
 
