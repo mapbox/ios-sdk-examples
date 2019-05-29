@@ -7,8 +7,10 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 
 // Subclass UIButton to create a custom user tracking mode button
 @interface UserLocationButton : UIButton
+
 @property (nonatomic) CAShapeLayer *arrow;
 @property (nonatomic) CGFloat buttonSize;
+
 @end
 
 @implementation UserLocationButton
@@ -59,7 +61,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 }
 
 // Update the arrow's color and rotation when tracking mode is changed
--(void)updateArrowForTrackingMode:(MGLUserTrackingMode)mode {
+- (void)updateArrowForTrackingMode:(MGLUserTrackingMode)mode {
     UIColor *activePrimaryColor = UIColor.redColor;
     UIColor *disabledPrimaryColor = UIColor.clearColor;
     UIColor *disabledSecondaryColor = UIColor.blackColor;
@@ -89,10 +91,10 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     }
 }
 
--(void)updateArrowFillColor:(UIColor*)fillColor strokeColor:(UIColor*) strokeColor rotation:(CGFloat) rotation {
-    [self.arrow setFillColor:fillColor.CGColor];
-    [self.arrow setStrokeColor:strokeColor.CGColor];
-    [self.arrow setAffineTransform:CGAffineTransformMakeRotation(rotation)];
+- (void)updateArrowFillColor:(UIColor*)fillColor strokeColor:(UIColor*) strokeColor rotation:(CGFloat) rotation {
+    self.arrow.fillColor = fillColor.CGColor;
+    self.arrow.strokeColor = strokeColor.CGColor;
+    self.arrow.affineTransform = CGAffineTransformMakeRotation(rotation);
     
     // Re-center the arrow within the button if rotated
     if (rotation > 0) {
@@ -109,7 +111,6 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 @interface UserTrackingModesExample () <MGLMapViewDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
-@property (nonatomic) UserLocationButton IBOutlet *button;
 
 @end
 
@@ -134,7 +135,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 
 // Update the user tracking mode when the user toggles through the
 // user tracking mode button.
--(void)locationButtonTapped:(UserLocationButton *)sender {
+- (void)locationButtonTapped:(UserLocationButton *)sender {
     MGLUserTrackingMode mode;
     
     switch (self.mapView.userTrackingMode) {
@@ -157,31 +158,30 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 }
 
 // Button creation and autolayout setup
--(void)setupLocationButton {
-    self.button = [[UserLocationButton alloc] initWithButtonSize:80];
-    [self.button addTarget:self action:@selector(locationButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    self.button.tintColor = self.mapView.tintColor;
-    [self.view addSubview:self.button];
-    
+- (void)setupLocationButton {
+    UserLocationButton *userLocationButton = [[UserLocationButton alloc] initWithButtonSize:80];
+    [userLocationButton addTarget:self action:@selector(locationButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    userLocationButton.tintColor = self.mapView.tintColor;
+
     // Setup constraints such that the button is placed within
     // the upper left corner of the view.
-    self.button.translatesAutoresizingMaskIntoConstraints = NO;
+    userLocationButton.translatesAutoresizingMaskIntoConstraints = NO;
+
     NSLayoutConstraint *leadingConstraint;
-    
-    if (@available(iOS 11, *)) {
-        UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
-        leadingConstraint = [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:safeArea attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
-        
+    if (@available(iOS 11.0, *)) {
+        leadingConstraint = [NSLayoutConstraint constraintWithItem:userLocationButton attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view.safeAreaLayoutGuide attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
     } else {
-        leadingConstraint = [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
+        leadingConstraint = [NSLayoutConstraint constraintWithItem:userLocationButton attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
     }
-    NSArray *constraints = @[
-      [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:10],
+
+    NSArray<NSLayoutConstraint *> *constraints = @[
+      [NSLayoutConstraint constraintWithItem:userLocationButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:10],
       leadingConstraint,
-      [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.button.frame.size.height],
-      [NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.button.frame.size.width]
+      [NSLayoutConstraint constraintWithItem:userLocationButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:userLocationButton.frame.size.height],
+      [NSLayoutConstraint constraintWithItem:userLocationButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:userLocationButton.frame.size.width]
     ];
-    
+
+    [self.view addSubview:userLocationButton];
     [self.view addConstraints:constraints];
 }
 
