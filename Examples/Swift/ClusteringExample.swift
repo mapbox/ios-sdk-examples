@@ -92,11 +92,16 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         // Label cluster circles with a layer of text indicating feature count. The value for
         // `point_count` is an integer. In order to use that value for the
         // `MGLSymbolStyleLayer.text` property, cast it as a string.
+        let features = mapView.visibleFeatures(in: mapView.bounds, styleLayerIdentifiers: ["clusteredPorts"], predicate: nil)
+        let symbolSource = MGLShapeSource(identifier: "symbols-clustered", features: features as! [MGLShape & MGLFeature], options: nil)
+        style.addSource(symbolSource)
+        
+        
         let numbersLayer = MGLSymbolStyleLayer(identifier: "clusteredPortsNumbers", source: source)
         numbersLayer.textColor = NSExpression(forConstantValue: UIColor.white)
         numbersLayer.textFontSize = NSExpression(forConstantValue: NSNumber(value: Double(icon.size.width) / 2))
         numbersLayer.iconAllowsOverlap = NSExpression(forConstantValue: true)
-        numbersLayer.text = NSExpression(format: "CAST(point_count, 'NSString')")
+        numbersLayer.text = NSExpression(format: "CAST(cluster_id, 'NSString')")
 
         numbersLayer.predicate = NSPredicate(format: "cluster == YES")
         style.addLayer(numbersLayer)
@@ -168,14 +173,15 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         guard let feature = features.first else {
             return
         }
-
+        
         let description: String
         let color: UIColor
 
         if let cluster = feature as? MGLPointFeatureCluster {
             // Tapped on a cluster.
-            let children = source.children(of: cluster)
-            description = "Cluster #\(cluster.clusterIdentifier)\n\(children.count) children"
+            let clusterFromSource = source.leaves(of: cluster, offset: 0, limit: 10)
+            description = "Cluster ID: \(cluster.clusterIdentifier)'s first port is named \(clusterFromSource.first!.attribute(forKey: "name")!)"
+            print(clusterFromSource.first?.attributes)
             color = .blue
         } else if let featureName = feature.attribute(forKey: "name") as? String?,
             // Tapped on a port.
