@@ -477,8 +477,8 @@
 			children = (
 				3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */,
 				3ED403401E006B5200230C95 /* CameraFlyToExample.swift */,
+				3EBCD70F1DC28240001E342F /* DefaultAnnotationExample.swift */,
 				3EBCD7141DC28240001E342F /* SimpleMapViewExample.swift */,
-				3EBCD7151DC28240001E342F /* UserTrackingModesExample.swift */,
 			);
 			name = "Getting started";
 			sourceTree = "<group>";
@@ -493,7 +493,6 @@
 				3EBCD7061DC28240001E342F /* CustomAnnotationModels.swift */,
 				3EBCD7071DC28240001E342F /* CustomCalloutView.swift */,
 				3EBCD7081DC28240001E342F /* CustomCalloutViewExample.swift */,
-				3EBCD70F1DC28240001E342F /* DefaultAnnotationExample.swift */,
 				3EBCD70D1DC28240001E342F /* ImageAnnotationExample.swift */,
 				3E1806111EAA804B004DB131 /* UserLocationAnnotationExample.swift */,
 				64BBDB021DF24E0900BB705D /* WebAPIDataExample.swift */,
@@ -555,6 +554,7 @@
 				3EC11D261EA84091001AAAB8 /* PointHotspotExample.swift */,
 				64BBDAF51DF232FD00BB705D /* SelectFeatureExample.swift */,
 				646B62961DEF6DAF000AA523 /* ShowHideLayerExample.swift */,
+				3EBCD7151DC28240001E342F /* UserTrackingModesExample.swift */,
 			);
 			name = "User interaction";
 			sourceTree = "<group>";
@@ -582,8 +582,8 @@
 			children = (
 				968247261C5C1DC700494AB8 /* CameraAnimationExample.m */,
 				3ED403471E006BE800230C95 /* CameraFlyToExample.m */,
+				9682470E1C5BF12700494AB8 /* DefaultAnnotationExample.m */,
 				9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */,
-				969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */,
 			);
 			name = "Getting started";
 			sourceTree = "<group>";
@@ -596,7 +596,6 @@
 				9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */,
 				05FA53A81FE2FB46001F3D7D /* CustomCalloutView.m */,
 				05FA53AA1FE2FB9B001F3D7D /* CustomCalloutViewExample.m */,
-				9682470E1C5BF12700494AB8 /* DefaultAnnotationExample.m */,
 				05FA53AC1FE2FBB2001F3D7D /* DefaultCalloutExample.m */,
 				96D431FB1C84B4F7007D09D1 /* ImageAnnotationExample.m */,
 				3E18060F1EAA800A004DB131 /* UserLocationAnnotationExample.m */,
@@ -659,6 +658,7 @@
 				3E3FB66F1F0589AD004512C6 /* PointHotspotExample.m */,
 				64BBDAF71DF2330B00BB705D /* SelectFeatureExample.m */,
 				646B629B1DEF6DF1000AA523 /* ShowHideLayerExample.m */,
+				969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */,
 			);
 			name = "User interaction";
 			sourceTree = "<group>";
