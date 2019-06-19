@@ -111,6 +111,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 @interface UserTrackingModesExample () <MGLMapViewDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
+@property (nonatomic) UserLocationButton *userLocationButton;
 
 @end
 
@@ -131,6 +132,11 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     
     // Create button to allow user to change the tracking mode
     [self setupLocationButton];
+}
+
+// Update the button state when the user tracking mode updates or resets.
+- (void)mapView:(MGLMapView *)mapView didChangeUserTrackingMode:(MGLUserTrackingMode)mode animated:(BOOL)animated {
+    [self.userLocationButton updateArrowForTrackingMode:mode];
 }
 
 // Update the user tracking mode when the user toggles through the
@@ -154,7 +160,6 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     }
 
     [self.mapView setUserTrackingMode:mode];
-    [sender updateArrowForTrackingMode:mode];
 }
 
 // Button creation and autolayout setup
@@ -183,6 +188,8 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 
     [self.view addSubview:userLocationButton];
     [self.view addConstraints:constraints];
+
+    self.userLocationButton = userLocationButton;
 }
 
 @end

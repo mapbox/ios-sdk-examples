@@ -4,6 +4,7 @@ import Mapbox
 
 class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
+    var userLocationButton: UserLocationButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,12 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Create button to allow user to change the tracking mode
         setupLocationButton()
+    }
+
+    // Update the button state when the user tracking mode updates or resets.
+    func mapView(_ mapView: MGLMapView, didChange mode: MGLUserTrackingMode, animated: Bool) {
+        guard let userLocationButton = userLocationButton else { return }
+        userLocationButton.updateArrowForTrackingMode(mode: mode)
     }
 
     // Update the user tracking mode when the user toggles through the
@@ -41,7 +48,6 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         }
 
         mapView.userTrackingMode = mode
-        sender.updateArrowForTrackingMode(mode: mode)
     }
 
     // Button creation and autolayout setup
@@ -70,6 +76,8 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
 
         view.addSubview(userLocationButton)
         view.addConstraints(constraints)
+
+        self.userLocationButton = userLocationButton
     }
 }
 
