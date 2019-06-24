@@ -88,7 +88,7 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         circlesLayer.circleColor = NSExpression(format: "mgl_step:from:stops:(point_count, %@, %@)", UIColor.lightGray, stops)
         circlesLayer.predicate = NSPredicate(format: "cluster == YES")
         style.addLayer(circlesLayer)
-
+        
         
         // Label cluster circles with a layer of text indicating feature count. The value for
         // `point_count` is an integer. In order to use that value for the
@@ -162,20 +162,22 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
         let point = sender.location(in: sender.view)
         let width = icon.size.width
         let rect = CGRect(x: point.x - width / 2, y: point.y - width / 2, width: width, height: width)
-
-        // JK: Not working.
+        
         var symbolSourceArray : [MGLPointFeatureCluster] = []
         let clusteredFeatures : [MGLPointFeatureCluster] = source.features(matching: NSPredicate(format: "cluster == YES")) as! [MGLPointFeatureCluster]
-        for feature in clusteredFeatures {
-            let cluster = source.leaves(of: feature, offset: 0, limit: 1000)
 
-            // JK: Only printing once, not sure why.
-            print(cluster.first!)
-        }
         print(clusteredFeatures)
-        
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {for feature in clusteredFeatures {
+            let cluster = source.leaves(of: feature, offset: 0, limit: 1000)
+            
+            print(cluster.first!)
+            
+            symbolSourceArray.append(<#T##newElement: MGLPointFeatureCluster##MGLPointFeatureCluster#>)
+            }
+        }
         let features = mapView.visibleFeatures(in: rect, styleLayerIdentifiers: ["clusteredPorts", "ports"])
-    
+        
         // Pick the first feature (which may be a port or a cluster), ideally selecting
         // the one nearest nearest one to the touch point.
         guard let feature = features.first else {
@@ -203,16 +205,16 @@ class ClusteringExample_Swift: UIViewController, MGLMapViewDelegate {
             description = "No port name"
             color = .red
         }
-
+        
         popup = popup(at: feature.coordinate, with: description, textColor: color)
-
+        
         showPopup(true, animated: true)
     }
-
+    
     // Convenience method to create a reusable popup view.
     private func popup(at coordinate: CLLocationCoordinate2D, with description: String, textColor: UIColor) -> UIView {
         let popup = UILabel()
-
+        
         popup.backgroundColor     = UIColor.white.withAlphaComponent(0.9)
         popup.layer.cornerRadius  = 4
         popup.layer.masksToBounds = true
