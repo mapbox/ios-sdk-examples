@@ -45,6 +45,12 @@ class FeatureSelectionExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Insert the new layer below the Mapbox Streets layer that contains state border lines. See the layer reference for more information about layer names: https://www.mapbox.com/vector-tiles/mapbox-streets-v8/
         // admin-1-boundary is available starting in mapbox-streets-v8, while admin-3-4-boundaries is provided here as a fallback for styles using older data sources.
+        let stopsParsed = [6.0 : NSExpression(forConstantValue: 1) ]
+        for layer in style.layers where layer.identifier.contains("-label") {
+
+            (layer as! MGLSymbolStyleLayer).textOpacity = NSExpression(format: "mgl_step:from:stops:($zoomLevel, %@, %@)", NSExpression(forConstantValue: 0), stopsParsed)
+        }
+
         if let symbolLayer = style.layer(withIdentifier: "admin-1-boundary") ?? style.layer(withIdentifier: "admin-3-4-boundaries") {
             style.insertLayer(layer, below: symbolLayer)
         } else {
