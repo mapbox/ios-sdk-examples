@@ -130,6 +130,8 @@
 		96BAED2E1FE304DD00A58BEB /* PointConversionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BAED2D1FE304DD00A58BEB /* PointConversionExample.m */; };
 		96D431FC1C84B4F7007D09D1 /* ImageAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D431FB1C84B4F7007D09D1 /* ImageAnnotationExample.m */; };
 		96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D432051C84B9CF007D09D1 /* pisavector.xcassets */; };
+		A4D01B4E22DE5F8300595A37 /* CacheManagementExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D01B4D22DE5F8300595A37 /* CacheManagementExample.swift */; };
+		A4D01B5122DE623700595A37 /* CacheManagementExample.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D01B5022DE623700595A37 /* CacheManagementExample.m */; };
 		BBD05676206B24335DEA52C4 /* Pods_ExamplesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7692D1D792EB3849E8754E6B /* Pods_ExamplesUITests.framework */; };
 		CA39B2BF209B881300D37037 /* BuildingLightExample+UITesting.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39B2BA209B881300D37037 /* BuildingLightExample+UITesting.m */; };
 		CA39B2C0209B881300D37037 /* AnimatedLineExample+UITesting.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39B2BB209B881300D37037 /* AnimatedLineExample+UITesting.m */; };
@@ -1393,6 +1395,7 @@
 				07C138C01E6F646F00D6F678 /* MultipleShapesExample.m in Sources */,
 				3EBCD7291DC28240001E342F /* UserTrackingModesExample.swift in Sources */,
 				05536CB5200F9EEB00657097 /* SwitchStylesExample.swift in Sources */,
+				A4D01B4E22DE5F8300595A37 /* CacheManagementExample.swift in Sources */,
 				646B62A61DEF7121000AA523 /* AnimatedLineExample.m in Sources */,
 				9691AAA71C5AAD8F006A58C6 /* StudioStyleExample.m in Sources */,
 				9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */,
@@ -1468,6 +1471,7 @@
 				055ABCC31EFB14AE0063BACA /* PolygonPatternExample.swift in Sources */,
 				646B62AE1DEF7155000AA523 /* LineStyleLayerExample.swift in Sources */,
 				3EBCD71F1DC28240001E342F /* DefaultStylesExample.swift in Sources */,
+				A4D01B5122DE623700595A37 /* CacheManagementExample.m in Sources */,
 				DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */,
 				3E22EF4F1F87F10C00605203 /* ImageSourceExample.swift in Sources */,
 				969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */,
