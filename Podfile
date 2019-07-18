@@ -11,9 +11,6 @@ target 'Examples' do
 end
 
 target 'DocsCode' do
-  pod 'MapboxNavigation', '~> 0.35.0'
-  # pod 'MapboxCoreNavigation', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-navigation-ios/v0.17.0-beta.1/MapboxCoreNavigation.podspec'
-  # pod 'MapboxNavigation', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-navigation-ios/v0.17.0-beta.1/MapboxNavigation.podspec'
   shared_pods
 end
 

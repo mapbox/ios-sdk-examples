@@ -139,8 +139,6 @@
 		CA3B162E2098CA7E005C087B /* TestingSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3B162B2098C724005C087B /* TestingSupport.m */; };
 		CA987E30210F787B00C19855 /* ClusteringWithImagesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA987E2F210F787B00C19855 /* ClusteringWithImagesExample.swift */; };
 		CA987E32210F7FAE00C19855 /* ClusteringWithImagesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = CA987E31210F7FAE00C19855 /* ClusteringWithImagesExample.m */; };
-		DAE87506209041D600638AAB /* NavigationTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AB82441FBC09AB005FB704 /* NavigationTutorialViewController.swift */; };
-		DAE87507209041DD00638AAB /* NavigationTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AB82471FBC0D41005FB704 /* NavigationTutorialViewController.m */; };
 		DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5939E31E6639BA0009BEB2 /* ClusteringExample.swift */; };
 		DD5939E61E6778480009BEB2 /* clustering.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD5939E51E6778480009BEB2 /* clustering.xcassets */; };
 		DDF943291E5DE63300545D0F /* ClusteringExample.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF943281E5DE63300545D0F /* ClusteringExample.m */; };
@@ -206,9 +204,6 @@
 		05A8688D1F7314EF00242FB4 /* DocsCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DocsCode-Bridging-Header.h"; sourceTree = "<group>"; };
 		05A8688E1F7314EF00242FB4 /* FirstStepsTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstStepsTutorialViewController.h; sourceTree = "<group>"; };
 		05A8688F1F7314EF00242FB4 /* FirstStepsTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstStepsTutorialViewController.m; sourceTree = "<group>"; };
-		05AB82441FBC09AB005FB704 /* NavigationTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTutorialViewController.swift; sourceTree = "<group>"; };
-		05AB82461FBC0D41005FB704 /* NavigationTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationTutorialViewController.h; sourceTree = "<group>"; };
-		05AB82471FBC0D41005FB704 /* NavigationTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationTutorialViewController.m; sourceTree = "<group>"; };
 		05DB802C1F75A4AD00F73326 /* DocsCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DocsCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DB802E1F75A4AD00F73326 /* DocsCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsCodeTests.swift; sourceTree = "<group>"; };
 		05DB80301F75A4AE00F73326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -459,7 +454,6 @@
 		0503373F1F7199DF007309B0 /* DocsCode */ = {
 			isa = PBXGroup;
 			children = (
-				05AB82431FBC0988005FB704 /* NavigationTutorial */,
 				0587D7011F9A435F00209947 /* DDSCircleLayerTutorial */,
 				05DB80361F75A87100F73326 /* FirstStepsTutorial */,
 				050337401F7199DF007309B0 /* AppDelegate.swift */,
@@ -689,16 +683,6 @@
 				0587D7051F9A466000209947 /* DDSCircleLayerTutorialViewController.m */,
 			);
 			path = DDSCircleLayerTutorial;
-			sourceTree = "<group>";
-		};
-		05AB82431FBC0988005FB704 /* NavigationTutorial */ = {
-			isa = PBXGroup;
-			children = (
-				05AB82441FBC09AB005FB704 /* NavigationTutorialViewController.swift */,
-				05AB82461FBC0D41005FB704 /* NavigationTutorialViewController.h */,
-				05AB82471FBC0D41005FB704 /* NavigationTutorialViewController.m */,
-			);
-			path = NavigationTutorial;
 			sourceTree = "<group>";
 		};
 		05DB802D1F75A4AD00F73326 /* DocsCodeTests */ = {
@@ -1200,16 +1184,6 @@
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/EA6917E5-CEC8-3463-A109-1DE3D406A0AB.bcsymbolmap",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/9521B0FE-B195-3C64-9123-696C44DE3DEE.bcsymbolmap",
-				"${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework",
-				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
-				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
-				"${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework",
-				"${PODS_ROOT}/MapboxNavigationNative/MapboxNavigationNative.framework",
-				"${PODS_ROOT}/MapboxNavigationNative/MapboxNavigationNative.framework.dSYM",
-				"${BUILT_PRODUCTS_DIR}/MapboxSpeech/MapboxSpeech.framework",
-				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
-				"${BUILT_PRODUCTS_DIR}/Solar/Solar.framework",
-				"${BUILT_PRODUCTS_DIR}/Turf/Turf.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1217,16 +1191,6 @@
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/EA6917E5-CEC8-3463-A109-1DE3D406A0AB.bcsymbolmap",
 				"${BUILT_PRODUCTS_DIR}/9521B0FE-B195-3C64-9123-696C44DE3DEE.bcsymbolmap",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxCoreNavigation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigationNative.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/MapboxNavigationNative.framework.dSYM",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxSpeech.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Solar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Turf.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1385,9 +1349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0597C0D2207FCA540045DE7C /* DDSCircleLayerTutorialViewController.m in Sources */,
-				DAE87507209041DD00638AAB /* NavigationTutorialViewController.m in Sources */,
 				0597C0D1207FCA4D0045DE7C /* DDSCircleLayerTutorialViewController.swift in Sources */,
-				DAE87506209041D600638AAB /* NavigationTutorialViewController.swift in Sources */,
 				050337411F7199DF007309B0 /* AppDelegate.swift in Sources */,
 				0597C0D3207FCDD20045DE7C /* FirstStepsTutorialViewController.m in Sources */,
 				0597C0D4207FCDD40045DE7C /* FirstStepsTutorialViewController.swift in Sources */,
