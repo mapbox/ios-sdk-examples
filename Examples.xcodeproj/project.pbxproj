@@ -1067,12 +1067,13 @@
 					0503373D1F7199DF007309B0 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = GJZR2MEM28;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					05DB802B1F75A4AD00F73326 = {
 						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = GJZR2MEM28;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0503373D1F7199DF007309B0;
 					};
@@ -1559,7 +1560,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.DocsCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DocsCode/DocsCode-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1579,7 +1580,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.DocsCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DocsCode/DocsCode-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1602,7 +1603,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.DocsCodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DocsCode.app/DocsCode";
 			};
@@ -1626,7 +1627,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.DocsCodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DocsCode.app/DocsCode";
 			};
