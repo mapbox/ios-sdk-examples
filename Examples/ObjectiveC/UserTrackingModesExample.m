@@ -172,16 +172,16 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     // the upper left corner of the view.
     userLocationButton.translatesAutoresizingMaskIntoConstraints = NO;
 
-    NSLayoutConstraint *leadingConstraint;
+    id leadingConstraintSecondItem;
     if (@available(iOS 11.0, *)) {
-        leadingConstraint = [NSLayoutConstraint constraintWithItem:userLocationButton attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view.safeAreaLayoutGuide attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
+        leadingConstraintSecondItem = self.view.safeAreaLayoutGuide;
     } else {
-        leadingConstraint = [NSLayoutConstraint constraintWithItem:userLocationButton attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
+        leadingConstraintSecondItem = self.view;
     }
 
     NSArray<NSLayoutConstraint *> *constraints = @[
       [NSLayoutConstraint constraintWithItem:userLocationButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:10],
-      leadingConstraint,
+      [NSLayoutConstraint constraintWithItem:userLocationButton attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:leadingConstraintSecondItem attribute:NSLayoutAttributeLeading multiplier:1 constant:10],
       [NSLayoutConstraint constraintWithItem:userLocationButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:userLocationButton.frame.size.height],
       [NSLayoutConstraint constraintWithItem:userLocationButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:userLocationButton.frame.size.width]
     ];

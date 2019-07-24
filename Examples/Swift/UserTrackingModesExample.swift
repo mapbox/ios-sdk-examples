@@ -60,16 +60,16 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         // the upper left corner of the view.
         userLocationButton.translatesAutoresizingMaskIntoConstraints = false
 
-        var leadingConstraint: NSLayoutConstraint
+        var leadingConstraintSecondItem: AnyObject
         if #available(iOS 11.0, *) {
-            leadingConstraint = NSLayoutConstraint(item: userLocationButton, attribute: .leading, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .leading, multiplier: 1, constant: 10)
+            leadingConstraintSecondItem = view.safeAreaLayoutGuide
         } else {
-            leadingConstraint = NSLayoutConstraint(item: userLocationButton, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 10)
+            leadingConstraintSecondItem = view
         }
 
         let constraints: [NSLayoutConstraint] = [
             NSLayoutConstraint(item: userLocationButton, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 10),
-            leadingConstraint,
+            NSLayoutConstraint(item: userLocationButton, attribute: .leading, relatedBy: .equal, toItem: leadingConstraintSecondItem, attribute: .leading, multiplier: 1, constant: 10),
             NSLayoutConstraint(item: userLocationButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: userLocationButton.frame.size.height),
             NSLayoutConstraint(item: userLocationButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: userLocationButton.frame.size.width)
         ]
