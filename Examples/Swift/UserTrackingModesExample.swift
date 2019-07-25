@@ -17,9 +17,12 @@ class UserTrackingModesExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.tintColor = .red
         mapView.attributionButton.tintColor = .lightGray
 
+        // Enable the always-on heading indicator for the user location annotation.
+        mapView.showsUserHeadingIndicator = true
+
         view.addSubview(mapView)
 
-        // Create button to allow user to change the tracking mode
+        // Create button to allow user to change the tracking mode.
         setupLocationButton()
     }
 

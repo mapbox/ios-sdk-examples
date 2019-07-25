@@ -124,13 +124,16 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
 
-    // The user location annotation takes its color from the map view's tint color
+    // The user location annotation takes its color from the map view's tint color.
     self.mapView.tintColor = [UIColor redColor];
     self.mapView.attributionButton.tintColor = [UIColor lightGrayColor];
 
+    // Enable the always-on heading indicator for the user location annotation.
+    self.mapView.showsUserHeadingIndicator = YES;
+
     [self.view addSubview:self.mapView];
     
-    // Create button to allow user to change the tracking mode
+    // Create button to allow user to change the tracking mode.
     [self setupLocationButton];
 }
 
