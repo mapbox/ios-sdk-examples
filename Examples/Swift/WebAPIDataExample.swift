@@ -126,7 +126,7 @@ class WebAPIDataExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Selecting an feature that doesn’t already exist on the map will add a new annotation view.
         // We’ll need to use the map’s delegate methods to add an empty annotation view and remove it when we’re done selecting it.
-        mapView.selectAnnotation(point, animated: true)
+        mapView.selectAnnotation(point, animated: true, completionHandler: nil)
     }
 
     // MARK: - MGLMapViewDelegate

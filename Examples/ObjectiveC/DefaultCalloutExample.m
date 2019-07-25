@@ -36,7 +36,7 @@ NSString *const MBXExampleDefaultCallout = @"DefaultCalloutExample";
     [self.mapView setCenterCoordinate:annotation.coordinate zoomLevel:17 animated:NO];
 
     // Pop-up the callout view.
-    [self.mapView selectAnnotation:annotation animated:YES];
+    [self.mapView selectAnnotation:annotation animated:YES completionHandler:nil];
 }
 
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation

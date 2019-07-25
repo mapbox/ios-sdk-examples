@@ -122,7 +122,7 @@ NSString *const MBXExampleWebAPIData = @"WebAPIDataExample";
 
     // Selecting an feature that doesn’t already exist on the map will add a new annotation view.
     // We’ll need to use the map’s delegate methods to add an empty annotation view and remove it when we’re done selecting it.
-    [self.mapView selectAnnotation:point animated:YES];
+    [self.mapView selectAnnotation:point animated:YES completionHandler:nil];
 }
 
 #pragma mark - MGLMapViewDelegate

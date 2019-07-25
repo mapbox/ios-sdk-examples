@@ -26,7 +26,7 @@ class CustomCalloutViewExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.addAnnotation(marker)
 
         // Select the annotation so the callout will appear.
-        mapView.selectAnnotation(marker, animated: false)
+        mapView.selectAnnotation(marker, animated: false, completionHandler: nil)
     }
 
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {

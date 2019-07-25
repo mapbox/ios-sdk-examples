@@ -32,7 +32,7 @@ NSString *const MBXExampleCustomCalloutView = @"CustomCalloutViewExample";
     [mapView addAnnotation:marker];
 
     // Select the annotation so the callout will appear.
-    [mapView selectAnnotation:marker animated:NO];
+    [mapView selectAnnotation:marker animated:NO completionHandler:nil];
 }
 
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id <MGLAnnotation>)annotation {

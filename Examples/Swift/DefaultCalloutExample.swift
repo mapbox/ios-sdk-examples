@@ -31,7 +31,7 @@ class DefaultCalloutExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.setCenter(annotation.coordinate, zoomLevel: 17, animated: false)
 
         // Pop-up the callout view.
-        mapView.selectAnnotation(annotation, animated: true)
+        mapView.selectAnnotation(annotation, animated: true, completionHandler: nil)
     }
 
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
