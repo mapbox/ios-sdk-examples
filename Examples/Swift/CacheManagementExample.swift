@@ -6,7 +6,6 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
 
     var mapView: MGLMapView!
     var alertController: UIAlertController!
-    var alertButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,11 +14,80 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.delegate = self
         view.addSubview(mapView)
 
+        // Create an offline pack.
         addOfflinePack()
-        addButton()
+
+        /* Add a bar button. Tapping this button will present a menu of options. For this example, the cache is managed through the UI. It can also be managed by developers through remote notifications.
+         For more information about managing remote notifications in your iOS app, see the Apple "UserNotifications" documentation: https://developer.apple.com/documentation/usernotifications
+ */
+        let alertButton = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(presentActionSheet))
+       self.navigationController?.navigationItem.setRightBarButton(alertButton, animated: false)
     }
 
-    // Create an offline pack.
+    // MARK: Cache management methods called by action sheet
+
+    /* Check whether the tiles locally cached match those on the tile server. If the local tiles are out-of-date, they will be updated. Invalidating the ambient cache is preferred to clearing the cache. Tiles shared with offline packs will not be affected by this method.
+      The ambient cache is created through the end user loading and using a map view.
+ */
+    func invalidateAmbientCache() {
+        let start = CACurrentMediaTime()
+        MGLOfflineStorage.shared.invalidateAmbientCache { (error) in
+            guard error == nil else {
+                print("Error: \(error?.localizedDescription ?? "unknown error")")
+                return
+            }
+            let difference = CACurrentMediaTime() - start
+           // Display an alert to indicate that the invalidation is complete.
+            self.presentCompletionAlertWithContent(title: "Invalidated Ambient Cache", message: "Invalidated ambient cache in \(difference) seconds")
+        }
+    }
+
+    // Check whether the local offline tiles match those on the tile server. If the local tiles are out-of-date, they will be updated. Invalidating an offline pack is preferred to removing and reinstalling the pack.
+    func invalidateOfflinePack() {
+
+        if let pack = MGLOfflineStorage.shared.packs?.first {
+            let start = CACurrentMediaTime()
+            MGLOfflineStorage.shared.invalidatePack(pack) { (error) in
+                guard error == nil else {
+                    // The pack couldn’t be invalidated for some reason.
+                    print("Error: \(error?.localizedDescription ?? "unknown error")")
+                    return
+                }
+                let difference = CACurrentMediaTime() - start
+               // Display an alert to indicate that the invalidation is complete.
+                self.presentCompletionAlertWithContent(title: "Offline Pack Invalidated", message: "Invalidated offline pack in \(difference) seconds")            }
+        }
+    }
+
+    // This removes resources from the ambient cache. Resources which overlap with offline packs will not be impacted.
+    func clearAmbientCache() {
+        let start = CACurrentMediaTime()
+        MGLOfflineStorage.shared.clearAmbientCache { (error) in
+            guard error == nil else {
+                print("Error: \(error?.localizedDescription ?? "unknown error")")
+                return
+            }
+            let difference = CACurrentMediaTime() - start
+           // Display an alert to indicate that the ambient cache has been cleared.
+            self.presentCompletionAlertWithContent(title: "Cleared Ambient Cache", message: "Ambient cache has been cleared in \(difference) seconds.")
+        }
+    }
+
+    // This method deletes the cache.db file, then reinitializes it. This deletes offline packs and ambient cache resources. You should not need to call this method. Invalidating the ambient cache and/or offline packs should be sufficient for most use cases.
+    func resetDatabase() {
+        let start = CACurrentMediaTime()
+        MGLOfflineStorage.shared.resetDatabase { (error) in
+            guard error == nil else {
+                print("Error: \(error?.localizedDescription ?? "unknown error")")
+                return
+            }
+            let difference = CACurrentMediaTime() - start
+
+            // Display an alert to indicate that the cache.db file has been reset.
+            self.presentCompletionAlertWithContent(title: "Database Reset", message: "The cache.db file has been reset in \(difference) seconds.")
+        }
+    }
+
     func addOfflinePack() {
         let region = MGLTilePyramidOfflineRegion(styleURL: mapView.styleURL, bounds: mapView.visibleCoordinateBounds, fromZoomLevel: 0, toZoomLevel: 2)
 
@@ -35,75 +103,7 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
         }
     }
 
-    // MARK: Cache management methods called by action sheet
-    func invalidateAmbientCache() {
-        let start = CACurrentMediaTime()
-        MGLOfflineStorage.shared.invalidateAmbientCache { (error) in
-            guard error == nil else {
-                print("Error: \(error?.localizedDescription ?? "unknown error")")
-                return
-            }
-            let difference = CACurrentMediaTime() - start
-            self.presentCompletionAlertWithContent(title: "Invalidated Ambient Cache", message: "Invalidated ambient cache in \(difference) seconds")
-        }
-    }
-    
-    func invalidateOfflinePack() {
-
-        if let pack = MGLOfflineStorage.shared.packs?.first {
-            let start = CACurrentMediaTime()
-            MGLOfflineStorage.shared.invalidatePack(pack) { (error) in
-                guard error == nil else {
-                    // The pack couldn’t be invalidated for some reason.
-                    print("Error: \(error?.localizedDescription ?? "unknown error")")
-                    return
-                }
-                let difference = CACurrentMediaTime() - start
-                self.presentCompletionAlertWithContent(title: "Offline Pack Invalidated", message: "Invalidated offline pack in \(difference) seconds")            }
-        }
-    }
-
-    // This deletes the 
-    func clearAmbientCache() {
-        let start = CACurrentMediaTime()
-        MGLOfflineStorage.shared.clearAmbientCache { (error) in
-            guard error == nil else {
-                print("Error: \(error?.localizedDescription ?? "unknown error")")
-                return
-            }
-            let difference = CACurrentMediaTime() - start
-            self.presentCompletionAlertWithContent(title: "Cleared Ambient Cache", message: "Ambient cache has been cleared in \(difference) seconds.")
-        }
-    }
-
-    // This method deletes the cache.db file, then reinitializes it. This deletes offline packs and ambient cache resources. You should not need to call this method.
-    func resetDatabase() {
-        let start = CACurrentMediaTime()
-        MGLOfflineStorage.shared.resetDatabase { (error) in
-            guard error == nil else {
-                print("Error: \(error?.localizedDescription ?? "unknown error")")
-                return
-            }
-            let difference = CACurrentMediaTime() - start
-            self.presentCompletionAlertWithContent(title: "Database Reset", message: "The cache.db file has been reset in \(difference) seconds.")
-        }
-    }
-
     // MARK: Add UI components
-    func addButton() {
-        alertButton = UIButton(type: .roundedRect)
-        alertButton.frame = CGRect(x: 0, y: 0, width: 60, height: 20)
-        alertButton.translatesAutoresizingMaskIntoConstraints = false
-        alertButton.backgroundColor = .purple
-
-        view.insertSubview(alertButton, aboveSubview: mapView)
-
-        NSLayoutConstraint.activate([NSLayoutConstraint(item: alertButton!, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: mapView, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1.0, constant: 0)])
-        NSLayoutConstraint.activate([NSLayoutConstraint(item: alertButton!, attribute: .bottom, relatedBy: .equal, toItem: mapView.attributionButton, attribute: .top, multiplier: 1, constant: 0)])
-
-        alertButton.addTarget(self, action:
-            #selector(presentActionSheet), for: .touchUpInside)
-    }
 
     // Create an action sheet that handles the cache management.
     @objc func presentActionSheet() {
@@ -125,7 +125,7 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
         }
 
         alertController.popoverPresentationController?
-            .sourceRect = alertButton.bounds
+            .sourceView = mapView
         present(alertController, animated: true, completion: nil)
     }
 

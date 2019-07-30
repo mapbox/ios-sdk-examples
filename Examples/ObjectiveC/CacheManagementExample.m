@@ -19,11 +19,82 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
 
+    // Create an offline pack.
     [self addOfflinePack];
-    [self addButton];
+
+    // Add a bar button. Tapping this button will present a menu of options. For this example, the cache is managed through the UI. It can also be managed by developers through remote notifications.
+    // For more information about managing remote notifications in your iOS app, see the Apple "UserNotifications" documentation: https://developer.apple.com/documentation/usernotifications?language=objc
+    UIBarButtonItem *alertButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(presentActionSheet)];
+    [self.navigationController.navigationItem setRightBarButtonItem:alertButton];
 }
 
-// Create an offline pack.
+#pragma mark: Cache management methods called by action sheet
+
+/* Check whether the tiles locally cached match those on the tile server. If the local tiles are out-of-date, they will be updated. Invalidating the ambient cache is preferred to clearing the cache. Tiles shared with offline packs will not be affected by this method.
+ The ambient cache is created through the end user loading and using a map view.
+ */
+- (void)invalidateAmbientCache {
+    CFTimeInterval start = CACurrentMediaTime();
+    [[MGLOfflineStorage sharedOfflineStorage] invalidateAmbientCacheWithCompletionHandler:^(NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error: %@", error.localizedDescription);
+            return;
+        } else {
+            CFTimeInterval difference = CACurrentMediaTime() - start;
+
+            // Display an alert to indicate that the invalidation is complete.
+            [self presentCompletionAlertWithTitle:@"Ambient Cache Invalidated" andMessage: [NSString stringWithFormat: @"Invalidated ambient cache in %f seconds", difference]];
+        }
+    }];
+}
+
+// Check whether the local offline tiles match those on the tile server. If the local tiles are out-of-date, they will be updated. Invalidating an offline pack is preferred to removing and reinstalling the pack.
+- (void)invalidateOfflinePack {
+    MGLOfflinePack *pack = [MGLOfflineStorage sharedOfflineStorage].packs.firstObject;
+    CFTimeInterval start = CACurrentMediaTime();
+
+    [[MGLOfflineStorage sharedOfflineStorage] invalidatePack:pack withCompletionHandler:^(NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error: %@", error.localizedDescription);
+            return;
+        }
+        CFTimeInterval difference = CACurrentMediaTime() - start;
+
+        /// Display an alert to indicate that the invalidation is complete.
+        [self presentCompletionAlertWithTitle:@"Offline Pack Invalidated" andMessage: [NSString stringWithFormat: @"Invalidated offline pack in %f seconds", difference]];
+    }];
+}
+
+// This removes resources from the ambient cache. Resources which overlap with offline packs will not be impacted.
+- (void)clearAmbientCache {
+    CFTimeInterval start = CACurrentMediaTime();
+    [[MGLOfflineStorage sharedOfflineStorage] clearAmbientCacheWithCompletionHandler:^(NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error: %@", error.localizedDescription);
+            return;
+        }
+        CFTimeInterval difference = CACurrentMediaTime() - start;
+
+        // Display an alert to indicate that the deletion is complete.
+        [self presentCompletionAlertWithTitle:@"Ambient Cache Cleared" andMessage: [NSString stringWithFormat: @"Cleared ambient cache in %f seconds", difference]];
+    }];
+}
+
+// This method deletes the cache.db file, then reinitializes it. This deletes offline packs and ambient cache resources. You should not need to call this method. Invalidating the ambient cache and/or offline packs should be sufficient for most use cases.
+- (void)resetDatabase {
+    CFTimeInterval start = CACurrentMediaTime();
+    [[MGLOfflineStorage sharedOfflineStorage] resetDatabaseWithCompletionHandler:^(NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error: %@", error.localizedDescription);
+            return;
+        }
+        CFTimeInterval difference = CACurrentMediaTime() - start;
+
+        // Display an alert to indicate that the cache.db file has been reset.
+        [self presentCompletionAlertWithTitle:@"Database reset" andMessage: [NSString stringWithFormat: @"Reset database in %f seconds", difference]];
+    }];
+}
+
 - (void)addOfflinePack {
     MGLTilePyramidOfflineRegion *region = [[MGLTilePyramidOfflineRegion alloc] initWithStyleURL:self.mapView.styleURL bounds:self.mapView.visibleCoordinateBounds fromZoomLevel:0 toZoomLevel:2];
 
@@ -40,90 +111,7 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
     }];
 
 }
-
-#pragma mark: Cache management methods called by action sheet
-- (void)invalidateAmbientCache {
-    CFTimeInterval start = CACurrentMediaTime();
-    [[MGLOfflineStorage sharedOfflineStorage] invalidateAmbientCacheWithCompletionHandler:^(NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Error: %@", error.localizedDescription);
-            return;
-        } else {
-            CFTimeInterval difference = CACurrentMediaTime() - start;
-
-            // Present a popup displaying how long the method took to execute.
-            [self presentCompletionAlertWithTitle:@"Ambient Cache Invalidated" andMessage: [NSString stringWithFormat: @"Invalidated ambient cache in %f seconds", difference]];
-        }
-    }];
-}
-
-- (void)invalidateOfflinePack {
-    MGLOfflinePack *pack = [MGLOfflineStorage sharedOfflineStorage].packs.firstObject;
-    CFTimeInterval start = CACurrentMediaTime();
-
-    [[MGLOfflineStorage sharedOfflineStorage] invalidatePack:pack withCompletionHandler:^(NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Error: %@", error.localizedDescription);
-            return;
-        }
-        CFTimeInterval difference = CACurrentMediaTime() - start;
-
-        // Present a popup displaying how long the method took to execute.
-        [self presentCompletionAlertWithTitle:@"Offline Pack Invalidated" andMessage: [NSString stringWithFormat: @"Invalidated offline pack in %f seconds", difference]];
-    }];
-}
-
-// This deletes res
-- (void)clearAmbientCache {
-    CFTimeInterval start = CACurrentMediaTime();
-    [[MGLOfflineStorage sharedOfflineStorage] clearAmbientCacheWithCompletionHandler:^(NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Error: %@", error.localizedDescription);
-            return;
-        }
-        CFTimeInterval difference = CACurrentMediaTime() - start;
-
-        // Present a popup displaying how long the method took to execute.
-        [self presentCompletionAlertWithTitle:@"Ambient Cache Cleared" andMessage: [NSString stringWithFormat: @"Cleared ambient cache in %f seconds", difference]];
-    }];
-}
-
-// This method deletes the cache.db file, then reinitializes it. This deletes offline packs and ambient cache resources. You should not need to call this method.
-- (void)resetDatabase {
-    CFTimeInterval start = CACurrentMediaTime();
-    [[MGLOfflineStorage sharedOfflineStorage] resetDatabaseWithCompletionHandler:^(NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Error: %@", error.localizedDescription);
-            return;
-        }
-        CFTimeInterval difference = CACurrentMediaTime() - start;
-
-        // Present a popup displaying how long the method took to execute.
-        [self presentCompletionAlertWithTitle:@"Database reset" andMessage: [NSString stringWithFormat: @"Reset database in %f seconds", difference]];
-    }];
-}
-
 # pragma mark: Add UI components
-- (void)addButton {
-    self.alertButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.alertButton.frame = CGRectMake(0, 0, 60, 20);
-    self.alertButton.translatesAutoresizingMaskIntoConstraints = NO;
-    self.alertButton.backgroundColor = [UIColor purpleColor];
-
-    [self.view insertSubview:self.alertButton aboveSubview:self.mapView];
-
-    [NSLayoutConstraint activateConstraints:@[
-                                              [NSLayoutConstraint constraintWithItem:self.alertButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.mapView.attributionButton attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]
-                                              ]
-     ];
-    [NSLayoutConstraint activateConstraints:@[
-                                              [NSLayoutConstraint constraintWithItem:self.alertButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.mapView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]
-                                              ]
-     ];
-
-    [self.alertButton addTarget:self action:@selector(presentActionSheet) forControlEvents:UIControlEventTouchUpInside];
-}
-
 - (void)presentActionSheet {
 
     if (!self.alertController) {
