@@ -15,24 +15,34 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
-    self.mapView.delegate = self;
-    [self.view addSubview:self.mapView];
+    /* Set the maximum ambient cache size in bytes. Call this method before the map view is loaded.
 
-    // Create an offline pack.
-    [self addOfflinePack];
+     The ambient cache is created through the end user loading and using a map view. */
+    NSUInteger maxCacheSize = 62914560;
+    [[MGLOfflineStorage sharedOfflineStorage] setMaximumAmbientCacheSize:maxCacheSize withCompletionHandler:^(NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"Unable to set maximum ambient cache size: %@", error.localizedDescription);
+        }
+
+        self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
+        self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        self.mapView.delegate = self;
+
+        [self.view addSubview:self.mapView];
+
+        // Create an offline pack.
+        [self addOfflinePack];
+    }];
 
     // Add a bar button. Tapping this button will present a menu of options. For this example, the cache is managed through the UI. It can also be managed by developers through remote notifications.
     // For more information about managing remote notifications in your iOS app, see the Apple "UserNotifications" documentation: https://developer.apple.com/documentation/usernotifications?language=objc
     UIBarButtonItem *alertButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(presentActionSheet)];
-    [self.navigationController.navigationItem setRightBarButtonItem:alertButton];
+    [self.parentViewController.navigationController.navigationItem setRightBarButtonItem:alertButton];
 }
 
 #pragma mark: Cache management methods called by action sheet
 
-/* Check whether the tiles locally cached match those on the tile server. If the local tiles are out-of-date, they will be updated. Invalidating the ambient cache is preferred to clearing the cache. Tiles shared with offline packs will not be affected by this method.
- The ambient cache is created through the end user loading and using a map view.
- */
+// Check whether the tiles locally cached match those on the tile server. If the local tiles are out-of-date, they will be updated. Invalidating the ambient cache is preferred to clearing the cache. Tiles shared with offline packs will not be affected by this method.
 - (void)invalidateAmbientCache {
     CFTimeInterval start = CACurrentMediaTime();
     [[MGLOfflineStorage sharedOfflineStorage] invalidateAmbientCacheWithCompletionHandler:^(NSError * _Nullable error) {
@@ -99,9 +109,9 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
     MGLTilePyramidOfflineRegion *region = [[MGLTilePyramidOfflineRegion alloc] initWithStyleURL:self.mapView.styleURL bounds:self.mapView.visibleCoordinateBounds fromZoomLevel:0 toZoomLevel:2];
 
     NSDictionary *info = @{@"name": @"Offline Pack"};
-    [NSKeyedArchiver archivedDataWithRootObject:info];
+    NSData *context = [NSKeyedArchiver archivedDataWithRootObject:info];
 
-    [[MGLOfflineStorage sharedOfflineStorage] addPackForRegion:region withContext:info completionHandler:^(MGLOfflinePack * _Nullable pack, NSError * _Nullable error) {
+    [[MGLOfflineStorage sharedOfflineStorage] addPackForRegion:region withContext:context completionHandler:^(MGLOfflinePack * _Nullable pack, NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
             return;

@@ -10,25 +10,37 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL)
-        mapView.delegate = self
-        view.addSubview(mapView)
+        /* Set the maximum ambient cache size in bytes. Call this method before the map view is loaded.
 
-        // Create an offline pack.
-        addOfflinePack()
+         The ambient cache is created through the end user loading and using a map view. */
+        let maxCacheSize = UInt(62914560)
+        MGLOfflineStorage.shared.setMaximumAmbientCacheSize(maxCacheSize) { (error) in
+            guard error == nil else {
+                print("Unable to set maximum ambient cache size: \(error?.localizedDescription ?? "error")")
+                return
+            }
+            self.mapView = MGLMapView(frame: self.view.bounds, styleURL: MGLStyle.streetsStyleURL)
+            self.mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            self.mapView.delegate = self
+            self.view.addSubview(self.mapView)
+
+            // Create an offline pack.
+            self.addOfflinePack()
+        }
 
         /* Add a bar button. Tapping this button will present a menu of options. For this example, the cache is managed through the UI. It can also be managed by developers through remote notifications.
          For more information about managing remote notifications in your iOS app, see the Apple "UserNotifications" documentation: https://developer.apple.com/documentation/usernotifications
  */
         let alertButton = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(presentActionSheet))
-       self.navigationController?.navigationItem.setRightBarButton(alertButton, animated: false)
+
+        self.navigationController?.navigationItem.setRightBarButton(alertButton, animated: false)
+
     }
 
     // MARK: Cache management methods called by action sheet
 
-    /* Check whether the tiles locally cached match those on the tile server. If the local tiles are out-of-date, they will be updated. Invalidating the ambient cache is preferred to clearing the cache. Tiles shared with offline packs will not be affected by this method.
-      The ambient cache is created through the end user loading and using a map view.
- */
+    // Check whether the tiles locally cached match those on the tile server. If the local tiles are out-of-date, they will be updated. Invalidating the ambient cache is preferred to clearing the cache. Tiles shared with offline packs will not be affected by this method.
+
     func invalidateAmbientCache() {
         let start = CACurrentMediaTime()
         MGLOfflineStorage.shared.invalidateAmbientCache { (error) in
