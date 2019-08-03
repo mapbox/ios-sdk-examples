@@ -6,7 +6,6 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
 @interface CacheManagementExample () <MGLMapViewDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
-@property (nonatomic) UIButton *alertButton;
 @property (nonatomic) UIAlertController *alertController;
 @end
 
