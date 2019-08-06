@@ -35,8 +35,8 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
 
     // Add a bar button. Tapping this button will present a menu of options. For this example, the cache is managed through the UI. It can also be managed by developers through remote notifications.
     // For more information about managing remote notifications in your iOS app, see the Apple "UserNotifications" documentation: https://developer.apple.com/documentation/usernotifications?language=objc
-    UIBarButtonItem *alertButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(presentActionSheet)];
-    [self.parentViewController.navigationController.navigationItem setRightBarButtonItem:alertButton];
+    UIBarButtonItem *alertButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(presentActionSheet)];
+        [self.parentViewController.navigationItem setRightBarButtonItem:alertButton];
 }
 
 #pragma mark: Cache management methods called by action sheet
@@ -155,4 +155,23 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+//- (void)addButton {
+//    UIButton *alertButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    alertButton.frame = CGRectMake(0, 0, 60, 20);
+//    alertButton.translatesAutoresizingMaskIntoConstraints = NO;
+//    alertButton.backgroundColor = [UIColor purpleColor];
+//
+//    [self.view insertSubview:alertButton aboveSubview:self.mapView];
+//
+////    [NSLayoutConstraint activateConstraints:@[
+////                                              [NSLayoutConstraint constraintWithItem:alertButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.mapView.attributionButton attribute:NSLayoutAttributeBottom multiplier:1.0 constant:1.0]
+////                                              ]
+////     ];
+//    [NSLayoutConstraint activateConstraints:@[
+//                                              [NSLayoutConstraint constraintWithItem:alertButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.mapView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:1.0]
+//                                              ]
+//     ];
+//
+//    [alertButton addTarget:self action:@selector(presentActionSheet) forControlEvents:UIControlEventTouchUpInside];
+//}
 @end

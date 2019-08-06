@@ -31,9 +31,8 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
         /* Add a bar button. Tapping this button will present a menu of options. For this example, the cache is managed through the UI. It can also be managed by developers through remote notifications.
          For more information about managing remote notifications in your iOS app, see the Apple "UserNotifications" documentation: https://developer.apple.com/documentation/usernotifications
  */
-        let alertButton = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(presentActionSheet))
-
-        self.navigationController?.navigationItem.setRightBarButton(alertButton, animated: false)
+        let alertButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(presentActionSheet))
+        parent?.navigationItem.setRightBarButton(alertButton, animated: false)
 
     }
 
