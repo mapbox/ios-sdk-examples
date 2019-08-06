@@ -144,7 +144,7 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
 
         [self.alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     }
-
+    self.alertController.popoverPresentationController.sourceView = self.mapView;
     [self presentViewController:self.alertController animated:YES completion:nil];
 }
 
