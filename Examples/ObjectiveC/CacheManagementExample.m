@@ -36,7 +36,7 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
     // Add a bar button. Tapping this button will present a menu of options. For this example, the cache is managed through the UI. It can also be managed by developers through remote notifications.
     // For more information about managing remote notifications in your iOS app, see the Apple "UserNotifications" documentation: https://developer.apple.com/documentation/usernotifications?language=objc
     UIBarButtonItem *alertButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(presentActionSheet)];
-        [self.parentViewController.navigationItem setRightBarButtonItem:alertButton];
+    [self.parentViewController.navigationItem setRightBarButtonItem:alertButton];
 }
 
 #pragma mark: Cache management methods called by action sheet
