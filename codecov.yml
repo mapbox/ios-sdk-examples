@@ -2,3 +2,8 @@ ignore:
   - "ExamplesTests/"
   - "ExamplesUITests/"
   - "Examples/Testing Categories"
+coverage:
+  status:
+    project:
+      default:
+        threshold: 2
