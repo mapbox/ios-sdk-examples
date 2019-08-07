@@ -9,6 +9,7 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
 @property (nonatomic) MGLShapeSource *polylineSource;
 @property (nonatomic) NSArray<CLLocation *> *locations;
 @property (nonatomic) NSInteger currentIndex;
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -58,12 +59,12 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
     self.currentIndex = 1;
 
     // Start a timer that will simulate adding points to our polyline. This could also represent coordinates being added to our polyline from another source, such as a CLLocationManagerDelegate.
-    [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(tick:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(tick:) userInfo:nil repeats:YES];
 }
 
 - (void)tick:(NSTimer*)timer {
     if (self.currentIndex > self.locations.count) {
-        [timer invalidate];
+        [self.timer invalidate];
         return;
     }
 
