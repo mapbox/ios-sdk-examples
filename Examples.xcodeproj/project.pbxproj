@@ -1493,7 +1493,6 @@
 				055ABCC31EFB14AE0063BACA /* PolygonPatternExample.swift in Sources */,
 				646B62AE1DEF7155000AA523 /* LineStyleLayerExample.swift in Sources */,
 				3EBCD71F1DC28240001E342F /* DefaultStylesExample.swift in Sources */,
-				A4D01B5122DE623700595A37 /* (null) in Sources */,
 				DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */,
 				3E22EF4F1F87F10C00605203 /* ImageSourceExample.swift in Sources */,
 				969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */,
