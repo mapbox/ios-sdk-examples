@@ -16,8 +16,8 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
     /* Set the maximum ambient cache size in bytes. Call this method before the map view is loaded.
 
      The ambient cache is created through the end user loading and using a map view. */
-    NSUInteger maxCacheSize = 62914560;
-    [[MGLOfflineStorage sharedOfflineStorage] setMaximumAmbientCacheSize:maxCacheSize withCompletionHandler:^(NSError * _Nullable error) {
+    NSUInteger maximumCacheSizeInBytes = 62914560;
+    [[MGLOfflineStorage sharedOfflineStorage] setMaximumAmbientCacheSize:maximumCacheSizeInBytes withCompletionHandler:^(NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Unable to set maximum ambient cache size: %@", error.localizedDescription);
         }

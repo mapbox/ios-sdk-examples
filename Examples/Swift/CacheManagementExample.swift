@@ -12,8 +12,8 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
         /* Set the maximum ambient cache size in bytes. Call this method before the map view is loaded.
 
          The ambient cache is created through the end user loading and using a map view. */
-        let maxCacheSize = UInt(62914560)
-        MGLOfflineStorage.shared.setMaximumAmbientCacheSize(maxCacheSize) { (error) in
+        let maximumCacheSizeInBytes = UInt(62914560)
+        MGLOfflineStorage.shared.setMaximumAmbientCacheSize(maximumCacheSizeInBytes) { (error) in
             guard error == nil else {
                 print("Unable to set maximum ambient cache size: \(error?.localizedDescription ?? "error")")
                 return
