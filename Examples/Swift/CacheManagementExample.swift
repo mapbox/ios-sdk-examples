@@ -59,7 +59,6 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
 
     // Check whether the local offline tiles match those on the tile server. If the local tiles are out-of-date, they will be updated. Invalidating an offline pack is preferred to removing and reinstalling the pack.
     func invalidateOfflinePack() {
-
         if let pack = MGLOfflineStorage.shared.packs?.first {
             let start = CACurrentMediaTime()
             MGLOfflineStorage.shared.invalidatePack(pack) { (error) in
