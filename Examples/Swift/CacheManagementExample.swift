@@ -5,7 +5,6 @@ import Mapbox
 class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
 
     var mapView: MGLMapView!
-    var alertController: UIAlertController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +32,6 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
  */
         let alertButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(presentActionSheet))
         parent?.navigationItem.setRightBarButton(alertButton, animated: false)
-
     }
 
     // MARK: Cache management methods called by action sheet
@@ -49,7 +47,9 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
             }
             let difference = CACurrentMediaTime() - start
            // Display an alert to indicate that the invalidation is complete.
-            self.presentCompletionAlertWithContent(title: "Invalidated Ambient Cache", message: "Invalidated ambient cache in \(difference) seconds")
+            DispatchQueue.main.async { [unowned self] in
+                self.presentCompletionAlertWithContent(title: "Invalidated Ambient Cache", message: "Invalidated ambient cache in \(difference) seconds")
+            }
         }
     }
 
@@ -66,7 +66,10 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
                 }
                 let difference = CACurrentMediaTime() - start
                // Display an alert to indicate that the invalidation is complete.
-                self.presentCompletionAlertWithContent(title: "Offline Pack Invalidated", message: "Invalidated offline pack in \(difference) seconds")            }
+                DispatchQueue.main.async { [unowned self] in
+                    self.presentCompletionAlertWithContent(title: "Offline Pack Invalidated", message: "Invalidated offline pack in \(difference) seconds")
+                }
+            }
         }
     }
 
@@ -80,7 +83,9 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
             }
             let difference = CACurrentMediaTime() - start
            // Display an alert to indicate that the ambient cache has been cleared.
-            self.presentCompletionAlertWithContent(title: "Cleared Ambient Cache", message: "Ambient cache has been cleared in \(difference) seconds.")
+            DispatchQueue.main.async { [unowned self] in
+                self.presentCompletionAlertWithContent(title: "Cleared Ambient Cache", message: "Ambient cache has been cleared in \(difference) seconds.")
+            }
         }
     }
 
@@ -95,7 +100,9 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
             let difference = CACurrentMediaTime() - start
 
             // Display an alert to indicate that the cache.db file has been reset.
-            self.presentCompletionAlertWithContent(title: "Database Reset", message: "The cache.db file has been reset in \(difference) seconds.")
+            DispatchQueue.main.async { [unowned self] in
+                self.presentCompletionAlertWithContent(title: "Database Reset", message: "The cache.db file has been reset in \(difference) seconds.")
+            }
         }
     }
 
@@ -118,22 +125,20 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
 
     // Create an action sheet that handles the cache management.
     @objc func presentActionSheet() {
-        if (alertController == nil) {
-            alertController = UIAlertController(title: "Cache Management Options", message: nil, preferredStyle: .actionSheet)
-            alertController.addAction(UIAlertAction(title: "Invalidate Ambient Cache", style: .default, handler: { (action) in
-                self.invalidateAmbientCache()
-            }))
-            alertController.addAction(UIAlertAction(title: "Invalidate Offline Pack", style: .default, handler: { (action) in
-                self.invalidateOfflinePack()
-            }))
-            alertController.addAction(UIAlertAction(title: "Clear Ambient Cache", style: .default, handler: { (action) in
-                self.clearAmbientCache()
-            }))
-            alertController.addAction(UIAlertAction(title: "Reset Database", style: .default, handler: { (action) in
-                self.resetDatabase()
-            }))
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        }
+        let alertController = UIAlertController(title: "Cache Management Options", message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Invalidate Ambient Cache", style: .default, handler: { (action) in
+            self.invalidateAmbientCache()
+        }))
+        alertController.addAction(UIAlertAction(title: "Invalidate Offline Pack", style: .default, handler: { (action) in
+            self.invalidateOfflinePack()
+        }))
+        alertController.addAction(UIAlertAction(title: "Clear Ambient Cache", style: .default, handler: { (action) in
+            self.clearAmbientCache()
+        }))
+        alertController.addAction(UIAlertAction(title: "Reset Database", style: .default, handler: { (action) in
+            self.resetDatabase()
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         alertController.popoverPresentationController?
             .sourceView = mapView
@@ -144,6 +149,6 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
         let completionController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         completionController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
 
-        self.present(completionController, animated: false, completion: nil)
+        present(completionController, animated: false, completion: nil)
     }
 }

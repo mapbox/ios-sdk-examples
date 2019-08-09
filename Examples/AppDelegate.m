@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-@import Mapbox;
 
 @interface AppDelegate ()
 
@@ -20,6 +19,7 @@ NSString * const MBXMapboxAccessTokenDefaultsKey = @"MBXMapboxAccessToken";
     if ([[NSProcessInfo processInfo].arguments containsObject:@"useFastAnimations"]) {
         self.window.layer.speed = 100;
     }
+
     return YES;
 }
 

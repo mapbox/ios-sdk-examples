@@ -6,7 +6,6 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
 @interface CacheManagementExample () <MGLMapViewDelegate>
 
 @property (nonatomic) MGLMapView *mapView;
-@property (nonatomic) UIAlertController *alertController;
 @end
 
 @implementation CacheManagementExample
@@ -39,7 +38,7 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
     [self.parentViewController.navigationItem setRightBarButtonItem:alertButton];
 }
 
-#pragma mark: Cache management methods called by action sheet
+#pragma mark Cache management methods called by action sheet
 
 // Check whether the tiles locally cached match those on the tile server. If the local tiles are out-of-date, they will be updated. Invalidating the ambient cache is preferred to clearing the cache. Tiles shared with offline packs will not be affected by this method.
 - (void)invalidateAmbientCache {
@@ -52,7 +51,10 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
             CFTimeInterval difference = CACurrentMediaTime() - start;
 
             // Display an alert to indicate that the invalidation is complete.
-            [self presentCompletionAlertWithTitle:@"Ambient Cache Invalidated" andMessage: [NSString stringWithFormat: @"Invalidated ambient cache in %f seconds", difference]];
+            __weak typeof(self) weakSelf = self;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf presentCompletionAlertWithTitle:@"Ambient Cache Invalidated" andMessage: [NSString stringWithFormat: @"Invalidated ambient cache in %f seconds", difference]];
+            });
         }
     }];
 }
@@ -69,8 +71,11 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
         }
         CFTimeInterval difference = CACurrentMediaTime() - start;
 
-        /// Display an alert to indicate that the invalidation is complete.
-        [self presentCompletionAlertWithTitle:@"Offline Pack Invalidated" andMessage: [NSString stringWithFormat: @"Invalidated offline pack in %f seconds", difference]];
+        // Display an alert to indicate that the invalidation is complete.
+        __weak typeof(self) weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf presentCompletionAlertWithTitle:@"Offline Pack Invalidated" andMessage: [NSString stringWithFormat: @"Invalidated offline pack in %f seconds", difference]];
+        });
     }];
 }
 
@@ -85,7 +90,10 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
         CFTimeInterval difference = CACurrentMediaTime() - start;
 
         // Display an alert to indicate that the deletion is complete.
-        [self presentCompletionAlertWithTitle:@"Ambient Cache Cleared" andMessage: [NSString stringWithFormat: @"Cleared ambient cache in %f seconds", difference]];
+        __weak typeof(self) weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf presentCompletionAlertWithTitle:@"Ambient Cache Cleared" andMessage: [NSString stringWithFormat: @"Cleared ambient cache in %f seconds", difference]];
+        });
     }];
 }
 
@@ -100,7 +108,10 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
         CFTimeInterval difference = CACurrentMediaTime() - start;
 
         // Display an alert to indicate that the cache.db file has been reset.
-        [self presentCompletionAlertWithTitle:@"Database reset" andMessage: [NSString stringWithFormat: @"Reset database in %f seconds", difference]];
+         __weak typeof(self) weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf presentCompletionAlertWithTitle:@"Database reset" andMessage: [NSString stringWithFormat: @"Reset database in %f seconds", difference]];
+        });
     }];
 }
 
@@ -115,37 +126,34 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
             NSLog(@"Error: %@", error.localizedDescription);
             return;
         }
-
         [pack resume];
     }];
 
 }
-# pragma mark: Add UI components
+# pragma mark Add UI components
 - (void)presentActionSheet {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cache Management Options" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 
-    if (!self.alertController) {
-        self.alertController = [UIAlertController alertControllerWithTitle:@"Cache Management Options" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Invalidate Ambient Cache" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self invalidateAmbientCache];
+    }]];
 
-        [self.alertController addAction:[UIAlertAction actionWithTitle:@"Invalidate Ambient Cache" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self invalidateAmbientCache];
-        }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Invalidate Offline Pack" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self invalidateOfflinePack];
+    }]];
 
-         [self.alertController addAction:[UIAlertAction actionWithTitle:@"Invalidate Offline Pack" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self invalidateOfflinePack];
-        }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Clear Ambient Cache" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self clearAmbientCache];
+    }]];
 
-          [self.alertController addAction:[UIAlertAction actionWithTitle:@"Clear Ambient Cache" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-             [self clearAmbientCache];
-         }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Reset Database" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self resetDatabase];
+    }]];
 
-           [self.alertController addAction:[UIAlertAction actionWithTitle:@"Reset Database" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-              [self resetDatabase];
-          }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
 
-        [self.alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
-    }
-    self.alertController.popoverPresentationController.sourceView = self.mapView;
-    [self presentViewController:self.alertController animated:YES completion:nil];
+    alertController.popoverPresentationController.sourceView = self.mapView;
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)presentCompletionAlertWithTitle:(NSString *)title andMessage:(NSString *)message {
