@@ -17,16 +17,13 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
 
      The ambient cache is created through the end user loading and using a map view. */
     NSUInteger maximumCacheSizeInBytes = 62914560;
+
     [[MGLOfflineStorage sharedOfflineStorage] setMaximumAmbientCacheSize:maximumCacheSizeInBytes withCompletionHandler:^(NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Unable to set maximum ambient cache size: %@", error.localizedDescription);
         }
 
-        self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
-        self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.mapView.delegate = self;
-
-        [self.view addSubview:self.mapView];
+        [self setupMapView];
 
         // Create an offline pack.
         [self addOfflinePack];
@@ -36,6 +33,14 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
     // For more information about managing remote notifications in your iOS app, see the Apple "UserNotifications" documentation: https://developer.apple.com/documentation/usernotifications?language=objc
     UIBarButtonItem *alertButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(presentActionSheet)];
     [self.parentViewController.navigationItem setRightBarButtonItem:alertButton];
+}
+
+- (void)setupMapView {
+    self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.mapView.delegate = self;
+
+    [self.view addSubview:self.mapView];
 }
 
 #pragma mark Cache management methods called by action sheet

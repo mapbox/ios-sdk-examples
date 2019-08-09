@@ -18,10 +18,8 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
                 print("Unable to set maximum ambient cache size: \(error?.localizedDescription ?? "error")")
                 return
             }
-            self.mapView = MGLMapView(frame: self.view.bounds, styleURL: MGLStyle.streetsStyleURL)
-            self.mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            self.mapView.delegate = self
-            self.view.addSubview(self.mapView)
+
+            self.setupMapView()
 
             // Create an offline pack.
             self.addOfflinePack()
@@ -32,6 +30,13 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
  */
         let alertButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(presentActionSheet))
         parent?.navigationItem.setRightBarButton(alertButton, animated: false)
+    }
+
+    func setupMapView() {
+        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL)
+        mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        mapView.delegate = self
+        view.addSubview(mapView)
     }
 
     // MARK: Cache management methods called by action sheet
