@@ -22,10 +22,13 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
             NSLog(@"Unable to set maximum ambient cache size: %@", error.localizedDescription);
         }
 
-        [self setupMapView];
+        __weak typeof(self) weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf setupMapView];
 
-        // Create an offline pack.
-        [self addOfflinePack];
+            // Create an offline pack.
+            [weakSelf addOfflinePack];
+        });
     }];
 
     // Add a bar button. Tapping this button will present a menu of options. For this example, the cache is managed through the UI. It can also be managed by developers through remote notifications.

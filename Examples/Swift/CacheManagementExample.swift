@@ -14,15 +14,18 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
          The ambient cache is created through the end user loading and using a map view. */
         let maximumCacheSizeInBytes = UInt(64 * 1024 * 1024)
         MGLOfflineStorage.shared.setMaximumAmbientCacheSize(maximumCacheSizeInBytes) { (error) in
+
             guard error == nil else {
                 print("Unable to set maximum ambient cache size: \(error?.localizedDescription ?? "error")")
                 return
             }
 
-            self.setupMapView()
+            DispatchQueue.main.async { [unowned self] in
+                self.setupMapView()
 
-            // Create an offline pack.
-            self.addOfflinePack()
+                // Create an offline pack.
+                self.addOfflinePack()
+            }
         }
 
         /* Add a bar button. Tapping this button will present a menu of options. For this example, the cache is managed through the UI. It can also be managed by developers through remote notifications.
@@ -143,8 +146,7 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
-        alertController.popoverPresentationController?
-            .sourceView = mapView
+        alertController.popoverPresentationController?.sourceView = mapView
         present(alertController, animated: true, completion: nil)
     }
 
