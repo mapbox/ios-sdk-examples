@@ -1418,7 +1418,6 @@
 				07C138C01E6F646F00D6F678 /* MultipleShapesExample.m in Sources */,
 				3EBCD7291DC28240001E342F /* UserTrackingModesExample.swift in Sources */,
 				05536CB5200F9EEB00657097 /* SwitchStylesExample.swift in Sources */,
-				A4D01B4E22DE5F8300595A37 /* (null) in Sources */,
 				646B62A61DEF7121000AA523 /* AnimatedLineExample.m in Sources */,
 				9691AAA71C5AAD8F006A58C6 /* StudioStyleExample.m in Sources */,
 				9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */,
