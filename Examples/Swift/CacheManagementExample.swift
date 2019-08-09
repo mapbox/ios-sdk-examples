@@ -12,7 +12,7 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
         /* Set the maximum ambient cache size in bytes. Call this method before the map view is loaded.
 
          The ambient cache is created through the end user loading and using a map view. */
-        let maximumCacheSizeInBytes = UInt(62914560)
+        let maximumCacheSizeInBytes = UInt(64 * 1024 * 1024)
         MGLOfflineStorage.shared.setMaximumAmbientCacheSize(maximumCacheSizeInBytes) { (error) in
             guard error == nil else {
                 print("Unable to set maximum ambient cache size: \(error?.localizedDescription ?? "error")")
@@ -42,7 +42,6 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
     // MARK: Cache management methods called by action sheet
 
     // Check whether the tiles locally cached match those on the tile server. If the local tiles are out-of-date, they will be updated. Invalidating the ambient cache is preferred to clearing the cache. Tiles shared with offline packs will not be affected by this method.
-
     func invalidateAmbientCache() {
         let start = CACurrentMediaTime()
         MGLOfflineStorage.shared.invalidateAmbientCache { (error) in
