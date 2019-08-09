@@ -4,7 +4,6 @@
 NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
 
 @interface CacheManagementExample () <MGLMapViewDelegate>
-
 @property (nonatomic) MGLMapView *mapView;
 @end
 
