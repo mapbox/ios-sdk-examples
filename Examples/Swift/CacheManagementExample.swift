@@ -2,7 +2,7 @@ import Mapbox
 
 @objc(CacheManagementExample_Swift)
 
-class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
+class CacheManagementExample_Swift: UIViewController {
 
     var mapView: MGLMapView!
 
@@ -29,8 +29,7 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
         }
 
         /* Add a bar button. Tapping this button will present a menu of options. For this example, the cache is managed through the UI. It can also be managed by developers through remote notifications.
-         For more information about managing remote notifications in your iOS app, see the Apple "UserNotifications" documentation: https://developer.apple.com/documentation/usernotifications
- */
+         For more information about managing remote notifications in your iOS app, see the Apple "UserNotifications" documentation: https://developer.apple.com/documentation/usernotifications */
         let alertButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(presentActionSheet))
         parent?.navigationItem.setRightBarButton(alertButton, animated: false)
     }
@@ -38,7 +37,6 @@ class CacheManagementExample_Swift: UIViewController, MGLMapViewDelegate {
     func setupMapView() {
         mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL)
         mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        mapView.delegate = self
         view.addSubview(mapView)
     }
 

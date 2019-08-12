@@ -3,7 +3,7 @@
 
 NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
 
-@interface CacheManagementExample () <MGLMapViewDelegate>
+@interface CacheManagementExample ()
 @property (nonatomic) MGLMapView *mapView;
 @end
 
@@ -40,7 +40,6 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
 - (void)setupMapView {
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.mapView.delegate = self;
 
     [self.view addSubview:self.mapView];
 }
