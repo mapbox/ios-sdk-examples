@@ -137,6 +137,7 @@ NSString *const MBXExampleCacheManagement = @"CacheManagementExample";
     }];
 
 }
+
 # pragma mark Add UI components
 - (void)presentActionSheet {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cache Management Options" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
