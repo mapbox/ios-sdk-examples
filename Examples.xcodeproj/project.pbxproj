@@ -130,6 +130,8 @@
 		96BAED2E1FE304DD00A58BEB /* PointConversionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BAED2D1FE304DD00A58BEB /* PointConversionExample.m */; };
 		96D431FC1C84B4F7007D09D1 /* ImageAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D431FB1C84B4F7007D09D1 /* ImageAnnotationExample.m */; };
 		96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D432051C84B9CF007D09D1 /* pisavector.xcassets */; };
+		A42F4A4D22EF9A79005097F3 /* CacheManagementExample.m in Sources */ = {isa = PBXBuildFile; fileRef = A42F4A4C22EF9A79005097F3 /* CacheManagementExample.m */; };
+		A42F4A5122EF9ACD005097F3 /* CacheManagementExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F4A5022EF9ACD005097F3 /* CacheManagementExample.swift */; };
 		BBD05676206B24335DEA52C4 /* Pods_ExamplesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7692D1D792EB3849E8754E6B /* Pods_ExamplesUITests.framework */; };
 		CA39B2BF209B881300D37037 /* BuildingLightExample+UITesting.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39B2BA209B881300D37037 /* BuildingLightExample+UITesting.m */; };
 		CA39B2C0209B881300D37037 /* AnimatedLineExample+UITesting.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39B2BB209B881300D37037 /* AnimatedLineExample+UITesting.m */; };
@@ -387,6 +389,9 @@
 		976D90ED8B2046B3B8A6C39C /* Pods-Shared-DocsCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-DocsCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shared-DocsCode/Pods-Shared-DocsCode.release.xcconfig"; sourceTree = "<group>"; };
 		9A1ECC25B13FE3249B26BE0A /* Pods-Shared-DocsCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-DocsCode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shared-DocsCode/Pods-Shared-DocsCode.debug.xcconfig"; sourceTree = "<group>"; };
 		9EC12D8F1A97963D68BFA871 /* Pods_Examples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Examples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A42F4A4C22EF9A79005097F3 /* CacheManagementExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheManagementExample.m; sourceTree = "<group>"; };
+		A42F4A4E22EF9A93005097F3 /* CacheManagementExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CacheManagementExample.h; sourceTree = "<group>"; };
+		A42F4A5022EF9ACD005097F3 /* CacheManagementExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManagementExample.swift; sourceTree = "<group>"; };
 		B81679E7B93FDEBBFB42646A /* Pods-DocsCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocsCode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode.debug.xcconfig"; sourceTree = "<group>"; };
 		C057E98F506AAA58F0473788 /* Pods-Shared-Examples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-Examples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shared-Examples/Pods-Shared-Examples.debug.xcconfig"; sourceTree = "<group>"; };
 		CA39B2BA209B881300D37037 /* BuildingLightExample+UITesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BuildingLightExample+UITesting.m"; sourceTree = "<group>"; };
@@ -708,6 +713,7 @@
 			isa = PBXGroup;
 			children = (
 				0543F64E1FE8697800D0AF54 /* 3D */,
+				A42F4A4B22EF9A45005097F3 /* Advanced */,
 				0543F64C1FE868EE00D0AF54 /* Dynamic styling */,
 				0543F6481FE8688E00D0AF54 /* Getting started */,
 				0543F64B1FE868DB00D0AF54 /* Lines and polygons */,
@@ -724,6 +730,7 @@
 			isa = PBXGroup;
 			children = (
 				0543F6461FE8679C00D0AF54 /* 3D */,
+				A42F4A4F22EF9AA2005097F3 /* Advanced */,
 				0543F6441FE8678D00D0AF54 /* Dynamic styling */,
 				0543F6401FE8671100D0AF54 /* Getting started */,
 				0543F6431FE8678500D0AF54 /* Lines and polygons */,
@@ -841,6 +848,7 @@
 				1F1F84731E538ABB00332CC3 /* BlockingGesturesDelegateExample.h */,
 				3E085B811EC526E500163C99 /* BuildingsExample.h */,
 				3E3FB66C1F0588B3004512C6 /* BuildingLightExample.h */,
+				A42F4A4E22EF9A93005097F3 /* CacheManagementExample.h */,
 				968247251C5C1DC700494AB8 /* CameraAnimationExample.h */,
 				3ED403461E006BE800230C95 /* CameraFlyToExample.h */,
 				DDF943271E5DE63300545D0F /* ClusteringExample.h */,
@@ -899,6 +907,22 @@
 			);
 			name = Code;
 			path = ObjectiveC;
+			sourceTree = "<group>";
+		};
+		A42F4A4B22EF9A45005097F3 /* Advanced */ = {
+			isa = PBXGroup;
+			children = (
+				A42F4A4C22EF9A79005097F3 /* CacheManagementExample.m */,
+			);
+			name = Advanced;
+			sourceTree = "<group>";
+		};
+		A42F4A4F22EF9AA2005097F3 /* Advanced */ = {
+			isa = PBXGroup;
+			children = (
+				A42F4A5022EF9ACD005097F3 /* CacheManagementExample.swift */,
+			);
+			name = Advanced;
 			sourceTree = "<group>";
 		};
 		C977D0AF4A14922071F96B9B /* Pods */ = {
@@ -1369,6 +1393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A42F4A4D22EF9A79005097F3 /* CacheManagementExample.m in Sources */,
 				3E3FB6711F058A18004512C6 /* PointHotspotExample.m in Sources */,
 				1F07015F225553F60045E061 /* MissingIconsExample.m in Sources */,
 				1F07015A22541F2A0045E061 /* LabelPlacementExample.m in Sources */,
@@ -1471,6 +1496,7 @@
 				DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */,
 				3E22EF4F1F87F10C00605203 /* ImageSourceExample.swift in Sources */,
 				969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */,
+				A42F4A5122EF9ACD005097F3 /* CacheManagementExample.swift in Sources */,
 				05FA53A11FE2FA1E001F3D7D /* PolygonPatternExample.m in Sources */,
 				3E3FB66E1F0588B3004512C6 /* BuildingLightExample.m in Sources */,
 				968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */,

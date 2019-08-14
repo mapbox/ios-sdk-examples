@@ -100,7 +100,14 @@
                     @{@"className": MBXExampleStaticSnapshot, @"title": @"Create a static map snapshot"},
                     @{@"className": MBXExampleOfflinePack, @"title": @"Download an offline map"},
                     ]
-        }
+        },
+        @{
+            @"title": @"Advanced",
+            @"examples":@[
+                    @{ @"className": MBXExampleCacheManagement,
+                        @"title": @"Use cache management methods"},
+                    ]
+            }
     ]];
 
     NSMutableArray *objcCategories = [[NSMutableArray alloc] init];
