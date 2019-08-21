@@ -83,10 +83,10 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
     CGFloat max = _size / 2;
     CGFloat pad = 3;
     
-    CGPoint top =    CGPointMake(max * 0.5, 0);
-    CGPoint left =   CGPointMake(0 + pad,   max - pad);
-    CGPoint right =  CGPointMake(max - pad, max - pad);
-    CGPoint center = CGPointMake(max * 0.5, max * 0.6);
+    CGPoint top =    CGPointMake(max * 0.5f, 0);
+    CGPoint left =   CGPointMake(0 + pad,    max - pad);
+    CGPoint right =  CGPointMake(max - pad,  max - pad);
+    CGPoint center = CGPointMake(max * 0.5f, max * 0.6f);
     
     UIBezierPath *bezierPath = [UIBezierPath bezierPath];
     [bezierPath moveToPoint:top];

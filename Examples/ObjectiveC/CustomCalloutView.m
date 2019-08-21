@@ -81,7 +81,7 @@ static CGFloat const tipWidth = 20.0;
     // Prepare our frame, adding extra space at the bottom for the tip.
     CGFloat frameWidth = self.mainBody.bounds.size.width;
     CGFloat frameHeight = self.mainBody.bounds.size.height + tipHeight;
-    CGFloat frameOriginX = rect.origin.x + (rect.size.width/2.0) - (frameWidth/2.0);
+    CGFloat frameOriginX = rect.origin.x + (rect.size.width/2.0f) - (frameWidth/2.0f);
     CGFloat frameOriginY = rect.origin.y - frameHeight;
     self.frame = CGRectMake(frameOriginX, frameOriginY,
                             frameWidth, frameHeight);
@@ -173,8 +173,8 @@ static CGFloat const tipWidth = 20.0;
     // Draw the pointed tip at the bottom
     UIColor *fillColor = [self backgroundColorForCallout];
 
-    CGFloat tipLeft = rect.origin.x + (rect.size.width / 2.0) - (tipWidth / 2.0);
-    CGPoint tipBottom = CGPointMake(rect.origin.x + (rect.size.width / 2.0), rect.origin.y + rect.size.height);
+    CGFloat tipLeft = rect.origin.x + (rect.size.width / 2.0f) - (tipWidth / 2.0f);
+    CGPoint tipBottom = CGPointMake(rect.origin.x + (rect.size.width / 2.0f), rect.origin.y + rect.size.height);
     CGFloat heightWithoutTip = rect.size.height - tipHeight - 1;
 
     CGContextRef currentContext = UIGraphicsGetCurrentContext();

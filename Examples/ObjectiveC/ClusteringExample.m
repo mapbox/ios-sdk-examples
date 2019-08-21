@@ -72,7 +72,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
     MGLSymbolStyleLayer *ports = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"ports" source:source];
     ports.iconImageName = [NSExpression expressionForConstantValue:@"icon"];
     ports.iconAllowsOverlap = [NSExpression expressionForConstantValue:@(YES)];
-    ports.iconColor = [NSExpression expressionForConstantValue:[[UIColor darkGrayColor] colorWithAlphaComponent:0.9]];
+    ports.iconColor = [NSExpression expressionForConstantValue:[[UIColor darkGrayColor] colorWithAlphaComponent:0.9f]];
     ports.predicate = [NSPredicate predicateWithFormat:@"cluster != YES"];
     [style addLayer:ports];
 
@@ -220,7 +220,7 @@ NSString *const MBXExampleClustering = @"ClusteringExample";
 - (UIView *)popupAtCoordinate:(CLLocationCoordinate2D)coordinate withDescription:(NSString *)description textColor:(UIColor *)textColor {
     UILabel *popup = [[UILabel alloc] init];
     
-    popup.backgroundColor     = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
+    popup.backgroundColor     = [[UIColor whiteColor] colorWithAlphaComponent:0.9f];
     popup.layer.cornerRadius  = 4;
     popup.layer.masksToBounds = YES;
     popup.textAlignment       = NSTextAlignmentCenter;
