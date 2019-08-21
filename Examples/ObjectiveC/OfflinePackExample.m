@@ -34,8 +34,20 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
     [self startOfflinePackDownload];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+
+    // When leaving this view controller, suspend offline downloads.
+    for (MGLOfflinePack *pack in MGLOfflineStorage.sharedOfflineStorage.packs) {
+        NSDictionary *userInfo = [NSKeyedUnarchiver unarchiveObjectWithData:pack.context];
+        NSLog(@"Suspending download of offline pack: %@", userInfo[@"name"]);
+        [pack suspend];
+    }
+}
+
 - (void)dealloc {
     // Remove offline pack observers.
+    NSLog(@"Removing offline pack notification observers");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
