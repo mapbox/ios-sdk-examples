@@ -29,8 +29,22 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         startOfflinePackDownload()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        // When leaving this view controller, suspend offline downloads.
+        guard let packs = MGLOfflineStorage.shared.packs else { return }
+        for pack in packs {
+            if let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String] {
+                print("Suspending download of offline pack: “\(userInfo["name"] ?? "unknown")”")
+            }
+            pack.suspend()
+        }
+    }
+
     deinit {
         // Remove offline pack observers.
+        print("Removing offline pack notification observers")
         NotificationCenter.default.removeObserver(self)
     }
 
@@ -89,7 +103,7 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
                 print("Offline pack “\(userInfo["name"] ?? "unknown")” completed: \(byteCount), \(completedResources) resources")
             } else {
                 // Otherwise, print download/verification progress.
-                print("Offline pack “\(userInfo["name"] ?? "unknown")” has \(completedResources) of \(expectedResources) resources — \(progressPercentage * 100)%.")
+                print("Offline pack “\(userInfo["name"] ?? "unknown")” has \(completedResources) of \(expectedResources) resources — \(String(format: "%.2f", progressPercentage * 100))%.")
             }
         }
     }
