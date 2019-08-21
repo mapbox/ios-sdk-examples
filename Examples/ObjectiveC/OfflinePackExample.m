@@ -30,7 +30,7 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
 }
 
 - (void)mapViewDidFinishLoadingMap:(MGLMapView *)mapView {
-    // Start downloading tiles and resources for z13-16.
+    // Start downloading tiles and resources for z13-14.
     [self startOfflinePackDownload];
 }
 
@@ -54,7 +54,7 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
 - (void)startOfflinePackDownload {
     // Create a region that includes the current viewport and any tiles needed to view it when zoomed further in.
     // Because tile count grows exponentially with the maximum zoom level, you should be conservative with your `toZoomLevel` setting.
-    id <MGLOfflineRegion> region = [[MGLTilePyramidOfflineRegion alloc] initWithStyleURL:self.mapView.styleURL bounds:self.mapView.visibleCoordinateBounds fromZoomLevel:self.mapView.zoomLevel toZoomLevel:16];
+    id <MGLOfflineRegion> region = [[MGLTilePyramidOfflineRegion alloc] initWithStyleURL:self.mapView.styleURL bounds:self.mapView.visibleCoordinateBounds fromZoomLevel:self.mapView.zoomLevel toZoomLevel:14];
 
     // Store some data for identification purposes alongside the downloaded resources.
     NSDictionary *userInfo = @{ @"name": @"My Offline Pack" };
