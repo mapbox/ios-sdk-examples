@@ -25,8 +25,8 @@ NSString *const MBXExampleFormattingExpression = @"TextFormattingExample";
     
     UISegmentedControl *styleToggle =[[UISegmentedControl alloc] initWithItems:@[@"Expression", @"JSON"]];
     styleToggle.translatesAutoresizingMaskIntoConstraints = NO;
-    styleToggle.tintColor = [UIColor colorWithRed:0.976 green:0.843 blue:0.831 alpha:1];
-    styleToggle.backgroundColor = [UIColor colorWithRed:0.973 green:0.329 blue:0.294 alpha:1];
+    styleToggle.tintColor = [UIColor colorWithRed:0.976f green:0.843f blue:0.831f alpha:1];
+    styleToggle.backgroundColor = [UIColor colorWithRed:0.973f green:0.329f blue:0.294f alpha:1];
     styleToggle.layer.cornerRadius = 4;
     styleToggle.clipsToBounds = YES;
     [self.view insertSubview:styleToggle aboveSubview:self.mapView];

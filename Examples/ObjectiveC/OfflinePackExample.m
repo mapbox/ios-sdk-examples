@@ -80,7 +80,7 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
     if (!self.progressView) {
         self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
         CGSize frame = self.view.bounds.size;
-        self.progressView.frame = CGRectMake(frame.width / 4, frame.height * 0.75, frame.width / 2, 10);
+        self.progressView.frame = CGRectMake(frame.width / 4, frame.height * 0.75f, frame.width / 2, 10);
         [self.view addSubview:self.progressView];
     }
 

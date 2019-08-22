@@ -19,7 +19,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 - (instancetype)initWithButtonSize:(CGFloat)buttonSize {
     if (self = [super init]) {
         self.frame = CGRectMake(0, 0, buttonSize, buttonSize);
-        self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
+        self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9f];
         self.layer.cornerRadius = 4;
         self.buttonSize = buttonSize;
         
@@ -50,11 +50,11 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
 - (CGPathRef)arrowPath {
     UIBezierPath *bezierPath = [[UIBezierPath alloc] init];
     CGFloat max = self.buttonSize / 2;
-    [bezierPath moveToPoint:CGPointMake(max * 0.5, 0)];
-    [bezierPath addLineToPoint:CGPointMake(max * 0.1, max)];
-    [bezierPath addLineToPoint:CGPointMake(max * 0.5, max * 0.65)];
-    [bezierPath addLineToPoint:CGPointMake(max * 0.9, max)];
-    [bezierPath addLineToPoint:CGPointMake(max * 0.5, 0)];
+    [bezierPath moveToPoint:CGPointMake(max * 0.5f,    0)];
+    [bezierPath addLineToPoint:CGPointMake(max * 0.1f, max)];
+    [bezierPath addLineToPoint:CGPointMake(max * 0.5f, max * 0.65f)];
+    [bezierPath addLineToPoint:CGPointMake(max * 0.9f, max)];
+    [bezierPath addLineToPoint:CGPointMake(max * 0.5f, 0)];
     [bezierPath closePath];
     
     return bezierPath.CGPath;
@@ -65,7 +65,7 @@ NSString *const MBXExampleUserTrackingModes = @"UserTrackingModesExample";
     UIColor *activePrimaryColor = UIColor.redColor;
     UIColor *disabledPrimaryColor = UIColor.clearColor;
     UIColor *disabledSecondaryColor = UIColor.blackColor;
-    CGFloat rotatedArrow = 0.66;
+    CGFloat rotatedArrow = 0.66f;
     
     switch (mode) {
         case MGLUserTrackingModeNone:

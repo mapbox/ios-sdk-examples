@@ -46,7 +46,7 @@ NSString *const MBXExampleWebAPIData = @"WebAPIDataExample";
     MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"lighthouses" features:features options:nil];
     [self.mapView.style addSource:source];
 
-    UIColor *lighthouseColor = [UIColor colorWithRed:0.08 green:0.44 blue:0.96 alpha:1.0];
+    UIColor *lighthouseColor = [UIColor colorWithRed:0.08f green:0.44f blue:0.96f alpha:1];
 
     // Use MGLCircleStyleLayer to represent the points with simple circles.
     // In this case, we can use style functions to gradually change properties between zoom level 2 and 7: the circle opacity from 50% to 100% and the circle radius from 2pt to 3pt.

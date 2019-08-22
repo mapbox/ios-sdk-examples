@@ -54,7 +54,7 @@ NSString *const MBXExampleLineStyleLayer = @"LineStyleLayerExample";
     layer.lineCap = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
     
     // Set the line color to a constant blue color.
-    layer.lineColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed:59/255.0 green:178/255.0 blue:208/255.0 alpha:1]];
+    layer.lineColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed:59/255.0f green:178/255.0f blue:208/255.0f alpha:1]];
     
     // Use `NSExpression` to smoothly adjust the line width from 2pt to 20pt between zoom levels 14 and 18. The `interpolationBase` parameter allows the values to interpolate along an exponential curve
     layer.lineWidth = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
@@ -68,7 +68,7 @@ NSString *const MBXExampleLineStyleLayer = @"LineStyleLayerExample";
     // Line gap width represents the space before the outline begins, so should match the main line’s line width exactly.
     casingLayer.lineGapWidth = layer.lineWidth;
     // Stroke color slightly darker than the line color.
-    casingLayer.lineColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed:41/255.0 green:145/255.0 blue:171/255.0 alpha:1]];
+    casingLayer.lineColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed:41/255.0f green:145/255.0f blue:171/255.0f alpha:1]];
     // Use a style function to gradually increase the stroke width between zoom levels 14 and 18.
     casingLayer.lineWidth = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
                              @{@14: @1, @18: @4}];
