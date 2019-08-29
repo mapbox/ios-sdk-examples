@@ -32,7 +32,7 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
 
 // Add a slider to the map view. This will be used to adjust the map's light object.
 - (void)addSlider {
-    self.slider = [[UISlider alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 8, self.view.frame.size.height - 60, self.view.frame.size.width * 0.75, 20)];
+    self.slider = [[UISlider alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 8, self.view.frame.size.height - 60, self.view.frame.size.width * 0.75f, 20)];
     self.slider.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     self.slider.minimumValue = -180;
     self.slider.maximumValue = 180;

@@ -26,6 +26,14 @@ platform :ios do
   lane :beta do
     cocoapods(use_bundle_exec: true, try_repo_update_on_error: true)
     match(git_url: ENV["MATCH_REPO"], username: ENV["MATCH_USER"], type: "appstore", readonly: true)
+
+    if is_ci?
+      # Bitrise can't figure out how to reconcile Xcode's automatic code signing
+      # with Match's signing resources, so we have to disable automatic code signing
+      # and manually specify provisioning profile and generic signing identify.
+      disable_automatic_code_signing(profile_uuid: ENV["sigh_com.mapbox.examples_appstore"], code_sign_identity: "iPhone Distribution")
+    end
+
     increment_build_number(build_number: latest_testflight_build_number + 1)
     gym(scheme: "Examples", include_bitcode: true)
     pilot(changelog: release_notes, distribute_external: true, groups: "Mapbox Testers")

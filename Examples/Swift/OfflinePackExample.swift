@@ -25,19 +25,33 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
-        // Start downloading tiles and resources for z13-16.
+        // Start downloading tiles and resources for z13-14.
         startOfflinePackDownload()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        // When leaving this view controller, suspend offline downloads.
+        guard let packs = MGLOfflineStorage.shared.packs else { return }
+        for pack in packs {
+            if let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String] {
+                print("Suspending download of offline pack: “\(userInfo["name"] ?? "unknown")”")
+            }
+            pack.suspend()
+        }
     }
 
     deinit {
         // Remove offline pack observers.
+        print("Removing offline pack notification observers")
         NotificationCenter.default.removeObserver(self)
     }
 
     func startOfflinePackDownload() {
         // Create a region that includes the current viewport and any tiles needed to view it when zoomed further in.
         // Because tile count grows exponentially with the maximum zoom level, you should be conservative with your `toZoomLevel` setting.
-        let region = MGLTilePyramidOfflineRegion(styleURL: mapView.styleURL, bounds: mapView.visibleCoordinateBounds, fromZoomLevel: mapView.zoomLevel, toZoomLevel: 16)
+        let region = MGLTilePyramidOfflineRegion(styleURL: mapView.styleURL, bounds: mapView.visibleCoordinateBounds, fromZoomLevel: mapView.zoomLevel, toZoomLevel: 14)
 
         // Store some data for identification purposes alongside the downloaded resources.
         let userInfo = ["name": "My Offline Pack"]
@@ -89,7 +103,7 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
                 print("Offline pack “\(userInfo["name"] ?? "unknown")” completed: \(byteCount), \(completedResources) resources")
             } else {
                 // Otherwise, print download/verification progress.
-                print("Offline pack “\(userInfo["name"] ?? "unknown")” has \(completedResources) of \(expectedResources) resources — \(progressPercentage * 100)%.")
+                print("Offline pack “\(userInfo["name"] ?? "unknown")” has \(completedResources) of \(expectedResources) resources — \(String(format: "%.2f", progressPercentage * 100))%.")
             }
         }
     }

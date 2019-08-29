@@ -27,7 +27,7 @@ NSString *const MBXExampleStaticSnapshot = @"StaticSnapshotExample";
     // Create a button to take a map snapshot.
     _button = [[UIButton alloc] initWithFrame:CGRectMake(_mapView.bounds.size.width / 2 - 15, _mapView.bounds.size.height - 40, 80, 30)];
     _button.layer.cornerRadius = 15;
-    _button.backgroundColor = [UIColor colorWithRed:0.96 green:0.65 blue:0.14 alpha:1.0];
+    _button.backgroundColor = [UIColor colorWithRed:0.96f green:0.65f blue:0.14f alpha:1];
     [_button setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
     [_button addTarget:self action:@selector(createSnapshot) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_button];

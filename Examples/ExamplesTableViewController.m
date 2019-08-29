@@ -77,13 +77,13 @@ NSString *const MBXSegueTableToExample = @"TableToExampleSegue";
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.selectedGroup[@"categories"] count];
+    return [(NSArray *)self.selectedGroup[@"categories"] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSArray *examples = self.selectedGroup[@"categories"][section][@"examples"];
     
-    return  examples.count;
+    return examples.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

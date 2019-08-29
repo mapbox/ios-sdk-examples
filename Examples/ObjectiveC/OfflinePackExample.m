@@ -30,19 +30,31 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
 }
 
 - (void)mapViewDidFinishLoadingMap:(MGLMapView *)mapView {
-    // Start downloading tiles and resources for z13-16.
+    // Start downloading tiles and resources for z13-14.
     [self startOfflinePackDownload];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+
+    // When leaving this view controller, suspend offline downloads.
+    for (MGLOfflinePack *pack in MGLOfflineStorage.sharedOfflineStorage.packs) {
+        NSDictionary *userInfo = [NSKeyedUnarchiver unarchiveObjectWithData:pack.context];
+        NSLog(@"Suspending download of offline pack: %@", userInfo[@"name"]);
+        [pack suspend];
+    }
 }
 
 - (void)dealloc {
     // Remove offline pack observers.
+    NSLog(@"Removing offline pack notification observers");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)startOfflinePackDownload {
     // Create a region that includes the current viewport and any tiles needed to view it when zoomed further in.
     // Because tile count grows exponentially with the maximum zoom level, you should be conservative with your `toZoomLevel` setting.
-    id <MGLOfflineRegion> region = [[MGLTilePyramidOfflineRegion alloc] initWithStyleURL:self.mapView.styleURL bounds:self.mapView.visibleCoordinateBounds fromZoomLevel:self.mapView.zoomLevel toZoomLevel:16];
+    id <MGLOfflineRegion> region = [[MGLTilePyramidOfflineRegion alloc] initWithStyleURL:self.mapView.styleURL bounds:self.mapView.visibleCoordinateBounds fromZoomLevel:self.mapView.zoomLevel toZoomLevel:14];
 
     // Store some data for identification purposes alongside the downloaded resources.
     NSDictionary *userInfo = @{ @"name": @"My Offline Pack" };
@@ -80,7 +92,7 @@ NSString *const MBXExampleOfflinePack = @"OfflinePackExample";
     if (!self.progressView) {
         self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
         CGSize frame = self.view.bounds.size;
-        self.progressView.frame = CGRectMake(frame.width / 4, frame.height * 0.75, frame.width / 2, 10);
+        self.progressView.frame = CGRectMake(frame.width / 4, frame.height * 0.75f, frame.width / 2, 10);
         [self.view addSubview:self.progressView];
     }
 

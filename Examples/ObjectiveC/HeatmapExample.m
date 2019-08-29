@@ -34,8 +34,8 @@ NSString *const MBXExampleHeatmap = @"HeatmapExample";
     // Adjust the color of the heatmap based on the point density.
     NSDictionary *colorDictionary = @{ @0 : [UIColor clearColor],
                                        @0.01 : [UIColor whiteColor],
-                                       @0.1 : [UIColor colorWithRed:0.19 green:0.3 blue:0.8 alpha:1.0],
-                                       @0.5 : [UIColor colorWithRed:0.73 green:0.23 blue:0.25 alpha:1.0],
+                                       @0.1 : [UIColor colorWithRed:0.19f green:0.3f blue:0.8f alpha:1],
+                                       @0.5 : [UIColor colorWithRed:0.73f green:0.23f blue:0.25f alpha:1],
                                        @1 : [UIColor yellowColor]
                                        };
     heatmapLayer.heatmapColor = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($heatmapDensity, 'linear', nil, %@)", colorDictionary];
@@ -56,8 +56,8 @@ NSString *const MBXExampleHeatmap = @"HeatmapExample";
     
     NSDictionary *magnitudeDictionary = @{@0 : [UIColor whiteColor],
                                           @0.5 : [UIColor yellowColor],
-                                          @2.5 : [UIColor colorWithRed:0.73 green:0.23 blue:0.25 alpha:1.0],
-                                          @5 : [UIColor colorWithRed:0.19 green:0.30 blue:0.80 alpha:1.0]
+                                          @2.5 : [UIColor colorWithRed:0.73f green:0.23f blue:0.25f alpha:1],
+                                          @5 : [UIColor colorWithRed:0.19f green:0.30f blue:0.80f alpha:1]
                                           };
     circleLayer.circleColor = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:(mag, 'linear', nil, %@)", magnitudeDictionary];
     

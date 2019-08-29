@@ -45,15 +45,15 @@ NSString *const MBXExampleDDSCircleLayer = @"DDSCircleLayerExample";
     
     // Stops based on age of tree in years.
     NSDictionary *stops = @{
-        @0: [UIColor colorWithRed:1.00 green:0.72 blue:0.85 alpha:1.0],
-        @2: [UIColor colorWithRed:0.69 green:0.48 blue:0.73 alpha:1.0],
-        @4: [UIColor colorWithRed:0.61 green:0.31 blue:0.47 alpha:1.0],
-        @7: [UIColor colorWithRed:0.43 green:0.20 blue:0.38 alpha:1.0],
-        @16: [UIColor colorWithRed:0.33 green:0.17 blue:0.25 alpha:1.0]
+        @0: [UIColor colorWithRed:1.00f green:0.72f blue:0.85f alpha:1.0f],
+        @2: [UIColor colorWithRed:0.69f green:0.48f blue:0.73f alpha:1.0f],
+        @4: [UIColor colorWithRed:0.61f green:0.31f blue:0.47f alpha:1.0f],
+        @7: [UIColor colorWithRed:0.43f green:0.20f blue:0.38f alpha:1.0f],
+        @16: [UIColor colorWithRed:0.33f green:0.17f blue:0.25f alpha:1.0f]
     };
     
     // Style the circle layer color based on the above stops dictionary.
-    layer.circleColor = [NSExpression expressionWithFormat:@"mgl_step:from:stops:(AGE, %@, %@)", [UIColor colorWithRed:1.0 green:0.72 blue:0.85 alpha:1.0], stops];
+    layer.circleColor = [NSExpression expressionWithFormat:@"mgl_step:from:stops:(AGE, %@, %@)", [UIColor colorWithRed:1.0f green:0.72f blue:0.85f alpha:1], stops];
  
     layer.circleRadius = [NSExpression expressionForConstantValue:@3];
     
