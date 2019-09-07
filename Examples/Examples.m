@@ -143,7 +143,7 @@
     
     return @[
         @{@"title": @"Swift", @"categories": swiftCategories},
-        @{@"title": @"ObjC", @"categories": objcCategories}
+        @{@"title": @"Objective-C", @"categories": objcCategories}
     ];
 }
 

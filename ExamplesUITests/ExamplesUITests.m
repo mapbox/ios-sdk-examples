@@ -41,7 +41,7 @@
 - (void)testAnimatedLineExampleObjC {
     
     [XCTContext runActivityNamed:@"AnimatedLineExample" block:^(id<XCTActivity>  _Nonnull activity) {
-        [self.app.navigationBars[@"Examples"].buttons[@"ObjC"] tap];
+        [self.app.navigationBars[@"Examples"].buttons[@"Objective-C"] tap];
         [self.app.tables.staticTexts[@"Animate a line"] tap];
 
         // Wait for notification
@@ -62,7 +62,7 @@
     __block XCUIElement *compass;
 
     [XCTContext runActivityNamed:@"Wait for initial render" block:^(id<XCTActivity>  _Nonnull activity) {
-        [self.app.navigationBars[@"Examples"].buttons[@"ObjC"] tap];
+        [self.app.navigationBars[@"Examples"].buttons[@"Objective-C"] tap];
         [self.app.tables.staticTexts[@"Annotation views"] tap];
         XCUIElementQuery *allQuery = [self.app descendantsMatchingType:XCUIElementTypeAny];
         element = [allQuery elementMatchingType:XCUIElementTypeAny identifier:@"MGLMapViewId"];
@@ -98,7 +98,7 @@
     __block XCUIElement *slider;
 
     [XCTContext runActivityNamed:@"Wait for initial render" block:^(id<XCTActivity>  _Nonnull activity) {
-        [self.app.navigationBars[@"Examples"].buttons[@"ObjC"] tap];
+        [self.app.navigationBars[@"Examples"].buttons[@"Objective-C"] tap];
         [self.app.tables.staticTexts[@"Adjust lighting of 3D buildings"] tap];
         XCUIElementQuery *allQuery = [self.app descendantsMatchingType:XCUIElementTypeAny];
         element = [allQuery elementMatchingType:XCUIElementTypeAny identifier:@"MGLMapViewId"];
@@ -119,7 +119,7 @@
 
 
 - (void)testEveryExample {
-    [self runTestsForEveryExampleWithLanguage:@"ObjC"];
+    [self runTestsForEveryExampleWithLanguage:@"Objective-C"];
     [self runTestsForEveryExampleWithLanguage:@"Swift"];
 }
 
