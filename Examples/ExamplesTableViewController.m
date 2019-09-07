@@ -65,8 +65,10 @@ NSString *const MBXSegueTableToExample = @"TableToExampleSegue";
     self.languagesSegementControl = languagesSegementControl;
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+
+    [self.languagesSegementControl sizeToFit];
 }
 
 #pragma mark - Segement control event handle
@@ -104,19 +106,19 @@ NSString *const MBXSegueTableToExample = @"TableToExampleSegue";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 40;
+    return 60;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *headerView = [[UIView alloc] init];
-    headerView.backgroundColor = tableView.separatorColor;
-    headerView.bounds = CGRectMake(0, 0, tableView.bounds.size.width, 40);
+    headerView.bounds = CGRectMake(0, 0, tableView.bounds.size.width, 60);
     
     UILabel *label = [[UILabel alloc] init];
     label.frame = UIEdgeInsetsInsetRect(headerView.bounds, UIEdgeInsetsMake(0, tableView.separatorInset.left, 0, 0));
     label.text = self.selectedGroup[@"categories"][section][@"title"];
-    
+    label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle1];
+
     [headerView addSubview:label];
 
     return headerView;
