@@ -1122,15 +1122,15 @@
 				"${PODS_ROOT}/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/F1CD9014-347B-3A12-985D-D2CF4457B073.bcsymbolmap",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/C3BF5D38-E18B-392C-BFDF-5551F3CC528B.bcsymbolmap",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/144EB06F-C403-31E8-89A8-A882F1AF1E2B.bcsymbolmap",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/91118773-C06B-35AC-B594-A99B09A35E41.bcsymbolmap",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
-				"${BUILT_PRODUCTS_DIR}/F1CD9014-347B-3A12-985D-D2CF4457B073.bcsymbolmap",
-				"${BUILT_PRODUCTS_DIR}/C3BF5D38-E18B-392C-BFDF-5551F3CC528B.bcsymbolmap",
+				"${BUILT_PRODUCTS_DIR}/144EB06F-C403-31E8-89A8-A882F1AF1E2B.bcsymbolmap",
+				"${BUILT_PRODUCTS_DIR}/91118773-C06B-35AC-B594-A99B09A35E41.bcsymbolmap",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1226,15 +1226,15 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/F1CD9014-347B-3A12-985D-D2CF4457B073.bcsymbolmap",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/C3BF5D38-E18B-392C-BFDF-5551F3CC528B.bcsymbolmap",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/144EB06F-C403-31E8-89A8-A882F1AF1E2B.bcsymbolmap",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/91118773-C06B-35AC-B594-A99B09A35E41.bcsymbolmap",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
-				"${BUILT_PRODUCTS_DIR}/F1CD9014-347B-3A12-985D-D2CF4457B073.bcsymbolmap",
-				"${BUILT_PRODUCTS_DIR}/C3BF5D38-E18B-392C-BFDF-5551F3CC528B.bcsymbolmap",
+				"${BUILT_PRODUCTS_DIR}/144EB06F-C403-31E8-89A8-A882F1AF1E2B.bcsymbolmap",
+				"${BUILT_PRODUCTS_DIR}/91118773-C06B-35AC-B594-A99B09A35E41.bcsymbolmap",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
