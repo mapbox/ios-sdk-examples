@@ -19,7 +19,6 @@
 
 extern NSString *const MBXExampleAnimatedLine;
 extern NSString *const MBXExampleAnnotationView;
-extern NSString *const MBXExampleAnnotationViewsAndImagesExample;
 extern NSString *const MBXExampleBlockingGesturesDelegate;
 extern NSString *const MBXExampleBuildingLight;
 extern NSString *const MBXExampleBuildings;
