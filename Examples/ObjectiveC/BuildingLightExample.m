@@ -23,7 +23,7 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
     self.mapView.delegate = self;
      
     // Center the map on the Flatiron Building in New York, NY.
-    self.mapView.camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(40.7411, -73.9897) altitude:600 pitch:45 heading:200];
+    self.mapView.camera = [MGLMapCamera cameraLookingAtCenterCoordinate:CLLocationCoordinate2DMake(40.7411, -73.9897) altitude:1200 pitch:45 heading:0];
     
     [self.view addSubview:self.mapView];
     
@@ -32,13 +32,22 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
 
 // Add a slider to the map view. This will be used to adjust the map's light object.
 - (void)addSlider {
-    self.slider = [[UISlider alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 8, self.view.frame.size.height - 60, self.view.frame.size.width * 0.75f, 20)];
+    self.slider = [[UISlider alloc] init];
+    self.slider.translatesAutoresizingMaskIntoConstraints = NO;
     self.slider.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     self.slider.minimumValue = -180;
     self.slider.maximumValue = 180;
     self.slider.value = 0;
+    UIColor *customPurpleColor = [UIColor colorWithRed:0.271 green:0.412 blue:0.969 alpha:1.00];
+    self.slider.tintColor = customPurpleColor;
+    self.slider.thumbTintColor = customPurpleColor;
     [self.slider addTarget:self action:@selector(shiftLight) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.slider];
+    [NSLayoutConstraint activateConstraints:@[
+                                              [self.slider.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:40.0],
+                                              [self.slider.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-40.0],
+                                              [self.slider.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-75.0]
+                                              ]];
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {

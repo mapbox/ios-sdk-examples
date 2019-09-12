@@ -16,7 +16,7 @@ class BuildingLightExample: UIViewController, MGLMapViewDelegate {
         mapView.delegate = self
 
         // Center the map on the Flatiron Building in New York, NY.
-        mapView.camera = MGLMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: 40.7411, longitude: -73.9897), altitude: 600, pitch: 45, heading: 200)
+        mapView.camera = MGLMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: 40.7411, longitude: -73.9897), altitude: 1200, pitch: 45, heading: 0)
 
         view.addSubview(mapView)
 
@@ -25,13 +25,22 @@ class BuildingLightExample: UIViewController, MGLMapViewDelegate {
 
     // Add a slider to the map view. This will be used to adjust the map's light object.
     func addSlider() {
-        slider = UISlider(frame: CGRect(x: view.frame.width / 8, y: view.frame.height - 60, width: view.frame.width * 0.75, height: 20))
+        slider = UISlider()
+        slider.translatesAutoresizingMaskIntoConstraints = false
         slider.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
         slider.minimumValue = -180
         slider.maximumValue = 180
+        let customPurpleColor = UIColor(red: 0.271, green: 0.412, blue: 0.969, alpha: 1.0)
+        slider.tintColor = customPurpleColor
+        slider.thumbTintColor = customPurpleColor
         slider.value = 0
         slider.addTarget(self, action: #selector(shiftLight), for: .valueChanged)
         view.addSubview(slider)
+        NSLayoutConstraint.activate([
+            slider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40.0),
+            slider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40.0),
+            slider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -75.0)
+        ])
     }
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
