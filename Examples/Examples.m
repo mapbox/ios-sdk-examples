@@ -84,7 +84,6 @@
         @{
             @"title": @"3D",
             @"examples": @[
-                    @{@"className": MBXExampleBuildings, @"title": @"Display 3D buildings"},
                     @{@"className": MBXExampleBuildingLight, @"title": @"Adjust lighting of 3D buildings"},
             ]
         },
