@@ -39,7 +39,6 @@
                     @{@"className": MBXExampleAnnotationView, @"title": @"Annotation views"},
                     @{@"className": MBXExampleDefaultCallout, @"title": @"Use the default callout"},
                     @{@"className": MBXExampleCustomCalloutView, @"title": @"Display custom views as callouts"},
-                    @{@"className": MBXExampleImageAnnotation, @"title": @"Mark a place on the map with an image"},
                     @{@"className": MBXExampleWebAPIData, @"title": @"Dynamically style interactive points"},
                     @{@"className": MBXExampleUserLocationAnnotation, @"title": @"Customize the user location annotation"},
             ]

@@ -76,7 +76,6 @@
 		3EBCD71E1DC28240001E342F /* StudioStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70A1DC28240001E342F /* StudioStyleExample.swift */; };
 		3EBCD71F1DC28240001E342F /* DefaultStylesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70B1DC28240001E342F /* DefaultStylesExample.swift */; };
 		3EBCD7201DC28240001E342F /* DraggableAnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70C1DC28240001E342F /* DraggableAnnotationViewExample.swift */; };
-		3EBCD7211DC28240001E342F /* ImageAnnotationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70D1DC28240001E342F /* ImageAnnotationExample.swift */; };
 		3EBCD7221DC28240001E342F /* LineAnnotationGeoJSONExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70E1DC28240001E342F /* LineAnnotationGeoJSONExample.swift */; };
 		3EBCD7231DC28240001E342F /* DefaultAnnotationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70F1DC28240001E342F /* DefaultAnnotationExample.swift */; };
 		3EBCD7241DC28240001E342F /* PolygonAnnotationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7101DC28240001E342F /* PolygonAnnotationExample.swift */; };
@@ -123,8 +122,6 @@
 		9691AAA91C5AAD8F006A58C6 /* SimpleMapViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */; };
 		969E7FDD1D25C31700663F84 /* UserTrackingModesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 969E7FDC1D25C31700663F84 /* UserTrackingModesExample.m */; };
 		96BAED2E1FE304DD00A58BEB /* PointConversionExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BAED2D1FE304DD00A58BEB /* PointConversionExample.m */; };
-		96D431FC1C84B4F7007D09D1 /* ImageAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D431FB1C84B4F7007D09D1 /* ImageAnnotationExample.m */; };
-		96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D432051C84B9CF007D09D1 /* pisavector.xcassets */; };
 		A42F4A4D22EF9A79005097F3 /* CacheManagementExample.m in Sources */ = {isa = PBXBuildFile; fileRef = A42F4A4C22EF9A79005097F3 /* CacheManagementExample.m */; };
 		A42F4A5122EF9ACD005097F3 /* CacheManagementExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F4A5022EF9ACD005097F3 /* CacheManagementExample.swift */; };
 		BBD05676206B24335DEA52C4 /* Pods_ExamplesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7692D1D792EB3849E8754E6B /* Pods_ExamplesUITests.framework */; };
@@ -278,7 +275,6 @@
 		3EBCD70A1DC28240001E342F /* StudioStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudioStyleExample.swift; sourceTree = "<group>"; };
 		3EBCD70B1DC28240001E342F /* DefaultStylesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultStylesExample.swift; sourceTree = "<group>"; };
 		3EBCD70C1DC28240001E342F /* DraggableAnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableAnnotationViewExample.swift; sourceTree = "<group>"; };
-		3EBCD70D1DC28240001E342F /* ImageAnnotationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAnnotationExample.swift; sourceTree = "<group>"; };
 		3EBCD70E1DC28240001E342F /* LineAnnotationGeoJSONExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineAnnotationGeoJSONExample.swift; sourceTree = "<group>"; };
 		3EBCD70F1DC28240001E342F /* DefaultAnnotationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAnnotationExample.swift; sourceTree = "<group>"; };
 		3EBCD7101DC28240001E342F /* PolygonAnnotationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonAnnotationExample.swift; sourceTree = "<group>"; };
@@ -371,9 +367,6 @@
 		96A2A1CD1C8CA16C0059441E /* CustomCalloutViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalloutViewExample.h; sourceTree = "<group>"; };
 		96A2A1D01C8CA74B0059441E /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalloutView.h; sourceTree = "<group>"; };
 		96BAED2D1FE304DD00A58BEB /* PointConversionExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointConversionExample.m; sourceTree = "<group>"; };
-		96D431FA1C84B4F7007D09D1 /* ImageAnnotationExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAnnotationExample.h; sourceTree = "<group>"; };
-		96D431FB1C84B4F7007D09D1 /* ImageAnnotationExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageAnnotationExample.m; path = Examples/ObjectiveC/ImageAnnotationExample.m; sourceTree = SOURCE_ROOT; };
-		96D432051C84B9CF007D09D1 /* pisavector.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = pisavector.xcassets; sourceTree = "<group>"; };
 		976D90ED8B2046B3B8A6C39C /* Pods-Shared-DocsCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-DocsCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shared-DocsCode/Pods-Shared-DocsCode.release.xcconfig"; sourceTree = "<group>"; };
 		9A1ECC25B13FE3249B26BE0A /* Pods-Shared-DocsCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-DocsCode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shared-DocsCode/Pods-Shared-DocsCode.debug.xcconfig"; sourceTree = "<group>"; };
 		9EC12D8F1A97963D68BFA871 /* Pods_Examples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Examples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -479,7 +472,6 @@
 				3EBCD7061DC28240001E342F /* CustomAnnotationModels.swift */,
 				3EBCD7071DC28240001E342F /* CustomCalloutView.swift */,
 				3EBCD7081DC28240001E342F /* CustomCalloutViewExample.swift */,
-				3EBCD70D1DC28240001E342F /* ImageAnnotationExample.swift */,
 				3E1806111EAA804B004DB131 /* UserLocationAnnotationExample.swift */,
 				64BBDB021DF24E0900BB705D /* WebAPIDataExample.swift */,
 			);
@@ -581,7 +573,6 @@
 				05FA53A81FE2FB46001F3D7D /* CustomCalloutView.m */,
 				05FA53AA1FE2FB9B001F3D7D /* CustomCalloutViewExample.m */,
 				05FA53AC1FE2FBB2001F3D7D /* DefaultCalloutExample.m */,
-				96D431FB1C84B4F7007D09D1 /* ImageAnnotationExample.m */,
 				3E18060F1EAA800A004DB131 /* UserLocationAnnotationExample.m */,
 				64BBDAFC1DF24DEB00BB705D /* WebAPIDataExample.m */,
 			);
@@ -811,7 +802,6 @@
 				9682471C1C5C123B00494AB8 /* example.geojson */,
 				3EC92DB61E78C431001D0503 /* metro-line.geojson */,
 				3E25C5DE2056E7E2005B031E /* nps-icons.xcassets */,
-				96D432051C84B9CF007D09D1 /* pisavector.xcassets */,
 				DDF9432A1E5DEACC00545D0F /* ports.geojson */,
 				3E4574EC1FA3D8F1000C8CF1 /* radar.gif */,
 				1F0701622255789D0045E061 /* missing_icon.json */,
@@ -845,7 +835,6 @@
 				960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */,
 				3E3BFADA1E81D7BB00D0BEA1 /* FeatureSelectionExample.h */,
 				3E9EF27F209CFD6C0053D1D7 /* HeatmapExample.h */,
-				96D431FA1C84B4F7007D09D1 /* ImageAnnotationExample.h */,
 				3E22EF501F8821F800605203 /* ImageSourceExample.h */,
 				1F07015822541F2A0045E061 /* LabelPlacementExample.h */,
 				968247181C5C115000494AB8 /* LineAnnotationGeoJSONExample.h */,
@@ -1157,7 +1146,6 @@
 				64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */,
 				961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */,
 				1F07015722530BDF0045E061 /* text-format.json in Resources */,
-				96D432061C84B9CF007D09D1 /* pisavector.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1416,7 +1404,6 @@
 				1F07015C225422B90045E061 /* LabelPlacementExample.swift in Sources */,
 				CA3B162E2098CA7E005C087B /* TestingSupport.m in Sources */,
 				64BBDAF81DF2330B00BB705D /* SelectFeatureExample.m in Sources */,
-				96D431FC1C84B4F7007D09D1 /* ImageAnnotationExample.m in Sources */,
 				3E3FB66B1F05888E004512C6 /* BuildingLightExample.swift in Sources */,
 				05FA539A1FE2FA00001F3D7D /* DefaultStylesExample.m in Sources */,
 				64CF97121DF224F600C3C27B /* RasterImageryExample.swift in Sources */,
@@ -1449,7 +1436,6 @@
 				05FA53981FE2FA00001F3D7D /* SatelliteStyleExample.m in Sources */,
 				3EC11D271EA84091001AAAB8 /* PointHotspotExample.swift in Sources */,
 				64CF97101DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift in Sources */,
-				3EBCD7211DC28240001E342F /* ImageAnnotationExample.swift in Sources */,
 				05FA53991FE2FA00001F3D7D /* ThirdPartyVectorStyleExample.m in Sources */,
 				3EBCD71E1DC28240001E342F /* StudioStyleExample.swift in Sources */,
 				64CF97171DF2251500C3C27B /* RasterImageryExample.m in Sources */,
