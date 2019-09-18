@@ -47,7 +47,6 @@ extern NSString *const MBXExamplePointConversion;
 extern NSString *const MBXExamplePolygonAnnotation;
 extern NSString *const MBXExamplePolygonPattern;
 extern NSString *const MBXExampleRasterImagery;
-extern NSString *const MBXExampleSelectFeature;
 extern NSString *const MBXExampleShowHideLayer;
 extern NSString *const MBXExampleSimpleMapView;
 extern NSString *const MBXExampleStaticSnapshot;
