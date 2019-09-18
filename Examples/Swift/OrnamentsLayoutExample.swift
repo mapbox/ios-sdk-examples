@@ -1,6 +1,7 @@
 import Mapbox
 
-let oramentPositions: [[MGLOrnamentPosition]] = [
+// Ornament positions matrix array, this example will demonstrate how ornament looks like in different positions.
+let ornamentPosition: [[MGLOrnamentPosition]] = [
     [.topLeft, .topRight, .bottomRight, .bottomLeft],
     [.topRight, .bottomRight, .bottomLeft, .topLeft],
     [.bottomRight, .bottomLeft, .topLeft, .topRight],
@@ -26,20 +27,25 @@ class OrnamentsLayoutExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Create a timer to update ornaments position every second.
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(onTimerTick), userInfo: nil, repeats: true)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         guard let timer = self.timer else {
             return
         }
+        // Stop the timer if the view was removed.
         timer.invalidate()
         self.timer = nil
     }
 
     func updateOrnamentsPosition() {
-
-        let positions = oramentPositions[self.currentPositionIndex%4]
+        // Get position matrix for current turn. We mod 4 to roll over the matrix array.
+        let positions = ornamentPosition[self.currentPositionIndex%4]
+        // Update ornaments position with position matrix.
         self.mapView.scaleBarPosition = positions[0]
         self.mapView.compassViewPosition = positions[1]
         self.mapView.logoViewPosition = positions[2]

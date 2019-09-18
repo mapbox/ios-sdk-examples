@@ -2,6 +2,7 @@
 
 @import Mapbox;
 
+// Ornament positions matrix arry, this example will demonstrate how ornament looks like in different positions.
 NSString *const MBXExampleOrnamentsLayout = @"OrnamentsLayoutExample";
 MGLOrnamentPosition ornamentPositions[4][4] = {
     {
@@ -57,11 +58,15 @@ MGLOrnamentPosition ornamentPositions[4][4] = {
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    // Stop the timer if the view was removed.
     [self.timer invalidate];
     self.timer = nil;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    // Create a timer to update ornaments position every second.
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1
                                                   target:self
                                                 selector:@selector(onTimerTick)
@@ -70,8 +75,9 @@ MGLOrnamentPosition ornamentPositions[4][4] = {
 }
 
 - (void)updateOrnamentsPosition {
-
+    // Get position matrix for current turn. We mod 4 to roll over the matrix array.
     MGLOrnamentPosition *currentPosition = ornamentPositions[_currentPositionIndex % 4];
+    // Update ornaments position with position matrix.
     self.mapView.scaleBarPosition = currentPosition[0];
     self.mapView.compassViewPosition = currentPosition[1];
     self.mapView.logoViewPosition = currentPosition[2];
