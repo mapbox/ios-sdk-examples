@@ -60,7 +60,6 @@
                     @{@"className": MBXExamplePointConversion, @"title": @"Point conversion"},
                     @{@"className": MBXExampleShowHideLayer, @"title": @"Show and hide a layer"},
                     @{@"className": MBXExampleFeatureSelection, @"title": @"Select a feature within a layer"},
-                    @{@"className": MBXExampleSelectFeature, @"title": @"Select a water feature"},
                     @{@"className": MBXExampleUserTrackingModes, @"title": @"Switch between user tracking modes"},
             ]
         },
