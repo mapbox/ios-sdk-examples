@@ -1,17 +1,18 @@
-﻿{
+{
+  "type": "FeatureCollection",
   "features": [
     {
       "type": "Feature",
       "properties": {
         "NAME": "Takoma",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -77.018178,
           38.976086
-        ],
-        "type": "Point"
+        ]
       },
       "id": "0ae7fd895624cc8f53d8d7a7e1266d26"
     },
@@ -19,14 +20,14 @@
       "type": "Feature",
       "properties": {
         "NAME": "Brookland-CUA",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -76.994536,
           38.933218
-        ],
-        "type": "Point"
+        ]
       },
       "id": "186e133e182f046b1e23b742b52000c4"
     },
@@ -34,14 +35,14 @@
       "type": "Feature",
       "properties": {
         "NAME": "Friendship Heights",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -77.084998,
           38.959491
-        ],
-        "type": "Point"
+        ]
       },
       "id": "2d9e49375605d7e80bb5fe0184f57421"
     },
@@ -49,14 +50,14 @@
       "type": "Feature",
       "properties": {
         "NAME": "Fort Totten",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -77.002205,
           38.951854
-        ],
-        "type": "Point"
+        ]
       },
       "id": "4d8934c588b5b3a49df98e8b405ffa92"
     },
@@ -64,14 +65,14 @@
       "type": "Feature",
       "properties": {
         "NAME": "Tenleytown-AU",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -77.079589,
           38.948859
-        ],
-        "type": "Point"
+        ]
       },
       "id": "5a8b14c4fd539a8a04713264f1d3a5eb"
     },
@@ -79,14 +80,14 @@
       "type": "Feature",
       "properties": {
         "NAME": "Judiciary Sq",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -77.016641,
           38.896098
-        ],
-        "type": "Point"
+        ]
       },
       "id": "5d0ef0a0bcd98b436545bbdc83c95c8c"
     },
@@ -94,14 +95,14 @@
       "type": "Feature",
       "properties": {
         "NAME": "Woodley Park-Zoo Adams Morgan",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -77.05242,
           38.925092
-        ],
-        "type": "Point"
+        ]
       },
       "id": "6d570a86a953fb761551644cfb21b2a4"
     },
@@ -109,29 +110,29 @@
       "type": "Feature",
       "properties": {
         "NAME": "Rhode Island Ave",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -76.995939,
           38.921067
-        ],
-        "type": "Point"
+        ]
       },
       "id": "7da63d4a9af4cf3f7ab04f36a26a0aa5"
     },
     {
       "type": "Feature",
       "properties": {
-        "NAME": "Union Station",
-        "TYPE": "Station"
+        "NAME": "Union metro-station",
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -77.007416,
           38.897773
-        ],
-        "type": "Point"
+        ]
       },
       "id": "8a43ffb29f3e1146e19e15d3291ab840"
     },
@@ -139,14 +140,14 @@
       "type": "Feature",
       "properties": {
         "NAME": "Van Ness-UDC",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -77.062988,
           38.943273
-        ],
-        "type": "Point"
+        ]
       },
       "id": "96a659edc000c1267f5f44c36b87b201"
     },
@@ -154,14 +155,14 @@
       "type": "Feature",
       "properties": {
         "NAME": "Dupont Circle",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -77.043416,
           38.909605
-        ],
-        "type": "Point"
+        ]
       },
       "id": "994446c244acadeb15d3f9fc18278c73"
     },
@@ -169,14 +170,14 @@
       "type": "Feature",
       "properties": {
         "NAME": "Metro Center",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -77.02808,
           38.898322
-        ],
-        "type": "Point"
+        ]
       },
       "id": "b82be4037a512e9ca43335ec6c0caf44"
     },
@@ -184,14 +185,14 @@
       "type": "Feature",
       "properties": {
         "NAME": "Farragut North",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -77.039703,
           38.903209
-        ],
-        "type": "Point"
+        ]
       },
       "id": "ba844cf983f766faeebd9dd35950be57"
     },
@@ -199,14 +200,14 @@
       "type": "Feature",
       "properties": {
         "NAME": "Cleveland Park",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -77.058044,
           38.93477
-        ],
-        "type": "Point"
+        ]
       },
       "id": "c2274c3347ca230ab96afbc7021e3192"
     },
@@ -214,14 +215,14 @@
       "type": "Feature",
       "properties": {
         "NAME": "Gallery Pl-Chinatown",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -77.021917,
           38.898324
-        ],
-        "type": "Point"
+        ]
       },
       "id": "ca44b6b9141375e291b1fd9bc243b4e3"
     },
@@ -229,14 +230,14 @@
       "type": "Feature",
       "properties": {
         "NAME": "NoMa - Gallaudet U",
-        "TYPE": "Station"
+        "TYPE": "metro-station"
       },
       "geometry": {
+        "type": "Point",
         "coordinates": [
           -77.003022,
           38.907024
-        ],
-        "type": "Point"
+        ]
       },
       "id": "d0d9099ecafaf63d973e88b635998815"
     },
@@ -247,6 +248,7 @@
         "TYPE": "Rail line"
       },
       "geometry": {
+        "type": "LineString",
         "coordinates": [
           [
             -77.020294,
@@ -4360,11 +4362,309 @@
             -77.085757,
             38.960976
           ]
-        ],
-        "type": "LineString"
+        ]
       },
       "id": "e0369f23e7e33d9f11a695f0bf6a2498"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "TYPE": "neighborhood-region"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.0911931991577,
+              38.95653886174238
+            ],
+            [
+              -77.10097789764404,
+              38.948929645671186
+            ],
+            [
+              -77.08587169647217,
+              38.93798162119452
+            ],
+            [
+              -77.07870483398436,
+              38.9461927980471
+            ],
+            [
+              -77.08016395568848,
+              38.94882951896179
+            ],
+            [
+              -77.0911931991577,
+              38.95653886174238
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "TYPE": "neighborhood-region"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.06917762756348,
+              38.91072104167239
+            ],
+            [
+              -77.06896305084229,
+              38.90506061276737
+            ],
+            [
+              -77.05810546875,
+              38.90529438572799
+            ],
+            [
+              -77.05823421478271,
+              38.910554073829196
+            ],
+            [
+              -77.06490755081177,
+              38.91037040874808
+            ],
+            [
+              -77.0651650428772,
+              38.910804525446686
+            ],
+            [
+              -77.06917762756348,
+              38.91072104167239
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "TYPE": "neighborhood-region"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.0364761352539,
+              38.94198719211628
+            ],
+            [
+              -77.0366048812866,
+              38.92656450268364
+            ],
+            [
+              -77.03488826751709,
+              38.92743253530554
+            ],
+            [
+              -77.02308654785156,
+              38.92816701615101
+            ],
+            [
+              -77.0245885848999,
+              38.93851571039129
+            ],
+            [
+              -77.02553272247314,
+              38.94192043445515
+            ],
+            [
+              -77.0364761352539,
+              38.94198719211628
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "TYPE": "neighborhood-region"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -76.99317455291747,
+              38.904025323260214
+            ],
+            [
+              -76.98343276977539,
+              38.90001760864653
+            ],
+            [
+              -76.97875499725342,
+              38.90736491263297
+            ],
+            [
+              -76.9857931137085,
+              38.91053737702329
+            ],
+            [
+              -76.99317455291747,
+              38.904025323260214
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "TYPE": "neighborhood-region"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -76.98446273803711,
+              38.8666446046702
+            ],
+            [
+              -76.97064399719238,
+              38.873494197093706
+            ],
+            [
+              -76.97463512420654,
+              38.87536519049013
+            ],
+            [
+              -76.9887113571167,
+              38.86941793380272
+            ],
+            [
+              -76.9881534576416,
+              38.86851577836779
+            ],
+            [
+              -76.98862552642822,
+              38.8674465422857
+            ],
+            [
+              -76.98446273803711,
+              38.8666446046702
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "TYPE": "neighborhood-region"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.00356006622314,
+              38.88769246895389
+            ],
+            [
+              -77.0035171508789,
+              38.88328295649315
+            ],
+            [
+              -76.99845314025877,
+              38.883216143593515
+            ],
+            [
+              -76.98729515075684,
+              38.88628947194888
+            ],
+            [
+              -76.98849678039551,
+              38.88762566020101
+            ],
+            [
+              -77.00356006622314,
+              38.88769246895389
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "TYPE": "neighborhood-region"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -76.96369171142578,
+              38.93531111487067
+            ],
+            [
+              -76.97802543640137,
+              38.946393058773296
+            ],
+            [
+              -76.98102951049803,
+              38.94272152224007
+            ],
+            [
+              -76.98343276977539,
+              38.94265476527037
+            ],
+            [
+              -76.97150230407713,
+              38.93137193448086
+            ],
+            [
+              -76.96369171142578,
+              38.93531111487067
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "TYPE": "neighborhood-region"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.03630447387695,
+              38.992237864985896
+            ],
+            [
+              -77.03639030456543,
+              38.97242213571127
+            ],
+            [
+              -77.02445983886719,
+              38.97235540671589
+            ],
+            [
+              -77.02445983886719,
+              38.98269765061846
+            ],
+            [
+              -77.03630447387695,
+              38.992237864985896
+            ]
+          ]
+        ]
+      }
     }
-  ],
-  "type": "FeatureCollection"
+  ]
 }
