@@ -46,7 +46,6 @@
             @"title": @"Markers and callouts",
             @"examples": @[
                     @{@"className": MBXExamplePolygonPattern, @"title": @"Add a pattern to a polygon"},
-                    @{@"className": MBXExampleLineAnnotationGeoJSON, @"title": @"Add a line annotation from GeoJSON"},
                     @{@"className": MBXExamplePolygonAnnotation, @"title": @"Add a polygon annotation"},
                     @{@"className": MBXExampleLineStyleLayer, @"title": @"Add a line style layer from GeoJSON"},
                     @{@"className": MBXExampleAnimatedLine, @"title": @"Animate a line"},
