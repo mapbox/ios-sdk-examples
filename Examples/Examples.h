@@ -43,7 +43,6 @@ extern NSString *const MBXExampleMultipleImages;
 extern NSString *const MBXExampleMultipleShapes;
 extern NSString *const MBXExampleOfflinePack;
 extern NSString *const MBXExamplePointConversion;
-extern NSString *const MBXExamplePolygonAnnotation;
 extern NSString *const MBXExamplePolygonPattern;
 extern NSString *const MBXExampleRasterImagery;
 extern NSString *const MBXExampleShowHideLayer;
