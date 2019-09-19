@@ -64,8 +64,6 @@
 		3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */; };
 		3EBCD7171DC28240001E342F /* DefaultCalloutExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7031DC28240001E342F /* DefaultCalloutExample.swift */; };
 		3EBCD7181DC28240001E342F /* CameraAnimationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */; };
-		3EBCD7191DC28240001E342F /* CustomAnnotationModelExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7051DC28240001E342F /* CustomAnnotationModelExample.swift */; };
-		3EBCD71A1DC28240001E342F /* CustomAnnotationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7061DC28240001E342F /* CustomAnnotationModels.swift */; };
 		3EBCD71B1DC28240001E342F /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7071DC28240001E342F /* CustomCalloutView.swift */; };
 		3EBCD71C1DC28240001E342F /* CustomCalloutViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7081DC28240001E342F /* CustomCalloutViewExample.swift */; };
 		3EBCD71D1DC28240001E342F /* StudioClassicStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7091DC28240001E342F /* StudioClassicStyleExample.swift */; };
@@ -103,7 +101,6 @@
 		961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962D11C5821A9002D3DAB /* ExamplesTableViewController.m */; };
 		961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962D41C583FDC002D3DAB /* ExamplesContainerViewController.m */; };
 		962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 962B450E1D1C8520007B7454 /* AnnotationViewExample.m */; };
-		9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */; };
 		9682470F1C5BF12700494AB8 /* DefaultAnnotationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 9682470E1C5BF12700494AB8 /* DefaultAnnotationExample.m */; };
 		968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 968247261C5C1DC700494AB8 /* CameraAnimationExample.m */; };
 		9691AA941C5AA702006A58C6 /* Examples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9691AA931C5AA702006A58C6 /* Examples.m */; };
@@ -252,8 +249,6 @@
 		3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7031DC28240001E342F /* DefaultCalloutExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCalloutExample.swift; sourceTree = "<group>"; };
 		3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraAnimationExample.swift; sourceTree = "<group>"; };
-		3EBCD7051DC28240001E342F /* CustomAnnotationModelExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotationModelExample.swift; sourceTree = "<group>"; };
-		3EBCD7061DC28240001E342F /* CustomAnnotationModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotationModels.swift; sourceTree = "<group>"; };
 		3EBCD7071DC28240001E342F /* CustomCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
 		3EBCD7081DC28240001E342F /* CustomCalloutViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalloutViewExample.swift; sourceTree = "<group>"; };
 		3EBCD7091DC28240001E342F /* StudioClassicStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudioClassicStyleExample.swift; sourceTree = "<group>"; };
@@ -317,9 +312,6 @@
 		962B450E1D1C8520007B7454 /* AnnotationViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewExample.m; sourceTree = "<group>"; };
 		9637341B2139B30A00BE4B39 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		964CB5171E445AE1004549EA /* mapbox_access_token */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapbox_access_token; sourceTree = SOURCE_ROOT; };
-		9678E3EC1CEF58DA00F21AE2 /* CustomAnnotationModelExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationModelExample.h; sourceTree = "<group>"; };
-		9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationModelExample.m; sourceTree = "<group>"; };
-		9678E3F21CEF616700F21AE2 /* CustomAnnotationModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationModels.h; sourceTree = "<group>"; };
 		968247011C5BDCBB00494AB8 /* StudioClassicStyleExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudioClassicStyleExample.h; sourceTree = "<group>"; };
 		9682470D1C5BF12700494AB8 /* DefaultAnnotationExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultAnnotationExample.h; sourceTree = "<group>"; };
 		9682470E1C5BF12700494AB8 /* DefaultAnnotationExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultAnnotationExample.m; path = Examples/ObjectiveC/DefaultAnnotationExample.m; sourceTree = SOURCE_ROOT; };
@@ -441,8 +433,6 @@
 			children = (
 				3EBCD7021DC28240001E342F /* AnnotationViewExample.swift */,
 				3EBCD7031DC28240001E342F /* DefaultCalloutExample.swift */,
-				3EBCD7051DC28240001E342F /* CustomAnnotationModelExample.swift */,
-				3EBCD7061DC28240001E342F /* CustomAnnotationModels.swift */,
 				3EBCD7071DC28240001E342F /* CustomCalloutView.swift */,
 				3EBCD7081DC28240001E342F /* CustomCalloutViewExample.swift */,
 				3E1806111EAA804B004DB131 /* UserLocationAnnotationExample.swift */,
@@ -537,7 +527,6 @@
 			isa = PBXGroup;
 			children = (
 				962B450E1D1C8520007B7454 /* AnnotationViewExample.m */,
-				9678E3ED1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m */,
 				05FA53A81FE2FB46001F3D7D /* CustomCalloutView.m */,
 				05FA53AA1FE2FB9B001F3D7D /* CustomCalloutViewExample.m */,
 				05FA53AC1FE2FBB2001F3D7D /* DefaultCalloutExample.m */,
@@ -786,8 +775,6 @@
 				3ED403461E006BE800230C95 /* CameraFlyToExample.h */,
 				DDF943271E5DE63300545D0F /* ClusteringExample.h */,
 				CA987E33210F809B00C19855 /* ClusteringWithImagesExample.h */,
-				9678E3EC1CEF58DA00F21AE2 /* CustomAnnotationModelExample.h */,
-				9678E3F21CEF616700F21AE2 /* CustomAnnotationModels.h */,
 				96A2A1D01C8CA74B0059441E /* CustomCalloutView.h */,
 				96A2A1CD1C8CA16C0059441E /* CustomCalloutViewExample.h */,
 				07C138C51E72216D00D6F678 /* DDSCircleLayerExample.h */,
@@ -1321,7 +1308,6 @@
 				1F07015F225553F60045E061 /* MissingIconsExample.m in Sources */,
 				1F07015A22541F2A0045E061 /* LabelPlacementExample.m in Sources */,
 				07C138C71E72216E00D6F678 /* DDSCircleLayerExample.m in Sources */,
-				3EBCD7191DC28240001E342F /* CustomAnnotationModelExample.swift in Sources */,
 				05FA53AB1FE2FB9C001F3D7D /* CustomCalloutViewExample.m in Sources */,
 				962B450F1D1C8520007B7454 /* AnnotationViewExample.m in Sources */,
 				1F1F84771E53A3B700332CC3 /* BlockingGesturesDelegateExample.swift in Sources */,
@@ -1343,7 +1329,6 @@
 				05536CB5200F9EEB00657097 /* SwitchStylesExample.swift in Sources */,
 				646B62A61DEF7121000AA523 /* AnimatedLineExample.m in Sources */,
 				9691AAA71C5AAD8F006A58C6 /* StudioStyleExample.m in Sources */,
-				9678E3EE1CEF58DA00F21AE2 /* CustomAnnotationModelExample.m in Sources */,
 				CA987E30210F787B00C19855 /* ClusteringWithImagesExample.swift in Sources */,
 				3EBCD7261DC28240001E342F /* PointConversionExample.swift in Sources */,
 				961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */,
@@ -1376,7 +1361,6 @@
 				961962911C581700002D3DAB /* main.m in Sources */,
 				1F0701552252D2090045E061 /* TextFormattingExample.swift in Sources */,
 				3EBCD7251DC28240001E342F /* OfflinePackExample.swift in Sources */,
-				3EBCD71A1DC28240001E342F /* CustomAnnotationModels.swift in Sources */,
 				3E3BFAD91E81D7A300D0BEA1 /* FeatureSelectionExample.swift in Sources */,
 				3EBCD7181DC28240001E342F /* CameraAnimationExample.swift in Sources */,
 				9691AA941C5AA702006A58C6 /* Examples.m in Sources */,
