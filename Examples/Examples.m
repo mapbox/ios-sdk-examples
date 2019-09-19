@@ -34,7 +34,6 @@
         @{
             @"title": @"Annotations",
             @"examples": @[
-                    @{@"className": MBXExampleCustomAnnotationModel, @"title": @"Annotation models"},
                     @{@"className": MBXExampleAnnotationView, @"title": @"Annotation views"},
                     @{@"className": MBXExampleDefaultCallout, @"title": @"Use the default callout"},
                     @{@"className": MBXExampleCustomCalloutView, @"title": @"Display custom views as callouts"},
