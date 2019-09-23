@@ -39,6 +39,7 @@
                     @{@"className": MBXExampleCustomCalloutView, @"title": @"Display custom views as callouts"},
                     @{@"className": MBXExampleWebAPIData, @"title": @"Dynamically style interactive points"},
                     @{@"className": MBXExampleUserLocationAnnotation, @"title": @"Customize the user location annotation"},
+                    @{@"className": MBXExampleShapeAnnotations, @"title": @"Add basic shape annotations with callouts"}
             ]
         },
         @{
