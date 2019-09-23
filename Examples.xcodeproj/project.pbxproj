@@ -29,6 +29,7 @@
 		05FA53A91FE2FB46001F3D7D /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53A81FE2FB46001F3D7D /* CustomCalloutView.m */; };
 		05FA53AB1FE2FB9C001F3D7D /* CustomCalloutViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53AA1FE2FB9B001F3D7D /* CustomCalloutViewExample.m */; };
 		05FA53AD1FE2FBB3001F3D7D /* DefaultCalloutExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53AC1FE2FBB2001F3D7D /* DefaultCalloutExample.m */; };
+		075AFB7823393DBA0091FF0A /* example.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 075AFB7723393DBA0091FF0A /* example.geojson */; };
 		07C138C01E6F646F00D6F678 /* MultipleShapesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C138BF1E6F646F00D6F678 /* MultipleShapesExample.m */; };
 		07C138C21E6F65D000D6F678 /* MultipleShapesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C138C11E6F65D000D6F678 /* MultipleShapesExample.swift */; };
 		07C138C41E721C8F00D6F678 /* DDSCircleLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C138C31E721C8F00D6F678 /* DDSCircleLayerExample.swift */; };
@@ -197,6 +198,7 @@
 		05FA53A81FE2FB46001F3D7D /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
 		05FA53AA1FE2FB9B001F3D7D /* CustomCalloutViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutViewExample.m; sourceTree = "<group>"; };
 		05FA53AC1FE2FBB2001F3D7D /* DefaultCalloutExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCalloutExample.m; sourceTree = "<group>"; };
+		075AFB7723393DBA0091FF0A /* example.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = example.geojson; sourceTree = "<group>"; };
 		07C138BE1E6F646F00D6F678 /* MultipleShapesExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleShapesExample.h; sourceTree = "<group>"; };
 		07C138BF1E6F646F00D6F678 /* MultipleShapesExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleShapesExample.m; sourceTree = "<group>"; };
 		07C138C11E6F65D000D6F678 /* MultipleShapesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleShapesExample.swift; sourceTree = "<group>"; };
@@ -759,6 +761,7 @@
 				64BBDAEF1DF22D9600BB705D /* third_party_vector_style.json */,
 				1F07016422557B0B0045E061 /* icons.xcassets */,
 				1F07015622530BDF0045E061 /* text-format.json */,
+				075AFB7723393DBA0091FF0A /* example.geojson */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -1086,6 +1089,7 @@
 				DD5939E61E6778480009BEB2 /* clustering.xcassets in Resources */,
 				9619629C1C581700002D3DAB /* Assets.xcassets in Resources */,
 				1F07016522557B0B0045E061 /* icons.xcassets in Resources */,
+				075AFB7823393DBA0091FF0A /* example.geojson in Resources */,
 				64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */,
 				961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */,
 				1F07015722530BDF0045E061 /* text-format.json in Resources */,
