@@ -27,7 +27,6 @@ extern NSString *const MBXExampleClustering;
 extern NSString *const MBXExampleClusteringWithImages;
 extern NSString *const MBXExampleCustomCalloutView;
 extern NSString *const MBXExampleDDSCircleLayer;
-extern NSString *const MBXExampleDefaultAnnotation;
 extern NSString *const MBXExampleDefaultCallout;
 extern NSString *const MBXExampleDefaultStyles;
 extern NSString *const MBXExampleDraggableAnnotationView;

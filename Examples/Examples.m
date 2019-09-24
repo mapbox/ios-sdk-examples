@@ -17,7 +17,6 @@
             @"examples": @[
                     @{@"className": MBXExampleCameraAnimation, @"title": @"Camera animation"},
                     @{@"className": MBXExampleStudioStyle, @"title": @"Apply a style designed in Mapbox Studio"},
-                    @{@"className": MBXExampleDefaultAnnotation, @"title": @"Mark a place on the map with an annotation"},
                     @{@"className": MBXExampleSimpleMapView, @"title": @"Simple map view"},
             ]
         },
