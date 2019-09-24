@@ -7,7 +7,7 @@ DEPENDENCIES:
   - SwiftLint (~> 0.29)
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - Mapbox-iOS-SDK
     - SwiftLint
 
