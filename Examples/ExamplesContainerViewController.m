@@ -9,8 +9,8 @@
 #import "ExamplesContainerViewController.h"
 
 @interface ExamplesContainerViewController ()
-
 @end
+
 @implementation ExamplesContainerViewController
 
 - (void)viewDidLoad {
@@ -35,7 +35,6 @@
     }
 
     self.navigationController.hidesBarsOnSwipe = YES;
-    self.navigationController.hidesBarsWhenVerticallyCompact = YES;
 }
 
 @end
