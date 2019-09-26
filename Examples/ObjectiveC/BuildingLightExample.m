@@ -38,16 +38,16 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
     self.slider.minimumValue = -180;
     self.slider.maximumValue = 180;
     self.slider.value = 0;
-    UIColor *customPurpleColor = [UIColor colorWithRed:0.271 green:0.412 blue:0.969 alpha:1.00];
+    UIColor *customPurpleColor = [UIColor colorWithRed:0.271f green:0.412f blue:0.969f alpha:1];
     self.slider.tintColor = customPurpleColor;
     self.slider.thumbTintColor = customPurpleColor;
     [self.slider addTarget:self action:@selector(shiftLight) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.slider];
     [NSLayoutConstraint activateConstraints:@[
-                                              [self.slider.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:40.0],
-                                              [self.slider.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-40.0],
-                                              [self.slider.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-75.0]
-                                              ]];
+        [self.slider.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:40.0],
+        [self.slider.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-40.0],
+        [self.slider.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-75.0]
+    ]];
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
