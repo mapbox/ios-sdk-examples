@@ -2,7 +2,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 def shared_pods
-    pod 'Mapbox-iOS-SDK', '5.4.0'
+    pod 'Mapbox-iOS-SDK', '5.5.0-alpha.1'
     pod 'SwiftLint', '~> 0.29'
 end
 
