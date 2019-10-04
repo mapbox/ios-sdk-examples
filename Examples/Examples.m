@@ -58,6 +58,7 @@
                     @{@"className": MBXExampleShowHideLayer, @"title": @"Show and hide a layer"},
                     @{@"className": MBXExampleFeatureSelection, @"title": @"Select a feature within a layer"},
                     @{@"className": MBXExampleUserTrackingModes, @"title": @"Switch between user tracking modes"},
+                    @{@"className": MBXExampleFilterMapSymbols, @"title": @"Filter locations marked by symbols on a map"},
             ]
         },
         @{
