@@ -32,6 +32,7 @@ extern NSString *const MBXExampleDefaultStyles;
 extern NSString *const MBXExampleDraggableAnnotationView;
 extern NSString *const MBXExampleFeatureSelection;
 extern NSString *const MBXExampleFormattingExpression;
+extern NSString *const MBXExampleGradientGeoJSONLine;
 extern NSString *const MBXExampleHeatmap;
 extern NSString *const MBXExampleImageSource;
 extern NSString *const MBXExampleLabelPlacement;
