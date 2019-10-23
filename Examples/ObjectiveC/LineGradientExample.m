@@ -1,12 +1,12 @@
-#import "GradientGeoJSONLineExample.h"
+#import "LineGradientExample.h"
 @import Mapbox;
-@interface GradientGeoJSONLineExample () <MGLMapViewDelegate>
+@interface LineGradientExample () <MGLMapViewDelegate>
 @property (nonatomic) MGLMapView *mapView;
 @end
  
-NSString *const MBXExampleGradientGeoJSONLine = @"GradientGeoJSONLineExample";
+NSString *const MBXExampleLineGradient = @"LineGradientExample";
 
-@implementation GradientGeoJSONLineExample
+@implementation LineGradientExample
  
 - (void)viewDidLoad {
 [super viewDidLoad];

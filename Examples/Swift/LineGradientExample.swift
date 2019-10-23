@@ -8,9 +8,9 @@
 
 import UIKit
 import Mapbox
-@objc(GradientGeoJSONLineExample_Swift)
+@objc(LineGradientExample_Swift)
 
-class GradientGeoJSONLineExample_Swift: UIViewController, MGLMapViewDelegate {
+class LineGradientExample_Swift: UIViewController, MGLMapViewDelegate {
 
     var mapView: MGLMapView!
 

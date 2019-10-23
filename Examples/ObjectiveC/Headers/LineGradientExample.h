@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GradientGeoJSONLineExample : UIViewController
+@interface LineGradientExample : UIViewController
 
 @end
 
