@@ -24,7 +24,7 @@ animated:NO];
 self.mapView.delegate = self;
 }
  
-// Wait until the map is loaded before adding to the map.
+// Wait until the map is loaded before adding line layer to the map.
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
 [self loadGeoJSON];
 }
@@ -63,12 +63,12 @@ layer.lineCap = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLi
             };
 
     
-// Set the line color to a constant blue color.
+ // Set the line color to a gradient
     layer.lineGradient = [NSExpression expressionWithFormat: @"mgl_interpolate:withCurveType:parameters:stops:($lineProgress, 'linear', nil, %@)", stops];
  
-// Use `NSExpression` to smoothly adjust the line width from 2pt to 20pt between zoom levels 14 and 18. The `interpolationBase` parameter allows the values to interpolate along an exponential curve
-layer.lineWidth = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
-@{@14: @10, @18: @20}];
+        // Use `NSExpression` to allow the appearance of your gradient to change and become more detailed with the map’s zoom level
+    layer.lineWidth = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+                       @{@14: @10, @18: @20}];
     [self.mapView.style addLayer:layer];
  
 }
