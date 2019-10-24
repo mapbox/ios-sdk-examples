@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  Gradient Line Exampe
-//
-//  Created by ZiZi Miles on 10/14/19.
-//  Copyright © 2019 ZiZi Miles. All rights reserved.
-//
-
 import UIKit
 import Mapbox
 @objc(LineGradientExample_Swift)
@@ -26,38 +18,34 @@ class LineGradientExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
-        loadGeoJson()
+        
+        drawPolyline()
+        
     }
-    func loadGeoJson() {
-        DispatchQueue.global().async {
-            // Get the path for example.geojson in the app’s bundle.
-            guard let jsonUrl = Bundle.main.url(forResource: "iOSLineGeoJSON", withExtension: "geojson") else {
-                preconditionFailure("Failed to load local GeoJSON file")
-            }
 
-            guard let jsonData = try? Data(contentsOf: jsonUrl) else {
+    func drawPolyline() {
+        // Since we know this file exists within this project, we'll force unwrap its value.
+        // If this data was coming from an external server, we would want to perform
+        // proper error handling for a web request/response.
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "iOSLineGeoJSON", ofType: "geojson")!)
+            guard let jsonData = try? Data(contentsOf: url) else {
                 preconditionFailure("Failed to parse GeoJSON file")
             }
-            DispatchQueue.main.async {
-                self.drawPolyline(geoJson: jsonData)
-            }
+        // Add our GeoJSON data to the map as an MGLShapeSource.
+        // We can then reference this data from an MGLStyleLayer.
+        // MGLMapView.style is optional, so you must guard against it not being set.
+        guard let style = self.mapView.style else { return }
+        
+        guard let shapeFromGeoJSON = try? MGLShape(data: jsonData, encoding: String.Encoding.utf8.rawValue) else {
+            fatalError("Could not generate MGLShape")
         }
-    }
-    func drawPolyline(geoJson: Data) {
-    // Add our GeoJSON data to the map as an MGLGeoJSONSource.
-    // We can then reference this data from an MGLStyleLayer.
-    // MGLMapView.style is optional, so you must guard against it not being set.
-    guard let style = self.mapView.style else { return }
-    guard let shapeFromGeoJSON = try? MGLShape(data: geoJson, encoding: String.Encoding.utf8.rawValue) else {
-    fatalError("Could not generate MGLShape")
-    }
         let source = MGLShapeSource(identifier: "polyline", shape: shapeFromGeoJSON, options: [MGLShapeSourceOption.lineDistanceMetrics: true])
-    style.addSource(source)
-    // Create new layer for the line.
-    let layer = MGLLineStyleLayer(identifier: "polyline", source: source)
-    // Set the line join and cap to a rounded end.
-    layer.lineJoin = NSExpression(forConstantValue: "round")
-    layer.lineCap = NSExpression(forConstantValue: "round")
+        style.addSource(source)
+        // Create a new style layer for the line which will determine the line's styling properties.
+        let layer = MGLLineStyleLayer(identifier: "polyline", source: source)
+        // Set the line join and cap to a rounded end.
+        layer.lineJoin = NSExpression(forConstantValue: "round")
+        layer.lineCap = NSExpression(forConstantValue: "round")
 
         let stops =   [0: UIColor.blue,
                        0.1: UIColor.purple,
@@ -66,13 +54,13 @@ class LineGradientExample_Swift: UIViewController, MGLMapViewDelegate {
                        0.7: UIColor.yellow,
                        1: UIColor.red]
 
-    // Set the line color to a constant blue color.
-        layer.lineGradient = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($lineProgress, 'linear', nil, %@)", stops)
+        // Set the line color to a gradient
+            layer.lineGradient = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($lineProgress, 'linear', nil, %@)", stops)
 
-    // Use `NSExpression` to smoothly adjust the line width from 2pt to 20pt between zoom levels 14 and 18. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
-    layer.lineWidth = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
+        // Use `NSExpression` to allow the appearance of your gradient to change and become more detailed with the map’s zoom level
+            layer.lineWidth = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
                                    [14: 10, 18: 20])
 
-        style.addLayer(layer)
+            style.addLayer(layer)
     }
 }

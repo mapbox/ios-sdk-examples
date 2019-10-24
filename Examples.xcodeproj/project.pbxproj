@@ -82,7 +82,6 @@
 		3ED403481E006BE800230C95 /* CameraFlyToExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED403471E006BE800230C95 /* CameraFlyToExample.m */; };
 		589F5DE72355771E00548346 /* LineGradientExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 589F5DE62355771E00548346 /* LineGradientExample.m */; };
 		589F5DEA2355782000548346 /* LineGradientExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589F5DE92355782000548346 /* LineGradientExample.swift */; };
-		589F5DEC2355785500548346 /* mapbox_access_token in Resources */ = {isa = PBXBuildFile; fileRef = 589F5DEB2355785500548346 /* mapbox_access_token */; };
 		589F5DEE235579F700548346 /* iOSLineGeoJSON.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 589F5DED235579F700548346 /* iOSLineGeoJSON.geojson */; };
 		60E0DCA0CEED683C3A4F18F2 /* Pods_Examples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC12D8F1A97963D68BFA871 /* Pods_Examples.framework */; };
 		646B62971DEF6DAF000AA523 /* ShowHideLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62961DEF6DAF000AA523 /* ShowHideLayerExample.swift */; };
@@ -277,7 +276,6 @@
 		589F5DE62355771E00548346 /* LineGradientExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineGradientExample.m; sourceTree = "<group>"; };
 		589F5DE82355776200548346 /* LineGradientExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineGradientExample.h; sourceTree = "<group>"; };
 		589F5DE92355782000548346 /* LineGradientExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGradientExample.swift; sourceTree = "<group>"; };
-		589F5DEB2355785500548346 /* mapbox_access_token */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapbox_access_token; sourceTree = "<group>"; };
 		589F5DED235579F700548346 /* iOSLineGeoJSON.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iOSLineGeoJSON.geojson; sourceTree = "<group>"; };
 		646B62961DEF6DAF000AA523 /* ShowHideLayerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideLayerExample.swift; sourceTree = "<group>"; };
 		646B629B1DEF6DF1000AA523 /* ShowHideLayerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowHideLayerExample.m; sourceTree = "<group>"; };
@@ -687,7 +685,6 @@
 		961962831C581700002D3DAB = {
 			isa = PBXGroup;
 			children = (
-				589F5DEB2355785500548346 /* mapbox_access_token */,
 				9619628E1C581700002D3DAB /* Examples */,
 				961962A81C581700002D3DAB /* ExamplesTests */,
 				961962B31C581700002D3DAB /* ExamplesUITests */,
@@ -1102,7 +1099,6 @@
 				589F5DEE235579F700548346 /* iOSLineGeoJSON.geojson in Resources */,
 				9619629F1C581700002D3DAB /* LaunchScreen.storyboard in Resources */,
 				DD5939E61E6778480009BEB2 /* clustering.xcassets in Resources */,
-				589F5DEC2355785500548346 /* mapbox_access_token in Resources */,
 				9619629C1C581700002D3DAB /* Assets.xcassets in Resources */,
 				1F07016522557B0B0045E061 /* icons.xcassets in Resources */,
 				075AFB7823393DBA0091FF0A /* example.geojson in Resources */,
