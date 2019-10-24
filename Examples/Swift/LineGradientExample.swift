@@ -18,9 +18,7 @@ class LineGradientExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
-
         drawPolyline()
-
     }
 
     func drawPolyline() {
