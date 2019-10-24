@@ -33,7 +33,7 @@ class LineGradientExample_Swift: UIViewController, MGLMapViewDelegate {
         // We can then reference this data from an MGLStyleLayer.
         // MGLMapView.style is optional, so you must guard against it not being set.
         guard let style = self.mapView.style else { return }
-        
+
         guard let shapeFromGeoJSON = try? MGLShape(data: jsonData, encoding: String.Encoding.utf8.rawValue) else {
             fatalError("Could not generate MGLShape")
         }
