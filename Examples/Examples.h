@@ -37,6 +37,7 @@ extern NSString *const MBXExampleImageSource;
 extern NSString *const MBXExampleLabelPlacement;
 extern NSString *const MBXExampleLineStyleLayer;
 extern NSString *const MBXExampleLiveData;
+extern NSString *const MBXExampleMGLMatch;
 extern NSString *const MBXExampleMultipleImages;
 extern NSString *const MBXExampleMultipleShapes;
 extern NSString *const MBXExampleOfflinePack;
