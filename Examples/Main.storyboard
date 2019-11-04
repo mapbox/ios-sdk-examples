@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yVZ-2f-Y86">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3M0-g3-7fD">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -134,7 +135,7 @@
         <!--View Controller-->
         <scene sceneID="OJC-Rf-cE4">
             <objects>
-                <viewController id="yVZ-2f-Y86" customClass="ViewController" customModule="Examples" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yVZ-2f-Y86" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Ge-OG-waD"/>
                         <viewControllerLayoutGuide type="bottom" id="S3O-Nn-XzM"/>
@@ -144,10 +145,82 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="list" id="gY5-aw-Ejq">
+                        <color key="badgeColor" name="MapboxBlurple"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQR-CG-UX0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1718" y="657"/>
+            <point key="canvasLocation" x="2656.8000000000002" y="656.22188905547227"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Ufg-wo-Nl9">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="3M0-g3-7fD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dcn-5V-11v">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="yVZ-2f-Y86" kind="relationship" relationship="viewControllers" id="Ca1-Iu-YJX"/>
+                        <segue destination="e3z-w6-HgZ" kind="relationship" relationship="viewControllers" id="p6D-6A-jqs"/>
+                        <segue destination="xRa-za-0wc" kind="relationship" relationship="viewControllers" id="ocf-2i-wbT"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3WF-Eo-BFJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1717.5999999999999" y="656.22188905547227"/>
+        </scene>
+        <!--Showcase View Controller-->
+        <scene sceneID="ntk-g9-Clb">
+            <objects>
+                <viewController id="e3z-w6-HgZ" customClass="ShowcaseViewController" customModule="Examples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6KK-pT-H0S"/>
+                        <viewControllerLayoutGuide type="bottom" id="a7G-w4-5Pj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fA4-by-GMw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="rocket" id="hKq-VP-bUD">
+                        <color key="badgeColor" name="MapboxBlurple"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UiQ-N2-435" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2657" y="1375"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FZV-Ob-Rgb">
+            <objects>
+                <viewController id="xRa-za-0wc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OA8-g9-81B"/>
+                        <viewControllerLayoutGuide type="bottom" id="54I-y3-Orm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gFX-aU-SMh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="settings" id="YgE-bo-hOo">
+                        <color key="badgeColor" name="MapboxBlurple"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FYt-J8-C4U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2658" y="2091"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list" width="24" height="22"/>
+        <image name="rocket" width="21" height="21"/>
+        <image name="settings" width="25" height="26"/>
+        <namedColor name="MapboxBlurple">
+            <color red="0.28741231560000002" green="0.39075428249999999" blue="0.94907456639999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>
