@@ -22,6 +22,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 24.0, weight: .medium)
         label.text = self.example?.title ?? "Example" // TODO: Fail better when there is no title
         label.backgroundColor = UIColor.yellow.withAlphaComponent(0.3)
         return label

@@ -6,7 +6,7 @@ class ShowcaseViewController: UIViewController {
     var collectionView: UICollectionView!
     var layout = UICollectionViewFlowLayout()
 
-    private let edgeInset: CGFloat = 15.0
+    private let edgeInset: CGFloat = 20.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,43 +14,20 @@ class ShowcaseViewController: UIViewController {
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
 
-        // TODO: Move header to its own UIVIew
-        let headerView = UIView()
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-
-        let logoImageView = UIImageView(image: UIImage(named: "mapbox-logo"))
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.contentMode = .scaleAspectFit
-
-        let titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        let titleFont = UIFont.systemFont(ofSize: 34.0, weight: .medium)
-        titleLabel.font = titleFont
-        titleLabel.text = "Examples" // TODO - Localize titleLabel text
-
+        let headerView = HeaderView(title: "Examples")
         view.addSubview(containerView)
-        headerView.addSubview(logoImageView)
         containerView.addSubview(headerView)
-        containerView.addSubview(titleLabel)
 
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: edgeInset),
+            containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: edgeInset * 2),
             containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: edgeInset),
             containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: edgeInset),
             containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -edgeInset),
 
-            headerView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            headerView.bottomAnchor.constraint(equalTo: containerView.topAnchor, constant: 80.0),
             headerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-
-            logoImageView.topAnchor.constraint(equalTo: headerView.topAnchor),
-            logoImageView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor),
-            logoImageView.widthAnchor.constraint(equalTo: headerView.heightAnchor),
-
-            titleLabel.centerYAnchor.constraint(equalTo: logoImageView.centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: edgeInset)
+            headerView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            headerView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.06)
          ])
 
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
@@ -66,8 +43,8 @@ class ShowcaseViewController: UIViewController {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: edgeInset),
             collectionView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10.0),
-            collectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10.0),
+            collectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
