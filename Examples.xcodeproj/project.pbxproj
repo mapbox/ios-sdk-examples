@@ -29,6 +29,7 @@
 		05FA53A91FE2FB46001F3D7D /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53A81FE2FB46001F3D7D /* CustomCalloutView.m */; };
 		05FA53AB1FE2FB9C001F3D7D /* CustomCalloutViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53AA1FE2FB9B001F3D7D /* CustomCalloutViewExample.m */; };
 		05FA53AD1FE2FBB3001F3D7D /* DefaultCalloutExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53AC1FE2FBB2001F3D7D /* DefaultCalloutExample.m */; };
+		0729C2E42370FADA0038FBAA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0729C2E32370FADA0038FBAA /* HeaderView.swift */; };
 		075AFB7823393DBA0091FF0A /* example.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 075AFB7723393DBA0091FF0A /* example.geojson */; };
 		0774A77423394B750038264E /* ShapeAnnotationsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 0774A77323394B750038264E /* ShapeAnnotationsExample.m */; };
 		0774A77623394BFB0038264E /* ShapeAnnotationsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0774A77523394BFB0038264E /* ShapeAnnotationsExample.swift */; };
@@ -202,6 +203,7 @@
 		05FA53A81FE2FB46001F3D7D /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
 		05FA53AA1FE2FB9B001F3D7D /* CustomCalloutViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutViewExample.m; sourceTree = "<group>"; };
 		05FA53AC1FE2FBB2001F3D7D /* DefaultCalloutExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCalloutExample.m; sourceTree = "<group>"; };
+		0729C2E32370FADA0038FBAA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		075AFB7723393DBA0091FF0A /* example.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = example.geojson; sourceTree = "<group>"; };
 		0774A77223394B750038264E /* ShapeAnnotationsExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapeAnnotationsExample.h; sourceTree = "<group>"; };
 		0774A77323394B750038264E /* ShapeAnnotationsExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShapeAnnotationsExample.m; sourceTree = "<group>"; };
@@ -675,6 +677,7 @@
 			isa = PBXGroup;
 			children = (
 				07EA6AF8236D3017002C3DC3 /* CustomCollectionViewCell.swift */,
+				0729C2E32370FADA0038FBAA /* HeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1380,6 +1383,7 @@
 				CA987E30210F787B00C19855 /* ClusteringWithImagesExample.swift in Sources */,
 				3EBCD7261DC28240001E342F /* PointConversionExample.swift in Sources */,
 				961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */,
+				0729C2E42370FADA0038FBAA /* HeaderView.swift in Sources */,
 				1F0701532252CE420045E061 /* TextFormattingExample.m in Sources */,
 				64BBDB031DF24E0900BB705D /* WebAPIDataExample.swift in Sources */,
 				CA987E32210F7FAE00C19855 /* ClusteringWithImagesExample.m in Sources */,
@@ -1744,6 +1748,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Examples/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1767,6 +1772,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Examples/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mapbox.examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";

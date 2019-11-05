@@ -14,6 +14,7 @@ class ShowcaseViewController: UIViewController {
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
 
+        // TODO: Move header to its own UIVIew
         let headerView = UIView()
         headerView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -34,15 +35,10 @@ class ShowcaseViewController: UIViewController {
         containerView.addSubview(titleLabel)
 
         NSLayoutConstraint.activate([
-//            containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: edgeInset),
-//            containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: edgeInset),
-//            containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: edgeInset),
-//            containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -edgeInset),
-
-            containerView.topAnchor.constraint(equalTo: self.topLayoutGuide.topAnchor, constant: edgeInset),
-            containerView.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.bottomAnchor, constant: edgeInset),
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: edgeInset),
-            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -edgeInset),
+            containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: edgeInset),
+            containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: edgeInset),
+            containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: edgeInset),
+            containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -edgeInset),
 
             headerView.topAnchor.constraint(equalTo: containerView.topAnchor),
             headerView.bottomAnchor.constraint(equalTo: containerView.topAnchor, constant: 80.0),
