@@ -32,6 +32,7 @@
 		075AFB7823393DBA0091FF0A /* example.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 075AFB7723393DBA0091FF0A /* example.geojson */; };
 		0774A77423394B750038264E /* ShapeAnnotationsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 0774A77323394B750038264E /* ShapeAnnotationsExample.m */; };
 		0774A77623394BFB0038264E /* ShapeAnnotationsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0774A77523394BFB0038264E /* ShapeAnnotationsExample.swift */; };
+		079E624723738B3200FF7A31 /* ShipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079E624623738B3200FF7A31 /* ShipController.swift */; };
 		07C138C01E6F646F00D6F678 /* MultipleShapesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C138BF1E6F646F00D6F678 /* MultipleShapesExample.m */; };
 		07C138C21E6F65D000D6F678 /* MultipleShapesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C138C11E6F65D000D6F678 /* MultipleShapesExample.swift */; };
 		07C138C41E721C8F00D6F678 /* DDSCircleLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C138C31E721C8F00D6F678 /* DDSCircleLayerExample.swift */; };
@@ -202,6 +203,7 @@
 		0774A77223394B750038264E /* ShapeAnnotationsExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapeAnnotationsExample.h; sourceTree = "<group>"; };
 		0774A77323394B750038264E /* ShapeAnnotationsExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShapeAnnotationsExample.m; sourceTree = "<group>"; };
 		0774A77523394BFB0038264E /* ShapeAnnotationsExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeAnnotationsExample.swift; sourceTree = "<group>"; };
+		079E624623738B3200FF7A31 /* ShipController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipController.swift; sourceTree = "<group>"; };
 		07C138BE1E6F646F00D6F678 /* MultipleShapesExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleShapesExample.h; sourceTree = "<group>"; };
 		07C138BF1E6F646F00D6F678 /* MultipleShapesExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleShapesExample.m; sourceTree = "<group>"; };
 		07C138C11E6F65D000D6F678 /* MultipleShapesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleShapesExample.swift; sourceTree = "<group>"; };
@@ -817,6 +819,7 @@
 		9691AAA01C5AAD8F006A58C6 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				079E624623738B3200FF7A31 /* ShipController.swift */,
 				CA39B2B9209B881300D37037 /* Testing Categories */,
 				CA3B162A2098C6FF005C087B /* Testing Support */,
 				3EBCD6FC1DC26364001E342F /* Swift */,
@@ -1331,6 +1334,7 @@
 				3EBCD7291DC28240001E342F /* UserTrackingModesExample.swift in Sources */,
 				05536CB5200F9EEB00657097 /* SwitchStylesExample.swift in Sources */,
 				646B62A61DEF7121000AA523 /* AnimatedLineExample.m in Sources */,
+				079E624723738B3200FF7A31 /* ShipController.swift in Sources */,
 				9691AAA71C5AAD8F006A58C6 /* StudioStyleExample.m in Sources */,
 				CA987E30210F787B00C19855 /* ClusteringWithImagesExample.swift in Sources */,
 				3EBCD7261DC28240001E342F /* PointConversionExample.swift in Sources */,
