@@ -19,21 +19,15 @@ struct ExampleGroup {
 
 struct TestData {
     static let allExamples = [
-        ExampleGroup(groupTitle: "GROUP A", examples: [
-           Example(title: "We're no strangers to love", description: "Add a marker to the map", language: [.swift, .objc], fileName: "SimpleMapViewExample.swift"),
-           Example(title: "You know the rules and so do I", description: "Animate a line along a path", language: [.swift, .objc], fileName: "AnimatedLineExample.swift"),
-           Example(title: "A full commitment's what I'm thinking of", description: "Switch between map styles", language: [.swift, .objc], fileName: "SwitchStylesExample.swift")
+        ExampleGroup(groupTitle: "Markers and callouts", examples: [
+           Example(title: "Add a basic marker", description: "Add the default Mapbox marker to a map", language: [.swift, .objc], fileName: "SimpleMapViewExample.swift"),
+           Example(title: "Display a callout", description: "Display additional information inside a callout", language: [.swift, .objc], fileName: "AnimatedLineExample.swift")
         ]),
-        ExampleGroup(groupTitle: "GROUP B", examples: [
-           Example(title: "You wouldn't get this from any other guy", description: "Add a marker to the map", language: [.swift, .objc], fileName: "SomeFileName"),
-           Example(title: "I just wanna tell you how I'm feeling", description: "Animate a line along a path", language: [.swift, .objc], fileName: "AnimatedLineExample.swift"),
-           Example(title: "Gotta make you understand", description: "Switch between map styles", language: [.swift, .objc], fileName: "SwitchStylesExample.swift"),
-           Example(title: "Never gonna give you up", description: "Switch between map styles", language: [.swift, .objc], fileName: "SwitchStylesExample.swift"),
-           Example(title: "Never gonna let you down", description: "Switch between map styles", language: [.swift, .objc], fileName: "SwitchStylesExample.swift"),
-           Example(title: "Never gonna run around and desert you", description: "Switch between map styles", language: [.swift, .objc], fileName: "SwitchStylesExample.swift"),
-           Example(title: "Never gonna make you cry", description: "Switch between map styles", language: [.swift, .objc], fileName: "SwitchStylesExample.swift"),
-           Example(title: "Never gonna say goodbye", description: "Switch between map styles", language: [.swift, .objc], fileName: "SwitchStylesExample.swift"),
-           Example(title: "Never gonna tell a lie and hurt you", description: "Switch between map styles", language: [.swift, .objc], fileName: "SwitchStylesExample.swift")
+        ExampleGroup(groupTitle: "User interaction", examples: [
+           Example(title: "Restrict map movement", description: "Prevent the user from panning outside of a certain area", language: [.swift, .objc], fileName: "SomeFileName"),
+           Example(title: "Show and hide layers", description: "Toggle a layer's visibility", language: [.swift, .objc], fileName: "AnimatedLineExample.swift"),
+           Example(title: "Select a feature on the map", description: "Respond to a user tapping on the map", language: [.swift, .objc], fileName: "SwitchStylesExample.swift"),
+           Example(title: "Create draggable markers", description: "Add draggable UIView markers to the map", language: [.swift, .objc], fileName: "SwitchStylesExample.swift")
         ])
     ]
 }
