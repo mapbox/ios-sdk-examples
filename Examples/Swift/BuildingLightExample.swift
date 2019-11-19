@@ -34,6 +34,7 @@ class BuildingLightExample: UIViewController, MGLMapViewDelegate {
         slider.tintColor = customPurpleColor
         slider.thumbTintColor = customPurpleColor
         slider.value = 0
+        slider.isContinuous = false
         slider.addTarget(self, action: #selector(shiftLight), for: .valueChanged)
         view.addSubview(slider)
         NSLayoutConstraint.activate([

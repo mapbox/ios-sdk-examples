@@ -51,6 +51,7 @@ NSString *const MBXExampleRasterImagery = @"RasterImageryExample";
     slider.minimumValue = 0;
     slider.maximumValue = 1;
     slider.value = 1;
+    slider.continuous = false;
     [slider addTarget:self action:@selector(updateLayerOpacity:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:slider];
     

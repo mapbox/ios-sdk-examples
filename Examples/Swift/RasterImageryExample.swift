@@ -43,6 +43,7 @@ class RasterImageryExample_Swift: UIViewController, MGLMapViewDelegate {
         slider.minimumValue = 0
         slider.maximumValue = 1
         slider.value = 1
+        slider.isContinuous = false
         slider.addTarget(self, action: #selector(updateLayerOpacity), for: .valueChanged)
         view.insertSubview(slider, aboveSubview: mapView)
         if #available(iOS 11.0, *) {
