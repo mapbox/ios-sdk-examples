@@ -41,6 +41,7 @@ NSString *const MBXExampleBuildingLight = @"BuildingLightExample";
     UIColor *customPurpleColor = [UIColor colorWithRed:0.271f green:0.412f blue:0.969f alpha:1];
     self.slider.tintColor = customPurpleColor;
     self.slider.thumbTintColor = customPurpleColor;
+    self.slider.continuous = false;
     [self.slider addTarget:self action:@selector(shiftLight) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.slider];
     [NSLayoutConstraint activateConstraints:@[
