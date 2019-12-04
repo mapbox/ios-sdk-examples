@@ -19,7 +19,7 @@ class ShowcaseViewController: UIViewController {
         containerView.addSubview(headerView)
 
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: edgeInset * 2),
+            containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: edgeInset),
             containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: edgeInset),
             containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: edgeInset),
             containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -edgeInset),
@@ -85,14 +85,25 @@ extension ShowcaseViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // Use a three column layout for big screen spaces.
-        if (UIScreen.main.traitCollection.horizontalSizeClass == .regular) {
-            // The 20 value accounts for minimumInterItemSpacing (10pts) between three columns
-            return CGSize(width: (collectionView.frame.width - 20) / 3, height: 140)
+
+        // For compact layouts, display one cell in each row.
+        // Example devices with compact layouts:
+        //   - iPhone 11 Pro (portrait, landscape)
+        //   - iPhone 11 Pro max (portrait)
+        var cellWidth = collectionView.frame.width.rounded()
+
+        if (self.traitCollection.horizontalSizeClass == .regular) {
+            // For wider layouts, display two cells in each row.
+            // Example devices with regular (wider) layouts:
+            //   - iPhone 11 Pro max (portrait)
+            //   - iPad Pro (12.9") (portrait, landscape)
+            cellWidth = ((collectionView.frame.width / 2) - layout.minimumInteritemSpacing).rounded()
         }
 
-        // Otherwise use a one-column layout, like a table view.
-        return CGSize(width: (collectionView.frame.width), height: 140)
+        // 3:2 aspect ratio
+        let cellHeight = (cellWidth * 0.33).rounded()
+
+        return CGSize(width: cellWidth, height: cellHeight)
     }
 }
 
