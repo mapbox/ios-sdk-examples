@@ -7,7 +7,7 @@ class HeaderView: UIStackView {
     lazy var logoView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "mapbox-logo")
         return imageView
     }()
@@ -15,8 +15,9 @@ class HeaderView: UIStackView {
     lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 34.0, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 28.0, weight: .medium)
         label.text = self.title // TODO: Localize header title text
+        label.sizeToFit()
         return label
     }()
 
@@ -41,7 +42,7 @@ class HeaderView: UIStackView {
         self.addArrangedSubview(headerLabel)
 
         NSLayoutConstraint.activate([
-            logoView.heightAnchor.constraint(equalTo: self.heightAnchor),
+            logoView.heightAnchor.constraint(equalTo: headerLabel.heightAnchor),
             logoView.widthAnchor.constraint(equalTo: self.heightAnchor),
             headerLabel.centerYAnchor.constraint(equalTo: logoView.centerYAnchor)
         ])

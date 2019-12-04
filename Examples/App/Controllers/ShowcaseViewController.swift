@@ -14,7 +14,7 @@ class ShowcaseViewController: UIViewController {
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
 
-        let headerView = HeaderView(title: "Examples")
+        let headerView = HeaderView(title: "Showcase")
         view.addSubview(containerView)
         containerView.addSubview(headerView)
 
@@ -27,7 +27,7 @@ class ShowcaseViewController: UIViewController {
             headerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             headerView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            headerView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.06)
+            headerView.heightAnchor.constraint(lessThanOrEqualToConstant: 40.0)
          ])
 
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
