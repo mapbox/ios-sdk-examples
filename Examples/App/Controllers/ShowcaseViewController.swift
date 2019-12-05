@@ -30,6 +30,7 @@ class ShowcaseViewController: UIViewController {
             headerView.heightAnchor.constraint(lessThanOrEqualToConstant: 40.0)
          ])
 
+        layout.minimumLineSpacing = 15.0
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.alwaysBounceVertical = true
@@ -100,10 +101,12 @@ extension ShowcaseViewController: UICollectionViewDelegateFlowLayout {
             cellWidth = ((collectionView.frame.width / 2) - layout.minimumInteritemSpacing).rounded()
         }
 
-        // 3:2 aspect ratio
+        // 3:2 aspect ratio for image
         let cellHeight = (cellWidth * 0.33).rounded()
+        let exampleLabelHeight = CGFloat(20.0)
 
-        return CGSize(width: cellWidth, height: cellHeight)
+
+        return CGSize(width: cellWidth, height: cellHeight + exampleLabelHeight)
     }
 }
 
