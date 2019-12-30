@@ -6,7 +6,6 @@ class DDSCircleLayerTutorialViewController: UIViewController, MGLMapViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // #-code-snippet: expressions initialize-map-swift
         let mapView = MGLMapView(frame: view.bounds)
         mapView.styleURL = MGLStyle.lightStyleURL
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -15,12 +14,10 @@ class DDSCircleLayerTutorialViewController: UIViewController, MGLMapViewDelegate
 
         mapView.delegate = self
         view.addSubview(mapView)
-        // #-end-code-snippet: expressions initialize-map-swift
     }
 
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
 
-        // #-code-snippet: expressions add-layer-swift
         let source = MGLVectorTileSource(identifier: "historical-places", configurationURL: URL(string: "mapbox://examples.5zzwbooj")!)
 
         style.addSource(source)
@@ -41,6 +38,5 @@ class DDSCircleLayerTutorialViewController: UIViewController, MGLMapViewDelegate
         layer.circleRadius = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", zoomStops)
 
         style.addLayer(layer)
-        // #-end-code-snippet: expressions add-layer-swift
     }
 }

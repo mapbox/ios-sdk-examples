@@ -95,8 +95,8 @@ NSString *const MBXExampleMultipleShapes = @"MultipleShapesExample";
     // Source data that is not of `neighborhood-region` type will be excluded.
     MGLFillStyleLayer *polygonLayer = [[MGLFillStyleLayer alloc] initWithIdentifier:@"DC-regions" source: source];
     polygonLayer.predicate = [NSPredicate predicateWithFormat:@"TYPE = 'neighborhood-region'"];
-    polygonLayer.fillColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed: 0.27 green: 0.41 blue: 0.97 alpha: 0.3]];
-    polygonLayer.fillOutlineColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed: 0.27 green: 0.41 blue: 0.97 alpha: 1.0]];
+    polygonLayer.fillColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed:0.27f green:0.41f blue:0.97f alpha: 0.3f]];
+    polygonLayer.fillOutlineColor = [NSExpression expressionForConstantValue:[UIColor colorWithRed:0.27f green:0.41f blue:0.97f alpha:1]];
 
     [self addLayer:polygonLayer];
 }
