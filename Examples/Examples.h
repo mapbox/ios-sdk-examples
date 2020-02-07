@@ -23,6 +23,7 @@ extern NSString *const MBXExampleBlockingGesturesDelegate;
 extern NSString *const MBXExampleBuildingLight;
 extern NSString *const MBXExampleCameraAnimation;
 extern NSString *const MBXExampleCameraFlyTo;
+extern NSString *const MBXExampleChangeWorldviewBoundaries;
 extern NSString *const MBXExampleClustering;
 extern NSString *const MBXExampleClusteringWithImages;
 extern NSString *const MBXExampleCustomCalloutView;
