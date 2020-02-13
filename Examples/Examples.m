@@ -15,6 +15,7 @@
         @{
             @"title": @"Getting started",
             @"examples": @[
+                    @{@"className": MBXExampleAddMarkerSymbol, @"title": @"Add a marker to a map"},
                     @{@"className": MBXExampleCameraAnimation, @"title": @"Camera animation"},
                     @{@"className": MBXExampleStudioStyle, @"title": @"Apply a style designed in Mapbox Studio"},
                     @{@"className": MBXExampleSimpleMapView, @"title": @"Simple map view"},
