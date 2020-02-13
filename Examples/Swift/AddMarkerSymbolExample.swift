@@ -11,7 +11,7 @@ class AddMarkerSymbolExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.delegate = self
 
         // Set the map’s center coordinate and zoom level.
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 41.8864, longitude: -87.7135), zoomLevel: 9, animated: false)
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 41.8864, longitude: -87.7135), zoomLevel: 13, animated: false)
         view.addSubview(mapView)
     }
 
