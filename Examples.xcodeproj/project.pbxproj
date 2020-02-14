@@ -29,6 +29,8 @@
 		05FA53A91FE2FB46001F3D7D /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53A81FE2FB46001F3D7D /* CustomCalloutView.m */; };
 		05FA53AB1FE2FB9C001F3D7D /* CustomCalloutViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53AA1FE2FB9B001F3D7D /* CustomCalloutViewExample.m */; };
 		05FA53AD1FE2FBB3001F3D7D /* DefaultCalloutExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53AC1FE2FBB2001F3D7D /* DefaultCalloutExample.m */; };
+		072AE90D23F4C2980096B595 /* AddMarkerSymbolExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072AE90C23F4C2980096B595 /* AddMarkerSymbolExample.swift */; };
+		072AE91023F4C2CD0096B595 /* AddMarkerSymbolExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 072AE90F23F4C2CD0096B595 /* AddMarkerSymbolExample.m */; };
 		075AFB7823393DBA0091FF0A /* example.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 075AFB7723393DBA0091FF0A /* example.geojson */; };
 		0774A77423394B750038264E /* ShapeAnnotationsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 0774A77323394B750038264E /* ShapeAnnotationsExample.m */; };
 		0774A77623394BFB0038264E /* ShapeAnnotationsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0774A77523394BFB0038264E /* ShapeAnnotationsExample.swift */; };
@@ -198,6 +200,9 @@
 		05FA53A81FE2FB46001F3D7D /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
 		05FA53AA1FE2FB9B001F3D7D /* CustomCalloutViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutViewExample.m; sourceTree = "<group>"; };
 		05FA53AC1FE2FBB2001F3D7D /* DefaultCalloutExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCalloutExample.m; sourceTree = "<group>"; };
+		072AE90C23F4C2980096B595 /* AddMarkerSymbolExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarkerSymbolExample.swift; sourceTree = "<group>"; };
+		072AE90E23F4C2CD0096B595 /* AddMarkerSymbolExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddMarkerSymbolExample.h; sourceTree = "<group>"; };
+		072AE90F23F4C2CD0096B595 /* AddMarkerSymbolExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddMarkerSymbolExample.m; sourceTree = "<group>"; };
 		075AFB7723393DBA0091FF0A /* example.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = example.geojson; sourceTree = "<group>"; };
 		0774A77223394B750038264E /* ShapeAnnotationsExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapeAnnotationsExample.h; sourceTree = "<group>"; };
 		0774A77323394B750038264E /* ShapeAnnotationsExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShapeAnnotationsExample.m; sourceTree = "<group>"; };
@@ -422,8 +427,10 @@
 		0543F6401FE8671100D0AF54 /* Getting started */ = {
 			isa = PBXGroup;
 			children = (
+				072AE90C23F4C2980096B595 /* AddMarkerSymbolExample.swift */,
 				3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */,
 				3ED403401E006B5200230C95 /* CameraFlyToExample.swift */,
+				0774A77523394BFB0038264E /* ShapeAnnotationsExample.swift */,
 				3EBCD7141DC28240001E342F /* SimpleMapViewExample.swift */,
 			);
 			name = "Getting started";
@@ -516,9 +523,11 @@
 		0543F6481FE8688E00D0AF54 /* Getting started */ = {
 			isa = PBXGroup;
 			children = (
+				072AE90F23F4C2CD0096B595 /* AddMarkerSymbolExample.m */,
 				968247261C5C1DC700494AB8 /* CameraAnimationExample.m */,
 				3ED403471E006BE800230C95 /* CameraFlyToExample.m */,
 				9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */,
+				0774A77323394B750038264E /* ShapeAnnotationsExample.m */,
 			);
 			name = "Getting started";
 			sourceTree = "<group>";
@@ -649,8 +658,6 @@
 				0543F64F1FE8698600D0AF54 /* Offline */,
 				0543F64D1FE8696800D0AF54 /* User interaction */,
 				9682472D1C5C226D00494AB8 /* Headers */,
-				0774A77223394B750038264E /* ShapeAnnotationsExample.h */,
-				0774A77323394B750038264E /* ShapeAnnotationsExample.m */,
 			);
 			name = "Objective-C";
 			sourceTree = "<group>";
@@ -667,7 +674,6 @@
 				0543F6411FE8675000D0AF54 /* Markers and callouts */,
 				0543F6471FE867C400D0AF54 /* Offline */,
 				0543F6451FE8679400D0AF54 /* User interaction */,
-				0774A77523394BFB0038264E /* ShapeAnnotationsExample.swift */,
 			);
 			name = Swift;
 			path = ../Swift;
@@ -770,6 +776,7 @@
 		9682472D1C5C226D00494AB8 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				072AE90E23F4C2CD0096B595 /* AddMarkerSymbolExample.h */,
 				646B62A11DEF70DD000AA523 /* AnimatedLineExample.h */,
 				962B450D1D1C8520007B7454 /* AnnotationViewExample.h */,
 				1F1F84731E538ABB00332CC3 /* BlockingGesturesDelegateExample.h */,
@@ -799,6 +806,7 @@
 				055ABCBF1EFB139C0063BACA /* PolygonPatternExample.h */,
 				64CF97191DF2252C00C3C27B /* RasterImageryExample.h */,
 				646B62BB1DEF964A000AA523 /* RuntimeCircleStylesExample.h */,
+				0774A77223394B750038264E /* ShapeAnnotationsExample.h */,
 				646B629E1DEF6DFD000AA523 /* ShowHideLayerExample.h */,
 				9691AAA51C5AAD8F006A58C6 /* SimpleMapViewExample.h */,
 				3EA5AA001FAD2E95007073C0 /* StaticSnapshotExample.h */,
@@ -1344,6 +1352,7 @@
 				05536CB5200F9EEB00657097 /* SwitchStylesExample.swift in Sources */,
 				646B62A61DEF7121000AA523 /* AnimatedLineExample.m in Sources */,
 				9691AAA71C5AAD8F006A58C6 /* StudioStyleExample.m in Sources */,
+				072AE90D23F4C2980096B595 /* AddMarkerSymbolExample.swift in Sources */,
 				CA987E30210F787B00C19855 /* ClusteringWithImagesExample.swift in Sources */,
 				3EBCD7261DC28240001E342F /* PointConversionExample.swift in Sources */,
 				961962D21C5821A9002D3DAB /* ExamplesTableViewController.m in Sources */,
@@ -1363,6 +1372,7 @@
 				3E3BFADC1E81D7BB00D0BEA1 /* FeatureSelectionExample.m in Sources */,
 				96BAED2E1FE304DD00A58BEB /* PointConversionExample.m in Sources */,
 				3E1806121EAA804B004DB131 /* UserLocationAnnotationExample.swift in Sources */,
+				072AE91023F4C2CD0096B595 /* AddMarkerSymbolExample.m in Sources */,
 				3ED403481E006BE800230C95 /* CameraFlyToExample.m in Sources */,
 				3EBCD71D1DC28240001E342F /* StudioClassicStyleExample.swift in Sources */,
 				646B62B01DEF7161000AA523 /* AnimatedLineExample.swift in Sources */,
