@@ -1,6 +1,6 @@
 PODS:
   - Mapbox-iOS-SDK (5.7.0):
-  - MapboxMobileEvents (= 0.10.2)
+    - MapboxMobileEvents (= 0.10.2)
   - MapboxMobileEvents (0.10.2)
   - SwiftLint (0.39.1)
 
