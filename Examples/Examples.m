@@ -48,6 +48,7 @@
                     @{@"className": MBXExamplePolygonPattern, @"title": @"Add a pattern to a polygon"},
                     @{@"className": MBXExampleLineStyleLayer, @"title": @"Add a line style layer from GeoJSON"},
                     @{@"className": MBXExampleAnimatedLine, @"title": @"Animate a line"},
+                    @{@"className": MBXExampleLineGradient, @"title": @"Create a line with a color-changing gradient"},
             ]
         },
         @{
