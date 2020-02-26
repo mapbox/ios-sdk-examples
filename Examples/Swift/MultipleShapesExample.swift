@@ -24,7 +24,7 @@ class MultipleShapesExample_Swift: UIViewController, MGLMapViewDelegate {
         // Since we know this file exists within this project, we'll force unwrap its value.
         // If this data was coming from an external server, we would want to perform
         // proper error handling for a web request/response.
-        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "metro-line", ofType: "geojson")!)
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "dc-metro", ofType: "geojson")!)
 
         // Create a shape source and register it with the map style.
         let source = MGLShapeSource(identifier: "transit", url: url, options: nil)
