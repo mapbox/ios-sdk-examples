@@ -30,10 +30,10 @@ NSString *const MBXExampleMultipleShapes = @"MultipleShapesExample";
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
     // If this data was coming from an external server, we would want to check if NSURL was nil,
     // and perform proper error handling for a web request/response.
-    NSURL *url = [NSURL fileURLWithPath:[NSBundle.mainBundle pathForResource:@"metro-line" ofType:@"geojson"]];
+    NSURL *url = [NSURL fileURLWithPath:[NSBundle.mainBundle pathForResource:@"dc-metro" ofType:@"geojson"]];
 
     // Create a shape source and register it with the map style.
-    MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"metro-line" URL:url options:nil];
+    MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"dc-data-source" URL:url options:nil];
     [style addSource:source];
 
     // Add different line, point, and polygon shapes to the map style.
