@@ -54,8 +54,6 @@ class StaticSnapshotExample: UIViewController, MGLMapViewDelegate {
                 indicator.stopAnimating()
                 self.imageView.image = snapshot.image
             }
-
-            snapshotter = nil
         }
     }
 }
