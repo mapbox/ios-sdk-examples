@@ -73,6 +73,7 @@
                     @{@"className": MBXExampleMultipleShapes, @"title": @"Add multiple shapes from a single shape source"},
                     @{@"className": MBXExampleMultipleImages, @"title": @"Add multiple images"},
                     @{@"className": MBXExampleRasterImagery, @"title": @"Add raster imagery"},
+                    @{@"className": MBXExampleMGLMatch, @"title":@"Use expressions to style data"}
             ]
         },
         @{
