@@ -1,11 +1,11 @@
 PODS:
-  - Mapbox-iOS-SDK (5.9.0-alpha.1):
+  - Mapbox-iOS-SDK (5.9.0-beta.1):
     - MapboxMobileEvents (= 0.10.2)
   - MapboxMobileEvents (0.10.2)
   - SwiftLint (0.39.2)
 
 DEPENDENCIES:
-  - Mapbox-iOS-SDK (= 5.9.0-alpha.1)
+  - Mapbox-iOS-SDK (= 5.9.0-beta.1)
   - SwiftLint (~> 0.29)
 
 SPEC REPOS:
@@ -15,10 +15,10 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
-  Mapbox-iOS-SDK: 32170be72359f6ec2405477bb817ec65e3c9cdfa
+  Mapbox-iOS-SDK: ecd35a8eb79b1f9f7a3aac1fa82fbdf46ca2dd07
   MapboxMobileEvents: 2bc0ca2eedb627b73cf403258dce2b2fa98074a6
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 0f6b7fd6ffdd20a09358d4b811f559e652e43268
+PODFILE CHECKSUM: 227f1e67cea7d07a6080ff8ea405ec56dcc21e03
 
 COCOAPODS: 1.9.1
