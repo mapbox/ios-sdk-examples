@@ -59,6 +59,7 @@
                     @{@"className": MBXExampleShowHideLayer, @"title": @"Show and hide a layer"},
                     @{@"className": MBXExampleFeatureSelection, @"title": @"Select a feature within a layer"},
                     @{@"className": MBXExampleUserTrackingModes, @"title": @"Switch between user tracking modes"},
+                    @{@"className": MBXExampleInsetMap, @"title": @"View inset image of current mapView"},
             ]
         },
         @{
@@ -73,6 +74,7 @@
                     @{@"className": MBXExampleMultipleShapes, @"title": @"Add multiple shapes from a single shape source"},
                     @{@"className": MBXExampleMultipleImages, @"title": @"Add multiple images"},
                     @{@"className": MBXExampleRasterImagery, @"title": @"Add raster imagery"},
+
             ]
         },
         @{
