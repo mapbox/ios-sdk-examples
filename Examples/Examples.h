@@ -32,6 +32,7 @@ extern NSString *const MBXExampleDefaultCallout;
 extern NSString *const MBXExampleDefaultStyles;
 extern NSString *const MBXExampleDraggableAnnotationView;
 extern NSString *const MBXExampleFeatureSelection;
+extern NSString *const MBXExampleFilterMapSymbols;
 extern NSString *const MBXExampleFormattingExpression;
 extern NSString *const MBXExampleHeatmap;
 extern NSString *const MBXExampleImageSource;
