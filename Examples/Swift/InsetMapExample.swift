@@ -45,10 +45,10 @@ class InsetMapExample_Swift: UIViewController, MGLMapViewDelegate {
     func installConstraints() {
         if #available(iOS 11.0, *) {
             NSLayoutConstraint.activate([
-                miniMapview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -180),
-                miniMapview.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -80),
-                miniMapview.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -170),
-                miniMapview.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10)
+                miniMapview.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -35),
+                miniMapview.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+                miniMapview.widthAnchor.constraint(equalTo: mapView.widthAnchor, multiplier: 0.33),
+                miniMapview.heightAnchor.constraint(equalTo: miniMapview.widthAnchor)
             ])
         } else {
             miniMapview.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]

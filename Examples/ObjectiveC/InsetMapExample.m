@@ -20,7 +20,7 @@ NSString *const MBXExampleInsetMap = @"InsetMapExample";
                 zoomLevel:9
                  animated:NO];
     
-    self.miniMapView = [[MGLMapView alloc] initWithFrame:CGRectMake(270, 685, 135, 135)];
+    self.miniMapView = [[MGLMapView alloc] initWithFrame:CGRectZero];
     [self.miniMapView setAllowsScrolling:NO];
     [self.miniMapView setAllowsTilting:NO];
     [self.miniMapView setAllowsZooming:NO];
@@ -33,16 +33,14 @@ NSString *const MBXExampleInsetMap = @"InsetMapExample";
     [self.miniMapView.layer setBorderWidth:1];
     
     [self.miniMapView setCenterCoordinate:self.mapView.centerCoordinate zoomLevel:self.mapView.zoomLevel animated:NO];
-//    [self.miniMapView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.miniMapView setTranslatesAutoresizingMaskIntoConstraints:NO];
 
     // Set the delegate property of our map view to self after instantiating it
     self.mapView.delegate = self;
 
-    
-   
     [self.view addSubview:self.mapView];
-    [self.mapView addSubview:self.miniMapView];
-//    [self installConstraints];
+    [self.view addSubview:_miniMapView];
+    [self installConstraints];
 
     
 }
@@ -56,12 +54,12 @@ NSString *const MBXExampleInsetMap = @"InsetMapExample";
 
 
     if (@available(iOS 11, *)) {
-        NSLog(@"meh");
         UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
         NSArray *constraints = @[
-        [self.miniMapView.topAnchor constraintEqualToAnchor: safeArea.bottomAnchor constant:-180],
-        [self.miniMapView.bottomAnchor constraintEqualToAnchor: safeArea.bottomAnchor constant:-80],
-        [self.miniMapView.leadingAnchor constraintEqualToAnchor: safeArea.leadingAnchor constant:-80],
+        [self.miniMapView.bottomAnchor constraintEqualToAnchor: safeArea.bottomAnchor constant:-35],
+        [self.miniMapView.trailingAnchor constraintEqualToAnchor: safeArea.trailingAnchor constant:-10],
+        [self.miniMapView.widthAnchor constraintEqualToAnchor:_mapView.widthAnchor multiplier:0.33],
+        [self.miniMapView.heightAnchor constraintEqualToAnchor:_miniMapView.widthAnchor]
         ];
     
         [NSLayoutConstraint activateConstraints:constraints];
