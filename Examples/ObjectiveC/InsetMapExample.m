@@ -19,7 +19,7 @@ NSString *const MBXExampleInsetMap = @"InsetMapExample";
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(18.1096,-77.2975)
                 zoomLevel:9
                  animated:NO];
-    
+
     // Set inset mapview properties to create a smaller, non-interactive mapView that mimics the appearance of the main mapView.
     self.miniMapView = [[MGLMapView alloc] initWithFrame:CGRectZero];
     self.miniMapView.allowsScrolling = NO;

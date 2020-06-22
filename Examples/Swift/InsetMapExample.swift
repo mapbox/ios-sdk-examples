@@ -31,12 +31,12 @@ class InsetMapExample_Swift: UIViewController, MGLMapViewDelegate {
         miniMapview.attributionButton.tintColor = UIColor.clear
         miniMapview.layer.borderColor = UIColor.black.cgColor
         miniMapview.layer.borderWidth = 1
-        
-        miniMapview.setCenter(mapView.centerCoordinate, zoomLevel: mapView.zoomLevel, animated: true)
+        miniMapview.setCenter(self.mapView.centerCoordinate, zoomLevel: mapView.zoomLevel, animated: false)
         miniMapview.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(mapView)
         view.addSubview(miniMapview)
+        
         installConstraints()
     }
     
