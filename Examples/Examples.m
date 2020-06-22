@@ -59,7 +59,7 @@
                     @{@"className": MBXExampleShowHideLayer, @"title": @"Show and hide a layer"},
                     @{@"className": MBXExampleFeatureSelection, @"title": @"Select a feature within a layer"},
                     @{@"className": MBXExampleUserTrackingModes, @"title": @"Switch between user tracking modes"},
-                    @{@"className": MBXExampleInsetMap, @"title": @"View inset image of current mapView"},
+                    @{@"className": MBXExampleInsetMap, @"title": @"Display a synchronized second map view"},
             ]
         },
         @{
