@@ -15,11 +15,10 @@ NSString *const MBXExampleInsetMap = @"InsetMapExample";
 
     self.mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    /**
-     Set the delegate property of our map view
-     to self after instantiating it.
-    */
+
+    // Set the delegate property of our map view to self after instantiating it.
     self.mapView.delegate = self;
+    
     // Set the main map view's center coordinate and zoom level.
     [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(
         18.1096,-77.2975) zoomLevel:9 animated:NO];
@@ -54,19 +53,17 @@ NSString *const MBXExampleInsetMap = @"InsetMapExample";
     [self.view addSubview:self.mapView];
     [self.view addSubview:self.miniMapView];
     [self installConstraints];
-
 }
 
-    /**
-     Set the mini map view's camera to the map view camera so while the region is changing on the
-     map view, the same camera changes are made in the mini map view.
-    */
+/**
+ Set the mini map view's camera to the map view camera so while the region is changing on the
+ map view, the same camera changes are made in the mini map view.
+*/
 - (void)mapView:(MGLMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
     [self.miniMapView setCamera:self.mapView.camera animated:NO];
 }
 
 - (void)installConstraints {
-
     if (@available(iOS 11, *)) {
         UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
         NSArray *constraints = @[
