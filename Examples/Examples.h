@@ -35,6 +35,7 @@ extern NSString *const MBXExampleFeatureSelection;
 extern NSString *const MBXExampleFormattingExpression;
 extern NSString *const MBXExampleHeatmap;
 extern NSString *const MBXExampleImageSource;
+extern NSString *const MBXExampleInsetMap;
 extern NSString *const MBXExampleLabelPlacement;
 extern NSString *const MBXExampleLineStyleLayer;
 extern NSString *const MBXExampleLiveData;
