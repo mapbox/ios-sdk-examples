@@ -12,8 +12,7 @@ class InsetMapExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         /**
-         Set the delegate property of our map view
-         to self after instantiating it.
+         Set the delegate property of our map view to self after instantiating it.
         */
         mapView.delegate = self
         
@@ -48,7 +47,7 @@ class InsetMapExample_Swift: UIViewController, MGLMapViewDelegate {
         miniMapview.layer.borderColor = UIColor.black.cgColor
         miniMapview.layer.borderWidth = 1
         miniMapview.setCenter(self.mapView.centerCoordinate,
-                              zoomLevel: mapView.zoomLevel, animated: false)
+                              zoomLevel: mapView.zoomLevel-2, animated: false)
         miniMapview.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(mapView)
@@ -62,7 +61,8 @@ class InsetMapExample_Swift: UIViewController, MGLMapViewDelegate {
      map view, the same camera changes are made in the mini map view.
      */
     func mapViewRegionIsChanging(_ mapView: MGLMapView) {
-        miniMapview.setCamera(mapView.camera, animated: false)
+        miniMapview.setCenter(self.mapView.centerCoordinate,
+        zoomLevel: mapView.zoomLevel-3, animated: false)
     }
     
     func installConstraints() {
