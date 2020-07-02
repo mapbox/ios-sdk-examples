@@ -48,8 +48,9 @@ class InsetMapExample_Swift: UIViewController, MGLMapViewDelegate {
         miniMapview.layer.borderWidth = 1
         
         /**
-         Setting mini map view zoom level to 2 zoom levels below the main map view to showcase
-         one use case for an inset map.
+         Set the mini map view zoom level differently from the main map view to
+         either display a broader geographical view, or display more detail
+         within a particular area.
         */
         miniMapview.setCenter(self.mapView.centerCoordinate,
                               zoomLevel: mapView.zoomLevel - 2, animated: false)
