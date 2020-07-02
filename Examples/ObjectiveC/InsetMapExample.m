@@ -47,7 +47,12 @@ NSString *const MBXExampleInsetMap = @"InsetMapExample";
     self.miniMapView.layer.borderColor = UIColor.blackColor.CGColor;
     self.miniMapView.layer.borderWidth = 1;
     
-    [self.miniMapView setCenterCoordinate:self.mapView.centerCoordinate zoomLevel:self.mapView.zoomLevel animated:NO];
+    /**
+     Set the mini map view zoom level differently from the main map view to
+     either display a broader geographical view, or display more detail
+     within a particular area.
+    */
+    [self.miniMapView setCenterCoordinate:self.mapView.centerCoordinate zoomLevel:self.mapView.zoomLevel - 2 animated:NO];
     [self.miniMapView setTranslatesAutoresizingMaskIntoConstraints:NO];
 
     [self.view addSubview:self.mapView];
@@ -59,8 +64,8 @@ NSString *const MBXExampleInsetMap = @"InsetMapExample";
  Set the mini map view's camera to the map view camera so while the region is changing on the
  map view, the same camera changes are made in the mini map view.
 */
-- (void)mapView:(MGLMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
-    [self.miniMapView setCamera:self.mapView.camera animated:NO];
+- (void)mapViewRegionIsChanging:(MGLMapView *)mapView{
+   [self.miniMapView setCenterCoordinate:self.mapView.centerCoordinate zoomLevel:self.mapView.zoomLevel - 2 animated:NO];
 }
 
 - (void)installConstraints {

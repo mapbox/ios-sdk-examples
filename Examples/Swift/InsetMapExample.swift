@@ -12,13 +12,14 @@ class InsetMapExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
-        // Set the delegate property of our map view to self after instantiating it.
+        /** Set the delegate property of our map view to self after
+        instantiating it.
+        */
         mapView.delegate = self
         
         // Set the main map view's center coordinate and zoom level.
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 18.1096, longitude: -77.2975),
-                                                zoomLevel: 9,
-                                                 animated: false)
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 18.1096,
+                longitude: -77.2975), zoomLevel: 9, animated: false)
         
         // Set inset map View's center
         miniMapview = MGLMapView(frame: CGRect.zero)
@@ -45,8 +46,14 @@ class InsetMapExample_Swift: UIViewController, MGLMapViewDelegate {
         miniMapview.attributionButton.tintColor = UIColor.clear
         miniMapview.layer.borderColor = UIColor.black.cgColor
         miniMapview.layer.borderWidth = 1
+        
+        /**
+         Set the mini map view zoom level differently from the main map view to
+         either display a broader geographical view, or display more detail
+         within a particular area.
+        */
         miniMapview.setCenter(self.mapView.centerCoordinate,
-                              zoomLevel: mapView.zoomLevel, animated: false)
+                              zoomLevel: mapView.zoomLevel - 2, animated: false)
         miniMapview.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(mapView)
@@ -61,8 +68,10 @@ class InsetMapExample_Swift: UIViewController, MGLMapViewDelegate {
      are made in the mini map view.
      */
     func mapViewRegionIsChanging(_ mapView: MGLMapView) {
-        miniMapview.setCamera(mapView.camera, animated: false)
-    }
+         miniMapview.setCenter(self.mapView.centerCoordinate,
+         zoomLevel: mapView.zoomLevel - 2, animated: false)
+     }
+
     
     func installConstraints() {
         if #available(iOS 11.0, *) {
