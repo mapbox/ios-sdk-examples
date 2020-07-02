@@ -47,7 +47,10 @@ NSString *const MBXExampleInsetMap = @"InsetMapExample";
     self.miniMapView.layer.borderColor = UIColor.blackColor.CGColor;
     self.miniMapView.layer.borderWidth = 1;
     
-    [self.miniMapView setCenterCoordinate:self.mapView.centerCoordinate zoomLevel:self.mapView.zoomLevel-2 animated:NO];
+    /** Setting mini map view zoom level to 2 zoom levels below the main map view to showcase
+     one use case for an inset map.
+     */
+    [self.miniMapView setCenterCoordinate:self.mapView.centerCoordinate zoomLevel:self.mapView.zoomLevel - 2 animated:NO];
     [self.miniMapView setTranslatesAutoresizingMaskIntoConstraints:NO];
 
     [self.view addSubview:self.mapView];

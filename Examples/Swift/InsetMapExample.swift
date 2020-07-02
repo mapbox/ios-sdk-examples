@@ -46,8 +46,13 @@ class InsetMapExample_Swift: UIViewController, MGLMapViewDelegate {
         miniMapview.attributionButton.tintColor = UIColor.clear
         miniMapview.layer.borderColor = UIColor.black.cgColor
         miniMapview.layer.borderWidth = 1
+        
+        /**
+         Setting mini map view zoom level to 2 zoom levels below the main map view to showcase
+         one use case for an inset map.
+        */
         miniMapview.setCenter(self.mapView.centerCoordinate,
-                              zoomLevel: mapView.zoomLevel-2, animated: false)
+                              zoomLevel: mapView.zoomLevel - 2, animated: false)
         miniMapview.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(mapView)
