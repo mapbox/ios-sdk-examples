@@ -68,7 +68,7 @@ class InsetMapExample_Swift: UIViewController, MGLMapViewDelegate {
      */
     func mapViewRegionIsChanging(_ mapView: MGLMapView) {
          miniMapview.setCenter(self.mapView.centerCoordinate,
-         zoomLevel: mapView.zoomLevel-2, animated: false)
+         zoomLevel: mapView.zoomLevel - 2, animated: false)
      }
 
     

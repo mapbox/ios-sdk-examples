@@ -63,7 +63,7 @@ NSString *const MBXExampleInsetMap = @"InsetMapExample";
  map view, the same camera changes are made in the mini map view.
 */
 - (void)mapViewRegionIsChanging:(MGLMapView *)mapView{
-   [self.miniMapView setCenterCoordinate:self.mapView.centerCoordinate zoomLevel:self.mapView.zoomLevel-2 animated:NO];
+   [self.miniMapView setCenterCoordinate:self.mapView.centerCoordinate zoomLevel:self.mapView.zoomLevel - 2 animated:NO];
 }
 
 - (void)installConstraints {
