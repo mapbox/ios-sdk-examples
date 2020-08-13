@@ -1196,16 +1196,12 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/00C987E7-D1C6-3158-90E4-587E59F27420.bcsymbolmap",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/D14A63A5-6A4C-31C6-B5BC-6216FB784370.bcsymbolmap",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
-				"${BUILT_PRODUCTS_DIR}/00C987E7-D1C6-3158-90E4-587E59F27420.bcsymbolmap",
-				"${BUILT_PRODUCTS_DIR}/D14A63A5-6A4C-31C6-B5BC-6216FB784370.bcsymbolmap",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1237,16 +1233,12 @@
 				"${PODS_ROOT}/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/00C987E7-D1C6-3158-90E4-587E59F27420.bcsymbolmap",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/D14A63A5-6A4C-31C6-B5BC-6216FB784370.bcsymbolmap",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
-				"${BUILT_PRODUCTS_DIR}/00C987E7-D1C6-3158-90E4-587E59F27420.bcsymbolmap",
-				"${BUILT_PRODUCTS_DIR}/D14A63A5-6A4C-31C6-B5BC-6216FB784370.bcsymbolmap",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
