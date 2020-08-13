@@ -47,5 +47,13 @@
 	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>MMEDebugLogging</key>
+	<true/>
+	<key>MMECollectionEnabledInSimulator</key>
+	<true/>
+	<key>MGLMapboxMetricsDebugLoggingEnabled</key>
+	<true/>
+	<key>MMEEventsServiceURL</key>
+	<string>https://api-events-staging.tilestream.net</string>
 </dict>
 </plist>
