@@ -1,6 +1,6 @@
 # Mapbox iOS SDK Examples
 
-[![bitrise](https://app.bitrise.io/app/9a144f2169b7c9e3/status.svg?token=yzLGB24ubR_INs6HqUl14g&branch=master)](https://app.bitrise.io/app/9a144f2169b7c9e3#)[![codecov](https://codecov.io/gh/mapbox/ios-sdk-examples/branch/master/graph/badge.svg)](https://codecov.io/gh/mapbox/ios-sdk-examples)
+[![bitrise](https://app.bitrise.io/app/9a144f2169b7c9e3/status.svg?token=yzLGB24ubR_INs6HqUl14g&branch=main)](https://app.bitrise.io/app/9a144f2169b7c9e3#)[![codecov](https://codecov.io/gh/mapbox/ios-sdk-examples/branch/main/graph/badge.svg)](https://codecov.io/gh/mapbox/ios-sdk-examples)
 
 A live Xcode project/app that provides [public examples](https://www.mapbox.com/ios-sdk/examples/) for the Mapbox Maps SDK for iOS.
 
