@@ -13,6 +13,7 @@ We are not able to answer support questions in this repository — it is intende
 
 ## Getting started
 1. Run `bundle install` to install build/packaging dependencies.
+1. Follow the instructions for installing the Maps SDK via CocoaPods in the [installation guide](https://docs.mapbox.com/ios/maps/overview/#install-the-maps-sdk).
 1. Run `bundle exec pod install` to download and integrate dependencies using [CocoaPods](https://cocoapods.org).
 1. Create the `mapbox_access_token` file in the base directory and insert your Mapbox access token.
 1. Open `Examples.xcworkspace`.
