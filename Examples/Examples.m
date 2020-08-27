@@ -25,7 +25,6 @@
             @"title": @"Map styles",
             @"examples": @[
                     @{@"className": MBXExampleDefaultStyles, @"title": @"Default styles"},
-                    @{@"className": MBXExampleStudioClassicStyle, @"title": @"Apply a style designed in Mapbox Studio Classic"},
                     @{@"className": MBXExampleThirdPartyVectorStyle, @"title": @"Use third-party vector tiles"},
                     @{@"className": MBXExampleSwitchStyles, @"title": @"Switch between map styles"},
                     @{@"className": MBXExampleCameraFlyTo, @"title": @"Camera fly to"},

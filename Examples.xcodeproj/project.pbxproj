@@ -22,7 +22,6 @@
 		05DB802F1F75A4AD00F73326 /* DocsCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DB802E1F75A4AD00F73326 /* DocsCodeTests.swift */; };
 		05FA53991FE2FA00001F3D7D /* ThirdPartyVectorStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53951FE2F9FE001F3D7D /* ThirdPartyVectorStyleExample.m */; };
 		05FA539A1FE2FA00001F3D7D /* DefaultStylesExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53961FE2F9FF001F3D7D /* DefaultStylesExample.m */; };
-		05FA539B1FE2FA00001F3D7D /* StudioClassicStyleExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53971FE2F9FF001F3D7D /* StudioClassicStyleExample.m */; };
 		05FA53A11FE2FA1E001F3D7D /* PolygonPatternExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA539D1FE2FA1D001F3D7D /* PolygonPatternExample.m */; };
 		05FA53A31FE2FA1E001F3D7D /* LineStyleLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA539F1FE2FA1E001F3D7D /* LineStyleLayerExample.m */; };
 		05FA53A61FE2FA34001F3D7D /* OfflinePackExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FA53A41FE2FA34001F3D7D /* OfflinePackExample.m */; };
@@ -72,7 +71,6 @@
 		3EBCD7181DC28240001E342F /* CameraAnimationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */; };
 		3EBCD71B1DC28240001E342F /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7071DC28240001E342F /* CustomCalloutView.swift */; };
 		3EBCD71C1DC28240001E342F /* CustomCalloutViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7081DC28240001E342F /* CustomCalloutViewExample.swift */; };
-		3EBCD71D1DC28240001E342F /* StudioClassicStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD7091DC28240001E342F /* StudioClassicStyleExample.swift */; };
 		3EBCD71E1DC28240001E342F /* StudioStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70A1DC28240001E342F /* StudioStyleExample.swift */; };
 		3EBCD71F1DC28240001E342F /* DefaultStylesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70B1DC28240001E342F /* DefaultStylesExample.swift */; };
 		3EBCD7201DC28240001E342F /* DraggableAnnotationViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBCD70C1DC28240001E342F /* DraggableAnnotationViewExample.swift */; };
@@ -85,7 +83,6 @@
 		3ED403481E006BE800230C95 /* CameraFlyToExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED403471E006BE800230C95 /* CameraFlyToExample.m */; };
 		583BAE082481AFF50079BB57 /* InsetMapExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BAE072481AFF50079BB57 /* InsetMapExample.m */; };
 		583BAE0B2481B1580079BB57 /* InsetMapExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583BAE0A2481B1580079BB57 /* InsetMapExample.swift */; };
-		60E0DCA0CEED683C3A4F18F2 /* Pods_Examples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC12D8F1A97963D68BFA871 /* Pods_Examples.framework */; };
 		646B62971DEF6DAF000AA523 /* ShowHideLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62961DEF6DAF000AA523 /* ShowHideLayerExample.swift */; };
 		646B629C1DEF6DF1000AA523 /* ShowHideLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B629B1DEF6DF1000AA523 /* ShowHideLayerExample.m */; };
 		646B62A61DEF7121000AA523 /* AnimatedLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62A51DEF7121000AA523 /* AnimatedLineExample.m */; };
@@ -194,7 +191,6 @@
 		05DB80301F75A4AE00F73326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05FA53951FE2F9FE001F3D7D /* ThirdPartyVectorStyleExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdPartyVectorStyleExample.m; sourceTree = "<group>"; };
 		05FA53961FE2F9FF001F3D7D /* DefaultStylesExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DefaultStylesExample.m; sourceTree = "<group>"; };
-		05FA53971FE2F9FF001F3D7D /* StudioClassicStyleExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudioClassicStyleExample.m; sourceTree = "<group>"; };
 		05FA539D1FE2FA1D001F3D7D /* PolygonPatternExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolygonPatternExample.m; sourceTree = "<group>"; };
 		05FA539F1FE2FA1E001F3D7D /* LineStyleLayerExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineStyleLayerExample.m; sourceTree = "<group>"; };
 		05FA53A41FE2FA34001F3D7D /* OfflinePackExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfflinePackExample.m; sourceTree = "<group>"; };
@@ -267,7 +263,6 @@
 		3EBCD7041DC28240001E342F /* CameraAnimationExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraAnimationExample.swift; sourceTree = "<group>"; };
 		3EBCD7071DC28240001E342F /* CustomCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
 		3EBCD7081DC28240001E342F /* CustomCalloutViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalloutViewExample.swift; sourceTree = "<group>"; };
-		3EBCD7091DC28240001E342F /* StudioClassicStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudioClassicStyleExample.swift; sourceTree = "<group>"; };
 		3EBCD70A1DC28240001E342F /* StudioStyleExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudioStyleExample.swift; sourceTree = "<group>"; };
 		3EBCD70B1DC28240001E342F /* DefaultStylesExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultStylesExample.swift; sourceTree = "<group>"; };
 		3EBCD70C1DC28240001E342F /* DraggableAnnotationViewExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableAnnotationViewExample.swift; sourceTree = "<group>"; };
@@ -279,11 +274,9 @@
 		3ED403401E006B5200230C95 /* CameraFlyToExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraFlyToExample.swift; sourceTree = "<group>"; };
 		3ED403461E006BE800230C95 /* CameraFlyToExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraFlyToExample.h; sourceTree = "<group>"; };
 		3ED403471E006BE800230C95 /* CameraFlyToExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraFlyToExample.m; sourceTree = "<group>"; };
-		532FB53EE0142E4DAC3FB49B /* Pods-Shared-Examples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-Examples.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shared-Examples/Pods-Shared-Examples.release.xcconfig"; sourceTree = "<group>"; };
 		583BAE072481AFF50079BB57 /* InsetMapExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InsetMapExample.m; sourceTree = "<group>"; };
 		583BAE092481B0220079BB57 /* InsetMapExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InsetMapExample.h; sourceTree = "<group>"; };
 		583BAE0A2481B1580079BB57 /* InsetMapExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetMapExample.swift; sourceTree = "<group>"; };
-		589ABF8859560819F8B431C7 /* Pods-ExamplesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExamplesTests/Pods-ExamplesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		646B62961DEF6DAF000AA523 /* ShowHideLayerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideLayerExample.swift; sourceTree = "<group>"; };
 		646B629B1DEF6DF1000AA523 /* ShowHideLayerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowHideLayerExample.m; sourceTree = "<group>"; };
 		646B629E1DEF6DFD000AA523 /* ShowHideLayerExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowHideLayerExample.h; sourceTree = "<group>"; };
@@ -457,7 +450,6 @@
 			isa = PBXGroup;
 			children = (
 				3EBCD70B1DC28240001E342F /* DefaultStylesExample.swift */,
-				3EBCD7091DC28240001E342F /* StudioClassicStyleExample.swift */,
 				3EBCD70A1DC28240001E342F /* StudioStyleExample.swift */,
 				05536CB4200F9EEB00657097 /* SwitchStylesExample.swift */,
 				64CF970F1DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift */,
@@ -555,7 +547,6 @@
 			children = (
 				05FA53961FE2F9FF001F3D7D /* DefaultStylesExample.m */,
 				1F07015E225553F50045E061 /* MissingIconsExample.m */,
-				05FA53971FE2F9FF001F3D7D /* StudioClassicStyleExample.m */,
 				9691AAA21C5AAD8F006A58C6 /* StudioStyleExample.m */,
 				05536CB1200F9B0900657097 /* SwitchStylesExample.m */,
 				05FA53951FE2F9FE001F3D7D /* ThirdPartyVectorStyleExample.m */,
@@ -663,7 +654,6 @@
 				2CA2308E25F767896A8DFC2F /* Pods-ExamplesUITests.debug.xcconfig */,
 				2EA4F78902E4743E7AA41B8B /* Pods-ExamplesUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -1207,12 +1197,16 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/013BB2AF-5C29-3EC8-9510-8B78BB76D0B0.bcsymbolmap",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/CC443EEC-DF0E-3CA1-A893-191C118B9623.bcsymbolmap",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/013BB2AF-5C29-3EC8-9510-8B78BB76D0B0.bcsymbolmap",
+				"${BUILT_PRODUCTS_DIR}/CC443EEC-DF0E-3CA1-A893-191C118B9623.bcsymbolmap",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1244,12 +1238,16 @@
 				"${PODS_ROOT}/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/013BB2AF-5C29-3EC8-9510-8B78BB76D0B0.bcsymbolmap",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/CC443EEC-DF0E-3CA1-A893-191C118B9623.bcsymbolmap",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/013BB2AF-5C29-3EC8-9510-8B78BB76D0B0.bcsymbolmap",
+				"${BUILT_PRODUCTS_DIR}/CC443EEC-DF0E-3CA1-A893-191C118B9623.bcsymbolmap",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1361,7 +1359,6 @@
 				CA987E32210F7FAE00C19855 /* ClusteringWithImagesExample.m in Sources */,
 				3E52ACD51EE8D94A0056242C /* LiveDataExample.swift in Sources */,
 				646B62971DEF6DAF000AA523 /* ShowHideLayerExample.swift in Sources */,
-				05FA539B1FE2FA00001F3D7D /* StudioClassicStyleExample.m in Sources */,
 				3E9EF27C209CFD460053D1D7 /* HeatmapExample.swift in Sources */,
 				583BAE082481AFF50079BB57 /* InsetMapExample.m in Sources */,
 				1F07015C225422B90045E061 /* LabelPlacementExample.swift in Sources */,
@@ -1375,7 +1372,6 @@
 				3E1806121EAA804B004DB131 /* UserLocationAnnotationExample.swift in Sources */,
 				072AE91023F4C2CD0096B595 /* AddMarkerSymbolExample.m in Sources */,
 				3ED403481E006BE800230C95 /* CameraFlyToExample.m in Sources */,
-				3EBCD71D1DC28240001E342F /* StudioClassicStyleExample.swift in Sources */,
 				646B62B01DEF7161000AA523 /* AnimatedLineExample.swift in Sources */,
 				3E52ACD31EE8D8AF0056242C /* LiveDataExample.m in Sources */,
 				3EA5AA041FAD2EC7007073C0 /* StaticSnapshotExample.swift in Sources */,
@@ -1713,7 +1709,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 95;
 				DEVELOPMENT_TEAM = GJZR2MEM28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1736,7 +1732,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 95;
 				DEVELOPMENT_TEAM = GJZR2MEM28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

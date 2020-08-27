@@ -48,7 +48,6 @@ extern NSString *const MBXExampleRasterImagery;
 extern NSString *const MBXExampleShowHideLayer;
 extern NSString *const MBXExampleSimpleMapView;
 extern NSString *const MBXExampleStaticSnapshot;
-extern NSString *const MBXExampleStudioClassicStyle;
 extern NSString *const MBXExampleStudioStyle;
 extern NSString *const MBXExampleSwitchStyles;
 extern NSString *const MBXExampleThirdPartyVectorStyle;
