@@ -1,8 +1,17 @@
+//
+//  POIAlongRoute.swift
+//  Examples
+//
+//  Created by Takuto Suzuki on 2020/08/28.
+//  Copyright © 2020 Mapbox. All rights reserved.
+//
+
 import Mapbox
 
-@objc(LineStyleLayerExample_Swift)
 
-class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
+@objc(POIAlongRouteExample_Swift)
+
+class POIAlongRouteExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
 
     override func viewDidLoad() {
@@ -10,20 +19,19 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
 
         mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
         mapView.setCenter(
-            CLLocationCoordinate2D(latitude: 45.5076, longitude: -122.6736),
+            CLLocationCoordinate2D(latitude: 45.52214, longitude: -122.63748),
             zoomLevel: 18,
             animated: false)
-        mapView.minimumPitch = 45
         view.addSubview(mapView)
-
         mapView.delegate = self
     }
 
     // Wait until the map is loaded before adding to the map.
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
         loadGeoJson()
+        restrictPOIVisibleShape()
+        setCamera()
     }
 
     func loadGeoJson() {
@@ -41,6 +49,16 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
                 self.drawPolyline(geoJson: jsonData)
             }
         }
+    }
+
+    func setCamera() {
+        let camera = mapView.camera
+        camera.heading = 249.37706203842038
+        camera.pitch = 60
+        camera.centerCoordinate.latitude = 45.52199780570582
+        camera.centerCoordinate.longitude = -122.6418837958432
+        self.mapView.setCamera(camera, animated: false)
+        self.mapView.setZoomLevel(15.062187320447523, animated: false)
     }
 
     func drawPolyline(geoJson: Data) {
@@ -93,8 +111,39 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         // Dash pattern in the format [dash, gap, dash, gap, ...]. You’ll want to adjust these values based on the line cap style.
         dashedLayer.lineDashPattern = NSExpression(forConstantValue: [0, 1.5])
 
-        style.addLayer(layer)
-        style.addLayer(dashedLayer)
+        guard let poiLayer = self.mapView.style?.layer(withIdentifier: "poi-label") as? MGLSymbolStyleLayer else {
+            return
+        }
+        style.insertLayer(layer, below: poiLayer)
+        style.insertLayer(dashedLayer, above: layer)
         style.insertLayer(casingLayer, below: layer)
+
+    }
+
+    func restrictPOIVisibleShape() {
+        guard let poiLayer = self.mapView.style?.layer(withIdentifier: "poi-label") as? MGLSymbolStyleLayer else {
+            return
+        }
+        guard let roadLabelLayer = self.mapView.style?.layer(withIdentifier: "road-label") as? MGLSymbolStyleLayer else {
+            return
+        }
+        let polygonShape = [
+            [-122.63730626171188,45.52288837762333 ],
+            [ -122.65455070022612, 45.52299746891552 ],
+            [ -122.65747018755947, 45.52177017968134 ],
+            [ -122.65992255691913, 45.51931552089448 ],
+            [ -122.66015611590598, 45.513696676587045 ],
+            [ -122.66696825301655, 45.51375123117057 ],
+            [ -122.6672018120034, 45.51222368283956 ],
+            [ -122.6571977020749, 45.51225096085216 ],
+            [ -122.6570419960839, 45.51822452705878 ],
+            [ -122.65392787626189, 45.52106106703124 ],
+            [ -122.63567134880579, 45.52114288817623 ],
+            [ -122.63657745074761, 45.52288036393409 ],
+            [ -122.6373404839605, 45.52291377640398 ]]
+        let coordinates = polygonShape.map {CLLocationCoordinate2D(latitude: $0[1], longitude: $0[0])}
+        let bufferedRoutePolygon = MGLPolygon(coordinates: coordinates, count: UInt(coordinates.count), interiorPolygons: nil)
+        poiLayer.predicate = NSPredicate(format: "SELF IN %@", bufferedRoutePolygon)
+        roadLabelLayer.predicate = NSPredicate(format: "SELF IN %@", bufferedRoutePolygon)
     }
 }

@@ -42,6 +42,7 @@ extern NSString *const MBXExampleLiveData;
 extern NSString *const MBXExampleMultipleImages;
 extern NSString *const MBXExampleMultipleShapes;
 extern NSString *const MBXExampleOfflinePack;
+extern NSString *const MBXExamplePOIAlongRoute;
 extern NSString *const MBXExamplePointConversion;
 extern NSString *const MBXExamplePolygonPattern;
 extern NSString *const MBXExampleRasterImagery;
