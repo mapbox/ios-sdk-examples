@@ -19,6 +19,7 @@
                     @{@"className": MBXExampleCameraAnimation, @"title": @"Camera animation"},
                     @{@"className": MBXExampleStudioStyle, @"title": @"Apply a style designed in Mapbox Studio"},
                     @{@"className": MBXExampleSimpleMapView, @"title": @"Simple map view"},
+                    @{@"className": MBXExampleLocationPrivacy, @"title": @"Location privacy iOS 14 updates"},
             ]
         },
         @{

@@ -85,7 +85,6 @@
 		3ED403481E006BE800230C95 /* CameraFlyToExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED403471E006BE800230C95 /* CameraFlyToExample.m */; };
 		583BAE082481AFF50079BB57 /* InsetMapExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BAE072481AFF50079BB57 /* InsetMapExample.m */; };
 		583BAE0B2481B1580079BB57 /* InsetMapExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583BAE0A2481B1580079BB57 /* InsetMapExample.swift */; };
-		60E0DCA0CEED683C3A4F18F2 /* Pods_Examples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC12D8F1A97963D68BFA871 /* Pods_Examples.framework */; };
 		646B62971DEF6DAF000AA523 /* ShowHideLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62961DEF6DAF000AA523 /* ShowHideLayerExample.swift */; };
 		646B629C1DEF6DF1000AA523 /* ShowHideLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B629B1DEF6DF1000AA523 /* ShowHideLayerExample.m */; };
 		646B62A61DEF7121000AA523 /* AnimatedLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62A51DEF7121000AA523 /* AnimatedLineExample.m */; };
@@ -118,6 +117,8 @@
 		9F25BA43B75668CDC68154F4 /* Pods_ExamplesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11C1622BB400E7278DD00D1 /* Pods_ExamplesTests.framework */; };
 		A42F4A4D22EF9A79005097F3 /* CacheManagementExample.m in Sources */ = {isa = PBXBuildFile; fileRef = A42F4A4C22EF9A79005097F3 /* CacheManagementExample.m */; };
 		A42F4A5122EF9ACD005097F3 /* CacheManagementExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F4A5022EF9ACD005097F3 /* CacheManagementExample.swift */; };
+		C67C17E02507FBBA004112DE /* LocationPrivacyExample.m in Sources */ = {isa = PBXBuildFile; fileRef = C67C17DF2507FBBA004112DE /* LocationPrivacyExample.m */; };
+		C67C17E32507FD0B004112DE /* LocationPrivacyExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67C17E22507FD0B004112DE /* LocationPrivacyExample.swift */; };
 		CA39B2BF209B881300D37037 /* BuildingLightExample+UITesting.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39B2BA209B881300D37037 /* BuildingLightExample+UITesting.m */; };
 		CA39B2C0209B881300D37037 /* AnimatedLineExample+UITesting.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39B2BB209B881300D37037 /* AnimatedLineExample+UITesting.m */; };
 		CA39B2C1209B881300D37037 /* AnnotationViewExample+UITesting.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39B2BC209B881300D37037 /* AnnotationViewExample+UITesting.m */; };
@@ -279,11 +280,9 @@
 		3ED403401E006B5200230C95 /* CameraFlyToExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraFlyToExample.swift; sourceTree = "<group>"; };
 		3ED403461E006BE800230C95 /* CameraFlyToExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraFlyToExample.h; sourceTree = "<group>"; };
 		3ED403471E006BE800230C95 /* CameraFlyToExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraFlyToExample.m; sourceTree = "<group>"; };
-		532FB53EE0142E4DAC3FB49B /* Pods-Shared-Examples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared-Examples.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shared-Examples/Pods-Shared-Examples.release.xcconfig"; sourceTree = "<group>"; };
 		583BAE072481AFF50079BB57 /* InsetMapExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InsetMapExample.m; sourceTree = "<group>"; };
 		583BAE092481B0220079BB57 /* InsetMapExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InsetMapExample.h; sourceTree = "<group>"; };
 		583BAE0A2481B1580079BB57 /* InsetMapExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetMapExample.swift; sourceTree = "<group>"; };
-		589ABF8859560819F8B431C7 /* Pods-ExamplesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExamplesTests/Pods-ExamplesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		646B62961DEF6DAF000AA523 /* ShowHideLayerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideLayerExample.swift; sourceTree = "<group>"; };
 		646B629B1DEF6DF1000AA523 /* ShowHideLayerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowHideLayerExample.m; sourceTree = "<group>"; };
 		646B629E1DEF6DFD000AA523 /* ShowHideLayerExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowHideLayerExample.h; sourceTree = "<group>"; };
@@ -348,6 +347,9 @@
 		A42F4A4C22EF9A79005097F3 /* CacheManagementExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheManagementExample.m; sourceTree = "<group>"; };
 		A42F4A4E22EF9A93005097F3 /* CacheManagementExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CacheManagementExample.h; sourceTree = "<group>"; };
 		A42F4A5022EF9ACD005097F3 /* CacheManagementExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManagementExample.swift; sourceTree = "<group>"; };
+		C67C17DF2507FBBA004112DE /* LocationPrivacyExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationPrivacyExample.m; sourceTree = "<group>"; };
+		C67C17E12507FC0C004112DE /* LocationPrivacyExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationPrivacyExample.h; sourceTree = "<group>"; };
+		C67C17E22507FD0B004112DE /* LocationPrivacyExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPrivacyExample.swift; sourceTree = "<group>"; };
 		CA39B2BA209B881300D37037 /* BuildingLightExample+UITesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BuildingLightExample+UITesting.m"; sourceTree = "<group>"; };
 		CA39B2BB209B881300D37037 /* AnimatedLineExample+UITesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AnimatedLineExample+UITesting.m"; sourceTree = "<group>"; };
 		CA39B2BC209B881300D37037 /* AnnotationViewExample+UITesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AnnotationViewExample+UITesting.m"; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 				3ED403401E006B5200230C95 /* CameraFlyToExample.swift */,
 				0774A77523394BFB0038264E /* ShapeAnnotationsExample.swift */,
 				3EBCD7141DC28240001E342F /* SimpleMapViewExample.swift */,
+				C67C17E22507FD0B004112DE /* LocationPrivacyExample.swift */,
 			);
 			name = "Getting started";
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				3ED403471E006BE800230C95 /* CameraFlyToExample.m */,
 				9691AAA61C5AAD8F006A58C6 /* SimpleMapViewExample.m */,
 				0774A77323394B750038264E /* ShapeAnnotationsExample.m */,
+				C67C17DF2507FBBA004112DE /* LocationPrivacyExample.m */,
 			);
 			name = "Getting started";
 			sourceTree = "<group>";
@@ -663,7 +667,6 @@
 				2CA2308E25F767896A8DFC2F /* Pods-ExamplesUITests.debug.xcconfig */,
 				2EA4F78902E4743E7AA41B8B /* Pods-ExamplesUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -852,6 +855,7 @@
 				969E7FDB1D25C31700663F84 /* UserTrackingModesExample.h */,
 				64BBDAFB1DF24DD700BB705D /* WebAPIDataExample.h */,
 				583BAE092481B0220079BB57 /* InsetMapExample.h */,
+				C67C17E12507FC0C004112DE /* LocationPrivacyExample.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -1207,12 +1211,16 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/444B9DA7-8CE1-3B46-9CEC-451FFC85CE35.bcsymbolmap",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/6701E6A3-CCC7-3A8C-A9A5-49E675FA6153.bcsymbolmap",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/444B9DA7-8CE1-3B46-9CEC-451FFC85CE35.bcsymbolmap",
+				"${BUILT_PRODUCTS_DIR}/6701E6A3-CCC7-3A8C-A9A5-49E675FA6153.bcsymbolmap",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1244,12 +1252,16 @@
 				"${PODS_ROOT}/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/444B9DA7-8CE1-3B46-9CEC-451FFC85CE35.bcsymbolmap",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/6701E6A3-CCC7-3A8C-A9A5-49E675FA6153.bcsymbolmap",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/444B9DA7-8CE1-3B46-9CEC-451FFC85CE35.bcsymbolmap",
+				"${BUILT_PRODUCTS_DIR}/6701E6A3-CCC7-3A8C-A9A5-49E675FA6153.bcsymbolmap",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1386,6 +1398,7 @@
 				961962911C581700002D3DAB /* main.m in Sources */,
 				1F0701552252D2090045E061 /* TextFormattingExample.swift in Sources */,
 				3EBCD7251DC28240001E342F /* OfflinePackExample.swift in Sources */,
+				C67C17E32507FD0B004112DE /* LocationPrivacyExample.swift in Sources */,
 				3E3BFAD91E81D7A300D0BEA1 /* FeatureSelectionExample.swift in Sources */,
 				3EBCD7181DC28240001E342F /* CameraAnimationExample.swift in Sources */,
 				9691AA941C5AA702006A58C6 /* Examples.m in Sources */,
@@ -1419,6 +1432,7 @@
 				05FA53A11FE2FA1E001F3D7D /* PolygonPatternExample.m in Sources */,
 				0774A77423394B750038264E /* ShapeAnnotationsExample.m in Sources */,
 				3E3FB66E1F0588B3004512C6 /* BuildingLightExample.m in Sources */,
+				C67C17E02507FBBA004112DE /* LocationPrivacyExample.m in Sources */,
 				968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */,
 				CA39B2BF209B881300D37037 /* BuildingLightExample+UITesting.m in Sources */,
 				961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */,
