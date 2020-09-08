@@ -14,8 +14,6 @@ NSString *const MBXExampleLocationPrivacy = @"LocationPrivacyExample";
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     mapView.delegate = self;
-
-    // Enable heading tracking mode so that the puck will appear.
     mapView.userTrackingMode = MGLUserTrackingModeFollow;
 
     [self.view addSubview:mapView];

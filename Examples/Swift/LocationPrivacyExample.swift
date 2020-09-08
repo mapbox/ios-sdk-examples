@@ -9,8 +9,6 @@ class LocationPrivacyExample_Swift: UIViewController, MGLMapViewDelegate {
         let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
-
-        // Enable heading tracking mode so that the puck will appear.
         mapView.userTrackingMode = .follow
 
         view.addSubview(mapView)
