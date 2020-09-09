@@ -14,16 +14,19 @@ NSString *const MBXExampleLocationPrivacy = @"LocationPrivacyExample";
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     mapView.delegate = self;
-    mapView.userTrackingMode = MGLUserTrackingModeFollow;
+    mapView.showsUserLocation = YES;
 
     [self.view addSubview:mapView];
 }
 
 /**
-    In order to enable the alert that requests temporary precise location, please add the following key to your info.plist
-    Privacy - Location Temporary Usage Description Dictionary
+    In order to enable the alert that requests temporary precise location,
+    please add the following key to your info.plist
+    @c NSLocationTemporaryUsageDescriptionDictionary
 
-    You must then add MGLAccuracyAuthorizationDescription as key in the Privacy - Location Temporary Usage Description Dictionary
+    You must then add
+    @c MGLAccuracyAuthorizationDescription
+    as a key in the Privacy - Location Temporary Usage Description Dictionary
  */
 - (void)mapView:(MGLMapView *)mapView didChangeLocationManagerAuthorization:(id<MGLLocationManager>)manager {
     if (@available(iOS 14, *)) {
