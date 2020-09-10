@@ -60,9 +60,8 @@ class LocationPrivacyExample_Swift: UIViewController, MGLMapViewDelegate {
     @objc private func requestTemporaryAuth() {
         guard let mapView = self.mapView else { return }
 
-        let purposeKey = "Examples needs your precise location to accurately show user location"
+        let purposeKey = "MGLAccuracyAuthorizationDescription"
         mapView.locationManager.requestTemporaryFullAccuracyAuthorization!(withPurposeKey: purposeKey)
-
     }
 
     private func removePreciseButton() {

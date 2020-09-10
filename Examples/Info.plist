@@ -50,7 +50,7 @@
 	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
 	<dict>
 		<key>MGLAccuracyAuthorizationDescription</key>
-		<string>Mapbox requires your precise location to help you navigate the map.</string>
+		<string>Examples requires your precise location to show your location</string>
 	</dict>
 </dict>
 </plist>

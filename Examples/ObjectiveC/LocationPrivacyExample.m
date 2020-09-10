@@ -60,7 +60,7 @@ NSString *const MBXExampleLocationPrivacy = @"LocationPrivacyExample";
 
 - (void)requestTemporaryAuth {
     if (self.mapView != nil) {
-        NSString *purposeKey = @"Examples needs your precise location to accurately show user location";
+        NSString *purposeKey = @"MGLAccuracyAuthorizationDescription";
         if (@available(iOS 14, *)) {
             [self.mapView.locationManager requestTemporaryFullAccuracyAuthorizationWithPurposeKey:purposeKey];
         }
