@@ -3,17 +3,19 @@ import Mapbox
 @objc(LocationPrivacyExample_Swift)
 
 class LocationPrivacyExample_Swift: UIViewController, MGLMapViewDelegate {
+    var mapView: MGLMapView?
+    var preciseButton: UIButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
         mapView.showsUserLocation = true
 
-        if #available(iOS 14, *) {
-            mapView.locationManager.requestTemporaryFullAccuracyAuthorization?(withPurposeKey: "asfd")
-        }
+        self.mapView = mapView
+
         view.addSubview(mapView)
     }
 
@@ -31,23 +33,42 @@ class LocationPrivacyExample_Swift: UIViewController, MGLMapViewDelegate {
         guard let accuracySetting = manager.accuracyAuthorization?() else { return }
 
         if accuracySetting == .reducedAccuracy {
-//            let alert = UIAlertController(title: "Examples will work best with your precise location",
-//                                          message: "Please enable in settings to not receive this message again",
-//                                          preferredStyle: .alert)
-//
-//            let settingsAction = UIAlertAction(title: "Turn On In Settings",
-//                                               style: .default,
-//                                               handler: { _ in
-//                                                UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
-//                                               })
-//            let defaultAction = UIAlertAction(title: "Keep Precise Location Off",
-//                                               style: .default,
-//                                               handler: nil)
-//
-//            alert.addAction(settingsAction)
-//            alert.addAction(defaultAction)
-//            present(alert, animated: true, completion: nil)
-            manager.requestTemporaryFullAccuracyAuthorization!(withPurposeKey: "ALKSDFJ")
+            addPreciseButton()
+        } else {
+            removePreciseButton()
         }
+    }
+
+    @available(iOS 14, *)
+    func addPreciseButton() {
+        let preciseButton = UIButton(frame: CGRect.zero)
+        preciseButton.setTitle("Turn Precise On", for: .normal)
+        preciseButton.backgroundColor = .gray
+
+        preciseButton.addTarget(self, action: #selector(requestTemporaryAuth), for: .touchDown)
+        self.view.addSubview(preciseButton)
+        self.preciseButton = preciseButton
+
+        // constraints
+        preciseButton.translatesAutoresizingMaskIntoConstraints = false
+        preciseButton.widthAnchor.constraint(equalToConstant: 150.0).isActive = true
+        preciseButton.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+        preciseButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100.0).isActive = true
+        preciseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+
+    @available(iOS 14, *)
+    @objc private func requestTemporaryAuth() {
+        guard let mapView = self.mapView else { return }
+
+        let purposeKey = "Examples needs your precise location to accurately show user location"
+        mapView.locationManager.requestTemporaryFullAccuracyAuthorization!(withPurposeKey: purposeKey)
+
+    }
+
+    private func removePreciseButton() {
+        guard let button = self.preciseButton else { return }
+        button.removeFromSuperview()
+        self.preciseButton = nil
     }
 }

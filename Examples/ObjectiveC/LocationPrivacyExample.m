@@ -4,6 +4,8 @@
 NSString *const MBXExampleLocationPrivacy = @"LocationPrivacyExample";
 
 @interface LocationPrivacyExample () <MGLMapViewDelegate>
+@property (nonatomic) MGLMapView *mapView;
+@property (nonatomic) UIButton *preciseButton;
 @end
 
 @implementation LocationPrivacyExample
@@ -15,6 +17,7 @@ NSString *const MBXExampleLocationPrivacy = @"LocationPrivacyExample";
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     mapView.delegate = self;
     mapView.showsUserLocation = YES;
+    self.mapView = mapView;
 
     [self.view addSubview:mapView];
 }
@@ -31,21 +34,41 @@ NSString *const MBXExampleLocationPrivacy = @"LocationPrivacyExample";
 - (void)mapView:(MGLMapView *)mapView didChangeLocationManagerAuthorization:(id<MGLLocationManager>)manager {
     if (@available(iOS 14, *)) {
         if (manager.accuracyAuthorization == CLAccuracyAuthorizationReducedAccuracy) {
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Examples will work best with your precise location"
-                                                                           message:@"Please enable in settings to not receive this message again"
-                                                                    preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *settingsAction = [UIAlertAction actionWithTitle:@"Turn on in Settings"
-                                                                     style:UIAlertActionStyleDefault
-                                                                   handler:^(UIAlertAction * _Nonnull action) {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-            }];
-            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Keep Precise Location Off"
-                                                                    style:UIAlertActionStyleDefault
-                                                                  handler:nil];
-            [alert addAction:settingsAction];
-            [alert addAction:defaultAction];
-            [self presentViewController:alert animated:YES completion:nil];
+            [self addPreciseButton];
+        } else {
+            [self removePreciseButton];
         }
+    }
+}
+
+- (void)addPreciseButton {
+    UIButton *preciseButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [preciseButton setTitle:@"Turn Precise On" forState:UIControlStateNormal];
+    preciseButton.backgroundColor = UIColor.grayColor;
+
+    [preciseButton addTarget:self action:@selector(requestTemporaryAuth) forControlEvents:UIControlEventTouchDown];
+    self.preciseButton = preciseButton;
+    [self.view addSubview:preciseButton];
+
+    // constraints
+    [preciseButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [preciseButton.widthAnchor constraintEqualToConstant:150.0].active = YES;
+    [preciseButton.heightAnchor constraintEqualToConstant:40.0].active = YES;
+    [preciseButton.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:100.0].active = YES;
+    [preciseButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+}
+
+- (void)requestTemporaryAuth {
+    if (self.mapView != nil) {
+        NSString *purposeKey = @"Examples needs your precise location to accurately show user location";
+        [self.mapView.locationManager requestTemporaryFullAccuracyAuthorizationWithPurposeKey:purposeKey];
+    }
+}
+
+- (void)removePreciseButton {
+    if (self.preciseButton != nil) {
+        [self.preciseButton removeFromSuperview];
+        self.preciseButton = nil;
     }
 }
 
