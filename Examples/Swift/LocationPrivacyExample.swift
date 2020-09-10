@@ -13,7 +13,6 @@ class LocationPrivacyExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
         mapView.showsUserLocation = true
-
         self.mapView = mapView
 
         view.addSubview(mapView)
