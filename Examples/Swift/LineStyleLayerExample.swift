@@ -63,13 +63,21 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         layer.lineJoin = NSExpression(forConstantValue: "round")
         layer.lineCap = NSExpression(forConstantValue: "round")
 
-        // Set the line color to a constant blue color.
-        layer.lineColor = NSExpression(forConstantValue: UIColor(red: 59/255, green: 178/255, blue: 208/255, alpha: 1))
 
         // Use `NSExpression` to smoothly adjust the line width from 2pt to 20pt between zoom levels 14 and 18. The `interpolationBase` parameter allows the values to interpolate along an exponential curve.
         layer.lineWidth = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
                                        [14: 2, 18: 20])
-
+        layer.lineColor = NSExpression(mglJSONObject: [
+            "case",
+            ["all", true, false],
+            UIColor(red: 59/255, green: 178/255, blue: 208/255, alpha: 1),
+            
+            // comment these two line below and it does not crash
+            ["all", 1, 2],
+            UIColor.blue,
+            
+            UIColor.red
+        ])
         // We can also add a second layer that will draw a stroke around the original line.
         let casingLayer = MGLLineStyleLayer(identifier: "polyline-case", source: source)
         // Copy these attributes from the main line layer.
