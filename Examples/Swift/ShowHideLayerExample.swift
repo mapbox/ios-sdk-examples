@@ -10,6 +10,8 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         super.viewDidLoad()
 
         mapView = MGLMapView(frame: view.bounds)
+        let observer = MyObserver()
+        mapView.subscribe(for: observer, event: .resourceRequest)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         mapView.setCenter(CLLocationCoordinate2D(latitude: 37.745395, longitude: -119.594421), zoomLevel: 11, animated: false)
@@ -26,7 +28,7 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func addLayer(to style: MGLStyle) {
-        let source = MGLVectorTileSource(identifier: "contours", configurationURL: NSURL(string: "mapbox://mapbox.mapbox-terrain-v2")! as URL)
+        let source = MGLVectorTileSource(identifier: "contours", configurationURL: NSURL(string: "mapbox://mapbox.mapbox-terrain-v2ssss")! as URL)
 
         let layer = MGLLineStyleLayer(identifier: "contours", source: source)
         layer.sourceLayerIdentifier = "contour"
@@ -88,5 +90,13 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         } else {
             button.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
         }
+    }
+}
+
+
+class MyObserver: MGLObserver {
+    override func notify(with event: MGLEvent) {
+        super.notify(with: event)
+        print("event \(event)")
     }
 }
