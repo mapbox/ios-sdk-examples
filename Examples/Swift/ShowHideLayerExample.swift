@@ -5,13 +5,14 @@ import Mapbox
 class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var contoursLayer: MGLStyleLayer?
+    var observer: MGLObserver?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         mapView = MGLMapView(frame: view.bounds)
-        let observer = MyObserver()
-        mapView.subscribe(for: observer, event: .resourceRequest)
+        observer = MyObserver()
+        mapView.subscribe(for: observer!, event: .resourceRequest)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         mapView.setCenter(CLLocationCoordinate2D(latitude: 37.745395, longitude: -119.594421), zoomLevel: 11, animated: false)
@@ -20,6 +21,12 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         addToggleButton()
 
         mapView.delegate = self
+    }
+
+    deinit {
+        if let observer = observer {
+            mapView.unsubscribe(for: observer)
+        }
     }
 
     // Wait until the style is loaded before modifying the map style
