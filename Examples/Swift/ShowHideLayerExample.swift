@@ -11,8 +11,6 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         super.viewDidLoad()
 
         mapView = MGLMapView(frame: view.bounds)
-        observer = MyObserver()
-        mapView.subscribe(for: observer!, event: .resourceRequest)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         mapView.setCenter(CLLocationCoordinate2D(latitude: 37.745395, longitude: -119.594421), zoomLevel: 11, animated: false)
@@ -21,12 +19,6 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         addToggleButton()
 
         mapView.delegate = self
-    }
-
-    deinit {
-        if let observer = observer {
-            mapView.unsubscribe(for: observer)
-        }
     }
 
     // Wait until the style is loaded before modifying the map style
@@ -97,13 +89,5 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
         } else {
             button.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
         }
-    }
-}
-
-
-class MyObserver: MGLObserver {
-    override func notify(with event: MGLEvent) {
-        super.notify(with: event)
-        print("event \(event)")
     }
 }
