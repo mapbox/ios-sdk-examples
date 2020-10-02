@@ -1,6 +1,6 @@
 # Mapbox iOS SDK Examples
 
-[![bitrise](https://app.bitrise.io/app/9a144f2169b7c9e3/status.svg?token=yzLGB24ubR_INs6HqUl14g&branch=master)](https://app.bitrise.io/app/9a144f2169b7c9e3#)[![codecov](https://codecov.io/gh/mapbox/ios-sdk-examples/branch/master/graph/badge.svg)](https://codecov.io/gh/mapbox/ios-sdk-examples)
+[![bitrise](https://app.bitrise.io/app/9a144f2169b7c9e3/status.svg?token=yzLGB24ubR_INs6HqUl14g&branch=main)](https://app.bitrise.io/app/9a144f2169b7c9e3#)[![codecov](https://codecov.io/gh/mapbox/ios-sdk-examples/branch/main/graph/badge.svg)](https://codecov.io/gh/mapbox/ios-sdk-examples)
 
 A live Xcode project/app that provides [public examples](https://www.mapbox.com/ios-sdk/examples/) for the Mapbox Maps SDK for iOS.
 
@@ -13,6 +13,7 @@ We are not able to answer support questions in this repository — it is intende
 
 ## Getting started
 1. Run `bundle install` to install build/packaging dependencies.
+1. Follow the instructions for installing the Maps SDK via CocoaPods in the [installation guide](https://docs.mapbox.com/ios/maps/overview/#install-the-maps-sdk).
 1. Run `bundle exec pod install` to download and integrate dependencies using [CocoaPods](https://cocoapods.org).
 1. Create the `mapbox_access_token` file in the base directory and insert your Mapbox access token.
 1. Open `Examples.xcworkspace`.
