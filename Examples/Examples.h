@@ -40,6 +40,7 @@ extern NSString *const MBXExampleLabelPlacement;
 extern NSString *const MBXExampleLineStyleLayer;
 extern NSString *const MBXExampleLiveData;
 extern NSString *const MBXExampleLocationPrivacy;
+extern NSString *const MBXExampleManageOfflineRegions;
 extern NSString *const MBXExampleMultipleImages;
 extern NSString *const MBXExampleMultipleShapes;
 extern NSString *const MBXExampleOfflinePack;
