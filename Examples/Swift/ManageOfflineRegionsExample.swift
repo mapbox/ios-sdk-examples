@@ -189,7 +189,6 @@ fileprivate extension MGLOfflinePackProgress {
     }
 
     var cellTextValue: String {
-//        return "Percent completion: \(String(format: "%.2f", progressPercentage)%")"
         return "Percent completion: \(progressPercentage)%"
     }
 }
