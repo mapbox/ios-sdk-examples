@@ -31,7 +31,7 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-    var cell = UITableViewCell()
+
     // make an extension for this and make necessary comments and push
     override func viewDidLoad() {
 
@@ -80,7 +80,6 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
                 print(error)
             } else {
                 MGLOfflineStorage.shared.reloadPacks()
-                self.tableView.reloadData()
             }
         }
     }
@@ -94,27 +93,27 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
         }
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
         if section == 0 {
             label.backgroundColor = UIColor.white
+            label.textColor = UIColor.black
             label.textAlignment = .center
             label.text = "No Offline Packs Saved"
-            return label.text
+            return label
         }
-
         return nil
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
 
         if let packs = MGLOfflineStorage.shared.packs {
 
             cell.textLabel?.text = "Region \(indexPath.row + 1): size: \(packs[indexPath.row].progress.countOfBytesCompleted)"
-            cell.detailTextLabel?.text = "Percent completion: \(String(format: "%.2f", packs[indexPath.row].progress.progressPercentage))%"
-            cell.textLabel?.textAlignment = .left
+            cell.detailTextLabel?.text = packs[indexPath.row].progress.cellTextValue
 
         }
 
@@ -165,20 +164,11 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
         if let pack = notification.object as? MGLOfflinePack,
            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String] {
 
-            let completedResources = pack.progress.countOfResourcesCompleted
-            let expectedResources = pack.progress.countOfResourcesExpected
-
-            if completedResources == expectedResources {
+            if pack.progress.countOfResourcesCompleted == pack.progress.countOfResourcesExpected {
 
                 let byteCount = ByteCountFormatter.string(fromByteCount: Int64(pack.progress.countOfBytesCompleted), countStyle: ByteCountFormatter.CountStyle.memory)
 
-                print("Offline pack “\(userInfo["name"] ?? "unknown")” completed: \(byteCount), \(completedResources) resources")
-
-            } else {
-
-                // Otherwise, print download/verification progress.
-
-                print("Offline pack “\(userInfo["name"] ?? "unknown")” has \(completedResources) of \(expectedResources) resources — \(String(format: "%.2f", pack.progress.progressPercentage))%.")
+                print("Offline pack “\(userInfo["name"] ?? "unknown")” completed: \(byteCount), \(pack.progress.countOfResourcesCompleted) resources")
 
             }
         }
@@ -194,14 +184,12 @@ fileprivate extension MGLOfflinePackProgress {
         if countOfResourcesExpected != 0 {
             return Float((countOfResourcesCompleted / countOfResourcesExpected) * 100)
         } else {
-            return 1.0
+            return 0
         }
     }
-//    var completedResources: Float {
-//        return Float(countOfResourcesCompleted)
-//    }
-//    var expectedResources: Float {
-//        return Float(countOfResourcesExpected)
-//    }
-
+    
+    var cellTextValue: String {
+//        return "Percent completion: \(String(format: "%.2f", progressPercentage)%")"
+        return "Percent completion: \(progressPercentage)%"
+    }
 }
