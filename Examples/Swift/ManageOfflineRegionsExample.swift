@@ -27,7 +27,6 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
         let tableView = UITableView(frame: CGRect.zero)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -72,9 +71,11 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
 
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-
+    /*In a normal app, the cache/ pack removal would be done within
+ viewWillDisappear, however, for the purposes of our app, we are calling it
+ within viewWillAppear to clear the cache whenever this particular example is
+ loaded. */
+    override func viewWillAppear(_ animated: Bool) {
         MGLOfflineStorage.shared.resetDatabase { (error) in
             if let error = error {
                 print(error)
@@ -84,6 +85,7 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
         }
     }
 
+    // Create the tableview to display the downloaded regions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if let packs = MGLOfflineStorage.shared.packs {
@@ -107,13 +109,13 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-
+        let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "cell")
+        
         if let packs = MGLOfflineStorage.shared.packs {
-
-            cell.textLabel?.text = "Region \(indexPath.row + 1): size: \(packs[indexPath.row].progress.countOfBytesCompleted)"
-            cell.detailTextLabel?.text = packs[indexPath.row].progress.cellTextValue
+            let pack = packs[indexPath.row]
+            
+            cell.textLabel?.text = "Region \(indexPath.row + 1): size: \(pack.progress.countOfBytesCompleted)"
+            cell.detailTextLabel?.text = "Percent completion: \(pack.progress.percentCompleted)%"
 
         }
 
@@ -180,15 +182,9 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
 
 fileprivate extension MGLOfflinePackProgress {
 
-    var progressPercentage: Float {
-        if countOfResourcesExpected != 0 {
-            return Float((countOfResourcesCompleted / countOfResourcesExpected) * 100)
-        } else {
-            return 0
-        }
-    }
-
-    var cellTextValue: String {
-        return "Percent completion: \(progressPercentage)%"
+    var percentCompleted: Float {
+        
+    return Float((countOfResourcesCompleted / countOfResourcesExpected) * 100)
+        
     }
 }
