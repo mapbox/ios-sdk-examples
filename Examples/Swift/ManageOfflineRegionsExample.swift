@@ -85,7 +85,7 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
         }
     }
 
-    // Create the tableview to display the downloaded regions
+    // Create the table view which will display the downloaded regions.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if let packs = MGLOfflineStorage.shared.packs {
