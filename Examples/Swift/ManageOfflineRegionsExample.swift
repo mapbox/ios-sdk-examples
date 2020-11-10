@@ -139,7 +139,7 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
          */
         let region = MGLTilePyramidOfflineRegion(styleURL: mapView.styleURL, bounds: mapView.visibleCoordinateBounds, fromZoomLevel: mapView.zoomLevel, toZoomLevel: mapView.zoomLevel + 2)
 
-        // Store some data for identification purposes alongside the downloaded resources.
+        // Store some data for identification purposes alongside the offline pack.
 
         let userInfo = ["name": "\(region.bounds)"]
         let context = NSKeyedArchiver.archivedData(withRootObject: userInfo)
