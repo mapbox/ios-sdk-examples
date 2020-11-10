@@ -177,6 +177,7 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
 
             }
         }
+        // Reload the table to update the progress percentage for each offline pack.
         self.tableView.reloadData()
 
     }
