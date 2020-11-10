@@ -132,8 +132,11 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
 
     @objc func startOfflinePackDownload() {
 
-        // Create a region that includes the current viewport and any tiles needed to view it when zoomed further in.
-        // Because tile count grows exponentially with the maximum zoom level, you should be conservative with your `toZoomLevel` setting.
+        /**
+         Create a region that includes the current map camera, to be captured
+         in an offline map. Note: Because tile count grows exponentially as zoom level
+         increases, you should be conservative with your `toZoomLevel` setting.
+         */
         let region = MGLTilePyramidOfflineRegion(styleURL: mapView.styleURL, bounds: mapView.visibleCoordinateBounds, fromZoomLevel: mapView.zoomLevel, toZoomLevel: mapView.zoomLevel + 2)
 
         // Store some data for identification purposes alongside the downloaded resources.
