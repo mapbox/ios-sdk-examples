@@ -77,6 +77,7 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
     override func viewWillAppear(_ animated: Bool) {
         MGLOfflineStorage.shared.resetDatabase { (error) in
             if let error = error {
+                // Handle the error here if packs can't be removed.
                 print(error)
             } else {
                 MGLOfflineStorage.shared.reloadPacks()
