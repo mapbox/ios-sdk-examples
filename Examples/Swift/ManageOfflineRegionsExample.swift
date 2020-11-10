@@ -39,9 +39,8 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
         view.addSubview(mapView)
         view.addSubview(tableView)
         mapView.addSubview(downloadButton)
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 22.27933, longitude: 114.16281),
-
-                          zoomLevel: 13, animated: false)
+        let centerCoordinate = CLLocationCoordinate2D(latitude: 22.27933, longitude: 114.16281)
+        mapView.setCenter(centerCoordinate, zoomLevel: 13, animated: false)
 
         // Setup offline pack notification handlers.
         addObserver()
