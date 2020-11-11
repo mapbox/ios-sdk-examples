@@ -3,7 +3,7 @@ import Foundation
 
 @objc(ManageOfflineRegionsExample_Swift)
 
-class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
+class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
 
     lazy var mapView: MGLMapView = {
         let mapView = MGLMapView(frame: CGRect.zero)
@@ -13,6 +13,7 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
         mapView.translatesAutoresizingMaskIntoConstraints = false
         return mapView
     }()
+
     lazy var downloadButton: UIButton = {
         let downloadButton = UIButton(frame: CGRect.zero)
         downloadButton.backgroundColor = UIColor.white
@@ -23,6 +24,7 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
         downloadButton.translatesAutoresizingMaskIntoConstraints = false
         return downloadButton
     }()
+
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero)
         tableView.delegate = self
@@ -31,7 +33,6 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
         return tableView
     }()
 
-    // make an extension for this and make necessary comments and push
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -43,12 +44,12 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
         mapView.setCenter(centerCoordinate, zoomLevel: 13, animated: false)
 
         // Setup offline pack notification handlers.
-        addObserver()
+        setupOfflinePackHandler()
         installConstraints()
 
     }
 
-    func addObserver() {
+    func setupOfflinePackHandler() {
         NotificationCenter.default.addObserver(self, selector: #selector(offlinePackProgressDidChange), name: NSNotification.Name.MGLOfflinePackProgressChanged, object: nil)
     }
 
@@ -70,10 +71,10 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
 
     }
 
-    /*In a normal app, the cache/ pack removal would be done within
- viewWillDisappear, however, for the purposes of our app, we are calling it
- within viewWillAppear to clear the cache whenever this particular example is
- loaded. */
+    /*
+        For the purposes of this example, remove any offline packs
+        that exist before the example is re-loaded.
+        */
     override func viewWillAppear(_ animated: Bool) {
         MGLOfflineStorage.shared.resetDatabase { (error) in
             if let error = error {
@@ -85,51 +86,6 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
         }
     }
 
-    // Create the table view which will display the downloaded regions.
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        if let packs = MGLOfflineStorage.shared.packs {
-            return packs.count
-        } else {
-            return 1
-        }
-    }
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        if section == 0 {
-            label.backgroundColor = UIColor.white
-            label.textColor = UIColor.black
-            label.textAlignment = .center
-            label.text = "No Offline Packs Saved"
-            return label
-        }
-        return nil
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "cell")
-        
-        if let packs = MGLOfflineStorage.shared.packs {
-            let pack = packs[indexPath.row]
-            
-            cell.textLabel?.text = "Region \(indexPath.row + 1): size: \(pack.progress.countOfBytesCompleted)"
-            cell.detailTextLabel?.text = "Percent completion: \(pack.progress.percentCompleted)%"
-
-        }
-
-        return cell
-
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let packs = MGLOfflineStorage.shared.packs else { return }
-        if let selectedRegion = packs[indexPath.row].region as? MGLTilePyramidOfflineRegion {
-            mapView.setVisibleCoordinateBounds(selectedRegion.bounds, animated: true)
-        }
-    }
-
     @objc func startOfflinePackDownload() {
 
         /**
@@ -137,24 +93,22 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
          in an offline map. Note: Because tile count grows exponentially as zoom level
          increases, you should be conservative with your `toZoomLevel` setting.
          */
-        let region = MGLTilePyramidOfflineRegion(styleURL: mapView.styleURL, bounds: mapView.visibleCoordinateBounds, fromZoomLevel: mapView.zoomLevel, toZoomLevel: mapView.zoomLevel + 2)
+        let region = MGLTilePyramidOfflineRegion(styleURL: mapView.styleURL,
+                                                 bounds: mapView.visibleCoordinateBounds, fromZoomLevel: mapView.zoomLevel, toZoomLevel: mapView.zoomLevel + 2)
 
         // Store some data for identification purposes alongside the offline pack.
-
         let userInfo = ["name": "\(region.bounds)"]
         let context = NSKeyedArchiver.archivedData(withRootObject: userInfo)
 
         // Create and register an offline pack with the shared offline storage object.
-
         MGLOfflineStorage.shared.addPack(for: region, withContext: context) { (pack, error) in
             guard error == nil else {
-                // The pack couldn’t be created for some reason.
+                // Handle the error if the offline pack couldn’t be created.
                 print("Error: \(error?.localizedDescription ?? "unknown error")")
                 return
             }
 
-            // Start downloading.
-
+            //Begin downloading the map for offline use.
             pack!.resume()
 
         }
@@ -185,10 +139,56 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate, U
 }
 
 fileprivate extension MGLOfflinePackProgress {
-
     var percentCompleted: Float {
-        
-    return Float((countOfResourcesCompleted / countOfResourcesExpected) * 100)
-        
+        let percentage = Float((countOfResourcesCompleted / countOfResourcesExpected) * 100)
+        return percentage
+    }
+}
+
+extension ManageOfflineRegionsExample_Swift: UITableViewDelegate, UITableViewDataSource {
+
+    // Create the table view which will display the downloaded regions.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        if let packs = MGLOfflineStorage.shared.packs {
+            return packs.count
+        } else {
+            return 0
+        }
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        if section == 0 {
+            label.backgroundColor = UIColor.white
+            label.textColor = UIColor.black
+            label.textAlignment = .center
+            label.text = "No Offline Packs Saved"
+            return label
+        }
+        return nil
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "cell")
+
+        if let packs = MGLOfflineStorage.shared.packs {
+            let pack = packs[indexPath.row]
+
+            cell.textLabel?.text = "Region \(indexPath.row + 1): size: \(pack.progress.countOfBytesCompleted)"
+            cell.detailTextLabel?.text = "Percent completion: \(pack.progress.percentCompleted)%"
+
+        }
+
+        return cell
+
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let packs = MGLOfflineStorage.shared.packs else { return }
+        if let selectedRegion = packs[indexPath.row].region as? MGLTilePyramidOfflineRegion {
+            mapView.setVisibleCoordinateBounds(selectedRegion.bounds, animated: true)
+        }
     }
 }
