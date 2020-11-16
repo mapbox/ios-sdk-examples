@@ -99,7 +99,9 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
          increases, you should be conservative with your `toZoomLevel` setting.
          */
         let region = MGLTilePyramidOfflineRegion(styleURL: mapView.styleURL,
-                                                 bounds: mapView.visibleCoordinateBounds, fromZoomLevel: mapView.zoomLevel, toZoomLevel: mapView.zoomLevel + 2)
+                                                 bounds: mapView.visibleCoordinateBounds,
+                                                 fromZoomLevel: mapView.zoomLevel,
+                                                 toZoomLevel: mapView.zoomLevel + 2)
 
         // Store some data for identification purposes alongside the offline pack.
         let userInfo = ["name": "\(region.bounds)"]
