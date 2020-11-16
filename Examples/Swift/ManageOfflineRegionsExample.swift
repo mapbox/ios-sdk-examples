@@ -126,10 +126,9 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
     @objc func offlinePackProgressDidChange(notification: NSNotification) {
 
         /**
-         Get the offline pack this notification is regarding,
-         and the metadata associated with the offline pack.
+         Get the offline pack this notification is referring to,
+         along with its associated metadata.
          */
-        // and the associated user info for the pack; in this case, `name = My Offline Pack`
         if let pack = notification.object as? MGLOfflinePack,
            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String] {
 
