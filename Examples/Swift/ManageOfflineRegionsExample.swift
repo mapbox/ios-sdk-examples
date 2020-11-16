@@ -132,6 +132,7 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
         if let pack = notification.object as? MGLOfflinePack,
            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String] {
 
+            // At this point, the offline pack has finished downloading.
             if pack.progress.countOfResourcesCompleted == pack.progress.countOfResourcesExpected {
 
                 let byteCount = ByteCountFormatter.string(fromByteCount: Int64(pack.progress.countOfBytesCompleted), countStyle: ByteCountFormatter.CountStyle.memory)
