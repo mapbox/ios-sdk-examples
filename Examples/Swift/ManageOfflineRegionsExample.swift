@@ -137,7 +137,14 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
 
                 let byteCount = ByteCountFormatter.string(fromByteCount: Int64(pack.progress.countOfBytesCompleted), countStyle: ByteCountFormatter.CountStyle.memory)
 
-                print("Offline pack “\(userInfo["name"] ?? "unknown")” completed: \(byteCount), \(pack.progress.countOfResourcesCompleted) resources")
+                let packName = userInfo["name"] ?? "unknown"
+
+                print("""
+                  Offline pack “\(packName)” completed download:
+                    - Bytes: \(byteCount)
+                    - Resource count: \(pack.progress.countOfResourcesCompleted)")
+                """)
+
 
             }
         }
