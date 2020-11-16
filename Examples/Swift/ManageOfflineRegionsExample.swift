@@ -52,7 +52,10 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func setupOfflinePackHandler() {
-        NotificationCenter.default.addObserver(self, selector: #selector(offlinePackProgressDidChange), name: NSNotification.Name.MGLOfflinePackProgressChanged, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(offlinePackProgressDidChange),
+                                               name: NSNotification.Name.MGLOfflinePackProgressChanged,
+                                               object: nil)
     }
 
     func installConstraints() {
