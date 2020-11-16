@@ -213,6 +213,7 @@ extension ManageOfflineRegionsExample_Swift: UITableViewDelegate, UITableViewDat
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let packs = MGLOfflineStorage.shared.packs else { return }
+        
         if let selectedRegion = packs[indexPath.row].region as? MGLTilePyramidOfflineRegion {
             mapView.setVisibleCoordinateBounds(selectedRegion.bounds, animated: true)
         }
