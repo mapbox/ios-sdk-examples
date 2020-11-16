@@ -115,7 +115,7 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
                 return
             }
 
-            //Begin downloading the map for offline use.
+            // Begin downloading the map for offline use.
             pack!.resume()
 
         }
