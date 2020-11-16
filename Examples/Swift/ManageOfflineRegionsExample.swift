@@ -77,9 +77,9 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     /*
-        For the purposes of this example, remove any offline packs
-        that exist before the example is re-loaded.
-        */
+      For the purposes of this example, remove any offline packs
+      that exist before the example is re-loaded.
+    */
     override func viewWillAppear(_ animated: Bool) {
         MGLOfflineStorage.shared.resetDatabase { (error) in
             if let error = error {
