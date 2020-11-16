@@ -45,6 +45,8 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Setup offline pack notification handlers.
         setupOfflinePackHandler()
+        
+        // Set up constraints for map view, table view, and download button. 
         installConstraints()
 
     }
