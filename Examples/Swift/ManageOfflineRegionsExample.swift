@@ -16,8 +16,8 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
 
     lazy var downloadButton: UIButton = {
         let downloadButton = UIButton(frame: CGRect.zero)
-        downloadButton.backgroundColor = UIColor.white
-        downloadButton.setTitleColor(UIColor.systemBlue, for: .normal)
+        downloadButton.backgroundColor = UIColor.systemBlue
+        downloadButton.setTitleColor(UIColor.white, for: .normal)
         downloadButton.setTitle("Download Region", for: .normal)
         downloadButton.addTarget(self, action: #selector(startOfflinePackDownload), for: .touchUpInside)
         downloadButton.layer.cornerRadius = view.bounds.width / 30
@@ -45,7 +45,7 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Setup offline pack notification handlers.
         setupOfflinePackHandler()
-        
+
         // Set up constraints for map view, table view, and download button. 
         installConstraints()
 
@@ -66,12 +66,13 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mapView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.75),
             tableView.topAnchor.constraint(equalTo: mapView.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: mapView.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: mapView.trailingAnchor),
-            tableView.heightAnchor.constraint(equalTo: mapView.heightAnchor, multiplier: 0.4),
-            downloadButton.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 100),
-            downloadButton.leadingAnchor.constraint(equalTo: mapView.leadingAnchor, constant: 5),
-            downloadButton.trailingAnchor.constraint(equalTo: mapView.leadingAnchor, constant: 150)
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4),
+            downloadButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            downloadButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
+            downloadButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.45),
+            downloadButton.heightAnchor.constraint(equalTo: downloadButton.widthAnchor, multiplier: 0.2)
         ])
 
     }
@@ -124,7 +125,6 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
     // MARK: - MGLOfflinePack notification handlers
 
     @objc func offlinePackProgressDidChange(notification: NSNotification) {
-
         /**
          Get the offline pack this notification is referring to,
          along with its associated metadata.
@@ -144,7 +144,6 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
                     - Bytes: \(byteCount)
                     - Resource count: \(pack.progress.countOfResourcesCompleted)")
                 """)
-
 
             }
         }
@@ -190,7 +189,7 @@ extension ManageOfflineRegionsExample_Swift: UITableViewDelegate, UITableViewDat
 
         return label
     }
-    
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50.0
     }
@@ -213,7 +212,7 @@ extension ManageOfflineRegionsExample_Swift: UITableViewDelegate, UITableViewDat
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let packs = MGLOfflineStorage.shared.packs else { return }
-        
+
         if let selectedRegion = packs[indexPath.row].region as? MGLTilePyramidOfflineRegion {
             mapView.setVisibleCoordinateBounds(selectedRegion.bounds, animated: true)
         }
