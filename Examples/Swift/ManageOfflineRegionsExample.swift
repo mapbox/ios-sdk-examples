@@ -176,14 +176,23 @@ extension ManageOfflineRegionsExample_Swift: UITableViewDelegate, UITableViewDat
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
-        if section == 0 {
-            label.backgroundColor = UIColor.white
-            label.textColor = UIColor.black
-            label.textAlignment = .center
-            label.text = "No Offline Packs Saved"
-            return label
+
+        label.backgroundColor = UIColor.systemBlue
+        label.textColor = UIColor.white
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.textAlignment = .center
+
+        if MGLOfflineStorage.shared.packs != nil {
+            label.text = "Offline maps"
+        } else {
+            label.text = "No offline maps"
         }
-        return nil
+
+        return label
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
