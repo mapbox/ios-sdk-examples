@@ -18,7 +18,9 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.setCenter(CLLocationCoordinate2D(latitude: 22.27933, longitude: 114.16281),
                           zoomLevel: 13, animated: false)
 
-        // Setup offline pack notification handlers.
+    }
+
+    func setupOfflineNotificationHandlers() {
         NotificationCenter.default.addObserver(self, selector: #selector(offlinePackProgressDidChange), name: NSNotification.Name.MGLOfflinePackProgressChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(offlinePackDidReceiveError), name: NSNotification.Name.MGLOfflinePackError, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(offlinePackDidReceiveMaximumAllowedMapboxTiles), name: NSNotification.Name.MGLOfflinePackMaximumMapboxTilesReached, object: nil)
@@ -42,13 +44,10 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         }
     }
 
-    deinit {
-        // Remove offline pack observers.
-        print("Removing offline pack notification observers")
-        NotificationCenter.default.removeObserver(self)
-    }
-
     func startOfflinePackDownload() {
+        // Setup offline pack notification handlers.
+        setupOfflineNotificationHandlers()
+
         // Create a region that includes the current viewport and any tiles needed to view it when zoomed further in.
         // Because tile count grows exponentially with the maximum zoom level, you should be conservative with your `toZoomLevel` setting.
         let region = MGLTilePyramidOfflineRegion(styleURL: mapView.styleURL, bounds: mapView.visibleCoordinateBounds, fromZoomLevel: mapView.zoomLevel, toZoomLevel: 14)
@@ -101,6 +100,12 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
             if completedResources == expectedResources {
                 let byteCount = ByteCountFormatter.string(fromByteCount: Int64(pack.progress.countOfBytesCompleted), countStyle: ByteCountFormatter.CountStyle.memory)
                 print("Offline pack “\(userInfo["name"] ?? "unknown")” completed: \(byteCount), \(completedResources) resources")
+
+                // Remove notification handlers
+                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.MGLOfflinePackProgressChanged, object: nil)
+                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.MGLOfflinePackError, object: nil)
+                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.MGLOfflinePackMaximumMapboxTilesReached, object: nil)
+
             } else {
                 // Otherwise, print download/verification progress.
                 print("Offline pack “\(userInfo["name"] ?? "unknown")” has \(completedResources) of \(expectedResources) resources — \(String(format: "%.2f", progressPercentage * 100))%.")
