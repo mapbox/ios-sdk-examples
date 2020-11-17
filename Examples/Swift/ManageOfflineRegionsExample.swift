@@ -36,7 +36,7 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
 
         super.viewDidLoad()
-
+        print("hi ho")
         view.addSubview(mapView)
         view.addSubview(tableView)
         mapView.addSubview(downloadButton)
@@ -45,6 +45,11 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
 
         // Setup offline pack notification handlers.
         setupOfflinePackHandler()
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(offlinePackProgressDidChange),
+                                               name: NSNotification.Name.MGLOfflinePackProgressChanged,
+                                               object: nil)
 
         // Set up constraints for map view, table view, and download button. 
         installConstraints()
@@ -92,34 +97,33 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
         }
     }
 
-    @objc func startOfflinePackDownload() {
-
+    @objc func startOfflinePackDownload(selector: NSNotification) {
         /**
          Create a region that includes the current map camera, to be captured
          in an offline map. Note: Because tile count grows exponentially as zoom level
          increases, you should be conservative with your `toZoomLevel` setting.
          */
         let region = MGLTilePyramidOfflineRegion(styleURL: mapView.styleURL,
-                                                 bounds: mapView.visibleCoordinateBounds,
-                                                 fromZoomLevel: mapView.zoomLevel,
-                                                 toZoomLevel: mapView.zoomLevel + 2)
+                                                     bounds: mapView.visibleCoordinateBounds,
+                                                     fromZoomLevel: mapView.zoomLevel,
+                                                     toZoomLevel: mapView.zoomLevel + 2)
+            // Store some data for identification purposes alongside the offline pack.
+            let userInfo = ["name": "\(region.bounds)"]
+            let context = NSKeyedArchiver.archivedData(withRootObject: userInfo)
 
-        // Store some data for identification purposes alongside the offline pack.
-        let userInfo = ["name": "\(region.bounds)"]
-        let context = NSKeyedArchiver.archivedData(withRootObject: userInfo)
+            // Create and register an offline pack with the shared offline storage object.
+            MGLOfflineStorage.shared.addPack(for: region, withContext: context) { (pack, error) in
+                guard error == nil else {
+                    // Handle the error if the offline pack couldn’t be created.
+                    print("Error: \(error?.localizedDescription ?? "unknown error")")
+                    return
+                }
 
-        // Create and register an offline pack with the shared offline storage object.
-        MGLOfflineStorage.shared.addPack(for: region, withContext: context) { (pack, error) in
-            guard error == nil else {
-                // Handle the error if the offline pack couldn’t be created.
-                print("Error: \(error?.localizedDescription ?? "unknown error")")
-                return
-            }
-
-            // Begin downloading the map for offline use.
-            pack!.resume()
+                // Begin downloading the map for offline use.
+                pack!.resume()
 
         }
+
     }
 
     // MARK: - MGLOfflinePack notification handlers
@@ -133,6 +137,7 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String] {
 
             // At this point, the offline pack has finished downloading.
+
             if pack.progress.countOfResourcesCompleted == pack.progress.countOfResourcesExpected {
 
                 let byteCount = ByteCountFormatter.string(fromByteCount: Int64(pack.progress.countOfBytesCompleted), countStyle: ByteCountFormatter.CountStyle.memory)
@@ -145,6 +150,8 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
                     - Resource count: \(pack.progress.countOfResourcesCompleted)")
                 """)
 
+                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.MGLOfflinePackProgressChanged,
+                                                          object: nil)
             }
         }
         // Reload the table to update the progress percentage for each offline pack.

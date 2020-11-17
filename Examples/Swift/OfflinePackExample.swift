@@ -42,12 +42,6 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         }
     }
 
-    deinit {
-        // Remove offline pack observers.
-        print("Removing offline pack notification observers")
-        NotificationCenter.default.removeObserver(self)
-    }
-
     func startOfflinePackDownload() {
         // Create a region that includes the current viewport and any tiles needed to view it when zoomed further in.
         // Because tile count grows exponentially with the maximum zoom level, you should be conservative with your `toZoomLevel` setting.
@@ -101,6 +95,14 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
             if completedResources == expectedResources {
                 let byteCount = ByteCountFormatter.string(fromByteCount: Int64(pack.progress.countOfBytesCompleted), countStyle: ByteCountFormatter.CountStyle.memory)
                 print("Offline pack “\(userInfo["name"] ?? "unknown")” completed: \(byteCount), \(completedResources) resources")
+
+                // remove observers
+                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.MGLOfflinePackProgressChanged,
+                                                          object: nil)
+                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.MGLOfflinePackError,
+                                                          object: nil)
+                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.MGLOfflinePackMaximumMapboxTilesReached,
+                                                          object: nil)
             } else {
                 // Otherwise, print download/verification progress.
                 print("Offline pack “\(userInfo["name"] ?? "unknown")” has \(completedResources) of \(expectedResources) resources — \(String(format: "%.2f", progressPercentage * 100))%.")
