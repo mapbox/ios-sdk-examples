@@ -43,14 +43,6 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
         let centerCoordinate = CLLocationCoordinate2D(latitude: 22.27933, longitude: 114.16281)
         mapView.setCenter(centerCoordinate, zoomLevel: 13, animated: false)
 
-        // Setup offline pack notification handlers.
-        setupOfflinePackHandler()
-
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(offlinePackProgressDidChange),
-                                               name: NSNotification.Name.MGLOfflinePackProgressChanged,
-                                               object: nil)
-
         // Set up constraints for map view, table view, and download button. 
         installConstraints()
 
@@ -98,6 +90,10 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     @objc func startOfflinePackDownload(selector: NSNotification) {
+        
+        // Setup offline pack notification handlers.
+        setupOfflinePackHandler()
+        
         /**
          Create a region that includes the current map camera, to be captured
          in an offline map. Note: Because tile count grows exponentially as zoom level
