@@ -95,14 +95,6 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
             if completedResources == expectedResources {
                 let byteCount = ByteCountFormatter.string(fromByteCount: Int64(pack.progress.countOfBytesCompleted), countStyle: ByteCountFormatter.CountStyle.memory)
                 print("Offline pack “\(userInfo["name"] ?? "unknown")” completed: \(byteCount), \(completedResources) resources")
-
-                // remove observers
-                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.MGLOfflinePackProgressChanged,
-                                                          object: nil)
-                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.MGLOfflinePackError,
-                                                          object: nil)
-                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.MGLOfflinePackMaximumMapboxTilesReached,
-                                                          object: nil)
             } else {
                 // Otherwise, print download/verification progress.
                 print("Offline pack “\(userInfo["name"] ?? "unknown")” has \(completedResources) of \(expectedResources) resources — \(String(format: "%.2f", progressPercentage * 100))%.")
