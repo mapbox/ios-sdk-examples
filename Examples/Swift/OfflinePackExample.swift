@@ -5,7 +5,7 @@ import Mapbox
 class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var progressView: UIProgressView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,6 +44,12 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         }
     }
 
+    deinit {
+        // Remove offline pack observers.
+        print("Removing offline pack notification observers")
+        NotificationCenter.default.removeObserver(self)
+    }
+
     func startOfflinePackDownload() {
         // Setup offline pack notification handlers.
         setupOfflineNotificationHandlers()
@@ -55,7 +61,7 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         // Store some data for identification purposes alongside the downloaded resources.
         let userInfo = ["name": "My Offline Pack"]
         let context = NSKeyedArchiver.archivedData(withRootObject: userInfo)
-
+        
         // Create and register an offline pack with the shared offline storage object.
 
         MGLOfflineStorage.shared.addPack(for: region, withContext: context) { (pack, error) in
@@ -77,7 +83,7 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         // Get the offline pack this notification is regarding,
         // and the associated user info for the pack; in this case, `name = My Offline Pack`
         if let pack = notification.object as? MGLOfflinePack,
-            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String] {
+           let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String] {
             let progress = pack.progress
             // or notification.userInfo![MGLOfflinePackProgressUserInfoKey]!.MGLOfflinePackProgressValue
             let completedResources = progress.countOfResourcesCompleted
@@ -97,14 +103,9 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
             progressView.progress = progressPercentage
 
             // If this pack has finished, print its size and resource count.
-            if completedResources == expectedResources {
+            if pack.state == .complete {
                 let byteCount = ByteCountFormatter.string(fromByteCount: Int64(pack.progress.countOfBytesCompleted), countStyle: ByteCountFormatter.CountStyle.memory)
                 print("Offline pack “\(userInfo["name"] ?? "unknown")” completed: \(byteCount), \(completedResources) resources")
-
-                // Remove notification handlers
-                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.MGLOfflinePackProgressChanged, object: nil)
-                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.MGLOfflinePackError, object: nil)
-                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.MGLOfflinePackMaximumMapboxTilesReached, object: nil)
 
             } else {
                 // Otherwise, print download/verification progress.
@@ -115,16 +116,16 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
 
     @objc func offlinePackDidReceiveError(notification: NSNotification) {
         if let pack = notification.object as? MGLOfflinePack,
-            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
-            let error = notification.userInfo?[MGLOfflinePackUserInfoKey.error] as? NSError {
+           let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
+           let error = notification.userInfo?[MGLOfflinePackUserInfoKey.error] as? NSError {
             print("Offline pack “\(userInfo["name"] ?? "unknown")” received error: \(error.localizedFailureReason ?? "unknown error")")
         }
     }
 
     @objc func offlinePackDidReceiveMaximumAllowedMapboxTiles(notification: NSNotification) {
         if let pack = notification.object as? MGLOfflinePack,
-            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
-            let maximumCount = (notification.userInfo?[MGLOfflinePackUserInfoKey.maximumCount] as AnyObject).uint64Value {
+           let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
+           let maximumCount = (notification.userInfo?[MGLOfflinePackUserInfoKey.maximumCount] as AnyObject).uint64Value {
             print("Offline pack “\(userInfo["name"] ?? "unknown")” reached limit of \(maximumCount) tiles.")
         }
     }
