@@ -5,6 +5,8 @@ import Foundation
 
 class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
 
+    let inBytes = ByteCountFormatter()
+
     lazy var mapView: MGLMapView = {
         let mapView = MGLMapView(frame: CGRect.zero)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -90,10 +92,10 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     @objc func startOfflinePackDownload(selector: NSNotification) {
-        
+
         // Setup offline pack notification handlers.
         setupOfflinePackHandler()
-        
+
         /**
          Create a region that includes the current map camera, to be captured
          in an offline map. Note: Because tile count grows exponentially as zoom level
@@ -134,7 +136,7 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
 
             // At this point, the offline pack has finished downloading.
 
-            if pack.progress.countOfResourcesCompleted == pack.progress.countOfResourcesExpected {
+            if pack.state == .complete {
 
                 let byteCount = ByteCountFormatter.string(fromByteCount: Int64(pack.progress.countOfBytesCompleted), countStyle: ByteCountFormatter.CountStyle.memory)
 
@@ -204,7 +206,7 @@ extension ManageOfflineRegionsExample_Swift: UITableViewDelegate, UITableViewDat
         if let packs = MGLOfflineStorage.shared.packs {
             let pack = packs[indexPath.row]
 
-            cell.textLabel?.text = "Region \(indexPath.row + 1): size: \(pack.progress.countOfBytesCompleted)"
+            cell.textLabel?.text = "Region \(indexPath.row + 1): size: \(inBytes.string(fromByteCount: Int64(pack.progress.countOfBytesCompleted)))"
             cell.detailTextLabel?.text = "Percent completion: \(pack.progress.percentCompleted)%"
 
         }
