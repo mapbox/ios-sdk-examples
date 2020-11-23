@@ -83,6 +83,8 @@
 		3EC92DB71E78C431001D0503 /* dc-metro.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 3EC92DB61E78C431001D0503 /* dc-metro.geojson */; };
 		3ED403411E006B5200230C95 /* CameraFlyToExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED403401E006B5200230C95 /* CameraFlyToExample.swift */; };
 		3ED403481E006BE800230C95 /* CameraFlyToExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED403471E006BE800230C95 /* CameraFlyToExample.m */; };
+		580F707A252D103D000512BE /* ManageOfflineRegionsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580F7079252D103D000512BE /* ManageOfflineRegionsExample.swift */; };
+		580F709E252D11AF000512BE /* ManageOfflineRegionsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 580F709D252D11AF000512BE /* ManageOfflineRegionsExample.m */; };
 		583BAE082481AFF50079BB57 /* InsetMapExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BAE072481AFF50079BB57 /* InsetMapExample.m */; };
 		583BAE0B2481B1580079BB57 /* InsetMapExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583BAE0A2481B1580079BB57 /* InsetMapExample.swift */; };
 		646B62971DEF6DAF000AA523 /* ShowHideLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62961DEF6DAF000AA523 /* ShowHideLayerExample.swift */; };
@@ -280,6 +282,9 @@
 		3ED403401E006B5200230C95 /* CameraFlyToExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraFlyToExample.swift; sourceTree = "<group>"; };
 		3ED403461E006BE800230C95 /* CameraFlyToExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraFlyToExample.h; sourceTree = "<group>"; };
 		3ED403471E006BE800230C95 /* CameraFlyToExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraFlyToExample.m; sourceTree = "<group>"; };
+		580F7079252D103D000512BE /* ManageOfflineRegionsExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageOfflineRegionsExample.swift; sourceTree = "<group>"; };
+		580F7089252D10F0000512BE /* ManageOfflineRegionsExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManageOfflineRegionsExample.h; sourceTree = "<group>"; };
+		580F709D252D11AF000512BE /* ManageOfflineRegionsExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManageOfflineRegionsExample.m; sourceTree = "<group>"; };
 		583BAE072481AFF50079BB57 /* InsetMapExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InsetMapExample.m; sourceTree = "<group>"; };
 		583BAE092481B0220079BB57 /* InsetMapExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InsetMapExample.h; sourceTree = "<group>"; };
 		583BAE0A2481B1580079BB57 /* InsetMapExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetMapExample.swift; sourceTree = "<group>"; };
@@ -524,6 +529,7 @@
 			children = (
 				3EBCD7111DC28240001E342F /* OfflinePackExample.swift */,
 				3EA5AA031FAD2EC7007073C0 /* StaticSnapshotExample.swift */,
+				580F7079252D103D000512BE /* ManageOfflineRegionsExample.swift */,
 			);
 			name = Offline;
 			sourceTree = "<group>";
@@ -622,6 +628,7 @@
 			children = (
 				05FA53A41FE2FA34001F3D7D /* OfflinePackExample.m */,
 				05FA53A51FE2FA34001F3D7D /* StaticSnapshotExample.m */,
+				580F709D252D11AF000512BE /* ManageOfflineRegionsExample.m */,
 			);
 			name = Offline;
 			sourceTree = "<group>";
@@ -856,6 +863,7 @@
 				64BBDAFB1DF24DD700BB705D /* WebAPIDataExample.h */,
 				583BAE092481B0220079BB57 /* InsetMapExample.h */,
 				C67C17E12507FC0C004112DE /* LocationPrivacyExample.h */,
+				580F7089252D10F0000512BE /* ManageOfflineRegionsExample.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -1354,6 +1362,7 @@
 				960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */,
 				1F1F84751E538ABB00332CC3 /* BlockingGesturesDelegateExample.m in Sources */,
 				07C138C41E721C8F00D6F678 /* DDSCircleLayerExample.swift in Sources */,
+				580F707A252D103D000512BE /* ManageOfflineRegionsExample.swift in Sources */,
 				646B629C1DEF6DF1000AA523 /* ShowHideLayerExample.m in Sources */,
 				07C138C21E6F65D000D6F678 /* MultipleShapesExample.swift in Sources */,
 				3EBCD7161DC28240001E342F /* AnnotationViewExample.swift in Sources */,
@@ -1432,6 +1441,7 @@
 				05FA53A11FE2FA1E001F3D7D /* PolygonPatternExample.m in Sources */,
 				0774A77423394B750038264E /* ShapeAnnotationsExample.m in Sources */,
 				3E3FB66E1F0588B3004512C6 /* BuildingLightExample.m in Sources */,
+				580F709E252D11AF000512BE /* ManageOfflineRegionsExample.m in Sources */,
 				C67C17E02507FBBA004112DE /* LocationPrivacyExample.m in Sources */,
 				968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */,
 				CA39B2BF209B881300D37037 /* BuildingLightExample+UITesting.m in Sources */,

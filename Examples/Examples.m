@@ -89,6 +89,7 @@
             @"examples": @[
                     @{@"className": MBXExampleStaticSnapshot, @"title": @"Create a static map snapshot"},
                     @{@"className": MBXExampleOfflinePack, @"title": @"Download an offline map"},
+                    @{@"className": MBXExampleManageOfflineRegions, @"title": @"Display downloaded offline regions"},
             ]
         },
         @{
