@@ -5,8 +5,6 @@ import Foundation
 
 class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
 
-    let inBytes = ByteCountFormatter()
-
     lazy var mapView: MGLMapView = {
         let mapView = MGLMapView(frame: CGRect.zero)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -164,6 +162,11 @@ fileprivate extension MGLOfflinePackProgress {
         let percentage = Float((countOfResourcesCompleted / countOfResourcesExpected) * 100)
         return percentage
     }
+
+    var formattedCountOfBytesCompleted: String {
+        return ByteCountFormatter.string(fromByteCount: Int64(countOfBytesCompleted),
+                                         countStyle: .memory)
+    }
 }
 
 extension ManageOfflineRegionsExample_Swift: UITableViewDelegate, UITableViewDataSource {
@@ -206,7 +209,7 @@ extension ManageOfflineRegionsExample_Swift: UITableViewDelegate, UITableViewDat
         if let packs = MGLOfflineStorage.shared.packs {
             let pack = packs[indexPath.row]
 
-            cell.textLabel?.text = "Region \(indexPath.row + 1): size: \(inBytes.string(fromByteCount: Int64(pack.progress.countOfBytesCompleted)))"
+            cell.textLabel?.text = "Region \(indexPath.row + 1): size: \(pack.progress.formattedCountOfBytesCompleted)"
             cell.detailTextLabel?.text = "Percent completion: \(pack.progress.percentCompleted)%"
 
         }
