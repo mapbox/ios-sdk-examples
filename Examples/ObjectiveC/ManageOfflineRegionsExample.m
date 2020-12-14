@@ -8,59 +8,55 @@ NSString *const MBXExampleManageOfflineRegions = @"ManageOfflineRegionsExample";
 @property (strong, nonatomic) MGLMapView *mapView;
 @property (nonatomic) UIButton *downloadButton;
 @property (nonatomic) UITableView *tableView;
-@property (nonatomic) UIProgressView *progressView;
 @end
 
 @implementation ManageOfflineRegionsExample
 
-@synthesize mapView = _mapView;
+- (MGLMapView *)configureMapView {
 
-- (id)mapView
-{
-    if (!_mapView)
-        _mapView = [[MGLMapView alloc] initWithFrame:CGRectZero];
-    _mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _mapView.delegate = self;
-    _mapView.tintColor = UIColor.grayColor;
-    _mapView.translatesAutoresizingMaskIntoConstraints = NO;
+     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:CGRectZero];
+
+    mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    mapView.delegate = self;
+    mapView.tintColor = UIColor.grayColor;
+    mapView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    return _mapView;
+    return mapView;
 }
 
-@synthesize downloadButton = _downloadButton;
-
-- (id)downloadButton
+- (UIButton *)configureDownloadButton
 {
-    if (!_downloadButton)
-        _downloadButton = [[UIButton alloc] initWithFrame: CGRectZero];
-    _downloadButton.backgroundColor = UIColor.systemBlueColor;
-    [_downloadButton setTitleColor:[UIColor whiteColor]
+    UIButton *downloadButton = [[UIButton alloc] initWithFrame: CGRectZero];
+    downloadButton.backgroundColor = UIColor.systemBlueColor;
+    [downloadButton setTitleColor:[UIColor whiteColor]
                           forState:UIControlStateNormal];
-    [_downloadButton setTitle:@"Download Region" forState: UIControlStateNormal];
-    [_downloadButton addTarget:self action: @selector(startOfflinePackDownload:) forControlEvents:UIControlEventTouchUpInside];
-    _downloadButton.layer.cornerRadius = self.view.bounds.size.width / 30;
-    _downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [downloadButton setTitle:@"Download Region" forState: UIControlStateNormal];
+    [downloadButton addTarget:self action: @selector(startOfflinePackDownload:) forControlEvents:UIControlEventTouchUpInside];
+    downloadButton.layer.cornerRadius = self.view.bounds.size.width / 30;
+    downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
 
-    return _downloadButton;
+    return downloadButton;
 }
 
-@synthesize tableView = _tableView;
 
-- (id)tableView
+- (UITableView *)configureTableView
 {
-    if (!_tableView)
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.translatesAutoresizingMaskIntoConstraints = NO;
-    [_tableView registerClass:[UITableViewCell class]
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    [tableView registerClass:[UITableViewCell class]
        forCellReuseIdentifier:@"cell"];
-    return _tableView;
+    return tableView;
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.downloadButton = [self configureDownloadButton];
+    self.mapView = [self configureMapView];
+    self.tableView = [self configureTableView];
     
     [self.view addSubview:self.mapView];
     [self.view addSubview:self.tableView];
@@ -128,7 +124,10 @@ NSString *const MBXExampleManageOfflineRegions = @"ManageOfflineRegionsExample";
      in an offline map. Note: Because tile count grows exponentially as zoom level
      increases, you should be conservative with your `toZoomLevel` setting.
      */
-    id <MGLOfflineRegion> region = [[MGLTilePyramidOfflineRegion alloc] initWithStyleURL:self.mapView.styleURL bounds:self.mapView.visibleCoordinateBounds fromZoomLevel:self.mapView.zoomLevel toZoomLevel: self.mapView.zoomLevel + 2];
+    MGLTilePyramidOfflineRegion *region = [[MGLTilePyramidOfflineRegion alloc] initWithStyleURL:self.mapView.styleURL
+                bounds:self.mapView.visibleCoordinateBounds
+        fromZoomLevel:self.mapView.zoomLevel
+            toZoomLevel: self.mapView.zoomLevel + 2];
     
     // Store some data for identification purposes alongside the downloaded resources.
     NSDictionary *userInfo = @{ @"name": @"My Offline Pack" };
@@ -166,24 +165,15 @@ NSString *const MBXExampleManageOfflineRegions = @"ManageOfflineRegionsExample";
     float progressPercentage = (float)completedResources / expectedResources;
     
     // At this point, the offline pack has finished downloading.
-    if (pack.state == MGLOfflinePackStateComplete ) {
-        
-        self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-        CGSize frame = self.view.bounds.size;
-        self.progressView.frame = CGRectMake(frame.width / 4,
-                                             frame.height * 0.75f,
-                                             frame.width / 2, 10);
-        [self.view addSubview:self.progressView];
-    }
 
-    [self.progressView setProgress:progressPercentage animated:YES];
-
-    // If this pack has finished, print its size and resource count.
-    if (completedResources == expectedResources) {
+    if (pack.state == MGLOfflinePackStateComplete) {
         NSString *byteCount = [NSByteCountFormatter
                                stringFromByteCount:progress.countOfBytesCompleted countStyle:NSByteCountFormatterCountStyleMemory];
         NSLog(@"Offline pack “%@” completed: %@, %llu resources",
               userInfo[@"name"], byteCount, completedResources);
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:MGLOfflinePackProgressChangedNotification object:nil];
+        
     } else {
         // Otherwise, print download/verification progress.
         NSLog(@"Offline pack “%@” has %llu of %llu resources — %.2f%%.",
@@ -242,7 +232,7 @@ heightForHeaderInSection:(NSInteger)section {
         MGLOfflinePack * pack = MGLOfflineStorage.sharedOfflineStorage.packs[indexPath.row];
         NSInteger number = indexPath.row + 1;
         NSInteger countOfBytesCompleted = MGLOfflineStorage.sharedOfflineStorage.packs[indexPath.row].progress.countOfBytesCompleted;
-        NSByteCountFormatter *formattedCountOfBytedCompleted = [NSByteCountFormatter stringFromByteCount:countOfBytesCompleted countStyle:NSByteCountFormatterCountStyleMemory];
+        NSString *formattedCountOfBytedCompleted = [NSByteCountFormatter stringFromByteCount:countOfBytesCompleted countStyle:NSByteCountFormatterCountStyleMemory];
         UInt64 countOfResourcesCompleted = pack.progress.countOfResourcesCompleted;
         UInt64 countOfResourcesExpected = pack.progress.countOfResourcesExpected;
         
@@ -261,7 +251,7 @@ heightForHeaderInSection:(NSInteger)section {
     MGLTilePyramidOfflineRegion *selectedRegion = MGLOfflineStorage.sharedOfflineStorage.packs[indexPath.row].region;
 
     if ([selectedRegion isKindOfClass:[MGLTilePyramidOfflineRegion class]]) {
-        [_mapView setVisibleCoordinateBounds:selectedRegion.bounds animated:YES];
+        [self.mapView setVisibleCoordinateBounds:selectedRegion.bounds animated:YES];
     }
 
 }
