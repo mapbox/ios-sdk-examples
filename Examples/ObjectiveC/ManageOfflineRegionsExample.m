@@ -235,9 +235,8 @@ heightForHeaderInSection:(NSInteger)section {
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView
                  cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-
-    [cell initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                                 reuseIdentifier:@"cell"];
     
     if (MGLOfflineStorage.sharedOfflineStorage.packs.count != 0 )  {
         MGLOfflinePack * pack = MGLOfflineStorage.sharedOfflineStorage.packs[indexPath.row];
