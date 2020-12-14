@@ -83,31 +83,20 @@ NSString *const MBXExampleManageOfflineRegions = @"ManageOfflineRegionsExample";
 -(void)installConstraints {
 
     NSArray *constraints = @[
-    [self.mapView.topAnchor
-     constraintEqualToAnchor:self.view.topAnchor],
-    [self.mapView.leadingAnchor
-     constraintEqualToAnchor:self.view.leadingAnchor],
-    [self.mapView.trailingAnchor
-     constraintEqualToAnchor:self.view.trailingAnchor],
-    [self.mapView.heightAnchor
-     constraintEqualToAnchor:self.view.heightAnchor multiplier:0.75],
-    [self.tableView.topAnchor
-     constraintEqualToAnchor:self.mapView.bottomAnchor],
-    [self.tableView.leadingAnchor
-     constraintEqualToAnchor:self.view.leadingAnchor],
-    [self.tableView.trailingAnchor
-     constraintEqualToAnchor:self.view.trailingAnchor],
-    [self.tableView.heightAnchor
-     constraintEqualToAnchor:self.view.heightAnchor multiplier:0.4],
-    [self.downloadButton.topAnchor
-     constraintEqualToAnchor:self.view.topAnchor constant:100],
-    [self.downloadButton.leadingAnchor
-     constraintEqualToAnchor:self.view.leadingAnchor constant:5],
-    [self.downloadButton.widthAnchor
-     constraintEqualToAnchor:self.view.widthAnchor multiplier:0.45],
-    [self.downloadButton.heightAnchor
-     constraintEqualToAnchor:self.downloadButton.widthAnchor multiplier:0.2]
+        [self.mapView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+        [self.mapView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+        [self.mapView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+        [self.mapView.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.75],
+        [self.tableView.topAnchor constraintEqualToAnchor:self.mapView.bottomAnchor],
+        [self.tableView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+        [self.tableView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+        [self.tableView.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.4],
+        [self.downloadButton.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:100],
+        [self.downloadButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:5],
+        [self.downloadButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:0.45],
+        [self.downloadButton.heightAnchor constraintEqualToAnchor:self.downloadButton.widthAnchor multiplier:0.2]
     ];
+    
     [NSLayoutConstraint activateConstraints:constraints];
 }
 
