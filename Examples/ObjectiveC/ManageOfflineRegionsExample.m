@@ -244,7 +244,7 @@ heightForHeaderInSection:(NSInteger)section {
         NSInteger countOfBytesCompleted = MGLOfflineStorage.sharedOfflineStorage.packs[indexPath.row].progress.countOfBytesCompleted;
         NSByteCountFormatter *formattedCountOfBytedCompleted = [NSByteCountFormatter stringFromByteCount:countOfBytesCompleted countStyle:NSByteCountFormatterCountStyleMemory];
         UInt64 countOfResourcesCompleted = pack.progress.countOfResourcesCompleted;
-        float countOfResourcesExpected = pack.progress.countOfResourcesExpected;
+        UInt64 countOfResourcesExpected = pack.progress.countOfResourcesExpected;
         
         float percentCompleted = ((countOfResourcesCompleted)/(countOfResourcesExpected) * 100);
 
