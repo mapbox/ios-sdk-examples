@@ -36,7 +36,6 @@ class ManageOfflineRegionsExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        print("hi ho")
         view.addSubview(mapView)
         view.addSubview(tableView)
         mapView.addSubview(downloadButton)
