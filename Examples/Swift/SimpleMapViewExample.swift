@@ -6,7 +6,7 @@ class SimpleMapViewExample_Swift: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let mapView = MGLMapView(frame: view.bounds)
+        let mapView = MGLMapView(frame: CGRect.zero)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         // Set the map’s center coordinate and zoom level.
