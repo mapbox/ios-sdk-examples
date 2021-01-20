@@ -44,12 +44,12 @@ class LineGradientExample_Swift: UIViewController, MGLMapViewDelegate {
         layer.lineJoin = NSExpression(forConstantValue: "round")
         layer.lineCap = NSExpression(forConstantValue: "round")
         
-        let stops =   [0: UIColor.blue,
-                       0.1: UIColor.purple,
-                       0.3: UIColor.cyan,
-                       0.5: UIColor.green,
-                       0.7: UIColor.yellow,
-                       1: UIColor.red]
+        let stops = [0: UIColor.blue,
+                     0.1: UIColor.purple,
+                     0.3: UIColor.cyan,
+                     0.5: UIColor.green,
+                     0.7: UIColor.yellow,
+                     1: UIColor.red]
         
         // Set the line color to a gradient
         layer.lineGradient = NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($lineProgress, 'linear', nil, %@)", stops)
