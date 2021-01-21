@@ -87,6 +87,9 @@
 		580F709E252D11AF000512BE /* ManageOfflineRegionsExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 580F709D252D11AF000512BE /* ManageOfflineRegionsExample.m */; };
 		583BAE082481AFF50079BB57 /* InsetMapExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BAE072481AFF50079BB57 /* InsetMapExample.m */; };
 		583BAE0B2481B1580079BB57 /* InsetMapExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583BAE0A2481B1580079BB57 /* InsetMapExample.swift */; };
+		58D43A9B25B9C9D600A29650 /* LineGradientExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D43A9A25B9C9D600A29650 /* LineGradientExample.swift */; };
+		58D43AA525B9CA1500A29650 /* LineGradientExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D43AA425B9CA1500A29650 /* LineGradientExample.m */; };
+		58D43ACD25B9CE1A00A29650 /* iOSLineGeoJSON.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 58D43AAA25B9CA6200A29650 /* iOSLineGeoJSON.geojson */; };
 		646B62971DEF6DAF000AA523 /* ShowHideLayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B62961DEF6DAF000AA523 /* ShowHideLayerExample.swift */; };
 		646B629C1DEF6DF1000AA523 /* ShowHideLayerExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B629B1DEF6DF1000AA523 /* ShowHideLayerExample.m */; };
 		646B62A61DEF7121000AA523 /* AnimatedLineExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B62A51DEF7121000AA523 /* AnimatedLineExample.m */; };
@@ -288,6 +291,10 @@
 		583BAE072481AFF50079BB57 /* InsetMapExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InsetMapExample.m; sourceTree = "<group>"; };
 		583BAE092481B0220079BB57 /* InsetMapExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InsetMapExample.h; sourceTree = "<group>"; };
 		583BAE0A2481B1580079BB57 /* InsetMapExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetMapExample.swift; sourceTree = "<group>"; };
+		58D43A9925B9C93800A29650 /* LineGradientExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineGradientExample.h; sourceTree = "<group>"; };
+		58D43A9A25B9C9D600A29650 /* LineGradientExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGradientExample.swift; sourceTree = "<group>"; };
+		58D43AA425B9CA1500A29650 /* LineGradientExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineGradientExample.m; sourceTree = "<group>"; };
+		58D43AAA25B9CA6200A29650 /* iOSLineGeoJSON.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = iOSLineGeoJSON.geojson; sourceTree = "<group>"; };
 		646B62961DEF6DAF000AA523 /* ShowHideLayerExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideLayerExample.swift; sourceTree = "<group>"; };
 		646B629B1DEF6DF1000AA523 /* ShowHideLayerExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowHideLayerExample.m; sourceTree = "<group>"; };
 		646B629E1DEF6DFD000AA523 /* ShowHideLayerExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowHideLayerExample.h; sourceTree = "<group>"; };
@@ -480,6 +487,7 @@
 				646B62AF1DEF7161000AA523 /* AnimatedLineExample.swift */,
 				646B62AD1DEF7155000AA523 /* LineStyleLayerExample.swift */,
 				055ABCC21EFB14AE0063BACA /* PolygonPatternExample.swift */,
+				58D43A9A25B9C9D600A29650 /* LineGradientExample.swift */,
 			);
 			name = "Lines and polygons";
 			sourceTree = "<group>";
@@ -579,6 +587,7 @@
 				646B62A51DEF7121000AA523 /* AnimatedLineExample.m */,
 				05FA539F1FE2FA1E001F3D7D /* LineStyleLayerExample.m */,
 				05FA539D1FE2FA1D001F3D7D /* PolygonPatternExample.m */,
+				58D43AA425B9CA1500A29650 /* LineGradientExample.m */,
 			);
 			name = "Lines and polygons";
 			sourceTree = "<group>";
@@ -812,6 +821,7 @@
 				1F07016422557B0B0045E061 /* icons.xcassets */,
 				1F07015622530BDF0045E061 /* text-format.json */,
 				075AFB7723393DBA0091FF0A /* example.geojson */,
+				58D43AAA25B9CA6200A29650 /* iOSLineGeoJSON.geojson */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -864,6 +874,7 @@
 				583BAE092481B0220079BB57 /* InsetMapExample.h */,
 				C67C17E12507FC0C004112DE /* LocationPrivacyExample.h */,
 				580F7089252D10F0000512BE /* ManageOfflineRegionsExample.h */,
+				58D43A9925B9C93800A29650 /* LineGradientExample.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -1113,6 +1124,7 @@
 				DD5939E61E6778480009BEB2 /* clustering.xcassets in Resources */,
 				9619629C1C581700002D3DAB /* Assets.xcassets in Resources */,
 				1F07016522557B0B0045E061 /* icons.xcassets in Resources */,
+				58D43ACD25B9CE1A00A29650 /* iOSLineGeoJSON.geojson in Resources */,
 				075AFB7823393DBA0091FF0A /* example.geojson in Resources */,
 				64BBDAF01DF22D9600BB705D /* third_party_vector_style.json in Resources */,
 				961962CF1C581FBC002D3DAB /* Main.storyboard in Resources */,
@@ -1218,17 +1230,11 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Examples/Pods-Examples-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/8F3E82C3-52DF-39E5-809D-3389B6CBCAD4.bcsymbolmap",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/0DC8DAD8-C6D7-343B-ACBF-79B48068D7CC.bcsymbolmap",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
-				"${BUILT_PRODUCTS_DIR}/8F3E82C3-52DF-39E5-809D-3389B6CBCAD4.bcsymbolmap",
-				"${BUILT_PRODUCTS_DIR}/0DC8DAD8-C6D7-343B-ACBF-79B48068D7CC.bcsymbolmap",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1259,17 +1265,11 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/8F3E82C3-52DF-39E5-809D-3389B6CBCAD4.bcsymbolmap",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/0DC8DAD8-C6D7-343B-ACBF-79B48068D7CC.bcsymbolmap",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
-				"${BUILT_PRODUCTS_DIR}/8F3E82C3-52DF-39E5-809D-3389B6CBCAD4.bcsymbolmap",
-				"${BUILT_PRODUCTS_DIR}/0DC8DAD8-C6D7-343B-ACBF-79B48068D7CC.bcsymbolmap",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1429,10 +1429,12 @@
 				DDF943291E5DE63300545D0F /* ClusteringExample.m in Sources */,
 				3E44BA58203B54260072DE4B /* MultipleImagesExample.m in Sources */,
 				3EBCD7171DC28240001E342F /* DefaultCalloutExample.swift in Sources */,
+				58D43A9B25B9C9D600A29650 /* LineGradientExample.swift in Sources */,
 				64BBDAFD1DF24DEB00BB705D /* WebAPIDataExample.m in Sources */,
 				055ABCC31EFB14AE0063BACA /* PolygonPatternExample.swift in Sources */,
 				583BAE0B2481B1580079BB57 /* InsetMapExample.swift in Sources */,
 				646B62AE1DEF7155000AA523 /* LineStyleLayerExample.swift in Sources */,
+				58D43AA525B9CA1500A29650 /* LineGradientExample.m in Sources */,
 				3EBCD71F1DC28240001E342F /* DefaultStylesExample.swift in Sources */,
 				DD5939E41E6639BA0009BEB2 /* ClusteringExample.swift in Sources */,
 				3E22EF4F1F87F10C00605203 /* ImageSourceExample.swift in Sources */,
