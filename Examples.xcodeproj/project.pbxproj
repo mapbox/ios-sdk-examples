@@ -101,6 +101,8 @@
 		64CF97101DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970F1DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift */; };
 		64CF97121DF224F600C3C27B /* RasterImageryExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97111DF224F600C3C27B /* RasterImageryExample.swift */; };
 		64CF97171DF2251500C3C27B /* RasterImageryExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97161DF2251500C3C27B /* RasterImageryExample.m */; };
+		8F2D8826252737EA0040D381 /* DetectTilesetErrorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2D8825252737EA0040D381 /* DetectTilesetErrorExample.swift */; };
+		8F2D882C252738660040D381 /* DetectTilesetErrorExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2D882B252738660040D381 /* DetectTilesetErrorExample.m */; };
 		960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */; };
 		961962911C581700002D3DAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962901C581700002D3DAB /* main.m */; };
 		961962941C581700002D3DAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962931C581700002D3DAB /* AppDelegate.m */; };
@@ -313,6 +315,12 @@
 		64CF97111DF224F600C3C27B /* RasterImageryExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterImageryExample.swift; sourceTree = "<group>"; };
 		64CF97161DF2251500C3C27B /* RasterImageryExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RasterImageryExample.m; sourceTree = "<group>"; };
 		64CF97191DF2252C00C3C27B /* RasterImageryExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RasterImageryExample.h; sourceTree = "<group>"; };
+		7556D44879C1E2866B0355B8 /* Pods-ExamplesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExamplesTests/Pods-ExamplesTests.release.xcconfig"; sourceTree = "<group>"; };
+		7692D1D792EB3849E8754E6B /* Pods_ExamplesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExamplesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7823ECBC65EEAAC3EA0B6E42 /* Pods-DocsCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocsCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode.release.xcconfig"; sourceTree = "<group>"; };
+		8F2D8825252737EA0040D381 /* DetectTilesetErrorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectTilesetErrorExample.swift; sourceTree = "<group>"; };
+		8F2D882B252738660040D381 /* DetectTilesetErrorExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetectTilesetErrorExample.m; sourceTree = "<group>"; };
+		8F2D8831252739000040D381 /* DetectTilesetErrorExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetectTilesetErrorExample.h; sourceTree = "<group>"; };
 		960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableAnnotationViewExample.h; sourceTree = "<group>"; };
 		960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableAnnotationViewExample.m; sourceTree = "<group>"; };
 		96115A661CAD4E1C000963B8 /* OfflinePackExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflinePackExample.h; sourceTree = "<group>"; };
@@ -872,6 +880,7 @@
 				969E7FDB1D25C31700663F84 /* UserTrackingModesExample.h */,
 				64BBDAFB1DF24DD700BB705D /* WebAPIDataExample.h */,
 				583BAE092481B0220079BB57 /* InsetMapExample.h */,
+				8F2D8831252739000040D381 /* DetectTilesetErrorExample.h */,
 				C67C17E12507FC0C004112DE /* LocationPrivacyExample.h */,
 				580F7089252D10F0000512BE /* ManageOfflineRegionsExample.h */,
 				58D43A9925B9C93800A29650 /* LineGradientExample.h */,
@@ -895,6 +904,7 @@
 			isa = PBXGroup;
 			children = (
 				A42F4A4C22EF9A79005097F3 /* CacheManagementExample.m */,
+				8F2D882B252738660040D381 /* DetectTilesetErrorExample.m */,
 			);
 			name = Advanced;
 			sourceTree = "<group>";
@@ -903,6 +913,7 @@
 			isa = PBXGroup;
 			children = (
 				A42F4A5022EF9ACD005097F3 /* CacheManagementExample.swift */,
+				8F2D8825252737EA0040D381 /* DetectTilesetErrorExample.swift */,
 			);
 			name = Advanced;
 			sourceTree = "<group>";
@@ -1155,10 +1166,21 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DocsCode/Pods-DocsCode-frameworks.sh",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/93C58D95-90B9-30C8-8F60-4BDE32FD7E8E.bcsymbolmap",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/BB87D8DD-493F-37AA-BD21-2BC609B8311B.bcsymbolmap",
+				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
 				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
 			);
 			name = "Insert Mapbox Access Token";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/93C58D95-90B9-30C8-8F60-4BDE32FD7E8E.bcsymbolmap",
+				"${BUILT_PRODUCTS_DIR}/BB87D8DD-493F-37AA-BD21-2BC609B8311B.bcsymbolmap",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1384,6 +1406,7 @@
 				646B62971DEF6DAF000AA523 /* ShowHideLayerExample.swift in Sources */,
 				05FA539B1FE2FA00001F3D7D /* StudioClassicStyleExample.m in Sources */,
 				3E9EF27C209CFD460053D1D7 /* HeatmapExample.swift in Sources */,
+				8F2D8826252737EA0040D381 /* DetectTilesetErrorExample.swift in Sources */,
 				583BAE082481AFF50079BB57 /* InsetMapExample.m in Sources */,
 				1F07015C225422B90045E061 /* LabelPlacementExample.swift in Sources */,
 				CA3B162E2098CA7E005C087B /* TestingSupport.m in Sources */,
@@ -1448,6 +1471,7 @@
 				968247271C5C1DC700494AB8 /* CameraAnimationExample.m in Sources */,
 				CA39B2BF209B881300D37037 /* BuildingLightExample+UITesting.m in Sources */,
 				961962D51C583FDC002D3DAB /* ExamplesContainerViewController.m in Sources */,
+				8F2D882C252738660040D381 /* DetectTilesetErrorExample.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

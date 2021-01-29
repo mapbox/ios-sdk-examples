@@ -5,6 +5,7 @@ import Mapbox
 class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var contoursLayer: MGLStyleLayer?
+    var observer: MGLObserver?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class ShowHideLayerExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func addLayer(to style: MGLStyle) {
-        let source = MGLVectorTileSource(identifier: "contours", configurationURL: NSURL(string: "mapbox://mapbox.mapbox-terrain-v2")! as URL)
+        let source = MGLVectorTileSource(identifier: "contours", configurationURL: NSURL(string: "mapbox://mapbox.mapbox-terrain-v2ssss")! as URL)
 
         let layer = MGLLineStyleLayer(identifier: "contours", source: source)
         layer.sourceLayerIdentifier = "contour"

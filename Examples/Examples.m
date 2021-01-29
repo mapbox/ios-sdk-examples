@@ -97,6 +97,7 @@
             @"title": @"Advanced",
             @"examples": @[
                     @{@"className": MBXExampleCacheManagement, @"title": @"Use cache management methods"},
+                    @{@"className": MBXExampleDetectTilesetError, @"title": @"Detect tileset errors"},
             ]
         },
         @{

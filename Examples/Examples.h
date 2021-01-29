@@ -30,6 +30,7 @@ extern NSString *const MBXExampleCustomCalloutView;
 extern NSString *const MBXExampleDDSCircleLayer;
 extern NSString *const MBXExampleDefaultCallout;
 extern NSString *const MBXExampleDefaultStyles;
+extern NSString *const MBXExampleDetectTilesetError;
 extern NSString *const MBXExampleDraggableAnnotationView;
 extern NSString *const MBXExampleFeatureSelection;
 extern NSString *const MBXExampleFormattingExpression;
