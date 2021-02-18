@@ -42,12 +42,6 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         }
     }
 
-    deinit {
-        // Remove offline pack observers.
-        print("Removing offline pack notification observers")
-        NotificationCenter.default.removeObserver(self)
-    }
-
     func startOfflinePackDownload() {
         // Create a region that includes the current viewport and any tiles needed to view it when zoomed further in.
         // Because tile count grows exponentially with the maximum zoom level, you should be conservative with your `toZoomLevel` setting.

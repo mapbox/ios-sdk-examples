@@ -50,6 +50,7 @@
                     @{@"className": MBXExampleLineStyleLayer, @"title": @"Add a line style layer from GeoJSON"},
                     @{@"className": MBXExampleAnimatedLine, @"title": @"Animate a line"},
                     @{@"className": MBXExamplePOIAlongRoute, @"title": @"Show POIs along a route"},
+                    @{@"className": MBXExampleLineGradient, @"title": @"Create a line with a color-changing gradient"},
             ]
         },
         @{
@@ -90,6 +91,7 @@
             @"examples": @[
                     @{@"className": MBXExampleStaticSnapshot, @"title": @"Create a static map snapshot"},
                     @{@"className": MBXExampleOfflinePack, @"title": @"Download an offline map"},
+                    @{@"className": MBXExampleManageOfflineRegions, @"title": @"Display downloaded offline regions"},
             ]
         },
         @{
