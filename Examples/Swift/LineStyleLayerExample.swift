@@ -13,9 +13,8 @@ class LineStyleLayerExample_Swift: UIViewController, MGLMapViewDelegate {
 
         mapView.setCenter(
             CLLocationCoordinate2D(latitude: 45.5076, longitude: -122.6736),
-            zoomLevel: 18,
+            zoomLevel: 11,
             animated: false)
-        mapView.minimumPitch = 45
         view.addSubview(mapView)
 
         mapView.delegate = self
