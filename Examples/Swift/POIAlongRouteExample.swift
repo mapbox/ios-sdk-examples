@@ -121,12 +121,15 @@ class POIAlongRouteExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func restrictPOIVisibleShape() {
+        // find poi-label layer
         guard let poiLayer = self.mapView.style?.layer(withIdentifier: "poi-label") as? MGLSymbolStyleLayer else {
             return
         }
+        // find road-label layer
         guard let roadLabelLayer = self.mapView.style?.layer(withIdentifier: "road-label") as? MGLSymbolStyleLayer else {
             return
         }
+        // show the POI and road that is within this polygon
         let polygonShape = [
             [-122.63730626171188,45.52288837762333 ],
             [ -122.65455070022612, 45.52299746891552 ],
@@ -141,8 +144,10 @@ class POIAlongRouteExample_Swift: UIViewController, MGLMapViewDelegate {
             [ -122.63567134880579, 45.52114288817623 ],
             [ -122.63657745074761, 45.52288036393409 ],
             [ -122.6373404839605, 45.52291377640398 ]]
+        // create a Mapbox friendly polygon class
         let coordinates = polygonShape.map {CLLocationCoordinate2D(latitude: $0[1], longitude: $0[0])}
         let bufferedRoutePolygon = MGLPolygon(coordinates: coordinates, count: UInt(coordinates.count), interiorPolygons: nil)
+        // apply predicates to these two layers
         poiLayer.predicate = NSPredicate(format: "SELF IN %@", bufferedRoutePolygon)
         roadLabelLayer.predicate = NSPredicate(format: "SELF IN %@", bufferedRoutePolygon)
     }

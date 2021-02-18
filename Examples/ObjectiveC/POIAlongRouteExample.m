@@ -110,8 +110,11 @@ NSString *const MBXExamplePOIAlongRoute = @"POIAlongRouteExample";
 }
 
 - (void)restrictPOIVisibleShape {
+    // find poi-label layer
     MGLSymbolStyleLayer *poiLayer = (MGLSymbolStyleLayer *)[self.mapView.style layerWithIdentifier:@"poi-label"];
+    // find road-label layer
     MGLSymbolStyleLayer *roadLabelLayer = (MGLSymbolStyleLayer *)[self.mapView.style layerWithIdentifier:@"road-label"];
+    // show the POI and road that is within this polygon
     CLLocationCoordinate2D coordinates[] = {
         CLLocationCoordinate2DMake(45.52288837762333, -122.63730626171188),
         CLLocationCoordinate2DMake(45.52299746891552, -122.65455070022612),
@@ -126,7 +129,9 @@ NSString *const MBXExamplePOIAlongRoute = @"POIAlongRouteExample";
         CLLocationCoordinate2DMake(45.52114288817623, -122.63567134880579),
         CLLocationCoordinate2DMake(45.52288036393409, -122.63657745074761),
         CLLocationCoordinate2DMake(45.52291377640398, -122.6373404839605)};
+    // create a Mapbox friendly polygon class
     MGLPolygon *shape = [MGLPolygon polygonWithCoordinates: coordinates count: 13 interiorPolygons: nil];
+    // apply predicates to these two layers
     poiLayer.predicate = [NSPredicate predicateWithFormat:@"SELF IN %@", shape];
     roadLabelLayer.predicate = [NSPredicate predicateWithFormat:@"SELF IN %@", shape];
 }
