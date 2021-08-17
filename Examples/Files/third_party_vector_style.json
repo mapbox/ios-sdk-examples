@@ -6,6 +6,11 @@
             "tiles": ["https://d25uarhxywzl1j.cloudfront.net/v0.1/{z}/{x}/{y}.mvt"],
             "attribution": "<a href=\"https://www.mapillary.com\" target=\"_blank\">© Mapillary, CC BY</a>",
             "maxzoom": 14
+        },
+        "mapbox-satellite": {
+            "type": "raster",
+            "url": "mapbox://mapbox.satellite",
+            "tileSize": 256
         }
     },
     "layers": [{
@@ -23,6 +28,15 @@
                "paint": {
                "line-color": "#F56745"
                }
-               }]
+               },
+               {
+                   "id": "satellite",
+                   "type": "raster",
+                   "source": "mapbox-satellite",
+                   "minzoom": 0,
+                   "maxzoom": 22,
+                   "visibility": "none"
+               }
+               ]
 }
 

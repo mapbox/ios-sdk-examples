@@ -9,7 +9,8 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL)
+        let customStyleURL = Bundle.main.url(forResource: "third_party_vector_style", withExtension: "json")!
+        mapView = MGLMapView(frame: view.bounds, styleURL: customStyleURL)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .gray
         mapView.delegate = self
@@ -18,10 +19,18 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.setCenter(CLLocationCoordinate2D(latitude: 22.27933, longitude: 114.16281),
                           zoomLevel: 13, animated: false)
 
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        mapView.addGestureRecognizer(tap)
         // Setup offline pack notification handlers.
         NotificationCenter.default.addObserver(self, selector: #selector(offlinePackProgressDidChange), name: NSNotification.Name.MGLOfflinePackProgressChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(offlinePackDidReceiveError), name: NSNotification.Name.MGLOfflinePackError, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(offlinePackDidReceiveMaximumAllowedMapboxTiles), name: NSNotification.Name.MGLOfflinePackMaximumMapboxTilesReached, object: nil)
+    }
+    
+    @objc func handleTap() {
+//        let layer = mapView.style?.layer(withIdentifier: "satellite") as! MGLRasterStyleLayer
+//        layer.isVisible = !layer.isVisible
+        
     }
 
     func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
@@ -51,6 +60,14 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         let userInfo = ["name": "My Offline Pack"]
         let context = NSKeyedArchiver.archivedData(withRootObject: userInfo)
 
+        if let packs = MGLOfflineStorage.shared.packs {
+            for pack in packs {
+                if pack.context == context {
+                    return
+                }
+            }
+            
+        }
         // Create and register an offline pack with the shared offline storage object.
 
         MGLOfflineStorage.shared.addPack(for: region, withContext: context) { (pack, error) in
