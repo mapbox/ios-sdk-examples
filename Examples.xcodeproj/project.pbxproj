@@ -101,6 +101,8 @@
 		64CF97101DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF970F1DF224E400C3C27B /* ThirdPartyVectorStyleExample.swift */; };
 		64CF97121DF224F600C3C27B /* RasterImageryExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97111DF224F600C3C27B /* RasterImageryExample.swift */; };
 		64CF97171DF2251500C3C27B /* RasterImageryExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF97161DF2251500C3C27B /* RasterImageryExample.m */; };
+		8F531C7324F9044F00A266AC /* POIAlongRouteExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F531C7224F9044F00A266AC /* POIAlongRouteExample.swift */; };
+		8F531C7624F9075700A266AC /* POIAlongRouteExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F531C7524F9075700A266AC /* POIAlongRouteExample.m */; };
 		960A21611D344F9F00BB348B /* DraggableAnnotationViewExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */; };
 		961962911C581700002D3DAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962901C581700002D3DAB /* main.m */; };
 		961962941C581700002D3DAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 961962931C581700002D3DAB /* AppDelegate.m */; };
@@ -313,6 +315,12 @@
 		64CF97111DF224F600C3C27B /* RasterImageryExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RasterImageryExample.swift; sourceTree = "<group>"; };
 		64CF97161DF2251500C3C27B /* RasterImageryExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RasterImageryExample.m; sourceTree = "<group>"; };
 		64CF97191DF2252C00C3C27B /* RasterImageryExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RasterImageryExample.h; sourceTree = "<group>"; };
+		7556D44879C1E2866B0355B8 /* Pods-ExamplesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExamplesTests/Pods-ExamplesTests.release.xcconfig"; sourceTree = "<group>"; };
+		7692D1D792EB3849E8754E6B /* Pods_ExamplesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExamplesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7823ECBC65EEAAC3EA0B6E42 /* Pods-DocsCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocsCode.release.xcconfig"; path = "Pods/Target Support Files/Pods-DocsCode/Pods-DocsCode.release.xcconfig"; sourceTree = "<group>"; };
+		8F531C7224F9044F00A266AC /* POIAlongRouteExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIAlongRouteExample.swift; sourceTree = "<group>"; };
+		8F531C7524F9075700A266AC /* POIAlongRouteExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POIAlongRouteExample.m; sourceTree = "<group>"; };
+		8F531C7724F907B300A266AC /* POIAlongRouteExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = POIAlongRouteExample.h; sourceTree = "<group>"; };
 		960A215F1D344F9F00BB348B /* DraggableAnnotationViewExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableAnnotationViewExample.h; sourceTree = "<group>"; };
 		960A21601D344F9F00BB348B /* DraggableAnnotationViewExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableAnnotationViewExample.m; sourceTree = "<group>"; };
 		96115A661CAD4E1C000963B8 /* OfflinePackExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflinePackExample.h; sourceTree = "<group>"; };
@@ -486,6 +494,7 @@
 			children = (
 				646B62AF1DEF7161000AA523 /* AnimatedLineExample.swift */,
 				646B62AD1DEF7155000AA523 /* LineStyleLayerExample.swift */,
+				8F531C7224F9044F00A266AC /* POIAlongRouteExample.swift */,
 				055ABCC21EFB14AE0063BACA /* PolygonPatternExample.swift */,
 				58D43A9A25B9C9D600A29650 /* LineGradientExample.swift */,
 			);
@@ -586,6 +595,7 @@
 			children = (
 				646B62A51DEF7121000AA523 /* AnimatedLineExample.m */,
 				05FA539F1FE2FA1E001F3D7D /* LineStyleLayerExample.m */,
+				8F531C7524F9075700A266AC /* POIAlongRouteExample.m */,
 				05FA539D1FE2FA1D001F3D7D /* PolygonPatternExample.m */,
 				58D43AA425B9CA1500A29650 /* LineGradientExample.m */,
 			);
@@ -850,6 +860,7 @@
 				3E22EF501F8821F800605203 /* ImageSourceExample.h */,
 				1F07015822541F2A0045E061 /* LabelPlacementExample.h */,
 				646B62A21DEF7106000AA523 /* LineStyleLayerExample.h */,
+				8F531C7724F907B300A266AC /* POIAlongRouteExample.h */,
 				3E52ACD11EE8D8AF0056242C /* LiveDataExample.h */,
 				1F07015D225553F50045E061 /* MissingIconsExample.h */,
 				3E44BA56203B54260072DE4B /* MultipleImagesExample.h */,
@@ -1369,6 +1380,7 @@
 				961962941C581700002D3DAB /* AppDelegate.m in Sources */,
 				3EBCD71B1DC28240001E342F /* CustomCalloutView.swift in Sources */,
 				07C138C01E6F646F00D6F678 /* MultipleShapesExample.m in Sources */,
+				8F531C7324F9044F00A266AC /* POIAlongRouteExample.swift in Sources */,
 				3EBCD7291DC28240001E342F /* UserTrackingModesExample.swift in Sources */,
 				05536CB5200F9EEB00657097 /* SwitchStylesExample.swift in Sources */,
 				646B62A61DEF7121000AA523 /* AnimatedLineExample.m in Sources */,
@@ -1432,6 +1444,7 @@
 				58D43A9B25B9C9D600A29650 /* LineGradientExample.swift in Sources */,
 				64BBDAFD1DF24DEB00BB705D /* WebAPIDataExample.m in Sources */,
 				055ABCC31EFB14AE0063BACA /* PolygonPatternExample.swift in Sources */,
+				8F531C7624F9075700A266AC /* POIAlongRouteExample.m in Sources */,
 				583BAE0B2481B1580079BB57 /* InsetMapExample.swift in Sources */,
 				646B62AE1DEF7155000AA523 /* LineStyleLayerExample.swift in Sources */,
 				58D43AA525B9CA1500A29650 /* LineGradientExample.m in Sources */,
