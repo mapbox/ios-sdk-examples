@@ -53,6 +53,7 @@ class AnnotationViewExample_Swift: UIViewController, MGLMapViewDelegate {
         // If there’s no reusable annotation view available, initialize a new one.
         if annotationView == nil {
             annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
+            annotationView?.rotatesToMatchCamera = true
             annotationView!.bounds = CGRect(x: 0, y: 0, width: 40, height: 40)
 
             // Set the annotation view’s background color to a value determined by its longitude.
