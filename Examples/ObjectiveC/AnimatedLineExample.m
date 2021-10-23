@@ -63,6 +63,7 @@ NSString *const MBXExampleAnimatedLine = @"AnimatedLineExample";
 }
 
 - (void)tick:(NSTimer*)timer {
+    NSAssert([[NSThread currentThread] isMainThread], @"%s must be accessed on the main thread, not %@", __PRETTY_FUNCTION__, [NSThread currentThread]);
     if (self.currentIndex > self.locations.count) {
         [self.timer invalidate];
         return;
