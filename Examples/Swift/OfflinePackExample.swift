@@ -5,7 +5,7 @@ import Mapbox
 class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
     var mapView: MGLMapView!
     var progressView: UIProgressView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,7 +18,9 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         mapView.setCenter(CLLocationCoordinate2D(latitude: 22.27933, longitude: 114.16281),
                           zoomLevel: 13, animated: false)
 
-        // Setup offline pack notification handlers.
+    }
+
+    func setupOfflineNotificationHandlers() {
         NotificationCenter.default.addObserver(self, selector: #selector(offlinePackProgressDidChange), name: NSNotification.Name.MGLOfflinePackProgressChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(offlinePackDidReceiveError), name: NSNotification.Name.MGLOfflinePackError, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(offlinePackDidReceiveMaximumAllowedMapboxTiles), name: NSNotification.Name.MGLOfflinePackMaximumMapboxTilesReached, object: nil)
@@ -43,6 +45,9 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
     }
 
     func startOfflinePackDownload() {
+        // Setup offline pack notification handlers.
+        setupOfflineNotificationHandlers()
+
         // Create a region that includes the current viewport and any tiles needed to view it when zoomed further in.
         // Because tile count grows exponentially with the maximum zoom level, you should be conservative with your `toZoomLevel` setting.
         let region = MGLTilePyramidOfflineRegion(styleURL: mapView.styleURL, bounds: mapView.visibleCoordinateBounds, fromZoomLevel: mapView.zoomLevel, toZoomLevel: 14)
@@ -50,7 +55,7 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         // Store some data for identification purposes alongside the downloaded resources.
         let userInfo = ["name": "My Offline Pack"]
         let context = NSKeyedArchiver.archivedData(withRootObject: userInfo)
-
+        
         // Create and register an offline pack with the shared offline storage object.
 
         MGLOfflineStorage.shared.addPack(for: region, withContext: context) { (pack, error) in
@@ -72,7 +77,7 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
         // Get the offline pack this notification is regarding,
         // and the associated user info for the pack; in this case, `name = My Offline Pack`
         if let pack = notification.object as? MGLOfflinePack,
-            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String] {
+           let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String] {
             let progress = pack.progress
             // or notification.userInfo![MGLOfflinePackProgressUserInfoKey]!.MGLOfflinePackProgressValue
             let completedResources = progress.countOfResourcesCompleted
@@ -92,9 +97,10 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
             progressView.progress = progressPercentage
 
             // If this pack has finished, print its size and resource count.
-            if completedResources == expectedResources {
+            if pack.state == .complete {
                 let byteCount = ByteCountFormatter.string(fromByteCount: Int64(pack.progress.countOfBytesCompleted), countStyle: ByteCountFormatter.CountStyle.memory)
                 print("Offline pack “\(userInfo["name"] ?? "unknown")” completed: \(byteCount), \(completedResources) resources")
+
             } else {
                 // Otherwise, print download/verification progress.
                 print("Offline pack “\(userInfo["name"] ?? "unknown")” has \(completedResources) of \(expectedResources) resources — \(String(format: "%.2f", progressPercentage * 100))%.")
@@ -104,16 +110,16 @@ class OfflinePackExample_Swift: UIViewController, MGLMapViewDelegate {
 
     @objc func offlinePackDidReceiveError(notification: NSNotification) {
         if let pack = notification.object as? MGLOfflinePack,
-            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
-            let error = notification.userInfo?[MGLOfflinePackUserInfoKey.error] as? NSError {
+           let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
+           let error = notification.userInfo?[MGLOfflinePackUserInfoKey.error] as? NSError {
             print("Offline pack “\(userInfo["name"] ?? "unknown")” received error: \(error.localizedFailureReason ?? "unknown error")")
         }
     }
 
     @objc func offlinePackDidReceiveMaximumAllowedMapboxTiles(notification: NSNotification) {
         if let pack = notification.object as? MGLOfflinePack,
-            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
-            let maximumCount = (notification.userInfo?[MGLOfflinePackUserInfoKey.maximumCount] as AnyObject).uint64Value {
+           let userInfo = NSKeyedUnarchiver.unarchiveObject(with: pack.context) as? [String: String],
+           let maximumCount = (notification.userInfo?[MGLOfflinePackUserInfoKey.maximumCount] as AnyObject).uint64Value {
             print("Offline pack “\(userInfo["name"] ?? "unknown")” reached limit of \(maximumCount) tiles.")
         }
     }
